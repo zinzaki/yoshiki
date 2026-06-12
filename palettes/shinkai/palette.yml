@@ -1,0 +1,37 @@
+meta:
+  name: Shinkai
+  kanji: 深海
+  slug: shinkai
+  role: deep-water variant — kogane roles on a cold teal depth
+  version: 1.0.0
+  language: KINTSUGI (Zinzaki design language)
+  author: Zinzaki
+  mode: dark
+
+inherits: kogane
+
+tokens:
+  ink-0:  "#05181F"   # depth
+  ink-1:  "#082630"   # water (sampled from the lotus reference)
+  ink-2:  "#0C313B"   # panels
+  ink-3:  "#124049"   # hover
+  line-0: "#1C4953"   # hairline (water-tinted)
+  line-1: "#1F5560"   # strong border
+  bone-3: "#9C8E72"   # muted lifted for contrast on water (4.9:1)
+  kin-w:  "#11363A"   # gold wash sinks into water
+
+terminal:
+  background: "#03141A"
+  selection_background: "#11363A"
+  ansi-black: "#0C313B"
+  brights-black: "#54707A"
+  # foreground, cursor and all accents inherit kogane — warm light on cold water
+
+base24:
+  base00: "#03141A"
+  base01: "#082630"
+  base02: "#124049"
+  base03: "#54707A"
+  base10: "#020E13"
+  base11: "#01090C"
+  # base04..0F and 12..17 inherit kogane

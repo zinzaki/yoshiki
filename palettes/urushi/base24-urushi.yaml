@@ -1,0 +1,29 @@
+system: base24
+name: yoshiki urushi
+author: Zinzaki
+variant: dark
+palette:
+  base00: 0B0A08
+  base01: 12100C
+  base02: '262119'
+  base03: 6B5F49
+  base04: 94866A
+  base05: EDE3C4
+  base06: F7EED2
+  base07: FBF6E8
+  base08: C54D49
+  base09: C67F45
+  base0A: D6AE66
+  base0B: 8FAC6F
+  base0C: 6FA08E
+  base0D: 7C88B8
+  base0E: 9C7FB0
+  base0F: 9B635F
+  base10: 080705
+  base11: '060504'
+  base12: DC7265
+  base13: EAC578
+  base14: A8C48A
+  base15: 8CBCA9
+  base16: 98A4D4
+  base17: B89BCC

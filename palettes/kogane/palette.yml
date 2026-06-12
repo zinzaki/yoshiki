@@ -1,0 +1,99 @@
+meta:
+  name: Kogane
+  kanji: 黄金
+  slug: kogane
+  role: primary theme — gold acts
+  version: 1.0.0
+  language: KINTSUGI (Zinzaki design language)
+  author: Zinzaki
+  mode: dark
+
+tokens:
+  # tone — warm lacquer monochrome (~97% of any screen)
+  ink-0:  "#0B0A08"   # void — app / terminal background
+  ink-1:  "#12100C"   # surface — panels
+  ink-2:  "#1B1813"   # raised — cards, tiles
+  ink-3:  "#262119"   # hover / active
+  line-0: "#362C1B"   # hairline (gold-tinted)
+  line-1: "#4C3D24"   # strong border
+  bone-0: "#F7EED2"   # headings / highlight
+  bone-1: "#EDE3C4"   # primary text
+  bone-2: "#C9BC96"   # secondary text
+  bone-3: "#94866A"   # muted / meta
+  bone-4: "#6B5F49"   # ghost / disabled
+  kin-0:  "#EAC578"   # gold glow — hover
+  kin-1:  "#D6AE66"   # GOLD — action, links, cursor
+  kin-2:  "#8F713C"   # dim gold — labels, glyphs
+  kin-3:  "#57441F"   # deep gold
+  kin-w:  "#3F3112"   # gold wash — fills
+  kaki-1: "#C67F45"   # persimmon — warning, lamp
+  washi-bg:   "#E7DCBB"  # paper artifact inside darkness
+  washi-ink:  "#292019"
+  washi-line: "#C9BA92"
+  # triggers — rare psychological events (~3%)
+  aka-0:  "#D4665C"   # scarlet text on dark / hover
+  aka-1:  "#BB3C33"   # SCARLET (hanko / torii) — the irreversible
+  aka-2:  "#7E302E"   # red lacquer — pressed
+  sabi:   "#9B635F"   # dusty rust — calm red contexts
+  aka-w:  "#331514"   # wash — diff-del, error fills
+  mori-0: "#8FAC6F"   # light moss — success text
+  mori-1: "#52703F"   # MOSS — life, confirmation
+  mori-2: "#2F4526"   # pine depth
+  mori-w: "#1B2615"   # wash — diff-add
+  # service — terminal & syntax only, never UI
+  hotaru-0: "#98A4D4"
+  hotaru-1: "#7C88B8"  # ansi blue / types
+  hotaru-2: "#454E7A"
+  fuji-0:   "#B89BCC"
+  fuji-1:   "#9C7FB0"  # ansi magenta / constants / AI
+  fuji-2:   "#5A4973"
+  seiji-0:  "#8CBCA9"
+  seiji-1:  "#6FA08E"  # ansi cyan / live
+  seiji-2:  "#2C5A4C"
+  shin-2:   "#0A3540"  # deep-water optional second darkness
+  shin-3:   "#06222B"
+
+semantic:
+  primary: kin-1            # actions, links, focus
+  primary-hover: kin-0
+  destructive: aka-1        # fills; text on dark -> aka-0
+  success: mori-1           # fills; text on dark -> mori-0
+  warning: kaki-1
+  special-ai: fuji-1        # rare
+  live-data: seiji-1
+  focus-ring: "kin-1 @14%"
+  selection: "kin-1 @22%"
+
+terminal:
+  background: "#0B0A08"
+  foreground: "#EDE3C4"
+  cursor:     "#D6AE66"
+  selection_background: "#3F3112"
+  ansi:    ["#1B1813","#C54D49","#8FAC6F","#D6AE66","#7C88B8","#9C7FB0","#6FA08E","#EDE3C4"]
+  brights: ["#6B5F49","#DC7265","#A8C48A","#EAC578","#98A4D4","#B89BCC","#8CBCA9","#F7EED2"]
+
+base24:
+  base00: "#0B0A08"
+  base01: "#12100C"
+  base02: "#262119"
+  base03: "#6B5F49"
+  base04: "#94866A"
+  base05: "#EDE3C4"
+  base06: "#F7EED2"
+  base07: "#FBF6E8"
+  base08: "#C54D49"
+  base09: "#C67F45"
+  base0A: "#D6AE66"
+  base0B: "#8FAC6F"
+  base0C: "#6FA08E"
+  base0D: "#7C88B8"
+  base0E: "#9C7FB0"
+  base0F: "#9B635F"
+  base10: "#080705"
+  base11: "#060504"
+  base12: "#DC7265"
+  base13: "#EAC578"
+  base14: "#A8C48A"
+  base15: "#8CBCA9"
+  base16: "#98A4D4"
+  base17: "#B89BCC"

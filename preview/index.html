@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>yoshiki 様式 — theme viewer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prata&family=Manrope:wght@400;500;600;700&family=Shippori+Mincho:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink-0:#0B0A08; --ink-1:#12100C; --ink-2:#1B1813; --ink-3:#262119;
+  --line-0:#362C1B; --line-1:#4C3D24;
+  --bone-0:#F7EED2; --bone-1:#EDE3C4; --bone-2:#C9BC96; --bone-3:#94866A; --bone-4:#6B5F49;
+  --kin-0:#EAC578; --kin-1:#D6AE66; --kin-2:#8F713C;
+  --mono:"Iosevka","JetBrainsMono Nerd Font","JetBrains Mono",monospace;
+  --serif:"Prata","Shippori Mincho","Noto Serif JP",Georgia,serif;
+  --sans:"Manrope","Noto Sans JP",system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+::selection{background:rgba(214,174,102,.28);color:var(--bone-0)}
+:focus-visible{outline:none;box-shadow:0 0 0 2px var(--ink-0),0 0 0 4px var(--kin-1)}
+body{background:var(--ink-0);color:var(--bone-1);font-family:var(--sans);
+  height:100vh;display:flex;flex-direction:column;overflow:hidden}
+
+/* ── верхняя панель ── */
+.bar{display:flex;align-items:center;gap:20px;padding:13px 24px;
+  border-bottom:1px solid var(--line-0);background:rgba(18,16,12,.85);flex-shrink:0}
+.brand{display:flex;align-items:baseline;gap:11px}
+.brand .k{font-family:var(--serif);font-size:19px;color:var(--kin-1)}
+.brand b{font-family:var(--serif);font-weight:400;font-size:16px;color:var(--bone-0);letter-spacing:.05em}
+.brand span{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;color:var(--kin-2);text-transform:uppercase}
+.tabs{display:flex;gap:5px;background:var(--ink-0);border:1px solid rgba(237,227,196,.08);
+  border-radius:999px;padding:4px}
+.tab{display:flex;align-items:center;gap:8px;padding:7px 17px;border-radius:999px;cursor:pointer;
+  font-size:12.5px;font-weight:600;color:var(--bone-3);transition:all .15s;border:1px solid transparent;
+  font-family:var(--sans);background:none}
+.tab .jp{font-family:var(--serif);font-size:12px;opacity:.9}
+.tab .sw{width:9px;height:9px;border-radius:50%;border:1px solid rgba(247,238,210,.2)}
+.tab:hover{color:var(--bone-1)}
+.tab.act{color:#171208;background:var(--kin-1)}
+.tab.act .sw{border-color:rgba(23,18,8,.4)}
+.tab kbd{font-family:var(--mono);font-size:9px;opacity:.55}
+.right{margin-left:auto;display:flex;align-items:center;gap:14px}
+.lnk{font-size:12px;color:var(--bone-3);cursor:pointer;text-decoration:underline;
+  text-underline-offset:3px;text-decoration-color:rgba(143,113,60,.5);background:none;border:none;font-family:var(--sans)}
+.lnk:hover{color:var(--kin-0)}
+.lnk.act{color:var(--kin-1)}
+
+/* ── описание темы ── */
+.desc{display:flex;align-items:center;gap:14px;padding:9px 24px;flex-shrink:0;
+  border-bottom:1px solid rgba(237,227,196,.05);background:rgba(11,10,8,.5)}
+.desc .hud{font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--kin-2);flex-shrink:0}
+.desc p{font-size:12px;color:var(--bone-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.desc .doc{margin-left:auto;flex-shrink:0;font-family:var(--mono);font-size:10px;color:var(--bone-4)}
+.desc .doc b{color:var(--kin-2)}
+
+/* ── сцена ── */
+.stage{flex:1;min-height:0;position:relative;background:#060504}
+.stage iframe{width:100%;height:100%;border:none;opacity:0;transition:opacity .35s ease}
+.stage iframe.on{opacity:1}
+.stage .loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:11px;letter-spacing:.25em;color:var(--kin-2);pointer-events:none}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="brand"><span class="k">様式</span><b>ZINZAKI STYLE</b><span>theme viewer</span></div>
+  <nav class="tabs" id="tabs"></nav>
+  <div class="right">
+    <button class="lnk" id="palBtn">каталог палитры</button>
+    <span class="desc hud" id="keys" style="border:none;background:none;padding:0">KEYS 1–5 · P</span>
+  </div>
+</div>
+
+<div class="desc">
+  <span class="hud" id="dTag">THEME</span>
+  <p id="dText"></p>
+  <span class="doc" id="dDoc"></span>
+</div>
+
+<div class="stage">
+  <div class="loading">読込中 · LOADING<br><span style="font-size:9px;opacity:.55;letter-spacing:.12em">если долго пусто — открой themes/&lt;тема&gt;/index.html напрямую</span></div>
+  <iframe id="frame" title="theme preview"></iframe>
+</div>
+
+<script>
+const THEMES=[
+ {id:'kogane',   nm:'Kogane',   jp:'黄金', sw:'#D6AE66',
+  tag:'★ ОСНОВНАЯ', doc:'../palettes/kogane/README.md',
+  tx:'Золото действует: кнопки, активные состояния, прогрессы. Тёплый лак, кость, редкие триггеры — принятая палитра v1.0 как она есть.'},
+ {id:'urushi',   nm:'Urushi',   jp:'漆',   sw:'#EDE3C4',
+  tag:'★ ВТОРАЯ ОСНОВНАЯ', doc:'../palettes/urushi/README.md',
+  tx:'Золото — только прожилки: волосяные линии, глифы, кандзи. Всё крупное и кликабельное ведёт слоновая кость. Золото-линия дороже золота-заливки.'},
+ {id:'higanbana',nm:'Higanbana',jp:'彼岸花',sw:'#DE3C3A',
+  tag:'ЭКСПЕРИМЕНТ', doc:'../palettes/higanbana/README.md',
+  tx:'Urushi, но элементы — цвет паучьей лилии #DE3C3A (OKLCH-ряд: лепесток #E88479 → свечение #E65F57 → ядро → глубина #89292C). Алый живёт большим; золото — прожилки.'},
+ {id:'shinkai',  nm:'Shinkai',  jp:'深海', sw:'#11505A',
+  tag:'ВАРИАЦИЯ', doc:'../palettes/shinkai/README.md',
+  tx:'Те же роли Kogane на глубокой тёмной воде: тёплое золото и кость на холодной бирюзовой глубине — лотос на воде.'},
+ {id:'washi',    nm:'Washi',    jp:'和紙', sw:'#E7DCBB',
+  tag:'ВАРИАЦИЯ · СВЕТЛАЯ', doc:'../palettes/washi/README.md',
+  tx:'Бумага и тушь: светлая сцена, золото глубже, триггеры те же. Терминал и карточка профиля — острова тьмы внутри света.'},
+];
+const tabs=document.getElementById('tabs'),frame=document.getElementById('frame'),
+      dTag=document.getElementById('dTag'),dText=document.getElementById('dText'),
+      dDoc=document.getElementById('dDoc'),palBtn=document.getElementById('palBtn');
+let cur='kogane',palette=false;
+
+THEMES.forEach((t,i)=>{
+  const b=document.createElement('button');b.className='tab';b.dataset.id=t.id;
+  b.innerHTML=`<span class="sw" style="background:${t.sw}"></span>${t.nm} <span class="jp">${t.jp}</span><kbd>${i+1}</kbd>`;
+  b.onclick=()=>show(t.id,false);tabs.appendChild(b);
+});
+function show(id,pal){
+  cur=id;palette=pal;
+  const t=THEMES.find(x=>x.id===id);
+  document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('act',b.dataset.id===id&&!pal));
+  palBtn.classList.toggle('act',pal);
+  frame.classList.remove('on');
+  const url=pal?'palette.html':`${id}.html`;
+  if(!frame.src){frame.src=url}else{setTimeout(()=>{frame.src=url},120)}
+  dTag.textContent=pal?'КАТАЛОГ · KOGANE':t.tag+' · '+t.jp;
+  dText.textContent=pal?'Свотчи, градиенты, компоненты, терминал, типографика — справочник токенов палитры v1.0.':t.tx;
+  dDoc.innerHTML='<b>'+(pal?'palette.html':t.doc)+'</b>';
+}
+frame.addEventListener('load',()=>frame.classList.add('on'));
+palBtn.onclick=()=>show('kogane',true);
+document.addEventListener('keydown',e=>{
+  if(e.key>='1'&&e.key<='5')show(THEMES[+e.key-1].id,false);
+  if(e.key==='p'||e.key==='P'||e.key==='з'||e.key==='З')show('kogane',true);
+});
+document.querySelector('.stage').addEventListener('mouseleave',()=>window.focus());
+document.querySelector('.bar').addEventListener('mouseenter',()=>window.focus());
+show('kogane',false);
+</script>
+</body>
+</html>
