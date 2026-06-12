@@ -1,0 +1,26 @@
+meta:
+  name: Urushi
+  kanji: 漆
+  slug: urushi
+  role: second primary theme — gold is veins only, bone leads
+  version: 1.0.0
+  language: KINTSUGI (Zinzaki design language)
+  author: Zinzaki
+  mode: dark
+
+inherits: kogane   # all tokens identical — only role semantics change
+
+semantic:
+  primary: bone-0           # ivory buttons / active states (dark text on them)
+  primary-hover: bone-1
+  gold-rule: "gold may never be an area — only a line and a point: hairlines, glyphs, kanji, underlines. Anything clickable larger than ~20px is bone."
+  destructive: aka-1
+  success: mori-1
+  warning: kaki-1
+  special-ai: fuji-1
+  live-data: seiji-1
+  focus-ring: "bone-2 @10%"
+  selection: "kin-1 @22%"
+
+terminal:
+  cursor: "#EDE3C4"   # bone cursor; everything else inherits kogane

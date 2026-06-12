@@ -1,0 +1,81 @@
+meta:
+  name: Washi
+  kanji: 和紙
+  slug: washi
+  role: light variant — paper and ink; terminal stays a dark island
+  version: 1.0.0
+  language: KINTSUGI (Zinzaki design language)
+  author: Zinzaki
+  mode: light
+
+inherits: kogane
+
+tokens:
+  # surfaces -> paper
+  ink-0:  "#E2D6B4"   # page
+  ink-1:  "#EBE1C3"   # panels
+  ink-2:  "#F3EBD5"   # raised
+  ink-3:  "#D7C9A3"   # hover
+  line-0: "#C7B68C"
+  line-1: "#AE9C72"
+  # text -> sumi ink
+  bone-0: "#1F1810"
+  bone-1: "#2B2117"
+  bone-2: "#4A3D2A"
+  bone-3: "#6E5E42"
+  bone-4: "#8E7C5A"
+  # gold sinks deeper to stay readable on paper
+  kin-0:  "#B8923F"
+  kin-1:  "#9C7A40"   # decorative gold; TEXT gold must use kin-t
+  kin-t:  "#7A5F2E"   # text-safe gold on paper (4.6:1) — links, HUD accents, button fills
+  kin-2:  "#7A5F2E"
+  kin-3:  "#C9AE74"
+  kin-w:  "#E6D7A8"
+  kaki-1: "#A5602B"
+  # triggers darkened to text-safe
+  aka-0:  "#A8352B"   # scarlet text on paper
+  aka-w:  "#EBD3C8"
+  mori-0: "#4A6B38"   # moss text on paper
+  mori-w: "#DCE2C2"
+  # service darkened
+  hotaru-1: "#4C5A90"
+  fuji-1:   "#6E5890"
+  seiji-1:  "#2F6B5E"
+  # the paper artifact inverts: darkness inside light
+  washi-bg:   "#1B1813"
+  washi-ink:  "#EDE3C4"
+  washi-line: "#4C3D24"
+
+notes:
+  buttons-on-gold: "fill #7A5F2E with bone #F7EED2 text (5.2:1); never light text on #9C7A40"
+  terminal: "NOT inverted — the terminal is always a kogane-dark island (#0A0907) pinned to the paper"
+
+terminal:
+  # identical to kogane by design — dark island
+  inherit-exact: kogane
+
+base24:
+  base00: "#E2D6B4"
+  base01: "#EBE1C3"
+  base02: "#D7C9A3"
+  base03: "#8E7C5A"
+  base04: "#6E5E42"
+  base05: "#2B2117"
+  base06: "#1F1810"
+  base07: "#14100B"
+  base08: "#BB3C33"
+  base09: "#A5602B"
+  base0A: "#9C7A40"
+  base0B: "#4A6B38"
+  base0C: "#2F6B5E"
+  base0D: "#4C5A90"
+  base0E: "#6E5890"
+  base0F: "#9B635F"
+  base10: "#EBE1C3"
+  base11: "#F3EBD5"
+  base12: "#A8352B"
+  base13: "#7A5F2E"
+  base14: "#52703F"
+  base15: "#2C5A4C"
+  base16: "#454E7A"
+  base17: "#5A4973"

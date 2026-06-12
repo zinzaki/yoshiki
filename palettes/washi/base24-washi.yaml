@@ -1,0 +1,29 @@
+system: base24
+name: yoshiki washi
+author: Zinzaki
+variant: light
+palette:
+  base00: E2D6B4
+  base01: EBE1C3
+  base02: D7C9A3
+  base03: 8E7C5A
+  base04: 6E5E42
+  base05: 2B2117
+  base06: 1F1810
+  base07: 14100B
+  base08: BB3C33
+  base09: A5602B
+  base0A: 9C7A40
+  base0B: 4A6B38
+  base0C: 2F6B5E
+  base0D: 4C5A90
+  base0E: 6E5890
+  base0F: 9B635F
+  base10: EBE1C3
+  base11: F3EBD5
+  base12: A8352B
+  base13: 7A5F2E
+  base14: 52703F
+  base15: 2C5A4C
+  base16: 454E7A
+  base17: 5A4973
