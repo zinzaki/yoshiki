@@ -57,11 +57,9 @@ wasting no resources and no words.
 ## Warm darkness
 
 No neutral grey exists here. Every dark tone carries the warm brown
-undertone of urushi lacquer. The second darkness is water (shinkai) —
-and the transition between them is a gradient, never a seam.
-Light surfaces are paper (washi) pinned inside the dark — or, in the
-light theme, the dark terminal pinned to the paper. Worlds nest;
-they do not collide.
+undertone of lacquer. Light surfaces are paper (washi) pinned inside the
+dark — and, in the light theme, the dark terminal pinned to the paper.
+Worlds nest; they do not collide.
 
 ## Lineage
 
