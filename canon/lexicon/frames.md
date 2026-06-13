@@ -23,10 +23,14 @@ rounded `╭ ╮ ╰ ╯`, line is light `─ │`.
 The signature move: a calm rounded shell carrying one precise sharp angle.
 Softness with a single edge that says *this is built, not just pretty*.
 
+**Weight at the top, air at the bottom** — content rides the upper edge under
+the roof; the lower space is left to breathe. Never let the text sink to the
+floor with empty air above it.
+
 ```
 ╭────────────────────────────╮
-│ ┌╴                         │
-│    sharp inside soft       │
+│ ┌╴ sharp inside soft        │
+│                             │
 ╰────────────────────────────╯
 ```
 
