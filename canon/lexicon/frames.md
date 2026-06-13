@@ -18,6 +18,34 @@ is forbidden — the contrast between blocks is the point.
 Use for: prompts, greetings, quotes, single cards. Corners are always
 rounded `╭ ╮ ╰ ╯`, line is light `─ │`.
 
+## Soft + sharp — a hard mark inside a soft form
+
+The signature move: a calm rounded shell carrying one precise sharp angle.
+Softness with a single edge that says *this is built, not just pretty*.
+
+```
+╭────────────────────────────╮
+│ ┌╴                         │
+│    sharp inside soft       │
+╰────────────────────────────╯
+```
+
+## The break — an open form that still holds
+
+A form that does not fully close — for lightness and air. **The top stays
+sealed (both top corners, including the top-right), and the break opens at
+the bottom / lower side.** A roof to hold it, an open floor to breathe.
+
+```
+╭────────────────────────────╮
+│  open form, it breathes
+│
+╰───────────────╴
+```
+
+Never break the top-right corner — the roof is what keeps a broken form
+intentional instead of accidental.
+
 ## Hard register ╔╠╚ — the chaos pole
 
 ```
