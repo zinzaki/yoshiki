@@ -28,7 +28,7 @@ per line, never a parade.
 ## Decorative reserve (use sparingly)
 
 ```
-brackets   『 』 〘 〙 ⟦ ⟧ ❰ ❱      titles, artifacts, slots
+brackets   ⟦ ⟧ ❰ ❱ [ ] ⟨ ⟩ ( )      titles, artifacts, slots
 sigils     ֍ ۞ ⛨ ⚝ ⛥ 🜉 🜛         rare flavor marks, one per screen
 exotic     ꧺ ꧪ ꗝ ꕻ ꚸ              inventory/resource icons in games
 runes      ᚠ ᚱ ᛟ …                 thematic seasoning only

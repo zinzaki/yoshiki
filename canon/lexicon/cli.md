@@ -7,12 +7,12 @@ is irreversible.
 ## Prompt (starship)
 
 ```
-╭─ 心 ─ ~/Dev/style ─  main  ~2 +1 ?3 ─  v3.13
+╭─ ◆ ─ ~/project ─  main  ~2 +1 ?3 ─  v3.13
 ╰─ ❯
 ```
 
 - frame & connectors `╭─ ─ ╰─` — dim gold (`kin-2`)
-- heart kanji 心 and branch — gold (`kin-1`)
+- the ◆ mark and branch — gold (`kin-1`)
 - path — bone, bold: the brightest thing on the line
 - git state `~2 +1 ?3` — moss (`mori-0`)
 - duration — persimmon, exit code — scarlet, both appear only when nonzero
@@ -50,7 +50,7 @@ already says it.
 Dense data uses the hard register from `../text/frames.md`:
 
 ```
-⟥ unit 絆-00
+⟥ node web-01
 ╔ uptime   99.7%
 ╠ commits  86     (+18%)
 ╚ focus    3/12

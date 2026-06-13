@@ -1,6 +1,6 @@
-# Presets 束
+# Presets
 
-> ⟦ 様式 ⟧ — named bundles. A preset pulls several artifacts (a theme + a
+> named bundles. A preset pulls several artifacts (a theme + a
 > config + glyph set + menu style) into one coherent kit you apply together.
 
 ## Format

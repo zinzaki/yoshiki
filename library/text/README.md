@@ -1,16 +1,14 @@
-# Text 銘
+# Text
 
-> ⟦ 様式 ⟧ — copy-paste text blocks: nameplates, banners, glyph sets,
-> dividers. The applied form of `../../canon/lexicon/{nameplates,glyphs}.md`.
+> Copy-paste text blocks: nameplates, banners, glyph sets, dividers.
+> The applied form of `../../canon/lexicon/`. Plain UTF-8, monospace-safe,
+> line-wrap-safe. One decorative element per block.
 
-## Format
 ```
-nameplates.txt   ready seals: ⟦ Z I N Z A K I ⟧ and variants
-banners.txt      headers / section openers
+nameplates.txt   spaced-capital seals: ⟦ A U R O R A ⟧ and variants
+banners.txt      section openers and headers
 glyph-sets.txt   curated glyph rows by meaning, ready to lift
-dividers.txt     ━━━ heavy · ─── light · framed rules
+dividers.txt      rules by weight — heavy · light · dashed · dotted
 ```
 
-## Rule
-Plain UTF-8, monospace-safe, line-wrap-safe. One decorative element per block.
-Every block notes its intended use in a trailing `# ...` line.
+Each block notes its intended use in a trailing `# ...` line.

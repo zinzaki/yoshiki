@@ -1,8 +1,7 @@
-# ⟦ 様式 ⟧ dividers — by weight. heavy once per screen, light freely.
+# Dividers — by weight. Heavy once per screen, light freely.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━   heavy — chapter
 ─────────────────────────────────────────────   light — paragraph
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌   dashed — soft aside
 · · · · · · · · · · · · · · · · · · · · · · · ·   dotted — whisper
 ◇ ───────────────────────────────────────── ◇   sealed — ceremonial
-─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   spaced — airy

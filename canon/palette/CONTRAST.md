@@ -6,7 +6,7 @@ are excluded — an edge needs only 3:1, and gold-as-text uses `text.gold`.
 
 **Status: all roles pass.**
 
-## Kogane 黄金 (dark)
+## Kogane (dark)
 
 | role | on | ratio | floor | |
 |---|---|---|---|---|
@@ -22,7 +22,7 @@ are excluded — an edge needs only 3:1, and gold-as-text uses `text.gold`.
 | `danger.text` | `danger.wash` | 4.65:1 | 4.5 | ✓ |
 | `special.text` | `bg.surface` | 5.5:1 | 4.5 | ✓ |
 
-## Washi 和紙 (light)
+## Washi (light)
 
 | role | on | ratio | floor | |
 |---|---|---|---|---|

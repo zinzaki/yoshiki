@@ -9,11 +9,11 @@ NAMEPLATES — spaced capitals between paired marks:
 —  N A M E  —        formal
 ⟦  N A M E  ⟧        technical / HUD
 ◇  N A M E  ◇        ceremonial
-Optionally one kanji suffix for mood (影 shadow · 極 utmost · 玄 profound).
+Optionally one accent glyph, used sparingly — never more than one.
 Unicode bold/mono letterforms only in display contexts, never body text.
 
 SECTION HEADS
-『 Title 』 for collections · ⧎ Title for data blocks ·
+[ Title ] for collections · marker + Title for data blocks ·
 ━━━ heavy rule once per document · ─── light rules freely.
 
 GLYPHS — one meaning each, used consistently:
