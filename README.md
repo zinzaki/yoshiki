@@ -45,13 +45,13 @@ HUD annotations as a silent tech layer.
 
 ```bash
 # terminal — copy one file:
-palettes/kogane/terminal/kitty-kogane.conf      # or foot / alacritty / starship
+palette/kogane/terminal/kitty-kogane.conf      # or foot / alacritty / starship
 
 # web — one css file:
-palettes/kogane/kogane.css                      # :root { --ink-0: … }
+palette/kogane/kogane.css                      # :root { --ink-0: … }
 
 # anything base16/base24-aware:
-palettes/kogane/base24-kogane.yaml
+palette/kogane/base24-kogane.yaml
 
 # make an AI write in this style — paste one module:
 prompts/identity.md                             # or palette / cli / comments / text
