@@ -15,7 +15,8 @@ except ImportError:
     sys.exit("PyYAML required: pacman -S python-yaml")
 
 ROOT = Path(__file__).resolve().parent.parent
-PAL = ROOT / "palette"
+PAL = ROOT / "canon" / "palette"          # definition (source of truth)
+LIB = ROOT / "library" / "themes"         # ready-to-use program themes
 ORDER = ["kogane", "washi"]
 
 
@@ -104,10 +105,11 @@ def emit(slug: str, p: dict):
     css.append("}")
     w(d / f"{slug}.css", "\n".join(css) + "\n")
 
-    # base24 scheme
+    # ── ready-to-use program themes → library/themes/<app>/<slug>.<ext> ──
+    # base24 scheme (base16/base24 ecosystems)
     b = {"system": "base24", "name": f"yoshiki {slug}", "author": "Zinzaki",
          "variant": p["meta"]["mode"], "palette": {k: v.lstrip("#") for k, v in sorted(p["base24"].items())}}
-    w(d / f"base24-{slug}.yaml", yaml.safe_dump(b, sort_keys=False, allow_unicode=True))
+    w(LIB / "base24" / f"{slug}.yaml", yaml.safe_dump(b, sort_keys=False, allow_unicode=True))
 
     a, br = term["ansi"], term["brights"]
 
@@ -118,7 +120,7 @@ def emit(slug: str, p: dict):
          "selection_foreground none"]
     k += [f"color{i} {c}" for i, c in enumerate(a)]
     k += [f"color{i + 8} {c}" for i, c in enumerate(br)]
-    w(d / "terminal" / f"kitty-{slug}.conf", "\n".join(k) + "\n")
+    w(LIB / "kitty" / f"{slug}.conf", "\n".join(k) + "\n")
 
     # foot
     f = [f"# {head}", "[colors]",
@@ -126,7 +128,7 @@ def emit(slug: str, p: dict):
     f += [f"regular{i}={c.lstrip('#')}" for i, c in enumerate(a)]
     f += [f"bright{i}={c.lstrip('#')}" for i, c in enumerate(br)]
     f += [f"selection-background={term['selection_background'].lstrip('#')}"]
-    w(d / "terminal" / f"foot-{slug}.ini", "\n".join(f) + "\n")
+    w(LIB / "foot" / f"{slug}.ini", "\n".join(f) + "\n")
 
     # alacritty
     names = ["black", "red", "green", "yellow", "blue", "magenta", "cyan", "white"]
@@ -137,7 +139,7 @@ def emit(slug: str, p: dict):
     al += [f'{n} = "{c}"' for n, c in zip(names, a)]
     al += ["", "[colors.bright]"]
     al += [f'{n} = "{c}"' for n, c in zip(names, br)]
-    w(d / "terminal" / f"alacritty-{slug}.toml", "\n".join(al) + "\n")
+    w(LIB / "alacritty" / f"{slug}.toml", "\n".join(al) + "\n")
 
     # starship palette block
     st = [f"# {head}", f"# usage: palette = \"yoshiki-{slug}\"", f"[palettes.yoshiki-{slug}]"]
@@ -149,7 +151,7 @@ def emit(slug: str, p: dict):
     if "lily-1" in tok:
         role.update({"lily": "lily-1", "lilyhi": "lily-0", "petal": "lily-p"})
     st += [f'{k} = "{tok[v]}"' for k, v in role.items() if v in tok]
-    w(d / "terminal" / f"starship-{slug}.toml", "\n".join(st) + "\n")
+    w(LIB / "starship" / f"{slug}.toml", "\n".join(st) + "\n")
 
 
 # text roles measured against their real background, with the WCAG floor
@@ -185,7 +187,7 @@ def write_contrast(resolved: dict):
             lines.append(f"| `{fg}` | `{bg}` | {c}:1 | {floor} | {'✓' if ok else '✗ FAIL'} |")
         lines.append("")
     head.append(f"**Status: {'all roles pass' if ok_all else 'FAILURES PRESENT'}.**\n")
-    w(ROOT / "CONTRAST.md", "\n".join(head + lines))
+    w(PAL / "CONTRAST.md", "\n".join(head + lines))
     return ok_all
 
 

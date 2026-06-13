@@ -11,5 +11,6 @@ rectangle. Scarlet blooms once per screen for the irreversible; moss confirms.
 - paper artifact: `#E7DCBB` card with sumi ink and a hanko seal —
   light pinned inside darkness (the seal is a signature, not a signal)
 
-Exports: `kogane.css` · `kogane.json` · `base24-kogane.yaml` · `terminal/*`.
+Definition: `palette.yml` · `kogane.css` · `kogane.json`. Program themes:
+`../../../library/themes/<app>/kogane.*`.
 Full token table with roles: `palette.yml`.

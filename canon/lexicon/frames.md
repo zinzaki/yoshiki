@@ -61,3 +61,6 @@ delta in parentheses.
 4. Never close the right side of wide frames in chat/terminals —
    line-wrap destroys closed boxes; spines survive.
 5. One heavy rule `━━━` per screen, maximum.
+
+---
+Ready-made blocks built on these frames live in [`../../library/menus`](../../library/menus).

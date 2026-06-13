@@ -1,0 +1,17 @@
+   『 Artifacts 』
+〘 ⟁ 〙〘 ֍ 〙〘 ⛨ 〙〘 ⧖ 〙〘 ＋ 〙
+
+   『 Resources 』
+╔ ꗝ coins      1 567
+╚ ꕻ gems          50
+
+   『 Farm 』
+╔ ⛥ tier        60 lvl   (+5)
+╠ 🜉 mining      10 lvl   (+4)
+╚ ◉ exp         26 lvl   (+9)
+
+# hard register · sectioned slots (game / dashboard inventory)
+# paint: 『 』 headers → text.gold · slots 〘 〙 → border.hairline frame,
+#        glyph inside → special.text or text.muted
+#        spine ╔╠╚ → border.hairline · keys → text.muted · values → text.body
+#        deltas (+n) → ok.text · ＋ empty slot → text.ghost

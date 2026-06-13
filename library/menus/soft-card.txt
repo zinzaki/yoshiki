@@ -1,0 +1,13 @@
+╭────────────────────────────────────────╮
+│  絆  Zinzaki                            │
+│  ─────────────────────────────────     │
+│  unit 00 · synced · since 2024          │
+│                                         │
+│  人は心で生きるんだ                       │
+│  people live by the heart               │
+╰────────────────────────────────────────╯
+
+# soft register · a calm profile / quote card
+# paint: frame → border.hairline · 絆 name → text.heading
+#        rule ─ → border.hairline · meta line → text.muted
+#        jp quote → text.gold · romaji → text.ghost

@@ -1,0 +1,9 @@
+ ❯ main · ~2 +1 ?3   │   uptime 99.7%   │   ● synced   │   絆 21:47
+
+ ➕ 1.8M  │  ➖ 1.5M  │  ⬡ 470  │  🆕 1
+
+# inline · a one-line status bar / summary (pipe-separated segments)
+# paint: ❯ + branch → action.text · git state ~2 +1 → ok.text
+#        │ separators → border.hairline · ● synced → ok.text
+#        seal 絆 + clock → text.gold / text.ghost
+#        line 2 gains/losses: ➕ → ok.text · ➖ → danger.text · ⬡ new → text.gold
