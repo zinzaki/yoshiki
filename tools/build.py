@@ -16,7 +16,7 @@ except ImportError:
 
 ROOT = Path(__file__).resolve().parent.parent
 PAL = ROOT / "palettes"
-ORDER = ["kogane", "urushi", "higanbana", "shinkai", "washi"]
+ORDER = ["kogane", "washi"]
 
 
 def load(slug: str) -> dict:

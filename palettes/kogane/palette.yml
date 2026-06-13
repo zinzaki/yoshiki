@@ -54,10 +54,11 @@ tokens:
   shin-3:   "#06222B"
 
 semantic:
-  primary: kin-1            # actions, links, focus
-  primary-hover: kin-0
-  destructive: aka-1        # fills; text on dark -> aka-0
-  success: mori-1           # fills; text on dark -> mori-0
+  gold-law: "GOLD IS GILDING, NOT A SLAB. It lives only as line, edge, frame, glyph, thin stroke. Never a filled button / plate / large area. Max gold area = a <=2px stroke or an icon glyph. A primary button is a gold-framed dark surface with gold text — not a gold rectangle."
+  primary: "gilded frame"  # dark surface (ink-2) + 1.5px gold border + gold text (kin-1)
+  primary-hover: "border kin-0 + gold glow + gold@8% fill tint"
+  destructive: aka-1        # scarlet FILL is allowed: a trigger, rare and small; text on it #FFF3ED
+  success: mori-1           # fills ok (life); text on dark -> mori-0
   warning: kaki-1
   special-ai: fuji-1        # rare
   live-data: seiji-1

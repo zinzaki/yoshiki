@@ -1,16 +1,20 @@
 # Palettes
 
-One language — KINTSUGI — five scenes. The trigger tokens (scarlet, moss) and
-the rules never change between themes; what changes is either the **stage**
-(surfaces) or the **role casting** (which family leads the elements).
+One language — KINTSUGI — two scenes: a dark theme and its light twin.
+The trigger tokens (scarlet, moss) and every rule are identical between them;
+only the **stage** (surfaces and which family carries text) changes.
 
-| Theme | Mode | What changes | One line |
-|---|---|---|---|
-| **kogane 黄金** ★ | dark | — (reference) | gold acts: buttons, links, focus |
-| **urushi 漆** ★ | dark | role casting | gold is veins only; bone leads everything clickable |
-| **higanbana 彼岸花** | dark | role casting | spider-lily scarlet leads; gold stays veins |
-| **shinkai 深海** | dark | stage | same roles on deep teal water |
-| **washi 和紙** | light | stage | paper & sumi ink; the terminal remains a dark island |
+| Theme | Mode | One line |
+|---|---|---|
+| **kogane 黄金** | dark | warm lacquer darkness; gold gilds the edges, never fills |
+| **washi 和紙** | light | paper and sumi ink; the terminal stays a dark island |
+
+## The gold law (both themes)
+
+Gold is gilding, not a slab — line, edge, frame, glyph, thin stroke only.
+A primary button is a **gold-framed dark/paper surface with gold text**,
+never a gold rectangle. Scarlet, the trigger, *may* fill — a fill is itself
+the rare event.
 
 ## Files per theme
 
@@ -24,12 +28,12 @@ terminal/
   starship-<slug>.toml palette block
 ```
 
-Variants declare `inherits: kogane` and override only their deltas —
-regenerate all exports with `python3 ../tools/build.py`.
+washi declares `inherits: kogane` and overrides only its deltas — regenerate
+all exports with `python3 ../tools/build.py`.
 
-## Invariants across all five
+## Invariants
 
 - triggers: scarlet `#BB3C33` (irreversible, one per screen) · moss `#52703F` (life)
-- warning: persimmon family · info: tone, never blue
-- ANSI-16 accents shared; only backgrounds/cursor differ per scene
+- warning: persimmon · info: tone, never blue
+- ANSI-16 accents shared; only backgrounds/cursor differ
 - contrast floors verified (WCAG): body ≥ 7:1, secondary ≥ 4.5:1
