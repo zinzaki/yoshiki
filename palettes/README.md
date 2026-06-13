@@ -16,12 +16,26 @@ A primary button is a **gold-framed dark/paper surface with gold text**,
 never a gold rectangle. Scarlet, the trigger, *may* fill — a fill is itself
 the rare event.
 
+## Two layers: tokens and roles
+
+Tokens (`ink-0`, `kin-1`, `aka-1`…) are the raw paint. **Roles** are the
+contract — `text.body`, `action.edge`, `danger.fill`, `border.gold`. Always
+consume a *role*, never a raw token: a role guarantees the right contrast and
+the right behaviour in both themes. The classic trap — gold readable as an
+edge but not as text — is split into `border.gold` (decorative, ≥3:1) and
+`text.gold` (≥4.5:1, which washi quietly remaps to a darker gold). You cannot
+pick wrong if you reach for the role.
+
+`<slug>.css` ships both: raw `--ink-0…` and semantic `--r-text-body…`.
+Every text role's contrast is proven in [`../CONTRAST.md`](../CONTRAST.md),
+regenerated on every build.
+
 ## Files per theme
 
 ```
-palette.yml            source of truth (tokens · semantic · terminal · base24)
-<slug>.css             :root variables
-<slug>.json            resolved bundle for machines
+palette.yml            source of truth (tokens · roles · terminal · base24)
+<slug>.css             :root — raw tokens + semantic --r-<role> aliases
+<slug>.json            resolved bundle (tokens + roles_resolved)
 base24-<slug>.yaml     base16/base24-compatible scheme
 terminal/
   kitty-<slug>.conf    foot-<slug>.ini    alacritty-<slug>.toml

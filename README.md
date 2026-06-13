@@ -20,10 +20,15 @@ text/          glyphs with meaning · nameplates · box-drawing frames
 cli/           CLI/TUI canon: prompt, menus, lists, status lines
 code/          code-comment style: see, don't read
 prompts/       modular AI prompts — make any model follow this style
-preview/       live pages: theme viewer + token catalog (open index.html)
 tools/         build.py — bakes css/json/base24/kitty/foot/alacritty/starship
 PHILOSOPHY.md  why it looks like this
+CONTRAST.md    WCAG proof — every text role, both themes, regenerated on build
 ```
+
+Two layers: raw **tokens** (`ink-0`, `kin-1`) and the **roles** contract
+(`text.body`, `action.edge`, `danger.fill`). Consume roles, never raw tokens —
+a role guarantees contrast and behaviour in both themes. `<slug>.css` ships
+both; proof in `CONTRAST.md`.
 
 ## The language in one table
 

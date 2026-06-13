@@ -7,7 +7,7 @@ for model stability; the output language follows your conversation.
 | Module | Teaches the model to |
 |---|---|
 | `identity.md` | the whole language in one block — philosophy + all rules |
-| `palette.md` | use the color tokens and semantic roles (any of the 5 themes) |
+| `palette.md` | use the color tokens and semantic roles (either theme) |
 | `cli.md` | format CLI/TUI output: prompt, statuses, menus, trees |
 | `comments.md` | write code comments the yoshiki way |
 | `text.md` | nameplates, glyphs, frames in chats and docs |

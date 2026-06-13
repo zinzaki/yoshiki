@@ -48,8 +48,17 @@ tokens:
 
 notes:
   gold-law: "same as kogane: gold is gilding, never a slab. Primary button = paper surface (ink-3) + 1.5px gold border (#7A5F2E) + gold text. No gold-filled rectangles."
-  buttons: "primary = gilded frame on paper; text-gold and border use #7A5F2E (4.6:1 on paper)"
-  terminal: "NOT inverted — the terminal is always a kogane-dark island (#0A0907) pinned to the paper"
+  terminal: "NOT inverted — the terminal is always a kogane-dark island (#0B0A08) pinned to the paper"
+
+# washi inherits kogane roles; override only where paper would break a token.
+# (aka-0/mori-0/kaki-1/fuji-1 tokens are already darkened above, so those roles
+#  stay safe automatically — only the gold split needs an explicit override.)
+roles:
+  text.gold:  kin-t    # #7A5F2E, 4.6:1 on paper — border.gold stays kin-1 (an edge)
+  text.link:  kin-t
+  action.text: kin-t
+  info.text:  kin-t
+  warn.text:  kaki-1   # #A5602B on paper
 
 terminal:
   # identical to kogane by design — dark island

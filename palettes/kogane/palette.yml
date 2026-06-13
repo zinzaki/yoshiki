@@ -65,6 +65,53 @@ semantic:
   focus-ring: "kin-1 @14%"
   selection: "kin-1 @22%"
 
+# ── ROLES — the contract. Consumers use a role, never a raw token. ──
+# Each role resolves to "token" or "token @NN" (NN% over transparent).
+# washi overrides only where a token would break on paper.
+roles:
+  # surfaces
+  bg.app:            ink-0
+  bg.surface:        ink-1
+  bg.raised:         ink-2
+  bg.hover:          ink-3
+  # borders / gilding (decorative gold, >=3:1 is enough — it is an edge, not text)
+  border.hairline:   line-0
+  border.strong:     line-1
+  border.gold:       kin-1
+  # text (every text role is guaranteed >=4.5:1 on bg.surface, ghost >=3:1)
+  text.heading:      bone-0
+  text.body:         bone-1
+  text.secondary:    bone-2
+  text.muted:        bone-3
+  text.ghost:        bone-4
+  text.gold:         kin-1     # text-safe gold (washi overrides to kin-t)
+  text.link:         kin-1
+  # action — a gilded frame, never a gold slab
+  action.edge:       kin-1
+  action.text:       kin-1
+  action.tint:       "kin-1 @6%"
+  action.hover.edge: kin-0
+  # feedback
+  ok.text:           mori-0
+  ok.fill:           mori-1
+  ok.wash:           mori-w
+  warn.text:         kaki-1
+  danger.text:       aka-0
+  danger.fill:       aka-1     # scarlet MAY fill — the fill is the event
+  danger.wash:       aka-w
+  info.text:         kin-1     # info lives in tone, never blue
+  special.text:      fuji-1
+  # interaction
+  focus.ring:        "kin-1 @40%"
+  selection.bg:      "kin-1 @22%"
+  # syntax (terminal & editor only)
+  syntax.keyword:    kin-1
+  syntax.string:     mori-0
+  syntax.number:     kaki-1
+  syntax.type:       hotaru-1
+  syntax.constant:   fuji-1
+  syntax.comment:    bone-4
+
 terminal:
   background: "#0B0A08"
   foreground: "#EDE3C4"
