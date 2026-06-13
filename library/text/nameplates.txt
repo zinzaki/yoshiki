@@ -1,0 +1,18 @@
+# ⟦ 様式 ⟧ nameplates — spaced capitals between paired marks.
+# lift a line; one nameplate per surface. it is a seal, not a watermark.
+
+·  Z I N Z A K I  ·                  quiet — default
+—  Z I N Z A K I  —                  formal
+⟦  Z I N Z A K I  ⟧                  technical / HUD
+◇  Z I N Z A K I  ◇                  ceremonial
+◸  Z I N Z A K I  ◿                  framed / poster
+
+# one kanji mood suffix — never more than one:
+◇  Z I N Z A K I  影  ◇              影 shadow
+⟦  Z I N Z A K I  極  ⟧              極 utmost
+·  Z I N Z A K I  玄  ·              玄 profound
+   芯 zinzaki                         芯 core (lowercase, intimate)
+
+# why spaced caps read as a brand, not a word:
+# the eye stops parsing it as language and starts parsing it as a mark —
+# wide tracking + paired sigils = "emblem". keep tracking >= 2 spaces.

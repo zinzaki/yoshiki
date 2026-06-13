@@ -1,0 +1,23 @@
+# ⟦ 様式 ⟧ preset — a curation of existing artifacts, never a new source.
+name: terminal-kit
+kanji: 端
+theme: kogane            # the whole kit is one theme; swap to washi for light
+intent: >
+  A complete terminal in the style: emulator colors, the reference prompt,
+  and the glyph set the prompt and tools draw from. Take all three together.
+
+bundles:
+  emulator:
+    - ../../themes/kitty/kogane.conf
+    - ../../themes/foot/kogane.ini
+    - ../../themes/alacritty/kogane.toml
+  prompt:
+    - ../../configs/starship/starship.toml
+    - ../../themes/starship/kogane.toml      # palette block for the prompt
+  glyphs:
+    - ../../text/glyph-sets.txt              # flow + status rows the prompt uses
+
+apply:
+  - pick your emulator file from bundles.emulator → include it
+  - paste bundles.prompt[1] palette block into starship, use bundles.prompt[0]
+  - the prompt expects palette = "yoshiki-kogane"
