@@ -1,0 +1,23 @@
+# Spinner — dot-matrix wave (Nothing-style). A bright cell rides a row of
+# braille dots, back and forth. Cycle the frames; ~90ms each (lively-medium).
+# Width: 5 cells. Paint the dots with one role (kin-1 for work, mori-1 for ok).
+
+frames:
+  ⣿ ⣶ ⣄ ⠀ ⠀
+  ⣶ ⣿ ⣶ ⣄ ⠀
+  ⣄ ⣶ ⣿ ⣶ ⣄
+  ⠀ ⣄ ⣶ ⣿ ⣶
+  ⠀ ⠀ ⣄ ⣶ ⣿
+  ⠀ ⣄ ⣶ ⣿ ⣶
+  ⣄ ⣶ ⣿ ⣶ ⣄
+  ⣶ ⣿ ⣶ ⣄ ⠀
+
+# compact (3 cells), same idea — for inline status:
+compact:
+  ⣿ ⣶ ⣄
+  ⣶ ⣿ ⣶
+  ⣄ ⣶ ⣿
+  ⣶ ⣿ ⣶
+
+# tempo: 90ms/frame · ease: linear · loop: forever
+# usage: print frame, \r, sleep 90ms, next. one role-color for all dots.
