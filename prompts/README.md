@@ -1,4 +1,6 @@
-# Prompts — make any model write in yoshiki
+# Prompts 念
+
+> ⟦ 様式 ⟧ — the relay. Paste a module into any model and it speaks yoshiki.
 
 Modular system prompts. Each file is self-contained: paste one into a system
 prompt / custom instructions, or stack several. They are written in English
@@ -25,5 +27,5 @@ the relevant module after it:
 ## Parameterization
 
 `palette.md` ships with kogane tokens inline. To switch theme, replace the
-token block with the `tokens:` section from `../palettes/<theme>/palette.yml`
+token block with the `tokens:` section from `../palette/<theme>/palette.yml`
 — the rules text stays the same.
