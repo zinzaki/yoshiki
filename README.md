@@ -13,12 +13,9 @@ Take one element or take the whole language.
 ## Map
 
 ```
-palettes/      five themes, one language · tokens + every export format
-  kogane/      ★ primary 黄金 — gold acts
-  urushi/      ★ second primary 漆 — gold is veins only, bone leads
-  higanbana/     spider lily 彼岸花 — scarlet elements on lacquer
-  shinkai/       deep water 深海 — same roles on cold teal depth
-  washi/         paper 和紙 — light theme; the terminal stays a dark island
+palettes/      two themes, one language · tokens + every export format
+  kogane/      ★ dark 黄金 — warm lacquer; gold gilds the edges
+  washi/         light 和紙 — paper and ink; the terminal stays a dark island
 text/          glyphs with meaning · nameplates · box-drawing frames
 cli/           CLI/TUI canon: prompt, menus, lists, status lines
 code/          code-comment style: see, don't read
@@ -36,7 +33,8 @@ PHILOSOPHY.md  why it looks like this
 | **Triggers** | scarlet 緋 `#BB3C33` (the irreversible — one bloom per screen) · moss 森 `#52703F` (life) | ~3% |
 | **Service** | dusty blue / wisteria / celadon — terminal & syntax only, never UI | — |
 
-Rules: **rarity = power** · 70/20/7/3 · warm darkness, never grey ·
+Rules: **gold is gilding, never a slab** (line, edge, frame, glyph — never a
+filled area) · **rarity = power** · 70/20/7/3 · warm darkness, never grey ·
 information lives in tone, not in blue · soft geometry, quiet glow ·
 HUD annotations as a silent tech layer.
 

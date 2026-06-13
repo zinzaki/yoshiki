@@ -47,7 +47,8 @@ tokens:
   washi-line: "#4C3D24"
 
 notes:
-  buttons-on-gold: "fill #7A5F2E with bone #F7EED2 text (5.2:1); never light text on #9C7A40"
+  gold-law: "same as kogane: gold is gilding, never a slab. Primary button = paper surface (ink-3) + 1.5px gold border (#7A5F2E) + gold text. No gold-filled rectangles."
+  buttons: "primary = gilded frame on paper; text-gold and border use #7A5F2E (4.6:1 on paper)"
   terminal: "NOT inverted — the terminal is always a kogane-dark island (#0A0907) pinned to the paper"
 
 terminal:

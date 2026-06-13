@@ -21,6 +21,16 @@ Color is a **rare trigger** aimed at perception, not decoration:
   scarlet, taken from an interior where red lacquer meets green tile,
   stitched by brass.
 
+## Gold is gilding
+
+Gold is the seam, never the slab. No one would wear a solid-gold watch — but
+a gilded edge, a thin frame, a fine line is precious. So gold here lives only
+as line, edge, frame, glyph, underline, thin stroke. Never a filled button,
+plate, or large area. The largest gold surface allowed is a stroke of two
+pixels or a single icon glyph. A primary button is a **gold-framed dark
+surface with gold text** — not a gold rectangle. (Scarlet, by contrast, *may*
+fill — because a fill is itself the rare, deliberate event.)
+
 Everything informational — links, statuses, metadata — lives in tone.
 There is no blue in the UI. Blue, wisteria and celadon exist only where
 they are unavoidable: ANSI terminals and syntax highlighting, muted to
