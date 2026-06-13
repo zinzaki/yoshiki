@@ -18,7 +18,7 @@ is irreversible.
 - duration — persimmon, exit code — scarlet, both appear only when nonzero
 - success cursor `❯` gold; after failure — scarlet
 
-Palette blocks ready to paste: `../palette/<theme>/terminal/starship-<theme>.toml`.
+Palette blocks ready to paste: `../../library/themes/starship/<theme>.toml`.
 
 ## Menus and lists
 

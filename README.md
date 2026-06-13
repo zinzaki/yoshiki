@@ -12,15 +12,25 @@ Take one element or take the whole language.
 
 ## Map
 
+Two layers. **canon/** *defines* the language (edited by hand, the source of
+truth). **library/** is the language *in use* — ready-to-take artifacts, much
+of it generated from the canon.
+
 ```
-palette/   色   the core · two themes, one language · tokens + roles + exports
-  kogane/      ★ dark 黄金 — warm lacquer; gold gilds the edges
-  washi/         light 和紙 — paper and ink; the terminal stays a dark island
-lexicon/   文   the form · glyphs · nameplates · frames · cli · code comments
-prompts/   念   the relay · modular AI prompts — make any model follow this style
-tools/         build.py — bakes css/json/base24/kitty/foot/alacritty/starship
+canon/                  the definition — edit here
+  palette/   色   tokens · roles · CONTRAST · css/json   (kogane · washi)
+  lexicon/   文   glyphs · nameplates · frames · cli · comments
+  prompts/   念   modular AI prompts — make any model speak yoshiki
+library/                the style in use — take and apply
+  themes/    皿   program themes: kitty · foot · alacritty · starship · base24
+  configs/   設   whole example configs
+  snippets/  写   how to write code in the style, per language
+  menus/     品   ready TUI menus & cards (hard/soft frames)
+  text/      銘   nameplates, banners, glyph sets
+  presets/   束   named combinations (e.g. "terminal kit")
+tools/         build.py — bakes library/themes/* out of canon/palette
 PHILOSOPHY.md  why it looks like this
-CONTRAST.md    WCAG proof — every text role, both themes, regenerated on build
+CHANGELOG.md   the sealed versions
 ```
 
 Two layers: raw **tokens** (`ink-0`, `kin-1`) and the **roles** contract
@@ -45,13 +55,13 @@ HUD annotations as a silent tech layer.
 
 ```bash
 # terminal — copy one file:
-palette/kogane/terminal/kitty-kogane.conf      # or foot / alacritty / starship
+library/themes/kitty/kogane.conf               # or foot / alacritty / starship / base24
 
 # web — one css file:
-palette/kogane/kogane.css                      # :root { --ink-0: … }
+canon/palette/kogane/kogane.css                # :root { --ink-0: … , --r-text-body: … }
 
 # anything base16/base24-aware:
-palette/kogane/base24-kogane.yaml
+library/themes/base24/kogane.yaml
 
 # make an AI write in this style — paste one module:
 prompts/identity.md                             # or palette / cli / comments / text

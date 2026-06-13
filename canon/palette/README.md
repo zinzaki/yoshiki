@@ -29,7 +29,7 @@ edge but not as text — is split into `border.gold` (decorative, ≥3:1) and
 pick wrong if you reach for the role.
 
 `<slug>.css` ships both: raw `--ink-0…` and semantic `--r-text-body…`.
-Every text role's contrast is proven in [`../CONTRAST.md`](../CONTRAST.md),
+Every text role's contrast is proven in [`CONTRAST.md`](CONTRAST.md),
 regenerated on every build.
 
 ## Files per theme
@@ -38,10 +38,10 @@ regenerated on every build.
 palette.yml            source of truth (tokens · roles · terminal · base24)
 <slug>.css             :root — raw tokens + semantic --r-<role> aliases
 <slug>.json            resolved bundle (tokens + roles_resolved)
-base24-<slug>.yaml     base16/base24-compatible scheme
-terminal/
-  kitty-<slug>.conf    foot-<slug>.ini    alacritty-<slug>.toml
-  starship-<slug>.toml palette block
+CONTRAST.md            WCAG proof for both themes
+
+Ready-to-use program themes are generated OUT of here, into
+../../library/themes/<app>/<slug>.* (kitty · foot · alacritty · starship · base24).
 ```
 
 washi declares `inherits: kogane` and overrides only its deltas — regenerate

@@ -1,0 +1,15 @@
+⧎ unit 絆-00
+╔ attack    400 lvl      (+3)
+╠ defense   175 lvl     (+54)
+╠ effect    365 lvl     (+36)
+╚ radar     111 lvl     (+29)
+
+⧎ today
+╔ uptime    99.7%
+╠ commits   86          (+18%)
+╚ incidents  1          (-2)
+
+# hard register · dense stats, deltas right-aligned in ( )
+# paint: sigil ⧎ + titles → text.gold · spine ╔╠╚ → border.hairline
+#        keys (attack…) → text.muted · values → text.body
+#        positive delta (+n) → ok.text · negative (-n) → danger.text
