@@ -1,6 +1,6 @@
 # Changelog
 
-様式 yoshiki follows the kintsugi rule even here: nothing is hidden, every
+yoshiki follows the kintsugi rule even here: nothing is hidden, every
 seam is named.
 
 ## v1.0 — 2026-06
@@ -8,9 +8,9 @@ seam is named.
 The first sealed version of the language.
 
 - **Palette** — KINTSUGI «tone & triggers»: a warm lacquer monochrome
-  (lacquer · bone · gold) struck rarely by scarlet 緋 and moss 森.
-  Gold is gilding, never a slab. Two themes: kogane 黄金 (dark) and
-  washi 和紙 (light).
+  (lacquer · bone · gold) struck rarely by scarlet and moss.
+  Gold is gilding, never a slab. Two themes: kogane (dark) and
+  washi (light).
 - **Roles** — a semantic contract over the raw tokens (`text.*`, `action.*`,
   `ok/warn/danger.*`, `border.gold` vs `text.gold`, `syntax.*`). Consume a
   role and you cannot pick a wrong-contrast value.

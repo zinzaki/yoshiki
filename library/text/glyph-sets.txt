@@ -1,14 +1,13 @@
-# ⟦ 様式 ⟧ glyph sets — curated rows by meaning. one glyph, one job.
-# pick from a row; never reuse a glyph for two meanings on one screen.
+# Glyph sets — curated rows by meaning. One glyph, one job.
+# Pick from a row; never reuse a glyph for two meanings on one screen.
 
 status    ✓ ✗ ● ○ ◉ ◌ ⊘ ⏻ ⟳ ↺
-flow      → ← ↑ ↓ ↦ ↻ ⇄ ⇅ ❯ ❮ »
-rank      ◆ ◇ ◈ ▲ ▼ ★ ☆ ⬡ ⬢
-field     ⟥ ⟢ ⧉ ⦂ · — │ ┃
-sigil     ⧎ ⛬ ⛫ ֍ ۞ ⚝ ⛨ 🜉 🜛
-bracket   『 』 〘 〙 ⟦ ⟧ ❰ ❱ ⟨ ⟩ ⟪ ⟫
-slot      〘 ⟁ 〙 〘 ֍ 〙 〘 ⛨ 〙 〘 ＋ 〙
+flow      → ← ↑ ↓ ↦ ↻ ⇄ ⇅ » «
+mark      ◆ ◇ ◈ ▲ ▼ ★ ☆ ⬡ ⬢
+field     · — │ ┃ ┊ ┆
+sigil     ⧉ ⛬ ⊙ ◷ ❖
+bracket   [ ] ( ) ⟨ ⟩ « »
 spinner   ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏      (braille, for live ticks)
 
-# the core set you can rely on in common fonts:
-# ❯ ✓ ✗ ● ◆ → ▲ ▼ ⟥ · — │   — exotics (֍ 🜉 ꚸ) may need a Nerd Font.
+# Reliable core in common fonts:  ✓ ✗ ● ◆ → ▲ ▼ · — │ ⧉
+# Anything rarer may need a Nerd Font — keep it out of must-read paths.

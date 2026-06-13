@@ -1,4 +1,4 @@
-# Washi 和紙 — light · v1.0
+# Washi — light · v1.0
 
 The sepia poster as a whole interface: paper surfaces
 (`#E2D6B4 · #EBE1C3 · #F3EBD5`), sumi-ink text (`#2B2117` family),

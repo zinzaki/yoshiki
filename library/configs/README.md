@@ -1,6 +1,6 @@
-# Configs 設
+# Configs
 
-> ⟦ 様式 ⟧ — whole, opinionated example configs. A theme in `../themes`
+> whole, opinionated example configs. A theme in `../themes`
 > paints an app; a config here shows the *whole* dressed app — layout,
 > glyphs and restraint applied end-to-end.
 
@@ -14,7 +14,7 @@
 `starship/starship.toml` is the canon prompt and the measuring stick for the
 whole language: **one line says everything.**
 
-- two-line capsule `╭─ 心 … ╰─ ❯` — connectors in `golddim`, the 心 and branch
+- two-line capsule `╭─ ◆ … ╰─ ❯` — connectors in `golddim`, the ◆ and branch
   in `gold`, the path in `bone` (the brightest thing — that is where the eye
   must land first).
 - git state in `moss`; language versions in `cyan` behind a dim-gold ` ─ `.

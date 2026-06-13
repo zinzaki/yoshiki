@@ -1,16 +1,14 @@
-╭─ 選 ── menu ───────────────────────────╮
-│  ❯ ◈  Overview                         │
-│    ⌬  Projects                    12   │
-│    ❯_ Terminal                         │
-│    ♪  Music                            │
-│    ✎  Notes                       47   │
-│  ─────────────────────────────────     │
-│    ⚙  Settings                         │
+# soft register — a choice list; the active row is color, not an arrow
+
+╭─ menu ─────────────────────────────────╮
+│  > Overview                            │
+│    Files                          128  │
+│    Search                              │
+│    Activity                            │
+│  ────────────────────────────────      │
+│    Settings                            │
 ╰────────────────────────────────────────╯
 
-# soft register · a choice list
-# the active row is marked by color, never by an arrow alone:
-# paint: selected row (◈ Overview) → text.gold + action.tint bg
-#        idle rows → text.body · leading glyph → text.muted
-#        counters (12, 47) → text.ghost, right-aligned
-#        header 選/menu → text.gold · frame → border.hairline
+# paint: active row (Overview) -> text.gold + action.tint background
+#        idle rows -> text.body · counters (128) -> text.ghost, right
+#        header -> text.gold · frame -> border.hairline

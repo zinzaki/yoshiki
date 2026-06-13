@@ -11,7 +11,7 @@ is forbidden — the contrast between blocks is the point.
 │  title or quiet content  │
 ╰──────────────────────────╯
 
-╭─ 心 ─ ~/Dev/style ─  main  ~2 +1
+╭─ ◆ ─ ~/project ─  main  ~2 +1
 ╰─ ❯                                   ← the starship canon: open capsule
 ```
 
@@ -40,8 +40,8 @@ delta in parentheses.
 ## Section heads
 
 ```
-『 Artifacts 』        bracket title — inventory, collections
-⧎ Rating               sigil title — data blocks
+[ Settings ]           bracket title — groups, collections
+⧉ Metrics              marker title — data blocks
 ━━━━━━━━━━━━━━━        heavy rule — chapter separator (one per screen)
 ─────────────          light rule — paragraph separator
 ```
@@ -49,8 +49,8 @@ delta in parentheses.
 ## Slots and summaries
 
 ```
-〘⩔〙〘⟁〙〘֍〙〘⛨〙〘⧖〙              slot row — equipment, badges
-➕ 1.8M | ➖ 1.5M | ⬡ 470 | 🆕 1     inline summary with pipe separators
+[ ◆ ][ ◆ ][ ◆ ][ ◆ ][ + ]          slot row — items, badges, empty (+)
++ 1.8k  |  - 0.4k  |  ◆ 470  |  new 1   inline summary, pipe separators
 ```
 
 ## Rules

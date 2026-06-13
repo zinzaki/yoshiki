@@ -1,0 +1,18 @@
+# hard register — a settings panel with sectioned rows
+
+[ General ]
+  language        English
+  theme           kogane
+  startup         restore session
+
+[ Display ]
+  scale           1.0
+  grain           on
+  reduce motion   off
+
+[ Network ]
+  proxy           none
+  sync            every 5 min
+
+# paint: [ Section ] headers -> text.gold · keys -> text.muted
+#        values -> text.body · enabled state -> ok.text

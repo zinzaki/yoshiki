@@ -1,4 +1,4 @@
-# Kogane 黄金 — dark · v1.0
+# Kogane — dark · v1.0
 
 Warm lacquer darkness, bone text, and **gold as gilding**: the edges, frames,
 hairlines, glyphs and thin strokes are gilded — never a filled gold slab.

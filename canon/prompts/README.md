@@ -1,6 +1,6 @@
-# Prompts 念
+# Prompts
 
-> ⟦ 様式 ⟧ — the relay. Paste a module into any model and it speaks yoshiki.
+> the relay. Paste a module into any model and it speaks yoshiki.
 
 Modular system prompts. Each file is self-contained: paste one into a system
 prompt / custom instructions, or stack several. They are written in English

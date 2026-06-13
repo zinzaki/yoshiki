@@ -1,13 +1,13 @@
+# soft register — a calm card (profile, summary, quote)
+
 ╭────────────────────────────────────────╮
-│  絆  Zinzaki                            │
-│  ─────────────────────────────────     │
-│  unit 00 · synced · since 2024          │
+│  Aurora                                 │
+│  ────────────────────────────────       │
+│  designer · online · since 2021         │
 │                                         │
-│  人は心で生きるんだ                       │
-│  people live by the heart               │
+│  "clarity is a kind of warmth."         │
 ╰────────────────────────────────────────╯
 
-# soft register · a calm profile / quote card
-# paint: frame → border.hairline · 絆 name → text.heading
-#        rule ─ → border.hairline · meta line → text.muted
-#        jp quote → text.gold · romaji → text.ghost
+# paint: frame -> border.hairline · name -> text.heading
+#        rule -> border.hairline · meta line -> text.muted
+#        quote -> text.gold

@@ -5,7 +5,7 @@ When producing terminal output, TUI mockups, or shell-related text,
 format it the yoshiki way:
 
 PROMPT SHAPE (two-line capsule)
-╭─ 心 ─ <path> ─ <branch> <git-state> ─ <lang-version>
+╭─ ◆ ─ <path> ─ <branch> <git-state> ─ <lang-version>
 ╰─ ❯
 Connectors dim, path brightest, git-state in moss, errors append scarlet
 exit code, slow commands append persimmon duration.
@@ -19,7 +19,7 @@ MENUS — glyph + label, counter right-aligned and dim; active item is
 marked by color/tint, never by ">>>" arrows.
 
 DENSE DATA — double-line spine trees, max ~7 rows, deltas right-aligned:
-⟥ unit 絆-00
+⟥ node web-01
 ╔ uptime   99.7%
 ╠ commits  86     (+18%)
 ╚ focus    3/12

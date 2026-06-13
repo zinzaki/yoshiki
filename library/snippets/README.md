@@ -1,6 +1,6 @@
-# Snippets 写
+# Snippets
 
-> ⟦ 様式 ⟧ — how code is written in the style. Not a library — *examples*.
+> how code is written in the style. Not a library — *examples*.
 > The comment canon (`../../canon/lexicon/comments.md`) shown on real code.
 
 ## What every snippet demonstrates

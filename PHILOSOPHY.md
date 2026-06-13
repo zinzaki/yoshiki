@@ -1,4 +1,4 @@
-# Philosophy 金継ぎ
+# Philosophy
 
 ## Kintsugi
 
@@ -13,11 +13,11 @@ The lily is the memory.
 The world of an interface is almost monochrome: warm lacquer, bone, gold.
 Color is a **rare trigger** aimed at perception, not decoration:
 
-- **Scarlet 緋 `#BB3C33`** — the color of hanko seals and torii gates.
+- **Scarlet `#BB3C33`** — the color of hanko seals and torii gates.
   Reserved for the irreversible. *One bloom per screen.* The body reads it
   before the mind does — and only because it is rare. Paint everything
   with it and it dies.
-- **Moss 森 `#52703F`** — life, growth, confirmation. The quiet pair of
+- **Moss `#52703F`** — life, growth, confirmation. The quiet pair of
   scarlet, taken from an interior where red lacquer meets green tile,
   stitched by brass.
 
@@ -42,7 +42,7 @@ The strength of a signal is inversely proportional to how often it fires.
 This is the one rule that everything else serves. 70% darkness, 20% bone,
 7% gold seams, 3% triggers — by meaning, never by taste.
 
-Canonical exception: the hanko seal 絆 on a paper artifact is a signature,
+Canonical exception: the hanko seal  on a paper artifact is a signature,
 not a signal. It does not count as the bloom.
 
 ## Two poles, one hand

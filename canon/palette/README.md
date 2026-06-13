@@ -1,6 +1,6 @@
-# Palette 色
+# Palette
 
-> ⟦ 様式 ⟧ — the core. Two themes, one language; tokens beneath, roles on top.
+> the core. Two themes, one language; tokens beneath, roles on top.
 
 One language — KINTSUGI — two scenes: a dark theme and its light twin.
 The trigger tokens (scarlet, moss) and every rule are identical between them;
@@ -8,8 +8,8 @@ only the **stage** (surfaces and which family carries text) changes.
 
 | Theme | Mode | One line |
 |---|---|---|
-| **kogane 黄金** | dark | warm lacquer darkness; gold gilds the edges, never fills |
-| **washi 和紙** | light | paper and sumi ink; the terminal stays a dark island |
+| **kogane** | dark | warm lacquer darkness; gold gilds the edges, never fills |
+| **washi** | light | paper and sumi ink; the terminal stays a dark island |
 
 ## The gold law (both themes)
 

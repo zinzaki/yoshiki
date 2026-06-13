@@ -1,13 +1,13 @@
-# ⟦ 様式 ⟧ banners — section openers and headers. one heavy rule per screen.
+# Banners — section openers and headers. One heavy rule per screen.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-⧎  S E C T I O N                              sigil opener — data blocks
-『 Section 』                                  bracket title — collections
+⧉  S E C T I O N                              marker opener — data blocks
+[ Section ]                                   bracket title — settings, groups
 ◇ ─────────────  title  ───────────── ◇       centered ceremonial
 
 ╭──────────────────────────────────────────╮
-│  心   t i t l e                            │   capsule banner — calm pages
+│  ◆   t i t l e                             │   capsule banner — calm pages
 ╰──────────────────────────────────────────╯
 
 ─────────────────────────────────────────────   light rule — paragraphs

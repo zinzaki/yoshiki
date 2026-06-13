@@ -177,7 +177,7 @@ def write_contrast(resolved: dict):
 
         def hexof(role):
             return role_value(p["roles"][role], tok)[1]
-        lines.append(f"## {p['meta']['name']} {p['meta']['kanji']} ({p['meta']['mode']})\n")
+        lines.append(f"## {p['meta']['name']} ({p['meta']['mode']})\n")
         lines.append("| role | on | ratio | floor | |")
         lines.append("|---|---|---|---|---|")
         for fg, bg, floor in CONTRAST_ROWS:

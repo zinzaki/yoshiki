@@ -1,6 +1,6 @@
-# Themes 皿 — generated
+# Themes — generated
 
-> ⟦ 様式 ⟧ — program color themes, **generated** from `canon/palette`.
+> program color themes, **generated** from `canon/palette`.
 > Do not hand-edit: change `canon/palette/<theme>/palette.yml` and run
 > `python3 tools/build.py`.
 

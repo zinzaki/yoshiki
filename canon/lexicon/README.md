@@ -1,6 +1,6 @@
-# Lexicon 文
+# Lexicon
 
-> ⟦ 様式 ⟧ — the form of the language. How it writes, lists, and frames,
+> the form of the language. How it writes, lists, and frames,
 > apart from color. Take one module or the set.
 
 | File | The form of |

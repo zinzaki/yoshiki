@@ -1,15 +1,16 @@
-⧎ unit 絆-00
-╔ attack    400 lvl      (+3)
-╠ defense   175 lvl     (+54)
-╠ effect    365 lvl     (+36)
-╚ radar     111 lvl     (+29)
+# hard register — dense stats, deltas right-aligned in ( )
 
-⧎ today
-╔ uptime    99.7%
-╠ commits   86          (+18%)
-╚ incidents  1          (-2)
+⧉ System
+╔ cpu        34%
+╠ memory     6.2 / 16 GB
+╠ uptime     12d 04h        (+0.4%)
+╚ disk       412 / 512 GB
 
-# hard register · dense stats, deltas right-aligned in ( )
-# paint: sigil ⧎ + titles → text.gold · spine ╔╠╚ → border.hairline
-#        keys (attack…) → text.muted · values → text.body
-#        positive delta (+n) → ok.text · negative (-n) → danger.text
+⧉ Build
+╔ passing    248 / 250
+╠ coverage   91%            (+2%)
+╚ failures   2              (-3)
+
+# paint: ⧉ section sigil + titles -> text.gold · spine ╔╠╚ -> border.hairline
+#        keys -> text.muted · values -> text.body
+#        positive delta (+n) -> ok.text · negative (-n) -> danger.text
