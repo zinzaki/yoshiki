@@ -29,8 +29,8 @@ floor with empty air above it.
 
 ```
 ╭────────────────────────────╮
-│ ┌╴ sharp inside soft        │
-│                             │
+│ ┌╴ sharp inside soft       │
+│                            │
 ╰────────────────────────────╯
 ```
 
