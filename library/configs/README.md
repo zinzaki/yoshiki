@@ -1,18 +1,26 @@
 # Configs 設
 
-> ⟦ 様式 ⟧ — whole, opinionated example configs in the style — not just
-> colors, but layout, glyphs and restraint applied end-to-end. A theme in
-> `../themes` paints an app; a config here shows the *whole* dressed app.
+> ⟦ 様式 ⟧ — whole, opinionated example configs. A theme in `../themes`
+> paints an app; a config here shows the *whole* dressed app — layout,
+> glyphs and restraint applied end-to-end.
 
 ## Format
 ```
-<app>/<name>.<ext>   a complete, working config
-<app>/README.md      what it demonstrates + which palette roles / glyphs it uses
+<app>/<config files>   complete, working, drop-in
+<app>/ (header note)   states the theme it expects
 ```
 
-## Rule
-A config must be drop-in working, and must state at its head which theme it
-expects (e.g. `palette = "yoshiki-kogane"`). Keep it minimal, accurate,
-detailed — the starship prompt is the reference standard.
+## starship — the reference standard
+`starship/starship.toml` is the canon prompt and the measuring stick for the
+whole language: **one line says everything.**
 
-_Seed candidate: `starship/` — the canonical two-line 心 capsule prompt._
+- two-line capsule `╭─ 心 … ╰─ ❯` — connectors in `golddim`, the 心 and branch
+  in `gold`, the path in `bone` (the brightest thing — that is where the eye
+  must land first).
+- git state in `moss`; language versions in `cyan` behind a dim-gold ` ─ `.
+- **only failure spends a trigger** — `cmd_duration` appears in persimmon when
+  a command was slow, exit code and the `❯` turn scarlet on error. On a clean
+  run there is no warm color at all: rarity = power, made literal.
+
+Needs the palette block — paste `../themes/starship/kogane.toml` (or `washi`)
+into your starship config, or `import` it.

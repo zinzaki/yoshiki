@@ -1,0 +1,69 @@
+# ╔══════════════════════════════════════════════════════════╗
+# ║  yoshiki · starship — the reference prompt                 ║
+# ║  a two-line lacquer capsule; gold gilds, never fills       ║
+# ╚══════════════════════════════════════════════════════════╝
+# palette block: ../../themes/starship/kogane.toml  (paste it in, or:)
+"$schema" = 'https://starship.rs/config-schema.json'
+palette = "yoshiki-kogane"
+add_newline = true
+
+format = """
+[╭─ ](golddim)[心](gold)[ ─ ](golddim)\
+$directory$git_branch$git_status$python$rust$nodejs$cmd_duration$status\
+$line_break[╰─ ](golddim)$character"""
+
+# ── directory — bone, the brightest thing on the line ────────
+[directory]
+style = "bone"
+format = "[$path]($style)[$read_only](scarlet)"
+truncation_length = 3
+truncate_to_repo = true
+read_only = "  "
+
+# ── git — moss for change, the second accent ─────────────────
+[git_branch]
+symbol = " "
+style = "gold"
+format = "[ ─ ](golddim)[$symbol$branch]($style)"
+
+[git_status]
+style = "moss"
+format = "([ $all_status$ahead_behind]($style))"
+modified = " ~${count}"
+staged = " +${count}"
+untracked = " ?${count}"
+ahead = " ↑${count}"
+behind = " ↓${count}"
+
+# ── language versions — dim gold label, value in cyan ────────
+[python]
+symbol = " "
+style = "cyan"
+format = "[ ─ ](golddim)[$symbol$version]($style)"
+[rust]
+symbol = " "
+style = "cyan"
+format = "[ ─ ](golddim)[$symbol$version]($style)"
+[nodejs]
+symbol = " "
+style = "cyan"
+format = "[ ─ ](golddim)[$symbol$version]($style)"
+
+# ── duration — persimmon, only when it cost time ─────────────
+[cmd_duration]
+min_time = 2000
+style = "persimmon"
+format = "[ ─ ](golddim)[ $duration]($style)"
+
+# ── status — scarlet, only on failure (the one trigger) ──────
+[status]
+disabled = false
+style = "scarlet"
+symbol = "✕ "
+format = "[ ─ ](golddim)[$symbol$status]($style)"
+
+# ── cursor — gold ❯, scarlet on error ────────────────────────
+[character]
+success_symbol = "[❯](gold)"
+error_symbol = "[❯](scarlethi)"
+vimcmd_symbol = "[❮](moss)"
