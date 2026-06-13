@@ -13,13 +13,11 @@ Take one element or take the whole language.
 ## Map
 
 ```
-palettes/      two themes, one language · tokens + every export format
+palette/   色   the core · two themes, one language · tokens + roles + exports
   kogane/      ★ dark 黄金 — warm lacquer; gold gilds the edges
   washi/         light 和紙 — paper and ink; the terminal stays a dark island
-text/          glyphs with meaning · nameplates · box-drawing frames
-cli/           CLI/TUI canon: prompt, menus, lists, status lines
-code/          code-comment style: see, don't read
-prompts/       modular AI prompts — make any model follow this style
+lexicon/   文   the form · glyphs · nameplates · frames · cli · code comments
+prompts/   念   the relay · modular AI prompts — make any model follow this style
 tools/         build.py — bakes css/json/base24/kitty/foot/alacritty/starship
 PHILOSOPHY.md  why it looks like this
 CONTRAST.md    WCAG proof — every text role, both themes, regenerated on build

@@ -1,7 +1,7 @@
 # System prompt module: palette (kogane)
 
 To use another theme, swap the token block for the `tokens:` section of
-`../palettes/<theme>/palette.yml`. Rules stay identical.
+`../palette/<theme>/palette.yml`. Rules stay identical.
 
 ```
 Use the "yoshiki kogane" palette. Tokens:

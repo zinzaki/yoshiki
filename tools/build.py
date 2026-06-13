@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""yoshiki build — bake every export format from palettes/*/palette.yml.
+"""yoshiki build — bake every export format from palette/<slug>/palette.yml.
 
 Source of truth: palette.yml per theme. Variants may declare `inherits: kogane`;
 tokens / terminal / base24 are merged over the parent. Run from repo root:
@@ -15,7 +15,7 @@ except ImportError:
     sys.exit("PyYAML required: pacman -S python-yaml")
 
 ROOT = Path(__file__).resolve().parent.parent
-PAL = ROOT / "palettes"
+PAL = ROOT / "palette"
 ORDER = ["kogane", "washi"]
 
 
