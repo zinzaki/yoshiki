@@ -83,7 +83,7 @@ v1.0   ✓  palette · roles · contrast proof
        ✓  two themes — kogane (dark) · washi (light)
        ✓  lexicon — glyphs · nameplates · frames · cli · code
        ✓  library — themes · configs · snippets · menus · motion · text · presets
-next   ·  more snippets & languages · expanded presets · готовые киты
+next   ·  more snippets & languages · expanded presets
 ```
 
 ---
