@@ -23,8 +23,13 @@ The reading order the eye should get for free:
 
 ## Files
 ```
-rust/seam.rs          frames · all six marks · a LEGACY ✗ line
-python/render.py       trigger-rarity logic commented in-style
-shell/apply-theme.sh   guard-clauses with ← refusals, ◉ invariants
+rust/seam.rs           heavy header · all six marks · a LEGACY ✗ line
+python/render.py        soft+sharp header · trigger-rarity logic in-style
+shell/apply-theme.sh    break header · guard-clauses with ← refusals, ◉ invariants
+typescript/tokens.ts    heavy header · roles-not-raw, a ✗ removed line
+go/spinner.go           soft+sharp header · pure ↺ frame cycle
+lua/colors.lua          break header · palette → highlights, ⚠ scarlet rule
 ```
-Languages are folders; add yours beside them, same conventions.
+Each language shows a different header weight on purpose — heavy for a core
+file, soft+sharp for a module, break for a small/config one. Languages are
+folders; add yours beside them, same conventions.
