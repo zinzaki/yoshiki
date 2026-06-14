@@ -1,12 +1,11 @@
-# Gauge — one value against its whole. A thin line with a gilded head; the
-# track is a whisper, not a box. No brackets, no fill slab.
+# Gauge — one value against its whole. Same squares or dot-matrix as bars,
+# read as a single fraction.
 
- disk   ───────────●┄┄┄┄┄┄    71%
- load   ────────●┄┄┄┄┄┄┄┄┄    58%
- temp   ──────────────●┄┄     84%  ⚠      past 80%: head -> kaki
+ disk   ▰▰▰▰▰▰▰▱▱▱  71%
+ load   ▰▰▰▰▰▱▱▱▱▱  58%
+ temp   ▰▰▰▰▰▰▰▰▰▱  84%  ⚠      past 80%: filled squares -> kaki
 
-# braille variant (denser, still dotted, never solid):
- mem    ⡀⣀⣄⣆⣇⣧⣶⠶⠂⠁           63%
+ mem    ⣿⣿⣿⣿⣿⣷⠀⠀⠀⠀  63%      dot-matrix variant
 
-# paint: line -> kin-1, head ● -> kin-0; track ┄ -> ink-3 / bone-4
-# the only warmth is the head crossing a threshold: kaki past warn, aka past crit
+# paint: filled -> kin-1 normal · kaki past warn · aka past critical
+# track -> ink-3; percent -> bone; the ⚠ shows only when a threshold is crossed

@@ -1,15 +1,16 @@
-# Bars — compare a few values. A thin track with a gilded head, not a slab.
+# Bars — compare a few values. Squares (your pick) or dot-matrix; no lines,
+# no solid slab.
 
- rust    ───────────────●      62%
- python  ─────────●            38%
- shell   ───●                  12%
- lua     ─●                     6%
+ rust    ▰▰▰▰▰▰▰▰▰▰  62%
+ python  ▰▰▰▰▰▰      38%
+ shell   ▰▰          12%
+ lua     ▰            6%
 
-# dotted-rest variant (track stays visible):
- build   ────────────●┈┈┈┈┈┈   54%
+# with an explicit track (empty squares mark the whole):
+ disk    ▰▰▰▰▰▰▰▱▱▱  71%
 
-# square variant, when you want a touch more body (still not solid):
- disk    ▰▰▰▰▰▰▰▱▱▱            71%
+# dot-matrix variant (density, the Nothing way):
+ mem     ⣿⣿⣿⣿⣿⣷⠀⠀⠀⠀  63%
 
-# paint: line/squares -> kin-1 (gilding); the head ● -> kin-0; rest -> ink-3
-# label left and dim, value right and bone; longest bar sets the column
+# paint: filled ▰ / ⣿ -> kin-1 (gold); track ▱ / ⠀ -> ink-3
+# label left and dim, value right and bone; one row per value
