@@ -1,12 +1,15 @@
-# Bars — compare a few values. Horizontal reads easiest in a terminal.
+# Bars — compare a few values. A thin track with a gilded head, not a slab.
 
- rust    ███████████████████  62%
- python  ████████████         38%
- shell   ████                 12%
- lua     ██                    6%
+ rust    ───────────────●      62%
+ python  ─────────●            38%
+ shell   ───●                  12%
+ lua     ─●                     6%
 
-# fine ends (sub-cell) with partial blocks ▏▎▍▌▋▊▉ for smooth length:
- build   ████████▋            54%
+# dotted-rest variant (track stays visible):
+ build   ────────────●┈┈┈┈┈┈   54%
 
-# paint: filled -> kin-1 gilding (or mori-1 for "good"), track -> ink-3
-#        label left (dim), value right (bone); longest bar sets the column
+# square variant, when you want a touch more body (still not solid):
+ disk    ▰▰▰▰▰▰▰▱▱▱            71%
+
+# paint: line/squares -> kin-1 (gilding); the head ● -> kin-0; rest -> ink-3
+# label left and dim, value right and bone; longest bar sets the column
