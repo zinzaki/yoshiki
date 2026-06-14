@@ -35,9 +35,12 @@ yoshiki/
 │
 ├─ tools/build.py          bakes library/themes out of canon/palette
 ├─ PHILOSOPHY.md           why it looks like this
-├─ CONTRAST.md             WCAG proof — every text role, both themes
 ╰─ CHANGELOG.md            the sealed versions
 ```
+
+> **Live showcase — [zinzaki.github.io/yoshiki](https://zinzaki.github.io/yoshiki/)** ·
+> the whole language on one page: palette, components, CLI, code, prompts —
+> switch themes and copy any config.
 
 **Two layers.** `canon/` *defines* the language; `library/` is the language
 *in use*. Two kinds of color value: raw **tokens** (`ink-0`, `kin-1`) and the
