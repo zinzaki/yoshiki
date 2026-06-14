@@ -61,6 +61,31 @@ undertone of lacquer. Light surfaces are paper (washi) pinned inside the
 dark — and, in the light theme, the dark terminal pinned to the paper.
 Worlds nest; they do not collide.
 
+## Roots — the principles underneath
+
+The rules above are not invented; they are old. Four Japanese ideas and two
+laws of perception name what the language already does.
+
+- **間 Ma — the active gap.** Empty space is not absence, it is a participant.
+  The pause between things holds as much weight as the things. This is why
+  ~97% of a screen is quiet tone: the silence is doing work.
+- **余白の美 Yohaku-no-bi — the beauty of the empty.** Margin is composition,
+  not leftover. Air is a luxury, deliberately placed — never filled to the edge.
+- **簡素 Kanso — clarity by omission.** Simplicity reached by removing the
+  non-essential, not by adding decoration. If a mark earns nothing, it goes.
+- **渋い Shibui — understated depth.** Beautiful by being exactly what it is,
+  never flashy; simple on the surface, complex underneath. The whole palette
+  is shibui: warm monochrome that rewards a long look.
+
+And how the eye actually reads it:
+
+- **Hierarchy through space, not shouting.** Scale, weight, contrast and —
+  above all — emptiness set the order. A single accent in a field of calm
+  commands attention without force (gestalt: contrast draws the eye).
+- **Proximity groups; rhythm reassures.** Things near each other read as one;
+  consistent spacing builds a mental model the user trusts. Premium is not
+  more — it is restraint, repeated precisely.
+
 ## Lineage
 
 Sources this language grew from: NieR:Automata HUD asceticism ·

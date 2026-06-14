@@ -8,8 +8,9 @@
 
 | File | The form of |
 |---|---|
+| [`space.md`](space.md) | rhythm, margin & tracking — Ma in practice |
 | [`glyphs.md`](glyphs.md) | semantic symbols — one glyph, one meaning (see, don't read) |
-| [`nameplates.md`](nameplates.md) | spaced-capital seals: `⟦ Z I N Z A K I ⟧` |
+| [`nameplates.md`](nameplates.md) | spaced-capital seals: `⟦ A U R O R A ⟧` |
 | [`frames.md`](frames.md) | box-drawing in two registers — soft capsule ╭╮ vs hard spine ╔╠╚ |
 | [`cli.md`](cli.md) | CLI/TUI canon: prompt, statuses, menus, data trees |
 | [`comments.md`](comments.md) | code comments the yoshiki way — frames + meaning-marks |
