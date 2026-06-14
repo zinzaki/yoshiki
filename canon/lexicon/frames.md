@@ -18,21 +18,36 @@ is forbidden — the contrast between blocks is the point.
 Use for: prompts, greetings, quotes, single cards. Corners are always
 rounded `╭ ╮ ╰ ╯`, line is light `─ │`.
 
-## Soft + sharp — a hard mark inside a soft form
+## Soft + sharp — hard marks inside a soft form
 
-The signature move: a calm rounded shell carrying one precise sharp angle.
-Softness with a single edge that says *this is built, not just pretty*.
+The signature move: a calm rounded shell carrying precise sharp angles.
+Keep two things apart — a **sharp mark is decoration, not a title**. Don't put
+a corner-mark and heading text on the same line.
 
-**Weight at the top, air at the bottom** — content rides the upper edge under
-the roof; the lower space is left to breathe. Never let the text sink to the
-floor with empty air above it.
+**Paired diagonal marks (balanced).** A sharp inset top-left and a matching one
+bottom-right — the soft shell holds, the diagonal gives it tension and balance.
 
 ```
 ╭────────────────────────────╮
-│ ┌╴ sharp inside soft       │
-│                            │
+│ ┌╴                         │
+│     content rides here     │
+│                        ╶┘  │
 ╰────────────────────────────╯
 ```
+
+**Title + body (weight at the top).** If the first line is a heading, it is
+text only — no corner-mark. Weight sits up top, air breathes at the bottom.
+
+```
+╭────────────────────────────╮
+│  TITLE                     │
+│  ───────                   │
+│  body sits under the title │
+╰────────────────────────────╯
+```
+
+Rule: if a decorative line opens the top, balance it with one closing the
+bottom — never decorate one edge and leave the other bare.
 
 ## The break — an open form that still holds
 
