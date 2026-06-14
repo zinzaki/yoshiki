@@ -1,0 +1,17 @@
+# Progress — dot-matrix fill (the chosen one). Cells fill left→right; the
+# leading cell ramps its density as it lands, so the front edge looks smooth
+# even though cells are discrete. Density = progress.
+
+# per-cell density ramp (the leading edge animates through these):
+ramp:  ⠀  ⡀  ⣀  ⣄  ⣤  ⣦  ⣶  ⣾  ⣿
+
+# stages (8 cells = 0..100%):
+  0%    ⠀⠀⠀⠀⠀⠀⠀⠀
+  25%   ⣿⣶⠀⠀⠀⠀⠀⠀
+  50%   ⣿⣿⣿⣤⠀⠀⠀⠀
+  75%   ⣿⣿⣿⣿⣿⣶⠀⠀
+  100%  ⣿⣿⣿⣿⣿⣿⣿⣿
+
+# update on real progress; animate the leading cell through the ramp.
+# done: hold full one beat, then collapse to a single moss ✓.
+# color: kin-1 gilding while filling; mori-0 on done.

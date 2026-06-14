@@ -1,7 +1,0 @@
-# Pulse — breathing dot, for "working, quietly". No travel, just density.
-# Slowest, most restrained option — strength in stillness.
-
-frames:  ⠂  ⠆  ⠶  ⣶  ⣿  ⣶  ⠶  ⠆
-
-# tempo: 140ms/frame (slow, breathing) · loop: forever
-# use when a spinner would be too busy — a single cell, one role-color.
