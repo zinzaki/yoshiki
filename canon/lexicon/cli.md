@@ -1,4 +1,8 @@
-# CLI / TUI canon
+```
+╭─ cli ───
+│  CLI / TUI canon — one line says everything
+╰╴
+```
 
 One line should say everything. The terminal is the native habitat of this
 language: warm darkness, bone text, gold acting, scarlet only when something
@@ -55,6 +59,51 @@ Dense data uses the hard register from `../text/frames.md`:
 ╠ commits  86     (+18%)
 ╚ focus    3/12
 ```
+
+## Tabs
+
+```
+  ◆ overview    files    search          active: gold; rest bone-3
+ ──────────────────────────────────      one shared hairline, never boxes
+```
+The active tab is marked by gold text and a gold tick under it — no boxed tabs,
+no heavy borders. The row rests on a single hairline.
+
+## Notifications (toast)
+
+```
+ ✓ saved · 2 tokens synced               moss — fades on its own
+ ⚠ cache expires in 2h                   persimmon — stays until seen
+ ✗ deploy rejected — seal mismatch       scarlet — demands action
+```
+Verdict glyph, one clause, no frame — a toast is a line, not a box; its color
+is its category.
+
+## Dialog — confirm the irreversible
+
+```
+╭────────────────────────────╮
+│  Delete forever?           │
+│  this cannot be undone     │
+│                            │
+│       cancel    ❯ Delete   │
+╰────────────────────────────╯
+```
+Weight at the top (the question), air below. The destructive action carries
+the gold `❯` and scarlet text; `cancel` stays bone. One scarlet per dialog.
+
+## Navigation tree
+
+```
+ project
+ ├─ canon
+ │  ├─ palette        ◆ active
+ │  ╰─ lexicon
+ ╰─ library
+    └─ themes
+```
+Branches dim gold, active node gold, the rest bone. The last branch closes
+soft `╰─` — the same break the language uses everywhere.
 
 ## Restraint checklist
 

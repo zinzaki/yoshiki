@@ -1,4 +1,8 @@
-# Nameplates
+```
+╭─ nameplates ───
+│  spaced-capital seals
+╰╴
+```
 
 Spaced capitals between paired marks. The pattern: `<mark> L E T T E R S <mark>`
 — wide tracking turns a name into an emblem.
