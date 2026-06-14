@@ -1,4 +1,8 @@
-# Text
+```
+╭─ text ───
+│  copy-paste text blocks
+╰╴
+```
 
 > Copy-paste text blocks: nameplates, banners, glyph sets, dividers.
 > The applied form of `../../canon/lexicon/`. Plain UTF-8, monospace-safe,

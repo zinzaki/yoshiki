@@ -1,4 +1,8 @@
-# Kogane — dark · v1.0
+```
+╭─ kogane ───
+│  dark · warm lacquer, gold gilds the edges
+╰╴
+```
 
 Warm lacquer darkness, bone text, and **gold as gilding**: the edges, frames,
 hairlines, glyphs and thin strokes are gilded — never a filled gold slab.

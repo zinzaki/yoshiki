@@ -1,7 +1,11 @@
-# Library
+```
+╭─ library ───
+│  the style in use — take and apply
+╰╴
+```
 
-> the storehouse. The language in use: ready artifacts you take
-> and apply. The canon defines; the library delivers.
+> The canon defines; the library delivers. Ready artifacts, much of it
+> generated from `canon/palette`. Take one piece without dragging the rest.
 
 | Dir | Holds | Source |
 |---|---|---|

@@ -1,6 +1,8 @@
-# Palette
-
-> the core. Two themes, one language; tokens beneath, roles on top.
+```
+╭─ palette ───
+│  the core — tokens beneath, roles on top
+╰╴
+```
 
 One language — KINTSUGI — two scenes: a dark theme and its light twin.
 The trigger tokens (scarlet, moss) and every rule are identical between them;
