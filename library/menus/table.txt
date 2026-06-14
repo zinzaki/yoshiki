@@ -1,0 +1,11 @@
+# table — dense rows, aligned columns, one selected (k9s-style)
+
+  NAME          STATUS   CPU   AGE
+  ❯ web-01      ● up     34%   12d
+    web-02      ● up     28%   12d
+    cache-01    ◌ warn   71%    4d
+    job-77      ✗ down    0%    2h
+
+# paint: header row -> text.muted · selected row (❯) -> text.gold + action.tint
+#        ● up -> ok.text · ◌ warn -> warn.text · ✗ down -> danger.text
+#        columns left-aligned, numbers right-aligned, one space min gutter

@@ -1,0 +1,6 @@
+# key hints — the bottom bar; what is pressable right now
+
+ ❯ enter  open     ␣ space  select     / filter     q quit     ? help
+
+# paint: keys (enter, /, q) -> text.gold · labels -> text.muted
+#        separated by space only, no pipes — the gold keys are the rhythm

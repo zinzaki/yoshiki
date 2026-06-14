@@ -17,6 +17,15 @@
 | `stat-tree.txt`   | hard ╔╠╚ | dense stats with right-aligned deltas |
 | `panel.txt`       | hard    | a settings panel with sectioned rows |
 | `status-line.txt` | inline  | a one-line summary / status bar |
+| `table.txt`       | table   | dense rows, aligned columns, one selected (k9s) |
+| `miller.txt`      | columns | parent · current · preview (yazi file nav) |
+| `multipanel.txt`  | panels  | list + detail, fixed positions (lazygit) |
+| `keyhints.txt`    | inline  | bottom bar — what is pressable right now |
+
+Three layout families, from researched TUIs: **multi-panel** (fixed panes,
+lazygit/btop), **miller columns** (parent/current/preview, yazi/ranger),
+**drill-down** (list → table → detail, k9s). Spatial consistency is the rule —
+never move a panel without the user asking.
 
 ## How to paint a block
 
