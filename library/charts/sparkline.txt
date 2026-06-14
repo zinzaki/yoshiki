@@ -1,9 +1,12 @@
-# Sparkline — a trend in one line, eight block heights. Inline, no axes.
+# Sparkline — a trend in one line, kept light. Braille dots or low blocks —
+# never the full block █ (it reads as a heavy slab).
 
- cpu   ▁▂▃▄▅▆▇█▇▅▃▂▁▂▄▆      last 16 samples
- mem   ▂▂▃▃▄▄▅▅▅▆▆▇▇██▇      climbing
- net   ▁▁▂▁▃▁▂▁▅▁▂▁▁▂▁▁      bursty
+ cpu   ⡠⠔⠒⠊⠉⠉⠑⠢⠤⠄⠂⠁⠂⠄⠢       braille — finest, airy (2×4 dots)
+ mem   ⣀⣄⣆⣇⣧⣶⣷⣿                rising, braille fill
+ net   ⠂⠄⠂⠁⠂⠄⢀⠠⠐⠈⠂⠁⠂⠄⠂       sparse, bursty
 
-# heights:  ▁▂▃▄▅▆▇█  (min→max, eight steps)
-# paint: line -> kin-1 (gilding) or bone-2; a spike worth noting -> aka-0
-#        one sparkline = one metric; label left, dim, fixed width
+# low-block variant — keep peaks at ▄▅ max, never ▆▇█:
+ load  ▁▂▃▂▃▄▃▄▅▄▃▂▁▂▃
+
+# paint: line -> kin-1 (gilding) or bone-2; a real spike -> aka-0
+# one sparkline = one metric; label left and dim, fixed width
