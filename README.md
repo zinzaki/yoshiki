@@ -25,7 +25,7 @@ yoshiki/
 │  └─ prompts/             modular AI prompts — make any model speak yoshiki
 │
 ├─ library/                ◆ the style in use — take & apply (much is generated)
-│  ├─ themes/              kitty · foot · alacritty · starship · base24
+│  ├─ themes/              kitty·foot·alacritty·starship·base24·vscode·neovim·tmux·btop
 │  ├─ configs/             whole example configs
 │  ├─ snippets/            how to write code in the style, per language
 │  ├─ menus/               ready TUI menus, cards, lists
@@ -83,8 +83,7 @@ v1.0   ✓  palette · roles · contrast proof
        ✓  two themes — kogane (dark) · washi (light)
        ✓  lexicon — glyphs · nameplates · frames · cli · code
        ✓  library — themes · configs · snippets · menus · motion · text · presets
-next   ·  more editors — vscode · neovim
-       ·  more snippets & languages · expanded presets
+next   ·  more snippets & languages · expanded presets · готовые киты
 ```
 
 ---

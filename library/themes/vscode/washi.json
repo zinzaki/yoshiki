@@ -1,0 +1,111 @@
+{
+  "name": "yoshiki washi",
+  "type": "light",
+  "colors": {
+    "editor.background": "#E2D6B4",
+    "editor.foreground": "#2B2117",
+    "editorCursor.foreground": "#D6AE66",
+    "editor.selectionBackground": "#3F3112",
+    "editorLineNumber.foreground": "#8E7C5A",
+    "editorLineNumber.activeForeground": "#9C7A40",
+    "sideBar.background": "#EBE1C3",
+    "sideBar.foreground": "#4A3D2A",
+    "activityBar.background": "#EBE1C3",
+    "activityBar.foreground": "#9C7A40",
+    "statusBar.background": "#EBE1C3",
+    "statusBar.foreground": "#6E5E42",
+    "titleBar.activeBackground": "#EBE1C3",
+    "titleBar.activeForeground": "#2B2117",
+    "tab.activeBackground": "#F3EBD5",
+    "tab.activeForeground": "#1F1810",
+    "tab.inactiveForeground": "#8E7C5A",
+    "focusBorder": "#7A5F2E",
+    "panel.border": "#C7B68C",
+    "button.background": "#F3EBD5",
+    "button.foreground": "#9C7A40",
+    "errorForeground": "#A8352B"
+  },
+  "tokenColors": [
+    {
+      "scope": [
+        "comment"
+      ],
+      "settings": {
+        "foreground": "#8E7C5A",
+        "fontStyle": "italic"
+      }
+    },
+    {
+      "scope": [
+        "keyword",
+        "storage",
+        "keyword.control"
+      ],
+      "settings": {
+        "foreground": "#9C7A40"
+      }
+    },
+    {
+      "scope": [
+        "string"
+      ],
+      "settings": {
+        "foreground": "#4A6B38"
+      }
+    },
+    {
+      "scope": [
+        "constant.numeric",
+        "constant"
+      ],
+      "settings": {
+        "foreground": "#A5602B"
+      }
+    },
+    {
+      "scope": [
+        "entity.name.function",
+        "support.function"
+      ],
+      "settings": {
+        "foreground": "#1F1810"
+      }
+    },
+    {
+      "scope": [
+        "entity.name.type",
+        "support.type",
+        "entity.name.class"
+      ],
+      "settings": {
+        "foreground": "#4C5A90"
+      }
+    },
+    {
+      "scope": [
+        "variable"
+      ],
+      "settings": {
+        "foreground": "#2B2117"
+      }
+    },
+    {
+      "scope": [
+        "constant.language",
+        "variable.language"
+      ],
+      "settings": {
+        "foreground": "#6E5890"
+      }
+    },
+    {
+      "scope": [
+        "invalid",
+        "message.error"
+      ],
+      "settings": {
+        "foreground": "#A8352B"
+      }
+    }
+  ]
+}
