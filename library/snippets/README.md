@@ -1,4 +1,8 @@
-# Snippets
+```
+╭─ snippets ───
+│  how to write code in the style
+╰╴
+```
 
 > how code is written in the style. Not a library — *examples*.
 > The comment canon (`../../canon/lexicon/comments.md`) shown on real code.

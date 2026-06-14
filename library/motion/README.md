@@ -1,4 +1,8 @@
-# Motion
+```
+╭─ motion ───
+│  loading & progress — dot-matrix
+╰╴
+```
 
 > Loading and progress, the dot-matrix way: dots forming and fading, density
 > as meaning. Less motion, more sense — a bright cell that breathes or rides,

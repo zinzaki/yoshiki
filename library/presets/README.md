@@ -1,4 +1,8 @@
-# Presets
+```
+╭─ presets ───
+│  named kits — curated, not new sources
+╰╴
+```
 
 > named bundles. A preset pulls several artifacts (a theme + a
 > config + glyph set + menu style) into one coherent kit you apply together.

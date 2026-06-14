@@ -1,4 +1,8 @@
-# terminal-kit
+```
+╭─ terminal-kit ───
+│  a whole terminal in one move
+╰╴
+```
 
 > a whole terminal in one move: emulator + prompt + glyphs, all
 > kogane, all from the library. A preset curates; it never redefines color.

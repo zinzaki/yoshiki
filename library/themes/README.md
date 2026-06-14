@@ -1,4 +1,8 @@
-# Themes — generated
+```
+╭─ themes ───
+│  program color themes — generated, do not hand-edit
+╰╴
+```
 
 > program color themes, **generated** from `canon/palette`.
 > Do not hand-edit: change `canon/palette/<theme>/palette.yml` and run

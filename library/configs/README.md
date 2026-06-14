@@ -1,4 +1,8 @@
-# Configs
+```
+╭─ configs ───
+│  whole example configs in the style
+╰╴
+```
 
 > whole, opinionated example configs. A theme in `../themes`
 > paints an app; a config here shows the *whole* dressed app — layout,

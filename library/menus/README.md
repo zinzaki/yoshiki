@@ -1,4 +1,8 @@
-# Menus
+```
+╭─ menus ───
+│  ready TUI menus, cards, lists
+╰╴
+```
 
 > Ready TUI menus, cards and lists. Lift a block, paint it with the roles
 > named beneath it. Two registers, never mixed in one block: soft rounded
