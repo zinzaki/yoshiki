@@ -4,20 +4,42 @@ Comments are for constraints the code cannot show. No meta-noise, no narration,
 no restating the next line. Blocks framed, meanings drawn with arrows and
 glyphs — the eye should get it before reading.
 
-## Block frames
+## The file header — the block at the very top
 
-A file is organized into visible blocks. Frame weight matches importance:
+Every file opens with one header block: what this file is, in a glance. Pick
+the weight by the file's role. Three forms, same language as the frames lexicon.
 
+**Heavy — a load-bearing file (the engine, the core):**
 ```rust
 // ╔══════════════════════════════════════════════╗
-// ║  SEAM ENGINE — the one block that must hold   ║
+// ║  SEAM ENGINE                                  ║
+// ║  fills cracks with gold; holds the invariant  ║
 // ╚══════════════════════════════════════════════╝
-
-// ── helpers ───────────────────────────────────────
 ```
 
-One heavy frame per file, light rules for the rest. The frame title is short
-caps; the rule title is lowercase.
+**Soft + sharp — an ordinary module (calm shell, one built edge):**
+```rust
+// ╭──────────────────────────────────────────────╮
+// │ ┌╴ palette — tokens resolved into roles        │
+// ╰──────────────────────────────────────────────╯
+```
+
+**The break — a small / open helper file (a roof, then air):**
+```rust
+// ╭─ util ─ string helpers ───
+// │  no state, no side effects
+// ╰╴
+```
+
+One header per file. Inside, separate regions with light rules — never a
+second heavy frame:
+
+```rust
+// ── parsing ────────────────────────────────────
+// ── rendering ──────────────────────────────────
+```
+
+Header title: short caps or `lower — one-line purpose`. Region rule: lowercase.
 
 ## Semantic marks instead of words
 
@@ -37,6 +59,11 @@ LEGACY_PATH = "/old"   # ✗ dead after v2 — remove with migration 12
 | `↺` | reversible, safe to redo |
 | `✗` | deprecated, scheduled to die |
 | `◉` | invariant — must hold |
+| `?` | open question / decision not yet made |
+| `↑` | perf-sensitive — measured, don't touch lightly |
+
+Marks sit at the end of a line, one space of air before them. Never stack two
+marks on one line — if a line needs two, it needs splitting.
 
 ## What never gets written
 

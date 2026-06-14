@@ -1,7 +1,34 @@
-# Dividers — by weight. Heavy once per screen, light freely.
+# Dividers & markers — by weight and role. Heavy once per screen, light freely.
+# Plain UTF-8, monospace- and wrap-safe. Color the rule border.hairline,
+# any accent glyph text.gold.
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━   heavy — chapter
-─────────────────────────────────────────────   light — paragraph
-╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌   dashed — soft aside
-· · · · · · · · · · · · · · · · · · · · · · · ·   dotted — whisper
-◇ ───────────────────────────────────────── ◇   sealed — ceremonial
+## between — separate sibling blocks
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━   heavy — chapter / hard break (one per screen)
+─────────────────────────────   light — paragraph / soft break
+╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌   dashed — an aside, a quieter break
+· · · · · · · · · · · · · · ·   dotted — a whisper between lines
+───────────── ◆ ─────────────   accented — a seam with one mark (ceremonial)
+─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   spaced — airy, generous
+
+## open — start of a region (weight at the top)
+╭─                              soft opener — a roof begins
+┌╴                              sharp opener — a built edge begins
+◆ ─────────────                mark + rule — a titled start
+╭─ ◆ ─ TITLE ───                opener with an inline mark and label
+
+## end — close of information (the "no more below" mark)
+───────────────╴                a line that stops short — info ends, it breathes
+╰╴                              soft terminator — the roof comes down
+╰───────────────                open close — left holds, right lets go
+· · ·                           trailing rest — more was possible, none follows
+─────── ◆                       rule into a final mark — sealed end
+   ╶─ end ─╴                     labelled stop, when it must be explicit
+
+## inline — within a line
+ ·    middle dot — tight separator (key · value)
+ │    bar — segment divider (a │ b │ c)
+ —    dash — pause / range
+ →    leads-to (input → output)
+
+# Rule: an opener and its end should rhyme — a soft ╭─ closes with ╰╴,
+# a sharp ┌╴ closes with ╶┘. Don't open round and end hard on the same block.
