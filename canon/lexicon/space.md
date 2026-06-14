@@ -67,3 +67,18 @@ lower space is left open. A roof to hold, a floor to breathe (see `frames.md`).
 
 If a screen feels busy, the fix is almost never a new element — it is more
 emptiness around the ones already there.
+
+## Scale — one unit, multiplied
+
+Pick a base unit and use only its multiples; consistent steps build a rhythm
+the eye trusts (and lets designer and developer speak the same numbers).
+
+```
+web / css   8px base grid → 8 · 16 · 24 · 32 · 48 · 64
+            line-height in multiples of 8 (4 for fine control)
+terminal    the unit is 1 cell across, 1 line down
+            spacing in whole cells / lines only — half-steps break alignment
+```
+
+Internal spacing ≤ external: padding inside a group stays tighter than the gap
+between groups, so proximity reads the grouping correctly.

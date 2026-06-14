@@ -1,0 +1,10 @@
+# Gauge — one value against its whole. A ring or a bar with a threshold.
+
+ disk   [██████████████▏░░░░░]  71%      block gauge, thin track
+ load   ⣿⣿⣿⣿⣿⣷⠀⠀⠀⠀            58%      braille gauge (2×4 high-res)
+
+# threshold colors (the only place a gauge turns warm):
+ temp   [████████████████▊░░░]  84%  ⚠   past 80% -> kaki; past 95% -> aka
+
+# paint: fill -> kin-1 / mori-1 normal · kaki past warn · aka past critical
+#        track -> ink-3; the percent -> bone, the ⚠ only when crossed
