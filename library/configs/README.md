@@ -10,9 +10,12 @@
 
 ## Format
 ```
-<app>/<config files>   complete, working, drop-in
-<app>/ (header note)   states the theme it expects
+starship/starship.toml   the reference prompt — one line says everything
+kitty/kitty.conf         emulator dressing — Ma padding, hairline tabs, no bell
+tmux/tmux.conf           quiet status bar — gold mark, dim clock, gilded borders
 ```
+Each is drop-in working and `include`s (or mirrors) the generated theme.
+Colors live in `../themes`; these files are the *layout and restraint* on top.
 
 ## starship — the reference standard
 `starship/starship.toml` is the canon prompt and the measuring stick for the
