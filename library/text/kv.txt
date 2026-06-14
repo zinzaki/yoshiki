@@ -1,0 +1,13 @@
+# Key-value — aligned pairs. Keys dim, values bone; the column is the rhythm.
+
+ unit      web-01
+ status    ● up
+ uptime    99.7%
+ region    eu-central
+
+# with a field marker, in a denser card:
+ ⟥ commits   86      (+18%)
+ ⟥ focus     3 / 12
+
+# paint: keys -> text.muted · values -> bone-1 · ⟥ -> gold
+#        deltas (+n) -> ok.text · align values into one left edge
