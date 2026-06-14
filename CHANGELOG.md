@@ -16,8 +16,9 @@ The first sealed version of the language.
   role and you cannot pick a wrong-contrast value.
 - **Proof** — `CONTRAST.md`, regenerated on every build; all text roles in
   both themes meet WCAG.
-- **Exports** — css (tokens + `--r-<role>`), json, base16/base24, and
-  terminal configs for kitty / foot / alacritty / starship.
+- **Exports** — css (tokens + `--r-<role>`), json, base16/base24, terminal
+  configs (kitty / foot / alacritty / starship) and editor/monitor themes
+  (vscode / neovim / tmux / btop) — all from one source.
 - **Lexicon** — glyphs, nameplates, frames, the CLI/TUI canon and the
   code-comment style.
 - **Prompts** — modular system-prompt blocks so any model speaks yoshiki.

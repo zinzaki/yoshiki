@@ -153,6 +153,107 @@ def emit(slug: str, p: dict):
     st += [f'{k} = "{tok[v]}"' for k, v in role.items() if v in tok]
     w(LIB / "starship" / f"{slug}.toml", "\n".join(st) + "\n")
 
+    # editors render on the theme's own surfaces (light theme = paper)
+    light = p["meta"]["mode"] == "light"
+    efg = tok["bone-1"]
+    ebg = tok["ink-0"]
+    sel = "#3F3112" if light else tok.get("kin-w", "#3F3112")
+
+    # vscode — theme.json (workbench essentials + token colors via roles)
+    def tc(scopes, color, style=None):
+        s = {"scope": scopes, "settings": {"foreground": color}}
+        if style:
+            s["settings"]["fontStyle"] = style
+        return s
+    vscode = {
+        "name": f"yoshiki {slug}", "type": p["meta"]["mode"],
+        "colors": {
+            "editor.background": ebg, "editor.foreground": efg,
+            "editorCursor.foreground": term["cursor"],
+            "editor.selectionBackground": sel,
+            "editorLineNumber.foreground": tok["bone-4"],
+            "editorLineNumber.activeForeground": tok["kin-1"],
+            "sideBar.background": tok["ink-1"], "sideBar.foreground": tok["bone-2"],
+            "activityBar.background": tok["ink-1"], "activityBar.foreground": tok["kin-1"],
+            "statusBar.background": tok["ink-1"], "statusBar.foreground": tok["bone-3"],
+            "titleBar.activeBackground": tok["ink-1"], "titleBar.activeForeground": tok["bone-1"],
+            "tab.activeBackground": tok["ink-2"], "tab.activeForeground": tok["bone-0"],
+            "tab.inactiveForeground": tok["bone-4"],
+            "focusBorder": tok["kin-2"], "panel.border": tok["line-0"],
+            "button.background": tok["ink-2"], "button.foreground": tok["kin-1"],
+            "errorForeground": tok["aka-0"],
+        },
+        "tokenColors": [
+            tc(["comment"], tok["bone-4"], "italic"),
+            tc(["keyword", "storage", "keyword.control"], tok["kin-1"]),
+            tc(["string"], tok["mori-0"]),
+            tc(["constant.numeric", "constant"], tok["kaki-1"]),
+            tc(["entity.name.function", "support.function"], tok["bone-0"]),
+            tc(["entity.name.type", "support.type", "entity.name.class"], tok["hotaru-1"]),
+            tc(["variable"], tok["bone-1"]),
+            tc(["constant.language", "variable.language"], tok["fuji-1"]),
+            tc(["invalid", "message.error"], tok["aka-0"]),
+        ],
+    }
+    w(LIB / "vscode" / f"{slug}.json", json.dumps(vscode, ensure_ascii=False, indent=2) + "\n")
+
+    # neovim — lua colorscheme (core + treesitter)
+    nv = [f"-- {head}", '-- usage: copy to colors/, then :colorscheme yoshiki-' + slug,
+          'vim.cmd("highlight clear")', 'vim.cmd("syntax reset")',
+          f'vim.o.background = "{p["meta"]["mode"]}"',
+          f'vim.g.colors_name = "yoshiki-{slug}"',
+          "local hl = vim.api.nvim_set_hl"]
+    hi = [("Normal", efg, ebg), ("Comment", tok["bone-4"], None),
+          ("Keyword", tok["kin-1"], None), ("Statement", tok["kin-1"], None),
+          ("String", tok["mori-0"], None), ("Number", tok["kaki-1"], None),
+          ("Function", tok["bone-0"], None), ("Type", tok["hotaru-1"], None),
+          ("Constant", tok["fuji-1"], None), ("Identifier", tok["bone-1"], None),
+          ("Error", tok["aka-0"], None), ("LineNr", tok["bone-4"], None),
+          ("CursorLineNr", tok["kin-1"], None), ("Visual", None, sel),
+          ("Pmenu", tok["bone-2"], tok["ink-2"]), ("PmenuSel", tok["ink-0"], tok["kin-1"])]
+    for g, f_, b_ in hi:
+        parts = []
+        if f_:
+            parts.append(f'fg = "{f_}"')
+        if b_:
+            parts.append(f'bg = "{b_}"')
+        if g == "Comment":
+            parts.append("italic = true")
+        nv.append(f'hl(0, "{g}", {{ {", ".join(parts)} }})')
+    nv += [f'hl(0, "@{a}", {{ link = "{b}" }})' for a, b in
+           [("keyword", "Keyword"), ("string", "String"), ("number", "Number"),
+            ("function", "Function"), ("type", "Type"), ("comment", "Comment"),
+            ("constant", "Constant")]]
+    w(LIB / "neovim" / f"{slug}.lua", "\n".join(nv) + "\n")
+
+    # tmux — status palette (generated; mirrors the hand config in ../configs/tmux)
+    tm = [f"# {head}",
+          f'set -g status-style "bg={ebg},fg={tok["bone-3"]}"',
+          f'set -g status-left-style "fg={tok["kin-1"]}"',
+          f'set -g window-status-current-style "fg={tok["bone-0"]}"',
+          f'set -g window-status-style "fg={tok["bone-4"]}"',
+          f'set -g status-right-style "fg={tok["kin-2"]}"',
+          f'set -g pane-border-style "fg={tok["line-0"]}"',
+          f'set -g pane-active-border-style "fg={tok["kin-2"]}"',
+          f'set -g mode-style "bg={sel},fg={tok["bone-0"]}"']
+    w(LIB / "tmux" / f"{slug}.tmux", "\n".join(tm) + "\n")
+
+    # btop — theme
+    def bt(k, c):
+        return f'theme[{k}]="{c}"'
+    a, br = term["ansi"], term["brights"]
+    bp = [f"# {head}",
+          bt("main_bg", ebg), bt("main_fg", efg),
+          bt("title", tok["bone-0"]), bt("hi_fg", tok["kin-1"]),
+          bt("selected_bg", sel), bt("selected_fg", tok["kin-0"]),
+          bt("inactive_fg", tok["bone-4"]), bt("graph_text", tok["bone-2"]),
+          bt("proc_misc", tok["mori-0"]), bt("cpu_box", tok["line-1"]),
+          bt("div_line", tok["line-0"]),
+          bt("temp_start", tok["mori-1"]), bt("temp_mid", tok["kaki-1"]), bt("temp_end", tok["aka-1"]),
+          bt("cpu_start", tok["mori-1"]), bt("cpu_mid", tok["kin-2"]), bt("cpu_end", tok["kin-0"]),
+          bt("free_start", tok["seiji-1"]), bt("free_mid", tok["hotaru-1"]), bt("free_end", tok["fuji-1"])]
+    w(LIB / "btop" / f"{slug}.theme", "\n".join(bp) + "\n")
+
 
 # text roles measured against their real background, with the WCAG floor
 CONTRAST_ROWS = [
