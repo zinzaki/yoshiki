@@ -1,6 +1,6 @@
-# ╔══════════════════════════════════════════════════════════╗
-# ║  RENDER — paint a token tree onto a surface                ║
-# ╚══════════════════════════════════════════════════════════╝
+# ╭────────────────────────────────────────╮
+# │ ┌╴ render · tokens onto a surface      │
+# ╰────────────────────────────────────────╯
 from .palette import Role, surface
 
 GRAIN = 0.05                  # ← lacquer noise opacity; above .08 it reads as dirt

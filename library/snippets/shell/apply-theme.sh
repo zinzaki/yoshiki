@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# ╔══════════════════════════════════════════════════════════╗
-# ║  APPLY-THEME — link one yoshiki theme into a program       ║
-# ╚══════════════════════════════════════════════════════════╝
+# ╭─ apply-theme ─ link a theme into a program ───
+# │  reads generated themes; never writes them
+# ╰╴
 set -euo pipefail
 
 THEME="${1:?usage: apply-theme.sh <kogane|washi> <app>}"   # ← no default: refuse to guess
