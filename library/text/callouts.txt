@@ -1,0 +1,11 @@
+# Callouts — a flagged line, color by role. No box: the mark is the category.
+# Verdict glyph, short label, one clause. The same five everywhere.
+
+ ✓ ok      build passed · 46 tokens synced
+ ⚠ warn    cache expires in two hours
+ ✗ error   seal mismatch — cannot continue
+ ⧉ note    information lives in tone, not in blue
+ → tip     paste one prompt module, stack the rest
+
+# paint: ✓ -> ok.text (moss) · ⚠ -> warn.text (persimmon) · ✗ -> danger.text
+#        ⧉ note / → tip -> text.gold or bone · label -> dim, clause -> bone

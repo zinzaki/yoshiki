@@ -1,0 +1,9 @@
+# Badges — compact status tags, one role-color each. Pill or brackets.
+
+ ◆ PRIMARY     ● ACTIVE     ✗ CRITICAL     ✦ AI     v1.0.0     beta
+
+# bracket form, when a pill is too much:
+ [ primary ]   ( active )   v1.0.0   · ai
+
+# paint: PRIMARY -> gold · ACTIVE -> moss · CRITICAL -> scarlet · AI -> wisteria
+#        version / neutral tags -> bone-3 on ink-2. one accent badge per row.
