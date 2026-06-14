@@ -1,0 +1,10 @@
+# miller columns — parent · current · preview (yazi-style navigation)
+
+ canon/         │ ❯ palette/     │ kogane/
+ library/       │   lexicon/     │ washi/
+ tools/         │   prompts/     │ README.md
+                │                │
+ where you were   where you are    where it leads
+
+# paint: column rule │ -> border.hairline · selected (❯) -> text.gold + tint
+#        current column text -> bone-1, side columns -> bone-3 (depth by dimming)

@@ -1,0 +1,11 @@
+# multi-panel — list left, detail right (lazygit-style), fixed positions
+
+╭─ branches ────────╮ ╭─ diff ──────────────────────╮
+│ ❯ main            │ │  + gold is gilding          │
+│   feat/motion     │ │  - never a filled slab      │
+│   fix/align       │ │    edges only               │
+╰───────────────────╯ ╰─────────────────────────────╯
+
+# paint: focused panel border -> gold (kin-1), unfocused -> border.hairline
+#        selected row -> text.gold + tint · diff + -> ok.text · - -> danger.text
+#        panels keep fixed positions — never rearrange without user action
