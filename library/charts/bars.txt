@@ -1,0 +1,12 @@
+# Bars — compare a few values. Horizontal reads easiest in a terminal.
+
+ rust    ███████████████████  62%
+ python  ████████████         38%
+ shell   ████                 12%
+ lua     ██                    6%
+
+# fine ends (sub-cell) with partial blocks ▏▎▍▌▋▊▉ for smooth length:
+ build   ████████▋            54%
+
+# paint: filled -> kin-1 gilding (or mori-1 for "good"), track -> ink-3
+#        label left (dim), value right (bone); longest bar sets the column

@@ -1,0 +1,9 @@
+# Sparkline — a trend in one line, eight block heights. Inline, no axes.
+
+ cpu   ▁▂▃▄▅▆▇█▇▅▃▂▁▂▄▆      last 16 samples
+ mem   ▂▂▃▃▄▄▅▅▅▆▆▇▇██▇      climbing
+ net   ▁▁▂▁▃▁▂▁▅▁▂▁▁▂▁▁      bursty
+
+# heights:  ▁▂▃▄▅▆▇█  (min→max, eight steps)
+# paint: line -> kin-1 (gilding) or bone-2; a spike worth noting -> aka-0
+#        one sparkline = one metric; label left, dim, fixed width
