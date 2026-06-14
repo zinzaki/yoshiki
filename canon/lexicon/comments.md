@@ -1,4 +1,8 @@
-# Code comments — see, don't read
+```
+╭─ comments ───
+│  code comments — see, don't read
+╰╴
+```
 
 Comments are for constraints the code cannot show. No meta-noise, no narration,
 no restating the next line. Blocks framed, meanings drawn with arrows and

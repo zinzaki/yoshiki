@@ -1,4 +1,8 @@
-# Frames — box-drawing structures
+```
+╭─ frames ───
+│  box-drawing — two registers, soft and hard
+╰╴
+```
 
 Two registers, two poles. Soft rounded capsules for calm content;
 hard double-line trees for dense data. Mixing registers inside one block
