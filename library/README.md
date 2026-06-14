@@ -13,8 +13,8 @@
 | [`configs/`](configs/) | whole example config files in the style (a full starship.toml, …) | hand-authored |
 | [`snippets/`](snippets/) | how to write code in the style — frames + meaning-marks, per language | hand-authored |
 | [`menus/`](menus/) | ready TUI menus, cards, lists — hard/soft frames | hand-authored |
-| [`charts/`](charts/) | data viz in text — sparklines · bars · gauges |
-| [`motion/`](motion/) | loading & progress — dot-matrix spinners, fills, pulse | hand-authored |
+| [`charts/`](charts/) | data viz in text — sparklines · bars · gauges | hand-authored |
+| [`motion/`](motion/) | loading & progress — dot-matrix spinner & fill | hand-authored |
 | [`text/`](text/) | nameplates, banners, glyph sets — copy-paste blocks | hand-authored |
 | [`presets/`](presets/) | named combinations that pull several artifacts into one kit | curated |
 
