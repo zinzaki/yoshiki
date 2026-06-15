@@ -4,202 +4,220 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>様式 yoshiki — a design language</title>
-<meta name="description" content="yoshiki — an elegant design language. Warm monochrome, struck rarely by color. Browse every element: palette, lexicon, CLI, motion, code, components, effects, themes.">
+<meta name="description" content="yoshiki — an elegant design language. Warm monochrome, struck rarely by color. Browse every element of the system and how it is used.">
 <meta property="og:title" content="様式 yoshiki — a design language">
 <meta property="og:description" content="Warm monochrome, struck rarely by color. The whole language, element by element.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=JetBrains+Mono:wght@300;400;500;700&family=Noto+Serif+JP:wght@500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700;800&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=JetBrains+Mono:wght@300;400;500;700&family=Noto+Serif+JP:wght@500;700;900&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
   --ink-0:#0B0A08;--ink-1:#12100C;--ink-2:#1B1813;--ink-3:#262119;
-  --line-0:#362C1B;--line-1:#4C3D24;
-  --bone-0:#F7EED2;--bone-1:#EDE3C4;--bone-2:#C9BC96;--bone-3:#94866A;--bone-4:#6B5F49;
-  --kin-0:#EDC85C;--kin-1:#D8AF52;--kin-2:#8F713C;--kin-3:#57441F;--kin-w:#3F3112;
+  --line-0:#2A2216;--line-1:#3E3220;
+  --bone-0:#F7EED2;--bone-1:#EDE3C4;--bone-2:#C4B790;--bone-3:#8C7E62;--bone-4:#5F5440;
+  --kin-0:#EDC85C;--kin-1:#D8AF52;--kin-2:#9A7C3E;--kin-3:#57441F;--kin-w:#3F3112;
   --kaki:#C67F45;--aka-0:#D4665C;--aka-1:#d8392e;--aka-2:#7E302E;
   --mori-0:#8FAC6F;--mori-1:#52703F;--hotaru:#7C88B8;--fuji:#9C7FB0;--seiji:#6FA08E;
-  --glass-bg:rgba(21,18,12,.5);--glass-brd:rgba(216,175,82,.13);--glass-spec:rgba(255,247,222,.2);
-  --kin-text:var(--kin-1);--grain:.04;--shadow:0 22px 54px rgba(0,0,0,.5);
+  --glass-bg:rgba(24,20,14,.46);--glass-brd:rgba(216,175,82,.14);--glass-spec:rgba(255,247,222,.18);
+  --kin-text:var(--kin-1);--grain:.035;
+  --sp:clamp(70px,9vw,108px);
   --ff-disp:'Shippori Mincho','Noto Serif JP',serif;
   --ff-body:'Zen Kaku Gothic New',system-ui,sans-serif;
   --ff-mono:'JetBrains Mono',monospace;
 }
 [data-theme="washi"]{
-  --ink-0:#E2D6B4;--ink-1:#EBE1C3;--ink-2:#F3EBD5;--ink-3:#D7C9A3;
-  --line-0:#C7B68C;--line-1:#AE9C72;
-  --bone-0:#1F1810;--bone-1:#2B2117;--bone-2:#4A3D2A;--bone-3:#6E5E42;--bone-4:#8E7C5A;
+  --ink-0:#E4D8B6;--ink-1:#EDE3C6;--ink-2:#F4ECD7;--ink-3:#D8CAA4;
+  --line-0:#CDBD93;--line-1:#B2A076;
+  --bone-0:#1F1810;--bone-1:#2B2117;--bone-2:#4A3D2A;--bone-3:#6E5E42;--bone-4:#93805C;
   --kin-0:#B8923F;--kin-1:#9C7A40;--kin-2:#7A5F2E;--kin-3:#C9AE74;--kin-w:#E6D7A8;
   --kaki:#A5602B;--aka-0:#A8352B;--mori-0:#4A6B38;
-  --glass-bg:rgba(243,235,213,.55);--glass-brd:rgba(122,95,46,.18);--glass-spec:rgba(255,255,255,.5);
-  --kin-text:#7A5F2E;--grain:.03;--shadow:0 18px 44px rgba(94,74,40,.16);
+  --glass-bg:rgba(244,236,215,.5);--glass-brd:rgba(122,95,46,.2);--glass-spec:rgba(255,255,255,.55);
+  --kin-text:#7A5F2E;--grain:.025;
 }
 html{scroll-behavior:smooth}
 body{background:var(--ink-0);color:var(--bone-1);font-family:var(--ff-body);font-weight:300;line-height:1.7;
   -webkit-font-smoothing:antialiased;transition:background .5s,color .5s}
+#bg{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(110% 70% at 70% -10%,rgba(216,175,82,.07),transparent 55%),radial-gradient(80% 50% at -10% 30%,rgba(216,175,82,.04),transparent 60%)}
 #grain{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:var(--grain);mix-blend-mode:overlay;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px}
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:190px}
 
-/* ── layout ── */
-.app{display:grid;grid-template-columns:236px 1fr;min-height:100vh;position:relative;z-index:1}
-/* sidebar nav */
-nav{position:sticky;top:0;height:100vh;overflow-y:auto;padding:30px 0 30px 26px;border-right:1px solid var(--line-0);
-  background:linear-gradient(180deg,var(--ink-1),var(--ink-0))}
-.brand{font-family:var(--ff-disp);font-weight:800;font-size:26px;
-  background:linear-gradient(120deg,var(--kin-3),var(--kin-1) 45%,var(--bone-0) 60%,var(--kin-0));
-  -webkit-background-clip:text;background-clip:text;color:transparent;line-height:1}
-.brand-s{font-family:var(--ff-mono);font-size:9px;letter-spacing:5px;color:var(--bone-3);text-transform:uppercase;margin:6px 0 24px}
-.nav-grp{font-family:var(--ff-mono);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--kin-2);margin:20px 0 9px}
-.nav-grp::before{content:'';display:inline-block;width:10px;height:1px;background:var(--aka-1);vertical-align:middle;margin-right:7px}
-nav a{display:block;font-size:13px;color:var(--bone-3);text-decoration:none;padding:5px 0 5px 17px;border-left:1px solid transparent;transition:color .2s,border-color .2s}
-nav a:hover{color:var(--bone-1)}
-nav a.on{color:var(--kin-1);border-left-color:var(--kin-1)}
-.nav-foot{margin-top:26px;padding-top:18px;border-top:1px solid var(--line-0);display:flex;gap:8px;align-items:center}
+.app{display:grid;grid-template-columns:264px 1fr;position:relative;z-index:1}
+
+/* ── sidebar ── */
+nav{position:sticky;top:0;height:100vh;overflow-y:auto;padding:42px 0 36px 38px}
+nav::-webkit-scrollbar{width:0}
+.brand{font-family:var(--ff-disp);font-weight:800;font-size:30px;line-height:1;
+  background:linear-gradient(122deg,var(--kin-3),var(--kin-1) 42%,var(--bone-0) 58%,var(--kin-0));
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.brand-s{font-family:var(--ff-mono);font-size:9px;letter-spacing:6px;color:var(--bone-3);text-transform:uppercase;margin:9px 0 34px}
+.brand-s::after{content:'';display:block;width:30px;height:1px;background:var(--kin-2);margin-top:16px}
+.grp{font-family:var(--ff-mono);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--kin-2);margin:24px 0 10px}
+nav a{display:block;font-size:13px;color:var(--bone-3);text-decoration:none;padding:6px 0 6px 16px;position:relative;transition:color .25s,padding .25s}
+nav a::before{content:'';position:absolute;left:0;top:50%;width:0;height:1px;background:var(--kin-1);transform:translateY(-50%);transition:width .25s}
+nav a:hover{color:var(--bone-1);padding-left:22px}
+nav a.on{color:var(--kin-1)}
+nav a.on::before{width:9px}
+.nfoot{margin-top:32px;padding-top:20px;border-top:1px solid var(--line-0);display:flex;gap:9px;align-items:center}
 .tdot{width:15px;height:15px;border-radius:50%;cursor:pointer;border:1px solid var(--line-1);transition:transform .2s,box-shadow .2s}
-.tdot[data-t="kogane"]{background:#0B0A08}.tdot[data-t="washi"]{background:#E2D6B4}
-.tdot.on{box-shadow:0 0 0 2px var(--kin-1);transform:scale(1.1)}
-.gh{font-family:var(--ff-mono);font-size:10px;color:var(--bone-3);text-decoration:none;margin-left:auto;border-bottom:1px solid var(--line-1)}
+.tdot[data-t="kogane"]{background:#0B0A08}.tdot[data-t="washi"]{background:#E4D8B6}
+.tdot.on{box-shadow:0 0 0 2px var(--kin-1);transform:scale(1.08)}
+.gh{font-family:var(--ff-mono);font-size:10px;color:var(--bone-3);text-decoration:none;margin-left:auto}
 .gh:hover{color:var(--kin-1)}
 
-main{max-width:880px;padding:0 46px}
-section{padding:62px 0;border-bottom:1px solid var(--line-0);scroll-margin-top:20px}
-section:last-child{border-bottom:none}
-.ey{font-family:var(--ff-mono);font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--kin-2);display:flex;gap:13px;align-items:center;margin-bottom:8px}
-.ey::before{content:attr(data-n);color:var(--aka-1)}
-h2{font-family:var(--ff-disp);font-weight:700;font-size:30px;color:var(--bone-0);margin-bottom:10px;letter-spacing:-.3px}
-.lead{font-size:14.5px;color:var(--bone-2);max-width:600px;margin-bottom:30px;line-height:1.85}
-h3{font-family:var(--ff-mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--bone-3);margin:30px 0 14px}
+/* ── main ── */
+main{max-width:820px;padding:0 clamp(28px,5vw,74px)}
+section{padding:var(--sp) 0;position:relative}
+section+section{border-top:1px solid var(--line-0)}
+.head{margin-bottom:38px}
+.ey{font-family:var(--ff-mono);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--bone-3);display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.ey::before{content:attr(data-n);color:var(--kin-1);font-weight:600;letter-spacing:1px}
+.ey::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--line-1),transparent)}
+h2{font-family:var(--ff-disp);font-weight:700;font-size:clamp(30px,4.4vw,42px);color:var(--bone-0);letter-spacing:-.4px;line-height:1.04}
+.lead{font-size:15px;color:var(--bone-2);max-width:600px;margin-top:16px;line-height:1.9}
+.lead b{color:var(--bone-0);font-weight:400}
+h3{font-family:var(--ff-mono);font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--bone-3);margin:44px 0 18px;display:flex;align-items:center;gap:12px}
+h3::after{content:'';flex:1;height:1px;background:var(--line-0)}
 
 /* hero */
-.hero{padding:84px 0 60px;position:relative;border-bottom:1px solid var(--line-0)}
-#sky{position:absolute;inset:0;width:100%;height:100%;z-index:0;opacity:.8}
+.hero{padding:clamp(96px,16vh,150px) 0 var(--sp);position:relative}
+#sky{position:absolute;inset:-40px 0 0;width:100%;height:118%;z-index:0;opacity:.7;pointer-events:none}
 .hero-in{position:relative;z-index:1}
-.hero h1{font-family:var(--ff-disp);font-weight:800;font-size:clamp(64px,11vw,118px);line-height:.95;letter-spacing:.02em;
+.kicker{font-family:var(--ff-mono);font-size:11px;letter-spacing:6px;text-transform:uppercase;color:var(--bone-3);margin-bottom:30px;display:flex;align-items:center;gap:14px}
+.kicker::before{content:'';width:26px;height:1px;background:var(--kin-1)}
+.hero h1{font-family:var(--ff-disp);font-weight:800;font-size:clamp(78px,15vw,150px);line-height:.92;letter-spacing:.02em;
   background:linear-gradient(135deg,var(--kin-3),var(--kin-1) 30%,var(--bone-0) 50%,var(--kin-0) 72%,var(--kin-2));
-  background-size:220% 220%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:flow 6s ease-in-out infinite}
+  background-size:220% 220%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:flow 7s ease-in-out infinite}
 @keyframes flow{0%,100%{background-position:0 50%}50%{background-position:100% 50%}}
-.hero .sub{font-size:16px;color:var(--bone-2);max-width:480px;margin-top:18px;line-height:1.85}
-.pill{display:inline-flex;align-items:center;gap:8px;margin-top:22px;padding:7px 16px 7px 11px;border-radius:100px;cursor:pointer;
-  background:rgba(216,57,46,.08);border:1px solid rgba(216,57,46,.26);color:var(--aka-0);font-family:var(--ff-mono);font-size:11px;letter-spacing:2px}
-.pdot{width:7px;height:7px;border-radius:50%;background:var(--aka-1);box-shadow:0 0 11px rgba(216,57,46,.9);animation:pulse 2.4s ease-in-out infinite}
+.hero .name{font-family:var(--ff-mono);font-size:12px;letter-spacing:11px;color:var(--bone-3);text-transform:uppercase;margin-top:20px}
+.hero .sub{font-size:17px;color:var(--bone-2);max-width:500px;margin-top:26px;line-height:1.9}
+.pill{display:inline-flex;align-items:center;gap:9px;margin-top:30px;padding:8px 17px 8px 12px;border-radius:100px;cursor:pointer;
+  background:rgba(216,57,46,.07);border:1px solid rgba(216,57,46,.24);color:var(--aka-0);font-family:var(--ff-mono);font-size:11px;letter-spacing:2px;transition:.3s}
+.pill:hover{background:rgba(216,57,46,.13);box-shadow:0 0 26px rgba(216,57,46,.18)}
+.pdot{width:7px;height:7px;border-radius:50%;background:var(--aka-1);box-shadow:0 0 11px rgba(216,57,46,.9);animation:pulse 2.6s ease-in-out infinite}
 @keyframes pulse{50%{opacity:.25;transform:scale(.55)}}
 
-/* generic blocks */
-.blk{font-family:var(--ff-mono);font-size:13px;line-height:1.75;white-space:pre;overflow-x:auto;
-  background:var(--ink-1);border:1px solid var(--line-0);border-radius:14px;padding:20px 22px;color:var(--bone-2)}
-.blk .k{color:var(--kin-1)}.blk .r{color:var(--aka-1)}.blk .g{color:var(--mori-0)}.blk .d{color:var(--bone-4)}.blk .b{color:var(--bone-0)}
+/* panels & mono blocks */
+.panel{background:var(--ink-1);border:1px solid var(--line-0);border-radius:16px;position:relative;overflow:hidden}
+.panel::before{content:'';position:absolute;top:0;left:14%;right:14%;height:1px;background:linear-gradient(90deg,transparent,rgba(216,175,82,.22),transparent)}
+.blk{font-family:var(--ff-mono);font-size:13px;line-height:1.85;white-space:pre;overflow-x:auto;
+  background:var(--ink-1);border:1px solid var(--line-0);border-radius:16px;padding:24px 26px;color:var(--bone-2);position:relative}
+.blk::before{content:'';position:absolute;top:0;left:14%;right:14%;height:1px;background:linear-gradient(90deg,transparent,rgba(216,175,82,.18),transparent)}
+.blk .k{color:var(--kin-1)}.blk .r{color:var(--aka-1)}.blk .g{color:var(--mori-0)}.blk .d{color:var(--bone-4)}.blk .b{color:var(--bone-0)}.blk .o{color:var(--kaki)}
 .cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-@media(max-width:680px){.cols{grid-template-columns:1fr}}
-.note{font-size:12.5px;color:var(--bone-3);margin-top:10px;line-height:1.7}
+@media(max-width:700px){.cols{grid-template-columns:1fr}}
+.note{font-size:12.5px;color:var(--bone-3);margin-top:14px;line-height:1.75}
 .note b{color:var(--kin-1);font-weight:500}
+.note code{font-family:var(--ff-mono);font-size:11.5px;color:var(--kin-1);background:var(--ink-2);padding:1px 6px;border-radius:4px}
 
-/* principles */
-.lad{display:flex;flex-direction:column;gap:2px}
-.rung{display:grid;grid-template-columns:30px 1fr;gap:14px;padding:11px 0;border-bottom:1px solid var(--line-0);align-items:baseline}
+/* principles ladder */
+.lad{display:flex;flex-direction:column}
+.rung{display:grid;grid-template-columns:28px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--line-0);align-items:baseline}
+.rung:last-child{border-bottom:none}
 .rung .n{font-family:var(--ff-mono);font-size:13px;color:var(--kin-1);font-weight:600}
-.rung .t b{color:var(--bone-0);font-weight:500;font-family:var(--ff-disp)}
-.rung .t span{color:var(--bone-3);font-size:13px}
-.rung .t em{display:block;color:var(--aka-0);font-style:normal;font-size:12.5px;margin-top:3px;font-family:var(--ff-mono)}
-.dft{width:100%;border-collapse:collapse;font-size:13px;margin-top:6px}
-.dft td{padding:8px 12px;border-bottom:1px solid var(--line-0);vertical-align:top}
-.dft td:first-child{color:var(--bone-3);white-space:nowrap;width:34%}
+.rung b{color:var(--bone-0);font-weight:500;font-family:var(--ff-disp);font-size:16px}
+.rung span{color:var(--bone-3);font-size:13.5px}
+.rung em{display:block;color:var(--bone-4);font-style:normal;font-size:12px;margin-top:4px;font-family:var(--ff-mono)}
+.dft{width:100%;border-collapse:collapse;font-size:13px}
+.dft td{padding:10px 14px;border-bottom:1px solid var(--line-0);vertical-align:top}
+.dft tr:last-child td{border-bottom:none}
+.dft td:first-child{color:var(--kin-2);font-family:var(--ff-mono);font-size:12px;white-space:nowrap;width:32%}
 .dft td:last-child{color:var(--bone-1)}
 
 /* palette */
-.ramps{display:flex;flex-direction:column;gap:9px}
-.ramp{display:flex;height:42px;border-radius:11px;overflow:hidden}
-.sw{flex:1;cursor:pointer;position:relative;transition:flex .3s cubic-bezier(.22,.68,0,1.2)}
-.sw:hover{flex:2.2}
-.sw i{position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);white-space:nowrap;font-family:var(--ff-mono);
-  font-size:10px;padding:3px 8px;border-radius:5px;opacity:0;pointer-events:none;background:var(--ink-2);border:1px solid var(--line-1);color:var(--bone-1);transition:opacity .15s;z-index:5}
+.ramps{display:flex;flex-direction:column;gap:10px}
+.ramp{display:flex;height:46px;border-radius:12px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.18)}
+.sw{flex:1;cursor:pointer;position:relative;transition:flex .35s cubic-bezier(.22,.68,0,1.2)}
+.sw:hover{flex:2.4}
+.sw i{position:absolute;bottom:calc(100% + 7px);left:50%;transform:translateX(-50%);white-space:nowrap;font-family:var(--ff-mono);
+  font-size:10px;padding:4px 9px;border-radius:5px;opacity:0;pointer-events:none;background:var(--ink-2);border:1px solid var(--line-1);color:var(--bone-1);transition:opacity .15s;z-index:5}
 .sw:hover i{opacity:1}
-.roles{display:grid;grid-template-columns:1fr 1fr;gap:7px 22px;font-family:var(--ff-mono);font-size:12px;margin-top:6px}
-.roles div{display:flex;align-items:center;gap:9px;color:var(--bone-3);padding:3px 0}
-.roles b{width:13px;height:13px;border-radius:3px;flex-shrink:0}
-.ansi{display:grid;grid-template-columns:repeat(8,1fr);gap:5px}
-.ac{height:40px;border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:var(--ff-mono);font-size:11px;font-weight:600;border:1px solid rgba(255,255,255,.05);transition:transform .2s}
+.roles{display:grid;grid-template-columns:1fr 1fr;gap:9px 26px;font-family:var(--ff-mono);font-size:12px}
+.roles div{display:flex;align-items:center;gap:10px;color:var(--bone-3);padding:4px 0}
+.roles b{width:14px;height:14px;border-radius:4px;flex-shrink:0}
+.ansi{display:grid;grid-template-columns:repeat(8,1fr);gap:6px}
+.ac{height:42px;border-radius:9px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:var(--ff-mono);font-size:11px;font-weight:600;border:1px solid rgba(255,255,255,.04);transition:transform .2s}
 .ac:hover{transform:scale(1.1)}
-.cchips{display:grid;grid-template-columns:repeat(2,1fr);gap:11px;margin-top:14px}
-@media(max-width:680px){.cchips{grid-template-columns:1fr}}
-.cc{border-radius:13px;padding:18px;border:1px solid rgba(255,255,255,.05);background:var(--ink-0)}
-.cc .v{font-family:var(--ff-mono);font-size:23px;font-weight:600}.cc .l{font-family:var(--ff-mono);font-size:10px;letter-spacing:1.5px;color:var(--bone-3);margin:2px 0 8px}.cc .s{font-size:13px}
+.cchips{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+@media(max-width:700px){.cchips{grid-template-columns:1fr}}
+.cc{border-radius:14px;padding:20px 22px;border:1px solid var(--line-0);background:var(--ink-1)}
+.cc .v{font-family:var(--ff-mono);font-size:25px;font-weight:600}.cc .l{font-family:var(--ff-mono);font-size:10px;letter-spacing:1.5px;color:var(--bone-3);margin:3px 0 9px}.cc .s{font-size:13px}
 
 /* type */
-.tspec{display:flex;flex-direction:column;gap:22px}
-.trow{border-bottom:1px solid var(--line-0);padding-bottom:18px}
-.trow .lab{font-family:var(--ff-mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--bone-4);margin-bottom:8px}
-.t-disp{font-family:var(--ff-disp);font-size:40px;font-weight:700;color:var(--bone-0);line-height:1.1}
-.t-body{font-family:var(--ff-body);font-size:17px;color:var(--bone-1);max-width:560px}
+.tspec{display:flex;flex-direction:column;gap:26px}
+.trow{border-bottom:1px solid var(--line-0);padding-bottom:24px}
+.trow:last-child{border-bottom:none}
+.trow .lab{font-family:var(--ff-mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--bone-4);margin-bottom:11px}
+.t-disp{font-family:var(--ff-disp);font-size:clamp(30px,5vw,44px);font-weight:700;color:var(--bone-0);line-height:1.12}
+.t-body{font-family:var(--ff-body);font-size:18px;color:var(--bone-1);max-width:580px;line-height:1.85}
 .t-mono{font-family:var(--ff-mono);font-size:15px;color:var(--bone-2)}
 
-/* glyphs */
-.glyphs{display:grid;grid-template-columns:repeat(auto-fill,minmax(108px,1fr));gap:9px}
-.gl{border:1px solid var(--line-0);border-radius:12px;padding:15px 10px;text-align:center;background:var(--ink-1);cursor:pointer;transition:border-color .25s,transform .2s}
+/* glyphs — gold & tone, no red */
+.glyphs{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:10px}
+.gl{border:1px solid var(--line-0);border-radius:13px;padding:17px 10px;text-align:center;background:var(--ink-1);cursor:pointer;transition:border-color .25s,transform .2s}
 .gl:hover{border-color:var(--kin-2);transform:translateY(-3px)}
-.gl .s{font-size:24px;color:var(--kin-1);line-height:1;display:block;margin-bottom:9px}
-.gl .s.r{color:var(--aka-1)}.gl .s.g{color:var(--mori-0)}.gl .s.b{color:var(--bone-1)}
+.gl .s{font-size:25px;line-height:1;display:block;margin-bottom:10px}
+.gl .s.k{color:var(--kin-1)}.gl .s.b{color:var(--bone-1)}.gl .s.m{color:var(--seiji)}
 .gl .m{font-family:var(--ff-mono);font-size:10px;letter-spacing:1px;color:var(--bone-3)}
 
 /* motion */
-.mrow{display:flex;align-items:center;gap:18px;font-family:var(--ff-mono);font-size:14px;color:var(--bone-2);padding:12px 0;border-bottom:1px solid var(--line-0)}
-.mrow .lbl{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--bone-4);width:130px}
-.mrow .sp{color:var(--kin-1);font-size:17px}
-.bar{font-family:var(--ff-mono);letter-spacing:1px}
+.mrow{display:flex;align-items:center;gap:20px;font-family:var(--ff-mono);font-size:14px;color:var(--bone-2);padding:15px 0;border-bottom:1px solid var(--line-0)}
+.mrow:last-child{border-bottom:none}
+.mrow .lbl{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--bone-4);width:130px;flex-shrink:0}
+.mrow .sp{color:var(--kin-1);font-size:18px;width:20px}
 .bar .f{color:var(--kin-1)}.bar .e{color:var(--line-1)}
 
 /* components */
-.btns{display:flex;gap:10px;flex-wrap:wrap}
-.btn{font-family:var(--ff-body);font-size:13px;font-weight:500;padding:10px 21px;border-radius:10px;cursor:pointer;background:transparent;transition:transform .18s,border-color .3s,background .3s}
+.btns{display:flex;gap:11px;flex-wrap:wrap}
+.btn{font-family:var(--ff-body);font-size:13px;font-weight:500;padding:11px 22px;border-radius:11px;cursor:pointer;background:transparent;transition:transform .18s,border-color .3s,background .3s}
 .btn:active{transform:scale(.96)}
 .btn-p{border:1.5px solid var(--kin-1);color:var(--kin-text)}.btn-p:hover{border-color:var(--kin-0);background:rgba(216,175,82,.08)}
 .btn-gh{border:1px solid var(--line-1);color:var(--bone-2)}.btn-gh:hover{border-color:var(--kin-2);color:var(--bone-0)}
 .btn-d{background:var(--aka-1);border:1px solid var(--aka-1);color:#FFF3ED}.btn-d:hover{background:var(--aka-2)}
-.tog{display:flex;align-items:center;gap:12px;cursor:pointer;margin-bottom:12px}
+.tog{display:flex;align-items:center;gap:13px;cursor:pointer;margin-bottom:14px}
 .sw2{width:42px;height:24px;border-radius:12px;background:var(--ink-3);border:1px solid var(--line-1);position:relative;flex-shrink:0;transition:.3s}
-.sw2.on{background:var(--kin-w);border-color:var(--kin-1)}.sw2.on.red{background:rgba(216,57,46,.35);border-color:var(--aka-1)}
+.sw2.on{background:var(--kin-w);border-color:var(--kin-1)}.sw2.on.red{background:rgba(216,57,46,.32);border-color:var(--aka-1)}
 .sw2 i{position:absolute;width:17px;height:17px;border-radius:50%;background:var(--bone-3);top:3px;left:3px;transition:.3s cubic-bezier(.22,.68,0,1.2)}
 .sw2.on i{transform:translateX(18px);background:var(--kin-1)}.sw2.on.red i{background:var(--aka-1)}
-.inp{width:100%;font-family:var(--ff-body);font-size:13px;padding:11px 15px;border-radius:10px;outline:none;background:var(--ink-2);border:1px solid var(--line-0);color:var(--bone-1);transition:.2s}
-.inp:focus{border-color:var(--kin-1);box-shadow:0 0 0 3px rgba(216,175,82,.14)}
+.inp{width:100%;font-family:var(--ff-body);font-size:13px;padding:12px 16px;border-radius:11px;outline:none;background:var(--ink-2);border:1px solid var(--line-0);color:var(--bone-1);transition:.2s}
+.inp:focus{border-color:var(--kin-1);box-shadow:0 0 0 3px rgba(216,175,82,.13)}
 
-/* effects: glass */
-.gcards{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
-@media(max-width:680px){.gcards{grid-template-columns:1fr}}
-.glass{position:relative;border-radius:18px;padding:22px;overflow:hidden;cursor:pointer;background:var(--glass-bg);border:1px solid var(--glass-brd);
-  backdrop-filter:blur(7px) saturate(1.4);-webkit-backdrop-filter:blur(7px) saturate(1.4);box-shadow:var(--shadow);transform-style:preserve-3d;transition:border-color .4s}
-.glass::before{content:'';position:absolute;inset:0;border-radius:18px;pointer-events:none;background:linear-gradient(150deg,var(--glass-spec),transparent 42%)}
-.glass::after{content:'';position:absolute;top:0;left:9%;right:9%;height:1px;background:linear-gradient(90deg,transparent,var(--glass-spec),transparent)}
+/* effects */
+.gcards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:700px){.gcards{grid-template-columns:1fr}}
+.glass{position:relative;border-radius:18px;padding:24px;overflow:hidden;cursor:pointer;background:var(--glass-bg);border:1px solid var(--glass-brd);
+  backdrop-filter:blur(8px) saturate(1.4);-webkit-backdrop-filter:blur(8px) saturate(1.4);box-shadow:0 22px 50px rgba(0,0,0,.42);transform-style:preserve-3d;transition:border-color .4s}
+.glass::before{content:'';position:absolute;inset:0;border-radius:18px;pointer-events:none;background:linear-gradient(150deg,var(--glass-spec),transparent 44%)}
+.glass::after{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,var(--glass-spec),transparent)}
 .spot{position:absolute;inset:0;border-radius:18px;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(216,175,82,.16),transparent 60%)}
 .glass:hover .spot{opacity:1}
-.glass .mk{font-family:var(--ff-disp);font-size:26px;display:block;margin-bottom:11px}
-.glass .nm{font-family:var(--ff-disp);font-size:17px;font-weight:700;margin-bottom:6px}
+.glass .mk{font-family:var(--ff-disp);font-size:27px;display:block;margin-bottom:13px}
+.glass .nm{font-family:var(--ff-disp);font-size:17px;font-weight:700;margin-bottom:7px}
 .glass .bd{font-size:12.5px;color:var(--bone-2);line-height:1.7}
-.prism{position:relative;height:180px;border-radius:18px;overflow:hidden;border:1px solid var(--glass-brd);margin-top:15px}
+.prism{position:relative;height:190px;border-radius:18px;overflow:hidden;border:1px solid var(--glass-brd);margin-top:16px}
 #prismC{position:absolute;inset:0;width:100%;height:100%}
-.prow{position:absolute;inset:0;display:flex;gap:11px;padding:20px}
-.pp{flex:1;border-radius:13px;display:flex;align-items:center;justify-content:center;border:1px solid var(--glass-brd);background:rgba(12,10,7,.18);
+.prow{position:absolute;inset:0;display:flex;gap:12px;padding:22px}
+.pp{flex:1;border-radius:14px;display:flex;align-items:center;justify-content:center;border:1px solid var(--glass-brd);background:rgba(12,10,7,.16);
   backdrop-filter:blur(3px) saturate(1.5);-webkit-backdrop-filter:blur(3px) saturate(1.5);transition:transform .4s cubic-bezier(.22,.68,0,1.2)}
 @supports (backdrop-filter:url(#x)){.pp{backdrop-filter:url(#refract) blur(2px)}}
-.pp:hover{transform:translateY(-5px) scale(1.04)}
-.pp span{font-family:var(--ff-disp);font-size:26px;font-weight:800;text-shadow:0 2px 14px rgba(0,0,0,.6)}
+.pp:hover{transform:translateY(-6px) scale(1.04)}
+.pp span{font-family:var(--ff-disp);font-size:27px;font-weight:800;text-shadow:0 2px 14px rgba(0,0,0,.6)}
+.lily{position:relative;border-radius:18px;padding:26px;border:1px solid rgba(216,57,46,.2);background:linear-gradient(135deg,var(--ink-1),var(--ink-0));overflow:hidden;margin-top:16px}
+.lily .big{position:absolute;right:-8px;top:-26px;font-family:var(--ff-disp);font-size:140px;color:var(--aka-1);opacity:.05;line-height:1;pointer-events:none;user-select:none}
+.lily b{font-family:var(--ff-disp);color:var(--bone-0);font-size:19px}.lily b span{color:var(--aka-1)}
+.lily p{font-size:13.5px;color:var(--bone-2);margin-top:8px;max-width:560px;line-height:1.85;position:relative}
 
-/* lily callout */
-.lily{position:relative;border-radius:16px;padding:24px;border:1px solid rgba(216,57,46,.22);background:var(--ink-1);overflow:hidden;margin-top:14px}
-.lily .big{position:absolute;right:-10px;top:-22px;font-family:var(--ff-disp);font-size:130px;color:var(--aka-1);opacity:.06;line-height:1;pointer-events:none}
-.lily b{font-family:var(--ff-disp);color:var(--bone-0);font-size:18px}.lily b span{color:var(--aka-1)}
-.lily p{font-size:13px;color:var(--bone-2);margin-top:6px;max-width:540px;line-height:1.8;position:relative}
-
-#toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%) translateY(20px);z-index:99;opacity:0;font-family:var(--ff-mono);font-size:11px;letter-spacing:1.5px;
-  padding:9px 22px;border-radius:9px;pointer-events:none;background:var(--ink-2);border:1px solid var(--kin-1);color:var(--kin-text);box-shadow:0 12px 36px rgba(0,0,0,.5);transition:.3s}
+#toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);z-index:99;opacity:0;font-family:var(--ff-mono);font-size:11px;letter-spacing:1.5px;
+  padding:10px 23px;border-radius:10px;pointer-events:none;background:var(--ink-2);border:1px solid var(--kin-1);color:var(--kin-text);box-shadow:0 14px 38px rgba(0,0,0,.5);transition:.3s}
 #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
-/* mobile nav */
 @media(max-width:900px){
   .app{grid-template-columns:1fr}
-  nav{position:sticky;height:auto;flex-direction:row;display:flex;gap:14px;overflow-x:auto;white-space:nowrap;padding:12px 16px;border-right:none;border-bottom:1px solid var(--line-0);align-items:center;z-index:20}
-  .brand,.brand-s,.nav-grp,.nav-foot{display:none}
-  nav a{padding:5px 0;border-left:none;border-bottom:2px solid transparent;font-size:12px}
-  nav a.on{border-left:none;border-bottom-color:var(--kin-1)}
+  nav{position:sticky;height:auto;display:flex;gap:16px;overflow-x:auto;white-space:nowrap;padding:13px 18px;border-bottom:1px solid var(--line-0);align-items:center;z-index:20;background:var(--ink-0)}
+  .brand,.brand-s,.grp,.nfoot{display:none}
+  nav a{padding:5px 0;font-size:12px}nav a::before{display:none}
+  nav a.on{border-bottom:2px solid var(--kin-1)}
   main{padding:0 22px}
 }
 @media (prefers-reduced-transparency:reduce){.glass,.pp{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background:var(--ink-2)}}
@@ -210,87 +228,62 @@ h3{font-family:var(--ff-mono);font-size:11px;letter-spacing:2px;text-transform:u
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="refract" x="-20%" y="-20%" width="140%" height="140%">
 <feTurbulence type="fractalNoise" baseFrequency="0.012 0.014" numOctaves="2" seed="7" result="n"/><feGaussianBlur in="n" stdDeviation="1.3" result="nb"/>
 <feDisplacementMap in="SourceGraphic" in2="nb" scale="40" xChannelSelector="R" yChannelSelector="G"/></filter></svg>
-<div id="grain"></div>
+<div id="bg"></div><div id="grain"></div>
 
 <div class="app">
 <nav id="nav">
   <div class="brand">様式</div>
-  <div class="brand-s">y o s h i k i</div>
-  <div class="nav-grp">language</div>
-  <a href="#overview">Overview</a>
-  <a href="#principles">Principles</a>
-  <a href="#palette">Palette</a>
-  <a href="#type">Typography</a>
-  <div class="nav-grp">lexicon</div>
-  <a href="#glyphs">Glyphs</a>
-  <a href="#frames">Frames</a>
-  <a href="#plates">Nameplates</a>
-  <div class="nav-grp">in use</div>
-  <a href="#cli">CLI &amp; TUI</a>
-  <a href="#menus">Menus</a>
-  <a href="#motion">Motion</a>
-  <a href="#charts">Charts</a>
-  <a href="#code">Code</a>
-  <a href="#components">Components</a>
-  <a href="#effects">Effects</a>
-  <a href="#themes">Themes</a>
-  <div class="nav-foot">
-    <div class="tdot on" data-t="kogane"></div>
-    <div class="tdot" data-t="washi"></div>
-    <a class="gh" href="https://github.com/zinzaki/yoshiki">github ↗</a>
-  </div>
+  <div class="brand-s">yoshiki</div>
+  <div class="grp">language</div>
+  <a href="#overview">Overview</a><a href="#principles">Principles</a><a href="#palette">Palette</a><a href="#type">Typography</a>
+  <div class="grp">lexicon</div>
+  <a href="#glyphs">Glyphs</a><a href="#frames">Frames</a><a href="#plates">Nameplates</a>
+  <div class="grp">in use</div>
+  <a href="#cli">CLI &amp; TUI</a><a href="#menus">Menus</a><a href="#motion">Motion</a><a href="#charts">Charts</a><a href="#code">Code</a><a href="#components">Components</a><a href="#effects">Effects</a><a href="#themes">Themes</a>
+  <div class="nfoot"><div class="tdot on" data-t="kogane"></div><div class="tdot" data-t="washi"></div><a class="gh" href="https://github.com/zinzaki/yoshiki">github ↗</a></div>
 </nav>
 
 <main>
-  <!-- hero -->
   <header class="hero" id="overview">
     <canvas id="sky"></canvas>
     <div class="hero-in">
+      <div class="kicker">an elegant design language</div>
       <h1>様式</h1>
+      <div class="name">yoshiki</div>
+      <p class="sub">Warm monochrome, struck rarely by color — lacquer, bone and gold, with one spider-lily scarlet. Below: every element of the system, and how it is used.</p>
       <div class="pill" data-copy="#d8392e"><span class="pdot"></span>彼岸花 · spider lily · #d8392e</div>
-      <p class="sub">An elegant design language — warm monochrome, struck rarely by color. Lacquer, bone and gold, with one spider-lily scarlet. Below: every element, and how it is used.</p>
     </div>
   </header>
 
-  <!-- principles -->
   <section id="principles">
-    <div class="ey" data-n="01">canon / principles</div>
-    <h2>Principles</h2>
-    <p class="lead">The defaults — what wins when nothing is specified. An ordered ladder: when two choices are both fine, the higher one wins.</p>
+    <div class="head"><div class="ey" data-n="01">canon · principles</div><h2>Principles</h2>
+      <p class="lead">The defaults — what wins when nothing is specified. An ordered ladder: when two choices are both fine, the higher one wins.</p></div>
     <div class="lad">
-      <div class="rung"><div class="n">0</div><div class="t"><b>Honesty</b> <span>— nothing for show; the structure stays visible.</span><em>in doubt: strip back, don't decorate.</em></div></div>
-      <div class="rung"><div class="n">1</div><div class="t"><b>Calm · air</b> <span>— emptiness with weight; strength in the quiet.</span><em>in doubt: choose air over more content.</em></div></div>
-      <div class="rung"><div class="n">2</div><div class="t"><b>Omission</b> <span>— simplicity by removing, not adding.</span><em>in doubt whether to add: don't.</em></div></div>
-      <div class="rung"><div class="n">3</div><div class="t"><b>Precision</b> <span>— premium is restraint; exact to the detail.</span><em>in doubt: exact over loose.</em></div></div>
-      <div class="rung"><div class="n">4</div><div class="t"><b>Warmth</b> <span>— every tone warm; never grey or plastic.</span><em>in doubt on a neutral: shift it warm.</em></div></div>
-      <div class="rung"><div class="n">5</div><div class="t"><b>Rarity = power</b> <span>— one accent, in the detail; the bloom is an event.</span><em>in doubt about a second accent: don't.</em></div></div>
-      <div class="rung"><div class="n">6</div><div class="t"><b>Duality</b> <span>— a soft form carrying one sharp detail.</span><em>in doubt: add one sharp detail, no more.</em></div></div>
-      <div class="rung"><div class="n">7</div><div class="t"><b>Meaning &gt; ornament</b> <span>— show, don't tell.</span><em>in doubt: keep only what carries meaning.</em></div></div>
+      <div class="rung"><div class="n">0</div><div><b>Honesty</b> <span>— nothing for show; the structure stays visible.</span><em>in doubt: strip back, don't decorate.</em></div></div>
+      <div class="rung"><div class="n">1</div><div><b>Calm · air</b> <span>— emptiness with weight; strength in the quiet.</span><em>in doubt: choose air over more content.</em></div></div>
+      <div class="rung"><div class="n">2</div><div><b>Omission</b> <span>— simplicity by removing, not adding.</span><em>in doubt whether to add: don't.</em></div></div>
+      <div class="rung"><div class="n">3</div><div><b>Precision</b> <span>— premium is restraint; exact to the detail.</span><em>in doubt: exact over loose.</em></div></div>
+      <div class="rung"><div class="n">4</div><div><b>Warmth</b> <span>— every tone warm; never grey or plastic.</span><em>in doubt on a neutral: shift it warm.</em></div></div>
+      <div class="rung"><div class="n">5</div><div><b>Rarity = power</b> <span>— one accent, in the detail; the bloom is an event.</span><em>in doubt about a second accent: don't.</em></div></div>
+      <div class="rung"><div class="n">6</div><div><b>Duality</b> <span>— a soft form carrying one sharp detail.</span><em>in doubt: add one sharp detail, no more.</em></div></div>
+      <div class="rung"><div class="n">7</div><div><b>Meaning &gt; ornament</b> <span>— show, don't tell.</span><em>in doubt: keep only what carries meaning.</em></div></div>
     </div>
-    <h3>Defaults — if unspecified, use this</h3>
+    <h3>defaults — if unspecified</h3>
     <table class="dft">
       <tr><td>density</td><td>air — generous margins, one accent per screen</td></tr>
       <tr><td>accent color</td><td>gold as a line / edge / glyph — never a fill</td></tr>
       <tr><td>trigger</td><td>none — live in tone until one is earned</td></tr>
       <tr><td>geometry</td><td>soft 16–24px radius, optionally one sharp corner</td></tr>
       <tr><td>motion</td><td>a breathing tempo; spinner ~90ms; no dizzy whirl</td></tr>
-      <tr><td>glass / effect</td><td>light, matte, by place — never Apple-glossy</td></tr>
+      <tr><td>glass · effect</td><td>light, matte, by place — never Apple-glossy</td></tr>
     </table>
   </section>
 
-  <!-- palette -->
   <section id="palette">
-    <div class="ey" data-n="02">canon / palette</div>
-    <h2>Palette</h2>
-    <p class="lead">Two layers. <b style="color:var(--bone-1);font-weight:400">Tone</b> — warm lacquer monochrome — carries ~97% of any screen. <b style="color:var(--bone-1);font-weight:400">Triggers</b> — scarlet and moss — fire rarely, as signals. Click any swatch to copy.</p>
-    <div class="ramps">
-      <div class="ramp" id="r-ink"></div>
-      <div class="ramp" id="r-bone"></div>
-      <div class="ramp" id="r-kin"></div>
-      <div class="ramp" id="r-aka"></div>
-      <div class="ramp" id="r-mori"></div>
-    </div>
-    <h3>Semantic roles — consume a role, never a raw token</h3>
+    <div class="head"><div class="ey" data-n="02">canon · palette</div><h2>Palette</h2>
+      <p class="lead"><b>Tone</b> — warm lacquer monochrome — carries ~97% of any screen. <b>Triggers</b> — scarlet and moss — fire rarely, as signals. Click any swatch to copy.</p></div>
+    <div class="ramps"><div class="ramp" id="r-ink"></div><div class="ramp" id="r-bone"></div><div class="ramp" id="r-kin"></div><div class="ramp" id="r-aka"></div><div class="ramp" id="r-mori"></div></div>
+    <h3>roles — consume a role, never a raw token</h3>
     <div class="roles">
       <div><b style="background:var(--kin-1)"></b>action.edge · text.link — gold</div>
       <div><b style="background:var(--bone-1)"></b>text.body — bone, 11.4:1</div>
@@ -299,40 +292,34 @@ h3{font-family:var(--ff-mono);font-size:11px;letter-spacing:2px;text-transform:u
       <div><b style="background:var(--kaki)"></b>warn.text — persimmon</div>
       <div><b style="background:var(--bone-3)"></b>text.muted — meta</div>
     </div>
-    <h3>ANSI · 16 — terminal colors</h3>
+    <h3>ansi · 16</h3>
     <div class="ansi" id="ansi"></div>
-    <h3>Contrast, proven (WCAG)</h3>
+    <h3>contrast, proven · wcag</h3>
     <div class="cchips">
       <div class="cc"><div class="v" style="color:var(--bone-1)">11.4:1</div><div class="l">BONE ON LACQUER · AAA</div><div class="s" style="color:var(--bone-1)">Primary text — warm parchment on warm black.</div></div>
       <div class="cc"><div class="v" style="color:var(--kin-1)">7.5:1</div><div class="l">GOLD ON LACQUER · AA</div><div class="s" style="color:var(--kin-1)">Headings, links, edges — true gold-leaf.</div></div>
     </div>
   </section>
 
-  <!-- typography -->
   <section id="type">
-    <div class="ey" data-n="03">canon / palette</div>
-    <h2>Typography</h2>
-    <p class="lead">A serif for display, a humanist sans for body, a mono for data and code — Japanese-drawn, warm, never generic.</p>
+    <div class="head"><div class="ey" data-n="03">canon · palette</div><h2>Typography</h2>
+      <p class="lead">A serif for display, a humanist sans for body, a mono for data and code — Japanese-drawn, warm, never generic.</p></div>
     <div class="tspec">
-      <div class="trow"><div class="lab">display · Shippori Mincho</div><div class="t-disp">Parchment <span style="color:var(--kin-1)">黄金</span>, daring <span style="color:var(--aka-1)">緋</span> in the detail.</div></div>
+      <div class="trow"><div class="lab">display · Shippori Mincho</div><div class="t-disp">Parchment <span style="color:var(--kin-1)">黄金</span>, daring in the detail.</div></div>
       <div class="trow"><div class="lab">body · Zen Kaku Gothic New</div><div class="t-body">A single warm, faded cast across everything — calm and exact, rewarding a long look. Information lives in tone, not in shouting.</div></div>
       <div class="trow"><div class="lab">mono · JetBrains Mono</div><div class="t-mono">fn resolve(role: &amp;str) -&gt; Token  // 0123456789 ❯ ◆ ✓</div></div>
     </div>
   </section>
 
-  <!-- glyphs -->
   <section id="glyphs">
-    <div class="ey" data-n="04">canon / lexicon</div>
-    <h2>Glyphs</h2>
-    <p class="lead">Marks that replace words — one meaning per glyph, applied consistently. See, don't read.</p>
+    <div class="head"><div class="ey" data-n="04">canon · lexicon</div><h2>Glyphs</h2>
+      <p class="lead">Marks that replace words — one meaning per glyph, applied consistently. See, don't read.</p></div>
     <div class="glyphs" id="glyphs"></div>
   </section>
 
-  <!-- frames -->
   <section id="frames">
-    <div class="ey" data-n="05">canon / lexicon</div>
-    <h2>Frames</h2>
-    <p class="lead">Soft rounded capsules for calm content; one sharp corner inside the soft; the deliberate "break"; hard double-line trees for dense data. Weight sits at the top, air at the bottom.</p>
+    <div class="head"><div class="ey" data-n="05">canon · lexicon</div><h2>Frames</h2>
+      <p class="lead">Soft rounded capsules for calm content; one sharp corner inside the soft; the deliberate "break"; hard double-line trees for dense data. Weight at the top, air at the bottom.</p></div>
     <div class="cols">
       <div class="blk">╭──────────────────────────╮
 │  calm · closed · finished │
@@ -349,39 +336,35 @@ h3{font-family:var(--ff-mono);font-size:11px;letter-spacing:2px;text-transform:u
 │
 ╰───────────
 
-<span class="d">decorated seam · one mark</span>
+<span class="d">decorated seam — one mark</span>
 ╭──────────── <span class="k">◆</span> ────────────╮
 │  a mark on the seam        │
 ╰────────────────────────────╯</div>
     </div>
   </section>
 
-  <!-- nameplates -->
   <section id="plates">
-    <div class="ey" data-n="06">canon / lexicon</div>
-    <h2>Nameplates</h2>
-    <p class="lead">A name, set with weight. Spacing and one framing mark do the work — no noise.</p>
+    <div class="head"><div class="ey" data-n="06">canon · lexicon</div><h2>Nameplates</h2>
+      <p class="lead">A name, set with weight. Spacing and one framing mark do the work — no noise.</p></div>
     <div class="blk">·  <span class="b">A  U  R  O  R  A</span>  ·
 —  <span class="b">A  U  R  O  R  A</span>  —
 ⟦  <span class="b">A U R O R A</span>  ⟧
 ◇  <span class="k">A U R O R A</span>  ◇
 ◸  <span class="b">A U R O R A</span>  ◿</div>
-    <h3>Dividers</h3>
+    <h3>dividers</h3>
     <div class="blk">──────────────── <span class="k">◆</span> ────────────────
 ╴╴╴╴╴╴╴╴╴╴ <span class="d">open · soft</span> ╴╴╴╴╴╴╴╴╴╴
-●───────────────  end of section  ───────────────●</div>
+●─────────────  end of section  ─────────────●</div>
   </section>
 
-  <!-- cli -->
   <section id="cli">
-    <div class="ey" data-n="07">library · canon / lexicon</div>
-    <h2>CLI &amp; TUI</h2>
-    <p class="lead">The prompt, statuses, and trees. Gold marks the live and actionable; scarlet only the irreversible; everything else lives in tone.</p>
+    <div class="head"><div class="ey" data-n="07">library · lexicon</div><h2>CLI &amp; TUI</h2>
+      <p class="lead">The prompt, statuses and trees. Gold marks the live and actionable; everything informational lives in tone — never in blue.</p></div>
     <div class="blk"><span class="k">❯</span> ~/dev/yoshiki  on <span class="k">⎇ main</span>  <span class="g">✓ clean</span>  <span class="d">2.4s</span>
 <span class="d">┌╴ status</span>
 <span class="g">✓</span> build      passed       <span class="d">214 files</span>
-<span class="k">●</span> deploy     in progress   <span class="d">⠹ 12s</span>
-<span class="r">✗</span> lint       1 error       <span class="r">src/app.rs:42</span>
+<span class="k">●</span> deploy     in progress   <span class="k">⠹</span> <span class="d">12s</span>
+<span class="o">▲</span> lint       1 warning     <span class="d">src/app.rs:42</span>
 
 <span class="d">project tree</span>
 <span class="k">╔</span> yoshiki
@@ -392,11 +375,9 @@ h3{font-family:var(--ff-mono);font-size:11px;letter-spacing:2px;text-transform:u
 <span class="k">╚═</span> library     <span class="d">in use</span></div>
   </section>
 
-  <!-- menus -->
   <section id="menus">
-    <div class="ey" data-n="08">library / menus</div>
-    <h2>Menus</h2>
-    <p class="lead">Ready TUI parts — select lists, cards, status lines, tables. The cursor is a single gold <span style="color:var(--kin-1)">❯</span>; the chosen row gets a gold tint.</p>
+    <div class="head"><div class="ey" data-n="08">library · menus</div><h2>Menus</h2>
+      <p class="lead">Ready TUI parts — select lists, status lines, tables. The cursor is a single gold <span style="color:var(--kin-1)">❯</span>; the chosen row gets a gold tint.</p></div>
     <div class="cols">
       <div class="blk"><span class="d">select</span>
 <span class="k">❯</span> <span class="b">palette</span>      <span class="d">colour &amp; roles</span>
@@ -416,22 +397,18 @@ h3{font-family:var(--ff-mono);font-size:11px;letter-spacing:2px;text-transform:u
     </div>
   </section>
 
-  <!-- motion -->
   <section id="motion">
-    <div class="ey" data-n="09">canon / motion</div>
-    <h2>Motion</h2>
-    <p class="lead">Loading and progress the dot-matrix way — density as meaning. A text spinner lives at ~90ms; smoothness belongs to progress, not to spinners. One role-color per run.</p>
+    <div class="head"><div class="ey" data-n="09">canon · motion</div><h2>Motion</h2>
+      <p class="lead">Loading and progress the dot-matrix way — density as meaning. A spinner lives at ~90ms; smoothness belongs to progress, not to spinners. One role-color per run.</p></div>
     <div class="mrow"><div class="lbl">spinner · braille</div><div class="sp" id="sp1"></div><div class="note" style="margin:0">~90ms, live — never a dizzy whirl</div></div>
     <div class="mrow"><div class="lbl">spinner · arc</div><div class="sp" id="sp2"></div></div>
     <div class="mrow"><div class="lbl">progress · fill</div><div class="bar" id="bar1"></div></div>
     <div class="mrow"><div class="lbl">progress · matrix</div><div class="bar" id="bar2"></div></div>
   </section>
 
-  <!-- charts -->
   <section id="charts">
-    <div class="ey" data-n="10">library / charts</div>
-    <h2>Charts</h2>
-    <p class="lead">Data viz in text — squares and dot-matrix, no solid slabs and no thin lines. Gold is the veined accent, not a fill.</p>
+    <div class="head"><div class="ey" data-n="10">library · charts</div><h2>Charts</h2>
+      <p class="lead">Data viz in text — squares and dot-matrix, no solid slabs and no thin lines. Gold is the veined accent, not a fill.</p></div>
     <div class="blk"><span class="d">sparkline</span>   <span class="k">▰▰▱▰▰▰▱▱▰▰▰▰▱▰</span>   <span class="d">42 ▲ 6%</span>
 
 <span class="d">bars</span>        build  <span class="k">▰▰▰▰▰▰▰▰▰▰▰▰</span> <span class="d">86</span>
@@ -441,39 +418,31 @@ h3{font-family:var(--ff-mono);font-size:11px;letter-spacing:2px;text-transform:u
 <span class="d">gauge</span>       ⣿⣿⣿⣿⣿⣷⣄ <span class="k">72%</span>  <span class="d">load</span></div>
   </section>
 
-  <!-- code -->
   <section id="code">
-    <div class="ey" data-n="11">library / snippets</div>
-    <h2>Code &amp; comments</h2>
-    <p class="lead">Syntax in tone: keyword gold, string moss, number persimmon, type dusty-blue, comment quiet. Comments are framed blocks with meaning-marks — see, don't read.</p>
+    <div class="head"><div class="ey" data-n="11">library · snippets</div><h2>Code &amp; comments</h2>
+      <p class="lead">Syntax in tone: keyword gold, string moss, number persimmon, type dusty-blue, comment quiet. Comments are framed blocks with meaning-marks — see, don't read.</p></div>
     <div class="blk"><span class="d">// ╭─ resolve ─ a role to a concrete token ──────────</span>
-<span class="k">fn</span> <span class="b">resolve</span>(role: <span class="t">&amp;str</span>) -&gt; <span class="t">Token</span> {
+<span class="k">fn</span> <span class="b">resolve</span>(role: <span class="t" style="color:var(--hotaru)">&amp;str</span>) -&gt; <span class="t" style="color:var(--hotaru)">Token</span> {
     <span class="k">let</span> token = palette.<span class="b">get</span>(role)
-        .<span class="b">expect</span>(<span class="g">"every role must resolve"</span>);  <span class="r">// +! invariant</span>
-    contrast.<span class="b">verify</span>(token, bg)<span class="t">?</span>;       <span class="d">// AA floor</span>
+        .<span class="b">expect</span>(<span class="g">"every role must resolve"</span>);  <span class="o">// +! invariant</span>
+    contrast.<span class="b">verify</span>(token, bg)<span class="k">?</span>;       <span class="d">// AA floor</span>
     Token { value: token, role }
 }</div>
     <div class="note"><b>marks:</b> <code>+!</code> invariant · <code>+?</code> open question · <code>+↑</code> perf — one mark, not a sentence.</div>
   </section>
 
-  <!-- components -->
   <section id="components">
-    <div class="ey" data-n="12">library</div>
-    <h2>Components</h2>
-    <p class="lead">Gold is gilding, never a slab — the primary action is a gold <b>frame</b>, not a gold rectangle. Scarlet may fill, because a fill is itself the rare event.</p>
+    <div class="head"><div class="ey" data-n="12">library</div><h2>Components</h2>
+      <p class="lead">Gold is gilding, never a slab — the primary action is a gold <b>frame</b>, not a gold rectangle. Scarlet may fill, because a fill is itself the rare event.</p></div>
     <div class="cols">
       <div>
-        <h3>Buttons</h3>
-        <div class="btns">
-          <button class="btn btn-p" data-toast="primary — a gilded frame">Primary</button>
-          <button class="btn btn-gh" data-toast="ghost">Ghost</button>
-          <button class="btn btn-d" data-toast="彼岸花 — scarlet may fill">Destructive</button>
-        </div>
-        <h3 style="margin-top:24px">Input · focus ring</h3>
+        <h3>buttons</h3>
+        <div class="btns"><button class="btn btn-p" data-toast="primary — a gilded frame">Primary</button><button class="btn btn-gh" data-toast="ghost">Ghost</button><button class="btn btn-d" data-toast="彼岸花 — scarlet may fill">Destructive</button></div>
+        <h3 style="margin-top:30px">input · focus ring</h3>
         <input class="inp" placeholder="search a token or role…">
       </div>
       <div>
-        <h3>Toggles</h3>
+        <h3>toggles</h3>
         <div class="tog"><div class="sw2 on"><i></i></div><div style="font-size:13px;color:var(--bone-2)">Gold accent</div></div>
         <div class="tog"><div class="sw2 on red"><i></i></div><div style="font-size:13px;color:var(--bone-2)">彼岸花 trigger</div></div>
         <div class="tog"><div class="sw2"><i></i></div><div style="font-size:13px;color:var(--bone-2)">Tone only</div></div>
@@ -481,37 +450,30 @@ h3{font-family:var(--ff-mono);font-size:11px;letter-spacing:2px;text-transform:u
     </div>
   </section>
 
-  <!-- effects -->
   <section id="effects">
-    <div class="ey" data-n="13">canon / effects</div>
-    <h2>Effects</h2>
-    <p class="lead">Glass, refraction and a custom cursor — by place, tasteful, never Apple-glossy. Frosted, warm-tinted, with a specular edge; the prism uses real SVG refraction (Chrome), with a blur fallback.</p>
+    <div class="head"><div class="ey" data-n="13">canon · effects</div><h2>Effects</h2>
+      <p class="lead">Glass, refraction and a custom cursor — by place, tasteful, never Apple-glossy. Frosted, warm-tinted, with a specular edge; the prism uses real SVG refraction (Chrome), with a blur fallback.</p></div>
     <div class="gcards">
       <div class="glass" data-copy="#D8AF52"><div class="spot"></div><span class="mk" style="color:var(--kin-1)">✦</span><div class="nm" style="color:var(--kin-1)">Frosted card</div><div class="bd">backdrop-blur + grain + specular edge + warm tint. 3D tilt on hover.</div></div>
-      <div class="glass" data-copy="#d8392e"><div class="spot"></div><span class="mk" style="color:var(--aka-1)">✕</span><div class="nm" style="color:var(--aka-1)">彼岸花</div><div class="bd">One bloom per screen — the scarlet trigger, in the detail.</div></div>
       <div class="glass" data-copy="#6FA08E"><div class="spot"></div><span class="mk" style="color:var(--seiji)">◈</span><div class="nm" style="color:var(--seiji)">Spotlight</div><div class="bd">A soft gold light follows the pointer across the surface.</div></div>
+      <div class="glass" data-copy="#D8AF52"><div class="spot"></div><span class="mk" style="color:var(--kin-1)">◆</span><div class="nm" style="color:var(--kin-1)">Refraction</div><div class="bd">A displacement map bends what is behind the glass — real, not faked.</div></div>
     </div>
     <div class="prism"><canvas id="prismC"></canvas><div class="prow">
-      <div class="pp"><span style="color:var(--kin-1)">金</span></div>
-      <div class="pp"><span style="color:var(--aka-1)">緋</span></div>
-      <div class="pp"><span style="color:var(--mori-0)">森</span></div>
-      <div class="pp"><span style="color:var(--bone-0)">骨</span></div>
+      <div class="pp"><span style="color:var(--kin-1)">金</span></div><div class="pp"><span style="color:var(--aka-1)">緋</span></div><div class="pp"><span style="color:var(--mori-0)">森</span></div><div class="pp"><span style="color:var(--bone-0)">骨</span></div>
     </div></div>
-    <div class="lily"><div class="big">彼</div><b>The one trigger · <span>彼岸花</span></b><p>Daring lives in the detail, not the mass. Scarlet is the seal, the focus ring, the irreversible — one per screen, warm and noble, never neon.</p></div>
+    <div class="lily"><div class="big">彼</div><b>The one trigger · <span>彼岸花</span></b><p>Daring lives in the detail, not the mass. Scarlet is the seal, the focus ring, the irreversible — one per screen, warm and noble, never neon. This is the only place red fills the frame.</p></div>
   </section>
 
-  <!-- themes -->
   <section id="themes">
-    <div class="ey" data-n="14">canon / palette</div>
-    <h2>Themes</h2>
-    <p class="lead">One language, two scenes — switch with the dots in the sidebar, or keys <b>1</b> / <b>2</b>. Only the stage changes; the triggers and every rule stay identical. The terminal always stays a dark island.</p>
+    <div class="head"><div class="ey" data-n="14">canon · palette</div><h2>Themes</h2>
+      <p class="lead">One language, two scenes — switch with the dots in the sidebar, or keys <b>1</b> / <b>2</b>. Only the stage changes; the triggers and every rule stay identical. The terminal always stays a dark island.</p></div>
     <div class="blk"><span class="k">kogane</span>  <span class="d">dark</span>   warm lacquer; gold gilds the edges
 <span class="k">washi</span>   <span class="d">light</span>  paper &amp; sumi ink; terminal stays dark
 
-<span class="d">generated themes (python3 tools/build.py):</span>
+<span class="d">generated themes — python3 tools/build.py</span>
 kitty · foot · alacritty · starship · base24
 vscode · neovim · tmux · btop</div>
-    <p class="note" style="margin-top:24px">様式 yoshiki · an open design language · <a href="https://github.com/zinzaki/yoshiki" style="color:var(--kin-1)">github.com/zinzaki/yoshiki</a> · MIT</p>
+    <p class="note" style="margin-top:30px">様式 yoshiki · an open design language · <a href="https://github.com/zinzaki/yoshiki" style="color:var(--kin-1)">github.com/zinzaki/yoshiki</a> · MIT</p>
   </section>
 </main>
 </div>
@@ -521,67 +483,47 @@ vscode · neovim · tmux · btop</div>
 const RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
 function lum(h){const n=parseInt(h.slice(1),16),r=(n>>16)/255,g=((n>>8)&255)/255,b=(n&255)/255,f=v=>v<=.03928?v/12.92:Math.pow((v+.055)/1.055,2.4);return .2126*f(r)+.7152*f(g)+.0722*f(b);}
 let tt;function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),1700);}
-
-/* ramps */
-const R={'r-ink':[['#0B0A08','ink-0'],['#12100C','ink-1'],['#1B1813','ink-2'],['#262119','ink-3'],['#362C1B','line-0'],['#4C3D24','line-1']],
-'r-bone':[['#6B5F49','bone-4'],['#94866A','bone-3'],['#C9BC96','bone-2'],['#EDE3C4','bone-1'],['#F7EED2','bone-0']],
-'r-kin':[['#57441F','kin-3'],['#8F713C','kin-2'],['#D8AF52','kin-1 ★'],['#EDC85C','kin-0']],
+const R={'r-ink':[['#0B0A08','ink-0'],['#12100C','ink-1'],['#1B1813','ink-2'],['#262119','ink-3'],['#2A2216','line-0'],['#3E3220','line-1']],
+'r-bone':[['#5F5440','bone-4'],['#8C7E62','bone-3'],['#C4B790','bone-2'],['#EDE3C4','bone-1'],['#F7EED2','bone-0']],
+'r-kin':[['#57441F','kin-3'],['#9A7C3E','kin-2'],['#D8AF52','kin-1 ★'],['#EDC85C','kin-0']],
 'r-aka':[['#5e1d16','aka·dk'],['#8a2a1f','aka·mid'],['#d8392e','aka-1 ★'],['#D4665C','aka-0']],
 'r-mori':[['#2F4526','mori-2'],['#52703F','mori-1 ★'],['#8FAC6F','mori-0']]};
 for(const id in R){const el=document.getElementById(id);R[id].forEach(([h,n])=>{const s=document.createElement('div');s.className='sw';s.style.background=h;s.dataset.copy=h;s.innerHTML=`<i>${h} · ${n}</i>`;el.appendChild(s);});}
-
-/* ansi */
 [['#1B1813','0'],['#d8392e','1'],['#8FAC6F','2'],['#D8AF52','3'],['#7C88B8','4'],['#9C7FB0','5'],['#6FA08E','6'],['#EDE3C4','7'],
-['#6B5F49','8'],['#DC7265','9'],['#A8C48A','A'],['#EDC85C','B'],['#98A4D4','C'],['#B89BCC','D'],['#8CBCA9','E'],['#F7EED2','F']]
+['#5F5440','8'],['#DC7265','9'],['#A8C48A','A'],['#EDC85C','B'],['#98A4D4','C'],['#B89BCC','D'],['#8CBCA9','E'],['#F7EED2','F']]
 .forEach(([h,l])=>{const a=document.createElement('div');a.className='ac';a.style.background=h;a.dataset.copy=h;a.textContent=l;a.style.color=lum(h)<.35?'#F7EED2':'#0B0A08';document.getElementById('ansi').appendChild(a);});
-
-/* glyphs */
-[['✓','done','g'],['✗','fail','r'],['●','active','k'],['○','idle','b'],['◆','node','k'],['◈','special','k'],['❯','prompt','k'],['→','flow','k'],
-['▲','up','g'],['▼','down','r'],['◇','option','b'],['⊙','focus','k'],['✦','accent','k'],['⟢','link','b'],['╴','break','k'],['⠿','matrix','k']]
+[['✓','done','k'],['✗','fail','b'],['●','active','k'],['○','idle','b'],['◆','node','k'],['◈','special','m'],['❯','prompt','k'],['→','flow','k'],
+['▲','up','k'],['▼','down','b'],['◇','option','b'],['⊙','focus','k'],['✦','accent','k'],['⟢','link','m'],['╴','break','k'],['⠿','matrix','k']]
 .forEach(([s,m,c])=>{const d=document.createElement('div');d.className='gl';d.dataset.copy=s+' · '+m;d.innerHTML=`<span class="s ${c}">${s}</span><span class="m">${m}</span>`;document.getElementById('glyphs').appendChild(d);});
-
-/* copy + toggles + theme */
 document.addEventListener('click',e=>{const c=e.target.closest('[data-copy]'),b=e.target.closest('[data-toast]'),t=e.target.closest('.tog');
   if(b){toast(b.dataset.toast);return;}if(t){t.querySelector('.sw2').classList.toggle('on');return;}
   if(c){const v=c.dataset.copy.split(' · ')[0];navigator.clipboard&&navigator.clipboard.writeText(v);toast('copied · '+c.dataset.copy);}});
 const dots=document.querySelectorAll('.tdot');function theme(t){document.documentElement.dataset.theme=t;dots.forEach(d=>d.classList.toggle('on',d.dataset.t===t));}
 dots.forEach(d=>d.onclick=()=>theme(d.dataset.t));addEventListener('keydown',e=>{if(e.key==='1')theme('kogane');if(e.key==='2')theme('washi');});
-
-/* scroll-spy */
 const links=[...document.querySelectorAll('nav a')];
-const spy=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){links.forEach(l=>l.classList.toggle('on',l.getAttribute('href')==='#'+x.target.id));}}),{rootMargin:'-25% 0px -65% 0px'});
+const spy=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting)links.forEach(l=>l.classList.toggle('on',l.getAttribute('href')==='#'+x.target.id));}),{rootMargin:'-22% 0px -68% 0px'});
 document.querySelectorAll('section,header.hero').forEach(s=>spy.observe(s));
-
-/* tilt */
 if(!RM)document.querySelectorAll('.glass').forEach(el=>{
   el.addEventListener('mousemove',e=>{const r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
-    el.style.transform=`perspective(700px) rotateX(${(y-.5)*-10}deg) rotateY(${(x-.5)*10}deg) scale(1.02)`;el.style.setProperty('--mx',x*100+'%');el.style.setProperty('--my',y*100+'%');});
+    el.style.transform=`perspective(720px) rotateX(${(y-.5)*-9}deg) rotateY(${(x-.5)*9}deg) scale(1.02)`;el.style.setProperty('--mx',x*100+'%');el.style.setProperty('--my',y*100+'%');});
   el.addEventListener('mouseleave',()=>el.style.transform='');});
-
-/* motion demos */
-if(!RM){
-  const braille=['⠋','⠙','⠹','⠸','⠼','⠴','⠦','⠧','⠇','⠏'],arc=['◜','◠','◝','◞','◡','◟'];let i=0;
-  setInterval(()=>{i++;document.getElementById('sp1').textContent=braille[i%braille.length];document.getElementById('sp2').textContent=arc[i%arc.length];},90);
-  let p=0;setInterval(()=>{p=(p+1)%29;const sub=['▏','▎','▍','▌','▋','▊','▉','█'];const full=Math.floor(p/4),rem=p%4;
-    let s='<span class="f">'+'█'.repeat(full)+(full<7?sub[rem*2]:'')+'</span>';s+='<span class="e">'+'░'.repeat(Math.max(0,11-full-1))+'</span>';
+if(!RM){const br=['⠋','⠙','⠹','⠸','⠼','⠴','⠦','⠧','⠇','⠏'],arc=['◜','◠','◝','◞','◡','◟'];let i=0;
+  setInterval(()=>{i++;document.getElementById('sp1').textContent=br[i%br.length];document.getElementById('sp2').textContent=arc[i%arc.length];},90);
+  let p=0;setInterval(()=>{p=(p+1)%29;const sub=['▏','▎','▍','▌','▋','▊','▉','█'],full=Math.floor(p/4),rem=p%4;
+    let s='<span class="f">'+'█'.repeat(full)+(full<7?sub[rem*2]:'')+'</span><span class="e">'+'░'.repeat(Math.max(0,10-full))+'</span>';
     document.getElementById('bar1').innerHTML=s+' <span style="color:var(--bone-3)">'+Math.round(p/28*100)+'%</span>';
-    const md=['⠀','⠄','⠆','⠇','⠧','⠷','⠿','⣿'];let m='<span class="f">';for(let k=0;k<11;k++){const lvl=Math.max(0,Math.min(7,Math.round((p/28*11-k)*7)));m+=md[k<p/28*11?7:lvl];}m+='</span>';
-    document.getElementById('bar2').innerHTML=m;},120);
-}
-
-/* hero constellation */
+    const md=['⠀','⠄','⠆','⠇','⠧','⠷','⠿','⣿'];let m='<span class="f">';for(let k=0;k<11;k++){const lv=Math.max(0,Math.min(7,Math.round((p/28*11-k)*7)));m+=md[k<p/28*11?7:lv];}
+    document.getElementById('bar2').innerHTML=m+'</span>';},120);}
 if(!RM){const cv=document.getElementById('sky'),x=cv.getContext('2d');let pts=[],W,H;
-  function init(){W=cv.width=cv.offsetWidth;H=cv.height=cv.offsetHeight;pts=[];const n=Math.min(48,Math.floor(W/22));
-    for(let i=0;i<n;i++)pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,r:Math.random()*1.5+.3,c:['216,175,82','216,57,46','111,154,142'][Math.floor(Math.random()*3)],ph:Math.random()*6.3});}
+  function init(){W=cv.width=cv.offsetWidth;H=cv.height=cv.offsetHeight;pts=[];const n=Math.min(46,Math.floor(W/24));
+    for(let i=0;i<n;i++)pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.22,vy:(Math.random()-.5)*.22,r:Math.random()*1.5+.3,c:['216,175,82','216,57,46','111,154,142'][Math.floor(Math.random()*3)],ph:Math.random()*6.3});}
   function draw(){x.clearRect(0,0,W,H);for(const p of pts){p.x+=p.vx;p.y+=p.vy;p.ph+=.01;if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0;
-    x.beginPath();x.arc(p.x,p.y,p.r,0,6.28);x.fillStyle=`rgba(${p.c},${(.3+.3*Math.sin(p.ph)).toFixed(2)})`;x.fill();}
+    x.beginPath();x.arc(p.x,p.y,p.r,0,6.28);x.fillStyle=`rgba(${p.c},${(.28+.28*Math.sin(p.ph)).toFixed(2)})`;x.fill();}
     for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.hypot(dx,dy);
-      if(d<110){x.beginPath();x.moveTo(pts[i].x,pts[i].y);x.lineTo(pts[j].x,pts[j].y);x.strokeStyle=`rgba(216,175,82,${(.05*(1-d/110)).toFixed(3)})`;x.lineWidth=.5;x.stroke();}}requestAnimationFrame(draw);}
+      if(d<118){x.beginPath();x.moveTo(pts[i].x,pts[i].y);x.lineTo(pts[j].x,pts[j].y);x.strokeStyle=`rgba(216,175,82,${(.045*(1-d/118)).toFixed(3)})`;x.lineWidth=.5;x.stroke();}}requestAnimationFrame(draw);}
   init();draw();addEventListener('resize',init);}
-
-/* prism */
 if(!RM){const cv=document.getElementById('prismC'),x=cv.getContext('2d');let b=[],W,H;
-  function init(){W=cv.width=cv.offsetWidth;H=cv.height=cv.offsetHeight;b=[['216,175,82',.5,.3,.4,.4,.3],['216,57,46',.42,.7,.6,-.35,.3],['111,154,142',.38,.5,.3,.3,-.35]].map(o=>({c:o[0],a:o[1],x:o[2]*W,y:o[3]*H,vx:o[4],vy:o[5],r:Math.min(W,H)*.6}));}
+  function init(){W=cv.width=cv.offsetWidth;H=cv.height=cv.offsetHeight;b=[['216,175,82',.5,.3,.4,.4,.3],['216,57,46',.4,.7,.6,-.35,.3],['111,154,142',.36,.5,.3,.3,-.35]].map(o=>({c:o[0],a:o[1],x:o[2]*W,y:o[3]*H,vx:o[4],vy:o[5],r:Math.min(W,H)*.65}));}
   function draw(){x.clearRect(0,0,W,H);x.fillStyle='#0B0A08';x.fillRect(0,0,W,H);for(const o of b){o.x+=o.vx;o.y+=o.vy;if(o.x<0||o.x>W)o.vx*=-1;if(o.y<0||o.y>H)o.vy*=-1;
     const g=x.createRadialGradient(o.x,o.y,0,o.x,o.y,o.r);g.addColorStop(0,`rgba(${o.c},${o.a})`);g.addColorStop(1,`rgba(${o.c},0)`);x.fillStyle=g;x.beginPath();x.arc(o.x,o.y,o.r,0,6.28);x.fill();}requestAnimationFrame(draw);}
   init();draw();addEventListener('resize',init);}
