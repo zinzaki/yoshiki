@@ -153,47 +153,230 @@ def emit(slug: str, p: dict):
     st += [f'{k} = "{tok[v]}"' for k, v in role.items() if v in tok]
     w(LIB / "starship" / f"{slug}.toml", "\n".join(st) + "\n")
 
-    # editors render on the theme's own surfaces (light theme = paper)
+    # ── editors render on the theme's own surfaces (light theme = paper),
+    #    but the integrated terminal stays a dark island, per the language.
     light = p["meta"]["mode"] == "light"
-    efg = tok["bone-1"]
-    ebg = tok["ink-0"]
+    efg, ebg = tok["bone-1"], tok["ink-0"]
     sel = "#3F3112" if light else tok.get("kin-w", "#3F3112")
+    line_hl = tok["ink-3"] if light else tok["ink-2"]   # current-line wash
+    gold_t = roles["text.gold"]      # gold as text (washi sinks it for contrast)
+    gold_e = roles["border.gold"]    # gold as edge / underline
+    gold_hi, gold_dim = tok["kin-0"], tok["kin-2"]
+    sx = lambda r: roles[r]          # a syntax role → its resolved value
 
-    # vscode — theme.json (workbench essentials + token colors via roles)
+    def aa(hexv, alpha):             # 8-digit #rrggbbaa (translucent overlay)
+        return hexv[:7] + alpha
+
+    # vscode — full theme.json: workbench, integrated terminal, tokens, semantic
     def tc(scopes, color, style=None):
-        s = {"scope": scopes, "settings": {"foreground": color}}
+        st = {"foreground": color}
         if style:
-            s["settings"]["fontStyle"] = style
-        return s
+            st["fontStyle"] = style
+        return {"scope": scopes, "settings": st}
+
+    nm8 = ["Black", "Red", "Green", "Yellow", "Blue", "Magenta", "Cyan", "White"]
+    ansi_colors = {}
+    for i, n in enumerate(nm8):
+        ansi_colors[f"terminal.ansi{n}"] = a[i]
+        ansi_colors[f"terminal.ansiBright{n}"] = br[i]
+
+    colors = {
+        # base
+        "foreground": efg, "focusBorder": gold_e, "errorForeground": tok["aka-0"],
+        "descriptionForeground": tok["bone-3"], "icon.foreground": tok["bone-3"],
+        "selection.background": aa(gold_e, "33"),
+        "widget.border": tok["line-0"], "sash.hoverBorder": gold_e,
+        "scrollbar.shadow": "#00000000",
+        "scrollbarSlider.background": aa(tok["bone-4"], "33"),
+        "scrollbarSlider.hoverBackground": aa(tok["bone-4"], "55"),
+        "scrollbarSlider.activeBackground": aa(tok["bone-4"], "88"),
+        "progressBar.background": gold_e,
+        # editor body
+        "editor.background": ebg, "editor.foreground": efg,
+        "editorCursor.foreground": term["cursor"],
+        "editor.selectionBackground": aa(gold_e, "33"),
+        "editor.selectionHighlightBackground": aa(gold_e, "22"),
+        "editor.wordHighlightBackground": aa(gold_e, "22"),
+        "editor.wordHighlightStrongBackground": aa(gold_e, "33"),
+        "editor.findMatchBackground": aa(gold_hi, "55"),
+        "editor.findMatchHighlightBackground": aa(gold_hi, "30"),
+        "editor.lineHighlightBackground": line_hl, "editor.lineHighlightBorder": "#00000000",
+        "editorLineNumber.foreground": tok["bone-4"],
+        "editorLineNumber.activeForeground": gold_t,
+        "editorIndentGuide.background1": tok["line-0"],
+        "editorIndentGuide.activeBackground1": tok["line-1"],
+        "editorWhitespace.foreground": aa(tok["bone-4"], "55"),
+        "editorRuler.foreground": tok["line-0"],
+        "editorCodeLens.foreground": tok["bone-4"],
+        "editorInlayHint.foreground": tok["bone-4"], "editorInlayHint.background": "#00000000",
+        "editorBracketMatch.background": aa(gold_e, "22"), "editorBracketMatch.border": gold_dim,
+        "editorBracketHighlight.foreground1": gold_t, "editorBracketHighlight.foreground2": tok["hotaru-1"],
+        "editorBracketHighlight.foreground3": tok["mori-0"], "editorBracketHighlight.foreground4": tok["fuji-1"],
+        "editorBracketHighlight.foreground5": tok["seiji-1"], "editorBracketHighlight.foreground6": tok["kaki-1"],
+        "editorBracketHighlight.unexpectedBracket.foreground": tok["aka-0"],
+        "editorGutter.addedBackground": tok["mori-1"], "editorGutter.modifiedBackground": tok["kaki-1"],
+        "editorGutter.deletedBackground": tok["aka-1"], "editorGutter.foldingControlForeground": tok["bone-3"],
+        "editorError.foreground": tok["aka-0"], "editorWarning.foreground": tok["kaki-1"],
+        "editorInfo.foreground": gold_t, "editorHint.foreground": tok["seiji-1"],
+        "editorOverviewRuler.border": "#00000000",
+        "editorOverviewRuler.findMatchForeground": aa(gold_hi, "99"),
+        "editorOverviewRuler.errorForeground": tok["aka-1"],
+        "editorOverviewRuler.warningForeground": tok["kaki-1"],
+        "editorOverviewRuler.addedForeground": tok["mori-1"],
+        "editorOverviewRuler.modifiedForeground": tok["kaki-1"],
+        "editorOverviewRuler.deletedForeground": tok["aka-1"],
+        # diff
+        "diffEditor.insertedTextBackground": aa(tok["mori-1"], "22"),
+        "diffEditor.removedTextBackground": aa(tok["aka-1"], "22"),
+        "diffEditor.insertedLineBackground": aa(tok["mori-1"], "14"),
+        "diffEditor.removedLineBackground": aa(tok["aka-1"], "14"),
+        # widgets / suggest / hover / peek
+        "editorWidget.background": tok["ink-1"], "editorWidget.border": tok["line-0"],
+        "editorWidget.foreground": tok["bone-1"],
+        "editorSuggestWidget.background": tok["ink-1"], "editorSuggestWidget.border": tok["line-0"],
+        "editorSuggestWidget.foreground": tok["bone-2"], "editorSuggestWidget.selectedBackground": tok["ink-3"],
+        "editorSuggestWidget.highlightForeground": gold_t,
+        "editorHoverWidget.background": tok["ink-1"], "editorHoverWidget.border": tok["line-0"],
+        "peekView.border": gold_dim, "peekViewEditor.background": tok["ink-1"],
+        "peekViewResult.background": tok["ink-1"], "peekViewResult.selectionBackground": tok["ink-3"],
+        "peekViewTitle.background": tok["ink-2"], "peekViewTitleLabel.foreground": tok["bone-0"],
+        "peekViewResult.matchHighlightBackground": aa(gold_hi, "40"),
+        "peekViewEditor.matchHighlightBackground": aa(gold_hi, "40"),
+        # chrome: tabs / groups / title / status / activity / sidebar
+        "editorGroup.border": tok["line-0"],
+        "editorGroupHeader.tabsBackground": tok["ink-1"], "editorGroupHeader.noTabsBackground": tok["ink-1"],
+        "editorGroupHeader.border": tok["line-0"],
+        "tab.activeBackground": ebg, "tab.inactiveBackground": tok["ink-1"],
+        "tab.activeForeground": tok["bone-0"], "tab.inactiveForeground": tok["bone-4"],
+        "tab.hoverForeground": tok["bone-1"], "tab.border": "#00000000",
+        "tab.activeBorderTop": gold_e, "tab.unfocusedActiveForeground": tok["bone-2"],
+        "titleBar.activeBackground": tok["ink-1"], "titleBar.activeForeground": tok["bone-1"],
+        "titleBar.inactiveBackground": tok["ink-1"], "titleBar.inactiveForeground": tok["bone-4"],
+        "titleBar.border": tok["line-0"],
+        "statusBar.background": tok["ink-1"], "statusBar.foreground": tok["bone-3"],
+        "statusBar.border": tok["line-0"], "statusBar.noFolderBackground": tok["ink-1"],
+        "statusBar.debuggingBackground": tok["aka-2"], "statusBar.debuggingForeground": "#F7EED2",
+        "statusBarItem.remoteBackground": tok["ink-2"], "statusBarItem.remoteForeground": gold_t,
+        "statusBarItem.hoverBackground": aa(tok["bone-0"], "10"),
+        "statusBarItem.errorBackground": tok["ink-1"], "statusBarItem.errorForeground": tok["aka-0"],
+        "activityBar.background": tok["ink-1"], "activityBar.foreground": gold_t,
+        "activityBar.inactiveForeground": tok["bone-4"], "activityBar.border": tok["line-0"],
+        "activityBar.activeBorder": gold_e,
+        "activityBarBadge.background": tok["ink-3"], "activityBarBadge.foreground": gold_t,
+        "sideBar.background": tok["ink-1"], "sideBar.foreground": tok["bone-2"],
+        "sideBar.border": tok["line-0"], "sideBarTitle.foreground": tok["bone-3"],
+        "sideBarSectionHeader.background": tok["ink-1"], "sideBarSectionHeader.foreground": tok["bone-3"],
+        "sideBarSectionHeader.border": tok["line-0"],
+        # lists / trees
+        "list.activeSelectionBackground": tok["ink-3"], "list.activeSelectionForeground": tok["bone-0"],
+        "list.activeSelectionIconForeground": gold_t,
+        "list.inactiveSelectionBackground": tok["ink-2"], "list.inactiveSelectionForeground": tok["bone-1"],
+        "list.hoverBackground": aa(tok["bone-0"], "0a"), "list.focusBackground": tok["ink-3"],
+        "list.highlightForeground": gold_t, "list.errorForeground": tok["aka-0"],
+        "list.warningForeground": tok["kaki-1"], "tree.indentGuidesStroke": tok["line-0"],
+        # inputs / dropdowns / buttons / badges
+        "input.background": tok["ink-1"] if not light else tok["ink-2"], "input.foreground": tok["bone-1"],
+        "input.border": tok["line-1"], "input.placeholderForeground": tok["bone-4"],
+        "inputOption.activeBorder": gold_e, "inputOption.activeForeground": gold_t,
+        "inputOption.activeBackground": aa(gold_e, "22"),
+        "inputValidation.errorBackground": tok["aka-w"], "inputValidation.errorBorder": tok["aka-1"],
+        "dropdown.background": tok["ink-1"], "dropdown.foreground": tok["bone-1"], "dropdown.border": tok["line-1"],
+        "button.background": tok["ink-2"], "button.foreground": gold_t, "button.border": gold_e,
+        "button.hoverBackground": tok["ink-3"],
+        "button.secondaryBackground": tok["ink-2"], "button.secondaryForeground": tok["bone-2"],
+        "badge.background": tok["ink-3"], "badge.foreground": gold_t,
+        "checkbox.background": tok["ink-2"], "checkbox.border": tok["line-1"], "checkbox.foreground": gold_t,
+        # menus / keybinding labels / breadcrumb
+        "menu.background": tok["ink-1"], "menu.foreground": tok["bone-2"],
+        "menu.selectionBackground": tok["ink-3"], "menu.selectionForeground": tok["bone-0"],
+        "menu.border": tok["line-0"], "menu.separatorBackground": tok["line-0"],
+        "keybindingLabel.background": tok["ink-2"], "keybindingLabel.foreground": tok["bone-2"],
+        "keybindingLabel.border": tok["line-0"], "keybindingLabel.bottomBorder": tok["line-1"],
+        "breadcrumb.foreground": tok["bone-3"], "breadcrumb.focusForeground": tok["bone-1"],
+        "breadcrumb.activeSelectionForeground": gold_t, "breadcrumb.background": ebg,
+        # panel + integrated terminal (dark island for both themes)
+        "panel.background": tok["ink-1"], "panel.border": tok["line-0"],
+        "panelTitle.activeForeground": tok["bone-0"], "panelTitle.inactiveForeground": tok["bone-4"],
+        "panelTitle.activeBorder": gold_e,
+        "terminal.background": term["background"], "terminal.foreground": term["foreground"],
+        "terminalCursor.foreground": term["cursor"], "terminalCursor.background": term["background"],
+        "terminal.selectionBackground": aa("#" + term["selection_background"].lstrip("#"), "99"),
+        "terminal.border": tok["line-0"],
+        # git decorations
+        "gitDecoration.modifiedResourceForeground": tok["kaki-1"],
+        "gitDecoration.deletedResourceForeground": tok["aka-0"],
+        "gitDecoration.untrackedResourceForeground": tok["mori-0"],
+        "gitDecoration.addedResourceForeground": tok["mori-0"],
+        "gitDecoration.ignoredResourceForeground": tok["bone-4"],
+        "gitDecoration.conflictingResourceForeground": tok["fuji-1"],
+        "gitDecoration.stageModifiedResourceForeground": gold_t,
+        "gitDecoration.stageDeletedResourceForeground": tok["aka-2"],
+        # notifications / minimap / links / charts
+        "notifications.background": tok["ink-1"], "notifications.border": tok["line-0"],
+        "notificationCenterHeader.background": tok["ink-2"],
+        "notificationsErrorIcon.foreground": tok["aka-0"],
+        "notificationsWarningIcon.foreground": tok["kaki-1"],
+        "notificationsInfoIcon.foreground": gold_t,
+        "minimap.findMatchHighlight": aa(gold_hi, "99"), "minimap.selectionHighlight": aa(gold_e, "55"),
+        "minimap.errorHighlight": tok["aka-1"],
+        "textLink.foreground": gold_t, "textLink.activeForeground": gold_hi,
+        "textCodeBlock.background": tok["ink-1"], "textPreformat.foreground": tok["kaki-1"],
+        "charts.foreground": tok["bone-2"], "charts.lines": tok["line-1"],
+        "charts.red": tok["aka-0"], "charts.blue": tok["hotaru-1"], "charts.yellow": tok["kin-1"],
+        "charts.green": tok["mori-0"], "charts.orange": tok["kaki-1"], "charts.purple": tok["fuji-1"],
+    }
+    colors.update(ansi_colors)
+
     vscode = {
+        "$schema": "vscode://schemas/color-theme",
         "name": f"yoshiki {slug}", "type": p["meta"]["mode"],
-        "colors": {
-            "editor.background": ebg, "editor.foreground": efg,
-            "editorCursor.foreground": term["cursor"],
-            "editor.selectionBackground": sel,
-            "editorLineNumber.foreground": tok["bone-4"],
-            "editorLineNumber.activeForeground": tok["kin-1"],
-            "sideBar.background": tok["ink-1"], "sideBar.foreground": tok["bone-2"],
-            "activityBar.background": tok["ink-1"], "activityBar.foreground": tok["kin-1"],
-            "statusBar.background": tok["ink-1"], "statusBar.foreground": tok["bone-3"],
-            "titleBar.activeBackground": tok["ink-1"], "titleBar.activeForeground": tok["bone-1"],
-            "tab.activeBackground": tok["ink-2"], "tab.activeForeground": tok["bone-0"],
-            "tab.inactiveForeground": tok["bone-4"],
-            "focusBorder": tok["kin-2"], "panel.border": tok["line-0"],
-            "button.background": tok["ink-2"], "button.foreground": tok["kin-1"],
-            "errorForeground": tok["aka-0"],
-        },
+        "semanticHighlighting": True,
+        "colors": colors,
         "tokenColors": [
-            tc(["comment"], tok["bone-4"], "italic"),
-            tc(["keyword", "storage", "keyword.control"], tok["kin-1"]),
-            tc(["string"], tok["mori-0"]),
-            tc(["constant.numeric", "constant"], tok["kaki-1"]),
-            tc(["entity.name.function", "support.function"], tok["bone-0"]),
-            tc(["entity.name.type", "support.type", "entity.name.class"], tok["hotaru-1"]),
-            tc(["variable"], tok["bone-1"]),
-            tc(["constant.language", "variable.language"], tok["fuji-1"]),
-            tc(["invalid", "message.error"], tok["aka-0"]),
+            tc(["comment", "punctuation.definition.comment"], sx("syntax.comment"), "italic"),
+            tc(["keyword", "storage", "storage.type", "storage.modifier",
+                "keyword.control", "keyword.operator.new", "keyword.operator.expression"], sx("syntax.keyword")),
+            tc(["keyword.operator"], tok["bone-2"]),
+            tc(["entity.name.tag", "entity.name.tag.html"], sx("syntax.keyword")),
+            tc(["string", "string.quoted", "string.template"], sx("syntax.string")),
+            tc(["constant.character.escape", "punctuation.definition.template-expression"], gold_t),
+            tc(["constant.numeric", "constant.numeric.integer", "constant.numeric.float"], sx("syntax.number")),
+            tc(["constant.language", "constant.language.boolean", "variable.language"], sx("syntax.constant")),
+            tc(["constant.other", "support.constant"], tok["kaki-1"]),
+            tc(["entity.name.function", "support.function", "meta.function-call.generic"], tok["bone-0"]),
+            tc(["entity.name.type", "support.type", "entity.name.class",
+                "support.class", "entity.other.inherited-class"], sx("syntax.type")),
+            tc(["variable", "meta.definition.variable.name", "support.variable"], tok["bone-1"]),
+            tc(["variable.parameter", "meta.parameter"], tok["bone-2"]),
+            tc(["variable.other.property", "support.variable.property", "meta.object-literal.key"], tok["bone-2"]),
+            tc(["support.type.property-name.json", "support.type.property-name"], gold_t),
+            tc(["entity.other.attribute-name"], tok["kaki-1"]),
+            tc(["punctuation", "meta.brace", "punctuation.separator", "punctuation.terminator"], tok["bone-3"]),
+            tc(["markup.heading", "markup.heading entity.name", "entity.name.section"], gold_t, "bold"),
+            tc(["markup.bold"], tok["bone-0"], "bold"),
+            tc(["markup.italic"], tok["bone-1"], "italic"),
+            tc(["markup.inline.raw", "markup.fenced_code", "markup.raw"], tok["mori-0"]),
+            tc(["markup.quote"], tok["bone-3"], "italic"),
+            tc(["markup.underline.link", "string.other.link", "constant.other.reference.link"], gold_t, "underline"),
+            tc(["markup.inserted", "punctuation.definition.inserted"], tok["mori-0"]),
+            tc(["markup.deleted", "punctuation.definition.deleted"], tok["aka-0"]),
+            tc(["markup.changed", "punctuation.definition.changed"], tok["kaki-1"]),
+            tc(["meta.diff.header", "punctuation.definition.from-file", "punctuation.definition.to-file"], tok["fuji-1"]),
+            tc(["invalid", "invalid.illegal", "message.error"], tok["aka-0"]),
+            tc(["token.info-token"], gold_t), tc(["token.warn-token"], tok["kaki-1"]),
+            tc(["token.error-token"], tok["aka-0"]), tc(["token.debug-token"], tok["fuji-1"]),
         ],
+        "semanticTokenColors": {
+            "parameter": tok["bone-2"], "property": tok["bone-2"], "variable": tok["bone-1"],
+            "variable.readonly": tok["fuji-1"], "function": tok["bone-0"], "method": tok["bone-0"],
+            "class": tok["hotaru-1"], "type": tok["hotaru-1"], "enum": tok["hotaru-1"],
+            "interface": tok["hotaru-1"], "struct": tok["hotaru-1"], "typeParameter": tok["hotaru-1"],
+            "namespace": tok["bone-2"], "keyword": sx("syntax.keyword"),
+            "string": sx("syntax.string"), "number": sx("syntax.number"),
+            "enumMember": tok["kaki-1"], "macro": tok["fuji-1"], "decorator": tok["kaki-1"],
+            "comment": {"foreground": sx("syntax.comment"), "fontStyle": "italic"},
+            "*.deprecated": {"fontStyle": "strikethrough"},
+        },
     }
     w(LIB / "vscode" / f"{slug}.json", json.dumps(vscode, ensure_ascii=False, indent=2) + "\n")
 

@@ -32,7 +32,7 @@ tokens:
   washi-line: "#C9BA92"
   # triggers — rare psychological events (~3%)
   aka-0:  "#D4665C"   # scarlet text on dark / hover
-  aka-1:  "#BB3C33"   # SCARLET (hanko / torii) — the irreversible
+  aka-1:  "#d8392e"   # 彼岸花 SPIDER LILY (higanbana) — signature scarlet, vermilion 朱; the bloom, may fill
   aka-2:  "#7E302E"   # red lacquer — pressed
   sabi:   "#9B635F"   # dusty rust — calm red contexts
   aka-w:  "#331514"   # wash — diff-del, error fills

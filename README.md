@@ -1,94 +1,74 @@
-```
-╭─ 心 ──────────────────────────────────────────────
-│  様式   Y O S H I K I
-│  a design language · warm monochrome, struck rarely by color
-╰╴
-```
+<p align="center">
+  <img src="docs/banner.png" alt="yoshiki" width="900">
+</p>
 
-> *Cracks are not hidden — they are filled with gold.*
->
-> Lacquer, bone and gold, struck rarely by two triggers: scarlet and moss.
-> The power of a color is in its rarity. Gold gilds; it never fills.
+<h1 align="center">yoshiki · 様式</h1>
 
-A design language and a toolkit — palettes, text styles, CLI/TUI patterns,
-code-comment conventions, ready themes and AI prompts. All modular: take one
-element, or take the whole language.
+<p align="center">
+  An elegant design language — warm monochrome, with color used rarely, as a signal.
+</p>
 
-## Tree
+<p align="center">
+  <a href="https://zinzaki.github.io/yoshiki/"><b>Live demo</b></a> ·
+  <a href="#palette">Palette</a> ·
+  <a href="#contents">Contents</a> ·
+  <a href="#quick-start">Quick start</a>
+</p>
 
-```
-yoshiki/
-│
-├─ canon/                  ◆ the definition — edited by hand, the source of truth
-│  ├─ palette/             tokens · roles · CONTRAST · css/json   · kogane · washi
-│  ├─ lexicon/             glyphs · nameplates · frames · cli · comments
-│  └─ prompts/             modular AI prompts — make any model speak yoshiki
-│
-├─ library/                ◆ the style in use — take & apply (much is generated)
-│  ├─ themes/              kitty·foot·alacritty·starship·base24·vscode·neovim·tmux·btop
-│  ├─ configs/             whole example configs
-│  ├─ snippets/            how to write code in the style, per language
-│  ├─ menus/               ready TUI menus, cards, lists
-│  ├─ motion/              loading & progress — dot-matrix
-│  ├─ text/                nameplates · banners · glyph sets · dividers
-│  └─ presets/             named kits (e.g. "terminal kit")
-│
-├─ tools/build.py          bakes library/themes out of canon/palette
-├─ PHILOSOPHY.md           why it looks like this
-╰─ CHANGELOG.md            the sealed versions
-```
+---
 
-> **Live showcase — [zinzaki.github.io/yoshiki](https://zinzaki.github.io/yoshiki/)** ·
-> the whole language on one page: palette, components, CLI, code, prompts —
-> switch themes and copy any config.
+## What it is
 
-**Two layers.** `canon/` *defines* the language; `library/` is the language
-*in use*. Two kinds of color value: raw **tokens** (`ink-0`, `kin-1`) and the
-**roles** contract (`text.body`, `action.edge`, `danger.fill`). Consume a role,
-never a raw token — a role guarantees contrast and behaviour in both themes.
+A complete, modular toolkit: a color palette, text and UI patterns, ready terminal
+and editor themes, and drop-in AI prompts. Take one file or the whole system.
+Everything is generated from a single source, in two themes — **kogane** (dark) and
+**washi** (light).
 
-## The language
+Three rules hold the language together:
 
-| Layer | Content | Share |
+- **Warm, never grey** — every neutral keeps a warm undertone: lacquer-dark or bone-cream.
+- **Color is rare** — scarlet and moss appear only as signals, at most one accent per screen.
+- **Gold is a line, not a fill** — gold lives in edges, frames and glyphs, never as a filled block.
+
+## Palette
+
+| Layer | Colors | Share |
 |---|---|---|
-| **Tone** | lacquer `#0B0A08…` · bone `#EDE3C4…` · gold `#D6AE66` · persimmon warning | ~97% |
-| **Triggers** | scarlet `#BB3C33` (the irreversible — one per screen) · moss `#52703F` (life) | ~3% |
-| **Service** | dusty blue / wisteria / celadon — terminal & syntax only, never UI | — |
+| **Tone** | lacquer `#0B0A08` · bone `#EDE3C4` · gold `#D6AE66` · persimmon `#C67F45` | ~97% |
+| **Triggers** | spider-lily scarlet `#d8392e` · moss `#52703F` | ~3% |
+| **Service** | dusty-blue · wisteria · celadon — terminals & syntax only | — |
+
+Tokens, semantic roles and WCAG-checked contrast: [`canon/palette`](canon/palette).
+
+## Contents
 
 ```
-gold is gilding, never a slab    line · edge · frame · glyph — never a filled area
-rarity = power                   a signal used everywhere is dead
-70 / 20 / 7 / 3                  dark · bone · gold · triggers
-warm darkness, never grey        information lives in tone, not in blue
-soft geometry, quiet glow        weight at the top, air at the bottom
+canon/      the definition — edited by hand
+  palette/    tokens · roles · contrast proof · kogane · washi
+  lexicon/    glyphs · nameplates · frames · CLI/TUI · code comments
+  prompts/    drop-in AI system prompts
+library/    ready to use — mostly generated
+  themes/     kitty · foot · alacritty · starship · base24 · vscode · neovim · tmux · btop
+  configs/ · snippets/ · menus/ · charts/ · motion/ · text/ · presets/
+tools/build.py   generates every theme from canon/palette
 ```
 
 ## Quick start
 
 ```bash
-# terminal — copy one file
+# a terminal theme — copy one file
 library/themes/kitty/kogane.conf        # or foot · alacritty · starship · base24
 
-# web — one css file (raw tokens + semantic --r-<role> aliases)
+# web — CSS variables (raw tokens + semantic roles)
 canon/palette/kogane/kogane.css
 
-# make an AI speak yoshiki — paste one module
-canon/prompts/identity.md               # or palette · cli · comments · text
+# make an AI follow the language — paste one prompt
+canon/prompts/identity.md
+
+# regenerate every theme from the palette
+python3 tools/build.py
 ```
 
-Source of truth is `palette.yml` per theme; everything else is generated:
-`python3 tools/build.py`.
+## License
 
-## Roadmap
-
-```
-v1.0   ✓  palette · roles · contrast proof
-       ✓  two themes — kogane (dark) · washi (light)
-       ✓  lexicon — glyphs · nameplates · frames · cli · code
-       ✓  library — themes · configs · snippets · menus · motion · text · presets
-next   ·  more snippets & languages · expanded presets
-```
-
----
-
-<div align="center"><i>The crack, filled with gold, becomes the most valued part of the bowl.</i></div>
+MIT — see [LICENSE](LICENSE).

@@ -11,7 +11,7 @@ rectangle. Scarlet blooms once per screen for the irreversible; moss confirms.
 
 - surfaces `#0B0A08 → #262119` · text `#F7EED2 → #6B5F49`
 - gold `#D6AE66` (hover `#EAC578`, dim `#8F713C`) — lines and edges only
-- triggers: scarlet `#BB3C33` (may fill) · moss `#52703F` · warning persimmon `#C67F45`
+- triggers: spider-lily scarlet `#d8392e` (may fill) · moss `#52703F` · warning persimmon `#C67F45`
 - paper artifact: `#E7DCBB` card with sumi ink and a hanko seal —
   light pinned inside darkness (the seal is a signature, not a signal)
 
