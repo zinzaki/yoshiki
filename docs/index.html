@@ -154,7 +154,7 @@ h3::after{content:'';flex:1;height:1px;background:var(--line-0)}
 .t-mono{font-family:var(--ff-mono);font-size:15px;color:var(--bone-2)}
 
 /* glyphs — gold & tone, no red */
-.glyphs{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:10px}
+.glyphs{display:grid;grid-template-columns:repeat(8,1fr);gap:9px}
 .gl{border:1px solid var(--line-0);border-radius:13px;padding:17px 10px;text-align:center;background:var(--ink-1);cursor:pointer;transition:border-color .25s,transform .2s}
 .gl:hover{border-color:var(--kin-2);transform:translateY(-3px)}
 .gl .s{font-size:25px;line-height:1;display:block;margin-bottom:10px}
@@ -220,6 +220,7 @@ h3::after{content:'';flex:1;height:1px;background:var(--line-0)}
   nav a.on{border-bottom:2px solid var(--kin-1)}
   main{padding:0 22px;max-width:100%}
 }
+@media(max-width:620px){.glyphs{grid-template-columns:repeat(4,1fr)}}
 @media (prefers-reduced-transparency:reduce){.glass,.pp{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background:var(--ink-2)}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important}#sky,#prismC{display:none}}
 </style>
@@ -314,7 +315,7 @@ h3::after{content:'';flex:1;height:1px;background:var(--line-0)}
   <section id="glyphs">
     <div class="head"><div class="ey" data-n="04">canon · lexicon</div><h2>Glyphs</h2>
       <p class="lead">Marks that replace words — one meaning per glyph, applied consistently. See, don't read.</p></div>
-    <div class="glyphs" id="glyphs"></div>
+    <div class="glyphs" id="glyph-grid"></div>
   </section>
 
   <section id="frames">
@@ -494,7 +495,7 @@ for(const id in R){const el=document.getElementById(id);R[id].forEach(([h,n])=>{
 .forEach(([h,l])=>{const a=document.createElement('div');a.className='ac';a.style.background=h;a.dataset.copy=h;a.textContent=l;a.style.color=lum(h)<.35?'#F7EED2':'#0B0A08';document.getElementById('ansi').appendChild(a);});
 [['✓','done','k'],['✗','fail','b'],['●','active','k'],['○','idle','b'],['◆','node','k'],['◈','special','m'],['❯','prompt','k'],['→','flow','k'],
 ['▲','up','k'],['▼','down','b'],['◇','option','b'],['⊙','focus','k'],['✦','accent','k'],['⟢','link','m'],['╴','break','k'],['⠿','matrix','k']]
-.forEach(([s,m,c])=>{const d=document.createElement('div');d.className='gl';d.dataset.copy=s+' · '+m;d.innerHTML=`<span class="s ${c}">${s}</span><span class="m">${m}</span>`;document.getElementById('glyphs').appendChild(d);});
+.forEach(([s,m,c])=>{const d=document.createElement('div');d.className='gl';d.dataset.copy=s+' · '+m;d.innerHTML=`<span class="s ${c}">${s}</span><span class="m">${m}</span>`;document.getElementById('glyph-grid').appendChild(d);});
 document.addEventListener('click',e=>{const c=e.target.closest('[data-copy]'),b=e.target.closest('[data-toast]'),t=e.target.closest('.tog');
   if(b){toast(b.dataset.toast);return;}if(t){t.querySelector('.sw2').classList.toggle('on');return;}
   if(c){const v=c.dataset.copy.split(' · ')[0];navigator.clipboard&&navigator.clipboard.writeText(v);toast('copied · '+c.dataset.copy);}});
