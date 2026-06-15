@@ -1,828 +1,650 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="kogane" data-mode="dark">
+<html lang="en" data-theme="kogane">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>yoshiki 様式 — a design language · warm monochrome, struck rarely by color</title>
-<meta name="description" content="yoshiki (様式) — a design language by Zinzaki. A warm lacquer monochrome of bone and gold, struck rarely by scarlet and moss. Palette, components, CLI, code style, AI prompts and ready themes — on one page.">
-<meta name="author" content="Zinzaki">
-<meta property="og:title" content="yoshiki 様式 — a design language">
-<meta property="og:description" content="Warm monochrome, struck rarely by color. Gold gilds; it never fills. Palette · components · CLI · code · prompts · themes.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>様式 yoshiki — a design language</title>
+<meta name="description" content="yoshiki — an elegant design language. Warm monochrome, struck rarely by color. Lacquer, bone and gold, with a single spider-lily scarlet.">
+<meta property="og:title" content="様式 yoshiki — a design language">
+<meta property="og:description" content="Warm monochrome, struck rarely by color. Lacquer · bone · gold · one spider-lily scarlet.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://zinzaki.github.io/yoshiki/">
-<meta name="theme-color" content="#0B0A08">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Prata&family=Manrope:wght@400;500;600;700&family=Shippori+Mincho:wght@500;600;700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=JetBrains+Mono:wght@300;400;600&family=Noto+Serif+JP:wght@500;700;900&display=swap" rel="stylesheet">
 <style>
-/* ╔══════════════════════════════════════════════════════════════╗
-   ║  yoshiki 様式 — one page, the whole language                  ║
-   ║  every color below is a var; themes swap vars, nothing else   ║
-   ║  GOLD IS GILDING: lines, edges, frames, glyphs — never a slab ║
-   ╚══════════════════════════════════════════════════════════════╝ */
+*{box-sizing:border-box;margin:0;padding:0}
+
 :root{
-  --mono:"JetBrains Mono","Iosevka",monospace;
-  --serif:"Prata","Shippori Mincho","Noto Serif JP",Georgia,serif;
-  --sans:"Manrope","Noto Sans JP",system-ui,sans-serif;
-  --r-lg:18px; --r-md:13px; --r-sm:9px;
+  /* ── kogane · dark (tokens) ── */
+  --ink-0:#0B0A08; --ink-1:#12100C; --ink-2:#1B1813; --ink-3:#262119;
+  --line-0:#362C1B; --line-1:#4C3D24;
+  --bone-0:#F7EED2; --bone-1:#EDE3C4; --bone-2:#C9BC96; --bone-3:#94866A; --bone-4:#6B5F49;
+  --kin-0:#EAC578; --kin-1:#D6AE66; --kin-2:#8F713C; --kin-3:#57441F; --kin-w:#3F3112;
+  --kaki:#C67F45;
+  --aka-0:#D4665C; --aka-1:#d8392e; --aka-2:#7E302E; --aka-w:#331514;
+  --mori-0:#8FAC6F; --mori-1:#52703F;
+  --hotaru:#7C88B8; --fuji:#9C7FB0; --seiji:#6FA08E;
+
+  /* glass tuned warm for dark */
+  --glass-bg:rgba(21,18,12,.50);
+  --glass-brd:rgba(214,174,102,.12);
+  --glass-spec:rgba(255,247,222,.22);
+  --grain-op:.04;
+  --shadow:0 24px 60px rgba(0,0,0,.55);
+
+  --ff-disp:'Shippori Mincho','Noto Serif JP',serif;
+  --ff-body:'Zen Kaku Gothic New',system-ui,sans-serif;
+  --ff-mono:'JetBrains Mono',monospace;
+  --kin-text:var(--kin-1);
 }
-*{margin:0;padding:0;box-sizing:border-box}
-::selection{background:color-mix(in srgb,var(--primary) 26%,transparent);color:var(--bone-0)}
-::-webkit-scrollbar{width:10px;height:10px}
-::-webkit-scrollbar-track{background:transparent}
-::-webkit-scrollbar-thumb{background:var(--line-1);border-radius:8px;border:3px solid var(--ink-0)}
-:focus-visible{outline:none;box-shadow:0 0 0 2px var(--ink-0),0 0 0 4px var(--focus)}
-html{scroll-behavior:smooth;scroll-padding-top:90px}
+
+[data-theme="washi"]{
+  /* ── washi · light (paper & ink) ── */
+  --ink-0:#E2D6B4; --ink-1:#EBE1C3; --ink-2:#F3EBD5; --ink-3:#D7C9A3;
+  --line-0:#C7B68C; --line-1:#AE9C72;
+  --bone-0:#1F1810; --bone-1:#2B2117; --bone-2:#4A3D2A; --bone-3:#6E5E42; --bone-4:#8E7C5A;
+  --kin-0:#B8923F; --kin-1:#9C7A40; --kin-2:#7A5F2E; --kin-3:#C9AE74; --kin-w:#E6D7A8;
+  --kaki:#A5602B;
+  --aka-0:#A8352B; --aka-1:#d8392e; --aka-2:#7E302E; --aka-w:#EBD3C8;
+  --mori-0:#4A6B38; --mori-1:#52703F;
+  --glass-bg:rgba(243,235,213,.55);
+  --glass-brd:rgba(122,95,46,.18);
+  --glass-spec:rgba(255,255,255,.5);
+  --grain-op:.03;
+  --shadow:0 20px 50px rgba(94,74,40,.18);
+  /* text-safe gold on paper */
+  --kin-text:#7A5F2E;
+}
+
+html{scroll-behavior:smooth}
 body{
-  background:var(--ink-0);color:var(--bone-1);
-  font-family:var(--sans);font-size:14.5px;line-height:1.65;
-  background-image:var(--bg-grad);background-attachment:fixed}
-body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:95;opacity:var(--grain);
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-.themed,.themed *{transition:background-color .4s ease,color .4s ease,border-color .4s ease,box-shadow .4s ease}
+  background:var(--ink-0); color:var(--bone-1);
+  font-family:var(--ff-body); font-weight:300; line-height:1.7;
+  overflow-x:hidden; -webkit-font-smoothing:antialiased;
+  transition:background .6s ease,color .6s ease;
+  cursor:none;
+}
+@media (pointer:coarse){ body{cursor:auto} }
 
-.hud{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--kin-2)}
-.hud b{color:var(--kin-text);font-weight:500}
+/* ── grain + aurora atmosphere ── */
+#grain{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:var(--grain-op);mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:200px}
+#aurora{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.blob{position:absolute;border-radius:50%;filter:blur(90px);will-change:transform;opacity:.5}
 
-/* ── top bar ────────────────────────────────────────────────── */
-.top{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;gap:18px;
-  padding:12px 26px;border-bottom:1px solid var(--line-0);
-  background:var(--glass);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
-.brand{display:flex;align-items:baseline;gap:10px;flex-shrink:0}
-.brand .k{font-family:var(--serif);font-size:19px;color:var(--kin-1)}
-.brand b{font-family:var(--serif);font-weight:400;font-size:15px;color:var(--bone-0);letter-spacing:.05em}
-.brand span{font-family:var(--mono);font-size:9px;letter-spacing:.22em;color:var(--kin-2);text-transform:uppercase}
-.tabs{display:flex;gap:4px;margin-left:auto}
-.tab{display:flex;align-items:center;gap:7px;padding:7px 16px;border-radius:999px;cursor:pointer;
-  font-size:12px;font-weight:600;color:var(--bone-3);border:1px solid transparent;background:none;font-family:var(--sans)}
-.tab .sw{width:9px;height:9px;border-radius:50%;border:1px solid rgba(128,128,128,.35)}
-.tab .jp{font-family:var(--serif);font-size:11px;opacity:.85}
-.tab kbd{font-family:var(--mono);font-size:8.5px;opacity:.5}
-.tab:hover{color:var(--bone-1)}
-.tab.act{color:var(--kin-text);background:color-mix(in srgb,var(--primary) 10%,transparent);
-  border-color:color-mix(in srgb,var(--primary) 45%,transparent)}
-.keys{font-family:var(--mono);font-size:9.5px;letter-spacing:.15em;color:var(--bone-4);flex-shrink:0}
+/* ── custom dual-ring cursor ── */
+.cur{position:fixed;top:0;left:0;z-index:9999;pointer-events:none;border-radius:50%;
+  transform:translate(-50%,-50%);will-change:transform}
+#curR{width:34px;height:34px;border:1px solid rgba(214,174,102,.5);mix-blend-mode:screen;
+  transition:width .3s,height .3s,border-color .3s,background .3s}
+#curR.hov{width:54px;height:54px;background:rgba(214,174,102,.06);border-color:rgba(214,174,102,.9)}
+#curR.act{width:60px;height:60px;border-color:var(--aka-1);background:rgba(216,57,46,.06)}
+#curD{width:5px;height:5px;background:var(--kin-1);box-shadow:0 0 10px rgba(214,174,102,.8)}
+@media (pointer:coarse){.cur{display:none}}
 
-/* ── layout ─────────────────────────────────────────────────── */
-.shell{display:grid;grid-template-columns:212px 1fr;max-width:1460px;margin:0 auto;padding-top:62px}
-@media(max-width:1000px){.shell{grid-template-columns:1fr}.side{display:none}}
-.side{position:sticky;top:62px;height:calc(100vh - 62px);padding:30px 14px 30px 26px;
-  display:flex;flex-direction:column;gap:3px;overflow-y:auto}
-.side .cap{font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--bone-4);padding:14px 12px 7px}
-.snav{display:flex;align-items:center;gap:10px;padding:7px 12px;border-radius:var(--r-sm);
-  color:var(--bone-3);font-size:13px;font-weight:500;text-decoration:none;border:1px solid transparent}
-.snav .g{width:16px;text-align:center;font-size:12px;opacity:.85;font-family:var(--mono)}
-.snav:hover{color:var(--bone-1);background:var(--hover-row)}
-.snav.act{color:var(--nav-text);background:var(--nav-bg);border-color:var(--nav-border)}
-.side .links{margin-top:auto;padding:14px 12px;border-top:1px solid var(--line-0)}
-.side .links a{display:block;font-size:11.5px;color:var(--bone-3);text-decoration:none;padding:3px 0}
-.side .links a:hover{color:var(--kin-text)}
+/* ── layout ── */
+.wrap{position:relative;z-index:2;max-width:1040px;margin:0 auto;padding:0 28px}
+section{padding:64px 0;position:relative}
+.eyebrow{font-family:var(--ff-mono);font-size:10px;letter-spacing:5px;text-transform:uppercase;
+  color:var(--kin-2);display:flex;align-items:center;gap:16px;margin-bottom:38px}
+.eyebrow::before{content:'';width:3px;height:13px;background:var(--aka-1);flex-shrink:0}
+.eyebrow::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--line-1),transparent)}
+.rule{height:1px;background:linear-gradient(90deg,transparent,var(--line-0) 30%,var(--line-1) 50%,var(--line-0) 70%,transparent)}
 
-.main{min-width:0;padding:34px 34px 80px}
-.sec{margin-top:84px}.sec:first-child{margin-top:8px}
-.sec-tag{display:inline-flex;align-items:center;gap:8px;background:var(--ink-2);
-  border:1px solid var(--border-soft);border-radius:999px;padding:5px 14px;
-  font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--kin-text);text-transform:uppercase}
-.sec-tag i{width:5px;height:5px;border-radius:50%;background:var(--primary)}
-.sec h2{font-family:var(--serif);font-weight:400;font-size:28px;color:var(--bone-0);letter-spacing:.03em;margin:14px 0 5px}
-.sec h2 .jp{color:var(--kin-1);margin-left:12px;font-size:20px}
-.sec-sub{color:var(--bone-3);font-size:13px;margin-bottom:28px;max-width:680px}
+/* ── theme switch ── */
+#themer{position:fixed;top:22px;right:24px;z-index:9998;display:flex;gap:8px;align-items:center;
+  background:var(--glass-bg);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border:1px solid var(--glass-brd);border-radius:100px;padding:7px 9px}
+.tdot{width:16px;height:16px;border-radius:50%;cursor:none;border:1px solid var(--line-1);transition:transform .25s,box-shadow .25s}
+.tdot[data-t="kogane"]{background:#0B0A08}
+.tdot[data-t="washi"]{background:#E2D6B4}
+.tdot.on{box-shadow:0 0 0 2px var(--kin-1);transform:scale(1.1)}
 
-.panel{background:var(--ink-1);border:1px solid var(--border-soft);border-radius:var(--r-lg);box-shadow:var(--shadow)}
-.p-head{display:flex;align-items:center;gap:11px;padding:14px 20px;border-bottom:1px solid var(--sep)}
-.p-head h3{font-family:var(--serif);font-weight:400;font-size:15px;color:var(--bone-0)}
-.p-head .jp{color:var(--kin-2);font-family:var(--serif);font-size:12px}
-.p-head .note{margin-left:auto;font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;color:var(--bone-4);text-transform:uppercase}
-.p-body{padding:18px 20px}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-@media(max-width:900px){.grid2{grid-template-columns:1fr}}
+/* ══ HERO ══ */
+.hero{min-height:92vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;position:relative;padding:80px 24px 60px}
+#sky{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.hero-in{position:relative;z-index:2}
+.hero-over{font-family:var(--ff-mono);font-size:11px;letter-spacing:7px;text-transform:uppercase;
+  color:var(--bone-3);margin-bottom:26px;display:flex;gap:14px;align-items:center;justify-content:center}
+.hero-over::before,.hero-over::after{content:'';width:42px;height:1px;background:linear-gradient(90deg,transparent,var(--line-1))}
+.hero-over::after{transform:scaleX(-1)}
+.hero-title{font-family:var(--ff-disp);font-weight:800;font-size:clamp(88px,19vw,184px);line-height:.92;letter-spacing:.04em;
+  background:linear-gradient(135deg,var(--kin-3) 0%,var(--kin-1) 28%,var(--bone-0) 50%,var(--kin-0) 72%,var(--kin-2) 100%);
+  background-size:220% 220%;-webkit-background-clip:text;background-clip:text;color:transparent;
+  animation:flow 6s ease-in-out infinite}
+@keyframes flow{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.hero-name{font-family:var(--ff-mono);font-size:12px;letter-spacing:9px;color:var(--bone-3);text-transform:uppercase;margin-top:14px}
+.pill{display:inline-flex;align-items:center;gap:9px;margin-top:30px;padding:8px 18px 8px 13px;border-radius:100px;
+  background:rgba(216,57,46,.08);border:1px solid rgba(216,57,46,.26);color:var(--aka-0);
+  font-family:var(--ff-mono);font-size:11px;letter-spacing:2.5px;cursor:none;transition:background .3s,box-shadow .3s}
+.pill:hover{background:rgba(216,57,46,.15);box-shadow:0 0 28px rgba(216,57,46,.22)}
+.pdot{width:7px;height:7px;border-radius:50%;background:var(--aka-1);box-shadow:0 0 11px rgba(216,57,46,.9);animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.25;transform:scale(.55)}}
+.hero-sub{margin-top:22px;font-size:15px;color:var(--bone-2);max-width:440px;line-height:1.9}
+.scroll{margin-top:46px;display:flex;flex-direction:column;align-items:center;gap:8px}
+.scroll-l{width:1px;height:42px;background:linear-gradient(180deg,var(--kin-1),transparent);animation:sl 2.2s ease-in-out infinite}
+@keyframes sl{0%{opacity:0;transform:scaleY(0);transform-origin:top}50%{opacity:1;transform:scaleY(1)}100%{opacity:0;transform:scaleY(0);transform-origin:bottom}}
+.scroll-t{font-family:var(--ff-mono);font-size:9px;letter-spacing:4px;color:var(--bone-4);text-transform:uppercase}
 
-/* ── hero ───────────────────────────────────────────────────── */
-.hero{position:relative;border-radius:24px;overflow:hidden;padding:58px 56px 50px;
-  background:var(--hero-bg);border:1px solid var(--hero-border);box-shadow:var(--shadow)}
-@media(max-width:800px){.hero{padding:36px 26px}}
-.hero .seam{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.5}
-.hero .seam path{fill:none;stroke:url(#seamG);stroke-width:1.2;
-  stroke-dasharray:1600;stroke-dashoffset:1600;animation:seam 2.4s .3s ease-out forwards;
-  filter:drop-shadow(0 0 5px color-mix(in srgb,var(--kin-0) 55%,transparent))}
-@keyframes seam{to{stroke-dashoffset:0}}
-.hero-grid{display:flex;gap:48px;align-items:center;position:relative}
-.hero-kanji{font-family:var(--serif);font-size:96px;line-height:1.05;writing-mode:vertical-rl;
-  flex-shrink:0;user-select:none;color:var(--kin-1);
-  text-shadow:0 0 36px color-mix(in srgb,var(--kin-0) 28%,transparent)}
-.hero h1{font-family:var(--serif);font-weight:400;font-size:40px;color:var(--bone-0);letter-spacing:.1em;margin:10px 0 4px}
-.hero .sub{font-family:var(--serif);font-size:15.5px;color:var(--bone-2)}
-.hero .quote{margin-top:20px;padding:14px 20px;border-radius:var(--r-md);background:var(--quote-bg);
-  border:1px solid var(--sep);color:var(--bone-3);font-size:13px;max-width:540px;font-style:italic}
-.hero .quote em{color:var(--kin-0);font-style:normal}
-.hero .hudline{display:flex;gap:22px;margin-top:20px;flex-wrap:wrap}
-.hero .demos{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap}
-.hero .demos a{font-size:11.5px;font-weight:600;color:var(--kin-text);text-decoration:none;
-  border:1px solid color-mix(in srgb,var(--primary) 40%,transparent);border-radius:999px;padding:6px 15px}
-.hero .demos a:hover{background:color-mix(in srgb,var(--primary) 8%,transparent)}
+/* ══ GLASS CARDS ══ */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:760px){.grid3{grid-template-columns:1fr}}
+.glass{position:relative;border-radius:22px;padding:28px 24px;overflow:hidden;cursor:none;
+  background:var(--glass-bg);border:1px solid var(--glass-brd);
+  backdrop-filter:blur(7px) saturate(1.4);-webkit-backdrop-filter:blur(7px) saturate(1.4);
+  box-shadow:var(--shadow);transform-style:preserve-3d;will-change:transform;transition:border-color .4s}
+.glass::before{content:'';position:absolute;inset:0;border-radius:22px;pointer-events:none;
+  background:linear-gradient(150deg,var(--glass-spec) 0%,transparent 42%)}
+.glass::after{content:'';position:absolute;top:0;left:9%;right:9%;height:1px;background:linear-gradient(90deg,transparent,var(--glass-spec),transparent)}
+.spot{position:absolute;inset:0;border-radius:22px;pointer-events:none;opacity:0;transition:opacity .35s;
+  background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(214,174,102,.16),transparent 60%)}
+.glass:hover .spot{opacity:1}
+.sheen{position:absolute;top:0;left:-110%;width:55%;height:100%;pointer-events:none;
+  background:linear-gradient(105deg,transparent 38%,var(--glass-spec) 50%,transparent 62%)}
+.glass:hover .sheen{animation:sheen .7s ease forwards}
+@keyframes sheen{to{left:160%}}
+.g-in{position:relative;z-index:1}
+.g-mk{font-family:var(--ff-disp);font-size:30px;line-height:1;display:block;margin-bottom:16px}
+.g-tag{font-family:var(--ff-mono);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--bone-3);margin-bottom:6px}
+.g-name{font-family:var(--ff-disp);font-size:19px;font-weight:700;margin-bottom:9px;line-height:1.2}
+.g-body{font-size:13px;color:var(--bone-2);line-height:1.8}
+.g-hex{display:inline-block;font-family:var(--ff-mono);font-size:11px;margin-top:15px;padding:4px 11px;border-radius:6px;
+  background:rgba(255,255,255,.04);border:1px solid var(--glass-brd);color:var(--bone-3)}
 
-/* ── philosophy ── */
-.phil{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
-.phil .card{background:var(--ink-1);border:1px solid var(--border-soft);border-radius:var(--r-lg);
-  padding:22px;box-shadow:var(--shadow);position:relative;overflow:hidden}
-.phil .card::before{content:"";position:absolute;top:0;left:22px;right:22px;height:1.5px;
-  background:linear-gradient(90deg,transparent,var(--primary),transparent);opacity:.6}
-.phil .k{font-family:var(--serif);font-size:26px;color:var(--kin-1);margin-bottom:8px}
-.phil h4{font-family:var(--serif);font-weight:400;font-size:15.5px;color:var(--bone-0);margin-bottom:6px}
-.phil p{font-size:12px;color:var(--bone-3);line-height:1.6}
+/* ══ PRISM (real SVG refraction, blur fallback) ══ */
+.prism{position:relative;height:300px;border-radius:26px;overflow:hidden;border:1px solid var(--glass-brd)}
+#prismC{position:absolute;inset:0;width:100%;height:100%}
+.prism-row{position:absolute;inset:0;display:flex;gap:12px;padding:26px}
+.pp{flex:1;border-radius:18px;position:relative;overflow:hidden;cursor:none;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:8px;border:1px solid var(--glass-brd);
+  background:rgba(12,10,7,.18);
+  backdrop-filter:blur(3px) saturate(1.6) brightness(.9);-webkit-backdrop-filter:blur(3px) saturate(1.6) brightness(.9);
+  transition:transform .4s cubic-bezier(.22,.68,0,1.2),border-color .3s}
+@supports (backdrop-filter:url(#x)){ .pp{backdrop-filter:url(#refract) blur(2px) saturate(1.5)} }
+.pp::before{content:'';position:absolute;inset:0;background:linear-gradient(155deg,var(--glass-spec),transparent 45%);pointer-events:none}
+.pp:hover{transform:translateY(-6px) scale(1.04);border-color:rgba(214,174,102,.4)}
+.pp-k{font-family:var(--ff-disp);font-size:34px;font-weight:800;text-shadow:0 2px 18px rgba(0,0,0,.6)}
+.pp-l{font-family:var(--ff-mono);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--bone-3)}
 
-/* ── tokens ── */
-.tok-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(132px,1fr));gap:10px}
-.tok{height:88px;border-radius:var(--r-md);cursor:pointer;padding:10px 12px;
-  display:flex;flex-direction:column;justify-content:flex-end;border:1px solid var(--border-soft);
-  transition:transform .18s ease;position:relative}
-.tok:hover{transform:translateY(-3px)}
-.tok .n{font-family:var(--mono);font-size:10.5px;font-weight:700}
-.tok .h{font-family:var(--mono);font-size:9.5px;opacity:.75}
-.tok-cap{grid-column:1/-1;font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;
-  text-transform:uppercase;color:var(--bone-4);padding:12px 2px 2px}
-.roles{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
-.role{display:flex;align-items:center;gap:12px;background:var(--ink-2);border:1px solid var(--border-soft);
-  border-radius:var(--r-md);padding:11px 14px}
-.role i{width:26px;height:26px;border-radius:8px;flex-shrink:0;border:1px solid rgba(128,128,128,.2)}
-.role i.framed{background:var(--ink-3)!important;border:1.5px solid var(--primary)}
-.role b{display:block;font-size:12px;color:var(--bone-0);font-weight:600}
-.role span{font-family:var(--mono);font-size:9.5px;color:var(--bone-4)}
-.ansi-strip{display:grid;grid-template-columns:repeat(8,1fr);gap:6px}
-.ansi-strip div{height:38px;border-radius:8px;display:flex;align-items:flex-end;padding:4px 7px;
-  font-family:var(--mono);font-size:8.5px;cursor:pointer}
-.trig{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:center;padding:26px 10px}
-.orb{width:44px;height:44px;border-radius:50%;position:relative;margin:0 10px}
-.orb::before{content:"";position:absolute;inset:0;border-radius:50%;
-  background:radial-gradient(circle at 35% 30%,var(--cl),var(--c) 60%,var(--cd));
-  box-shadow:0 0 20px color-mix(in srgb,var(--c) 38%,transparent)}
-.trig-note{text-align:center;font-size:11.5px;color:var(--bone-4);padding:0 16px 16px}
+/* ══ RAMPS ══ */
+.ramps{display:flex;flex-direction:column;gap:10px}
+.ramp{display:flex;border-radius:13px;overflow:hidden;height:46px}
+.sw{flex:1;cursor:none;position:relative;transition:flex .35s cubic-bezier(.22,.68,0,1.2)}
+.sw:hover{flex:2.4}
+.sw-t{position:absolute;bottom:calc(100% + 7px);left:50%;transform:translateX(-50%);white-space:nowrap;
+  font-family:var(--ff-mono);font-size:10px;padding:4px 9px;border-radius:5px;opacity:0;pointer-events:none;
+  background:var(--ink-2);border:1px solid var(--line-1);color:var(--bone-1);transition:opacity .15s;z-index:9}
+.sw:hover .sw-t{opacity:1}
 
-/* ── components (gold = gilding) ── */
-.row{display:flex;gap:11px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
-.row:last-child{margin-bottom:0}
-.btn{font-size:13px;font-weight:600;padding:9px 22px;border-radius:999px;border:1px solid transparent;
-  cursor:pointer;font-family:var(--sans);background:none}
-/* primary = GILDED FRAME, not a gold slab */
-.btn-primary{background:color-mix(in srgb,var(--primary) 6%,transparent);
-  border:1.5px solid color-mix(in srgb,var(--primary) 60%,transparent);color:var(--kin-text)}
-.btn-primary:hover{border-color:var(--kin-0);color:var(--kin-0);
-  background:color-mix(in srgb,var(--primary) 12%,transparent);
-  box-shadow:0 0 18px color-mix(in srgb,var(--primary) 22%,transparent)}
-.btn-quiet{color:var(--bone-2);border-color:var(--line-1)}
-.btn-quiet:hover{color:var(--bone-0);border-color:var(--bone-4)}
-/* scarlet MAY fill — it is the rare deliberate event */
-.btn-danger{background:var(--aka-1);color:#FFF3ED;border-color:var(--aka-1)}
-.btn-danger:hover{background:var(--aka-0)}
-.inp{background:var(--inp-bg);border:1px solid var(--line-1);color:var(--bone-1);border-radius:var(--r-sm);
-  font-size:13px;padding:9px 14px;width:200px;font-family:var(--sans)}
-.inp:focus{outline:none;border-color:var(--focus);box-shadow:0 0 0 4px color-mix(in srgb,var(--focus) 14%,transparent)}
-.badge{font-family:var(--mono);font-size:10px;letter-spacing:.1em;padding:3px 11px;border-radius:999px;border:1px solid}
-.alert{display:flex;gap:12px;padding:12px 16px;border-radius:var(--r-md);font-size:12.5px;
-  margin-bottom:10px;align-items:baseline;border:1px solid;border-left-width:3px}
-.alert .t{font-weight:700;font-family:var(--mono);font-size:10px;letter-spacing:.12em;white-space:nowrap}
-.alert .b{color:var(--bone-2)}
-.toggle{width:44px;height:24px;border-radius:999px;border:1px solid var(--line-1);background:var(--ink-0);
-  position:relative;cursor:pointer}
-.toggle::after{content:"";position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;
-  background:var(--bone-4);transition:all .2s}
-.toggle.on{border-color:color-mix(in srgb,var(--primary) 55%,transparent)}
-.toggle.on::after{left:23px;background:var(--primary)}
-.prog{height:4px;border-radius:999px;background:var(--ink-3);position:relative;flex:1;min-width:120px}
-.prog i{position:absolute;inset:0;right:34%;border-radius:999px;background:var(--primary);display:block}
+/* ══ INSPECTOR ══ */
+.insp{border-radius:22px;overflow:hidden;border:1px solid var(--line-0);background:var(--ink-1)}
+.insp-h{background:var(--ink-2);padding:15px 22px;border-bottom:1px solid var(--line-0);display:flex;justify-content:space-between;align-items:center}
+.insp-h b{font-family:var(--ff-mono);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--kin-1);font-weight:600}
+.insp-h span{font-family:var(--ff-mono);font-size:11px;color:var(--bone-3)}
+.insp-b{padding:22px}
+.chips{display:grid;grid-template-columns:repeat(11,1fr);gap:5px;margin-bottom:18px}
+@media(max-width:600px){.chips{grid-template-columns:repeat(8,1fr)}}
+.chip{aspect-ratio:1;border-radius:8px;cursor:none;border:1px solid rgba(255,255,255,.05);transition:transform .2s,box-shadow .2s}
+.chip:hover{transform:scale(1.18);z-index:3;box-shadow:0 6px 18px rgba(0,0,0,.5)}
+.chip.on{transform:scale(1.22);box-shadow:0 0 0 2px var(--kin-1),0 8px 24px rgba(0,0,0,.5);z-index:4}
+.pbar{height:92px;border-radius:14px;display:flex;align-items:center;justify-content:space-between;padding:0 26px;
+  position:relative;overflow:hidden;transition:background .45s}
+.pbar::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:rgba(255,255,255,.2)}
+.pbar .hx{font-family:var(--ff-mono);font-size:24px;font-weight:600}
+.pbar .nm{font-family:var(--ff-mono);font-size:11px;letter-spacing:1.5px;text-align:right}
 
-/* ── text ── */
-.plates{display:flex;flex-direction:column;gap:14px;align-items:center;padding:10px 0 4px}
-.plate{font-family:var(--mono);font-size:16px;letter-spacing:.32em;color:var(--bone-0)}
-.plate .m{color:var(--kin-1)}.plate.cer .m{color:var(--aka-0)}
-.plate small{font-family:var(--sans);font-size:10px;letter-spacing:.05em;color:var(--bone-4);display:block;text-align:center;margin-top:2px}
-.gtable{width:100%;border-collapse:collapse;font-size:12.5px}
-.gtable td{padding:7px 10px;border-bottom:1px solid var(--sep)}
-.gtable tr:last-child td{border-bottom:none}
-.gtable .g{font-family:var(--mono);font-size:15px;width:40px;text-align:center}
-.gtable .m{color:var(--bone-1);font-weight:600;width:130px}
-.gtable .u{color:var(--bone-4);font-size:11.5px}
-pre.frame-demo{font-family:var(--mono);font-size:12px;line-height:1.65;color:var(--bone-1);
-  background:var(--ink-0);border:1px solid var(--border-soft);border-radius:var(--r-md);padding:16px 18px;overflow-x:auto}
-pre.frame-demo .dim{color:var(--kin-2)}pre.frame-demo .gh{color:var(--bone-4)}
-pre.frame-demo .ok{color:var(--mori-0)}pre.frame-demo .gold{color:var(--kin-1)}
+/* ══ CONTRAST ══ */
+.cgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}
+@media(max-width:600px){.cgrid{grid-template-columns:1fr}}
+.ct{border-radius:15px;padding:21px;border:1px solid rgba(255,255,255,.05);background:var(--ink-0)}
+.ct .r{font-family:var(--ff-mono);font-size:27px;font-weight:600;margin-bottom:3px}
+.ct .l{font-family:var(--ff-mono);font-size:10px;letter-spacing:2px;color:var(--bone-3);margin-bottom:12px}
+.ct .s{font-size:15px;line-height:1.6}
+.ct .b{display:inline-block;font-family:var(--ff-mono);font-size:10px;letter-spacing:1px;padding:3px 10px;border-radius:5px;margin-top:11px}
 
-/* ── terminal (dark island always) ── */
-.term{background:var(--term-bg);border:1px solid var(--term-border);border-radius:var(--r-lg);
-  font-family:var(--mono);font-size:12.5px;line-height:1.75;overflow:hidden;box-shadow:var(--shadow)}
-.term-bar{display:flex;gap:7px;align-items:center;padding:10px 16px;background:#16130E;border-bottom:1px solid rgba(237,227,196,.06)}
-.term-bar i{width:9px;height:9px;border-radius:50%}
-.term-bar span{margin-left:8px;font-family:var(--mono);font-size:10px;color:#6B5F49;letter-spacing:.08em}
-.term-body{padding:16px 20px;color:#EDE3C4}
-.term .tg{color:#D6AE66}.term .tgd{color:#8F713C}.term .tb{color:#EDE3C4}.term .tbd{color:#6B5F49}
-.term .tm{color:#8FAC6F}.term .ta{color:#D4665C}.term .tk{color:#C67F45}.term .tc{color:#6FA08E}
-.term .cur{display:inline-block;width:7px;height:12px;background:var(--term-cursor);vertical-align:-2px;animation:blink 1.1s steps(1) infinite}
-@keyframes blink{50%{opacity:0}}
+/* ══ LILY ══ */
+.lily{position:relative;border-radius:22px;padding:30px;overflow:hidden;border:1px solid rgba(216,57,46,.2);background:var(--ink-1)}
+.lily-bg{position:absolute;right:-12px;top:-18px;font-family:var(--ff-disp);font-size:150px;font-weight:800;color:var(--aka-1);opacity:.06;line-height:1;user-select:none;pointer-events:none}
+.lily-row{display:flex;gap:18px;align-items:flex-start;margin-bottom:24px;position:relative}
+.lily-dot{width:15px;height:15px;border-radius:50%;background:var(--aka-1);box-shadow:0 0 18px rgba(216,57,46,.8);flex-shrink:0;margin-top:5px;animation:glow 2.6s ease-in-out infinite}
+@keyframes glow{0%,100%{box-shadow:0 0 10px rgba(216,57,46,.5)}50%{box-shadow:0 0 32px rgba(216,57,46,1),0 0 56px rgba(216,57,46,.35)}}
+.lily-h{font-family:var(--ff-disp);font-size:22px;font-weight:700;color:var(--bone-0);margin-bottom:6px}
+.lily-h span{color:var(--aka-1)}
+.lily-d{font-size:13.5px;color:var(--bone-2);line-height:1.85;max-width:560px}
+.lily-sw{display:flex;gap:7px;position:relative}
+.ls{flex:1;height:52px;border-radius:10px;cursor:none;display:flex;align-items:flex-end;padding:6px;
+  transition:height .22s,transform .22s cubic-bezier(.22,.68,0,1.2)}
+.ls:hover{height:70px;transform:translateY(-12px)}
+.ls span{font-family:var(--ff-mono);font-size:9px;color:rgba(255,255,255,.65)}
 
-/* ── code ── */
-.code{background:var(--ink-1);border:1px solid var(--border-soft);border-radius:var(--r-lg);
-  font-family:var(--mono);font-size:12.5px;line-height:1.85;padding:20px 0;overflow-x:auto;box-shadow:var(--shadow)}
-.code .ln{display:flex;padding:0 6px}
-.code .no{width:46px;text-align:right;padding-right:16px;color:var(--bone-4);user-select:none;flex-shrink:0;font-size:10.5px}
-.c-kw{color:var(--kin-text)}.c-fn{color:var(--bone-0)}.c-str{color:var(--mori-0)}
-.c-num{color:var(--kaki-1)}.c-cm{color:var(--bone-4);font-style:italic}
-.c-ty{color:var(--hotaru-1)}.c-mark{color:var(--kin-1);font-style:normal}
-.c-warn{color:var(--kaki-1);font-style:normal}.c-dead{color:var(--aka-0);font-style:normal}
+/* ══ ANSI ══ */
+.ansi{display:flex;flex-direction:column;gap:6px}
+.arow{display:grid;grid-template-columns:repeat(8,1fr);gap:5px}
+.ac{height:42px;border-radius:9px;cursor:none;display:flex;align-items:center;justify-content:center;
+  font-family:var(--ff-mono);font-size:11px;font-weight:600;border:1px solid rgba(255,255,255,.05);transition:transform .2s}
+.ac:hover{transform:scale(1.12);z-index:3}
 
-/* ── prompts & exports ── */
-.ptabs{display:flex;gap:4px;flex-wrap:wrap;padding:14px 20px 0}
-.ptab{font-family:var(--mono);font-size:11px;letter-spacing:.06em;padding:6px 16px;border-radius:999px;
-  cursor:pointer;color:var(--bone-3);border:1px solid var(--border-soft);background:none}
-.ptab.act{color:var(--kin-text);background:color-mix(in srgb,var(--primary) 10%,transparent);
-  border-color:color-mix(in srgb,var(--primary) 45%,transparent)}
-.pview{margin:14px 20px 20px;position:relative}
-.pview pre{font-family:var(--mono);font-size:11.5px;line-height:1.6;color:var(--bone-2);
-  background:var(--ink-0);border:1px solid var(--border-soft);border-radius:var(--r-md);
-  padding:16px 18px;max-height:340px;overflow:auto;white-space:pre-wrap}
-.copy-btn{position:absolute;top:10px;right:10px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;
-  padding:5px 14px;border-radius:999px;cursor:pointer;border:1px solid var(--line-1);color:var(--bone-2);background:var(--ink-2)}
-.copy-btn:hover{color:var(--bone-0);border-color:var(--kin-2)}
-.exp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px}
-.exp{background:var(--ink-2);border:1px solid var(--border-soft);border-radius:var(--r-md);padding:15px 17px;cursor:pointer}
-.exp:hover{border-color:color-mix(in srgb,var(--primary) 45%,transparent)}
-.exp b{display:block;font-family:var(--mono);font-size:12px;color:var(--bone-0)}
-.exp span{font-size:10.5px;color:var(--bone-4)}
-.exp .act{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;color:var(--kin-text);text-transform:uppercase;margin-top:8px;display:block}
+/* ══ TERMINAL ══ */
+.term{border-radius:18px;overflow:hidden;border:1px solid var(--line-0);background:#0B0A08}
+.term-bar{background:#1B1813;padding:11px 18px;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--line-0)}
+.tb-d{width:11px;height:11px;border-radius:50%}
+.term-bar .t{flex:1;text-align:center;font-family:var(--ff-mono);font-size:11px;letter-spacing:2px;color:#6B5F49}
+.term-b{padding:22px;font-family:var(--ff-mono);font-size:13px;line-height:2.1;color:#94866A}
+.tk{color:#D6AE66}.ts{color:#8FAC6F}.tn{color:#C67F45}.tc{color:#6B5F49}.tt{color:#7C88B8}.tf{color:#9C7FB0}.tr{color:#d8392e}
+.cur-blink{display:inline-block;width:8px;height:15px;background:#D6AE66;vertical-align:middle;animation:bl 1.1s step-end infinite}
+@keyframes bl{50%{opacity:0}}
 
-footer{margin-top:90px;border-top:1px solid var(--line-0);padding:30px 0 18px;text-align:center}
-footer .jpline{font-family:var(--serif);color:var(--kin-2);letter-spacing:.35em;font-size:12.5px}
-footer .hud{margin-top:8px}
-.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);
-  background:var(--ink-2);border:1px solid color-mix(in srgb,var(--primary) 45%,transparent);
-  color:var(--kin-0);border-radius:999px;font-family:var(--mono);font-size:11.5px;
-  padding:10px 24px;letter-spacing:.08em;transition:transform .25s ease;z-index:99;box-shadow:var(--shadow)}
-.toast.show{transform:translateX(-50%) translateY(0)}
-.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
-.reveal.in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}*{animation:none!important}}
+/* ══ COMPONENTS — gold is gilding, never a slab ══ */
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:600px){.cmp{grid-template-columns:1fr}}
+.card{border-radius:18px;padding:24px;border:1px solid var(--line-0);background:var(--ink-1)}
+.card .cl{font-family:var(--ff-mono);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--kin-2);margin-bottom:18px}
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn{font-family:var(--ff-body);font-size:13px;font-weight:500;padding:10px 22px;border-radius:10px;cursor:none;
+  letter-spacing:.4px;transition:transform .18s,border-color .3s,background .3s;background:transparent}
+.btn:active{transform:scale(.96)}
+/* primary = gold FRAME + gold text on dark, NOT a gold rectangle */
+.btn-primary{border:1.5px solid var(--kin-1);color:var(--kin-text)}
+.btn-primary:hover{border-color:var(--kin-0);background:rgba(214,174,102,.08)}
+.btn-ghost{border:1px solid var(--line-1);color:var(--bone-2)}
+.btn-ghost:hover{border-color:var(--kin-2);color:var(--bone-0)}
+/* scarlet MAY fill — a fill is itself the rare event */
+.btn-danger{background:var(--aka-1);border:1px solid var(--aka-1);color:#FFF3ED;font-weight:500}
+.btn-danger:hover{background:var(--aka-2)}
+.toggles{display:flex;flex-direction:column;gap:14px}
+.tog{display:flex;align-items:center;gap:13px;cursor:none}
+.tt-sw{width:42px;height:24px;border-radius:12px;background:var(--ink-3);border:1px solid var(--line-1);position:relative;flex-shrink:0;transition:background .3s,border-color .3s}
+.tt-sw.on{background:var(--kin-w);border-color:var(--kin-1)}
+.tt-sw.on.red{background:rgba(216,57,46,.35);border-color:var(--aka-1)}
+.tt-h{position:absolute;width:17px;height:17px;border-radius:50%;background:var(--bone-3);top:3px;left:3px;transition:transform .3s cubic-bezier(.22,.68,0,1.2),background .3s}
+.tt-sw.on .tt-h{transform:translateX(18px);background:var(--kin-1)}
+.tt-sw.on.red .tt-h{background:var(--aka-1)}
+.tog .lb{font-size:13px;color:var(--bone-2)}
+.inp{width:100%;font-family:var(--ff-body);font-size:13px;padding:12px 15px;border-radius:10px;outline:none;
+  background:var(--ink-2);border:1px solid var(--line-0);color:var(--bone-1);transition:border-color .2s,box-shadow .2s}
+.inp:focus{border-color:var(--kin-1);box-shadow:0 0 0 3px rgba(214,174,102,.14)}
+
+/* ══ TYPE ══ */
+.typeb{border-radius:22px;padding:32px;border:1px solid var(--line-0);background:var(--ink-1)}
+.tx{font-family:var(--ff-disp);font-size:clamp(34px,6vw,54px);font-weight:800;color:var(--bone-0);line-height:1.12;letter-spacing:-.5px}
+.tx .g{color:var(--kin-1)}.tx .r{color:var(--aka-1)}
+.tq{font-size:14px;color:var(--bone-2);line-height:1.9;border-left:2px solid var(--kin-3);padding-left:20px;margin-top:22px;max-width:560px}
+.tm{font-family:var(--ff-mono);font-size:12px;color:var(--seiji);margin-top:16px}
+
+/* ══ FOOTER ══ */
+footer{padding:48px 28px;border-top:1px solid var(--line-0);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px;position:relative;z-index:2;max-width:1040px;margin:0 auto}
+.f-g{font-family:var(--ff-disp);font-size:26px;font-weight:800;color:var(--kin-1)}
+.f-s{font-size:12px;color:var(--bone-3);margin-top:4px;letter-spacing:.5px}
+.f-l{font-family:var(--ff-mono);font-size:11px;letter-spacing:1.5px}
+.f-l a{color:var(--bone-2);text-decoration:none;border-bottom:1px solid var(--line-1)}
+.f-l a:hover{color:var(--kin-1)}
+
+/* ══ TOAST ══ */
+#toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(22px);z-index:9999;opacity:0;
+  font-family:var(--ff-mono);font-size:11px;letter-spacing:2px;padding:10px 24px;border-radius:10px;pointer-events:none;
+  background:var(--glass-bg);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  border:1px solid var(--kin-1);color:var(--kin-text);box-shadow:0 14px 40px rgba(0,0,0,.5);
+  transition:transform .35s cubic-bezier(.22,.68,0,1.2),opacity .25s}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ══ reveal ══ */
+.rev{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,0,1)}
+.rev.in{opacity:1;transform:none}
+
+/* ══ accessibility ══ */
+@media (prefers-reduced-transparency:reduce){
+  .glass,.pp,#themer,#toast{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background:var(--ink-2)}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .rev{opacity:1;transform:none}
+  body{cursor:auto}.cur{display:none}
+  #sky,#prismC{display:none}
+}
 </style>
 </head>
-<body class="themed">
+<body>
 
-<header class="top">
-  <div class="brand"><span class="k">様式</span><b>yoshiki</b><span>design language · v1.0</span></div>
-  <nav class="tabs" id="tabs"></nav>
-  <span class="keys">1–2 · THEMES</span>
-</header>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="refract" x="-20%" y="-20%" width="140%" height="140%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.012 0.014" numOctaves="2" seed="7" result="n"/>
+    <feGaussianBlur in="n" stdDeviation="1.4" result="nb"/>
+    <feDisplacementMap in="SourceGraphic" in2="nb" scale="46" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
 
-<div class="shell">
-  <aside class="side">
-    <span class="cap">Language</span>
-    <a class="snav act" href="#identity"><span class="g">◈</span>Identity</a>
-    <a class="snav" href="#philosophy"><span class="g">⛩</span>Philosophy</a>
-    <a class="snav" href="#palette"><span class="g">色</span>Palette</a>
-    <a class="snav" href="#components"><span class="g">⌬</span>Components</a>
-    <span class="cap">Modules</span>
-    <a class="snav" href="#text"><span class="g">文</span>Text</a>
-    <a class="snav" href="#cli"><span class="g">❯</span>CLI / TUI</a>
-    <a class="snav" href="#codec"><span class="g">⌨</span>Code</a>
-    <span class="cap">Take it</span>
-    <a class="snav" href="#prompts"><span class="g">✦</span>AI Prompts</a>
-    <a class="snav" href="#exports"><span class="g">⇩</span>Exports</a>
-    <div class="links">
-      <a href="https://github.com/zinzaki/yoshiki" target="_blank" rel="noopener">GitHub repo ↗</a>
-      <a href="https://github.com/zinzaki/yoshiki/blob/main/PHILOSOPHY.md" target="_blank" rel="noopener">PHILOSOPHY ↗</a>
-      <a href="https://github.com/zinzaki/yoshiki/blob/main/CHANGELOG.md" target="_blank" rel="noopener">CHANGELOG ↗</a>
-    </div>
-  </aside>
+<div id="grain"></div>
+<div id="aurora">
+  <div class="blob" style="width:520px;height:520px;background:radial-gradient(circle,rgba(214,174,102,.13),transparent 70%);left:8%;top:6%"></div>
+  <div class="blob" style="width:420px;height:420px;background:radial-gradient(circle,rgba(216,57,46,.10),transparent 70%);right:6%;top:48%"></div>
+  <div class="blob" style="width:340px;height:340px;background:radial-gradient(circle,rgba(111,154,142,.07),transparent 70%);left:42%;bottom:4%"></div>
+</div>
+<div class="cur" id="curR"></div>
+<div class="cur" id="curD"></div>
 
-  <main class="main">
-
-  <section class="sec" id="identity">
-    <div class="hero">
-      <svg class="seam" viewBox="0 0 1100 320" preserveAspectRatio="none" aria-hidden="true">
-        <defs><linearGradient id="seamG" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0" stop-color="#8F713C"/><stop offset=".45" stop-color="#EAC578"/>
-          <stop offset=".75" stop-color="#D6AE66"/><stop offset="1" stop-color="#57441F"/>
-        </linearGradient></defs>
-        <path d="M -20 252 C 150 230, 240 280, 360 250 S 560 180, 690 202 S 920 268, 1010 222 S 1090 178, 1120 188"/>
-      </svg>
-      <div class="hero-grid">
-        <div class="hero-kanji">様式</div>
-        <div>
-          <div class="hud">ZINZAKI DESIGN LANGUAGE // <b id="hudTheme">KOGANE 黄金</b> // ONE LANGUAGE · TWO SCENES</div>
-          <h1>yoshiki</h1>
-          <div class="sub" id="heroSub"></div>
-          <div class="quote">
-            Cracks are not hidden — they are filled with gold. A warm monochrome of
-            lacquer, bone and gold, struck — rarely — by scarlet and moss.
-            <em>The power of a color lies in its rarity. Gold gilds; it never fills.</em>
-          </div>
-          <div class="hudline hud">
-            <span>TONE <b>~97%</b></span><span>TRIGGERS <b>~3%</b></span>
-            <span>RULE <b>70 / 20 / 7 / 3</b></span><span>WCAG <b>VERIFIED</b></span>
-          </div>
-          <div class="demos" id="demoLinks"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec" id="philosophy">
-    <span class="sec-tag"><i></i>SEC.01</span>
-    <h2>Philosophy<span class="jp">金継ぎ</span></h2>
-    <p class="sec-sub">Five laws. Everything else on this page is their consequence.</p>
-    <div class="phil">
-      <div class="card"><div class="k">継</div><h4>Kintsugi</h4>
-        <p>The crack becomes the most valuable place of the vessel. Darkness is the lacquer, gold is the seam, the lily is the memory.</p></div>
-      <div class="card"><div class="k">箔</div><h4>Gold is gilding</h4>
-        <p>No solid-gold watch — but a gilded edge is precious. Gold lives only as line, frame, glyph, thin stroke. Never a filled slab. A primary button is a gold-framed surface, not a gold rectangle.</p></div>
-      <div class="card"><div class="k">稀</div><h4>Rarity = power</h4>
-        <p>A signal's strength is inverse to its frequency. Scarlet fires once per screen — the body reads it before the mind. Paint everything with it and it dies.</p></div>
-      <div class="card"><div class="k">極</div><h4>Two poles, one hand</h4>
-        <p>Hard technical detail — sharp marks, dense trees, HUD annotation — set inside calm, rounded, noble surfaces. Neither pole wins.</p></div>
-      <div class="card"><div class="k">温</div><h4>Warm darkness</h4>
-        <p>No neutral grey exists. Every dark tone carries the urushi undertone; information lives in tone, never in blue. Worlds nest — they do not collide.</p></div>
-    </div>
-  </section>
-
-  <section class="sec" id="palette">
-    <span class="sec-tag"><i></i>SEC.02 · CLICK ANY TOKEN TO COPY</span>
-    <h2>Palette<span class="jp">色彩</span></h2>
-    <p class="sec-sub" id="palSub"></p>
-    <div class="panel">
-      <div class="p-head"><h3>Tokens</h3><span class="jp">札</span><span class="note" id="tokNote"></span></div>
-      <div class="p-body"><div class="tok-grid" id="tokGrid"></div></div>
-    </div>
-    <div style="height:18px"></div>
-    <div class="grid2">
-      <div class="panel">
-        <div class="p-head"><h3>Semantic roles</h3><span class="jp">役</span><span class="note">what each color is for</span></div>
-        <div class="p-body"><div class="roles" id="roleGrid"></div></div>
-      </div>
-      <div class="panel">
-        <div class="p-head"><h3>The trigger law</h3><span class="jp">引金</span><span class="note">find the scarlet</span></div>
-        <div class="trig" id="trigRow"></div>
-        <div class="trig-note">Six tone orbs, one scarlet. Your eye found it before you read this — that is the whole theory, and it only works while scarlet stays rare.</div>
-      </div>
-    </div>
-    <div style="height:18px"></div>
-    <div class="panel">
-      <div class="p-head"><h3>Terminal ANSI-16</h3><span class="jp">端</span><span class="note" id="ansiNote"></span></div>
-      <div class="p-body"><div class="ansi-strip" id="ansiStrip"></div></div>
-    </div>
-  </section>
-
-  <section class="sec" id="components">
-    <span class="sec-tag"><i></i>SEC.03</span>
-    <h2>Components<span class="jp">部品</span></h2>
-    <p class="sec-sub">Gold gilds the edges — the primary button is a gold-framed surface, never a gold slab. Only scarlet may fill, because a fill is itself the rare event. Switch theme above and watch the gilding move.</p>
-    <div class="grid2">
-      <div class="panel"><div class="p-head"><h3>Actions</h3><span class="jp">動</span></div>
-        <div class="p-body">
-          <div class="row">
-            <button class="btn btn-primary">Apply</button>
-            <button class="btn btn-quiet">Cancel</button>
-            <span class="hud" style="align-self:center">↑ gilded frame, not a gold slab</span>
-          </div>
-          <div class="row">
-            <button class="btn btn-danger">Delete forever</button>
-            <span class="hud" style="align-self:center">← the one scarlet — a fill is the event</span>
-          </div>
-          <div class="row" style="margin-top:16px;gap:16px">
-            <div class="toggle on" onclick="this.classList.toggle('on')"></div>
-            <div class="toggle" onclick="this.classList.toggle('on')"></div>
-            <div class="prog"><i></i></div>
-          </div>
-          <div class="row" style="margin-top:14px">
-            <input class="inp" placeholder="search…">
-            <input class="inp" placeholder="名 — name">
-          </div>
-        </div>
-      </div>
-      <div class="panel"><div class="p-head"><h3>Statuses</h3><span class="jp">様</span></div>
-        <div class="p-body">
-          <div class="alert" id="alInfo"><span class="t">金 INFO</span><span class="b">Information lives in tone — gold and bone, never blue.</span></div>
-          <div class="alert" id="alOk"><span class="t">森 OK</span><span class="b">Moss confirms: build passed, 46 tokens in sync.</span></div>
-          <div class="alert" id="alWarn"><span class="t">柿 WARN</span><span class="b">Persimmon: cache expires in two hours.</span></div>
-          <div class="alert" id="alErr"><span class="t">緋 ERR</span><span class="b">Scarlet: irreversible. One bloom per screen.</span></div>
-          <div class="row" style="margin-top:14px" id="badgeRow"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec" id="text">
-    <span class="sec-tag"><i></i>SEC.04</span>
-    <h2>Text<span class="jp">文</span></h2>
-    <p class="sec-sub">Nameplates as seals, glyphs as words, frames in two registers — the chaos pole and the noble pole, never mixed in one block.</p>
-    <div class="grid2">
-      <div class="panel"><div class="p-head"><h3>Nameplates</h3><span class="jp">銘</span><span class="note">spaced caps between paired marks</span></div>
-        <div class="p-body plates">
-          <div><div class="plate"><span class="m">·</span>&nbsp; Y O S H I K I &nbsp;<span class="m">·</span></div><small>quiet — default</small></div>
-          <div><div class="plate"><span class="m">—</span>&nbsp; Y O S H I K I &nbsp;<span class="m">—</span></div><small>formal</small></div>
-          <div><div class="plate"><span class="m">⟦</span>&nbsp; Y O S H I K I &nbsp;<span class="m">⟧</span></div><small>technical / HUD</small></div>
-          <div><div class="plate cer"><span class="m">◇</span>&nbsp; Y O S H I K I &nbsp;影&nbsp;<span class="m">◇</span></div><small>ceremonial + one kanji mood</small></div>
-        </div>
-      </div>
-      <div class="panel"><div class="p-head"><h3>Glyphs</h3><span class="jp">印</span><span class="note">one glyph = one meaning</span></div>
-        <div class="p-body">
-          <table class="gtable">
-            <tr><td class="g" style="color:var(--kin-1)">❯</td><td class="m">go / prompt</td><td class="u">shell, CTAs</td></tr>
-            <tr><td class="g" style="color:var(--mori-0)">✓</td><td class="m">done</td><td class="u">statuses — always moss</td></tr>
-            <tr><td class="g" style="color:var(--aka-0)">✗</td><td class="m">failed</td><td class="u">always scarlet</td></tr>
-            <tr><td class="g" style="color:var(--bone-1)">→</td><td class="m">leads to</td><td class="u">flows: input → parse → out</td></tr>
-            <tr><td class="g" style="color:var(--bone-1)">⟥</td><td class="m">field marker</td><td class="u">key-value rows</td></tr>
-            <tr><td class="g" style="color:var(--bone-1)">▲▼</td><td class="m">delta</td><td class="u">rising / falling</td></tr>
-            <tr><td class="g" style="color:var(--kin-2)">⧎</td><td class="m">section sigil</td><td class="u">data block headers</td></tr>
-            <tr><td class="g" style="color:var(--bone-3)">⬡</td><td class="m">entity / node</td><td class="u">units, ids</td></tr>
-          </table>
-        </div>
-      </div>
-    </div>
-    <div style="height:18px"></div>
-    <div class="grid2">
-      <div class="panel"><div class="p-head"><h3>Soft register</h3><span class="jp">柔</span><span class="note">rounded — for calm words</span></div>
-        <div class="p-body"><pre class="frame-demo"><span class="dim">╭──────────────────────────────╮</span>
-<span class="dim">│</span>  a quiet capsule for a title  <span class="dim">│</span>
-<span class="dim">╰──────────────────────────────╯</span>
-
-<span class="dim">╭─</span> <span class="gold">心</span> <span class="dim">─</span> ~/Dev/yoshiki <span class="dim">─</span> <span class="gold"> main</span> <span class="ok">~2 +1</span>
-<span class="dim">╰─</span> <span class="gold">❯</span></pre></div>
-      </div>
-      <div class="panel"><div class="p-head"><h3>Hard register</h3><span class="jp">剛</span><span class="note">double spine — for dense data</span></div>
-        <div class="p-body"><pre class="frame-demo"><span class="gold">⧎</span> Cluster
-<span class="dim">╔</span> nodes    <span class="gh">|</span> 12
-<span class="dim">╠</span> healthy  <span class="gh">|</span> 11
-<span class="dim">╚</span> draining <span class="gh">|</span> 1
-
-<span class="gold">⟥</span> node-00
-<span class="dim">╔</span> uptime   99.7%
-<span class="dim">╠</span> commits  86     <span class="ok">(+18%)</span>
-<span class="dim">╚</span> focus    3/12</pre></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec" id="cli">
-    <span class="sec-tag"><i></i>SEC.05</span>
-    <h2>CLI / TUI<span class="jp">端末</span></h2>
-    <p class="sec-sub">The native habitat. The terminal is always a dark island — even in the paper theme. Watch the cursor: it carries the theme.</p>
-    <div class="term">
-      <div class="term-bar">
-        <i style="background:#7E302E"></i><i style="background:#57441F"></i><i style="background:#2F4526"></i>
-        <span>fish — 心</span>
-      </div>
-      <div class="term-body">
-<div><span class="tgd">╭─</span> <span class="tg">心</span> <span class="tgd">─</span> <b class="tb">~/Dev/yoshiki</b> <span class="tgd">─</span> <span class="tg"> main</span> <span class="tm"> ~2 +1</span> <span class="tgd">─</span> <span class="tc"> v3.13</span></div>
-<div><span class="tgd">╰─</span> <span class="tg">❯</span> <span class="tb">python3 tools/build.py</span></div>
-<div><span class="tm">✓ baked</span> <span class="tbd">14 files · 2 themes · 0.1s</span></div>
-<div><span class="tgd">╰─</span> <span class="tg">❯</span> <span class="tb">make deploy</span></div>
-<div><span class="ta">✗ error:</span> <span class="tb">seal mismatch</span> <span class="tbd">// exit 1</span></div>
-<div><span class="tgd">╭─</span> <span class="tg">心</span> <span class="tgd">─</span> <b class="tb">~/Dev/yoshiki</b> <span class="tgd">─</span> <span class="tk"> 12s</span> <span class="tgd">─</span> <span class="ta">✕ 1</span></div>
-<div><span class="tgd">╰─</span> <span class="ta">❯</span> <span class="cur"></span></div>
-      </div>
-    </div>
-    <p class="sec-sub" style="margin-top:14px">Verdict glyph first, one clause, dim detail. No banners, no <code style="font-family:var(--mono);font-size:11px">INFO:</code> prefixes, no timestamps unless asked. Full canon: <a href="https://github.com/zinzaki/yoshiki/blob/main/canon/lexicon/cli.md" target="_blank" rel="noopener" style="color:var(--kin-text)">canon/lexicon/cli.md</a></p>
-  </section>
-
-  <section class="sec" id="codec">
-    <span class="sec-tag"><i></i>SEC.06</span>
-    <h2>Code comments<span class="jp">写経</span></h2>
-    <p class="sec-sub">See, don't read: frames give the skeleton, marks carry the traps, everything else is silent code.</p>
-    <div class="code">
-<div class="ln"><span class="no">1</span><span><span class="c-cm">// <span class="c-mark">╔══════════════════════════════════════╗</span></span></span></div>
-<div class="ln"><span class="no">2</span><span><span class="c-cm">// <span class="c-mark">║  SEAM ENGINE — the block that holds   ║</span></span></span></div>
-<div class="ln"><span class="no">3</span><span><span class="c-cm">// <span class="c-mark">╚══════════════════════════════════════╝</span></span></span></div>
-<div class="ln"><span class="no">4</span><span><span class="c-kw">const</span> <span class="c-fn">RETRIES</span>: <span class="c-ty">u8</span> = <span class="c-num">3</span>; <span class="c-cm">// ← tuned on prod incident; don't lower</span></span></div>
-<div class="ln"><span class="no">5</span><span><span class="c-kw">pub fn</span> <span class="c-fn">mend</span>(crack: <span class="c-ty">&amp;Crack</span>) -&gt; <span class="c-ty">Seam</span> {</span></div>
-<div class="ln"><span class="no">6</span><span>    queue.<span class="c-fn">push</span>(job); <span class="c-cm">// → worker.rs::consume</span></span></div>
-<div class="ln"><span class="no">7</span><span>    total -= fee;    <span class="c-cm">// <span class="c-warn">⚠</span> fee already includes tax</span></span></div>
-<div class="ln"><span class="no">8</span><span>    cache.<span class="c-fn">clear</span>();  <span class="c-cm">// ↺ safe: rebuilt lazily</span></span></div>
-<div class="ln"><span class="no">9</span><span>    <span class="c-fn">Gold</span>::<span class="c-fn">fill</span>(crack) <span class="c-cm">// <span class="c-mark">◉</span> invariant: every crack gets gold</span></span></div>
-<div class="ln"><span class="no">10</span><span>}</span></div>
-<div class="ln"><span class="no">11</span><span><span class="c-cm">// ── helpers ──────────────────────────────</span></span></div>
-<div class="ln"><span class="no">12</span><span><span class="c-kw">const</span> <span class="c-fn">LEGACY_PATH</span> = <span class="c-str">"/old"</span>; <span class="c-cm">// <span class="c-dead">✗</span> dead after v2</span></span></div>
-    </div>
-  </section>
-
-  <section class="sec" id="prompts">
-    <span class="sec-tag"><i></i>SEC.07 · PASTE INTO ANY MODEL</span>
-    <h2>AI prompts<span class="jp">念</span></h2>
-    <p class="sec-sub"><b style="color:var(--bone-1)">identity</b> alone teaches the whole language; stack a module for a specific task. The <b style="color:var(--bone-1)">palette</b> module regenerates live for the active theme.</p>
-    <div class="panel">
-      <div class="ptabs" id="ptabs"></div>
-      <div class="pview"><button class="copy-btn" id="pcopy">COPY</button><pre id="pview"></pre></div>
-    </div>
-  </section>
-
-  <section class="sec" id="exports">
-    <span class="sec-tag"><i></i>SEC.08 · GENERATED LIVE FOR <b id="expTheme" style="margin-left:4px">KOGANE</b></span>
-    <h2>Exports<span class="jp">出力</span></h2>
-    <p class="sec-sub">Click a card — the config for the current theme lands in your clipboard, identical to the files in <code style="font-family:var(--mono);font-size:11.5px">palettes/&lt;theme&gt;/</code>.</p>
-    <div class="exp-grid" id="expGrid"></div>
-  </section>
-
-  <footer>
-    <div class="jpline">金 継 ぎ</div>
-    <div class="hud">様式 YOSHIKI · A DESIGN LANGUAGE BY ZINZAKI · <b>V1.0</b> · MIT</div>
-  </footer>
-  </main>
+<div id="themer" title="theme">
+  <span style="font-family:var(--ff-mono);font-size:9px;letter-spacing:2px;color:var(--bone-3);padding:0 4px">様式</span>
+  <div class="tdot on" data-t="kogane"></div>
+  <div class="tdot" data-t="washi"></div>
 </div>
 
-<div class="toast" id="toast">COPIED</div>
+<!-- ══ HERO ══ -->
+<header class="hero">
+  <canvas id="sky"></canvas>
+  <div class="hero-in">
+    <div class="hero-over">様式 · design language</div>
+    <h1 class="hero-title">様式</h1>
+    <div class="hero-name">y o s h i k i</div>
+    <div class="pill" data-copy="#d8392e"><span class="pdot"></span>彼岸花 · spider lily · #d8392e</div>
+    <p class="hero-sub">Warm monochrome, struck rarely by color.<br>Lacquer · bone · gold — one spider-lily scarlet.</p>
+    <div class="scroll"><div class="scroll-l"></div><div class="scroll-t">scroll</div></div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- glass cards -->
+  <section>
+    <div class="eyebrow rev"><span>液体ガラス · the palette, in glass</span></div>
+    <div class="grid3" id="cards"></div>
+  </section>
+  <div class="rule"></div>
+
+  <!-- prism -->
+  <section>
+    <div class="eyebrow rev"><span>屈折 · refraction prism</span></div>
+    <div class="prism rev">
+      <canvas id="prismC"></canvas>
+      <div class="prism-row">
+        <div class="pp" data-copy="金 · gold"><div class="pp-k" style="color:var(--kin-1)">金</div><div class="pp-l">gold</div></div>
+        <div class="pp" data-copy="緋 · scarlet"><div class="pp-k" style="color:var(--aka-1)">緋</div><div class="pp-l">scarlet</div></div>
+        <div class="pp" data-copy="森 · moss"><div class="pp-k" style="color:var(--mori-0)">森</div><div class="pp-l">moss</div></div>
+        <div class="pp" data-copy="骨 · bone"><div class="pp-k" style="color:var(--bone-0)">骨</div><div class="pp-l">bone</div></div>
+        <div class="pp" data-copy="漆 · lacquer"><div class="pp-k" style="color:var(--kaki)">漆</div><div class="pp-l">lacquer</div></div>
+      </div>
+    </div>
+  </section>
+  <div class="rule"></div>
+
+  <!-- ramps -->
+  <section>
+    <div class="eyebrow rev"><span>色階 · tone &amp; trigger ramps</span></div>
+    <div class="ramps rev" id="ramps"></div>
+  </section>
+  <div class="rule"></div>
+
+  <!-- inspector -->
+  <section>
+    <div class="eyebrow rev"><span>検査 · palette inspector</span></div>
+    <div class="insp rev">
+      <div class="insp-h"><b>color inspector</b><span id="tokcount"></span></div>
+      <div class="insp-b">
+        <div class="chips" id="chips"></div>
+        <div class="pbar" id="pbar"><div class="hx" id="phx"></div><div class="nm" id="pnm"></div></div>
+      </div>
+    </div>
+  </section>
+  <div class="rule"></div>
+
+  <!-- contrast -->
+  <section>
+    <div class="eyebrow rev"><span>コントラスト · contrast, proven</span></div>
+    <div class="cgrid rev">
+      <div class="ct"><div class="r" style="color:var(--bone-1)">11.4:1</div><div class="l">BONE ON LACQUER</div><div class="s" style="color:var(--bone-1)">Primary text — warm parchment on warm black.</div><div class="b" style="background:rgba(143,172,111,.16);color:var(--mori-0)">AAA</div></div>
+      <div class="ct"><div class="r" style="color:var(--kin-1)">7.1:1</div><div class="l">GOLD ON LACQUER</div><div class="s" style="color:var(--kin-1)">Headings, links, edges — aged brass.</div><div class="b" style="background:rgba(214,174,102,.14);color:var(--kin-1)">AA</div></div>
+      <div class="ct"><div class="r" style="color:var(--aka-0)">4.8:1</div><div class="l">SCARLET TEXT</div><div class="s" style="color:var(--aka-0)">Error text uses the lighter aka-0.</div><div class="b" style="background:rgba(216,57,46,.12);color:var(--aka-0)">AA</div></div>
+      <div class="ct"><div class="r" style="color:var(--aka-1)">4.3:1</div><div class="l">SCARLET FILL</div><div class="s" style="color:var(--aka-1)">彼岸花 — the bloom: fills, icons, one per screen.</div><div class="b" style="background:rgba(216,57,46,.12);color:var(--aka-1)">icon / fill</div></div>
+    </div>
+  </section>
+  <div class="rule"></div>
+
+  <!-- lily -->
+  <section>
+    <div class="eyebrow rev"><span>彼岸花 · the one trigger</span></div>
+    <div class="lily rev">
+      <div class="lily-bg">彼</div>
+      <div class="lily-row">
+        <div class="lily-dot"></div>
+        <div>
+          <div class="lily-h">Spider Lily <span>彼岸花</span></div>
+          <div class="lily-d">The signature scarlet — vermilion of the higanbana. One bloom per screen: a seal, a focus ring, the irreversible. Daring lives in the detail, not the mass. Warm and noble, never neon.</div>
+        </div>
+      </div>
+      <div class="lily-sw">
+        <div class="ls" style="background:#5e1d16" data-copy="#5e1d16"><span>#5e1d16</span></div>
+        <div class="ls" style="background:#8a2a1f" data-copy="#8a2a1f"><span>#8a2a1f</span></div>
+        <div class="ls" style="background:#b83228" data-copy="#b83228"><span>#b83228</span></div>
+        <div class="ls" style="background:#d8392e" data-copy="#d8392e · bloom"><span style="color:#fff">#d8392e</span></div>
+        <div class="ls" style="background:#D4665C" data-copy="#D4665C · text"><span style="color:#fff">#D4665C</span></div>
+      </div>
+    </div>
+  </section>
+  <div class="rule"></div>
+
+  <!-- ansi -->
+  <section>
+    <div class="eyebrow rev"><span>ANSI 16 · terminal colors</span></div>
+    <div class="ansi rev" id="ansi"></div>
+  </section>
+  <div class="rule"></div>
+
+  <!-- terminal -->
+  <section>
+    <div class="eyebrow rev"><span>端末 · terminal preview</span></div>
+    <div class="term rev">
+      <div class="term-bar"><span class="tb-d" style="background:#d8392e"></span><span class="tb-d" style="background:#D6AE66"></span><span class="tb-d" style="background:#8FAC6F"></span><div class="t">kogane.yml</div></div>
+      <div class="term-b">
+<span class="tc"># yoshiki — warm lacquer monochrome</span><br>
+<span class="tk">meta</span><span class="tc">:</span><br>
+&nbsp;&nbsp;<span class="tk">name</span><span class="tc">:</span> <span class="ts">"yoshiki"</span><br>
+&nbsp;&nbsp;<span class="tk">tone</span><span class="tc">:</span> <span class="ts">"lacquer · bone · gold"</span><br>
+<span class="tk">trigger</span><span class="tc">:</span><br>
+&nbsp;&nbsp;<span class="tr">scarlet</span><span class="tc">:</span> <span class="ts">"#d8392e"</span>&nbsp;&nbsp;<span class="tc"># 彼岸花 — one per screen</span><br>
+&nbsp;&nbsp;<span class="tk">moss</span><span class="tc">:</span> <span class="ts">"#52703F"</span><br>
+<span class="tk">contrast</span><span class="tc">:</span> <span class="tn">11.4</span><span class="tc">:</span><span class="tn">1</span>&nbsp;&nbsp;<span class="tc"># AAA</span><br>
+<span class="tf">rule</span> <span class="tc">=</span> <span class="ts">"rarity is power"</span> <span class="cur-blink"></span>
+      </div>
+    </div>
+  </section>
+  <div class="rule"></div>
+
+  <!-- components -->
+  <section>
+    <div class="eyebrow rev"><span>部品 · components</span></div>
+    <div class="cmp rev">
+      <div class="card">
+        <div class="cl">buttons — gold frames, never gold slabs</div>
+        <div class="btns">
+          <button class="btn btn-primary" data-toast="primary — a gilded frame, not a gold block">Primary</button>
+          <button class="btn btn-ghost" data-toast="ghost">Ghost</button>
+          <button class="btn btn-danger" data-toast="彼岸花 — scarlet may fill, it is the event">Destructive</button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="cl">toggles</div>
+        <div class="toggles">
+          <div class="tog"><div class="tt-sw on"><div class="tt-h"></div></div><div class="lb">Gold accent</div></div>
+          <div class="tog"><div class="tt-sw on red"><div class="tt-h"></div></div><div class="lb">彼岸花 trigger</div></div>
+          <div class="tog"><div class="tt-sw"><div class="tt-h"></div></div><div class="lb">Tone only</div></div>
+        </div>
+      </div>
+      <div class="card" style="grid-column:1/-1">
+        <div class="cl">input · focus ring</div>
+        <input class="inp" placeholder="search a token or role…">
+      </div>
+    </div>
+  </section>
+  <div class="rule"></div>
+
+  <!-- type -->
+  <section>
+    <div class="eyebrow rev"><span>書体 · typography</span></div>
+    <div class="typeb rev">
+      <div class="tx">Parchment <span class="g">黄金</span><br>with <span class="r">daring</span> in the detail.</div>
+      <div class="tq">A single warm, faded cast across everything — that is the character. Like risograph on parchment: a golden-amber undertone, calm and exact, rewarding a long look.</div>
+      <div class="tm">// shippori mincho · zen kaku gothic · jetbrains mono</div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div>
+    <div class="f-g">様式 yoshiki</div>
+    <div class="f-s">An open design language · warm monochrome, struck rarely by color</div>
+  </div>
+  <div class="f-l"><a href="https://github.com/zinzaki/yoshiki">github.com/zinzaki/yoshiki</a></div>
+</footer>
+
+<div id="toast"></div>
 
 <script>
-/* ── THEME DATA — mirrors palettes/<slug>/palette.yml ── */
-const BASE={
- 'ink-0':'#0B0A08','ink-1':'#12100C','ink-2':'#1B1813','ink-3':'#262119',
- 'line-0':'#362C1B','line-1':'#4C3D24',
- 'bone-0':'#F7EED2','bone-1':'#EDE3C4','bone-2':'#C9BC96','bone-3':'#94866A','bone-4':'#6B5F49',
- 'kin-0':'#EAC578','kin-1':'#D6AE66','kin-2':'#8F713C','kin-3':'#57441F','kin-w':'#3F3112',
- 'kaki-1':'#C67F45',
- 'aka-0':'#D4665C','aka-1':'#d8392e','aka-2':'#7E302E','sabi':'#9B635F','aka-w':'#331514',
- 'mori-0':'#8FAC6F','mori-1':'#52703F','mori-2':'#2F4526','mori-w':'#1B2615',
- 'hotaru-1':'#7C88B8','fuji-1':'#9C7FB0','seiji-1':'#6FA08E',
- 'washi-bg':'#E7DCBB','washi-ink':'#292019','washi-line':'#C9BA92'};
-const ANSI_K=['#1B1813','#C54D49','#8FAC6F','#D6AE66','#7C88B8','#9C7FB0','#6FA08E','#EDE3C4'];
-const BRT_K=['#6B5F49','#DC7265','#A8C48A','#EAC578','#98A4D4','#B89BCC','#8CBCA9','#F7EED2'];
-const DARK_UI={mode:'dark',
- border:'rgba(247,238,210,.07)',sep:'rgba(237,227,196,.06)',hover:'rgba(247,238,210,.03)',
- shadow:'0 14px 40px rgba(0,0,0,.32)',glass:'rgba(18,16,12,.7)',grain:'.05',
- inpBg:'rgba(11,10,8,.6)',quote:'rgba(11,10,8,.45)',kinText:'#D6AE66',
- heroBg:'radial-gradient(ellipse 560px 380px at 88% 115%, rgba(17,80,90,.3), transparent 70%), radial-gradient(ellipse 460px 320px at 104% -10%, rgba(87,68,31,.4), transparent 70%), linear-gradient(180deg,#14110C,#0E0C09)',
- heroBorder:'rgba(234,197,120,.12)',
- bgGrad:'radial-gradient(ellipse 800px 480px at 92% -80px, rgba(143,113,60,.07), transparent 65%), radial-gradient(ellipse 900px 700px at -10% 105%, rgba(10,53,64,.24), transparent 65%)',
- termBg:'#0A0907',termBorder:'rgba(237,227,196,.1)'};
+const RM = matchMedia('(prefers-reduced-motion:reduce)').matches;
+const COARSE = matchMedia('(pointer:coarse)').matches;
 
-const THEMES={
- kogane:{name:'Kogane',jp:'黄金',sw:'#D6AE66',sub:'warm lacquer darkness — gold gilds the edges, never fills',
-  pal:'The dark scene. Gold lives as frames, hairlines, glyphs and thin strokes; a primary action is a gold-framed surface. Scarlet and moss stay rare triggers.',
-  tok:{...BASE},ansi:ANSI_K,brt:BRT_K,bg:'#0B0A08',cursor:'#D6AE66',
-  ui:{...DARK_UI,primary:'#D6AE66',focus:'#D6AE66',
-      navText:'#EAC578',navBg:'rgba(214,174,102,.09)',navBorder:'rgba(214,174,102,.2)'}},
- washi:{name:'Washi',jp:'和紙',sw:'#E7DCBB',sub:'paper and sumi ink — gold gilds, the terminal stays a dark island',
-  pal:'The light scene: paper surfaces, sumi-ink text, gold sunk deeper to stay readable — and still only gilding, never a fill. The terminal and the artifact card invert to dark islands.',
-  tok:{...BASE,'ink-0':'#E2D6B4','ink-1':'#EBE1C3','ink-2':'#F3EBD5','ink-3':'#D7C9A3',
-       'line-0':'#C7B68C','line-1':'#AE9C72',
-       'bone-0':'#1F1810','bone-1':'#2B2117','bone-2':'#4A3D2A','bone-3':'#6E5E42','bone-4':'#8E7C5A',
-       'kin-0':'#B8923F','kin-1':'#9C7A40','kin-2':'#7A5F2E','kin-3':'#C9AE74','kin-w':'#E6D7A8',
-       'kaki-1':'#A5602B','aka-0':'#A8352B','aka-w':'#EBD3C8','mori-0':'#4A6B38','mori-w':'#DCE2C2',
-       'hotaru-1':'#4C5A90','fuji-1':'#6E5890','seiji-1':'#2F6B5E',
-       'washi-bg':'#1B1813','washi-ink':'#EDE3C4','washi-line':'#4C3D24'},
-  ansi:ANSI_K,brt:BRT_K,bg:'#0A0907',cursor:'#D6AE66',
-  ui:{mode:'light',primary:'#7A5F2E',focus:'#7A5F2E',
-      navText:'#6B4F1E',navBg:'rgba(156,122,64,.13)',navBorder:'rgba(156,122,64,.3)',
-      border:'rgba(110,94,66,.22)',sep:'rgba(110,94,66,.15)',hover:'rgba(43,33,23,.04)',
-      shadow:'0 10px 28px rgba(94,74,40,.14)',glass:'rgba(235,225,195,.78)',grain:'.035',
-      inpBg:'rgba(247,238,210,.55)',quote:'rgba(247,238,210,.4)',kinText:'#7A5F2E',
-      heroBg:'radial-gradient(ellipse 560px 380px at 88% 115%, rgba(184,146,63,.18), transparent 70%), linear-gradient(180deg,#F0E7CF,#E8DDBE)',
-      heroBorder:'rgba(122,95,46,.3)',
-      bgGrad:'radial-gradient(ellipse 800px 480px at 92% -80px, rgba(184,146,63,.13), transparent 65%), radial-gradient(ellipse 900px 700px at -10% 105%, rgba(110,94,66,.1), transparent 65%)',
-      termBg:'#0A0907',termBorder:'rgba(41,32,25,.45)'}}};
-const ORDER=['kogane','washi'];
-const TOK_GROUPS=[
- ['tone — surfaces & lines',['ink-0','ink-1','ink-2','ink-3','line-0','line-1']],
- ['tone — bone text',['bone-0','bone-1','bone-2','bone-3','bone-4']],
- ['tone — gold (gilding only) & persimmon',['kin-0','kin-1','kin-2','kin-3','kin-w','kaki-1']],
- ['trigger — scarlet 緋',['aka-0','aka-1','aka-2','sabi','aka-w']],
- ['trigger — moss 森',['mori-0','mori-1','mori-2','mori-w']],
- ['service — terminal & syntax only',['hotaru-1','fuji-1','seiji-1']],
- ['artifact — paper inside darkness',['washi-bg','washi-ink','washi-line']]];
+/* ── tokens ── */
+const TOKENS=[
+ ['#0B0A08','ink-0 · void'],['#12100C','ink-1 · surface'],['#1B1813','ink-2 · raised'],['#262119','ink-3 · hover'],
+ ['#362C1B','line-0'],['#4C3D24','line-1'],
+ ['#6B5F49','bone-4 · ghost'],['#94866A','bone-3 · meta'],['#C9BC96','bone-2'],['#EDE3C4','bone-1 · text'],['#F7EED2','bone-0'],
+ ['#57441F','kin-3'],['#8F713C','kin-2'],['#D6AE66','kin-1 · gold'],['#EAC578','kin-0 · glow'],
+ ['#C67F45','kaki · warning'],
+ ['#7E302E','aka-2 · lacquer'],['#d8392e','aka-1 · 彼岸花'],['#D4665C','aka-0 · text'],
+ ['#52703F','mori-1 · moss'],['#8FAC6F','mori-0'],
+ ['#7C88B8','hotaru · blue'],['#9C7FB0','fuji · magenta'],['#6FA08E','seiji · cyan'],
+];
 
-const $=s=>document.querySelector(s);
-const lum=h=>{const v=[1,3,5].map(i=>parseInt(h.slice(i,i+2),16)/255)
- .map(c=>c<=.04045?c/12.92:((c+.055)/1.055)**2.4);return .2126*v[0]+.7152*v[1]+.0722*v[2]};
-const toast=t=>{const e=$('#toast');e.textContent=t;e.classList.add('show');
- clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove('show'),1400)};
-const copy=(txt,label)=>{navigator.clipboard&&navigator.clipboard.writeText(txt).catch(()=>{});toast(label+' — COPIED')};
+/* ── glass cards ── */
+const CARDS=[
+ {mk:'✦',c:'var(--kin-1)',tag:'primary accent',nm:'Aged Brass',b:'Gold gilds — edge, frame, glyph, line. Never a filled block.',h:'#D6AE66 · gold'},
+ {mk:'✕',c:'var(--aka-1)',tag:'the one trigger',nm:'彼岸花',b:'Spider-lily scarlet. One bloom per screen — daring in the detail.',h:'#d8392e · scarlet'},
+ {mk:'◈',c:'var(--mori-0)',tag:'life · confirm',nm:'Moss',b:'The quiet pair of scarlet — success, growth, a step done.',h:'#52703F · moss'},
+ {mk:'◻',c:'var(--bone-1)',tag:'primary text',nm:'Parchment',b:'Warm bone on warm black — 11.4:1, AAA, never pure white.',h:'#EDE3C4 · bone'},
+ {mk:'◆',c:'var(--kaki)',tag:'warning',nm:'Persimmon',b:'A warm warning that stays inside the tone — never alarm-red.',h:'#C67F45 · kaki'},
+ {mk:'◇',c:'var(--seiji)',tag:'service only',nm:'Celadon',b:'Cool tones live only in terminals and syntax — never in UI.',h:'#6FA08E · seiji'},
+];
+const cardsEl=document.getElementById('cards');
+CARDS.forEach(c=>{
+  const d=document.createElement('div');d.className='glass rev';d.dataset.copy=c.h;
+  d.innerHTML=`<div class="spot"></div><div class="sheen"></div><div class="g-in">
+    <span class="g-mk" style="color:${c.c}">${c.mk}</span>
+    <div class="g-tag">${c.tag}</div><div class="g-name" style="color:${c.c}">${c.nm}</div>
+    <div class="g-body">${c.b}</div><div class="g-hex">${c.h}</div></div>`;
+  cardsEl.appendChild(d);
+});
 
-let cur='kogane';
-function apply(slug){
- cur=slug;const T=THEMES[slug],r=document.documentElement.style,u=T.ui;
- for(const[k,v]of Object.entries(T.tok))r.setProperty('--'+k,v);
- const map={'primary':u.primary,'focus':u.focus,'nav-text':u.navText,'nav-bg':u.navBg,'nav-border':u.navBorder,
-  'border-soft':u.border,'sep':u.sep,'hover-row':u.hover,'shadow':u.shadow,'glass':u.glass,
-  'grain':u.grain,'inp-bg':u.inpBg,'quote-bg':u.quote,'kin-text':u.kinText,
-  'hero-bg':u.heroBg,'hero-border':u.heroBorder,'bg-grad':u.bgGrad,
-  'term-bg':u.termBg,'term-border':u.termBorder,'term-cursor':T.cursor};
- for(const[k,v]of Object.entries(map))r.setProperty('--'+k,v);
- document.documentElement.dataset.theme=slug;document.documentElement.dataset.mode=u.mode;
- document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('act',b.dataset.id===slug));
- $('#hudTheme').textContent=T.name.toUpperCase()+' '+T.jp;
- $('#heroSub').textContent=T.sub;$('#palSub').textContent=T.pal;
- $('#expTheme').textContent=T.name.toUpperCase();
- $('#tokNote').textContent=Object.keys(T.tok).length+' tokens · v1.0';
- $('#ansiNote').textContent='bg '+T.bg+' · cursor '+T.cursor;
- renderTokens();renderRoles();renderAnsi();renderTrig();renderBadges();renderAlerts();renderPrompt();renderExports();
- localStorage.setItem('yoshiki-theme',slug);
-}
-function renderTokens(){
- const T=THEMES[cur];let h='';
- for(const[cap,keys]of TOK_GROUPS){
-  h+=`<div class="tok-cap">${cap}</div>`;
-  for(const k of keys){const v=T.tok[k];if(!v)continue;
-   const tc=lum(v)<.42?'#EDE3C4':'#171208';
-   h+=`<div class="tok" style="background:${v}" data-hex="${v}" title="copy ${v}">
-        <span class="n" style="color:${tc}">${k}</span><span class="h" style="color:${tc}">${v}</span></div>`}}
- $('#tokGrid').innerHTML=h;
- document.querySelectorAll('.tok').forEach(t=>t.onclick=()=>copy(t.dataset.hex,t.dataset.hex));
-}
-function renderRoles(){
- const t=THEMES[cur].tok;
- const roles=[['Primary / action','framed','gold frame + gold text'],
-  ['Irreversible',t['aka-1'],'scarlet may fill · one/screen'],
-  ['Success / life',t['mori-1'],'moss confirms'],
-  ['Warning',t['kaki-1'],'persimmon, stays warm'],
-  ['Info / meta',t['bone-2'],'tone — never blue'],
-  ['Special · AI',t['fuji-1'],'rare wisteria']];
- $('#roleGrid').innerHTML=roles.map(([b,c,s])=>
-  c==='framed'?`<div class="role"><i class="framed"></i><div><b>${b}</b><span>${s}</span></div></div>`
-  :`<div class="role"><i style="background:${c}"></i><div><b>${b}</b><span>${c} · ${s}</span></div></div>`).join('');
-}
-function renderAnsi(){
- const T=THEMES[cur];const names=['blk','red','grn','yel','blu','mag','cyn','wht'];
- const cell=(c,n,b)=>{const tc=lum(c)<.42?'rgba(237,227,196,.8)':'rgba(23,18,8,.75)';
-  return `<div style="background:${c};color:${tc}" data-hex="${c}">${b?'b-':''}${n}</div>`};
- $('#ansiStrip').innerHTML=T.ansi.map((c,i)=>cell(c,names[i],0)).join('')+T.brt.map((c,i)=>cell(c,names[i],1)).join('');
- document.querySelectorAll('#ansiStrip div').forEach(d=>d.onclick=()=>copy(d.dataset.hex,d.dataset.hex));
-}
-function renderTrig(){
- const t=THEMES[cur].tok;
- const tone=[t['bone-3'],t['kin-2'],t['kin-1'],t['bone-4'],t['line-1'],t['kin-3']];
- const orbs=[...tone.slice(0,3),t['aka-1'],...tone.slice(3)];
- $('#trigRow').innerHTML=orbs.map(c=>{
-  const cl='color-mix(in srgb,'+c+' 55%, #FFF8E8)',cd='color-mix(in srgb,'+c+' 60%, #000)';
-  return `<div class="orb" style="--c:${c};--cl:${cl};--cd:${cd}"></div>`}).join('');
-}
-function renderBadges(){
- const t=THEMES[cur].tok,u=THEMES[cur].ui;
- const mk=(txt,c)=>`<span class="badge" style="color:${c};border-color:color-mix(in srgb,${c} 40%,transparent);background:color-mix(in srgb,${c} 9%,transparent)">${txt}</span>`;
- $('#badgeRow').innerHTML=mk('主 PRIMARY',u.kinText)+mk('生 ACTIVE',t['mori-0'])+
-  mk('死 CRITICAL',t['aka-0'])+mk('✦ AI',t['fuji-1'])+
-  `<span class="badge" style="color:${t['bone-3']};border-color:${u.border};background:${t['ink-2']}">v1.0.0</span>`;
-}
-function renderAlerts(){
- const t=THEMES[cur].tok,L=THEMES[cur].ui.mode==='light';
- const set=(id,fg,bg,bc)=>{const e=$(id);e.style.color=fg;e.style.background=bg;e.style.borderColor=bc};
- set('#alInfo',THEMES[cur].ui.kinText,'color-mix(in srgb,'+t['kin-1']+' 7%,transparent)','color-mix(in srgb,'+t['kin-1']+' 25%,transparent)');
- set('#alOk',t['mori-0'],t['mori-w'],'color-mix(in srgb,'+t['mori-0']+' 30%,transparent)');
- set('#alWarn',L?'#8A4E1F':'#EFC096','color-mix(in srgb,'+t['kaki-1']+' 10%,transparent)','color-mix(in srgb,'+t['kaki-1']+' 30%,transparent)');
- set('#alErr',t['aka-0'],t['aka-w'],'color-mix(in srgb,'+t['aka-0']+' 30%,transparent)');
+/* ── ramps ── */
+const RAMPS=[
+ ['#0B0A08','#12100C','#1B1813','#262119','#362C1B','#4C3D24'],
+ ['#6B5F49','#94866A','#C9BC96','#EDE3C4','#F7EED2'],
+ ['#57441F','#8F713C','#D6AE66','#EAC578'],
+ ['#5e1d16','#8a2a1f','#b83228','#d8392e','#D4665C'],
+ ['#2F4526','#52703F','#8FAC6F'],
+];
+const rampsEl=document.getElementById('ramps');
+RAMPS.forEach(r=>{
+  const row=document.createElement('div');row.className='ramp';
+  r.forEach(h=>{const s=document.createElement('div');s.className='sw';s.style.background=h;s.dataset.copy=h;
+    s.innerHTML=`<div class="sw-t">${h}</div>`;row.appendChild(s);});
+  rampsEl.appendChild(row);
+});
+
+/* ── inspector ── */
+const chips=document.getElementById('chips'),pbar=document.getElementById('pbar'),phx=document.getElementById('phx'),pnm=document.getElementById('pnm');
+document.getElementById('tokcount').textContent=TOKENS.length+' tokens';
+function lum(hex){const n=parseInt(hex.slice(1),16),r=(n>>16)/255,g=((n>>8)&255)/255,b=(n&255)/255;
+  const f=v=>v<=.03928?v/12.92:Math.pow((v+.055)/1.055,2.4);return .2126*f(r)+.7152*f(g)+.0722*f(b);}
+let selChip;
+TOKENS.forEach((t,i)=>{
+  const d=document.createElement('div');d.className='chip';d.style.background=t[0];d.dataset.copy=t[0]+' · '+t[1];
+  d.onclick=()=>{if(selChip)selChip.classList.remove('on');d.classList.add('on');selChip=d;
+    pbar.style.background=t[0];phx.textContent=t[0];pnm.textContent=t[1];
+    const dark=lum(t[0])<.35;phx.style.color=pnm.style.color=dark?'#F7EED2':'#0B0A08';toast(t[0]+' · '+t[1]);};
+  chips.appendChild(d);
+  if(t[0]==='#D6AE66'){d.click();}
+});
+
+/* ── ansi ── */
+const ANSI=[
+ [['#1B1813','0'],['#d8392e','1'],['#8FAC6F','2'],['#D6AE66','3'],['#7C88B8','4'],['#9C7FB0','5'],['#6FA08E','6'],['#EDE3C4','7']],
+ [['#6B5F49','8'],['#DC7265','9'],['#A8C48A','A'],['#EAC578','B'],['#98A4D4','C'],['#B89BCC','D'],['#8CBCA9','E'],['#F7EED2','F']],
+];
+const ansiEl=document.getElementById('ansi');
+ANSI.forEach(row=>{const r=document.createElement('div');r.className='arow';
+  row.forEach(c=>{const a=document.createElement('div');a.className='ac';a.style.background=c[0];a.dataset.copy=c[0];
+    a.textContent=c[1];a.style.color=lum(c[0])<.35?'#F7EED2':'#0B0A08';r.appendChild(a);});
+  ansiEl.appendChild(r);});
+
+/* ── copy / toast ── */
+let tt;
+function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),1900);}
+document.addEventListener('click',e=>{
+  const c=e.target.closest('[data-copy]'),b=e.target.closest('[data-toast]');
+  if(b){toast(b.dataset.toast);return;}
+  if(c){const v=c.dataset.copy;navigator.clipboard&&navigator.clipboard.writeText(v.split(' · ')[0]);toast('copied · '+v);}
+});
+
+/* ── theme ── */
+const dots=document.querySelectorAll('.tdot');
+function setTheme(t){document.documentElement.dataset.theme=t;dots.forEach(d=>d.classList.toggle('on',d.dataset.t===t));}
+dots.forEach(d=>d.onclick=()=>setTheme(d.dataset.t));
+addEventListener('keydown',e=>{if(e.key==='1')setTheme('kogane');if(e.key==='2')setTheme('washi');});
+
+/* ── reveal ── */
+const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}}),{threshold:.12});
+document.querySelectorAll('.rev').forEach(el=>io.observe(el));
+
+/* ── cursor ── */
+if(!COARSE && !RM){
+  const cr=document.getElementById('curR'),cd=document.getElementById('curD');
+  let mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my;
+  addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cd.style.transform=`translate(${mx}px,${my}px) translate(-50%,-50%)`;});
+  addEventListener('mousedown',()=>cr.classList.add('act'));addEventListener('mouseup',()=>cr.classList.remove('act'));
+  document.querySelectorAll('a,button,.glass,.pp,.sw,.chip,.ac,.ls,.tog,.pill,.tdot,[data-copy]').forEach(el=>{
+    el.addEventListener('mouseenter',()=>cr.classList.add('hov'));el.addEventListener('mouseleave',()=>cr.classList.remove('hov'));});
+  (function loop(){rx+=(mx-rx)*.16;ry+=(my-ry)*.16;cr.style.transform=`translate(${rx}px,${ry}px) translate(-50%,-50%)`;requestAnimationFrame(loop);})();
 }
 
-const P_STATIC={
- identity:`You follow "yoshiki" — Zinzaki's design language. Apply it to everything
-visual or textual you produce: UI, CLI output, documents, code comments.
-
-WORLD — warm monochrome: lacquer-dark surfaces (never neutral grey), bone
-text (never pure white), gold as the acting accent. GOLD IS GILDING: it lives
-only as line, edge, frame, glyph, thin stroke — never a filled button, plate
-or large area. A primary button is a gold-framed surface with gold text, not
-a gold rectangle. Color beyond gold is a RARE TRIGGER: scarlet only for the
-irreversible (ONE per screen, and scarlet MAY fill — a fill is the event),
-moss for success/life, persimmon for warnings. No blue/purple in UI roles —
-information lives in tone. Blue/wisteria/celadon exist only in terminal ANSI
-and syntax colors.
-
-CHARACTER — reserved but strong. Short, precise, no wasted words. Not
-minimalism for its own sake: accuracy and quality, detailed to the smallest
-element. Combine two poles: hard technical detail (sharp marks, dense trees,
-HUD annotation) inside calm rounded noble surfaces. Japanese layer present
-but dosed: one kanji / quote / seal per surface.
-
-FORM — soft rounded capsules for calm content; hard double-line trees
-(╔ ╠ ╚) for dense data; never mixed in one block. Semantic glyphs replace
-words: ✓ ✗ ● ◆ → ▲ ❯ (one meaning each). Decoration budget: one element per
-screen. Aligned columns, right-aligned deltas "(+24)", dim meta. Everything
-survives monospace and line-wrap.
-
-LAW — rarity = power; gold gilds, never fills. When unsure whether to add
-color, ornament, or words — don't.`,
- cli:`When producing terminal output or TUI mockups, format the yoshiki way:
-
-PROMPT (two-line capsule):
-╭─ 心 ─ <path> ─ <branch> <git-state> ─ <lang>
-╰─ ❯
-Connectors dim, path brightest, git-state moss; scarlet exit code and
-persimmon duration appear only when nonzero.
-
-STATUS — verdict glyph first, one clause, dim detail:
-✓ built   target/app · 0.4s
-✗ error:  seal mismatch // exit 1
-
-MENUS — glyph + label, dim right-aligned counter; active item shown by
-color/tint and a thin gold edge, never ">>>" or a gold fill. DENSE DATA —
-double-line spine (╔ ╠ ╚), max ~7 rows, deltas right-aligned.
-
-HARD RULES — no banner art, no INFO:/[LOG] prefixes, no timestamps unless
-asked, never close the right edge of wide boxes, one decorative element per
-screen, every line survives 80-col monospace.`,
- comments:`Comment code the yoshiki way — comments exist only for constraints the
-code cannot show. "See, don't read."
-
-STRUCTURE — visible blocks: one heavy frame for the critical block
-(// ╔═…═╗ / ║ TITLE ║ / ╚═…═╝), light rules elsewhere
-(// ── helpers ──). Frame titles short caps, rule titles lowercase.
-
-MARKS — prefer mark + few words over a sentence:
-← origin / exists-because    → consumed-by / continues-at
-⚠ non-obvious trap           ↺ reversible, safe to redo
-✗ deprecated, dying          ◉ invariant — must hold
-
-NEVER — what the next line does; authorship/dates/tool credits; apologies;
-TODO novels; commented-out corpses; decoration beyond frames.
-
-DENSITY — frames give the skeleton, 5–10 one-line marks carry the traps,
-the rest is silent code. A two-sentence comment means refactor instead.`,
- text:`Decorate names, titles and documents the yoshiki way:
-
-NAMEPLATES — spaced capitals between paired marks:
-· N A M E ·   (quiet)   — N A M E —   (formal)
-⟦ N A M E ⟧  (technical)   ◇ N A M E ◇  (ceremonial)
-Optionally ONE kanji mood suffix (影 shadow · 極 utmost · 玄 profound).
-Unicode bold/mono letterforms only in display contexts.
-
-HEADS — 『 Title 』 collections · ⧎ Title data blocks · ━━━ heavy rule once
-per document · ─── light rules freely.
-
-GLYPHS — one meaning each: ✓ done · ✗ failed · ● active · ◆ important ·
-→ leads-to · ▲▼ delta · ⟥ field · ⬡ entity. Max two per line.
-
-FRAMES — soft capsules (╭ ╮ ╰ ╯) for calm words; hard spines (╔ ╠ ╚) for
-dense data; never both in one block.
-
-RESTRAINT — one decorative element per surface; if it adds no meaning or
-identity, remove it.`};
-function palettePrompt(){
- const T=THEMES[cur],t=T.tok,u=T.ui;
- return `Use the "yoshiki ${cur}" palette (${T.name} ${T.jp}, ${u.mode}). Tokens:
-
-SURFACES ${t['ink-0']} bg · ${t['ink-1']} panels · ${t['ink-2']} cards · ${t['ink-3']} hover · hairline ${t['line-0']} · border ${t['line-1']}
-TEXT ${t['bone-0']} headings · ${t['bone-1']} body · ${t['bone-2']} secondary · ${t['bone-3']} meta · ${t['bone-4']} ghost
-GOLD (gilding only) ${t['kin-0']} hover · ${t['kin-1']} accent · ${t['kin-2']} labels · wash ${t['kin-w']}
-TRIGGERS scarlet ${t['aka-1']} fills / ${t['aka-0']} text / wash ${t['aka-w']} · moss ${t['mori-1']} fills / ${t['mori-0']} text / wash ${t['mori-w']}
-WARNING ${t['kaki-1']} · SERVICE (terminal/syntax only) blue ${t['hotaru-1']} · magenta ${t['fuji-1']} · cyan ${t['seiji-1']}
-
-RULES
-1. Gold is GILDING: frames, edges, glyphs, thin strokes — never a fill.
-   Primary button = a ${u.primary} 1.5px frame + ${u.kinText} text on a tinted surface.
-2. Scarlet only for the irreversible — ONE element per screen; scarlet MAY fill.
-3. Success = moss, warning = persimmon, info = tone (never blue).
-4. Dark tones always warm; the light theme keeps the terminal a dark island.
-5. Gradients only inside tone; triggers stay flat like a seal.
-6. Contrast floors: body >= 7:1, secondary >= 4.5:1, decorative >= 3:1.`}
-let curP='identity';
-const PROMPTS=['identity','palette','cli','comments','text'];
-function renderPrompt(){
- $('#ptabs').innerHTML=PROMPTS.map(p=>`<button class="ptab${p===curP?' act':''}" data-p="${p}">${p}${p==='palette'?' · '+cur:''}</button>`).join('');
- document.querySelectorAll('.ptab').forEach(b=>b.onclick=()=>{curP=b.dataset.p;renderPrompt()});
- $('#pview').textContent=curP==='palette'?palettePrompt():P_STATIC[curP];
-}
-$('#pcopy').onclick=()=>copy($('#pview').textContent,'PROMPT · '+curP.toUpperCase());
-
-function exports_(){
- const T=THEMES[cur],t=T.tok,head=`yoshiki · ${T.name} ${T.jp} v1.0.0`;
- const a=T.ansi,br=T.brt,sel=cur==='washi'?'#3F3112':t['kin-w'];
- const fg=cur==='washi'?'#EDE3C4':t['bone-1'];
- const css='/* '+head+' */\n:root{\n'+Object.entries(t).map(([k,v])=>`  --${k}: ${v};`).join('\n')+'\n}\n';
- const kitty=`# ${head}\nforeground ${fg}\nbackground ${T.bg}\ncursor ${T.cursor}\nselection_background ${sel}\nselection_foreground none\n`+
-  a.map((c,i)=>`color${i} ${c}`).join('\n')+'\n'+br.map((c,i)=>`color${i+8} ${c}`).join('\n')+'\n';
- const foot=`# ${head}\n[colors]\nforeground=${fg.slice(1)}\nbackground=${T.bg.slice(1)}\n`+
-  a.map((c,i)=>`regular${i}=${c.slice(1)}`).join('\n')+'\n'+br.map((c,i)=>`bright${i}=${c.slice(1)}`).join('\n')+`\nselection-background=${sel.slice(1)}\n`;
- const nm=['black','red','green','yellow','blue','magenta','cyan','white'];
- const ala=`# ${head}\n[colors.primary]\nbackground = "${T.bg}"\nforeground = "${fg}"\n\n[colors.cursor]\ncursor = "${T.cursor}"\n\n[colors.normal]\n`+
-  nm.map((n,i)=>`${n} = "${a[i]}"`).join('\n')+'\n\n[colors.bright]\n'+nm.map((n,i)=>`${n} = "${br[i]}"`).join('\n')+'\n';
- const star=`# ${head}\n[palettes.yoshiki-${cur}]\n`+
-  [['bg','ink-0'],['surface','ink-2'],['line','line-0'],['bone','bone-1'],['bonehi','bone-0'],
-   ['muted','bone-3'],['ghost','bone-4'],['gold','kin-1'],['goldhi','kin-0'],['golddim','kin-2'],
-   ['scarlet','aka-1'],['scarlethi','aka-0'],['moss','mori-1'],['mosshi','mori-0'],
-   ['persimmon','kaki-1'],['blue','hotaru-1'],['magenta','fuji-1'],['cyan','seiji-1']]
-  .map(([k,v])=>`${k} = "${t[v]}"`).join('\n')+'\n';
- const json=JSON.stringify({meta:{name:T.name,kanji:T.jp,slug:cur,version:'1.0.0'},tokens:t,
-  terminal:{background:T.bg,cursor:T.cursor,ansi:a,brights:br}},null,2);
- return [['palette.css',':root variables',css],['kitty.conf','terminal',kitty],
-  ['foot.ini','terminal',foot],['alacritty.toml','terminal',ala],
-  ['starship.toml','prompt palette',star],['tokens.json','machine bundle',json]];
-}
-function renderExports(){
- $('#expGrid').innerHTML=exports_().map(([n,d],i)=>
-  `<div class="exp" data-i="${i}"><b>${n}</b><span>${d}</span><span class="act">⇩ copy for ${cur}</span></div>`).join('');
- document.querySelectorAll('.exp').forEach(e=>e.onclick=()=>copy(exports_()[+e.dataset.i][2],exports_()[+e.dataset.i][0]));
+/* ── 3D tilt + spotlight ── */
+if(!RM){
+  document.querySelectorAll('.glass').forEach(el=>{
+    el.addEventListener('mousemove',e=>{const r=el.getBoundingClientRect();const x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
+      el.style.transform=`perspective(760px) rotateX(${(y-.5)*-12}deg) rotateY(${(x-.5)*12}deg) scale(1.02)`;
+      el.style.setProperty('--mx',x*100+'%');el.style.setProperty('--my',y*100+'%');});
+    el.addEventListener('mouseleave',()=>el.style.transform='perspective(760px) rotateX(0) rotateY(0)');
+  });
 }
 
-$('#tabs').innerHTML=ORDER.map((s,i)=>{const T=THEMES[s];
- return `<button class="tab" data-id="${s}"><span class="sw" style="background:${T.sw}"></span>${T.name} <span class="jp">${T.jp}</span><kbd>${i+1}</kbd></button>`}).join('');
-document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>apply(b.dataset.id));
-$('#demoLinks').innerHTML='<a href="https://github.com/zinzaki/yoshiki" target="_blank" rel="noopener">GitHub repo ↗</a>'+
- '<a href="https://github.com/zinzaki/yoshiki/tree/main/library/themes" target="_blank" rel="noopener">ready themes ↗</a>'+
- '<a href="https://github.com/zinzaki/yoshiki/tree/main/canon/prompts" target="_blank" rel="noopener">AI prompts ↗</a>';
-document.addEventListener('keydown',e=>{if(e.target.tagName==='INPUT')return;
- if(e.key>='1'&&e.key<='2')apply(ORDER[+e.key-1]);});
-const spy=new IntersectionObserver(es=>es.forEach(e=>{
- if(e.isIntersecting)document.querySelectorAll('.snav').forEach(n=>
-  n.classList.toggle('act',n.getAttribute('href')==='#'+e.target.id));}),{rootMargin:'-40% 0px -55% 0px'});
-document.querySelectorAll('section.sec').forEach(s=>spy.observe(s));
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -6% 0px'});
-document.querySelectorAll('.panel,.phil .card,.hero,.term,.code').forEach(el=>{el.classList.add('reveal');io.observe(el)});
+/* ── hero constellation ── */
+if(!RM){
+  const cv=document.getElementById('sky'),x=cv.getContext('2d');let pts=[],W,H;
+  function init(){W=cv.width=cv.offsetWidth;H=cv.height=cv.offsetHeight;pts=[];
+    const n=Math.min(72,Math.floor(W/16));
+    for(let i=0;i<n;i++)pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3,
+      r:Math.random()*1.7+.3,c:['214,174,102','216,57,46','111,154,142','198,127,69'][Math.floor(Math.random()*4)],ph:Math.random()*6.28});}
+  function draw(){x.clearRect(0,0,W,H);
+    for(const p of pts){p.x+=p.vx;p.y+=p.vy;p.ph+=.01;if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0;
+      x.beginPath();x.arc(p.x,p.y,p.r,0,6.28);x.fillStyle=`rgba(${p.c},${(.3+.3*Math.sin(p.ph)).toFixed(2)})`;x.fill();}
+    for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.hypot(dx,dy);
+      if(d<104){x.beginPath();x.moveTo(pts[i].x,pts[i].y);x.lineTo(pts[j].x,pts[j].y);x.strokeStyle=`rgba(214,174,102,${(.06*(1-d/104)).toFixed(3)})`;x.lineWidth=.5;x.stroke();}}
+    requestAnimationFrame(draw);}
+  init();draw();addEventListener('resize',init);
+}
 
-apply(localStorage.getItem('yoshiki-theme')||'kogane');
+/* ── prism blobs ── */
+if(!RM){
+  const cv=document.getElementById('prismC'),x=cv.getContext('2d');let b=[],W,H;
+  function init(){W=cv.width=cv.offsetWidth;H=cv.height=cv.offsetHeight;
+    b=[['214,174,102',.55,.28,.4,.5,.3],['216,57,46',.45,.72,.6,-.4,.35],['111,154,142',.4,.5,.2,.25,-.4],['198,127,69',.38,.18,.7,.35,-.28]]
+      .map(o=>({c:o[0],a:o[1],x:o[2]*W,y:o[3]*H,vx:o[4],vy:o[5],r:Math.min(W,H)*.5}));}
+  function draw(){x.clearRect(0,0,W,H);x.fillStyle='#0B0A08';x.fillRect(0,0,W,H);
+    for(const o of b){o.x+=o.vx;o.y+=o.vy;if(o.x<0||o.x>W)o.vx*=-1;if(o.y<0||o.y>H)o.vy*=-1;
+      const g=x.createRadialGradient(o.x,o.y,0,o.x,o.y,o.r);g.addColorStop(0,`rgba(${o.c},${o.a})`);g.addColorStop(1,`rgba(${o.c},0)`);
+      x.fillStyle=g;x.beginPath();x.arc(o.x,o.y,o.r,0,6.28);x.fill();}
+    requestAnimationFrame(draw);}
+  init();draw();addEventListener('resize',init);
+}
 </script>
 </body>
 </html>
