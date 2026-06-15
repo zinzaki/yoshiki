@@ -4,647 +4,587 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>様式 yoshiki — a design language</title>
-<meta name="description" content="yoshiki — an elegant design language. Warm monochrome, struck rarely by color. Lacquer, bone and gold, with a single spider-lily scarlet.">
+<meta name="description" content="yoshiki — an elegant design language. Warm monochrome, struck rarely by color. Browse every element: palette, lexicon, CLI, motion, code, components, effects, themes.">
 <meta property="og:title" content="様式 yoshiki — a design language">
-<meta property="og:description" content="Warm monochrome, struck rarely by color. Lacquer · bone · gold · one spider-lily scarlet.">
-<meta property="og:type" content="website">
+<meta property="og:description" content="Warm monochrome, struck rarely by color. The whole language, element by element.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=JetBrains+Mono:wght@300;400;600&family=Noto+Serif+JP:wght@500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=JetBrains+Mono:wght@300;400;500;700&family=Noto+Serif+JP:wght@500;700;900&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-
 :root{
-  /* ── kogane · dark (tokens) ── */
-  --ink-0:#0B0A08; --ink-1:#12100C; --ink-2:#1B1813; --ink-3:#262119;
-  --line-0:#362C1B; --line-1:#4C3D24;
-  --bone-0:#F7EED2; --bone-1:#EDE3C4; --bone-2:#C9BC96; --bone-3:#94866A; --bone-4:#6B5F49;
-  --kin-0:#EDC85C; --kin-1:#D8AF52; --kin-2:#8F713C; --kin-3:#57441F; --kin-w:#3F3112;
-  --kaki:#C67F45;
-  --aka-0:#D4665C; --aka-1:#d8392e; --aka-2:#7E302E; --aka-w:#331514;
-  --mori-0:#8FAC6F; --mori-1:#52703F;
-  --hotaru:#7C88B8; --fuji:#9C7FB0; --seiji:#6FA08E;
-
-  /* glass tuned warm for dark */
-  --glass-bg:rgba(21,18,12,.50);
-  --glass-brd:rgba(214,174,102,.12);
-  --glass-spec:rgba(255,247,222,.22);
-  --grain-op:.04;
-  --shadow:0 24px 60px rgba(0,0,0,.55);
-
+  --ink-0:#0B0A08;--ink-1:#12100C;--ink-2:#1B1813;--ink-3:#262119;
+  --line-0:#362C1B;--line-1:#4C3D24;
+  --bone-0:#F7EED2;--bone-1:#EDE3C4;--bone-2:#C9BC96;--bone-3:#94866A;--bone-4:#6B5F49;
+  --kin-0:#EDC85C;--kin-1:#D8AF52;--kin-2:#8F713C;--kin-3:#57441F;--kin-w:#3F3112;
+  --kaki:#C67F45;--aka-0:#D4665C;--aka-1:#d8392e;--aka-2:#7E302E;
+  --mori-0:#8FAC6F;--mori-1:#52703F;--hotaru:#7C88B8;--fuji:#9C7FB0;--seiji:#6FA08E;
+  --glass-bg:rgba(21,18,12,.5);--glass-brd:rgba(216,175,82,.13);--glass-spec:rgba(255,247,222,.2);
+  --kin-text:var(--kin-1);--grain:.04;--shadow:0 22px 54px rgba(0,0,0,.5);
   --ff-disp:'Shippori Mincho','Noto Serif JP',serif;
   --ff-body:'Zen Kaku Gothic New',system-ui,sans-serif;
   --ff-mono:'JetBrains Mono',monospace;
-  --kin-text:var(--kin-1);
 }
-
 [data-theme="washi"]{
-  /* ── washi · light (paper & ink) ── */
-  --ink-0:#E2D6B4; --ink-1:#EBE1C3; --ink-2:#F3EBD5; --ink-3:#D7C9A3;
-  --line-0:#C7B68C; --line-1:#AE9C72;
-  --bone-0:#1F1810; --bone-1:#2B2117; --bone-2:#4A3D2A; --bone-3:#6E5E42; --bone-4:#8E7C5A;
-  --kin-0:#B8923F; --kin-1:#9C7A40; --kin-2:#7A5F2E; --kin-3:#C9AE74; --kin-w:#E6D7A8;
-  --kaki:#A5602B;
-  --aka-0:#A8352B; --aka-1:#d8392e; --aka-2:#7E302E; --aka-w:#EBD3C8;
-  --mori-0:#4A6B38; --mori-1:#52703F;
-  --glass-bg:rgba(243,235,213,.55);
-  --glass-brd:rgba(122,95,46,.18);
-  --glass-spec:rgba(255,255,255,.5);
-  --grain-op:.03;
-  --shadow:0 20px 50px rgba(94,74,40,.18);
-  /* text-safe gold on paper */
-  --kin-text:#7A5F2E;
+  --ink-0:#E2D6B4;--ink-1:#EBE1C3;--ink-2:#F3EBD5;--ink-3:#D7C9A3;
+  --line-0:#C7B68C;--line-1:#AE9C72;
+  --bone-0:#1F1810;--bone-1:#2B2117;--bone-2:#4A3D2A;--bone-3:#6E5E42;--bone-4:#8E7C5A;
+  --kin-0:#B8923F;--kin-1:#9C7A40;--kin-2:#7A5F2E;--kin-3:#C9AE74;--kin-w:#E6D7A8;
+  --kaki:#A5602B;--aka-0:#A8352B;--mori-0:#4A6B38;
+  --glass-bg:rgba(243,235,213,.55);--glass-brd:rgba(122,95,46,.18);--glass-spec:rgba(255,255,255,.5);
+  --kin-text:#7A5F2E;--grain:.03;--shadow:0 18px 44px rgba(94,74,40,.16);
 }
-
 html{scroll-behavior:smooth}
-body{
-  background:var(--ink-0); color:var(--bone-1);
-  font-family:var(--ff-body); font-weight:300; line-height:1.7;
-  overflow-x:hidden; -webkit-font-smoothing:antialiased;
-  transition:background .6s ease,color .6s ease;
-  cursor:none;
-}
-@media (pointer:coarse){ body{cursor:auto} }
-
-/* ── grain + aurora atmosphere ── */
-#grain{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:var(--grain-op);mix-blend-mode:overlay;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size:200px}
-#aurora{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
-.blob{position:absolute;border-radius:50%;filter:blur(90px);will-change:transform;opacity:.5}
-
-/* ── custom dual-ring cursor ── */
-.cur{position:fixed;top:0;left:0;z-index:9999;pointer-events:none;border-radius:50%;
-  transform:translate(-50%,-50%);will-change:transform}
-#curR{width:34px;height:34px;border:1px solid rgba(214,174,102,.5);mix-blend-mode:screen;
-  transition:width .3s,height .3s,border-color .3s,background .3s}
-#curR.hov{width:54px;height:54px;background:rgba(214,174,102,.06);border-color:rgba(214,174,102,.9)}
-#curR.act{width:60px;height:60px;border-color:var(--aka-1);background:rgba(216,57,46,.06)}
-#curD{width:5px;height:5px;background:var(--kin-1);box-shadow:0 0 10px rgba(214,174,102,.8)}
-@media (pointer:coarse){.cur{display:none}}
+body{background:var(--ink-0);color:var(--bone-1);font-family:var(--ff-body);font-weight:300;line-height:1.7;
+  -webkit-font-smoothing:antialiased;transition:background .5s,color .5s}
+#grain{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:var(--grain);mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px}
 
 /* ── layout ── */
-.wrap{position:relative;z-index:2;max-width:1040px;margin:0 auto;padding:0 28px}
-section{padding:64px 0;position:relative}
-.eyebrow{font-family:var(--ff-mono);font-size:10px;letter-spacing:5px;text-transform:uppercase;
-  color:var(--kin-2);display:flex;align-items:center;gap:16px;margin-bottom:38px}
-.eyebrow::before{content:'';width:3px;height:13px;background:var(--aka-1);flex-shrink:0}
-.eyebrow::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--line-1),transparent)}
-.rule{height:1px;background:linear-gradient(90deg,transparent,var(--line-0) 30%,var(--line-1) 50%,var(--line-0) 70%,transparent)}
-
-/* ── theme switch ── */
-#themer{position:fixed;top:22px;right:24px;z-index:9998;display:flex;gap:8px;align-items:center;
-  background:var(--glass-bg);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-  border:1px solid var(--glass-brd);border-radius:100px;padding:7px 9px}
-.tdot{width:16px;height:16px;border-radius:50%;cursor:none;border:1px solid var(--line-1);transition:transform .25s,box-shadow .25s}
-.tdot[data-t="kogane"]{background:#0B0A08}
-.tdot[data-t="washi"]{background:#E2D6B4}
+.app{display:grid;grid-template-columns:236px 1fr;min-height:100vh;position:relative;z-index:1}
+/* sidebar nav */
+nav{position:sticky;top:0;height:100vh;overflow-y:auto;padding:30px 0 30px 26px;border-right:1px solid var(--line-0);
+  background:linear-gradient(180deg,var(--ink-1),var(--ink-0))}
+.brand{font-family:var(--ff-disp);font-weight:800;font-size:26px;
+  background:linear-gradient(120deg,var(--kin-3),var(--kin-1) 45%,var(--bone-0) 60%,var(--kin-0));
+  -webkit-background-clip:text;background-clip:text;color:transparent;line-height:1}
+.brand-s{font-family:var(--ff-mono);font-size:9px;letter-spacing:5px;color:var(--bone-3);text-transform:uppercase;margin:6px 0 24px}
+.nav-grp{font-family:var(--ff-mono);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--kin-2);margin:20px 0 9px}
+.nav-grp::before{content:'';display:inline-block;width:10px;height:1px;background:var(--aka-1);vertical-align:middle;margin-right:7px}
+nav a{display:block;font-size:13px;color:var(--bone-3);text-decoration:none;padding:5px 0 5px 17px;border-left:1px solid transparent;transition:color .2s,border-color .2s}
+nav a:hover{color:var(--bone-1)}
+nav a.on{color:var(--kin-1);border-left-color:var(--kin-1)}
+.nav-foot{margin-top:26px;padding-top:18px;border-top:1px solid var(--line-0);display:flex;gap:8px;align-items:center}
+.tdot{width:15px;height:15px;border-radius:50%;cursor:pointer;border:1px solid var(--line-1);transition:transform .2s,box-shadow .2s}
+.tdot[data-t="kogane"]{background:#0B0A08}.tdot[data-t="washi"]{background:#E2D6B4}
 .tdot.on{box-shadow:0 0 0 2px var(--kin-1);transform:scale(1.1)}
+.gh{font-family:var(--ff-mono);font-size:10px;color:var(--bone-3);text-decoration:none;margin-left:auto;border-bottom:1px solid var(--line-1)}
+.gh:hover{color:var(--kin-1)}
 
-/* ══ HERO ══ */
-.hero{min-height:92vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
-  text-align:center;position:relative;padding:80px 24px 60px}
-#sky{position:absolute;inset:0;width:100%;height:100%;z-index:0}
-.hero-in{position:relative;z-index:2}
-.hero-over{font-family:var(--ff-mono);font-size:11px;letter-spacing:7px;text-transform:uppercase;
-  color:var(--bone-3);margin-bottom:26px;display:flex;gap:14px;align-items:center;justify-content:center}
-.hero-over::before,.hero-over::after{content:'';width:42px;height:1px;background:linear-gradient(90deg,transparent,var(--line-1))}
-.hero-over::after{transform:scaleX(-1)}
-.hero-title{font-family:var(--ff-disp);font-weight:800;font-size:clamp(88px,19vw,184px);line-height:.92;letter-spacing:.04em;
-  background:linear-gradient(135deg,var(--kin-3) 0%,var(--kin-1) 28%,var(--bone-0) 50%,var(--kin-0) 72%,var(--kin-2) 100%);
-  background-size:220% 220%;-webkit-background-clip:text;background-clip:text;color:transparent;
-  animation:flow 6s ease-in-out infinite}
-@keyframes flow{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
-.hero-name{font-family:var(--ff-mono);font-size:12px;letter-spacing:9px;color:var(--bone-3);text-transform:uppercase;margin-top:14px}
-.pill{display:inline-flex;align-items:center;gap:9px;margin-top:30px;padding:8px 18px 8px 13px;border-radius:100px;
-  background:rgba(216,57,46,.08);border:1px solid rgba(216,57,46,.26);color:var(--aka-0);
-  font-family:var(--ff-mono);font-size:11px;letter-spacing:2.5px;cursor:none;transition:background .3s,box-shadow .3s}
-.pill:hover{background:rgba(216,57,46,.15);box-shadow:0 0 28px rgba(216,57,46,.22)}
+main{max-width:880px;padding:0 46px}
+section{padding:62px 0;border-bottom:1px solid var(--line-0);scroll-margin-top:20px}
+section:last-child{border-bottom:none}
+.ey{font-family:var(--ff-mono);font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--kin-2);display:flex;gap:13px;align-items:center;margin-bottom:8px}
+.ey::before{content:attr(data-n);color:var(--aka-1)}
+h2{font-family:var(--ff-disp);font-weight:700;font-size:30px;color:var(--bone-0);margin-bottom:10px;letter-spacing:-.3px}
+.lead{font-size:14.5px;color:var(--bone-2);max-width:600px;margin-bottom:30px;line-height:1.85}
+h3{font-family:var(--ff-mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--bone-3);margin:30px 0 14px}
+
+/* hero */
+.hero{padding:84px 0 60px;position:relative;border-bottom:1px solid var(--line-0)}
+#sky{position:absolute;inset:0;width:100%;height:100%;z-index:0;opacity:.8}
+.hero-in{position:relative;z-index:1}
+.hero h1{font-family:var(--ff-disp);font-weight:800;font-size:clamp(64px,11vw,118px);line-height:.95;letter-spacing:.02em;
+  background:linear-gradient(135deg,var(--kin-3),var(--kin-1) 30%,var(--bone-0) 50%,var(--kin-0) 72%,var(--kin-2));
+  background-size:220% 220%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:flow 6s ease-in-out infinite}
+@keyframes flow{0%,100%{background-position:0 50%}50%{background-position:100% 50%}}
+.hero .sub{font-size:16px;color:var(--bone-2);max-width:480px;margin-top:18px;line-height:1.85}
+.pill{display:inline-flex;align-items:center;gap:8px;margin-top:22px;padding:7px 16px 7px 11px;border-radius:100px;cursor:pointer;
+  background:rgba(216,57,46,.08);border:1px solid rgba(216,57,46,.26);color:var(--aka-0);font-family:var(--ff-mono);font-size:11px;letter-spacing:2px}
 .pdot{width:7px;height:7px;border-radius:50%;background:var(--aka-1);box-shadow:0 0 11px rgba(216,57,46,.9);animation:pulse 2.4s ease-in-out infinite}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.25;transform:scale(.55)}}
-.hero-sub{margin-top:22px;font-size:15px;color:var(--bone-2);max-width:440px;line-height:1.9}
-.scroll{margin-top:46px;display:flex;flex-direction:column;align-items:center;gap:8px}
-.scroll-l{width:1px;height:42px;background:linear-gradient(180deg,var(--kin-1),transparent);animation:sl 2.2s ease-in-out infinite}
-@keyframes sl{0%{opacity:0;transform:scaleY(0);transform-origin:top}50%{opacity:1;transform:scaleY(1)}100%{opacity:0;transform:scaleY(0);transform-origin:bottom}}
-.scroll-t{font-family:var(--ff-mono);font-size:9px;letter-spacing:4px;color:var(--bone-4);text-transform:uppercase}
+@keyframes pulse{50%{opacity:.25;transform:scale(.55)}}
 
-/* ══ GLASS CARDS ══ */
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-@media(max-width:760px){.grid3{grid-template-columns:1fr}}
-.glass{position:relative;border-radius:22px;padding:28px 24px;overflow:hidden;cursor:none;
-  background:var(--glass-bg);border:1px solid var(--glass-brd);
-  backdrop-filter:blur(7px) saturate(1.4);-webkit-backdrop-filter:blur(7px) saturate(1.4);
-  box-shadow:var(--shadow);transform-style:preserve-3d;will-change:transform;transition:border-color .4s}
-.glass::before{content:'';position:absolute;inset:0;border-radius:22px;pointer-events:none;
-  background:linear-gradient(150deg,var(--glass-spec) 0%,transparent 42%)}
-.glass::after{content:'';position:absolute;top:0;left:9%;right:9%;height:1px;background:linear-gradient(90deg,transparent,var(--glass-spec),transparent)}
-.spot{position:absolute;inset:0;border-radius:22px;pointer-events:none;opacity:0;transition:opacity .35s;
-  background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(214,174,102,.16),transparent 60%)}
-.glass:hover .spot{opacity:1}
-.sheen{position:absolute;top:0;left:-110%;width:55%;height:100%;pointer-events:none;
-  background:linear-gradient(105deg,transparent 38%,var(--glass-spec) 50%,transparent 62%)}
-.glass:hover .sheen{animation:sheen .7s ease forwards}
-@keyframes sheen{to{left:160%}}
-.g-in{position:relative;z-index:1}
-.g-mk{font-family:var(--ff-disp);font-size:30px;line-height:1;display:block;margin-bottom:16px}
-.g-tag{font-family:var(--ff-mono);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--bone-3);margin-bottom:6px}
-.g-name{font-family:var(--ff-disp);font-size:19px;font-weight:700;margin-bottom:9px;line-height:1.2}
-.g-body{font-size:13px;color:var(--bone-2);line-height:1.8}
-.g-hex{display:inline-block;font-family:var(--ff-mono);font-size:11px;margin-top:15px;padding:4px 11px;border-radius:6px;
-  background:rgba(255,255,255,.04);border:1px solid var(--glass-brd);color:var(--bone-3)}
+/* generic blocks */
+.blk{font-family:var(--ff-mono);font-size:13px;line-height:1.75;white-space:pre;overflow-x:auto;
+  background:var(--ink-1);border:1px solid var(--line-0);border-radius:14px;padding:20px 22px;color:var(--bone-2)}
+.blk .k{color:var(--kin-1)}.blk .r{color:var(--aka-1)}.blk .g{color:var(--mori-0)}.blk .d{color:var(--bone-4)}.blk .b{color:var(--bone-0)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:680px){.cols{grid-template-columns:1fr}}
+.note{font-size:12.5px;color:var(--bone-3);margin-top:10px;line-height:1.7}
+.note b{color:var(--kin-1);font-weight:500}
 
-/* ══ PRISM (real SVG refraction, blur fallback) ══ */
-.prism{position:relative;height:300px;border-radius:26px;overflow:hidden;border:1px solid var(--glass-brd)}
-#prismC{position:absolute;inset:0;width:100%;height:100%}
-.prism-row{position:absolute;inset:0;display:flex;gap:12px;padding:26px}
-.pp{flex:1;border-radius:18px;position:relative;overflow:hidden;cursor:none;display:flex;flex-direction:column;
-  align-items:center;justify-content:center;gap:8px;border:1px solid var(--glass-brd);
-  background:rgba(12,10,7,.18);
-  backdrop-filter:blur(3px) saturate(1.6) brightness(.9);-webkit-backdrop-filter:blur(3px) saturate(1.6) brightness(.9);
-  transition:transform .4s cubic-bezier(.22,.68,0,1.2),border-color .3s}
-@supports (backdrop-filter:url(#x)){ .pp{backdrop-filter:url(#refract) blur(2px) saturate(1.5)} }
-.pp::before{content:'';position:absolute;inset:0;background:linear-gradient(155deg,var(--glass-spec),transparent 45%);pointer-events:none}
-.pp:hover{transform:translateY(-6px) scale(1.04);border-color:rgba(214,174,102,.4)}
-.pp-k{font-family:var(--ff-disp);font-size:34px;font-weight:800;text-shadow:0 2px 18px rgba(0,0,0,.6)}
-.pp-l{font-family:var(--ff-mono);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--bone-3)}
+/* principles */
+.lad{display:flex;flex-direction:column;gap:2px}
+.rung{display:grid;grid-template-columns:30px 1fr;gap:14px;padding:11px 0;border-bottom:1px solid var(--line-0);align-items:baseline}
+.rung .n{font-family:var(--ff-mono);font-size:13px;color:var(--kin-1);font-weight:600}
+.rung .t b{color:var(--bone-0);font-weight:500;font-family:var(--ff-disp)}
+.rung .t span{color:var(--bone-3);font-size:13px}
+.rung .t em{display:block;color:var(--aka-0);font-style:normal;font-size:12.5px;margin-top:3px;font-family:var(--ff-mono)}
+.dft{width:100%;border-collapse:collapse;font-size:13px;margin-top:6px}
+.dft td{padding:8px 12px;border-bottom:1px solid var(--line-0);vertical-align:top}
+.dft td:first-child{color:var(--bone-3);white-space:nowrap;width:34%}
+.dft td:last-child{color:var(--bone-1)}
 
-/* ══ RAMPS ══ */
-.ramps{display:flex;flex-direction:column;gap:10px}
-.ramp{display:flex;border-radius:13px;overflow:hidden;height:46px}
-.sw{flex:1;cursor:none;position:relative;transition:flex .35s cubic-bezier(.22,.68,0,1.2)}
-.sw:hover{flex:2.4}
-.sw-t{position:absolute;bottom:calc(100% + 7px);left:50%;transform:translateX(-50%);white-space:nowrap;
-  font-family:var(--ff-mono);font-size:10px;padding:4px 9px;border-radius:5px;opacity:0;pointer-events:none;
-  background:var(--ink-2);border:1px solid var(--line-1);color:var(--bone-1);transition:opacity .15s;z-index:9}
-.sw:hover .sw-t{opacity:1}
+/* palette */
+.ramps{display:flex;flex-direction:column;gap:9px}
+.ramp{display:flex;height:42px;border-radius:11px;overflow:hidden}
+.sw{flex:1;cursor:pointer;position:relative;transition:flex .3s cubic-bezier(.22,.68,0,1.2)}
+.sw:hover{flex:2.2}
+.sw i{position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);white-space:nowrap;font-family:var(--ff-mono);
+  font-size:10px;padding:3px 8px;border-radius:5px;opacity:0;pointer-events:none;background:var(--ink-2);border:1px solid var(--line-1);color:var(--bone-1);transition:opacity .15s;z-index:5}
+.sw:hover i{opacity:1}
+.roles{display:grid;grid-template-columns:1fr 1fr;gap:7px 22px;font-family:var(--ff-mono);font-size:12px;margin-top:6px}
+.roles div{display:flex;align-items:center;gap:9px;color:var(--bone-3);padding:3px 0}
+.roles b{width:13px;height:13px;border-radius:3px;flex-shrink:0}
+.ansi{display:grid;grid-template-columns:repeat(8,1fr);gap:5px}
+.ac{height:40px;border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:var(--ff-mono);font-size:11px;font-weight:600;border:1px solid rgba(255,255,255,.05);transition:transform .2s}
+.ac:hover{transform:scale(1.1)}
+.cchips{display:grid;grid-template-columns:repeat(2,1fr);gap:11px;margin-top:14px}
+@media(max-width:680px){.cchips{grid-template-columns:1fr}}
+.cc{border-radius:13px;padding:18px;border:1px solid rgba(255,255,255,.05);background:var(--ink-0)}
+.cc .v{font-family:var(--ff-mono);font-size:23px;font-weight:600}.cc .l{font-family:var(--ff-mono);font-size:10px;letter-spacing:1.5px;color:var(--bone-3);margin:2px 0 8px}.cc .s{font-size:13px}
 
-/* ══ INSPECTOR ══ */
-.insp{border-radius:22px;overflow:hidden;border:1px solid var(--line-0);background:var(--ink-1)}
-.insp-h{background:var(--ink-2);padding:15px 22px;border-bottom:1px solid var(--line-0);display:flex;justify-content:space-between;align-items:center}
-.insp-h b{font-family:var(--ff-mono);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--kin-1);font-weight:600}
-.insp-h span{font-family:var(--ff-mono);font-size:11px;color:var(--bone-3)}
-.insp-b{padding:22px}
-.chips{display:grid;grid-template-columns:repeat(11,1fr);gap:5px;margin-bottom:18px}
-@media(max-width:600px){.chips{grid-template-columns:repeat(8,1fr)}}
-.chip{aspect-ratio:1;border-radius:8px;cursor:none;border:1px solid rgba(255,255,255,.05);transition:transform .2s,box-shadow .2s}
-.chip:hover{transform:scale(1.18);z-index:3;box-shadow:0 6px 18px rgba(0,0,0,.5)}
-.chip.on{transform:scale(1.22);box-shadow:0 0 0 2px var(--kin-1),0 8px 24px rgba(0,0,0,.5);z-index:4}
-.pbar{height:92px;border-radius:14px;display:flex;align-items:center;justify-content:space-between;padding:0 26px;
-  position:relative;overflow:hidden;transition:background .45s}
-.pbar::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:rgba(255,255,255,.2)}
-.pbar .hx{font-family:var(--ff-mono);font-size:24px;font-weight:600}
-.pbar .nm{font-family:var(--ff-mono);font-size:11px;letter-spacing:1.5px;text-align:right}
+/* type */
+.tspec{display:flex;flex-direction:column;gap:22px}
+.trow{border-bottom:1px solid var(--line-0);padding-bottom:18px}
+.trow .lab{font-family:var(--ff-mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--bone-4);margin-bottom:8px}
+.t-disp{font-family:var(--ff-disp);font-size:40px;font-weight:700;color:var(--bone-0);line-height:1.1}
+.t-body{font-family:var(--ff-body);font-size:17px;color:var(--bone-1);max-width:560px}
+.t-mono{font-family:var(--ff-mono);font-size:15px;color:var(--bone-2)}
 
-/* ══ CONTRAST ══ */
-.cgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}
-@media(max-width:600px){.cgrid{grid-template-columns:1fr}}
-.ct{border-radius:15px;padding:21px;border:1px solid rgba(255,255,255,.05);background:var(--ink-0)}
-.ct .r{font-family:var(--ff-mono);font-size:27px;font-weight:600;margin-bottom:3px}
-.ct .l{font-family:var(--ff-mono);font-size:10px;letter-spacing:2px;color:var(--bone-3);margin-bottom:12px}
-.ct .s{font-size:15px;line-height:1.6}
-.ct .b{display:inline-block;font-family:var(--ff-mono);font-size:10px;letter-spacing:1px;padding:3px 10px;border-radius:5px;margin-top:11px}
+/* glyphs */
+.glyphs{display:grid;grid-template-columns:repeat(auto-fill,minmax(108px,1fr));gap:9px}
+.gl{border:1px solid var(--line-0);border-radius:12px;padding:15px 10px;text-align:center;background:var(--ink-1);cursor:pointer;transition:border-color .25s,transform .2s}
+.gl:hover{border-color:var(--kin-2);transform:translateY(-3px)}
+.gl .s{font-size:24px;color:var(--kin-1);line-height:1;display:block;margin-bottom:9px}
+.gl .s.r{color:var(--aka-1)}.gl .s.g{color:var(--mori-0)}.gl .s.b{color:var(--bone-1)}
+.gl .m{font-family:var(--ff-mono);font-size:10px;letter-spacing:1px;color:var(--bone-3)}
 
-/* ══ LILY ══ */
-.lily{position:relative;border-radius:22px;padding:30px;overflow:hidden;border:1px solid rgba(216,57,46,.2);background:var(--ink-1)}
-.lily-bg{position:absolute;right:-12px;top:-18px;font-family:var(--ff-disp);font-size:150px;font-weight:800;color:var(--aka-1);opacity:.06;line-height:1;user-select:none;pointer-events:none}
-.lily-row{display:flex;gap:18px;align-items:flex-start;margin-bottom:24px;position:relative}
-.lily-dot{width:15px;height:15px;border-radius:50%;background:var(--aka-1);box-shadow:0 0 18px rgba(216,57,46,.8);flex-shrink:0;margin-top:5px;animation:glow 2.6s ease-in-out infinite}
-@keyframes glow{0%,100%{box-shadow:0 0 10px rgba(216,57,46,.5)}50%{box-shadow:0 0 32px rgba(216,57,46,1),0 0 56px rgba(216,57,46,.35)}}
-.lily-h{font-family:var(--ff-disp);font-size:22px;font-weight:700;color:var(--bone-0);margin-bottom:6px}
-.lily-h span{color:var(--aka-1)}
-.lily-d{font-size:13.5px;color:var(--bone-2);line-height:1.85;max-width:560px}
-.lily-sw{display:flex;gap:7px;position:relative}
-.ls{flex:1;height:52px;border-radius:10px;cursor:none;display:flex;align-items:flex-end;padding:6px;
-  transition:height .22s,transform .22s cubic-bezier(.22,.68,0,1.2)}
-.ls:hover{height:70px;transform:translateY(-12px)}
-.ls span{font-family:var(--ff-mono);font-size:9px;color:rgba(255,255,255,.65)}
+/* motion */
+.mrow{display:flex;align-items:center;gap:18px;font-family:var(--ff-mono);font-size:14px;color:var(--bone-2);padding:12px 0;border-bottom:1px solid var(--line-0)}
+.mrow .lbl{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--bone-4);width:130px}
+.mrow .sp{color:var(--kin-1);font-size:17px}
+.bar{font-family:var(--ff-mono);letter-spacing:1px}
+.bar .f{color:var(--kin-1)}.bar .e{color:var(--line-1)}
 
-/* ══ ANSI ══ */
-.ansi{display:flex;flex-direction:column;gap:6px}
-.arow{display:grid;grid-template-columns:repeat(8,1fr);gap:5px}
-.ac{height:42px;border-radius:9px;cursor:none;display:flex;align-items:center;justify-content:center;
-  font-family:var(--ff-mono);font-size:11px;font-weight:600;border:1px solid rgba(255,255,255,.05);transition:transform .2s}
-.ac:hover{transform:scale(1.12);z-index:3}
-
-/* ══ TERMINAL ══ */
-.term{border-radius:18px;overflow:hidden;border:1px solid var(--line-0);background:#0B0A08}
-.term-bar{background:#1B1813;padding:11px 18px;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--line-0)}
-.tb-d{width:11px;height:11px;border-radius:50%}
-.term-bar .t{flex:1;text-align:center;font-family:var(--ff-mono);font-size:11px;letter-spacing:2px;color:#6B5F49}
-.term-b{padding:22px;font-family:var(--ff-mono);font-size:13px;line-height:2.1;color:#94866A}
-.tk{color:#D6AE66}.ts{color:#8FAC6F}.tn{color:#C67F45}.tc{color:#6B5F49}.tt{color:#7C88B8}.tf{color:#9C7FB0}.tr{color:#d8392e}
-.cur-blink{display:inline-block;width:8px;height:15px;background:#D6AE66;vertical-align:middle;animation:bl 1.1s step-end infinite}
-@keyframes bl{50%{opacity:0}}
-
-/* ══ COMPONENTS — gold is gilding, never a slab ══ */
-.cmp{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-@media(max-width:600px){.cmp{grid-template-columns:1fr}}
-.card{border-radius:18px;padding:24px;border:1px solid var(--line-0);background:var(--ink-1)}
-.card .cl{font-family:var(--ff-mono);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--kin-2);margin-bottom:18px}
+/* components */
 .btns{display:flex;gap:10px;flex-wrap:wrap}
-.btn{font-family:var(--ff-body);font-size:13px;font-weight:500;padding:10px 22px;border-radius:10px;cursor:none;
-  letter-spacing:.4px;transition:transform .18s,border-color .3s,background .3s;background:transparent}
+.btn{font-family:var(--ff-body);font-size:13px;font-weight:500;padding:10px 21px;border-radius:10px;cursor:pointer;background:transparent;transition:transform .18s,border-color .3s,background .3s}
 .btn:active{transform:scale(.96)}
-/* primary = gold FRAME + gold text on dark, NOT a gold rectangle */
-.btn-primary{border:1.5px solid var(--kin-1);color:var(--kin-text)}
-.btn-primary:hover{border-color:var(--kin-0);background:rgba(214,174,102,.08)}
-.btn-ghost{border:1px solid var(--line-1);color:var(--bone-2)}
-.btn-ghost:hover{border-color:var(--kin-2);color:var(--bone-0)}
-/* scarlet MAY fill — a fill is itself the rare event */
-.btn-danger{background:var(--aka-1);border:1px solid var(--aka-1);color:#FFF3ED;font-weight:500}
-.btn-danger:hover{background:var(--aka-2)}
-.toggles{display:flex;flex-direction:column;gap:14px}
-.tog{display:flex;align-items:center;gap:13px;cursor:none}
-.tt-sw{width:42px;height:24px;border-radius:12px;background:var(--ink-3);border:1px solid var(--line-1);position:relative;flex-shrink:0;transition:background .3s,border-color .3s}
-.tt-sw.on{background:var(--kin-w);border-color:var(--kin-1)}
-.tt-sw.on.red{background:rgba(216,57,46,.35);border-color:var(--aka-1)}
-.tt-h{position:absolute;width:17px;height:17px;border-radius:50%;background:var(--bone-3);top:3px;left:3px;transition:transform .3s cubic-bezier(.22,.68,0,1.2),background .3s}
-.tt-sw.on .tt-h{transform:translateX(18px);background:var(--kin-1)}
-.tt-sw.on.red .tt-h{background:var(--aka-1)}
-.tog .lb{font-size:13px;color:var(--bone-2)}
-.inp{width:100%;font-family:var(--ff-body);font-size:13px;padding:12px 15px;border-radius:10px;outline:none;
-  background:var(--ink-2);border:1px solid var(--line-0);color:var(--bone-1);transition:border-color .2s,box-shadow .2s}
-.inp:focus{border-color:var(--kin-1);box-shadow:0 0 0 3px rgba(214,174,102,.14)}
+.btn-p{border:1.5px solid var(--kin-1);color:var(--kin-text)}.btn-p:hover{border-color:var(--kin-0);background:rgba(216,175,82,.08)}
+.btn-gh{border:1px solid var(--line-1);color:var(--bone-2)}.btn-gh:hover{border-color:var(--kin-2);color:var(--bone-0)}
+.btn-d{background:var(--aka-1);border:1px solid var(--aka-1);color:#FFF3ED}.btn-d:hover{background:var(--aka-2)}
+.tog{display:flex;align-items:center;gap:12px;cursor:pointer;margin-bottom:12px}
+.sw2{width:42px;height:24px;border-radius:12px;background:var(--ink-3);border:1px solid var(--line-1);position:relative;flex-shrink:0;transition:.3s}
+.sw2.on{background:var(--kin-w);border-color:var(--kin-1)}.sw2.on.red{background:rgba(216,57,46,.35);border-color:var(--aka-1)}
+.sw2 i{position:absolute;width:17px;height:17px;border-radius:50%;background:var(--bone-3);top:3px;left:3px;transition:.3s cubic-bezier(.22,.68,0,1.2)}
+.sw2.on i{transform:translateX(18px);background:var(--kin-1)}.sw2.on.red i{background:var(--aka-1)}
+.inp{width:100%;font-family:var(--ff-body);font-size:13px;padding:11px 15px;border-radius:10px;outline:none;background:var(--ink-2);border:1px solid var(--line-0);color:var(--bone-1);transition:.2s}
+.inp:focus{border-color:var(--kin-1);box-shadow:0 0 0 3px rgba(216,175,82,.14)}
 
-/* ══ TYPE ══ */
-.typeb{border-radius:22px;padding:32px;border:1px solid var(--line-0);background:var(--ink-1)}
-.tx{font-family:var(--ff-disp);font-size:clamp(34px,6vw,54px);font-weight:800;color:var(--bone-0);line-height:1.12;letter-spacing:-.5px}
-.tx .g{color:var(--kin-1)}.tx .r{color:var(--aka-1)}
-.tq{font-size:14px;color:var(--bone-2);line-height:1.9;border-left:2px solid var(--kin-3);padding-left:20px;margin-top:22px;max-width:560px}
-.tm{font-family:var(--ff-mono);font-size:12px;color:var(--seiji);margin-top:16px}
+/* effects: glass */
+.gcards{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+@media(max-width:680px){.gcards{grid-template-columns:1fr}}
+.glass{position:relative;border-radius:18px;padding:22px;overflow:hidden;cursor:pointer;background:var(--glass-bg);border:1px solid var(--glass-brd);
+  backdrop-filter:blur(7px) saturate(1.4);-webkit-backdrop-filter:blur(7px) saturate(1.4);box-shadow:var(--shadow);transform-style:preserve-3d;transition:border-color .4s}
+.glass::before{content:'';position:absolute;inset:0;border-radius:18px;pointer-events:none;background:linear-gradient(150deg,var(--glass-spec),transparent 42%)}
+.glass::after{content:'';position:absolute;top:0;left:9%;right:9%;height:1px;background:linear-gradient(90deg,transparent,var(--glass-spec),transparent)}
+.spot{position:absolute;inset:0;border-radius:18px;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(216,175,82,.16),transparent 60%)}
+.glass:hover .spot{opacity:1}
+.glass .mk{font-family:var(--ff-disp);font-size:26px;display:block;margin-bottom:11px}
+.glass .nm{font-family:var(--ff-disp);font-size:17px;font-weight:700;margin-bottom:6px}
+.glass .bd{font-size:12.5px;color:var(--bone-2);line-height:1.7}
+.prism{position:relative;height:180px;border-radius:18px;overflow:hidden;border:1px solid var(--glass-brd);margin-top:15px}
+#prismC{position:absolute;inset:0;width:100%;height:100%}
+.prow{position:absolute;inset:0;display:flex;gap:11px;padding:20px}
+.pp{flex:1;border-radius:13px;display:flex;align-items:center;justify-content:center;border:1px solid var(--glass-brd);background:rgba(12,10,7,.18);
+  backdrop-filter:blur(3px) saturate(1.5);-webkit-backdrop-filter:blur(3px) saturate(1.5);transition:transform .4s cubic-bezier(.22,.68,0,1.2)}
+@supports (backdrop-filter:url(#x)){.pp{backdrop-filter:url(#refract) blur(2px)}}
+.pp:hover{transform:translateY(-5px) scale(1.04)}
+.pp span{font-family:var(--ff-disp);font-size:26px;font-weight:800;text-shadow:0 2px 14px rgba(0,0,0,.6)}
 
-/* ══ FOOTER ══ */
-footer{padding:48px 28px;border-top:1px solid var(--line-0);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px;position:relative;z-index:2;max-width:1040px;margin:0 auto}
-.f-g{font-family:var(--ff-disp);font-size:26px;font-weight:800;color:var(--kin-1)}
-.f-s{font-size:12px;color:var(--bone-3);margin-top:4px;letter-spacing:.5px}
-.f-l{font-family:var(--ff-mono);font-size:11px;letter-spacing:1.5px}
-.f-l a{color:var(--bone-2);text-decoration:none;border-bottom:1px solid var(--line-1)}
-.f-l a:hover{color:var(--kin-1)}
+/* lily callout */
+.lily{position:relative;border-radius:16px;padding:24px;border:1px solid rgba(216,57,46,.22);background:var(--ink-1);overflow:hidden;margin-top:14px}
+.lily .big{position:absolute;right:-10px;top:-22px;font-family:var(--ff-disp);font-size:130px;color:var(--aka-1);opacity:.06;line-height:1;pointer-events:none}
+.lily b{font-family:var(--ff-disp);color:var(--bone-0);font-size:18px}.lily b span{color:var(--aka-1)}
+.lily p{font-size:13px;color:var(--bone-2);margin-top:6px;max-width:540px;line-height:1.8;position:relative}
 
-/* ══ TOAST ══ */
-#toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(22px);z-index:9999;opacity:0;
-  font-family:var(--ff-mono);font-size:11px;letter-spacing:2px;padding:10px 24px;border-radius:10px;pointer-events:none;
-  background:var(--glass-bg);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
-  border:1px solid var(--kin-1);color:var(--kin-text);box-shadow:0 14px 40px rgba(0,0,0,.5);
-  transition:transform .35s cubic-bezier(.22,.68,0,1.2),opacity .25s}
+#toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%) translateY(20px);z-index:99;opacity:0;font-family:var(--ff-mono);font-size:11px;letter-spacing:1.5px;
+  padding:9px 22px;border-radius:9px;pointer-events:none;background:var(--ink-2);border:1px solid var(--kin-1);color:var(--kin-text);box-shadow:0 12px 36px rgba(0,0,0,.5);transition:.3s}
 #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
-/* ══ reveal ══ */
-.rev{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,0,1)}
-.rev.in{opacity:1;transform:none}
-
-/* ══ accessibility ══ */
-@media (prefers-reduced-transparency:reduce){
-  .glass,.pp,#themer,#toast{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background:var(--ink-2)}
+/* mobile nav */
+@media(max-width:900px){
+  .app{grid-template-columns:1fr}
+  nav{position:sticky;height:auto;flex-direction:row;display:flex;gap:14px;overflow-x:auto;white-space:nowrap;padding:12px 16px;border-right:none;border-bottom:1px solid var(--line-0);align-items:center;z-index:20}
+  .brand,.brand-s,.nav-grp,.nav-foot{display:none}
+  nav a{padding:5px 0;border-left:none;border-bottom:2px solid transparent;font-size:12px}
+  nav a.on{border-left:none;border-bottom-color:var(--kin-1)}
+  main{padding:0 22px}
 }
-@media (prefers-reduced-motion:reduce){
-  *{animation:none!important;transition:none!important}
-  .rev{opacity:1;transform:none}
-  body{cursor:auto}.cur{display:none}
-  #sky,#prismC{display:none}
-}
+@media (prefers-reduced-transparency:reduce){.glass,.pp{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background:var(--ink-2)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}#sky,#prismC{display:none}}
 </style>
 </head>
 <body>
-
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <filter id="refract" x="-20%" y="-20%" width="140%" height="140%">
-    <feTurbulence type="fractalNoise" baseFrequency="0.012 0.014" numOctaves="2" seed="7" result="n"/>
-    <feGaussianBlur in="n" stdDeviation="1.4" result="nb"/>
-    <feDisplacementMap in="SourceGraphic" in2="nb" scale="46" xChannelSelector="R" yChannelSelector="G"/>
-  </filter>
-</svg>
-
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="refract" x="-20%" y="-20%" width="140%" height="140%">
+<feTurbulence type="fractalNoise" baseFrequency="0.012 0.014" numOctaves="2" seed="7" result="n"/><feGaussianBlur in="n" stdDeviation="1.3" result="nb"/>
+<feDisplacementMap in="SourceGraphic" in2="nb" scale="40" xChannelSelector="R" yChannelSelector="G"/></filter></svg>
 <div id="grain"></div>
-<div id="aurora">
-  <div class="blob" style="width:520px;height:520px;background:radial-gradient(circle,rgba(214,174,102,.13),transparent 70%);left:8%;top:6%"></div>
-  <div class="blob" style="width:420px;height:420px;background:radial-gradient(circle,rgba(216,57,46,.10),transparent 70%);right:6%;top:48%"></div>
-  <div class="blob" style="width:340px;height:340px;background:radial-gradient(circle,rgba(111,154,142,.07),transparent 70%);left:42%;bottom:4%"></div>
-</div>
-<div class="cur" id="curR"></div>
-<div class="cur" id="curD"></div>
 
-<div id="themer" title="theme">
-  <span style="font-family:var(--ff-mono);font-size:9px;letter-spacing:2px;color:var(--bone-3);padding:0 4px">様式</span>
-  <div class="tdot on" data-t="kogane"></div>
-  <div class="tdot" data-t="washi"></div>
-</div>
-
-<!-- ══ HERO ══ -->
-<header class="hero">
-  <canvas id="sky"></canvas>
-  <div class="hero-in">
-    <div class="hero-over">様式 · design language</div>
-    <h1 class="hero-title">様式</h1>
-    <div class="hero-name">y o s h i k i</div>
-    <div class="pill" data-copy="#d8392e"><span class="pdot"></span>彼岸花 · spider lily · #d8392e</div>
-    <p class="hero-sub">Warm monochrome, struck rarely by color.<br>Lacquer · bone · gold — one spider-lily scarlet.</p>
-    <div class="scroll"><div class="scroll-l"></div><div class="scroll-t">scroll</div></div>
+<div class="app">
+<nav id="nav">
+  <div class="brand">様式</div>
+  <div class="brand-s">y o s h i k i</div>
+  <div class="nav-grp">language</div>
+  <a href="#overview">Overview</a>
+  <a href="#principles">Principles</a>
+  <a href="#palette">Palette</a>
+  <a href="#type">Typography</a>
+  <div class="nav-grp">lexicon</div>
+  <a href="#glyphs">Glyphs</a>
+  <a href="#frames">Frames</a>
+  <a href="#plates">Nameplates</a>
+  <div class="nav-grp">in use</div>
+  <a href="#cli">CLI &amp; TUI</a>
+  <a href="#menus">Menus</a>
+  <a href="#motion">Motion</a>
+  <a href="#charts">Charts</a>
+  <a href="#code">Code</a>
+  <a href="#components">Components</a>
+  <a href="#effects">Effects</a>
+  <a href="#themes">Themes</a>
+  <div class="nav-foot">
+    <div class="tdot on" data-t="kogane"></div>
+    <div class="tdot" data-t="washi"></div>
+    <a class="gh" href="https://github.com/zinzaki/yoshiki">github ↗</a>
   </div>
-</header>
+</nav>
 
-<main class="wrap">
+<main>
+  <!-- hero -->
+  <header class="hero" id="overview">
+    <canvas id="sky"></canvas>
+    <div class="hero-in">
+      <h1>様式</h1>
+      <div class="pill" data-copy="#d8392e"><span class="pdot"></span>彼岸花 · spider lily · #d8392e</div>
+      <p class="sub">An elegant design language — warm monochrome, struck rarely by color. Lacquer, bone and gold, with one spider-lily scarlet. Below: every element, and how it is used.</p>
+    </div>
+  </header>
 
-  <!-- glass cards -->
-  <section>
-    <div class="eyebrow rev"><span>液体ガラス · the palette, in glass</span></div>
-    <div class="grid3" id="cards"></div>
+  <!-- principles -->
+  <section id="principles">
+    <div class="ey" data-n="01">canon / principles</div>
+    <h2>Principles</h2>
+    <p class="lead">The defaults — what wins when nothing is specified. An ordered ladder: when two choices are both fine, the higher one wins.</p>
+    <div class="lad">
+      <div class="rung"><div class="n">0</div><div class="t"><b>Honesty</b> <span>— nothing for show; the structure stays visible.</span><em>in doubt: strip back, don't decorate.</em></div></div>
+      <div class="rung"><div class="n">1</div><div class="t"><b>Calm · air</b> <span>— emptiness with weight; strength in the quiet.</span><em>in doubt: choose air over more content.</em></div></div>
+      <div class="rung"><div class="n">2</div><div class="t"><b>Omission</b> <span>— simplicity by removing, not adding.</span><em>in doubt whether to add: don't.</em></div></div>
+      <div class="rung"><div class="n">3</div><div class="t"><b>Precision</b> <span>— premium is restraint; exact to the detail.</span><em>in doubt: exact over loose.</em></div></div>
+      <div class="rung"><div class="n">4</div><div class="t"><b>Warmth</b> <span>— every tone warm; never grey or plastic.</span><em>in doubt on a neutral: shift it warm.</em></div></div>
+      <div class="rung"><div class="n">5</div><div class="t"><b>Rarity = power</b> <span>— one accent, in the detail; the bloom is an event.</span><em>in doubt about a second accent: don't.</em></div></div>
+      <div class="rung"><div class="n">6</div><div class="t"><b>Duality</b> <span>— a soft form carrying one sharp detail.</span><em>in doubt: add one sharp detail, no more.</em></div></div>
+      <div class="rung"><div class="n">7</div><div class="t"><b>Meaning &gt; ornament</b> <span>— show, don't tell.</span><em>in doubt: keep only what carries meaning.</em></div></div>
+    </div>
+    <h3>Defaults — if unspecified, use this</h3>
+    <table class="dft">
+      <tr><td>density</td><td>air — generous margins, one accent per screen</td></tr>
+      <tr><td>accent color</td><td>gold as a line / edge / glyph — never a fill</td></tr>
+      <tr><td>trigger</td><td>none — live in tone until one is earned</td></tr>
+      <tr><td>geometry</td><td>soft 16–24px radius, optionally one sharp corner</td></tr>
+      <tr><td>motion</td><td>a breathing tempo; spinner ~90ms; no dizzy whirl</td></tr>
+      <tr><td>glass / effect</td><td>light, matte, by place — never Apple-glossy</td></tr>
+    </table>
   </section>
-  <div class="rule"></div>
 
-  <!-- prism -->
-  <section>
-    <div class="eyebrow rev"><span>屈折 · refraction prism</span></div>
-    <div class="prism rev">
-      <canvas id="prismC"></canvas>
-      <div class="prism-row">
-        <div class="pp" data-copy="金 · gold"><div class="pp-k" style="color:var(--kin-1)">金</div><div class="pp-l">gold</div></div>
-        <div class="pp" data-copy="緋 · scarlet"><div class="pp-k" style="color:var(--aka-1)">緋</div><div class="pp-l">scarlet</div></div>
-        <div class="pp" data-copy="森 · moss"><div class="pp-k" style="color:var(--mori-0)">森</div><div class="pp-l">moss</div></div>
-        <div class="pp" data-copy="骨 · bone"><div class="pp-k" style="color:var(--bone-0)">骨</div><div class="pp-l">bone</div></div>
-        <div class="pp" data-copy="漆 · lacquer"><div class="pp-k" style="color:var(--kaki)">漆</div><div class="pp-l">lacquer</div></div>
-      </div>
+  <!-- palette -->
+  <section id="palette">
+    <div class="ey" data-n="02">canon / palette</div>
+    <h2>Palette</h2>
+    <p class="lead">Two layers. <b style="color:var(--bone-1);font-weight:400">Tone</b> — warm lacquer monochrome — carries ~97% of any screen. <b style="color:var(--bone-1);font-weight:400">Triggers</b> — scarlet and moss — fire rarely, as signals. Click any swatch to copy.</p>
+    <div class="ramps">
+      <div class="ramp" id="r-ink"></div>
+      <div class="ramp" id="r-bone"></div>
+      <div class="ramp" id="r-kin"></div>
+      <div class="ramp" id="r-aka"></div>
+      <div class="ramp" id="r-mori"></div>
+    </div>
+    <h3>Semantic roles — consume a role, never a raw token</h3>
+    <div class="roles">
+      <div><b style="background:var(--kin-1)"></b>action.edge · text.link — gold</div>
+      <div><b style="background:var(--bone-1)"></b>text.body — bone, 11.4:1</div>
+      <div><b style="background:var(--aka-1)"></b>danger.fill — scarlet, may fill</div>
+      <div><b style="background:var(--mori-1)"></b>ok.fill — moss</div>
+      <div><b style="background:var(--kaki)"></b>warn.text — persimmon</div>
+      <div><b style="background:var(--bone-3)"></b>text.muted — meta</div>
+    </div>
+    <h3>ANSI · 16 — terminal colors</h3>
+    <div class="ansi" id="ansi"></div>
+    <h3>Contrast, proven (WCAG)</h3>
+    <div class="cchips">
+      <div class="cc"><div class="v" style="color:var(--bone-1)">11.4:1</div><div class="l">BONE ON LACQUER · AAA</div><div class="s" style="color:var(--bone-1)">Primary text — warm parchment on warm black.</div></div>
+      <div class="cc"><div class="v" style="color:var(--kin-1)">7.5:1</div><div class="l">GOLD ON LACQUER · AA</div><div class="s" style="color:var(--kin-1)">Headings, links, edges — true gold-leaf.</div></div>
     </div>
   </section>
-  <div class="rule"></div>
 
-  <!-- ramps -->
-  <section>
-    <div class="eyebrow rev"><span>色階 · tone &amp; trigger ramps</span></div>
-    <div class="ramps rev" id="ramps"></div>
-  </section>
-  <div class="rule"></div>
-
-  <!-- inspector -->
-  <section>
-    <div class="eyebrow rev"><span>検査 · palette inspector</span></div>
-    <div class="insp rev">
-      <div class="insp-h"><b>color inspector</b><span id="tokcount"></span></div>
-      <div class="insp-b">
-        <div class="chips" id="chips"></div>
-        <div class="pbar" id="pbar"><div class="hx" id="phx"></div><div class="nm" id="pnm"></div></div>
-      </div>
+  <!-- typography -->
+  <section id="type">
+    <div class="ey" data-n="03">canon / palette</div>
+    <h2>Typography</h2>
+    <p class="lead">A serif for display, a humanist sans for body, a mono for data and code — Japanese-drawn, warm, never generic.</p>
+    <div class="tspec">
+      <div class="trow"><div class="lab">display · Shippori Mincho</div><div class="t-disp">Parchment <span style="color:var(--kin-1)">黄金</span>, daring <span style="color:var(--aka-1)">緋</span> in the detail.</div></div>
+      <div class="trow"><div class="lab">body · Zen Kaku Gothic New</div><div class="t-body">A single warm, faded cast across everything — calm and exact, rewarding a long look. Information lives in tone, not in shouting.</div></div>
+      <div class="trow"><div class="lab">mono · JetBrains Mono</div><div class="t-mono">fn resolve(role: &amp;str) -&gt; Token  // 0123456789 ❯ ◆ ✓</div></div>
     </div>
   </section>
-  <div class="rule"></div>
 
-  <!-- contrast -->
-  <section>
-    <div class="eyebrow rev"><span>コントラスト · contrast, proven</span></div>
-    <div class="cgrid rev">
-      <div class="ct"><div class="r" style="color:var(--bone-1)">11.4:1</div><div class="l">BONE ON LACQUER</div><div class="s" style="color:var(--bone-1)">Primary text — warm parchment on warm black.</div><div class="b" style="background:rgba(143,172,111,.16);color:var(--mori-0)">AAA</div></div>
-      <div class="ct"><div class="r" style="color:var(--kin-1)">7.1:1</div><div class="l">GOLD ON LACQUER</div><div class="s" style="color:var(--kin-1)">Headings, links, edges — aged brass.</div><div class="b" style="background:rgba(214,174,102,.14);color:var(--kin-1)">AA</div></div>
-      <div class="ct"><div class="r" style="color:var(--aka-0)">4.8:1</div><div class="l">SCARLET TEXT</div><div class="s" style="color:var(--aka-0)">Error text uses the lighter aka-0.</div><div class="b" style="background:rgba(216,57,46,.12);color:var(--aka-0)">AA</div></div>
-      <div class="ct"><div class="r" style="color:var(--aka-1)">4.3:1</div><div class="l">SCARLET FILL</div><div class="s" style="color:var(--aka-1)">彼岸花 — the bloom: fills, icons, one per screen.</div><div class="b" style="background:rgba(216,57,46,.12);color:var(--aka-1)">icon / fill</div></div>
+  <!-- glyphs -->
+  <section id="glyphs">
+    <div class="ey" data-n="04">canon / lexicon</div>
+    <h2>Glyphs</h2>
+    <p class="lead">Marks that replace words — one meaning per glyph, applied consistently. See, don't read.</p>
+    <div class="glyphs" id="glyphs"></div>
+  </section>
+
+  <!-- frames -->
+  <section id="frames">
+    <div class="ey" data-n="05">canon / lexicon</div>
+    <h2>Frames</h2>
+    <p class="lead">Soft rounded capsules for calm content; one sharp corner inside the soft; the deliberate "break"; hard double-line trees for dense data. Weight sits at the top, air at the bottom.</p>
+    <div class="cols">
+      <div class="blk">╭──────────────────────────╮
+│  calm · closed · finished │
+╰──────────────────────────╯
+
+<span class="d">soft + sharp — one sharp corner</span>
+╭──────────────────────────╮
+│ <span class="k">┌╴</span>                        │
+│    sharp inside soft      │
+╰──────────────────────────╯</div>
+      <div class="blk"><span class="d">the break — open, it breathes</span>
+╭───────────────────────────
+│  open form
+│
+╰───────────
+
+<span class="d">decorated seam · one mark</span>
+╭──────────── <span class="k">◆</span> ────────────╮
+│  a mark on the seam        │
+╰────────────────────────────╯</div>
     </div>
   </section>
-  <div class="rule"></div>
 
-  <!-- lily -->
-  <section>
-    <div class="eyebrow rev"><span>彼岸花 · the one trigger</span></div>
-    <div class="lily rev">
-      <div class="lily-bg">彼</div>
-      <div class="lily-row">
-        <div class="lily-dot"></div>
-        <div>
-          <div class="lily-h">Spider Lily <span>彼岸花</span></div>
-          <div class="lily-d">The signature scarlet — vermilion of the higanbana. One bloom per screen: a seal, a focus ring, the irreversible. Daring lives in the detail, not the mass. Warm and noble, never neon.</div>
-        </div>
-      </div>
-      <div class="lily-sw">
-        <div class="ls" style="background:#5e1d16" data-copy="#5e1d16"><span>#5e1d16</span></div>
-        <div class="ls" style="background:#8a2a1f" data-copy="#8a2a1f"><span>#8a2a1f</span></div>
-        <div class="ls" style="background:#b83228" data-copy="#b83228"><span>#b83228</span></div>
-        <div class="ls" style="background:#d8392e" data-copy="#d8392e · bloom"><span style="color:#fff">#d8392e</span></div>
-        <div class="ls" style="background:#D4665C" data-copy="#D4665C · text"><span style="color:#fff">#D4665C</span></div>
-      </div>
+  <!-- nameplates -->
+  <section id="plates">
+    <div class="ey" data-n="06">canon / lexicon</div>
+    <h2>Nameplates</h2>
+    <p class="lead">A name, set with weight. Spacing and one framing mark do the work — no noise.</p>
+    <div class="blk">·  <span class="b">A  U  R  O  R  A</span>  ·
+—  <span class="b">A  U  R  O  R  A</span>  —
+⟦  <span class="b">A U R O R A</span>  ⟧
+◇  <span class="k">A U R O R A</span>  ◇
+◸  <span class="b">A U R O R A</span>  ◿</div>
+    <h3>Dividers</h3>
+    <div class="blk">──────────────── <span class="k">◆</span> ────────────────
+╴╴╴╴╴╴╴╴╴╴ <span class="d">open · soft</span> ╴╴╴╴╴╴╴╴╴╴
+●───────────────  end of section  ───────────────●</div>
+  </section>
+
+  <!-- cli -->
+  <section id="cli">
+    <div class="ey" data-n="07">library · canon / lexicon</div>
+    <h2>CLI &amp; TUI</h2>
+    <p class="lead">The prompt, statuses, and trees. Gold marks the live and actionable; scarlet only the irreversible; everything else lives in tone.</p>
+    <div class="blk"><span class="k">❯</span> ~/dev/yoshiki  on <span class="k">⎇ main</span>  <span class="g">✓ clean</span>  <span class="d">2.4s</span>
+<span class="d">┌╴ status</span>
+<span class="g">✓</span> build      passed       <span class="d">214 files</span>
+<span class="k">●</span> deploy     in progress   <span class="d">⠹ 12s</span>
+<span class="r">✗</span> lint       1 error       <span class="r">src/app.rs:42</span>
+
+<span class="d">project tree</span>
+<span class="k">╔</span> yoshiki
+<span class="k">╠═</span> canon       <span class="d">the definition</span>
+<span class="k">║ ╠</span> palette
+<span class="k">║ ╠</span> lexicon
+<span class="k">║ ╰</span> principles
+<span class="k">╚═</span> library     <span class="d">in use</span></div>
+  </section>
+
+  <!-- menus -->
+  <section id="menus">
+    <div class="ey" data-n="08">library / menus</div>
+    <h2>Menus</h2>
+    <p class="lead">Ready TUI parts — select lists, cards, status lines, tables. The cursor is a single gold <span style="color:var(--kin-1)">❯</span>; the chosen row gets a gold tint.</p>
+    <div class="cols">
+      <div class="blk"><span class="d">select</span>
+<span class="k">❯</span> <span class="b">palette</span>      <span class="d">colour &amp; roles</span>
+  lexicon      <span class="d">glyphs &amp; frames</span>
+  motion       <span class="d">loading</span>
+  themes       <span class="d">kogane · washi</span>
+
+<span class="d">status line</span>
+<span class="k">▌</span> NORMAL  <span class="b">app.rs</span>  <span class="d">utf-8</span>  <span class="k">◆</span>  <span class="d">ln 12:4</span></div>
+      <div class="blk"><span class="d">table</span>
+<span class="k">┌</span>──────────<span class="k">┬</span>────────<span class="k">┐</span>
+│ <span class="b">theme</span>    │ <span class="b">mode</span>   │
+<span class="k">├</span>──────────<span class="k">┼</span>────────<span class="k">┤</span>
+│ kogane   │ <span class="d">dark</span>   │
+│ washi    │ <span class="d">light</span>  │
+<span class="k">└</span>──────────<span class="k">┴</span>────────<span class="k">┘</span></div>
     </div>
   </section>
-  <div class="rule"></div>
 
-  <!-- ansi -->
-  <section>
-    <div class="eyebrow rev"><span>ANSI 16 · terminal colors</span></div>
-    <div class="ansi rev" id="ansi"></div>
+  <!-- motion -->
+  <section id="motion">
+    <div class="ey" data-n="09">canon / motion</div>
+    <h2>Motion</h2>
+    <p class="lead">Loading and progress the dot-matrix way — density as meaning. A text spinner lives at ~90ms; smoothness belongs to progress, not to spinners. One role-color per run.</p>
+    <div class="mrow"><div class="lbl">spinner · braille</div><div class="sp" id="sp1"></div><div class="note" style="margin:0">~90ms, live — never a dizzy whirl</div></div>
+    <div class="mrow"><div class="lbl">spinner · arc</div><div class="sp" id="sp2"></div></div>
+    <div class="mrow"><div class="lbl">progress · fill</div><div class="bar" id="bar1"></div></div>
+    <div class="mrow"><div class="lbl">progress · matrix</div><div class="bar" id="bar2"></div></div>
   </section>
-  <div class="rule"></div>
 
-  <!-- terminal -->
-  <section>
-    <div class="eyebrow rev"><span>端末 · terminal preview</span></div>
-    <div class="term rev">
-      <div class="term-bar"><span class="tb-d" style="background:#d8392e"></span><span class="tb-d" style="background:#D6AE66"></span><span class="tb-d" style="background:#8FAC6F"></span><div class="t">kogane.yml</div></div>
-      <div class="term-b">
-<span class="tc"># yoshiki — warm lacquer monochrome</span><br>
-<span class="tk">meta</span><span class="tc">:</span><br>
-&nbsp;&nbsp;<span class="tk">name</span><span class="tc">:</span> <span class="ts">"yoshiki"</span><br>
-&nbsp;&nbsp;<span class="tk">tone</span><span class="tc">:</span> <span class="ts">"lacquer · bone · gold"</span><br>
-<span class="tk">trigger</span><span class="tc">:</span><br>
-&nbsp;&nbsp;<span class="tr">scarlet</span><span class="tc">:</span> <span class="ts">"#d8392e"</span>&nbsp;&nbsp;<span class="tc"># 彼岸花 — one per screen</span><br>
-&nbsp;&nbsp;<span class="tk">moss</span><span class="tc">:</span> <span class="ts">"#52703F"</span><br>
-<span class="tk">contrast</span><span class="tc">:</span> <span class="tn">11.4</span><span class="tc">:</span><span class="tn">1</span>&nbsp;&nbsp;<span class="tc"># AAA</span><br>
-<span class="tf">rule</span> <span class="tc">=</span> <span class="ts">"rarity is power"</span> <span class="cur-blink"></span>
-      </div>
-    </div>
+  <!-- charts -->
+  <section id="charts">
+    <div class="ey" data-n="10">library / charts</div>
+    <h2>Charts</h2>
+    <p class="lead">Data viz in text — squares and dot-matrix, no solid slabs and no thin lines. Gold is the veined accent, not a fill.</p>
+    <div class="blk"><span class="d">sparkline</span>   <span class="k">▰▰▱▰▰▰▱▱▰▰▰▰▱▰</span>   <span class="d">42 ▲ 6%</span>
+
+<span class="d">bars</span>        build  <span class="k">▰▰▰▰▰▰▰▰▰▰▰▰</span> <span class="d">86</span>
+            tests  <span class="k">▰▰▰▰▰▰▰▰▱▱▱▱</span> <span class="d">61</span>
+            lint   <span class="k">▰▰▰▰▰▱▱▱▱▱▱▱</span> <span class="d">38</span>
+
+<span class="d">gauge</span>       ⣿⣿⣿⣿⣿⣷⣄ <span class="k">72%</span>  <span class="d">load</span></div>
   </section>
-  <div class="rule"></div>
+
+  <!-- code -->
+  <section id="code">
+    <div class="ey" data-n="11">library / snippets</div>
+    <h2>Code &amp; comments</h2>
+    <p class="lead">Syntax in tone: keyword gold, string moss, number persimmon, type dusty-blue, comment quiet. Comments are framed blocks with meaning-marks — see, don't read.</p>
+    <div class="blk"><span class="d">// ╭─ resolve ─ a role to a concrete token ──────────</span>
+<span class="k">fn</span> <span class="b">resolve</span>(role: <span class="t">&amp;str</span>) -&gt; <span class="t">Token</span> {
+    <span class="k">let</span> token = palette.<span class="b">get</span>(role)
+        .<span class="b">expect</span>(<span class="g">"every role must resolve"</span>);  <span class="r">// +! invariant</span>
+    contrast.<span class="b">verify</span>(token, bg)<span class="t">?</span>;       <span class="d">// AA floor</span>
+    Token { value: token, role }
+}</div>
+    <div class="note"><b>marks:</b> <code>+!</code> invariant · <code>+?</code> open question · <code>+↑</code> perf — one mark, not a sentence.</div>
+  </section>
 
   <!-- components -->
-  <section>
-    <div class="eyebrow rev"><span>部品 · components</span></div>
-    <div class="cmp rev">
-      <div class="card">
-        <div class="cl">buttons — gold frames, never gold slabs</div>
+  <section id="components">
+    <div class="ey" data-n="12">library</div>
+    <h2>Components</h2>
+    <p class="lead">Gold is gilding, never a slab — the primary action is a gold <b>frame</b>, not a gold rectangle. Scarlet may fill, because a fill is itself the rare event.</p>
+    <div class="cols">
+      <div>
+        <h3>Buttons</h3>
         <div class="btns">
-          <button class="btn btn-primary" data-toast="primary — a gilded frame, not a gold block">Primary</button>
-          <button class="btn btn-ghost" data-toast="ghost">Ghost</button>
-          <button class="btn btn-danger" data-toast="彼岸花 — scarlet may fill, it is the event">Destructive</button>
+          <button class="btn btn-p" data-toast="primary — a gilded frame">Primary</button>
+          <button class="btn btn-gh" data-toast="ghost">Ghost</button>
+          <button class="btn btn-d" data-toast="彼岸花 — scarlet may fill">Destructive</button>
         </div>
-      </div>
-      <div class="card">
-        <div class="cl">toggles</div>
-        <div class="toggles">
-          <div class="tog"><div class="tt-sw on"><div class="tt-h"></div></div><div class="lb">Gold accent</div></div>
-          <div class="tog"><div class="tt-sw on red"><div class="tt-h"></div></div><div class="lb">彼岸花 trigger</div></div>
-          <div class="tog"><div class="tt-sw"><div class="tt-h"></div></div><div class="lb">Tone only</div></div>
-        </div>
-      </div>
-      <div class="card" style="grid-column:1/-1">
-        <div class="cl">input · focus ring</div>
+        <h3 style="margin-top:24px">Input · focus ring</h3>
         <input class="inp" placeholder="search a token or role…">
       </div>
+      <div>
+        <h3>Toggles</h3>
+        <div class="tog"><div class="sw2 on"><i></i></div><div style="font-size:13px;color:var(--bone-2)">Gold accent</div></div>
+        <div class="tog"><div class="sw2 on red"><i></i></div><div style="font-size:13px;color:var(--bone-2)">彼岸花 trigger</div></div>
+        <div class="tog"><div class="sw2"><i></i></div><div style="font-size:13px;color:var(--bone-2)">Tone only</div></div>
+      </div>
     </div>
   </section>
-  <div class="rule"></div>
 
-  <!-- type -->
-  <section>
-    <div class="eyebrow rev"><span>書体 · typography</span></div>
-    <div class="typeb rev">
-      <div class="tx">Parchment <span class="g">黄金</span><br>with <span class="r">daring</span> in the detail.</div>
-      <div class="tq">A single warm, faded cast across everything — that is the character. Like risograph on parchment: a golden-amber undertone, calm and exact, rewarding a long look.</div>
-      <div class="tm">// shippori mincho · zen kaku gothic · jetbrains mono</div>
+  <!-- effects -->
+  <section id="effects">
+    <div class="ey" data-n="13">canon / effects</div>
+    <h2>Effects</h2>
+    <p class="lead">Glass, refraction and a custom cursor — by place, tasteful, never Apple-glossy. Frosted, warm-tinted, with a specular edge; the prism uses real SVG refraction (Chrome), with a blur fallback.</p>
+    <div class="gcards">
+      <div class="glass" data-copy="#D8AF52"><div class="spot"></div><span class="mk" style="color:var(--kin-1)">✦</span><div class="nm" style="color:var(--kin-1)">Frosted card</div><div class="bd">backdrop-blur + grain + specular edge + warm tint. 3D tilt on hover.</div></div>
+      <div class="glass" data-copy="#d8392e"><div class="spot"></div><span class="mk" style="color:var(--aka-1)">✕</span><div class="nm" style="color:var(--aka-1)">彼岸花</div><div class="bd">One bloom per screen — the scarlet trigger, in the detail.</div></div>
+      <div class="glass" data-copy="#6FA08E"><div class="spot"></div><span class="mk" style="color:var(--seiji)">◈</span><div class="nm" style="color:var(--seiji)">Spotlight</div><div class="bd">A soft gold light follows the pointer across the surface.</div></div>
     </div>
+    <div class="prism"><canvas id="prismC"></canvas><div class="prow">
+      <div class="pp"><span style="color:var(--kin-1)">金</span></div>
+      <div class="pp"><span style="color:var(--aka-1)">緋</span></div>
+      <div class="pp"><span style="color:var(--mori-0)">森</span></div>
+      <div class="pp"><span style="color:var(--bone-0)">骨</span></div>
+    </div></div>
+    <div class="lily"><div class="big">彼</div><b>The one trigger · <span>彼岸花</span></b><p>Daring lives in the detail, not the mass. Scarlet is the seal, the focus ring, the irreversible — one per screen, warm and noble, never neon.</p></div>
+  </section>
+
+  <!-- themes -->
+  <section id="themes">
+    <div class="ey" data-n="14">canon / palette</div>
+    <h2>Themes</h2>
+    <p class="lead">One language, two scenes — switch with the dots in the sidebar, or keys <b>1</b> / <b>2</b>. Only the stage changes; the triggers and every rule stay identical. The terminal always stays a dark island.</p>
+    <div class="blk"><span class="k">kogane</span>  <span class="d">dark</span>   warm lacquer; gold gilds the edges
+<span class="k">washi</span>   <span class="d">light</span>  paper &amp; sumi ink; terminal stays dark
+
+<span class="d">generated themes (python3 tools/build.py):</span>
+kitty · foot · alacritty · starship · base24
+vscode · neovim · tmux · btop</div>
+    <p class="note" style="margin-top:24px">様式 yoshiki · an open design language · <a href="https://github.com/zinzaki/yoshiki" style="color:var(--kin-1)">github.com/zinzaki/yoshiki</a> · MIT</p>
   </section>
 </main>
-
-<footer>
-  <div>
-    <div class="f-g">様式 yoshiki</div>
-    <div class="f-s">An open design language · warm monochrome, struck rarely by color</div>
-  </div>
-  <div class="f-l"><a href="https://github.com/zinzaki/yoshiki">github.com/zinzaki/yoshiki</a></div>
-</footer>
-
+</div>
 <div id="toast"></div>
 
 <script>
-const RM = matchMedia('(prefers-reduced-motion:reduce)').matches;
-const COARSE = matchMedia('(pointer:coarse)').matches;
+const RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+function lum(h){const n=parseInt(h.slice(1),16),r=(n>>16)/255,g=((n>>8)&255)/255,b=(n&255)/255,f=v=>v<=.03928?v/12.92:Math.pow((v+.055)/1.055,2.4);return .2126*f(r)+.7152*f(g)+.0722*f(b);}
+let tt;function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),1700);}
 
-/* ── tokens ── */
-const TOKENS=[
- ['#0B0A08','ink-0 · void'],['#12100C','ink-1 · surface'],['#1B1813','ink-2 · raised'],['#262119','ink-3 · hover'],
- ['#362C1B','line-0'],['#4C3D24','line-1'],
- ['#6B5F49','bone-4 · ghost'],['#94866A','bone-3 · meta'],['#C9BC96','bone-2'],['#EDE3C4','bone-1 · text'],['#F7EED2','bone-0'],
- ['#57441F','kin-3'],['#8F713C','kin-2'],['#D6AE66','kin-1 · gold'],['#EAC578','kin-0 · glow'],
- ['#C67F45','kaki · warning'],
- ['#7E302E','aka-2 · lacquer'],['#d8392e','aka-1 · 彼岸花'],['#D4665C','aka-0 · text'],
- ['#52703F','mori-1 · moss'],['#8FAC6F','mori-0'],
- ['#7C88B8','hotaru · blue'],['#9C7FB0','fuji · magenta'],['#6FA08E','seiji · cyan'],
-];
+/* ramps */
+const R={'r-ink':[['#0B0A08','ink-0'],['#12100C','ink-1'],['#1B1813','ink-2'],['#262119','ink-3'],['#362C1B','line-0'],['#4C3D24','line-1']],
+'r-bone':[['#6B5F49','bone-4'],['#94866A','bone-3'],['#C9BC96','bone-2'],['#EDE3C4','bone-1'],['#F7EED2','bone-0']],
+'r-kin':[['#57441F','kin-3'],['#8F713C','kin-2'],['#D8AF52','kin-1 ★'],['#EDC85C','kin-0']],
+'r-aka':[['#5e1d16','aka·dk'],['#8a2a1f','aka·mid'],['#d8392e','aka-1 ★'],['#D4665C','aka-0']],
+'r-mori':[['#2F4526','mori-2'],['#52703F','mori-1 ★'],['#8FAC6F','mori-0']]};
+for(const id in R){const el=document.getElementById(id);R[id].forEach(([h,n])=>{const s=document.createElement('div');s.className='sw';s.style.background=h;s.dataset.copy=h;s.innerHTML=`<i>${h} · ${n}</i>`;el.appendChild(s);});}
 
-/* ── glass cards ── */
-const CARDS=[
- {mk:'✦',c:'var(--kin-1)',tag:'primary accent',nm:'Aged Brass',b:'Gold gilds — edge, frame, glyph, line. Never a filled block.',h:'#D6AE66 · gold'},
- {mk:'✕',c:'var(--aka-1)',tag:'the one trigger',nm:'彼岸花',b:'Spider-lily scarlet. One bloom per screen — daring in the detail.',h:'#d8392e · scarlet'},
- {mk:'◈',c:'var(--mori-0)',tag:'life · confirm',nm:'Moss',b:'The quiet pair of scarlet — success, growth, a step done.',h:'#52703F · moss'},
- {mk:'◻',c:'var(--bone-1)',tag:'primary text',nm:'Parchment',b:'Warm bone on warm black — 11.4:1, AAA, never pure white.',h:'#EDE3C4 · bone'},
- {mk:'◆',c:'var(--kaki)',tag:'warning',nm:'Persimmon',b:'A warm warning that stays inside the tone — never alarm-red.',h:'#C67F45 · kaki'},
- {mk:'◇',c:'var(--seiji)',tag:'service only',nm:'Celadon',b:'Cool tones live only in terminals and syntax — never in UI.',h:'#6FA08E · seiji'},
-];
-const cardsEl=document.getElementById('cards');
-CARDS.forEach(c=>{
-  const d=document.createElement('div');d.className='glass rev';d.dataset.copy=c.h;
-  d.innerHTML=`<div class="spot"></div><div class="sheen"></div><div class="g-in">
-    <span class="g-mk" style="color:${c.c}">${c.mk}</span>
-    <div class="g-tag">${c.tag}</div><div class="g-name" style="color:${c.c}">${c.nm}</div>
-    <div class="g-body">${c.b}</div><div class="g-hex">${c.h}</div></div>`;
-  cardsEl.appendChild(d);
-});
+/* ansi */
+[['#1B1813','0'],['#d8392e','1'],['#8FAC6F','2'],['#D8AF52','3'],['#7C88B8','4'],['#9C7FB0','5'],['#6FA08E','6'],['#EDE3C4','7'],
+['#6B5F49','8'],['#DC7265','9'],['#A8C48A','A'],['#EDC85C','B'],['#98A4D4','C'],['#B89BCC','D'],['#8CBCA9','E'],['#F7EED2','F']]
+.forEach(([h,l])=>{const a=document.createElement('div');a.className='ac';a.style.background=h;a.dataset.copy=h;a.textContent=l;a.style.color=lum(h)<.35?'#F7EED2':'#0B0A08';document.getElementById('ansi').appendChild(a);});
 
-/* ── ramps ── */
-const RAMPS=[
- ['#0B0A08','#12100C','#1B1813','#262119','#362C1B','#4C3D24'],
- ['#6B5F49','#94866A','#C9BC96','#EDE3C4','#F7EED2'],
- ['#57441F','#8F713C','#D6AE66','#EAC578'],
- ['#5e1d16','#8a2a1f','#b83228','#d8392e','#D4665C'],
- ['#2F4526','#52703F','#8FAC6F'],
-];
-const rampsEl=document.getElementById('ramps');
-RAMPS.forEach(r=>{
-  const row=document.createElement('div');row.className='ramp';
-  r.forEach(h=>{const s=document.createElement('div');s.className='sw';s.style.background=h;s.dataset.copy=h;
-    s.innerHTML=`<div class="sw-t">${h}</div>`;row.appendChild(s);});
-  rampsEl.appendChild(row);
-});
+/* glyphs */
+[['✓','done','g'],['✗','fail','r'],['●','active','k'],['○','idle','b'],['◆','node','k'],['◈','special','k'],['❯','prompt','k'],['→','flow','k'],
+['▲','up','g'],['▼','down','r'],['◇','option','b'],['⊙','focus','k'],['✦','accent','k'],['⟢','link','b'],['╴','break','k'],['⠿','matrix','k']]
+.forEach(([s,m,c])=>{const d=document.createElement('div');d.className='gl';d.dataset.copy=s+' · '+m;d.innerHTML=`<span class="s ${c}">${s}</span><span class="m">${m}</span>`;document.getElementById('glyphs').appendChild(d);});
 
-/* ── inspector ── */
-const chips=document.getElementById('chips'),pbar=document.getElementById('pbar'),phx=document.getElementById('phx'),pnm=document.getElementById('pnm');
-document.getElementById('tokcount').textContent=TOKENS.length+' tokens';
-function lum(hex){const n=parseInt(hex.slice(1),16),r=(n>>16)/255,g=((n>>8)&255)/255,b=(n&255)/255;
-  const f=v=>v<=.03928?v/12.92:Math.pow((v+.055)/1.055,2.4);return .2126*f(r)+.7152*f(g)+.0722*f(b);}
-let selChip;
-TOKENS.forEach((t,i)=>{
-  const d=document.createElement('div');d.className='chip';d.style.background=t[0];d.dataset.copy=t[0]+' · '+t[1];
-  d.onclick=()=>{if(selChip)selChip.classList.remove('on');d.classList.add('on');selChip=d;
-    pbar.style.background=t[0];phx.textContent=t[0];pnm.textContent=t[1];
-    const dark=lum(t[0])<.35;phx.style.color=pnm.style.color=dark?'#F7EED2':'#0B0A08';toast(t[0]+' · '+t[1]);};
-  chips.appendChild(d);
-  if(t[0]==='#D6AE66'){d.click();}
-});
+/* copy + toggles + theme */
+document.addEventListener('click',e=>{const c=e.target.closest('[data-copy]'),b=e.target.closest('[data-toast]'),t=e.target.closest('.tog');
+  if(b){toast(b.dataset.toast);return;}if(t){t.querySelector('.sw2').classList.toggle('on');return;}
+  if(c){const v=c.dataset.copy.split(' · ')[0];navigator.clipboard&&navigator.clipboard.writeText(v);toast('copied · '+c.dataset.copy);}});
+const dots=document.querySelectorAll('.tdot');function theme(t){document.documentElement.dataset.theme=t;dots.forEach(d=>d.classList.toggle('on',d.dataset.t===t));}
+dots.forEach(d=>d.onclick=()=>theme(d.dataset.t));addEventListener('keydown',e=>{if(e.key==='1')theme('kogane');if(e.key==='2')theme('washi');});
 
-/* ── ansi ── */
-const ANSI=[
- [['#1B1813','0'],['#d8392e','1'],['#8FAC6F','2'],['#D6AE66','3'],['#7C88B8','4'],['#9C7FB0','5'],['#6FA08E','6'],['#EDE3C4','7']],
- [['#6B5F49','8'],['#DC7265','9'],['#A8C48A','A'],['#EAC578','B'],['#98A4D4','C'],['#B89BCC','D'],['#8CBCA9','E'],['#F7EED2','F']],
-];
-const ansiEl=document.getElementById('ansi');
-ANSI.forEach(row=>{const r=document.createElement('div');r.className='arow';
-  row.forEach(c=>{const a=document.createElement('div');a.className='ac';a.style.background=c[0];a.dataset.copy=c[0];
-    a.textContent=c[1];a.style.color=lum(c[0])<.35?'#F7EED2':'#0B0A08';r.appendChild(a);});
-  ansiEl.appendChild(r);});
+/* scroll-spy */
+const links=[...document.querySelectorAll('nav a')];
+const spy=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){links.forEach(l=>l.classList.toggle('on',l.getAttribute('href')==='#'+x.target.id));}}),{rootMargin:'-25% 0px -65% 0px'});
+document.querySelectorAll('section,header.hero').forEach(s=>spy.observe(s));
 
-/* ── copy / toast ── */
-let tt;
-function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),1900);}
-document.addEventListener('click',e=>{
-  const c=e.target.closest('[data-copy]'),b=e.target.closest('[data-toast]');
-  if(b){toast(b.dataset.toast);return;}
-  if(c){const v=c.dataset.copy;navigator.clipboard&&navigator.clipboard.writeText(v.split(' · ')[0]);toast('copied · '+v);}
-});
+/* tilt */
+if(!RM)document.querySelectorAll('.glass').forEach(el=>{
+  el.addEventListener('mousemove',e=>{const r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
+    el.style.transform=`perspective(700px) rotateX(${(y-.5)*-10}deg) rotateY(${(x-.5)*10}deg) scale(1.02)`;el.style.setProperty('--mx',x*100+'%');el.style.setProperty('--my',y*100+'%');});
+  el.addEventListener('mouseleave',()=>el.style.transform='');});
 
-/* ── theme ── */
-const dots=document.querySelectorAll('.tdot');
-function setTheme(t){document.documentElement.dataset.theme=t;dots.forEach(d=>d.classList.toggle('on',d.dataset.t===t));}
-dots.forEach(d=>d.onclick=()=>setTheme(d.dataset.t));
-addEventListener('keydown',e=>{if(e.key==='1')setTheme('kogane');if(e.key==='2')setTheme('washi');});
-
-/* ── reveal ── */
-const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}}),{threshold:.12});
-document.querySelectorAll('.rev').forEach(el=>io.observe(el));
-
-/* ── cursor ── */
-if(!COARSE && !RM){
-  const cr=document.getElementById('curR'),cd=document.getElementById('curD');
-  let mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my;
-  addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cd.style.transform=`translate(${mx}px,${my}px) translate(-50%,-50%)`;});
-  addEventListener('mousedown',()=>cr.classList.add('act'));addEventListener('mouseup',()=>cr.classList.remove('act'));
-  document.querySelectorAll('a,button,.glass,.pp,.sw,.chip,.ac,.ls,.tog,.pill,.tdot,[data-copy]').forEach(el=>{
-    el.addEventListener('mouseenter',()=>cr.classList.add('hov'));el.addEventListener('mouseleave',()=>cr.classList.remove('hov'));});
-  (function loop(){rx+=(mx-rx)*.16;ry+=(my-ry)*.16;cr.style.transform=`translate(${rx}px,${ry}px) translate(-50%,-50%)`;requestAnimationFrame(loop);})();
+/* motion demos */
+if(!RM){
+  const braille=['⠋','⠙','⠹','⠸','⠼','⠴','⠦','⠧','⠇','⠏'],arc=['◜','◠','◝','◞','◡','◟'];let i=0;
+  setInterval(()=>{i++;document.getElementById('sp1').textContent=braille[i%braille.length];document.getElementById('sp2').textContent=arc[i%arc.length];},90);
+  let p=0;setInterval(()=>{p=(p+1)%29;const sub=['▏','▎','▍','▌','▋','▊','▉','█'];const full=Math.floor(p/4),rem=p%4;
+    let s='<span class="f">'+'█'.repeat(full)+(full<7?sub[rem*2]:'')+'</span>';s+='<span class="e">'+'░'.repeat(Math.max(0,11-full-1))+'</span>';
+    document.getElementById('bar1').innerHTML=s+' <span style="color:var(--bone-3)">'+Math.round(p/28*100)+'%</span>';
+    const md=['⠀','⠄','⠆','⠇','⠧','⠷','⠿','⣿'];let m='<span class="f">';for(let k=0;k<11;k++){const lvl=Math.max(0,Math.min(7,Math.round((p/28*11-k)*7)));m+=md[k<p/28*11?7:lvl];}m+='</span>';
+    document.getElementById('bar2').innerHTML=m;},120);
 }
 
-/* ── 3D tilt + spotlight ── */
-if(!RM){
-  document.querySelectorAll('.glass').forEach(el=>{
-    el.addEventListener('mousemove',e=>{const r=el.getBoundingClientRect();const x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
-      el.style.transform=`perspective(760px) rotateX(${(y-.5)*-12}deg) rotateY(${(x-.5)*12}deg) scale(1.02)`;
-      el.style.setProperty('--mx',x*100+'%');el.style.setProperty('--my',y*100+'%');});
-    el.addEventListener('mouseleave',()=>el.style.transform='perspective(760px) rotateX(0) rotateY(0)');
-  });
-}
-
-/* ── hero constellation ── */
-if(!RM){
-  const cv=document.getElementById('sky'),x=cv.getContext('2d');let pts=[],W,H;
-  function init(){W=cv.width=cv.offsetWidth;H=cv.height=cv.offsetHeight;pts=[];
-    const n=Math.min(72,Math.floor(W/16));
-    for(let i=0;i<n;i++)pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3,
-      r:Math.random()*1.7+.3,c:['214,174,102','216,57,46','111,154,142','198,127,69'][Math.floor(Math.random()*4)],ph:Math.random()*6.28});}
-  function draw(){x.clearRect(0,0,W,H);
-    for(const p of pts){p.x+=p.vx;p.y+=p.vy;p.ph+=.01;if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0;
-      x.beginPath();x.arc(p.x,p.y,p.r,0,6.28);x.fillStyle=`rgba(${p.c},${(.3+.3*Math.sin(p.ph)).toFixed(2)})`;x.fill();}
+/* hero constellation */
+if(!RM){const cv=document.getElementById('sky'),x=cv.getContext('2d');let pts=[],W,H;
+  function init(){W=cv.width=cv.offsetWidth;H=cv.height=cv.offsetHeight;pts=[];const n=Math.min(48,Math.floor(W/22));
+    for(let i=0;i<n;i++)pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,r:Math.random()*1.5+.3,c:['216,175,82','216,57,46','111,154,142'][Math.floor(Math.random()*3)],ph:Math.random()*6.3});}
+  function draw(){x.clearRect(0,0,W,H);for(const p of pts){p.x+=p.vx;p.y+=p.vy;p.ph+=.01;if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0;
+    x.beginPath();x.arc(p.x,p.y,p.r,0,6.28);x.fillStyle=`rgba(${p.c},${(.3+.3*Math.sin(p.ph)).toFixed(2)})`;x.fill();}
     for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.hypot(dx,dy);
-      if(d<104){x.beginPath();x.moveTo(pts[i].x,pts[i].y);x.lineTo(pts[j].x,pts[j].y);x.strokeStyle=`rgba(214,174,102,${(.06*(1-d/104)).toFixed(3)})`;x.lineWidth=.5;x.stroke();}}
-    requestAnimationFrame(draw);}
-  init();draw();addEventListener('resize',init);
-}
+      if(d<110){x.beginPath();x.moveTo(pts[i].x,pts[i].y);x.lineTo(pts[j].x,pts[j].y);x.strokeStyle=`rgba(216,175,82,${(.05*(1-d/110)).toFixed(3)})`;x.lineWidth=.5;x.stroke();}}requestAnimationFrame(draw);}
+  init();draw();addEventListener('resize',init);}
 
-/* ── prism blobs ── */
-if(!RM){
-  const cv=document.getElementById('prismC'),x=cv.getContext('2d');let b=[],W,H;
-  function init(){W=cv.width=cv.offsetWidth;H=cv.height=cv.offsetHeight;
-    b=[['214,174,102',.55,.28,.4,.5,.3],['216,57,46',.45,.72,.6,-.4,.35],['111,154,142',.4,.5,.2,.25,-.4],['198,127,69',.38,.18,.7,.35,-.28]]
-      .map(o=>({c:o[0],a:o[1],x:o[2]*W,y:o[3]*H,vx:o[4],vy:o[5],r:Math.min(W,H)*.5}));}
-  function draw(){x.clearRect(0,0,W,H);x.fillStyle='#0B0A08';x.fillRect(0,0,W,H);
-    for(const o of b){o.x+=o.vx;o.y+=o.vy;if(o.x<0||o.x>W)o.vx*=-1;if(o.y<0||o.y>H)o.vy*=-1;
-      const g=x.createRadialGradient(o.x,o.y,0,o.x,o.y,o.r);g.addColorStop(0,`rgba(${o.c},${o.a})`);g.addColorStop(1,`rgba(${o.c},0)`);
-      x.fillStyle=g;x.beginPath();x.arc(o.x,o.y,o.r,0,6.28);x.fill();}
-    requestAnimationFrame(draw);}
-  init();draw();addEventListener('resize',init);
-}
+/* prism */
+if(!RM){const cv=document.getElementById('prismC'),x=cv.getContext('2d');let b=[],W,H;
+  function init(){W=cv.width=cv.offsetWidth;H=cv.height=cv.offsetHeight;b=[['216,175,82',.5,.3,.4,.4,.3],['216,57,46',.42,.7,.6,-.35,.3],['111,154,142',.38,.5,.3,.3,-.35]].map(o=>({c:o[0],a:o[1],x:o[2]*W,y:o[3]*H,vx:o[4],vy:o[5],r:Math.min(W,H)*.6}));}
+  function draw(){x.clearRect(0,0,W,H);x.fillStyle='#0B0A08';x.fillRect(0,0,W,H);for(const o of b){o.x+=o.vx;o.y+=o.vy;if(o.x<0||o.x>W)o.vx*=-1;if(o.y<0||o.y>H)o.vy*=-1;
+    const g=x.createRadialGradient(o.x,o.y,0,o.x,o.y,o.r);g.addColorStop(0,`rgba(${o.c},${o.a})`);g.addColorStop(1,`rgba(${o.c},0)`);x.fillStyle=g;x.beginPath();x.arc(o.x,o.y,o.r,0,6.28);x.fill();}requestAnimationFrame(draw);}
+  init();draw();addEventListener('resize',init);}
 </script>
 </body>
 </html>
