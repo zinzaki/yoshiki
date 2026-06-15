@@ -15,8 +15,8 @@ are excluded — an edge needs only 3:1, and gold-as-text uses `text.gold`.
 | `text.secondary` | `bg.surface` | 10.06:1 | 4.5 | ✓ |
 | `text.muted` | `bg.surface` | 5.32:1 | 4.5 | ✓ |
 | `text.ghost` | `bg.surface` | 3.04:1 | 3.0 | ✓ |
-| `text.gold` | `bg.surface` | 9.14:1 | 4.5 | ✓ |
-| `action.text` | `bg.raised` | 8.52:1 | 4.5 | ✓ |
+| `text.gold` | `bg.surface` | 9.21:1 | 4.5 | ✓ |
+| `action.text` | `bg.raised` | 8.57:1 | 4.5 | ✓ |
 | `ok.text` | `ok.wash` | 6.22:1 | 4.5 | ✓ |
 | `warn.text` | `bg.surface` | 5.9:1 | 3.0 | ✓ |
 | `danger.text` | `danger.wash` | 4.65:1 | 4.5 | ✓ |

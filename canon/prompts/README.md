@@ -11,6 +11,7 @@ for model stability; the output language follows your conversation.
 | Module | Teaches the model to |
 |---|---|
 | `identity.md` | the whole language in one block — philosophy + all rules |
+| `principles.md` | the ordered defaults — what wins when nothing is specified |
 | `palette.md` | use the color tokens and semantic roles (either theme) |
 | `cli.md` | format CLI/TUI output: prompt, statuses, menus, trees |
 | `comments.md` | write code comments the yoshiki way |
