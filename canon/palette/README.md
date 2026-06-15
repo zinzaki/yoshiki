@@ -51,7 +51,7 @@ all exports with `python3 ../tools/build.py`.
 
 ## Invariants
 
-- triggers: scarlet `#BB3C33` (irreversible, one per screen) · moss `#52703F` (life)
+- triggers: spider-lily scarlet `#d8392e` (irreversible, one per screen) · moss `#52703F` (life)
 - warning: persimmon · info: tone, never blue
 - ANSI-16 accents shared; only backgrounds/cursor differ
 - contrast floors verified (WCAG): body ≥ 7:1, secondary ≥ 4.5:1

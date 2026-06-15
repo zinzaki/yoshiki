@@ -13,7 +13,7 @@ The lily is the memory.
 The world of an interface is almost monochrome: warm lacquer, bone, gold.
 Color is a **rare trigger** aimed at perception, not decoration:
 
-- **Scarlet `#BB3C33`** — the color of hanko seals and torii gates.
+- **Scarlet `#d8392e`** — the vermilion of the spider lily, hanko seals and torii gates.
   Reserved for the irreversible. *One bloom per screen.* The body reads it
   before the mind does — and only because it is rare. Paint everything
   with it and it dies.
