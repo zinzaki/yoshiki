@@ -15,7 +15,7 @@ invent a new hue for a state — brighten, dim, or swap the role it already uses
 | active / pressed | edge deepens to `kin-2`, tint deepens |
 | selected | gold text + `action.tint` background — chosen of many |
 | disabled | `bone-4` text, no edge — present but quiet, never gone |
-| loading | a dot-matrix spinner replaces the label (see `../../library/motion`) |
+| loading | a dot-matrix spinner replaces the label (see `../motion`) |
 | error | scarlet edge (`aka-1`), text `aka-0` — one per surface |
 | empty | one quiet glyph + `bone-3` line — "nothing here yet", no alarm |
 

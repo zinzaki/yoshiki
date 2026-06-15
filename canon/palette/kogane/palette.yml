@@ -21,8 +21,8 @@ tokens:
   bone-2: "#C9BC96"   # secondary text
   bone-3: "#94866A"   # muted / meta
   bone-4: "#6B5F49"   # ghost / disabled
-  kin-0:  "#EAC578"   # gold glow — hover
-  kin-1:  "#D6AE66"   # GOLD — action, links, cursor
+  kin-0:  "#EDC85C"   # gold glow — hover
+  kin-1:  "#D8AF52"   # GOLD — action, links, cursor (true gold-leaf)
   kin-2:  "#8F713C"   # dim gold — labels, glyphs
   kin-3:  "#57441F"   # deep gold
   kin-w:  "#3F3112"   # gold wash — fills
