@@ -5,8 +5,6 @@
  mem   ⣀⣄⣆⣇⣧⣶⣷⣿                rising, braille fill
  net   ⠂⠄⠂⠁⠂⠄⢀⠠⠐⠈⠂⠁⠂⠄⠂       sparse, bursty
 
-# low-block variant — keep peaks at ▄▅ max, never ▆▇█:
- load  ▁▂▃▂▃▄▃▄▅▄▃▂▁▂▃
 
 # paint: line -> kin-1 (gilding) or bone-2; a real spike -> aka-0
 # one sparkline = one metric; label left and dim, fixed width
