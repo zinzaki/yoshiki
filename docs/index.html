@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>様式 yoshiki — a design language</title>
-<meta name="description" content="yoshiki — an elegant design language. Warm monochrome, struck rarely by color. Every element of the system, and how it is used.">
+<meta name="description" content="yoshiki — an elegant design language. Warm monochrome, struck rarely by color. Lacquer, bone and gold.">
 <meta property="og:title" content="様式 yoshiki — a design language">
 <meta property="og:description" content="Warm monochrome, struck rarely by color. Lacquer, bone and gold.">
 <meta property="og:type" content="website">
@@ -12,429 +12,343 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700;800&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-/* ═══ tokens — straight from canon/palette (the source of truth) ═══ */
+/* ════ tokens — straight from canon/palette ════ */
 :root{
-  --ink-0:#0B0A08; --ink-1:#12100C; --ink-2:#1B1813; --ink-3:#262119;
-  --line-0:#362C1B; --line-1:#4C3D24;
-  --bone-0:#F7EED2; --bone-1:#EDE3C4; --bone-2:#C9BC96; --bone-3:#94866A; --bone-4:#6B5F49;
-  --kin-0:#EDC85C; --kin-1:#D8AF52; --kin-2:#8F713C; --kin-3:#57441F; --kin-w:#3F3112;
-  --kaki:#C67F45;
-  --aka-0:#D4665C; --aka-1:#d8392e; --aka-2:#7E302E;
-  --mori-0:#8FAC6F; --mori-1:#52703F;
-  --hotaru:#7C88B8; --fuji:#9C7FB0; --seiji:#6FA08E;
-  --kin-text:var(--kin-1);
-  --grain:.038;
-  /* type */
+  --ink-0:#0B0A08;--ink-1:#12100C;--ink-2:#1B1813;--ink-3:#262119;
+  --line-0:#362C1B;--line-1:#4C3D24;
+  --bone-0:#F7EED2;--bone-1:#EDE3C4;--bone-2:#C9BC96;--bone-3:#94866A;--bone-4:#6B5F49;
+  --kin-0:#EDC85C;--kin-1:#D8AF52;--kin-2:#8F713C;--kin-3:#57441F;--kin-w:#3F3112;
+  --kaki:#C67F45;--aka-0:#D4665C;--aka-1:#d8392e;--aka-2:#7E302E;
+  --mori-0:#8FAC6F;--mori-1:#52703F;--hotaru:#7C88B8;--fuji:#9C7FB0;--seiji:#6FA08E;
+  --kin-text:var(--kin-1);--grain:.04;
   --serif:'Shippori Mincho','Noto Serif JP',serif;
   --sans:'Zen Kaku Gothic New',system-ui,sans-serif;
   --mono:'JetBrains Mono',ui-monospace,monospace;
-  /* rhythm — one 8px grid */
-  --sp:clamp(76px,9vw,116px);
-  --rad:14px;
 }
 [data-theme="washi"]{
-  --ink-0:#E2D6B4; --ink-1:#EBE1C3; --ink-2:#F3EBD5; --ink-3:#D7C9A3;
-  --line-0:#C7B68C; --line-1:#AE9C72;
-  --bone-0:#1F1810; --bone-1:#2B2117; --bone-2:#4A3D2A; --bone-3:#6E5E42; --bone-4:#8E7C5A;
-  --kin-0:#B8923F; --kin-1:#9C7A40; --kin-2:#7A5F2E; --kin-3:#C9AE74; --kin-w:#E6D7A8;
-  --kaki:#A5602B;
-  --aka-0:#A8352B; --aka-1:#C0392C; --aka-2:#8E2A22;
-  --mori-0:#4A6B38; --mori-1:#3C5A2C;
-  --hotaru:#4C5A90; --fuji:#6E5890; --seiji:#2F6B5E;
-  --kin-text:#7A5F2E;
-  --grain:.026;
+  --ink-0:#E2D6B4;--ink-1:#EBE1C3;--ink-2:#F3EBD5;--ink-3:#D7C9A3;
+  --line-0:#C7B68C;--line-1:#AE9C72;
+  --bone-0:#1F1810;--bone-1:#2B2117;--bone-2:#4A3D2A;--bone-3:#6E5E42;--bone-4:#8E7C5A;
+  --kin-0:#B8923F;--kin-1:#9C7A40;--kin-2:#7A5F2E;--kin-3:#C9AE74;--kin-w:#E6D7A8;
+  --kaki:#A5602B;--aka-0:#A8352B;--aka-1:#C0392C;--aka-2:#8E2A22;
+  --mori-0:#4A6B38;--mori-1:#3C5A2C;--hotaru:#4C5A90;--fuji:#6E5890;--seiji:#2F6B5E;
+  --kin-text:#7A5F2E;--grain:.028;
 }
-
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-body{
-  background:var(--ink-0); color:var(--bone-1);
-  font-family:var(--sans); font-weight:300; line-height:1.75;
-  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
-  transition:background .5s ease,color .5s ease;
-}
-::selection{background:color-mix(in srgb,var(--kin-1) 24%,transparent); color:var(--bone-0)}
+body{background:var(--ink-0);color:var(--bone-1);font-family:var(--sans);font-weight:300;
+  line-height:1.7;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  overflow-x:hidden;transition:background .6s ease,color .6s ease}
+::selection{background:color-mix(in srgb,var(--kin-1) 26%,transparent);color:var(--bone-0)}
+a{color:inherit;text-decoration:none}
 
-/* atmosphere — warm depth + grain, both cheap & calm */
-#bg{position:fixed; inset:0; z-index:-2; pointer-events:none;
-  background:
-    radial-gradient(120% 80% at 78% -12%, color-mix(in srgb,var(--kin-1) 8%,transparent), transparent 56%),
-    radial-gradient(90% 60% at -12% 24%, color-mix(in srgb,var(--kin-1) 4%,transparent), transparent 60%);}
-#grain{position:fixed; inset:0; z-index:-1; pointer-events:none; opacity:var(--grain); mix-blend-mode:overlay;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size:200px;}
+/* atmosphere */
+#bg{position:fixed;inset:0;z-index:-3;pointer-events:none;transition:opacity .6s;
+  background:radial-gradient(130% 90% at 50% -10%,color-mix(in srgb,var(--kin-1) 9%,transparent),transparent 55%),
+  radial-gradient(80% 60% at 85% 20%,color-mix(in srgb,var(--aka-1) 4%,transparent),transparent 60%)}
+#sky{position:fixed;inset:0;z-index:-2;pointer-events:none;opacity:.55}
+#grain{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:var(--grain);mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px}
 
-/* ═══ shell ═══ */
-.shell{max-width:1240px; margin:0 auto; padding:0 40px;
-  display:grid; grid-template-columns:230px 1fr; gap:84px; position:relative;}
+/* chrome — minimal floating bar */
+.bar{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;
+  justify-content:space-between;padding:20px clamp(20px,5vw,52px);
+  transition:background .4s,padding .4s,border-color .4s;border-bottom:1px solid transparent}
+.bar.stuck{background:color-mix(in srgb,var(--ink-0) 82%,transparent);backdrop-filter:blur(12px) saturate(1.2);
+  -webkit-backdrop-filter:blur(12px) saturate(1.2);padding-top:13px;padding-bottom:13px;border-color:var(--line-0)}
+.bar .logo{font-family:var(--serif);font-weight:800;font-size:21px;color:var(--bone-0);letter-spacing:.02em;display:flex;gap:9px;align-items:baseline}
+.bar .logo small{font-family:var(--mono);font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--bone-3)}
+.bar .right{display:flex;gap:16px;align-items:center}
+.tdot{width:15px;height:15px;border-radius:50%;cursor:pointer;border:1px solid var(--line-1);padding:0;transition:transform .2s,box-shadow .2s}
+.tdot[data-t="kogane"]{background:#0B0A08}.tdot[data-t="washi"]{background:#E2D6B4}
+.tdot.on{box-shadow:0 0 0 2px var(--kin-1);transform:scale(1.1)}
+.bar a.gh{font-family:var(--mono);font-size:11px;color:var(--bone-3)}.bar a.gh:hover{color:var(--kin-1)}
 
-/* nav */
-nav{position:sticky; top:0; height:100vh; overflow-y:auto; padding:52px 0 40px; scrollbar-width:none;}
-nav::-webkit-scrollbar{width:0}
-.brand{font-family:var(--serif); font-weight:800; font-size:34px; line-height:1; letter-spacing:.02em;
-  background:linear-gradient(120deg,var(--kin-3),var(--kin-1) 44%,var(--bone-0) 60%,var(--kin-0));
-  -webkit-background-clip:text; background-clip:text; color:transparent;}
-.brand-sub{font-family:var(--mono); font-size:9px; letter-spacing:7px; text-transform:uppercase;
-  color:var(--bone-3); margin:11px 0 0;}
-.brand-rule{width:34px; height:1px; background:var(--kin-2); margin:18px 0 30px;}
-.nav-grp{font-family:var(--mono); font-size:9px; letter-spacing:3px; text-transform:uppercase;
-  color:var(--kin-2); margin:26px 0 9px;}
-nav a{display:block; font-size:13px; color:var(--bone-3); text-decoration:none;
-  padding:6px 0 6px 16px; position:relative; transition:color .25s,padding .25s;}
-nav a::before{content:''; position:absolute; left:0; top:50%; width:0; height:1px;
-  background:var(--kin-1); transform:translateY(-50%); transition:width .25s;}
-nav a:hover{color:var(--bone-1); padding-left:21px}
-nav a.on{color:var(--kin-1)}
-nav a.on::before{width:9px}
-.nav-foot{margin-top:34px; padding-top:22px; border-top:1px solid var(--line-0);
-  display:flex; gap:10px; align-items:center;}
-.tdot{width:15px; height:15px; border-radius:50%; cursor:pointer; border:1px solid var(--line-1);
-  transition:transform .2s,box-shadow .2s; padding:0;}
-.tdot[data-t="kogane"]{background:#0B0A08} .tdot[data-t="washi"]{background:#E2D6B4}
-.tdot.on{box-shadow:0 0 0 2px var(--kin-1); transform:scale(1.1)}
-.gh{font-family:var(--mono); font-size:10px; color:var(--bone-3); text-decoration:none; margin-left:auto;}
-.gh:hover{color:var(--kin-1)}
+/* scroll progress (top hairline) */
+#prog{position:fixed;top:0;left:0;height:2px;width:0;z-index:60;background:linear-gradient(90deg,var(--kin-2),var(--kin-0));box-shadow:0 0 12px color-mix(in srgb,var(--kin-1) 60%,transparent)}
 
-/* main */
-main{min-width:0; max-width:780px}
-section{padding:var(--sp) 0; position:relative}
-section+section{border-top:1px solid var(--line-0)}
-.eyebrow{font-family:var(--mono); font-size:10px; letter-spacing:3px; text-transform:uppercase;
-  color:var(--bone-3); display:flex; align-items:center; gap:13px; margin-bottom:20px;}
-.eyebrow b{color:var(--kin-1); font-weight:600; letter-spacing:1px}
-.eyebrow::after{content:''; flex:1; height:1px;
-  background:linear-gradient(90deg,var(--line-1),transparent);}
-h2{font-family:var(--serif); font-weight:700; font-size:clamp(31px,4.4vw,44px);
-  color:var(--bone-0); letter-spacing:-.01em; line-height:1.06;}
-.lead{font-size:15.5px; color:var(--bone-2); max-width:620px; margin-top:18px; line-height:1.95;}
-.lead b{color:var(--bone-0); font-weight:400}
-h3{font-family:var(--mono); font-size:10px; letter-spacing:2.5px; text-transform:uppercase;
-  color:var(--bone-3); margin:46px 0 18px; display:flex; align-items:center; gap:12px;}
-h3::after{content:''; flex:1; height:1px; background:var(--line-0)}
+/* the kintsugi seam — a gold thread down the centre that draws on scroll */
+.seam{position:absolute;left:50%;top:0;bottom:0;width:1px;transform:translateX(-50%);z-index:0;
+  background:linear-gradient(180deg,transparent,var(--line-1) 6%,var(--line-1) 94%,transparent)}
+.seam::after{content:'';position:absolute;left:50%;top:0;width:1px;transform:translateX(-50%);
+  height:var(--seam,0%);background:linear-gradient(180deg,var(--kin-2),var(--kin-1));
+  box-shadow:0 0 10px color-mix(in srgb,var(--kin-1) 55%,transparent)}
+@media(max-width:760px){.seam{left:24px}}
 
-/* hero */
-.hero{padding:clamp(92px,15vh,148px) 0 var(--sp); border-top:none}
-.kicker{font-family:var(--mono); font-size:11px; letter-spacing:6px; text-transform:uppercase;
-  color:var(--bone-3); margin-bottom:30px; display:flex; align-items:center; gap:14px;}
-.kicker::before{content:''; width:26px; height:1px; background:var(--kin-1)}
-.hero h1{font-family:var(--serif); font-weight:800; font-size:clamp(82px,16vw,168px); line-height:.9;
-  letter-spacing:.02em;
-  background:linear-gradient(135deg,var(--kin-3),var(--kin-1) 32%,var(--bone-0) 52%,var(--kin-0) 74%,var(--kin-2));
-  background-size:220% 220%; -webkit-background-clip:text; background-clip:text; color:transparent;
-  animation:flow 9s ease-in-out infinite;}
+/* layout — everything centred */
+main{position:relative;z-index:1}
+.wrap{max-width:1000px;margin:0 auto;padding:0 clamp(20px,5vw,40px)}
+.sec{padding:clamp(96px,15vh,160px) 0;position:relative}
+.center{text-align:center;max-width:760px;margin:0 auto}
+.node{width:11px;height:11px;border-radius:50%;background:var(--ink-0);border:1px solid var(--kin-1);
+  margin:0 auto 30px;position:relative;box-shadow:0 0 0 5px var(--ink-0)}
+.node::before{content:'';position:absolute;inset:2px;border-radius:50%;background:var(--kin-1);
+  opacity:0;transform:scale(0);transition:.5s}
+.node.lit::before{opacity:1;transform:scale(1)}
+.kicker{font-family:var(--mono);font-size:10.5px;letter-spacing:4px;text-transform:uppercase;color:var(--kin-2);margin-bottom:20px}
+h2{font-family:var(--serif);font-weight:700;font-size:clamp(30px,5vw,52px);color:var(--bone-0);line-height:1.05;letter-spacing:-.01em}
+.lead{font-size:16px;color:var(--bone-2);max-width:600px;margin:20px auto 0;line-height:2}
+.lead b{color:var(--bone-0);font-weight:400}
+
+/* reveal — objects appear as you scroll, with effects */
+.r{opacity:0;transform:translateY(34px) scale(.97);filter:blur(7px);
+  transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1),filter .9s}
+.r.in{opacity:1;transform:none;filter:none}
+@media(prefers-reduced-motion:reduce){.r{opacity:1!important;transform:none!important;filter:none!important;transition:none}
+  #sky{display:none}*{animation:none!important}html{scroll-behavior:auto}}
+
+/* ── hero ── */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;position:relative;padding:120px 24px 80px}
+.hero .kick{font-family:var(--mono);font-size:11px;letter-spacing:7px;text-transform:uppercase;color:var(--bone-3);margin-bottom:34px;opacity:0;animation:up 1s .1s both}
+.hero h1{font-family:var(--serif);font-weight:800;font-size:clamp(96px,22vw,260px);line-height:.86;letter-spacing:.02em;
+  background:linear-gradient(125deg,var(--kin-3),var(--kin-1) 30%,var(--bone-0) 52%,var(--kin-0) 74%,var(--kin-2));
+  background-size:240% 240%;-webkit-background-clip:text;background-clip:text;color:transparent;
+  animation:flow 10s ease-in-out infinite,up 1.1s .2s both}
 @keyframes flow{0%,100%{background-position:0 50%}50%{background-position:100% 50%}}
-.hero .romaji{font-family:var(--mono); font-size:12px; letter-spacing:12px; text-transform:uppercase;
-  color:var(--bone-3); margin-top:22px;}
-.hero .sub{font-size:17.5px; color:var(--bone-2); max-width:520px; margin-top:28px; line-height:1.95;}
-.lily{display:inline-flex; align-items:center; gap:10px; margin-top:34px; padding:9px 18px 9px 13px;
-  border-radius:100px; cursor:pointer; text-decoration:none;
-  background:color-mix(in srgb,var(--aka-1) 8%,transparent);
-  border:1px solid color-mix(in srgb,var(--aka-1) 28%,transparent);
-  color:var(--aka-0); font-family:var(--mono); font-size:11px; letter-spacing:2px; transition:.3s;}
-.lily:hover{background:color-mix(in srgb,var(--aka-1) 14%,transparent)}
-.lily-dot{width:7px; height:7px; border-radius:50%; background:var(--aka-1);
-  box-shadow:0 0 11px color-mix(in srgb,var(--aka-1) 80%,transparent); animation:pulse 2.8s ease-in-out infinite;}
-@keyframes pulse{50%{opacity:.3; transform:scale(.6)}}
+@keyframes up{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+.hero .romaji{font-family:var(--mono);font-size:13px;letter-spacing:14px;text-transform:uppercase;color:var(--bone-3);margin-top:26px;opacity:0;animation:up 1s .4s both}
+.hero .tag{font-size:18px;color:var(--bone-2);max-width:480px;margin-top:30px;line-height:1.9;opacity:0;animation:up 1s .55s both}
+.lily{display:inline-flex;align-items:center;gap:10px;margin-top:38px;padding:10px 19px 10px 14px;border-radius:100px;cursor:pointer;
+  background:color-mix(in srgb,var(--aka-1) 8%,transparent);border:1px solid color-mix(in srgb,var(--aka-1) 28%,transparent);
+  color:var(--aka-0);font-family:var(--mono);font-size:11px;letter-spacing:2px;transition:.3s;opacity:0;animation:up 1s .7s both}
+.lily:hover{background:color-mix(in srgb,var(--aka-1) 15%,transparent)}
+.ldot{width:7px;height:7px;border-radius:50%;background:var(--aka-1);box-shadow:0 0 12px color-mix(in srgb,var(--aka-1) 85%,transparent);animation:pulse 2.8s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.3;transform:scale(.6)}}
+.scroll-hint{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:18px;color:var(--kin-2);animation:bob 2.2s ease-in-out infinite;opacity:0;animation:up 1s 1s both,bob 2.2s 1s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
 
-/* generic surfaces */
-.blk{font-family:var(--mono); font-size:13px; line-height:1.85; white-space:pre; overflow-x:auto;
-  background:var(--ink-1); border:1px solid var(--line-0); border-radius:var(--rad);
-  padding:24px 26px; color:var(--bone-2); position:relative;}
-.blk::before{content:''; position:absolute; top:0; left:13%; right:13%; height:1px;
-  background:linear-gradient(90deg,transparent,color-mix(in srgb,var(--kin-1) 22%,transparent),transparent);}
-.blk .k{color:var(--kin-1)} .blk .r{color:var(--aka-0)} .blk .g{color:var(--mori-0)}
-.blk .d{color:var(--bone-4)} .blk .b{color:var(--bone-0)} .blk .o{color:var(--kaki)} .blk .c{color:var(--seiji)}
-.cols{display:grid; grid-template-columns:1fr 1fr; gap:16px}
-@media(max-width:720px){.cols{grid-template-columns:1fr}}
-.note{font-size:12.5px; color:var(--bone-3); margin-top:16px; line-height:1.8}
-.note b{color:var(--kin-1); font-weight:500}
-.note code{font-family:var(--mono); font-size:11.5px; color:var(--kin-text);
-  background:var(--ink-2); padding:1px 6px; border-radius:5px;}
+/* ── ratio bar ── */
+.ratio{display:flex;height:64px;border-radius:14px;overflow:hidden;margin-top:44px;border:1px solid var(--line-0)}
+.ratio span{display:flex;align-items:flex-end;justify-content:flex-start;padding:10px 14px;width:0;
+  transition:width 1.3s cubic-bezier(.2,.7,.2,1);font-family:var(--mono);font-size:11px;white-space:nowrap;overflow:hidden}
+.in .ratio span{width:var(--w)}
+.ratio .t{background:var(--ink-2);color:var(--bone-3)}
+.ratio .b{background:var(--bone-2);color:var(--ink-0)}
+.ratio .g{background:linear-gradient(180deg,var(--kin-1),var(--kin-2));color:var(--ink-0)}
+.ratio .x{background:var(--aka-1);color:#FFF3ED}
 
-/* principles ladder */
-.ladder{display:flex; flex-direction:column}
-.rung{display:grid; grid-template-columns:30px 1fr; gap:18px; padding:15px 0;
-  border-bottom:1px solid var(--line-0); align-items:baseline;}
-.rung:last-child{border-bottom:none}
-.rung .n{font-family:var(--mono); font-size:13px; color:var(--kin-1); font-weight:600}
-.rung b{color:var(--bone-0); font-weight:500; font-family:var(--serif); font-size:16.5px}
-.rung span{color:var(--bone-3); font-size:13.5px}
-.rung em{display:block; color:var(--bone-4); font-style:normal; font-size:12px; margin-top:5px;
-  font-family:var(--mono);}
-.dtable{width:100%; border-collapse:collapse; font-size:13px; margin-top:6px}
-.dtable td{padding:11px 14px; border-bottom:1px solid var(--line-0); vertical-align:top}
-.dtable tr:last-child td{border-bottom:none}
-.dtable td:first-child{color:var(--kin-2); font-family:var(--mono); font-size:12px; white-space:nowrap; width:34%}
-.dtable td:last-child{color:var(--bone-1)}
-
-/* palette */
-.ramps{display:flex; flex-direction:column; gap:11px}
-.ramp{display:flex; height:50px; border-radius:12px; overflow:hidden;
-  box-shadow:0 10px 28px rgba(0,0,0,.16);}
-.sw{flex:1; cursor:pointer; position:relative; border:none; padding:0;
-  transition:flex .35s cubic-bezier(.22,.68,0,1.2);}
-.sw:hover{flex:2.4}
-.sw .tip{position:absolute; bottom:calc(100% + 8px); left:50%; transform:translateX(-50%);
-  white-space:nowrap; font-family:var(--mono); font-size:10px; padding:5px 9px; border-radius:6px;
-  opacity:0; pointer-events:none; background:var(--ink-2); border:1px solid var(--line-1);
-  color:var(--bone-1); transition:opacity .15s; z-index:5;}
+/* ── palette ── */
+.ramps{display:flex;flex-direction:column;gap:11px;margin-top:44px}
+.ramp{display:flex;height:54px;border-radius:13px;overflow:hidden;box-shadow:0 12px 30px rgba(0,0,0,.18)}
+.sw{flex:1;cursor:pointer;position:relative;border:none;padding:0;transition:flex .35s cubic-bezier(.22,.68,0,1.2)}
+.sw:hover{flex:2.6}
+.sw .tip{position:absolute;bottom:calc(100% + 9px);left:50%;transform:translateX(-50%);white-space:nowrap;
+  font-family:var(--mono);font-size:10px;padding:5px 9px;border-radius:6px;opacity:0;pointer-events:none;
+  background:var(--ink-2);border:1px solid var(--line-1);color:var(--bone-1);transition:opacity .15s;z-index:5}
 .sw:hover .tip{opacity:1}
-.roles{display:grid; grid-template-columns:1fr 1fr; gap:9px 28px; font-family:var(--mono); font-size:12px}
+.roles{display:grid;grid-template-columns:1fr 1fr;gap:11px 30px;font-family:var(--mono);font-size:12px;margin-top:40px;text-align:left}
 @media(max-width:560px){.roles{grid-template-columns:1fr}}
-.roles div{display:flex; align-items:center; gap:11px; color:var(--bone-3); padding:5px 0}
-.roles i{width:15px; height:15px; border-radius:5px; flex-shrink:0; border:1px solid rgba(127,100,40,.25)}
-.roles b{color:var(--bone-1); font-weight:500}
-.ansi{display:grid; grid-template-columns:repeat(8,1fr); gap:6px}
-.ac{height:44px; border-radius:9px; cursor:pointer; display:flex; align-items:center; justify-content:center;
-  font-family:var(--mono); font-size:11px; font-weight:600; border:1px solid rgba(255,255,255,.04);
-  transition:transform .2s; padding:0;}
+.roles div{display:flex;align-items:center;gap:12px;color:var(--bone-3);padding:5px 0}
+.roles i{width:16px;height:16px;border-radius:5px;flex-shrink:0;border:1px solid rgba(127,100,40,.25)}
+.roles b{color:var(--bone-1);font-weight:500}
+.ansi{display:grid;grid-template-columns:repeat(8,1fr);gap:7px;margin-top:40px}
+.ac{height:46px;border-radius:9px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:11px;font-weight:600;border:1px solid rgba(255,255,255,.04);padding:0;transition:transform .2s}
 .ac:hover{transform:scale(1.09)}
-.proof{display:grid; grid-template-columns:1fr 1fr; gap:14px}
-@media(max-width:560px){.proof{grid-template-columns:1fr}}
-.pcard{border-radius:var(--rad); padding:21px 23px; border:1px solid var(--line-0); background:var(--ink-1)}
-.pcard .v{font-family:var(--mono); font-size:25px; font-weight:600}
-.pcard .l{font-family:var(--mono); font-size:10px; letter-spacing:1.5px; color:var(--bone-3); margin:4px 0 9px}
-.pcard .s{font-size:13px}
 
-/* typography specimen */
-.spec{display:flex; flex-direction:column; gap:28px}
-.srow{border-bottom:1px solid var(--line-0); padding-bottom:26px}
-.srow:last-child{border-bottom:none}
-.srow .lab{font-family:var(--mono); font-size:10px; letter-spacing:2px; text-transform:uppercase;
-  color:var(--bone-4); margin-bottom:12px;}
-.t-disp{font-family:var(--serif); font-size:clamp(30px,5vw,46px); font-weight:700; color:var(--bone-0); line-height:1.12}
-.t-body{font-family:var(--sans); font-size:18px; color:var(--bone-1); max-width:600px; line-height:1.9}
-.t-mono{font-family:var(--mono); font-size:15px; color:var(--bone-2)}
-.fonttable{width:100%; border-collapse:collapse; font-size:12.5px; margin-top:8px; font-family:var(--mono)}
-.fonttable th{text-align:left; color:var(--bone-4); font-weight:500; padding:8px 12px;
-  border-bottom:1px solid var(--line-1); text-transform:uppercase; font-size:10px; letter-spacing:1px;}
-.fonttable td{padding:9px 12px; border-bottom:1px solid var(--line-0); color:var(--bone-2)}
-.fonttable td:first-child{color:var(--bone-0)}
-.fonttable .y{color:var(--mori-0)} .fonttable .x{color:var(--bone-4)}
+/* ── trigger / lily moment ── */
+.trigger-sec{padding:clamp(120px,20vh,200px) 0;background:linear-gradient(180deg,transparent,var(--ink-1),transparent);position:relative;overflow:hidden}
+.bloom{font-family:var(--serif);font-weight:800;font-size:clamp(140px,30vw,360px);line-height:1;color:var(--aka-1);
+  opacity:0;transform:scale(.7);transition:opacity 1.2s,transform 1.2s cubic-bezier(.2,.7,.2,1);filter:drop-shadow(0 0 60px color-mix(in srgb,var(--aka-1) 30%,transparent))}
+.in .bloom{opacity:.92;transform:none}
 
-/* glyphs */
-.glyphs{display:grid; grid-template-columns:repeat(8,1fr); gap:9px}
+/* ── typography ── */
+.spec{display:flex;flex-direction:column;gap:30px;margin-top:44px;text-align:left}
+.srow{border-bottom:1px solid var(--line-0);padding-bottom:28px}.srow:last-child{border-bottom:none}
+.srow .lab{font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--bone-4);margin-bottom:13px}
+.t-disp{font-family:var(--serif);font-size:clamp(32px,5.5vw,52px);font-weight:700;color:var(--bone-0);line-height:1.1}
+.t-body{font-family:var(--sans);font-size:18px;color:var(--bone-1);max-width:620px;line-height:1.9}
+.t-mono{font-family:var(--mono);font-size:15px;color:var(--bone-2)}
+.fonts{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-top:30px;text-align:left}
+@media(max-width:680px){.fonts{grid-template-columns:1fr}}
+.fcard{border:1px solid var(--line-0);border-radius:13px;padding:20px;background:var(--ink-1)}
+.fcard .fn{font-family:var(--mono);font-size:14px;color:var(--bone-0);margin-bottom:8px}
+.fcard .fm{font-family:var(--mono);font-size:11px;color:var(--bone-3);line-height:1.7}
+.fcard .tag2{display:inline-block;margin-top:11px;font-family:var(--mono);font-size:9px;letter-spacing:1px;
+  text-transform:uppercase;padding:3px 8px;border-radius:5px;border:1px solid var(--line-1);color:var(--kin-text)}
+
+/* ── glyphs ── */
+.glyphs{display:grid;grid-template-columns:repeat(8,1fr);gap:10px;margin-top:44px}
 @media(max-width:620px){.glyphs{grid-template-columns:repeat(4,1fr)}}
-.gl{border:1px solid var(--line-0); border-radius:13px; padding:17px 8px; text-align:center;
-  background:var(--ink-1); cursor:pointer; transition:border-color .25s,transform .2s;}
-.gl:hover{border-color:var(--kin-2); transform:translateY(-3px)}
-.gl .s{font-size:24px; line-height:1; display:block; margin-bottom:10px}
-.gl .s.k{color:var(--kin-1)} .gl .s.b{color:var(--bone-1)} .gl .s.m{color:var(--mori-0)} .gl .s.c{color:var(--seiji)}
-.gl .m{font-family:var(--mono); font-size:10px; letter-spacing:.5px; color:var(--bone-3)}
+.gl{border:1px solid var(--line-0);border-radius:14px;padding:18px 8px;text-align:center;background:var(--ink-1);cursor:pointer;transition:border-color .25s,transform .25s,background .25s}
+.gl:hover{border-color:var(--kin-2);transform:translateY(-4px);background:var(--ink-2)}
+.gl .s{font-size:25px;line-height:1;display:block;margin-bottom:11px}
+.gl .s.k{color:var(--kin-1)}.gl .s.b{color:var(--bone-1)}.gl .s.m{color:var(--mori-0)}.gl .s.c{color:var(--seiji)}
+.gl .m{font-family:var(--mono);font-size:10px;letter-spacing:.5px;color:var(--bone-3)}
 
-/* motion */
-.mrow{display:flex; align-items:center; gap:22px; font-family:var(--mono); font-size:15px;
-  color:var(--bone-2); padding:16px 0; border-bottom:1px solid var(--line-0);}
+/* ── mono blocks (frames / cli / chat) ── */
+.blk{font-family:var(--mono);font-size:13px;line-height:1.9;white-space:pre;overflow-x:auto;text-align:left;
+  background:var(--ink-1);border:1px solid var(--line-0);border-radius:15px;padding:26px 28px;color:var(--bone-2);position:relative}
+.blk::before{content:'';position:absolute;top:0;left:12%;right:12%;height:1px;background:linear-gradient(90deg,transparent,color-mix(in srgb,var(--kin-1) 24%,transparent),transparent)}
+.blk .k{color:var(--kin-1)}.blk .r{color:var(--aka-0)}.blk .g{color:var(--mori-0)}.blk .d{color:var(--bone-4)}.blk .b{color:var(--bone-0)}.blk .o{color:var(--kaki)}.blk .c{color:var(--seiji)}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:44px}
+@media(max-width:720px){.duo{grid-template-columns:1fr}}
+
+/* ── motion ── */
+.motion{display:flex;flex-direction:column;gap:0;margin-top:44px;text-align:left}
+.mrow{display:flex;align-items:center;gap:22px;font-family:var(--mono);font-size:15px;color:var(--bone-2);padding:18px 0;border-bottom:1px solid var(--line-0)}
 .mrow:last-child{border-bottom:none}
-.mrow .lbl{font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--bone-4);
-  width:150px; flex-shrink:0;}
-.mrow .sp{color:var(--kin-1); font-size:19px; width:80px}
-.mrow .bar .f{color:var(--kin-1)} .mrow .bar .e{color:var(--line-1)}
+.mrow .lbl{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--bone-4);width:160px;flex-shrink:0}
+.mrow .sp{color:var(--kin-1);font-size:20px;width:90px}
+.bar2 .f{color:var(--kin-1)}.bar2 .e{color:var(--line-1)}
 
-/* buttons / components */
-.btns{display:flex; gap:12px; flex-wrap:wrap}
-.btn{font-family:var(--sans); font-size:13px; font-weight:500; padding:11px 22px; border-radius:11px;
-  cursor:pointer; background:transparent; transition:transform .18s,border-color .3s,background .3s;}
-.btn:active{transform:scale(.97)}
-.btn-p{border:1.5px solid var(--kin-1); color:var(--kin-text)}
-.btn-p:hover{border-color:var(--kin-0); background:color-mix(in srgb,var(--kin-1) 9%,transparent)}
-.btn-g{border:1px solid var(--line-1); color:var(--bone-2)}
-.btn-g:hover{border-color:var(--kin-2); color:var(--bone-0)}
-.btn-d{background:var(--aka-1); border:1px solid var(--aka-1); color:#FFF3ED}
-.btn-d:hover{background:var(--aka-2)}
-.inp{width:100%; font-family:var(--sans); font-size:13px; padding:12px 16px; border-radius:11px;
-  outline:none; background:var(--ink-2); border:1px solid var(--line-0); color:var(--bone-1);
-  transition:.2s; margin-top:14px;}
-.inp:focus{border-color:var(--kin-1); box-shadow:0 0 0 3px color-mix(in srgb,var(--kin-1) 14%,transparent)}
-.tog{display:flex; align-items:center; gap:13px; cursor:pointer; margin-bottom:14px}
-.sw2{width:42px; height:24px; border-radius:12px; background:var(--ink-3); border:1px solid var(--line-1);
-  position:relative; flex-shrink:0; transition:.3s;}
-.sw2.on{background:var(--kin-w); border-color:var(--kin-1)}
-.sw2.on.red{background:color-mix(in srgb,var(--aka-1) 32%,transparent); border-color:var(--aka-1)}
-.sw2 i{position:absolute; width:17px; height:17px; border-radius:50%; background:var(--bone-3);
-  top:3px; left:3px; transition:.3s cubic-bezier(.22,.68,0,1.2);}
-.sw2.on i{transform:translateX(18px); background:var(--kin-1)}
-.sw2.on.red i{background:var(--aka-1)}
+/* ── components ── */
+.btns{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:44px}
+.btn{font-family:var(--sans);font-size:14px;font-weight:500;padding:12px 24px;border-radius:12px;cursor:pointer;background:transparent;transition:transform .18s,border-color .3s,background .3s}
+.btn:active{transform:scale(.96)}
+.btn-p{border:1.5px solid var(--kin-1);color:var(--kin-text)}.btn-p:hover{border-color:var(--kin-0);background:color-mix(in srgb,var(--kin-1) 9%,transparent)}
+.btn-g{border:1px solid var(--line-1);color:var(--bone-2)}.btn-g:hover{border-color:var(--kin-2);color:var(--bone-0)}
+.btn-d{background:var(--aka-1);border:1px solid var(--aka-1);color:#FFF3ED}.btn-d:hover{background:var(--aka-2)}
+.togs{display:flex;gap:26px;justify-content:center;flex-wrap:wrap;margin-top:28px}
+.tog{display:flex;align-items:center;gap:12px;cursor:pointer}
+.sw2{width:44px;height:25px;border-radius:13px;background:var(--ink-3);border:1px solid var(--line-1);position:relative;flex-shrink:0;transition:.3s}
+.sw2.on{background:var(--kin-w);border-color:var(--kin-1)}.sw2.on.red{background:color-mix(in srgb,var(--aka-1) 32%,transparent);border-color:var(--aka-1)}
+.sw2 i{position:absolute;width:18px;height:18px;border-radius:50%;background:var(--bone-3);top:3px;left:3px;transition:.3s cubic-bezier(.22,.68,0,1.2)}
+.sw2.on i{transform:translateX(19px);background:var(--kin-1)}.sw2.on.red i{background:var(--aka-1)}
+.tog span{font-size:13px;color:var(--bone-2)}
 
-/* effects */
-.glass-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:15px}
+/* ── effects ── */
+.glass-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
 @media(max-width:720px){.glass-grid{grid-template-columns:1fr}}
-.glass{position:relative; border-radius:18px; padding:24px; overflow:hidden; cursor:pointer;
-  background:color-mix(in srgb,var(--ink-2) 58%,transparent);
-  border:1px solid color-mix(in srgb,var(--kin-1) 14%,transparent);
-  backdrop-filter:blur(9px) saturate(1.35); -webkit-backdrop-filter:blur(9px) saturate(1.35);
-  box-shadow:0 22px 50px rgba(0,0,0,.34); transition:border-color .4s, transform .3s;}
-.glass::before{content:''; position:absolute; inset:0; border-radius:18px; pointer-events:none;
-  background:linear-gradient(150deg,color-mix(in srgb,var(--bone-0) 14%,transparent),transparent 46%);}
-.glass .spot{position:absolute; inset:0; border-radius:18px; pointer-events:none; opacity:0;
-  transition:opacity .3s; background:radial-gradient(circle at var(--mx,50%) var(--my,50%),
-  color-mix(in srgb,var(--kin-1) 18%,transparent),transparent 60%);}
+.glass{position:relative;border-radius:18px;padding:26px;overflow:hidden;cursor:pointer;text-align:left;
+  background:color-mix(in srgb,var(--ink-2) 56%,transparent);border:1px solid color-mix(in srgb,var(--kin-1) 14%,transparent);
+  backdrop-filter:blur(10px) saturate(1.35);-webkit-backdrop-filter:blur(10px) saturate(1.35);
+  box-shadow:0 22px 50px rgba(0,0,0,.34);transition:transform .3s,border-color .4s}
+.glass::before{content:'';position:absolute;inset:0;border-radius:18px;pointer-events:none;background:linear-gradient(150deg,color-mix(in srgb,var(--bone-0) 14%,transparent),transparent 46%)}
+.glass .spot{position:absolute;inset:0;border-radius:18px;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),color-mix(in srgb,var(--kin-1) 18%,transparent),transparent 60%)}
 .glass:hover .spot{opacity:1}
-.glass .mk{font-family:var(--serif); font-size:26px; display:block; margin-bottom:12px}
-.glass .nm{font-family:var(--serif); font-size:17px; font-weight:700; margin-bottom:7px}
-.glass .bd{font-size:12.5px; color:var(--bone-2); line-height:1.75}
-.trigger{position:relative; border-radius:18px; padding:28px; margin-top:16px; overflow:hidden;
-  border:1px solid color-mix(in srgb,var(--aka-1) 22%,transparent);
-  background:linear-gradient(135deg,var(--ink-1),var(--ink-0));}
-.trigger .big{position:absolute; right:-6px; top:-30px; font-family:var(--serif); font-size:150px;
-  color:var(--aka-1); opacity:.06; line-height:1; pointer-events:none; user-select:none;}
-.trigger b{font-family:var(--serif); color:var(--bone-0); font-size:19px}
-.trigger b span{color:var(--aka-1)}
-.trigger p{font-size:13.5px; color:var(--bone-2); margin-top:9px; max-width:580px; line-height:1.9; position:relative}
+.glass .mk{font-family:var(--serif);font-size:27px;display:block;margin-bottom:13px}
+.glass .nm{font-family:var(--serif);font-size:17px;font-weight:700;margin-bottom:7px}
+.glass .bd{font-size:12.5px;color:var(--bone-2);line-height:1.75}
 
-/* footer */
-.foot{padding:48px 0 64px; border-top:1px solid var(--line-0); display:flex; gap:18px;
-  flex-wrap:wrap; align-items:center; font-family:var(--mono); font-size:11.5px; color:var(--bone-3)}
-.foot a{color:var(--kin-1); text-decoration:none}
-.foot a:hover{color:var(--kin-0)}
-.foot .sep{color:var(--line-1)}
+/* ── theme flip ── */
+.flip{display:inline-flex;border:1px solid var(--line-1);border-radius:100px;padding:5px;margin-top:44px;gap:4px;background:var(--ink-1)}
+.flip button{font-family:var(--mono);font-size:12px;letter-spacing:1px;padding:10px 26px;border-radius:100px;border:none;background:transparent;color:var(--bone-3);cursor:pointer;transition:.3s}
+.flip button.on{background:var(--kin-w);color:var(--kin-text)}
 
-/* toast */
-#toast{position:fixed; bottom:30px; left:50%; transform:translateX(-50%) translateY(20px); z-index:99;
-  opacity:0; font-family:var(--mono); font-size:11px; letter-spacing:1.5px; padding:11px 24px;
-  border-radius:10px; pointer-events:none; background:var(--ink-2);
-  border:1px solid var(--kin-1); color:var(--kin-text); box-shadow:0 14px 38px rgba(0,0,0,.45);
-  transition:.3s;}
-#toast.show{opacity:1; transform:translateX(-50%) translateY(0)}
+/* ── cta / footer ── */
+.cta{text-align:center;padding:clamp(110px,16vh,180px) 0 90px}
+.copybox{display:inline-flex;align-items:center;gap:14px;margin-top:38px;font-family:var(--mono);font-size:13px;
+  background:var(--ink-1);border:1px solid var(--line-1);border-radius:12px;padding:14px 20px;cursor:pointer;color:var(--bone-1);transition:.3s}
+.copybox:hover{border-color:var(--kin-1)}
+.copybox .pmt{color:var(--kin-1)}.copybox .cp{color:var(--bone-4);font-size:11px;margin-left:6px}
+.foot{margin-top:64px;display:flex;gap:16px;flex-wrap:wrap;justify-content:center;align-items:center;font-family:var(--mono);font-size:11.5px;color:var(--bone-3)}
+.foot a{color:var(--kin-1)}.foot a:hover{color:var(--kin-0)}.foot .sep{color:var(--line-1)}
 
-/* reveal on load/scroll */
-.reveal{opacity:0; transform:translateY(14px); transition:opacity .7s ease, transform .7s ease}
-.reveal.in{opacity:1; transform:none}
-
-/* responsive nav */
-@media(max-width:920px){
-  .shell{grid-template-columns:1fr; padding:0; gap:0}
-  nav{position:sticky; height:auto; display:flex; gap:16px; overflow-x:auto; white-space:nowrap;
-    padding:13px 20px; border-bottom:1px solid var(--line-0); align-items:center; z-index:20;
-    background:color-mix(in srgb,var(--ink-0) 92%,transparent); backdrop-filter:blur(8px);}
-  .brand,.brand-sub,.brand-rule,.nav-grp,.nav-foot{display:none}
-  nav a{padding:5px 0; font-size:12px} nav a::before{display:none}
-  nav a.on{border-bottom:2px solid var(--kin-1)}
-  main{padding:0 22px; max-width:100%}
-}
-@media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
-@media (prefers-reduced-transparency:reduce){.glass{backdrop-filter:none; -webkit-backdrop-filter:none;
-  background:var(--ink-2)}}
+#toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(20px);z-index:99;opacity:0;
+  font-family:var(--mono);font-size:11px;letter-spacing:1.5px;padding:11px 24px;border-radius:10px;pointer-events:none;
+  background:var(--ink-2);border:1px solid var(--kin-1);color:var(--kin-text);box-shadow:0 14px 38px rgba(0,0,0,.45);transition:.3s}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+@media(prefers-reduced-transparency:reduce){.glass,.bar.stuck{backdrop-filter:none;-webkit-backdrop-filter:none;background:var(--ink-2)}}
 </style>
 </head>
 <body>
-<div id="bg"></div><div id="grain"></div>
+<div id="bg"></div><canvas id="sky"></canvas><div id="grain"></div>
+<div id="prog"></div>
 
-<div class="shell">
-<nav id="nav">
-  <div class="brand">様式</div>
-  <div class="brand-sub">yoshiki</div>
-  <div class="brand-rule"></div>
-  <div class="nav-grp">language</div>
-  <a href="#overview">Overview</a><a href="#principles">Principles</a><a href="#palette">Palette</a><a href="#type">Typography</a>
-  <div class="nav-grp">lexicon</div>
-  <a href="#glyphs">Glyphs</a><a href="#frames">Frames</a><a href="#plates">Nameplates</a>
-  <div class="nav-grp">in use</div>
-  <a href="#cli">CLI &amp; TUI</a><a href="#motion">Motion</a><a href="#components">Components</a><a href="#effects">Effects</a><a href="#themes">Themes</a>
-  <div class="nav-foot">
-    <button class="tdot on" data-t="kogane" aria-label="dark theme"></button>
-    <button class="tdot" data-t="washi" aria-label="light theme"></button>
+<header class="bar" id="bar">
+  <a class="logo" href="#top">様式 <small>yoshiki</small></a>
+  <div class="right">
+    <button class="tdot on" data-t="kogane" aria-label="dark"></button>
+    <button class="tdot" data-t="washi" aria-label="light"></button>
     <a class="gh" href="https://github.com/zinzaki/yoshiki">github ↗</a>
   </div>
-</nav>
+</header>
 
-<main>
-  <header class="hero" id="overview">
-    <div class="kicker">an elegant design language</div>
+<main id="top">
+  <div class="seam" id="seam"></div>
+
+  <!-- hero -->
+  <section class="hero">
+    <div class="kick">an elegant design language</div>
     <h1>様式</h1>
     <div class="romaji">yoshiki</div>
-    <p class="sub">Warm monochrome — lacquer, bone and gold — struck rarely by a single spider-lily scarlet. Below: every element of the system, and how it is used.</p>
-    <a class="lily" data-copy="#d8392e"><span class="lily-dot"></span>彼岸花 · spider lily · #d8392e</a>
-  </header>
-
-  <section id="principles">
-    <div class="eyebrow"><b>01</b> canon · principles</div>
-    <h2>Principles</h2>
-    <p class="lead">The ordered defaults — what wins when nothing is specified. When two choices are both fine, the <b>higher rung wins</b>. The order is the tool.</p>
-    <div class="ladder" style="margin-top:34px">
-      <div class="rung"><div class="n">0</div><div><b>Honesty</b> <span>— nothing for show; the structure stays visible.</span><em>in doubt: strip back, don't decorate.</em></div></div>
-      <div class="rung"><div class="n">1</div><div><b>Calm · air</b> <span>— emptiness with weight; strength in the quiet.</span><em>in doubt: choose air over more content.</em></div></div>
-      <div class="rung"><div class="n">2</div><div><b>Omission</b> <span>— simplicity by removing, not adding.</span><em>in doubt whether to add: don't.</em></div></div>
-      <div class="rung"><div class="n">3</div><div><b>Precision</b> <span>— premium is restraint; exact to the detail.</span><em>in doubt: exact over loose.</em></div></div>
-      <div class="rung"><div class="n">4</div><div><b>Warmth</b> <span>— every tone warm; never grey or plastic.</span><em>in doubt on a neutral: shift it warm.</em></div></div>
-      <div class="rung"><div class="n">5</div><div><b>Rarity = power</b> <span>— one accent, in the detail; the bloom is an event.</span><em>in doubt about a second accent: don't.</em></div></div>
-      <div class="rung"><div class="n">6</div><div><b>Duality</b> <span>— a soft form carrying one sharp detail.</span><em>in doubt: add one sharp detail, no more.</em></div></div>
-      <div class="rung"><div class="n">7</div><div><b>Meaning &gt; ornament</b> <span>— show, don't tell.</span><em>in doubt: keep only what carries meaning.</em></div></div>
-    </div>
-    <h3>defaults — if unspecified</h3>
-    <table class="dtable">
-      <tr><td>density</td><td>air — generous margins, one accent per screen</td></tr>
-      <tr><td>accent</td><td>gold as a line / edge / glyph — never a fill</td></tr>
-      <tr><td>trigger</td><td>none — live in tone until one is earned</td></tr>
-      <tr><td>geometry</td><td>soft 14–24px radius, optionally one sharp corner</td></tr>
-      <tr><td>motion</td><td>a breathing tempo; spinner ~90ms; no dizzy whirl</td></tr>
-      <tr><td>glass · effect</td><td>light, matte, by place — never Apple-glossy</td></tr>
-      <tr><td>type</td><td>serif for display · mono for data &amp; code</td></tr>
-    </table>
+    <p class="tag">Warm monochrome — lacquer, bone and gold — struck rarely by a single spider-lily scarlet.</p>
+    <button class="lily" data-copy="#d8392e"><span class="ldot"></span>彼岸花 · spider lily · #d8392e</button>
+    <div class="scroll-hint">❯</div>
   </section>
 
-  <section id="palette">
-    <div class="eyebrow"><b>02</b> canon · palette</div>
-    <h2>Palette</h2>
-    <p class="lead"><b>Tone</b> — a warm lacquer monochrome — carries ~97% of any screen. <b>Triggers</b> — scarlet and moss — fire rarely, as signals. Click any swatch to copy its value.</p>
-    <div class="ramps" style="margin-top:34px">
-      <div class="ramp" data-ramp="ink"></div>
-      <div class="ramp" data-ramp="bone"></div>
-      <div class="ramp" data-ramp="kin"></div>
-      <div class="ramp" data-ramp="aka"></div>
-      <div class="ramp" data-ramp="mori"></div>
+  <!-- rarity / thesis -->
+  <section class="sec"><div class="wrap"><div class="center">
+    <div class="node"></div>
+    <div class="kicker r">the one law</div>
+    <h2 class="r">Color earns its power<br>by being rare.</h2>
+    <p class="lead r">A signal used everywhere is dead. So a screen is almost all quiet tone — and the rare strike of color lands like a seal. By meaning, never by taste.</p>
+    <div class="ratio r">
+      <span class="t" style="--w:70%">70 · tone</span>
+      <span class="b" style="--w:20%">20 · bone</span>
+      <span class="g" style="--w:7%">7 · gold</span>
+      <span class="x" style="--w:3%">3</span>
     </div>
-    <h3>roles — consume a role, never a raw token</h3>
-    <div class="roles">
-      <div><i style="background:var(--kin-1)"></i><span><b>action.edge</b> · text.link — gold</span></div>
+  </div></div></section>
+
+  <!-- palette -->
+  <section class="sec"><div class="wrap"><div class="center">
+    <div class="node"></div>
+    <div class="kicker r">canon · palette</div>
+    <h2 class="r">A warm lacquer monochrome.</h2>
+    <p class="lead r">Two layers — <b>tone</b> carries the screen; <b>triggers</b> fire as signals. Click any swatch to copy.</p>
+  </div>
+    <div class="ramps r">
+      <div class="ramp" data-ramp="ink"></div><div class="ramp" data-ramp="bone"></div>
+      <div class="ramp" data-ramp="kin"></div><div class="ramp" data-ramp="aka"></div><div class="ramp" data-ramp="mori"></div>
+    </div>
+    <div class="roles r">
+      <div><i style="background:var(--kin-1)"></i><span><b>action.edge</b> · link — gold</span></div>
       <div><i style="background:var(--bone-1)"></i><span><b>text.body</b> — bone, AAA</span></div>
       <div><i style="background:var(--aka-1)"></i><span><b>danger.fill</b> — scarlet, may fill</span></div>
       <div><i style="background:var(--mori-1)"></i><span><b>ok.fill</b> — moss</span></div>
       <div><i style="background:var(--kaki)"></i><span><b>warn.text</b> — persimmon</span></div>
       <div><i style="background:var(--bone-3)"></i><span><b>text.muted</b> — meta</span></div>
     </div>
-    <h3>ansi · 16</h3>
-    <div class="ansi" id="ansi"></div>
-    <h3>contrast — proven, WCAG</h3>
-    <div class="proof">
-      <div class="pcard"><div class="v" style="color:var(--bone-1)">14.8 : 1</div><div class="l">BONE ON LACQUER · AAA</div><div class="s" style="color:var(--bone-1)">Body text — warm parchment on warm black.</div></div>
-      <div class="pcard"><div class="v" style="color:var(--kin-text)">9.2 : 1</div><div class="l">GOLD ON LACQUER · AAA</div><div class="s" style="color:var(--kin-text)">Headings, links, edges — true gold-leaf.</div></div>
+    <div class="ansi r" id="ansi"></div>
+  </div></section>
+
+  <!-- the trigger -->
+  <section class="sec trigger-sec"><div class="wrap"><div class="center">
+    <div class="bloom">彼</div>
+    <div class="kicker r" style="margin-top:30px">the one trigger · 彼岸花</div>
+    <h2 class="r">One bloom per screen.</h2>
+    <p class="lead r">Scarlet is the seal, the focus ring, the irreversible — warm and noble, never neon. This is the only place red fills the frame. Daring lives in the detail, not the mass.</p>
+  </div></div></section>
+
+  <!-- typography -->
+  <section class="sec"><div class="wrap"><div class="center">
+    <div class="node"></div>
+    <div class="kicker r">canon · typography</div>
+    <h2 class="r">Serif to speak, mono to count.</h2>
+    <p class="lead r">A warm serif for display, a humanist sans for body, a mono for data — Japanese-drawn, all open-licensed.</p>
+  </div>
+    <div class="spec">
+      <div class="srow r"><div class="lab">display · Shippori Mincho</div><div class="t-disp">Parchment <span style="color:var(--kin-1)">黄金</span>, daring in the detail.</div></div>
+      <div class="srow r"><div class="lab">body · Zen Kaku Gothic New</div><div class="t-body">A single warm, faded cast across everything — calm and exact, rewarding a long look. Information lives in tone, not in shouting.</div></div>
+      <div class="srow r"><div class="lab">mono · JetBrains Mono</div><div class="t-mono">fn resolve(role: &amp;str) -&gt; Token  // 0123 ❯ ◆ ✓ ✗</div></div>
     </div>
-    <p class="note">Status colour is never the only signal: a glyph carries it too, so the red-green pair (scarlet · moss) stays legible to colour-blind readers. <b>See canon/palette/ACCESSIBILITY.md.</b></p>
-  </section>
-
-  <section id="type">
-    <div class="eyebrow"><b>03</b> canon · typography</div>
-    <h2>Typography</h2>
-    <p class="lead">A warm serif for display, a humanist sans for body, a mono for data — Japanese-drawn, warm, never generic. All open-licensed, so they ship.</p>
-    <div class="spec" style="margin-top:34px">
-      <div class="srow"><div class="lab">display · Shippori Mincho</div><div class="t-disp">Parchment <span style="color:var(--kin-1)">黄金</span>, daring in the detail.</div></div>
-      <div class="srow"><div class="lab">body · Zen Kaku Gothic New</div><div class="t-body">A single warm, faded cast across everything — calm and exact, rewarding a long look. Information lives in tone, not in shouting.</div></div>
-      <div class="srow"><div class="lab">mono · JetBrains Mono</div><div class="t-mono">fn resolve(role: &amp;str) -&gt; Token  // 0123456789 ❯ ◆ ✓ ✗</div></div>
+    <div class="fonts">
+      <div class="fcard r"><div class="fn">Maple Mono</div><div class="fm">100–800 · CJK ✓<br>rounded, warm</div><span class="tag2">the default</span></div>
+      <div class="fcard r"><div class="fn">JetBrains Mono</div><div class="fm">Thin–ExtraBold<br>neutral-technical</div><span class="tag2">alt</span></div>
+      <div class="fcard r"><div class="fn">Geist Mono</div><div class="fm">100–900<br>minimal · Vercel</div><span class="tag2">alt</span></div>
     </div>
-    <h3>mono — pick by register (all OFL)</h3>
-    <table class="fonttable">
-      <tr><th>font</th><th>weights</th><th>cjk</th><th>character</th></tr>
-      <tr><td>Maple Mono</td><td>100–800</td><td class="y">yes</td><td>rounded, warm — the default</td></tr>
-      <tr><td>JetBrains Mono</td><td>Thin–ExtraBold</td><td class="x">no</td><td>neutral-technical</td></tr>
-      <tr><td>Geist Mono</td><td>100–900</td><td class="x">no</td><td>clean, minimal (Vercel)</td></tr>
-    </table>
-  </section>
+  </div></section>
 
-  <section id="glyphs">
-    <div class="eyebrow"><b>04</b> canon · lexicon</div>
-    <h2>Glyphs</h2>
-    <p class="lead">Marks that replace words — one meaning per glyph, applied consistently. See, don't read. Box-drawing and braille are safest: terminals draw them perfectly.</p>
-    <div class="glyphs" id="glyphs" style="margin-top:32px"></div>
-  </section>
+  <!-- glyphs -->
+  <section class="sec"><div class="wrap"><div class="center">
+    <div class="node"></div>
+    <div class="kicker r">canon · lexicon</div>
+    <h2 class="r">See, don't read.</h2>
+    <p class="lead r">Marks that replace words — one meaning per glyph, applied everywhere. Box-drawing and braille render perfectly in any terminal.</p>
+  </div>
+    <div class="glyphs" id="glyphs"></div>
+  </div></section>
 
-  <section id="frames">
-    <div class="eyebrow"><b>05</b> canon · lexicon</div>
-    <h2>Frames</h2>
-    <p class="lead">Soft rounded capsules for calm content; one sharp corner inside the soft; the deliberate "break"; hard double-line spines for dense data. Soft for words, hard for numbers.</p>
-    <div class="cols" style="margin-top:32px">
-      <div class="blk">╭──────────────────────────╮
+  <!-- frames -->
+  <section class="sec"><div class="wrap"><div class="center">
+    <div class="node"></div>
+    <div class="kicker r">canon · lexicon</div>
+    <h2 class="r">Two registers, one hand.</h2>
+    <p class="lead r">Soft rounded capsules for words; hard double-line spines for numbers. Never mixed in one block.</p>
+  </div>
+    <div class="duo">
+      <div class="blk r">╭──────────────────────────╮
 │  calm · closed · finished │
 ╰──────────────────────────╯
 
@@ -443,127 +357,122 @@ h3::after{content:''; flex:1; height:1px; background:var(--line-0)}
 │ <span class="k">┌╴</span>                        │
 │    sharp inside soft      │
 ╰──────────────────────────╯</div>
-      <div class="blk"><span class="d">the break — open, it breathes</span>
-╭───────────────────────────
-│  open form
-│
-╰───────────╴
-
-<span class="d">hard spine — dense data</span>
+      <div class="blk r"><span class="d">hard spine — dense data</span>
 <span class="k">⧉</span> System
 <span class="k">╔</span> cpu      34%
 <span class="k">╠</span> memory   6.2 / 16 GB
-<span class="k">╚</span> uptime   12d      <span class="g">(+0.4%)</span></div>
+<span class="k">╚</span> uptime   12d      <span class="g">(+0.4%)</span>
+
+<span class="d">the break — open, it breathes</span>
+╭───────────────────────────
+│  open form
+╰───────────╴</div>
     </div>
-  </section>
+  </div></section>
 
-  <section id="plates">
-    <div class="eyebrow"><b>06</b> canon · lexicon</div>
-    <h2>Nameplates</h2>
-    <p class="lead">A name, set with weight. Spacing and one framing mark do the work — wide tracking turns a word into a seal.</p>
-    <div class="blk" style="margin-top:32px">·  <span class="b">A  U  R  O  R  A</span>  ·
-—  <span class="b">A  U  R  O  R  A</span>  —
-⟦  <span class="b">A U R O R A</span>  ⟧
-◇  <span class="k">A U R O R A</span>  ◇
-◸  <span class="b">A U R O R A</span>  ◿</div>
-    <h3>dividers</h3>
-    <div class="blk">──────────────── <span class="k">◆</span> ────────────────
-╌╌╌╌╌╌╌╌╌╌ <span class="d">aside · soft</span> ╌╌╌╌╌╌╌╌╌╌
-─────────────── <span class="k">◆</span></div>
-  </section>
+  <!-- motion -->
+  <section class="sec"><div class="wrap"><div class="center">
+    <div class="node"></div>
+    <div class="kicker r">canon · motion</div>
+    <h2 class="r">Density as meaning.</h2>
+    <p class="lead r">A spinner lives at ~90ms; smoothness belongs to progress. One role-colour per run; never a heavy block-slab.</p>
+  </div>
+    <div class="motion">
+      <div class="mrow r"><div class="lbl">spinner · braille</div><div class="sp" id="sp1"></div></div>
+      <div class="mrow r"><div class="lbl">spinner · arc</div><div class="sp" id="sp2"></div></div>
+      <div class="mrow r"><div class="lbl">spinner · pulse</div><div class="sp" id="sp3"></div></div>
+      <div class="mrow r"><div class="lbl">progress · matrix</div><div class="bar2" id="bar1"></div></div>
+      <div class="mrow r"><div class="lbl">progress · ▰▱ bar</div><div class="bar2" id="bar2"></div></div>
+    </div>
+  </div></section>
 
-  <section id="cli">
-    <div class="eyebrow"><b>07</b> library · in use</div>
-    <h2>CLI &amp; TUI</h2>
-    <p class="lead">The prompt, statuses and trees. Gold marks the live and actionable; everything informational lives in tone — never in blue.</p>
-    <div class="blk" style="margin-top:32px"><span class="k">╭─ ◆ ─</span> ~/dev/yoshiki <span class="k">─</span> <span class="k"> main</span> <span class="g">~2 +1</span> <span class="k">─</span> <span class="c">v1.0</span>
+  <!-- components -->
+  <section class="sec"><div class="wrap"><div class="center">
+    <div class="node"></div>
+    <div class="kicker r">library · components</div>
+    <h2 class="r">Gold gilds, never fills.</h2>
+    <p class="lead r">The primary action is a gold <b>frame</b>, not a gold rectangle. Scarlet may fill — a fill is itself the rare event.</p>
+    <div class="btns r">
+      <button class="btn btn-p" data-toast="primary — a gilded frame">Primary</button>
+      <button class="btn btn-g" data-toast="ghost">Ghost</button>
+      <button class="btn btn-d" data-toast="彼岸花 — scarlet may fill">Destructive</button>
+    </div>
+    <div class="togs r">
+      <label class="tog"><span class="sw2 on"><i></i></span><span>Gold accent</span></label>
+      <label class="tog"><span class="sw2 on red"><i></i></span><span>彼岸花 trigger</span></label>
+      <label class="tog"><span class="sw2"><i></i></span><span>Tone only</span></label>
+    </div>
+  </div></div></section>
+
+  <!-- effects -->
+  <section class="sec"><div class="wrap"><div class="center">
+    <div class="node"></div>
+    <div class="kicker r">canon · effects</div>
+    <h2 class="r">By place — never glossy.</h2>
+    <p class="lead r">For web surfaces only, warm-tinted; one per surface, each honours reduced-motion &amp; reduced-transparency.</p>
+  </div>
+    <div class="glass-grid">
+      <div class="glass r"><div class="spot"></div><span class="mk" style="color:var(--kin-1)">✦</span><div class="nm" style="color:var(--kin-1)">Frosted</div><div class="bd">Backdrop-blur + a specular edge + warm tint + fine grain — not flat white.</div></div>
+      <div class="glass r"><div class="spot"></div><span class="mk" style="color:var(--seiji)">◈</span><div class="nm" style="color:var(--seiji)">Spotlight</div><div class="bd">A soft gold light follows the pointer across the surface.</div></div>
+      <div class="glass r"><div class="spot"></div><span class="mk" style="color:var(--kin-1)">◆</span><div class="nm" style="color:var(--kin-1)">Tilt &amp; grain</div><div class="bd">A small 3D lean from the pointer; a static warm grain underneath.</div></div>
+    </div>
+  </div></section>
+
+  <!-- themes flip -->
+  <section class="sec"><div class="wrap"><div class="center">
+    <div class="node"></div>
+    <div class="kicker r">canon · two scenes</div>
+    <h2 class="r">One language, two scenes.</h2>
+    <p class="lead r">Only the stage changes — every rule stays identical. Flip it live; the page is warm either way.</p>
+    <div class="flip r">
+      <button data-t="kogane" class="on">kogane · dark</button>
+      <button data-t="washi">washi · light</button>
+    </div>
+  </div></div></section>
+
+  <!-- in use -->
+  <section class="sec"><div class="wrap"><div class="center">
+    <div class="node"></div>
+    <div class="kicker r">library · in use</div>
+    <h2 class="r">The language, living.</h2>
+    <p class="lead r">A terminal, a chat card — gold marks the live, tone carries the rest, scarlet only when something failed.</p>
+  </div>
+    <div class="duo">
+      <div class="blk r"><span class="k">╭─ ◆ ─</span> ~/dev/yoshiki <span class="k">─</span> <span class="k"> main</span> <span class="g">~2 +1</span>
 <span class="k">╰─ ❯</span>
-
-<span class="d">┌╴ status</span>
-<span class="g">✓</span> build      passed       <span class="d">214 files · 0.4s</span>
-<span class="k">●</span> deploy     in progress   <span class="k">⠹</span> <span class="d">12s</span>
-<span class="o">▲</span> lint       1 warning     <span class="d">src/app.rs:42</span>
-<span class="r">✗</span> test       1 failed      <span class="d">exit 1</span>
-
-<span class="d">project</span>
-<span class="k">╔</span> yoshiki
-<span class="k">╠═</span> canon       <span class="d">the definition</span>
-<span class="k">║ ╠</span> palette · lexicon · motion · effects
-<span class="k">║ ╰</span> principles
-<span class="k">╚═</span> library     <span class="d">in use</span></div>
-  </section>
-
-  <section id="motion">
-    <div class="eyebrow"><b>08</b> canon · motion</div>
-    <h2>Motion</h2>
-    <p class="lead">Loading the dot-matrix way — density as meaning. A spinner lives at ~90ms; smoothness belongs to progress, not spinners. One role-colour per run; never a heavy block-slab.</p>
-    <div style="margin-top:32px">
-      <div class="mrow"><div class="lbl">spinner · braille</div><div class="sp" id="sp1"></div><div class="note" style="margin:0">~90ms, live — never a dizzy whirl</div></div>
-      <div class="mrow"><div class="lbl">spinner · arc</div><div class="sp" id="sp2"></div></div>
-      <div class="mrow"><div class="lbl">spinner · pulse</div><div class="sp" id="sp3"></div></div>
-      <div class="mrow"><div class="lbl">progress · matrix</div><div class="bar" id="bar1"></div></div>
-      <div class="mrow"><div class="lbl">progress · ▰▱ bar</div><div class="bar" id="bar2"></div></div>
+<span class="g">✓</span> build   passed     <span class="d">214 files</span>
+<span class="k">●</span> deploy  running    <span class="k">⠹</span>
+<span class="r">✗</span> test    1 failed   <span class="d">exit 1</span></div>
+      <div class="blk r"><span class="d">— a chat card (Telegram) —</span>
+╭─ ◆ ORDER #1421 ──────────
+│  status   <span class="g">✓</span> paid
+│  items    3   ·   ¥ 4,820
+│  ship     → eu-central, 2d
+╰─ ❯ track</div>
     </div>
-  </section>
+  </div></section>
 
-  <section id="components">
-    <div class="eyebrow"><b>09</b> library · components</div>
-    <h2>Components</h2>
-    <p class="lead">Gold is gilding, never a slab — the primary action is a gold <b>frame</b>, not a gold rectangle. Scarlet may fill, because a fill is itself the rare event.</p>
-    <div class="cols" style="margin-top:32px">
-      <div>
-        <h3 style="margin-top:0">buttons</h3>
-        <div class="btns"><button class="btn btn-p" data-toast="primary — a gilded frame">Primary</button><button class="btn btn-g" data-toast="ghost">Ghost</button><button class="btn btn-d" data-toast="彼岸花 — scarlet may fill">Destructive</button></div>
-        <h3>input · focus ring</h3>
-        <input class="inp" placeholder="search a token or role…">
-      </div>
-      <div>
-        <h3 style="margin-top:0">toggles</h3>
-        <div class="tog"><span class="sw2 on"><i></i></span><span style="font-size:13px;color:var(--bone-2)">Gold accent</span></div>
-        <div class="tog"><span class="sw2 on red"><i></i></span><span style="font-size:13px;color:var(--bone-2)">彼岸花 trigger</span></div>
-        <div class="tog"><span class="sw2"><i></i></span><span style="font-size:13px;color:var(--bone-2)">Tone only</span></div>
-      </div>
+  <!-- cta -->
+  <section class="cta"><div class="wrap"><div class="center">
+    <div class="node"></div>
+    <div class="kicker r">take the whole system</div>
+    <h2 class="r">Take one file, or all of it.</h2>
+    <p class="lead r">A palette, a lexicon, ready terminal &amp; editor themes, and drop-in AI prompts — point an agent at the repo, it applies the language.</p>
+    <button class="copybox r" data-copy="git clone https://github.com/zinzaki/yoshiki"><span class="pmt">❯</span> git clone github.com/zinzaki/yoshiki <span class="cp">copy</span></button>
+    <div class="foot r">
+      <span>様式 yoshiki</span><span class="sep">·</span>
+      <a href="https://github.com/zinzaki/yoshiki">github</a><span class="sep">·</span>
+      <span>kitty · starship · vscode · neovim · base24 · DTCG</span><span class="sep">·</span><span>MIT</span>
     </div>
-  </section>
-
-  <section id="effects">
-    <div class="eyebrow"><b>10</b> canon · effects</div>
-    <h2>Effects</h2>
-    <p class="lead">For web surfaces only — tasteful, warm-tinted, never Apple-glossy. One per surface; each honours <code>prefers-reduced-motion</code> and <code>prefers-reduced-transparency</code>.</p>
-    <div class="glass-grid" style="margin-top:32px">
-      <div class="glass" data-copy="#D8AF52"><div class="spot"></div><span class="mk" style="color:var(--kin-1)">✦</span><div class="nm" style="color:var(--kin-1)">Frosted</div><div class="bd">Backdrop-blur + a specular edge + warm tint + fine grain — not flat white.</div></div>
-      <div class="glass" data-copy="#6FA08E"><div class="spot"></div><span class="mk" style="color:var(--seiji)">◈</span><div class="nm" style="color:var(--seiji)">Spotlight</div><div class="bd">A soft gold light follows the pointer across the surface.</div></div>
-      <div class="glass" data-copy="#D8AF52"><div class="spot"></div><span class="mk" style="color:var(--kin-1)">◆</span><div class="nm" style="color:var(--kin-1)">Tilt &amp; grain</div><div class="bd">A small 3D lean from the pointer; a static warm grain underneath it all.</div></div>
-    </div>
-    <div class="trigger"><div class="big">彼</div><b>The one trigger · <span>彼岸花</span></b><p>Daring lives in the detail, not the mass. Scarlet is the seal, the focus ring, the irreversible — one per screen, warm and noble, never neon. This is the only place red fills the frame.</p></div>
-  </section>
-
-  <section id="themes">
-    <div class="eyebrow"><b>11</b> canon · palette</div>
-    <h2>Themes</h2>
-    <p class="lead">One language, two scenes — switch with the dots in the sidebar, or keys <b>1</b> / <b>2</b>. Only the stage changes; the triggers and every rule stay identical. The terminal always stays a dark island.</p>
-    <div class="blk" style="margin-top:32px"><span class="k">kogane</span>  <span class="d">dark</span>   warm lacquer; gold gilds the edges
-<span class="k">washi</span>   <span class="d">light</span>  paper &amp; sumi ink; terminal stays dark
-
-<span class="d">generated from one palette — python3 tools/build.py</span>
-kitty · foot · alacritty · starship · base24
-vscode · neovim · tmux · btop · DTCG tokens</div>
-    <div class="foot">
-      <span>様式 yoshiki</span><span class="sep">·</span><span>an open design language</span>
-      <span class="sep">·</span><a href="https://github.com/zinzaki/yoshiki">github.com/zinzaki/yoshiki</a>
-      <span class="sep">·</span><span>MIT</span>
-    </div>
-  </section>
+  </div></div></section>
 </main>
-</div>
 <div id="toast"></div>
 
 <script>
 const RM = matchMedia('(prefers-reduced-motion:reduce)').matches;
 function lum(h){const n=parseInt(h.slice(1),16),r=(n>>16)/255,g=((n>>8)&255)/255,b=(n&255)/255,
   f=v=>v<=.03928?v/12.92:Math.pow((v+.055)/1.055,2.4);return .2126*f(r)+.7152*f(g)+.0722*f(b);}
-let tt; function toast(m){const t=document.getElementById('toast'); t.textContent=m; t.classList.add('show');
-  clearTimeout(tt); tt=setTimeout(()=>t.classList.remove('show'),1700);}
+let tt;function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),1700);}
 
 /* palette ramps — real kogane tokens */
 const RAMPS={
@@ -571,77 +480,98 @@ const RAMPS={
   bone:[['#6B5F49','bone-4'],['#94866A','bone-3'],['#C9BC96','bone-2'],['#EDE3C4','bone-1'],['#F7EED2','bone-0']],
   kin:[['#57441F','kin-3'],['#8F713C','kin-2'],['#D8AF52','kin-1 ★'],['#EDC85C','kin-0']],
   aka:[['#7E302E','aka-2'],['#d8392e','aka-1 ★'],['#D4665C','aka-0']],
-  mori:[['#2F4526','mori-2'],['#52703F','mori-1 ★'],['#8FAC6F','mori-0']]
-};
-document.querySelectorAll('[data-ramp]').forEach(el=>{
-  RAMPS[el.dataset.ramp].forEach(([h,n])=>{
-    const s=document.createElement('button'); s.className='sw'; s.style.background=h; s.dataset.copy=h;
-    s.innerHTML=`<span class="tip">${h} · ${n}</span>`; el.appendChild(s);});
-});
+  mori:[['#2F4526','mori-2'],['#52703F','mori-1 ★'],['#8FAC6F','mori-0']]};
+document.querySelectorAll('[data-ramp]').forEach(el=>{RAMPS[el.dataset.ramp].forEach(([h,n])=>{
+  const s=document.createElement('button');s.className='sw';s.style.background=h;s.dataset.copy=h;
+  s.innerHTML=`<span class="tip">${h} · ${n}</span>`;el.appendChild(s);});});
 
-/* ansi-16 (real terminal map) */
+/* ansi-16 */
 [['#1B1813','0'],['#C54D49','1'],['#8FAC6F','2'],['#D6AE66','3'],['#7C88B8','4'],['#9C7FB0','5'],['#6FA08E','6'],['#EDE3C4','7'],
  ['#6B5F49','8'],['#DC7265','9'],['#A8C48A','A'],['#EAC578','B'],['#98A4D4','C'],['#B89BCC','D'],['#8CBCA9','E'],['#F7EED2','F']]
-.forEach(([h,l])=>{const a=document.createElement('button'); a.className='ac'; a.style.background=h; a.dataset.copy=h;
-  a.textContent=l; a.style.color=lum(h)<.35?'#F7EED2':'#0B0A08'; document.getElementById('ansi').appendChild(a);});
+.forEach(([h,l])=>{const a=document.createElement('button');a.className='ac';a.style.background=h;a.dataset.copy=h;
+  a.textContent=l;a.style.color=lum(h)<.35?'#F7EED2':'#0B0A08';document.getElementById('ansi').appendChild(a);});
 
 /* glyphs */
 [['✓','done','k'],['✗','fail','b'],['●','active','k'],['○','idle','b'],['◆','node','k'],['◈','special','c'],
  ['❯','prompt','k'],['→','flow','k'],['▲','up','k'],['▼','down','b'],['⟥','field','m'],['⧉','sigil','k'],
  ['◌','pending','b'],['⚠','warn','k'],['❖','mark','c'],['⠿','matrix','k']]
-.forEach(([s,m,c])=>{const d=document.createElement('button'); d.className='gl'; d.dataset.copy=s+' · '+m;
-  d.innerHTML=`<span class="s ${c}">${s}</span><span class="m">${m}</span>`; document.getElementById('glyphs').appendChild(d);});
+.forEach(([s,m,c])=>{const d=document.createElement('button');d.className='gl';d.dataset.copy=s+' · '+m;
+  d.innerHTML=`<span class="s ${c}">${s}</span><span class="m">${m}</span>`;document.getElementById('glyphs').appendChild(d);});
 
 /* copy + toast + toggles */
 document.addEventListener('click',e=>{
-  const c=e.target.closest('[data-copy]'), b=e.target.closest('[data-toast]'), t=e.target.closest('.tog');
-  if(b){toast(b.dataset.toast); return;}
-  if(t){t.querySelector('.sw2').classList.toggle('on'); return;}
-  if(c){const v=c.dataset.copy.split(' · ')[0];
-    navigator.clipboard&&navigator.clipboard.writeText(v); toast('copied · '+c.dataset.copy);}
+  const c=e.target.closest('[data-copy]'),b=e.target.closest('[data-toast]'),t=e.target.closest('.tog');
+  if(b){toast(b.dataset.toast);return;}
+  if(t){t.querySelector('.sw2').classList.toggle('on');return;}
+  if(c){const v=c.dataset.copy.split(' · ')[0];navigator.clipboard&&navigator.clipboard.writeText(v);toast('copied · '+c.dataset.copy);}
 });
 
 /* theme */
-const dots=document.querySelectorAll('.tdot');
-function theme(t){document.documentElement.dataset.theme=t; dots.forEach(d=>d.classList.toggle('on',d.dataset.t===t));}
+const dots=document.querySelectorAll('.tdot'),flips=document.querySelectorAll('.flip button');
+function theme(t){document.documentElement.dataset.theme=t;
+  dots.forEach(d=>d.classList.toggle('on',d.dataset.t===t));
+  flips.forEach(f=>f.classList.toggle('on',f.dataset.t===t));}
 dots.forEach(d=>d.onclick=()=>theme(d.dataset.t));
-addEventListener('keydown',e=>{if(e.key==='1')theme('kogane'); if(e.key==='2')theme('washi');});
+flips.forEach(f=>f.onclick=()=>theme(f.dataset.t));
+addEventListener('keydown',e=>{if(e.key==='1')theme('kogane');if(e.key==='2')theme('washi');});
 
-/* scroll-spy */
-const links=[...document.querySelectorAll('nav a')];
-const spy=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting)
-  links.forEach(l=>l.classList.toggle('on',l.getAttribute('href')==='#'+x.target.id));}),
-  {rootMargin:'-24% 0px -68% 0px'});
-document.querySelectorAll('section,header.hero').forEach(s=>spy.observe(s));
+/* reveal — staggered objects appear on scroll */
+const groups=new Map();
+document.querySelectorAll('.r').forEach(el=>{const p=el.parentElement;
+  if(!groups.has(p))groups.set(p,0);});
+const rev=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){
+  const el=x.target,p=el.parentElement,sibs=[...p.children].filter(c=>c.classList.contains('r'));
+  const i=sibs.indexOf(el);if(!RM)el.style.transitionDelay=(Math.max(0,i)%6*70)+'ms';
+  el.classList.add('in');rev.unobserve(el);}}),{rootMargin:'0px 0px -12% 0px'});
+document.querySelectorAll('.r').forEach(el=>rev.observe(el));
 
-/* reveal */
-const rev=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in'); rev.unobserve(x.target);}}),{rootMargin:'-8% 0px -8% 0px'});
-document.querySelectorAll('section > *').forEach((el,i)=>{el.classList.add('reveal'); if(!RM)el.style.transitionDelay=(i%3*60)+'ms'; rev.observe(el);});
+/* light the seam nodes as they pass centre */
+const nodes=[...document.querySelectorAll('.node')];
+const nob=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting)x.target.classList.add('lit');}),
+  {rootMargin:'-45% 0px -45% 0px'});
+nodes.forEach(n=>nob.observe(n));
+
+/* scroll: progress bar, seam fill, bar background */
+const bar=document.getElementById('bar'),prog=document.getElementById('prog'),seam=document.getElementById('seam');
+function onScroll(){
+  const h=document.documentElement,max=h.scrollHeight-h.clientHeight,p=max>0?h.scrollTop/max:0;
+  prog.style.width=(p*100)+'%';
+  seam.style.setProperty('--seam',(p*100)+'%');
+  bar.classList.toggle('stuck',h.scrollTop>40);
+}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
 
 /* motion loops */
 if(!RM){
-  const br=['⠋','⠙','⠹','⠸','⠼','⠴','⠦','⠧','⠇','⠏'], arc=['◜','◠','◝','◞','◡','◟'], pulse=['◌','○','◎','◉','●','◉','◎','○'];
-  let i=0; setInterval(()=>{i++;
-    document.getElementById('sp1').textContent=br[i%br.length];
-    document.getElementById('sp2').textContent=arc[i%arc.length];
-    document.getElementById('sp3').textContent=pulse[i%pulse.length];},90);
-  let p=0;
-  setInterval(()=>{p=(p+1)%30;
-    const md=['⠀','⠄','⠆','⠇','⠧','⠷','⠿','⣿']; let m='<span class="f">';
-    for(let k=0;k<11;k++){const lv=Math.max(0,Math.min(7,Math.round((p/29*11-k)*7))); m+=md[k<p/29*11?7:lv];}
-    document.getElementById('bar1').innerHTML=m+'</span> <span style="color:var(--bone-3)">'+Math.round(p/29*100)+'%</span>';
+  const br=['⠋','⠙','⠹','⠸','⠼','⠴','⠦','⠧','⠇','⠏'],arc=['◜','◠','◝','◞','◡','◟'],pl=['◌','○','◎','◉','●','◉','◎','○'];
+  let i=0;setInterval(()=>{i++;
+    sp1.textContent=br[i%br.length];sp2.textContent=arc[i%arc.length];sp3.textContent=pl[i%pl.length];},90);
+  let p=0;setInterval(()=>{p=(p+1)%30;
+    const md=['⠀','⠄','⠆','⠇','⠧','⠷','⠿','⣿'];let m='<span class="f">';
+    for(let k=0;k<11;k++){const lv=Math.max(0,Math.min(7,Math.round((p/29*11-k)*7)));m+=md[k<p/29*11?7:lv];}
+    bar1.innerHTML=m+'</span> <span style="color:var(--bone-3)">'+Math.round(p/29*100)+'%</span>';
     const full=Math.round(p/29*10);
-    document.getElementById('bar2').innerHTML='<span class="f">'+'▰'.repeat(full)+'</span><span class="e">'+'▱'.repeat(10-full)+'</span> <span style="color:var(--bone-3)">'+Math.round(p/29*100)+'%</span>';
-  },120);
+    bar2.innerHTML='<span class="f">'+'▰'.repeat(full)+'</span><span class="e">'+'▱'.repeat(10-full)+'</span> <span style="color:var(--bone-3)">'+Math.round(p/29*100)+'%</span>';},120);
 }
 
-/* glass spotlight + tilt */
+/* glass tilt + spotlight */
 if(!RM)document.querySelectorAll('.glass').forEach(el=>{
   el.addEventListener('mousemove',e=>{const r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
     el.style.transform=`perspective(740px) rotateX(${(y-.5)*-6}deg) rotateY(${(x-.5)*6}deg)`;
-    el.style.setProperty('--mx',x*100+'%'); el.style.setProperty('--my',y*100+'%');});
-  el.addEventListener('mouseleave',()=>el.style.transform='');
-});
+    el.style.setProperty('--mx',x*100+'%');el.style.setProperty('--my',y*100+'%');});
+  el.addEventListener('mouseleave',()=>el.style.transform='');});
+
+/* hero constellation — subtle drifting warm particles */
+if(!RM){const cv=document.getElementById('sky'),x=cv.getContext('2d');let pts=[],W,H;
+  function init(){W=cv.width=innerWidth;H=cv.height=innerHeight;pts=[];const n=Math.min(40,Math.floor(W/34));
+    for(let i=0;i<n;i++)pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.16,vy:(Math.random()-.5)*.16,r:Math.random()*1.4+.3,c:['216,175,82','216,57,46','111,154,142'][Math.floor(Math.random()*3)],ph:Math.random()*6.3});}
+  function draw(){x.clearRect(0,0,W,H);for(const p of pts){p.x+=p.vx;p.y+=p.vy;p.ph+=.01;
+    if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0;
+    x.beginPath();x.arc(p.x,p.y,p.r,0,6.28);x.fillStyle=`rgba(${p.c},${(.22+.22*Math.sin(p.ph)).toFixed(2)})`;x.fill();}
+    for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.hypot(dx,dy);
+      if(d<120){x.beginPath();x.moveTo(pts[i].x,pts[i].y);x.lineTo(pts[j].x,pts[j].y);x.strokeStyle=`rgba(216,175,82,${(.04*(1-d/120)).toFixed(3)})`;x.lineWidth=.5;x.stroke();}}
+    requestAnimationFrame(draw);}
+  init();draw();addEventListener('resize',init);}
 </script>
 </body>
 </html>
