@@ -261,9 +261,29 @@ h4{font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppe
 #toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(20px);z-index:99;opacity:0;font-family:var(--mono);font-size:11px;letter-spacing:1.5px;padding:11px 24px;border-radius:10px;pointer-events:none;background:var(--ink-2);border:1px solid var(--kin-1);color:var(--kin-text);box-shadow:0 14px 38px rgba(0,0,0,.45);transition:.3s}
 #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 @media(prefers-reduced-transparency:reduce){.glass,.bar.stuck{backdrop-filter:none;-webkit-backdrop-filter:none;background:var(--ink-2)}}
+
+/* ════ cursor — a gilded bead trails the pointer; it speaks the role language ════ */
+@media(hover:hover) and (pointer:fine){
+  html.cur body,html.cur a,html.cur button,html.cur label,html.cur .sw,html.cur .ac,html.cur .gl,
+  html.cur .tdot,html.cur .copybox,html.cur .lily,html.cur .tog,html.cur .glass,html.cur .tcard,
+  html.cur .fcard,html.cur [data-copy],html.cur [data-toast]{cursor:none}
+  #cur,#cdot{position:fixed;top:0;left:0;z-index:9000;pointer-events:none;border-radius:50%;opacity:0}
+  html.cur #cur,html.cur #cdot{opacity:1}
+  #cur{width:34px;height:34px;margin:-17px 0 0 -17px;border:1px solid var(--cur,var(--kin-1));will-change:transform;
+    background:color-mix(in srgb,var(--cur,var(--kin-1)) 0%,transparent);
+    box-shadow:0 0 13px color-mix(in srgb,var(--cur,var(--kin-1)) 34%,transparent),inset 0 0 7px color-mix(in srgb,var(--cur,var(--kin-1)) 12%,transparent);
+    transition:width .26s cubic-bezier(.2,.7,.2,1),height .26s cubic-bezier(.2,.7,.2,1),margin .26s cubic-bezier(.2,.7,.2,1),border-color .35s,background .35s,opacity .3s}
+  #cdot{width:5px;height:5px;margin:-2.5px 0 0 -2.5px;background:var(--cur,var(--kin-0));will-change:transform;
+    box-shadow:0 0 9px color-mix(in srgb,var(--cur,var(--kin-0)) 65%,transparent);transition:background .35s,opacity .3s}
+  html.cur.cur-hover #cur{width:52px;height:52px;margin:-26px 0 0 -26px;background:color-mix(in srgb,var(--cur,var(--kin-1)) 9%,transparent)}
+  html.cur.cur-down #cur{width:25px;height:25px;margin:-12.5px 0 0 -12.5px;background:color-mix(in srgb,var(--cur,var(--kin-1)) 16%,transparent)}
+  html.cur.cur-out #cur,html.cur.cur-out #cdot{opacity:0}
+}
+@media(prefers-reduced-motion:reduce){#cur,#cdot{display:none}}
 </style>
 </head>
 <body>
+<div id="cur"></div><div id="cdot"></div>
 <div id="bg"></div><canvas id="sky"></canvas><div id="grain"></div>
 <div id="prog"></div>
 
@@ -604,6 +624,26 @@ if(!RM){const cv=document.getElementById('sky'),x=cv.getContext('2d');let pts=[]
     for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.hypot(dx,dy);
       if(d<118){x.beginPath();x.moveTo(pts[i].x,pts[i].y);x.lineTo(pts[j].x,pts[j].y);x.strokeStyle=`rgba(216,175,82,${(.035*(1-d/118)).toFixed(3)})`;x.lineWidth=.5;x.stroke();}}requestAnimationFrame(draw);}
   init();draw();addEventListener('resize',init);}
+
+/* gilded cursor — dot leads (precise), ring trails (calm), colour follows role */
+if(matchMedia('(hover:hover) and (pointer:fine)').matches && !RM){
+  const ring=document.getElementById('cur'),dot=document.getElementById('cdot'),root=document.documentElement;
+  const HOVER='a,button,label,.sw,.ac,.gl,.tdot,.copybox,.lily,.tog,.glass,.tcard,.fcard,[data-copy],[data-toast]';
+  let mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my,seen=false;
+  root.classList.add('cur');
+  addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.transform=`translate(${mx}px,${my}px)`;
+    if(!seen){seen=true;rx=mx;ry=my;}root.classList.remove('cur-out');},{passive:true});
+  (function loop(){rx+=(mx-rx)*.18;ry+=(my-ry)*.18;ring.style.transform=`translate(${rx}px,${ry}px)`;requestAnimationFrame(loop);})();
+  addEventListener('mouseover',e=>{const t=e.target.closest(HOVER);root.classList.toggle('cur-hover',!!t);
+    let c='var(--kin-1)';
+    if(t){if(t.matches('.btn-d,.lily')||t.dataset.copy==='#d8392e'||(t.matches('.sw2')&&t.classList.contains('red'))||(t.closest('.badge')&&t.closest('.badge').classList.contains('scar')))c='var(--aka-1)';
+      else if((t.closest('.badge')&&t.closest('.badge').classList.contains('moss'))||t.dataset.copy==='#52703F'||t.dataset.copy==='#8FAC6F')c='var(--mori-1)';}
+    root.style.setProperty('--cur',c);},{passive:true});
+  addEventListener('mousedown',()=>root.classList.add('cur-down'));
+  addEventListener('mouseup',()=>root.classList.remove('cur-down'));
+  document.addEventListener('mouseleave',()=>root.classList.add('cur-out'));
+  document.addEventListener('mouseenter',()=>root.classList.remove('cur-out'));
+}
 </script>
 </body>
 </html>
