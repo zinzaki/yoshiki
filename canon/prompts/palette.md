@@ -10,7 +10,7 @@ SURFACES  ink-0 #0B0A08 (bg) · ink-1 #12100C (panels) · ink-2 #1B1813
 (cards) · ink-3 #262119 (hover) · hairline #362C1B · border #4C3D24
 TEXT  bone-0 #F7EED2 (headings) · bone-1 #EDE3C4 (body) · bone-2 #C9BC96
 (secondary) · bone-3 #94866A (meta) · bone-4 #6B5F49 (ghost)
-GOLD  kin-0 #EAC578 (hover) · kin-1 #D6AE66 (actions, links, focus,
+GOLD  kin-0 #EAC578 (hover) · kin-1 #D8AF52 (actions, links, focus,
 cursor) · kin-2 #8F713C (labels, glyphs) · kin-3 #57441F · wash #3F3112
 TRIGGERS  scarlet (spider lily 彼岸花): aka-1 #d8392e fills, aka-0 #D4665C text-on-dark,
 aka-2 #7E302E pressed, wash #331514 · moss: mori-1 #52703F fills,

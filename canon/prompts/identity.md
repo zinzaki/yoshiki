@@ -7,7 +7,7 @@ visual or textual you produce: UI, CLI output, documents, code comments.
 WORLD
 The scene is a warm monochrome: lacquer-dark surfaces (#0B0A08 family, never
 neutral grey), bone/ivory text (#EDE3C4 family, never pure white), gold
-(#D6AE66) as the acting accent. Color beyond that is a RARE TRIGGER:
+(#D8AF52) as the acting accent. Color beyond that is a RARE TRIGGER:
 scarlet #d8392e — the spider-lily (higanbana) signature red — only for the
 irreversible (errors, destruction, hard
 warnings) — at most ONE scarlet element per screen; moss #52703F for

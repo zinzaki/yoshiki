@@ -94,6 +94,27 @@ def emit(slug: str, p: dict):
     w(d / f"{slug}.json", json.dumps({**p, "roles_resolved": roles_for_json},
                                       ensure_ascii=False, indent=2) + "\n")
 
+    # dtcg — W3C Design Tokens (agent / Style-Dictionary readable): tokens grouped by
+    # prefix under `color`, roles as aliases under `role` (or a mix value for @NN).
+    def dtcg_ref(name):
+        g, sep, m = name.partition("-")
+        return f"{{color.{g}.{m}}}" if sep else f"{{color.{name}}}"
+    color_tree: dict = {}
+    for k, v in tok.items():
+        g, sep, m = k.partition("-")
+        if sep:
+            color_tree.setdefault(g, {})[m] = {"$value": v, "$type": "color"}
+        else:
+            color_tree[k] = {"$value": v, "$type": "color"}
+    role_tree = {}
+    for r, spec in p["roles"].items():
+        nm, _, op = spec.partition("@")
+        val = role_value(spec, tok)[0] if op else dtcg_ref(nm.strip())
+        role_tree[r.replace(".", "-")] = {"$value": val, "$type": "color"}
+    dtcg = {"$description": f"yoshiki {slug} {kanji} — W3C DTCG design tokens (generated)",
+            "color": color_tree, "role": role_tree}
+    w(d / f"{slug}.tokens.json", json.dumps(dtcg, ensure_ascii=False, indent=2) + "\n")
+
     # roles resolved to css values (the consumer-facing contract)
     roles = {r: role_value(spec, tok)[0] for r, spec in p["roles"].items()}
 

@@ -1,0 +1,335 @@
+{
+  "$description": "yoshiki washi 和紙 — W3C DTCG design tokens (generated)",
+  "color": {
+    "ink": {
+      "0": {
+        "$value": "#E2D6B4",
+        "$type": "color"
+      },
+      "1": {
+        "$value": "#EBE1C3",
+        "$type": "color"
+      },
+      "2": {
+        "$value": "#F3EBD5",
+        "$type": "color"
+      },
+      "3": {
+        "$value": "#D7C9A3",
+        "$type": "color"
+      }
+    },
+    "line": {
+      "0": {
+        "$value": "#C7B68C",
+        "$type": "color"
+      },
+      "1": {
+        "$value": "#AE9C72",
+        "$type": "color"
+      }
+    },
+    "bone": {
+      "0": {
+        "$value": "#1F1810",
+        "$type": "color"
+      },
+      "1": {
+        "$value": "#2B2117",
+        "$type": "color"
+      },
+      "2": {
+        "$value": "#4A3D2A",
+        "$type": "color"
+      },
+      "3": {
+        "$value": "#6E5E42",
+        "$type": "color"
+      },
+      "4": {
+        "$value": "#8E7C5A",
+        "$type": "color"
+      }
+    },
+    "kin": {
+      "0": {
+        "$value": "#B8923F",
+        "$type": "color"
+      },
+      "1": {
+        "$value": "#9C7A40",
+        "$type": "color"
+      },
+      "2": {
+        "$value": "#7A5F2E",
+        "$type": "color"
+      },
+      "3": {
+        "$value": "#C9AE74",
+        "$type": "color"
+      },
+      "w": {
+        "$value": "#E6D7A8",
+        "$type": "color"
+      },
+      "t": {
+        "$value": "#7A5F2E",
+        "$type": "color"
+      }
+    },
+    "kaki": {
+      "1": {
+        "$value": "#A5602B",
+        "$type": "color"
+      }
+    },
+    "washi": {
+      "bg": {
+        "$value": "#1B1813",
+        "$type": "color"
+      },
+      "ink": {
+        "$value": "#EDE3C4",
+        "$type": "color"
+      },
+      "line": {
+        "$value": "#4C3D24",
+        "$type": "color"
+      }
+    },
+    "aka": {
+      "0": {
+        "$value": "#A8352B",
+        "$type": "color"
+      },
+      "1": {
+        "$value": "#d8392e",
+        "$type": "color"
+      },
+      "2": {
+        "$value": "#7E302E",
+        "$type": "color"
+      },
+      "w": {
+        "$value": "#EBD3C8",
+        "$type": "color"
+      }
+    },
+    "sabi": {
+      "$value": "#9B635F",
+      "$type": "color"
+    },
+    "mori": {
+      "0": {
+        "$value": "#4A6B38",
+        "$type": "color"
+      },
+      "1": {
+        "$value": "#52703F",
+        "$type": "color"
+      },
+      "2": {
+        "$value": "#2F4526",
+        "$type": "color"
+      },
+      "w": {
+        "$value": "#DCE2C2",
+        "$type": "color"
+      }
+    },
+    "hotaru": {
+      "0": {
+        "$value": "#98A4D4",
+        "$type": "color"
+      },
+      "1": {
+        "$value": "#4C5A90",
+        "$type": "color"
+      },
+      "2": {
+        "$value": "#454E7A",
+        "$type": "color"
+      }
+    },
+    "fuji": {
+      "0": {
+        "$value": "#B89BCC",
+        "$type": "color"
+      },
+      "1": {
+        "$value": "#6E5890",
+        "$type": "color"
+      },
+      "2": {
+        "$value": "#5A4973",
+        "$type": "color"
+      }
+    },
+    "seiji": {
+      "0": {
+        "$value": "#8CBCA9",
+        "$type": "color"
+      },
+      "1": {
+        "$value": "#2F6B5E",
+        "$type": "color"
+      },
+      "2": {
+        "$value": "#2C5A4C",
+        "$type": "color"
+      }
+    },
+    "shin": {
+      "2": {
+        "$value": "#0A3540",
+        "$type": "color"
+      },
+      "3": {
+        "$value": "#06222B",
+        "$type": "color"
+      }
+    }
+  },
+  "role": {
+    "bg-app": {
+      "$value": "{color.ink.0}",
+      "$type": "color"
+    },
+    "bg-surface": {
+      "$value": "{color.ink.1}",
+      "$type": "color"
+    },
+    "bg-raised": {
+      "$value": "{color.ink.2}",
+      "$type": "color"
+    },
+    "bg-hover": {
+      "$value": "{color.ink.3}",
+      "$type": "color"
+    },
+    "border-hairline": {
+      "$value": "{color.line.0}",
+      "$type": "color"
+    },
+    "border-strong": {
+      "$value": "{color.line.1}",
+      "$type": "color"
+    },
+    "border-gold": {
+      "$value": "{color.kin.1}",
+      "$type": "color"
+    },
+    "text-heading": {
+      "$value": "{color.bone.0}",
+      "$type": "color"
+    },
+    "text-body": {
+      "$value": "{color.bone.1}",
+      "$type": "color"
+    },
+    "text-secondary": {
+      "$value": "{color.bone.2}",
+      "$type": "color"
+    },
+    "text-muted": {
+      "$value": "{color.bone.3}",
+      "$type": "color"
+    },
+    "text-ghost": {
+      "$value": "{color.bone.4}",
+      "$type": "color"
+    },
+    "text-gold": {
+      "$value": "{color.kin.t}",
+      "$type": "color"
+    },
+    "text-link": {
+      "$value": "{color.kin.t}",
+      "$type": "color"
+    },
+    "action-edge": {
+      "$value": "{color.kin.1}",
+      "$type": "color"
+    },
+    "action-text": {
+      "$value": "{color.kin.t}",
+      "$type": "color"
+    },
+    "action-tint": {
+      "$value": "color-mix(in srgb, #9C7A40 6%, transparent)",
+      "$type": "color"
+    },
+    "action-hover-edge": {
+      "$value": "{color.kin.0}",
+      "$type": "color"
+    },
+    "ok-text": {
+      "$value": "{color.mori.0}",
+      "$type": "color"
+    },
+    "ok-fill": {
+      "$value": "{color.mori.1}",
+      "$type": "color"
+    },
+    "ok-wash": {
+      "$value": "{color.mori.w}",
+      "$type": "color"
+    },
+    "warn-text": {
+      "$value": "{color.kaki.1}",
+      "$type": "color"
+    },
+    "danger-text": {
+      "$value": "{color.aka.0}",
+      "$type": "color"
+    },
+    "danger-fill": {
+      "$value": "{color.aka.1}",
+      "$type": "color"
+    },
+    "danger-wash": {
+      "$value": "{color.aka.w}",
+      "$type": "color"
+    },
+    "info-text": {
+      "$value": "{color.kin.t}",
+      "$type": "color"
+    },
+    "special-text": {
+      "$value": "{color.fuji.1}",
+      "$type": "color"
+    },
+    "focus-ring": {
+      "$value": "color-mix(in srgb, #9C7A40 40%, transparent)",
+      "$type": "color"
+    },
+    "selection-bg": {
+      "$value": "color-mix(in srgb, #9C7A40 22%, transparent)",
+      "$type": "color"
+    },
+    "syntax-keyword": {
+      "$value": "{color.kin.1}",
+      "$type": "color"
+    },
+    "syntax-string": {
+      "$value": "{color.mori.0}",
+      "$type": "color"
+    },
+    "syntax-number": {
+      "$value": "{color.kaki.1}",
+      "$type": "color"
+    },
+    "syntax-type": {
+      "$value": "{color.hotaru.1}",
+      "$type": "color"
+    },
+    "syntax-constant": {
+      "$value": "{color.fuji.1}",
+      "$type": "color"
+    },
+    "syntax-comment": {
+      "$value": "{color.bone.4}",
+      "$type": "color"
+    }
+  }
+}
