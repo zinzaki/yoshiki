@@ -1,0 +1,26 @@
+<!-- yoshiki · library/effects · refraction lens — canon: canon/effects/glass.md
+     real refraction in Chrome, blur fallback everywhere. keep `scale` small (~30–40). -->
+
+<svg width="0" height="0" aria-hidden="true">
+  <filter id="y-refract" x="-20%" y="-20%" width="140%" height="140%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.012 0.014" numOctaves="2" seed="7" result="n"/>
+    <feGaussianBlur in="n" stdDeviation="1.3" result="nb"/>
+    <feDisplacementMap in="SourceGraphic" in2="nb" scale="40" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
+
+<style>
+.y-lens{
+  border: 1px solid rgba(216,175,82,.14);
+  border-radius: 16px;
+  backdrop-filter: blur(3px) saturate(1.5);
+  -webkit-backdrop-filter: blur(3px) saturate(1.5);
+}
+/* the real lens — Chrome only; a bonus over the blur above */
+@supports (backdrop-filter: url(#x)){
+  .y-lens{ backdrop-filter: url(#y-refract) blur(2px); }
+}
+@media (prefers-reduced-transparency: reduce){
+  .y-lens{ backdrop-filter: none; -webkit-backdrop-filter: none; background: var(--ink-2, #1B1813); }
+}
+</style>
