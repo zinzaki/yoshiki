@@ -5,7 +5,7 @@
 export const tone = {
   ink0:  "#0B0A08",   // ← background; never a neutral grey
   bone1: "#EDE3C4",   // body text
-  kin1:  "#D6AE66",   // gold — edges only, never a fill
+  kin1:  "#D8AF52",   // gold — edges only, never a fill
 } as const;
 
 export type Role = "primary" | "danger" | "ok";   // ◉ consume a role, not a hex
@@ -13,7 +13,7 @@ export type Role = "primary" | "danger" | "ok";   // ◉ consume a role, not a h
 // ── role → token (the contract; both themes resolve it safely) ──
 export const role: Record<Role, string> = {
   primary: tone.kin1,
-  danger:  "#BB3C33",   // scarlet — the irreversible
+  danger:  "#d8392e",   // scarlet — the irreversible
   ok:      "#52703F",   // moss
 };
 

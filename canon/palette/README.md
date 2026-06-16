@@ -40,7 +40,9 @@ regenerated on every build.
 palette.yml            source of truth (tokens · roles · terminal · base24)
 <slug>.css             :root — raw tokens + semantic --r-<role> aliases
 <slug>.json            resolved bundle (tokens + roles_resolved)
+<slug>.tokens.json     W3C DTCG tokens (Style Dictionary / agent readable)
 CONTRAST.md            WCAG proof for both themes
+ACCESSIBILITY.md       contrast + colour-blind safety (glyph, not colour alone)
 
 Ready-to-use program themes are generated OUT of here, into
 ../../library/themes/<app>/<slug>.* (kitty · foot · alacritty · starship · base24).
