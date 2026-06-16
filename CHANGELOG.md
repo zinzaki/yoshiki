@@ -3,6 +3,20 @@
 yoshiki follows the kintsugi rule even here: nothing is hidden, every
 seam is named.
 
+## Unreleased
+
+- **Motion** — `canon/motion` expanded: arc and circle-pulse spinners, a minimal
+  `▰▱` square bar and number-only progress; a blacklist of heavy filled blocks.
+- **Effects** — new `canon/effects`: glass (frosted + refraction lens), film grain,
+  pointer (tilt · spotlight · dual-cursor) and ambient (aurora · sheen). The
+  showcase's effects now have a canonical home.
+- **Typography** — new `canon/typography`: a warm serif display + mono stack
+  (Maple · JetBrains · Geist, all OFL), with the Claude serif recipe noted.
+- **AI-navigation** — `AGENTS.md` (the map an agent reads first) and `llms.txt` (a
+  machine-readable index), so an agent given only the repo can self-navigate.
+- **Philosophy** — the spider lily reframed as a deliberate stroke of colour, not a
+  claim of memory.
+
 ## v1.0 — 2026-06
 
 The first sealed version of the language.

@@ -38,11 +38,16 @@ Three rules: **warm, never grey** · **color is rare** · **gold is a line, not 
 ```
 yoshiki/
 │
+├─ AGENTS.md               the map — how an agent applies yoshiki (read first)
+├─ llms.txt                machine-readable index of every module
+│
 ├─ canon/                  the definition — edited by hand, the source of truth
 │  ├─ principles/          the ordered defaults — what wins when nothing is set
 │  ├─ palette/             tokens · roles · contrast proof · kogane · washi
 │  ├─ lexicon/             glyphs · nameplates · frames · CLI/TUI · code comments
-│  ├─ motion/              loading & progress — dot-matrix
+│  ├─ motion/              loading & progress — spinners · dot-matrix · ▰▱
+│  ├─ effects/             web effects — glass · grain · pointer · ambient
+│  ├─ typography/          warm serif display + mono — Maple · JetBrains · Geist
 │  ╰─ prompts/             drop-in AI system prompts
 │
 ├─ library/                the style in use — take & apply (much is generated)
@@ -68,7 +73,8 @@ library/themes/kitty/kogane.conf        # or foot · alacritty · starship · ba
 # web — CSS variables (raw tokens + semantic roles)
 canon/palette/kogane/kogane.css
 
-# make an AI follow the language — paste one prompt
+# make an AI follow the language — point it at the repo (it reads AGENTS.md),
+# or paste one prompt:
 canon/prompts/identity.md               # + principles.md for the defaults
 
 # regenerate every theme from the palette
