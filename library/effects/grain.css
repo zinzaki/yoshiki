@@ -1,0 +1,9 @@
+/* yoshiki · library/effects · film-grain — canon: canon/effects/grain.md
+   one fixed overlay for the whole page. opacity .03–.05; above ~.08 it reads as dirt.
+   usage: <div class="y-grain"></div> as a direct child of <body>. */
+
+.y-grain{
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  opacity: .035; mix-blend-mode: overlay; background-size: 190px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}

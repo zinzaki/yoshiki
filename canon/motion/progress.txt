@@ -1,10 +1,9 @@
-# Progress — dot-matrix fill (the chosen one). Cells fill left→right; the
-# leading cell ramps its density as it lands, so the front edge looks smooth
-# even though cells are discrete. Density = progress.
+# Progress — determinate. Density = progress. Cells discrete; the leading edge looks
+# smooth because the front cell ramps its density as it lands.
 
+# ── dot-matrix (the default) ──
 # per-cell density ramp (the leading edge animates through these):
 ramp:  ⠀  ⡀  ⣀  ⣄  ⣤  ⣦  ⣶  ⣾  ⣿
-
 # stages (8 cells = 0..100%):
   0%    ⠀⠀⠀⠀⠀⠀⠀⠀
   25%   ⣿⣶⠀⠀⠀⠀⠀⠀
@@ -12,6 +11,14 @@ ramp:  ⠀  ⡀  ⣀  ⣄  ⣤  ⣦  ⣶  ⣾  ⣿
   75%   ⣿⣿⣿⣿⣿⣶⠀⠀
   100%  ⣿⣿⣿⣿⣿⣿⣿⣿
 
+# ── ▰▱ square bar (minimal, light) ──
+  disk   ▰▰▰▰▰▰▰▱▱▱  71%        # filled ▰ -> kin-1, track ▱ -> ink-3
+  load   ▰▰▰▰▰▱▱▱▱▱  52%
+
+# ── number-only (when even a bar is too much) ──
+  building…  72%
+
+# NEVER: █ ▇ ▆ ▅ ▄ ▃ ▂ ▁ / ▓ ▒ ░ (heavy slab) · a thin line with a moving head.
 # update on real progress; animate the leading cell through the ramp.
 # done: hold full one beat, then collapse to a single moss ✓.
 # color: kin-1 gilding while filling; mori-0 on done.

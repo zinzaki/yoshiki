@@ -1,0 +1,36 @@
+# Spinner & loader catalog — a curated, BLOCK-FREE menu to pick from.
+# The canonical three live in spinner.txt (braille · arc · pulse); these are the
+# wider set, all monospace-safe, all free of heavy blocks. Tempos as noted.
+# Curated from sindresorhus/cli-spinners (kept only dot / circle / arc / square /
+# line / arrow glyphs; dropped every block, emoji and ASCII-letter set).
+
+## braille dots — the core family (finest, smooth)
+dots      80ms   ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏          # the default
+dots2     80ms   ⣾ ⣽ ⣻ ⢿ ⡿ ⣟ ⣯ ⣷              # heavier dot-mass, orbiting
+dots3     80ms   ⠋ ⠙ ⠚ ⠞ ⠖ ⠦ ⠴ ⠲ ⠳ ⠓
+dots4     80ms   ⠄ ⠆ ⠇ ⠋ ⠙ ⠸ ⠰ ⠠ ⠰ ⠸ ⠙ ⠋ ⠇ ⠆   # a rising/falling bounce
+dots10    80ms   ⢄ ⢂ ⢁ ⡁ ⡈ ⡐ ⡠                # sparse — a single dot drifting
+
+## circles & rings
+arc            100ms   ◜ ◠ ◝ ◞ ◡ ◟            # a calm quarter-arc sweep
+circleHalves    90ms   ◐ ◓ ◑ ◒               # a half spinning (slow 50→90ms)
+circleQuarters 120ms   ◴ ◷ ◶ ◵               # a quarter rotating
+squareCorners  160ms   ◰ ◳ ◲ ◱               # the same, squared — HUD register
+triangle        90ms   ◢ ◣ ◤ ◥               # angular, technical
+
+## pulse & toggle (one cell, breathing)
+pulse      90ms   ◌ ○ ◎ ◉ ● ◉ ◎ ○            # our default breath (grow → settle)
+toggle     90ms   ⦾ ⦿                        # a blink — on/off, minimal
+toggle2    90ms   ⧇ ⧆                         # a framed blink — HUD
+point     120ms   ∙∙∙  ●∙∙  ∙●∙  ∙∙●          # a dot travelling — Nothing-matrix nod
+
+## line & arrow (lowest tier — any font, must-read paths)
+line      130ms   - \ | /                     # the classic; only where unicode is unsafe
+arrow     100ms   ← ↖ ↑ ↗ → ↘ ↓ ↙             # a compass sweep — "scanning / seeking"
+
+## notes
+# tempo: dots ~80ms · arc/pulse ~90–100ms · quarter-circles a touch slower.
+# one role-color per run (kin-1 work / mori-1 done / aka-0 fail). Resolve on done.
+# Nothing-OS dot-matrix is the spiritual reference for `point` and the dot-matrix
+#   progress bar (density on a dot grid) — keep it sparse, never a slab.
+# NEVER: █▇▆▅▄▃▂▁ / ▓▒░ blocks · a thin line with a moving head · emoji.

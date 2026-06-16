@@ -1,9 +1,11 @@
-# Spinner — braille, the chosen one. Dots run inside a single cell.
-# A text spinner is discrete by nature: drive it at a LIVE tempo (~90ms);
-# slower reads as lag, faster as a blur. One role-color for all dots.
+# Spinners — discrete text ticks at a LIVE ~90ms tempo. One role-color per run.
+# Slower reads as lag, faster as a blur. Resolve on done: stop, print a moss ✓.
 
-frames:  ⠋  ⠙  ⠹  ⠸  ⠼  ⠴  ⠦  ⠧  ⠇  ⠏
+braille  ⠋  ⠙  ⠹  ⠸  ⠼  ⠴  ⠦  ⠧  ⠇  ⠏      # the default — finest, one cell
+arc      ◜  ◠  ◝  ◞  ◡  ◟                   # a calmer ring (cf. cli-spinners: arc)
+pulse    ◌  ○  ◎  ◉  ●  ◉  ◎  ○             # a breathing dot — grows, then settles
 
-# tempo: 90ms/frame · loop: forever · color: kin-1 (work) / mori-1 (ok)
+# tempo: 80–100ms/frame · loop: forever · color: kin-1 (work) / mori-1 (ok) / aka-0 (fail step)
 # resolve: don't loop on done — stop, print a single moss ✓.
-# usage: print frame, \r, sleep 90ms, advance.
+# usage: print frame, \r, sleep ~90ms, advance.
+# DO NOT use a heavy-block pulse (█▓▒░) — see progress.txt blacklist.
