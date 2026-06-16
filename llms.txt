@@ -1,0 +1,51 @@
+# yoshiki
+
+> An elegant design language: warm monochrome (lacquer · bone · gold), struck rarely
+> by two triggers (scarlet · moss). Gold gilds, never fills. Two themes — kogane
+> (dark), washi (light). Take one file or the whole system; much of the library is
+> generated from one palette source.
+
+## Start here
+- [AGENTS.md](AGENTS.md): how to apply yoshiki — read order, the laws, the map
+- [PHILOSOPHY.md](PHILOSOPHY.md): why it looks like this — kintsugi, tone & triggers, gold-gilding
+
+## Principles — the defaults, what wins when nothing is specified
+- [priority](canon/principles/priority.md): the ordered ladder (higher rung wins)
+- [defaults](canon/principles/defaults.md): concrete fallbacks for every choice
+
+## Palette — tokens + the roles contract, two themes
+- [palette overview](canon/palette/README.md): tokens vs roles, the gold law
+- [kogane](canon/palette/kogane/palette.yml): dark — source of truth
+- [washi](canon/palette/washi/palette.yml): light — deltas over kogane
+- [DTCG tokens](canon/palette/kogane/kogane.tokens.json): W3C design tokens — Style Dictionary / agent readable
+- [contrast proof](canon/palette/CONTRAST.md): WCAG, regenerated on every build
+- [accessibility](canon/palette/ACCESSIBILITY.md): contrast + colour-blind safety — glyph, not colour alone
+
+## Lexicon — the form of the language, apart from color
+- [glyphs](canon/lexicon/glyphs.md): semantic symbols — one glyph, one meaning
+- [nameplates](canon/lexicon/nameplates.md): spaced-capital seals
+- [frames](canon/lexicon/frames.md): soft capsules ╭╮ vs hard spines ╔╠╚
+- [space](canon/lexicon/space.md): rhythm, margin, tracking — Ma in practice
+- [states](canon/lexicon/states.md): default · hover · focus · disabled · error
+- [cli](canon/lexicon/cli.md): CLI / TUI canon — prompt, statuses, trees
+- [comments](canon/lexicon/comments.md): code comments — frames + meaning-marks
+- [messaging](canon/lexicon/messaging.md): chat & bot messages — structure where color can't go
+
+## Motion & effects
+- [motion](canon/motion/README.md): spinners (braille · arc · pulse), progress (dot-matrix · ▰▱)
+- [effects](canon/effects/README.md): glass, grain, pointer, ambient — web surfaces only
+
+## Typography
+- [typography](canon/typography/README.md): warm serif display + mono (Maple · JetBrains · Geist), all OFL
+
+## Prompts — drop-in system-prompt modules, stack on demand
+- [identity](canon/prompts/identity.md): the whole language in one block
+- [principles](canon/prompts/principles.md) · [palette](canon/prompts/palette.md) · [cli](canon/prompts/cli.md) · [comments](canon/prompts/comments.md) · [text](canon/prompts/text.md)
+- [motion](canon/prompts/motion.md) · [effects](canon/prompts/effects.md) · [typography](canon/prompts/typography.md) · [image](canon/prompts/image.md) · [messaging](canon/prompts/messaging.md): motion, effects, fonts, images, chat in the style
+
+## Library — ready artifacts to lift
+- [themes](library/themes/README.md): kitty · foot · alacritty · starship · base24 · vscode · neovim · tmux · btop (generated)
+- [effects](library/effects/README.md) · [menus](library/menus/README.md) · [charts](library/charts/README.md) · [text](library/text/README.md) · [snippets](library/snippets/README.md) · [configs](library/configs/README.md) · [presets](library/presets/README.md) · [github](library/github/README.md) · [image-prompts](library/image-prompts/README.md)
+
+## Build
+- [tools/build.py](tools/build.py): bakes every theme + the contrast proof from `canon/palette`

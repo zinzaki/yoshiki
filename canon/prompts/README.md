@@ -16,6 +16,11 @@ for model stability; the output language follows your conversation.
 | `cli.md` | format CLI/TUI output: prompt, statuses, menus, trees |
 | `comments.md` | write code comments the yoshiki way |
 | `text.md` | nameplates, glyphs, frames in chats and docs |
+| `motion.md` | animate loading & progress — spinners, dot-matrix, the blacklist |
+| `effects.md` | apply web effects — glass, grain, pointer, ambient (with fallbacks) |
+| `typography.md` | choose fonts — warm serif display + mono, all OFL |
+| `image.md` | generate images in the style — lacquer, gold seams, one scarlet lily |
+| `messaging.md` | chat & bot messages — monospace cards, glyphs do the color's job |
 
 ## Stacking
 
