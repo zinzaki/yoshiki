@@ -40,6 +40,7 @@ html{scroll-behavior:smooth}
 body{background:var(--ink-0);color:var(--bone-1);font-family:var(--sans);font-weight:300;line-height:1.7;
   -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden;transition:background .6s,color .6s}
 ::selection{background:color-mix(in srgb,var(--kin-1) 26%,transparent);color:var(--bone-0)}
+:focus-visible{outline:2px solid var(--kin-1);outline-offset:3px;border-radius:4px}
 a{color:inherit;text-decoration:none}
 
 #bg{position:fixed;inset:0;z-index:-3;pointer-events:none;background:
@@ -59,7 +60,9 @@ a{color:inherit;text-decoration:none}
 .bar .right{display:flex;gap:16px;align-items:center}
 .tdot{width:15px;height:15px;border-radius:50%;cursor:pointer;border:1px solid var(--line-1);padding:0;transition:.2s}
 .tdot[data-t="kogane"]{background:#0B0A08}.tdot[data-t="washi"]{background:#E2D6B4}
+.tdot:hover{transform:scale(1.18)}
 .tdot.on{box-shadow:0 0 0 2px var(--kin-1);transform:scale(1.1)}
+.tdot.on:hover{transform:scale(1.2)}
 .bar a.gh{font-family:var(--mono);font-size:11px;color:var(--bone-3)}.bar a.gh:hover{color:var(--kin-1)}
 #prog{position:fixed;top:0;left:0;height:2px;width:0;z-index:60;background:linear-gradient(90deg,var(--kin-2),var(--kin-0));box-shadow:0 0 12px color-mix(in srgb,var(--kin-1) 55%,transparent)}
 
@@ -99,7 +102,7 @@ h4{font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppe
 @media(prefers-reduced-motion:reduce){.r{opacity:1!important;transform:none!important;filter:none!important;transition:none}#sky{display:none}*{animation:none!important}html{scroll-behavior:auto}}
 
 /* hero */
-.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 24px 90px;position:relative}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 24px 90px;position:relative;will-change:transform,opacity}
 .hero .kick{font-family:var(--mono);font-size:11px;letter-spacing:7px;text-transform:uppercase;color:var(--bone-3);margin-bottom:34px;animation:up 1s .1s both}
 .hero h1{font-family:var(--serif);font-weight:800;font-size:clamp(96px,22vw,256px);line-height:.86;letter-spacing:.02em;
   background:linear-gradient(125deg,var(--kin-3),var(--kin-1) 30%,var(--bone-0) 52%,var(--kin-0) 74%,var(--kin-2));
@@ -205,7 +208,8 @@ h4{font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppe
 /* components */
 .btns{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
 .btn{font-family:var(--sans);font-size:14px;font-weight:500;padding:12px 24px;border-radius:12px;cursor:pointer;background:transparent;transition:.2s}
-.btn:active{transform:scale(.96)}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(0) scale(.96)}
 .btn-p{border:1.5px solid var(--kin-1);color:var(--kin-text)}.btn-p:hover{border-color:var(--kin-0);background:color-mix(in srgb,var(--kin-1) 9%,transparent)}
 .btn-g{border:1px solid var(--line-1);color:var(--bone-2)}.btn-g:hover{border-color:var(--kin-2);color:var(--bone-0)}
 .btn-d{background:var(--aka-1);border:1px solid var(--aka-1);color:#FFF3ED}.btn-d:hover{background:var(--aka-2)}
@@ -261,6 +265,17 @@ h4{font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppe
 #toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(20px);z-index:99;opacity:0;font-family:var(--mono);font-size:11px;letter-spacing:1.5px;padding:11px 24px;border-radius:10px;pointer-events:none;background:var(--ink-2);border:1px solid var(--kin-1);color:var(--kin-text);box-shadow:0 14px 38px rgba(0,0,0,.45);transition:.3s}
 #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 @media(prefers-reduced-transparency:reduce){.glass,.bar.stuck{backdrop-filter:none;-webkit-backdrop-filter:none;background:var(--ink-2)}}
+
+/* touch — no pointer to lean on, so taps answer back */
+@media(hover:none){
+  .btn:active,.copybox:active,.flip button:active{transform:scale(.96)}
+  .sw:active{flex:2.4}
+  .ac:active{transform:scale(1.1)}
+  .gl:active,.tcard:active,.fcard:active{border-color:var(--kin-2);background:var(--ink-2)}
+  .glass:active{border-color:color-mix(in srgb,var(--kin-1) 30%,transparent)}
+  .tdot:active{transform:scale(.92)}
+  .lily:active{background:color-mix(in srgb,var(--aka-1) 16%,transparent)}
+}
 
 /* ════ cursor — a gilded bead trails the pointer; it speaks the role language ════ */
 @media(hover:hover) and (pointer:fine){
@@ -596,7 +611,7 @@ const nob=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting)x.targ
 document.querySelectorAll('.node').forEach(n=>nob.observe(n));
 
 /* spine + bead descend on scroll (the bead lives between hero and the CTA) */
-const bar=document.getElementById('bar'),prog=document.getElementById('prog'),spine=document.getElementById('spine'),bead=document.getElementById('bead');
+const bar=document.getElementById('bar'),prog=document.getElementById('prog'),spine=document.getElementById('spine'),bead=document.getElementById('bead'),hero=document.querySelector('.hero');
 let A=0,B=0;
 function geom(){const main=document.querySelector('main');const first=document.querySelector('.sec'),last=main.lastElementChild;
   A=first.offsetTop+30;B=last.offsetTop+90;
@@ -604,7 +619,8 @@ function geom(){const main=document.querySelector('main');const first=document.q
 function onScroll(){const h=document.documentElement,max=h.scrollHeight-h.clientHeight,p=max>0?h.scrollTop/max:0;
   prog.style.width=(p*100)+'%';bar.classList.toggle('stuck',h.scrollTop>40);
   const y=h.scrollTop+h.clientHeight*0.5,t=Math.max(A,Math.min(B,y));bead.style.top=t+'px';
-  bead.style.opacity=(h.scrollTop>h.clientHeight*0.6&&t<B-20)?'1':'0';}
+  bead.style.opacity=(h.scrollTop>h.clientHeight*0.6&&t<B-20)?'1':'0';
+  if(!RM&&hero){const s=h.scrollTop;if(s<innerHeight*1.15){hero.style.transform='translateY('+(s*.28)+'px)';hero.style.opacity=Math.max(0,1-s/(innerHeight*.82));}}}
 addEventListener('resize',()=>{geom();onScroll();});
 addEventListener('load',()=>{geom();onScroll();});geom();onScroll();
 addEventListener('scroll',onScroll,{passive:true});
