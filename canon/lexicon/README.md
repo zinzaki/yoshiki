@@ -14,6 +14,7 @@
 | [`states.md`](states.md) | interactive states — default · hover · focus · disabled · error |
 | [`frames.md`](frames.md) | box-drawing in two registers — soft capsule ╭╮ vs hard spine ╔╠╚ |
 | [`cli.md`](cli.md) | CLI/TUI canon: prompt, statuses, menus, data trees |
+| [`messaging.md`](messaging.md) | chat & bot messages — structure carries meaning where color can't |
 | [`comments.md`](comments.md) | code comments the yoshiki way — frames + meaning-marks |
 
 One law over all of them: **one decorative element per surface**. If a mark
