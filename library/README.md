@@ -13,7 +13,11 @@
 | [`configs/`](configs/) | whole example config files in the style (a full starship.toml, …) | hand-authored |
 | [`snippets/`](snippets/) | how to write code in the style — frames + meaning-marks, per language | hand-authored |
 | [`menus/`](menus/) | ready TUI menus, cards, lists — hard/soft frames | hand-authored |
-| [`charts/`](charts/) | data viz in text — sparklines · bars · gauges | hand-authored || [`text/`](text/) | nameplates, banners, glyph sets — copy-paste blocks | hand-authored |
+| [`effects/`](effects/) | ready web effects — glass · grain · pointer · ambient | hand-authored |
+| [`github/`](github/) | profile & README styling — banner, badges, layout | hand-authored |
+| [`image-prompts/`](image-prompts/) | generate images in the style — per model + recipes | hand-authored |
+| [`charts/`](charts/) | data viz in text — sparklines · bars · gauges | hand-authored |
+| [`text/`](text/) | nameplates, banners, glyph sets — copy-paste blocks | hand-authored |
 | [`presets/`](presets/) | named combinations that pull several artifacts into one kit | curated |
 
 ## Rules of the library

@@ -1,0 +1,31 @@
+# yoshiki image recipes — paste, swap <subject>. The only saturated colour is ONE
+# scarlet spider lily. Gold = fine kintsugi seams. Warm near-black lacquer ground.
+
+## banner / header (21:9) — Midjourney
+A wide cinematic banner, warm near-black lacquer background (#0B0A08) with deep
+brown-gold undertones and soft volumetric depth. Two or three red spider lilies
+(higanbana) in crisp ink-brush linework, vivid vermilion-scarlet (#d8392e), the ONLY
+saturated colour; fine aged-gold (#D8AF52) hairlines threading the dark like kintsugi
+seams; a faint gold moon low behind the flowers; subtle warm film grain; the left half
+a calm near-empty pocket of darkness for a title. Sumi-e meets modern editorial,
+refined, premium, atmospheric.
+--ar 21:9 --style raw --no neon, glossy plastic, text, logos, clutter, rainbow, washed out
+
+## hero object — Flux (plain English)
+A single <object> on a warm near-black lacquer background. It is lit softly from one
+side, bone-coloured, with thin aged-gold seams running across it like kintsugi repair —
+the gold appears only as fine lines, never a fill. One small scarlet spider lily rests
+beside it as the only saturated colour in the frame. Lots of calm empty space around
+the object, subtle warm film grain, museum-quality, sumi-e meets editorial design.
+
+## scene — Stable Diffusion / SDXL
+positive: <scene>, warm black lacquer atmosphere, (kintsugi gold hairline seams:1.2),
+(single scarlet spider lily:1.1) only saturated colour, sumi-e ink wash, large negative
+space, soft depth of field, warm film grain, museum quality, editorial
+negative: neon, glossy, plastic, multicolor, rainbow, garish, clutter, busy, lowres,
+text, watermark, signature, washed out, grey, harsh white
+
+## texture / background — any model (conversational)
+A near-empty warm lacquer surface (#0B0A08) with a faint brown-gold undertone, a few
+fine gold kintsugi hairlines drifting across it, subtle warm film grain, no subject,
+no text — a calm dark background to place content on. No neon, no gloss.

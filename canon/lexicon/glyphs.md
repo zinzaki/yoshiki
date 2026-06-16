@@ -63,3 +63,16 @@ neutral marks (· │ — ⟥ ⬡) ↦ bone / dim
 3. Repeated rows align their glyphs into a column; the column is the rhythm.
 4. Fallback-aware: drop a tier if a target font is unknown.
 5. A glyph that explains nothing is removed — it is not ornament.
+
+## Rendering — what actually survives
+- **Box-drawing `U+2500–259F` and braille `U+2800–28FF` are the safest.** They are
+  standard Unicode, and modern terminals (kitty, st-boxdraw) draw them
+  PROGRAMMATICALLY — so they align perfectly regardless of font or size. The whole
+  frame + motion system is built on these on purpose.
+- **Nerd-Font icons live in the Private Use Area (PUA).** They need a patched Nerd
+  Font installed, and some renderers (non-terminal UIs, even some tools) show them as
+  blank boxes. That is why PUA glyphs are tier 2 — never on a must-read path. Prefer
+  the **"Mono"** Nerd-Font variant: strict 1-cell width, no column breakage.
+- **CJK and emoji are double-width.** Mixing them into a monospace row breaks
+  alignment, and emoji render differently per platform (and need variation selectors).
+  Keep a kanji as a deliberate single mark, never inside an aligned column.
