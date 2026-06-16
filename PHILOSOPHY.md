@@ -6,7 +6,7 @@ Kintsugi is the art of repairing broken pottery with gold: the crack is not
 hidden — it becomes the most valuable place of the vessel. That is the spine
 of this language. Emotionally tempered beauty: not despite the breaks,
 but because of them. Darkness is the lacquer. Gold is the seam.
-The lily is the memory.
+The lily is the one daring stroke of colour.
 
 ## Tone and triggers
 
