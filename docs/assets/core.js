@@ -6,7 +6,6 @@
 (function(){
   'use strict';
   const {RM,toast,fireRedraw}=window.Y;
-  const fxOff=()=>document.documentElement.classList.contains('fx-off');
 
   /* ── copy handler (any [data-copy]) ── */
   document.addEventListener('click',e=>{
@@ -105,7 +104,6 @@
         });
       }
       function draw(){
-        if(fxOff()){x.clearRect(0,0,W,H);requestAnimationFrame(draw);return;}
         x.clearRect(0,0,W,H);
         for(const p of pts){
           p.x+=p.vx;p.y+=p.vy;p.ph+=p.tw;
@@ -124,31 +122,15 @@
     }
   }
 
-  /* ── cursor — gilded bead trails the pointer; speaks the role language ── */
-  if(matchMedia('(hover:hover) and (pointer:fine)').matches && !RM){
-    const ring=document.getElementById('cur'),dot=document.getElementById('cdot'),root=document.documentElement;
-    const HOVER='a,button,label,.step,.ac,.gl,.tdot,.copybox,.ecard,.sw2,input,[data-copy]';
-    const MAGSEL='button,a,.tdot,.gl,.ac,.copybox,.ecard,.sw2';
-    const TN=4,trail=[];
-    for(let i=0;i<TN;i++){const t=document.createElement('div');t.className='ctrail';const sz=4.2-i*0.7;
-      t.style.width=t.style.height=sz+'px';t.style.margin=(-sz/2)+'px 0 0 '+(-sz/2)+'px';t.style.setProperty('--bo',(0.34*(1-i/TN)).toFixed(2));
-      document.body.appendChild(t);trail.push({el:t,x:innerWidth/2,y:innerHeight/2});}
-    let mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my,seen=false,mag=null;
-    root.classList.add('cur');
-    addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.transform=`translate(${mx}px,${my}px)`;if(!seen){seen=true;rx=mx;ry=my;}root.classList.remove('cur-out');},{passive:true});
-    (function loop(){let tx=mx,ty=my;
-      if(mag){const r=mag.getBoundingClientRect();const pull=Math.min(.55,40/Math.max(r.width,r.height)+.18);tx=mx+(r.left+r.width/2-mx)*pull;ty=my+(r.top+r.height/2-my)*pull;}
-      rx+=(tx-rx)*.2;ry+=(ty-ry)*.2;ring.style.transform=`translate(${rx}px,${ry}px)`;
-      let px=mx,py=my;for(const b of trail){b.x+=(px-b.x)*.34;b.y+=(py-b.y)*.34;b.el.style.transform=`translate(${b.x}px,${b.y}px)`;px=b.x;py=b.y;}
-      requestAnimationFrame(loop);})();
-    addEventListener('mouseover',e=>{const t=e.target.closest(HOVER);root.classList.toggle('cur-hover',!!t);mag=t?t.closest(MAGSEL):null;
-      let c='var(--kin-1)';
-      if(t){if(t.dataset.copy==='#d8392e'||(t.closest('.chip')&&t.closest('.chip').classList.contains('scar')))c='var(--aka-1)';
-        else if((t.closest('.chip')&&t.closest('.chip').classList.contains('moss'))||t.dataset.copy==='#52703F'||t.dataset.copy==='#8FAC6F')c='var(--mori-1)';}
-      root.style.setProperty('--cur',c);},{passive:true});
-    addEventListener('mousedown',()=>root.classList.add('cur-down'));
-    addEventListener('mouseup',()=>root.classList.remove('cur-down'));
-    document.addEventListener('mouseleave',()=>root.classList.add('cur-out'));
-    document.addEventListener('mouseenter',()=>root.classList.remove('cur-out'));
+  /* ── toggle switches (.sw2) — one delegated handler for every switch ── */
+  function flipSwitch(sw){
+    const on=sw.classList.toggle('on');
+    sw.setAttribute('aria-checked',on?'true':'false');
+    const lbl=sw.dataset.label&&document.getElementById(sw.dataset.label);
+    if(lbl)lbl.textContent=on?(sw.dataset.on||'on'):(sw.dataset.off||'off');
   }
+  document.addEventListener('click',e=>{const sw=e.target.closest('.sw2');if(sw)flipSwitch(sw);});
+  document.addEventListener('keydown',e=>{
+    if((e.key===' '||e.key==='Enter')&&e.target.classList&&e.target.classList.contains('sw2')){e.preventDefault();flipSwitch(e.target);}
+  });
 })();

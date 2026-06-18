@@ -64,7 +64,7 @@
 
   /* ── build the gallery ── */
   root.innerHTML=`
-  <div class="cx tilt">
+  <div class="cx">
     <div class="cx-h">buttons <span class="ct">action · rarity</span></div>
     <div class="cx-row">
       <button class="btn btn-p">Primary</button>
@@ -85,7 +85,7 @@
     </div>
   </div>
 
-  <div class="cx tilt">
+  <div class="cx">
     <div class="cx-h">inputs <span class="ct">text · select</span></div>
     <div class="fld"><label>email</label><input class="inp" type="text" placeholder="you@studio.jp" value=""></div>
     <div class="fld err"><label>token</label><input class="inp" type="text" value="invalid-key" ><span class="hint2">✗ key must start with sk_</span></div>
@@ -93,7 +93,7 @@
     <div class="fld"><label>note</label><textarea class="inp" placeholder="warm never grey…"></textarea></div>
   </div>
 
-  <div class="cx tilt">
+  <div class="cx">
     <div class="cx-h">choice <span class="ct">multi · single</span></div>
     <div class="cx-sub">checkbox</div>
     <label class="opt"><input type="checkbox" checked><span class="bx"></span> grain overlay</label>
@@ -102,10 +102,10 @@
     <label class="opt"><input type="radio" name="dens" checked><span class="bx rad"></span> comfortable</label>
     <label class="opt" style="margin-top:9px"><input type="radio" name="dens"><span class="bx rad"></span> compact</label>
     <div class="cx-sub">toggle</div>
-    <div class="cx-row"><span class="sw2 on" role="switch" tabindex="0" data-sw><i></i></span><span style="font-family:var(--mono);font-size:12px;color:var(--bone-3)" id="swl">enabled</span></div>
+    <div class="cx-row"><span class="sw2 on" role="switch" aria-checked="true" tabindex="0" data-label="swl" data-on="enabled" data-off="disabled"><i></i></span><span style="font-family:var(--mono);font-size:12px;color:var(--bone-3)" id="swl">enabled</span></div>
   </div>
 
-  <div class="cx tilt">
+  <div class="cx">
     <div class="cx-h">range &amp; tabs <span class="ct">value · view</span></div>
     <div class="fld"><label>gold intensity</label>
       <div class="cx-row" style="flex-wrap:nowrap">
@@ -120,7 +120,7 @@
     <div style="font-family:var(--mono);font-size:12px;color:var(--bone-3);margin-top:13px" id="segOut">▸ palette</div>
   </div>
 
-  <div class="cx tilt span2">
+  <div class="cx span2">
     <div class="cx-h">badges &amp; status <span class="ct">label · state</span></div>
     <div class="cx-row">
       <span class="bdg solid">v1.0</span><span class="bdg k">canon</span><span class="bdg m">shipped</span><span class="bdg s">breaking</span><span class="bdg">draft</span>
@@ -134,7 +134,7 @@
     </div>
   </div>
 
-  <div class="cx tilt span2">
+  <div class="cx span2">
     <div class="cx-h">alerts <span class="ct">one glyph + one colour</span></div>
     <div class="alert info"><span class="ai">◆</span><span class="at"><b>Heads up</b>Tokens regenerate on every <span style="font-family:var(--mono);color:var(--kin-1)">build</span>. Edit the source, not the output.</span></div>
     <div class="alert ok"><span class="ai">✓</span><span class="at"><b>Deployed</b>kogane &amp; washi pushed to all nine targets.</span></div>
@@ -142,12 +142,12 @@
     <div class="alert crit"><span class="ai">✗</span><span class="at"><b>Irreversible</b>Scarlet earns its place — this cannot be undone.</span></div>
   </div>
 
-  <div class="cx tilt wide">
+  <div class="cx wide">
     <div class="cx-h">data table <span class="ct">click a header to sort</span></div>
     <div id="tblHost">${tableHTML()}</div>
   </div>
 
-  <div class="cx tilt">
+  <div class="cx">
     <div class="cx-h">disclosure <span class="ct">accordion</span></div>
     <div class="acc" data-acc>
       <div class="acc-i open"><button class="acc-q">What is a role? <span class="chev">›</span></button><div class="acc-a"><div class="inner">A small scale built for one job — background, surface, line, solid, text. You pick by meaning, not by eye.</div></div></div>
@@ -156,7 +156,7 @@
     </div>
   </div>
 
-  <div class="cx tilt">
+  <div class="cx">
     <div class="cx-h">overlays <span class="ct">dialog · tooltip</span></div>
     <div class="cx-row"><button class="btn btn-p btn-sm" data-modal>Open dialog</button>
       <span class="tipw"><span class="tg">hover me</span><span class="tt">◆ a tooltip, set in mono</span></span>
@@ -168,7 +168,7 @@
     <div class="skel" style="height:13px;width:55%;margin-top:8px"></div>
   </div>
 
-  <div class="cx tilt span2">
+  <div class="cx span2">
     <div class="cx-h">navigation <span class="ct">breadcrumb · pagination</span></div>
     <div class="crumb"><a href="#s2">canon</a><span class="sp">/</span><a href="#s2">palette</a><span class="sp">/</span><span class="cur">roles</span></div>
     <div class="cx-sub">pagination</div>
@@ -179,12 +179,12 @@
     </div>
   </div>
 
-  <div class="cx tilt">
+  <div class="cx">
     <div class="cx-h">menu <span class="ct">dropdown · popover</span></div>
     <div class="menu-wrap" data-menu>
       <button class="btn btn-g btn-sm" data-menu-t>Actions <span style="font-family:var(--mono);color:var(--kin-2)">▾</span></button>
       <div class="menu">
-        <button data-act="copy" data-copy="git clone https://github.com/zinzaki/yoshiki"><span class="mi">❯</span> Clone repo <span class="mk">⌘C</span></button>
+        <button data-act="open"><span class="mi">↗</span> Open on GitHub</button>
         <button data-act="theme"><span class="mi">◐</span> Toggle theme <span class="mk">1·2</span></button>
         <button data-act="export"><span class="mi">◆</span> Jump to export</button>
         <div class="sepm"></div>
@@ -193,7 +193,7 @@
     </div>
   </div>
 
-  <div class="cx tilt">
+  <div class="cx">
     <div class="cx-h">wizard <span class="ct">stepper</span></div>
     <div class="stepper" id="stepper">
       <div class="stp active"><span class="sc">1</span><span class="sl">palette</span></div><span class="sline"></span>
@@ -207,7 +207,7 @@
     </div>
   </div>
 
-  <div class="cx tilt">
+  <div class="cx">
     <div class="cx-h">rating &amp; people <span class="ct">stars · avatars</span></div>
     <div class="cx-row"><div class="rate" id="rate"></div><span class="ratev" id="ratev">3 / 5</span></div>
     <div class="cx-sub">presence</div>
@@ -219,7 +219,7 @@
     </div>
   </div>
 
-  <div class="cx tilt span2">
+  <div class="cx span2">
     <div class="cx-h">code &amp; keys <span class="ct">copy · kbd</span></div>
     <div class="codeblk"><button class="ccopy" data-codecopy>copy</button><pre id="codePre"><span class="d">// resolve a role to a token, current theme</span>
 <span class="k">fn</span> <span class="b">resolve</span>(role: <span class="k">&amp;str</span>) -&gt; Token {
@@ -227,13 +227,12 @@
 }</pre></div>
     <div class="cx-sub">shortcuts</div>
     <div class="cx-row" style="gap:18px">
-      <span style="font-family:var(--mono);font-size:11.5px;color:var(--bone-3)"><span class="kbd">1</span> <span class="kbd">2</span> theme</span>
-      <span style="font-family:var(--mono);font-size:11.5px;color:var(--bone-3)"><span class="kbd">⌘</span> <span class="kbd">K</span> palette</span>
-      <span style="font-family:var(--mono);font-size:11.5px;color:var(--bone-3)"><span class="kbd">?</span> help</span>
+      <span style="font-family:var(--mono);font-size:11.5px;color:var(--bone-3)"><span class="kbd">1</span> <span class="kbd">2</span> switch theme</span>
+      <span style="font-family:var(--mono);font-size:11.5px;color:var(--bone-3)"><span class="kbd">esc</span> close dialog</span>
     </div>
   </div>
 
-  <div class="cx tilt">
+  <div class="cx">
     <div class="cx-h">toasts <span class="ct">fire one · by role</span></div>
     <div class="cx-row">
       <button class="btn btn-g btn-sm" data-toast2="◆ saved to disk|">Info</button>
@@ -254,11 +253,6 @@
      <div class="mrow2"><button class="btn btn-g btn-sm" data-mclose>Cancel</button><button class="btn btn-x btn-sm" data-mclose id="mdel">Delete</button></div>`
   ));
   mr&&mr.addEventListener('click',e=>{if(e.target.id==='mdel')toast('彼岸花 · deleted');});
-
-  // toggle switch
-  const sw=root.querySelector('[data-sw]'),swl=document.getElementById('swl');
-  function flip(){const on=sw.classList.toggle('on');sw.setAttribute('aria-checked',on);swl.textContent=on?'enabled':'disabled';}
-  if(sw){sw.onclick=flip;sw.onkeydown=e=>{if(e.key===' '||e.key==='Enter'){e.preventDefault();flip();}};}
 
   // range
   const rng=document.getElementById('rng1'),rngv=document.getElementById('rngv');
@@ -316,6 +310,7 @@
     menu.querySelectorAll('button').forEach(b=>b.onclick=()=>{
       const a=b.dataset.act;
       if(a==='theme')window.setTheme&&window.setTheme(document.documentElement.dataset.theme==='washi'?'kogane':'washi');
+      else if(a==='open')window.open('https://github.com/zinzaki/yoshiki','_blank');
       else if(a==='export')document.getElementById('s3').scrollIntoView({behavior:'smooth'});
       else if(a==='del')openModal(`<button class="modal-x" data-mclose>✕</button><h3><span class="mi">緋</span> Delete this theme?</h3><p>Scarlet marks the irreversible. This cannot be undone.</p><div class="mrow2"><button class="btn btn-g btn-sm" data-mclose>Cancel</button><button class="btn btn-x btn-sm" data-mclose>Delete</button></div>`);
       close();

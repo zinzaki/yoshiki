@@ -5,7 +5,8 @@
 
 /* ════ §06 components — tiled gallery ════ */
 .cmp{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px;align-items:start}
-.cx{border:1px solid var(--line-0);border-radius:16px;background:var(--ink-1);padding:18px 19px;transition:border-color .25s,transform .25s}
+.cx{border:1px solid var(--line-0);border-radius:16px;background:var(--ink-1);padding:18px 19px;transition:border-color .25s}
+.cx:hover{border-color:var(--line-1)}
 .cx.wide{grid-column:1/-1}
 .cx.tall{grid-row:span 2}
 @media(min-width:861px){.cx.span2{grid-column:span 2}}
@@ -191,14 +192,7 @@ select.inp{cursor:pointer;appearance:none;-webkit-appearance:none;background-ima
 .railx.on .rd{background:var(--kin-1);border-color:var(--kin-1);box-shadow:0 0 9px color-mix(in srgb,var(--kin-1) 60%,transparent)}
 .railx.on .rl2{opacity:1;transform:none;color:var(--kin-text)}
 
-/* ════ effects toggle ════ */
-.fxtog{width:30px;height:30px;border-radius:9px;border:1px solid var(--line-1);background:var(--ink-1);color:var(--kin-1);cursor:pointer;font-size:14px;line-height:1;transition:.25s;display:grid;place-items:center}
-.fxtog:hover{border-color:var(--kin-1);transform:rotate(45deg)}
-html.fx-off .fxtog{color:var(--bone-4);border-color:var(--line-0)}
-
-/* ════ decorative effects ════ */
-#ripple{position:fixed;inset:0;z-index:-1;pointer-events:none}
-html.fx-off #ripple,html.fx-off #sky{display:none}
+/* ════ decorative seams ════ */
 /* self-drawing kintsugi seam between sections */
 .kseam{position:relative;height:0;overflow:visible;pointer-events:none}
 .kseam svg{position:absolute;left:50%;top:-60px;transform:translateX(-50%);width:min(820px,86vw);height:120px;overflow:visible}
@@ -206,11 +200,7 @@ html.fx-off #ripple,html.fx-off #sky{display:none}
   filter:drop-shadow(0 0 5px color-mix(in srgb,var(--kin-1) 55%,transparent));
   stroke-dasharray:var(--len);stroke-dashoffset:var(--len);transition:stroke-dashoffset 1.6s cubic-bezier(.3,.7,.2,1)}
 .kseam.lit path{stroke-dashoffset:0}
-html.fx-off .kseam{display:none}
 @media(prefers-reduced-motion:reduce){.kseam path{transition:none;stroke-dashoffset:0}}
-/* card tilt */
-.tilt{transition:transform .2s cubic-bezier(.2,.7,.2,1),border-color .25s}
-html.fx-off .tilt{transform:none!important}
 
 /* ════ modal ════ */
 #modalRoot{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;padding:24px}
@@ -285,35 +275,38 @@ html.fx-off .tilt{transform:none!important}
 .ava .pres.on{background:var(--mori-0)}.ava .pres.away{background:var(--kaki)}.ava .pres.off{background:var(--bone-4)}
 .avstack{display:flex}.avstack .ava{margin-left:-9px;border:2px solid var(--ink-1)}.avstack .ava:first-child{margin-left:0}
 
-/* ════ command palette ════ */
-#cmdk{position:fixed;inset:0;z-index:220;display:none;align-items:flex-start;justify-content:center;padding:13vh 20px}
-#cmdk.open{display:flex}
-#cmdk .cmdk-back{position:absolute;inset:0;background:color-mix(in srgb,var(--ink-0) 68%,transparent);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);animation:fadein .2s both}
-.cmdk-box{position:relative;width:min(560px,100%);background:var(--ink-1);border:1px solid var(--line-1);border-radius:16px;overflow:hidden;
-  box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 0 1px color-mix(in srgb,var(--kin-1) 18%,transparent);animation:modalin .25s cubic-bezier(.2,.7,.2,1) both}
-.cmdk-in{display:flex;align-items:center;gap:11px;padding:15px 18px;border-bottom:1px solid var(--line-0)}
-.cmdk-in .p{font-family:var(--mono);color:var(--kin-1);font-size:15px}
-.cmdk-in input{flex:1;background:none;border:none;outline:none;color:var(--bone-0);font-family:var(--sans);font-size:16px;font-weight:300}
-.cmdk-in input::placeholder{color:var(--bone-4)}
-.cmdk-in .esc{font-family:var(--mono);font-size:9px;color:var(--bone-4);border:1px solid var(--line-1);border-radius:5px;padding:3px 6px}
-.cmdk-list{max-height:48vh;overflow-y:auto;padding:7px}
-.cmdk-grp{font-family:var(--mono);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--bone-4);padding:9px 11px 5px}
-.cmdk-item{display:flex;align-items:center;gap:12px;padding:10px 13px;border-radius:10px;cursor:pointer;color:var(--bone-2);scroll-margin:8px}
-.cmdk-item .ci{font-family:var(--mono);color:var(--kin-2);width:18px;text-align:center;flex-shrink:0}
-.cmdk-item .cl{flex:1;font-size:14px;color:var(--bone-1)}
-.cmdk-item .ck{font-family:var(--mono);font-size:10px;color:var(--bone-4)}
-.cmdk-item.sel{background:color-mix(in srgb,var(--kin-1) 13%,var(--ink-2))}
-.cmdk-item.sel .ci{color:var(--kin-1)}.cmdk-item.sel .cl{color:var(--bone-0)}
-.cmdk-empty{padding:26px;text-align:center;color:var(--bone-4);font-family:var(--mono);font-size:12px}
-@media(prefers-reduced-motion:reduce){.cmdk-box,#cmdk .cmdk-back{animation:none}}
-
-/* ⌘K trigger in the bar */
-.kbtn{display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:10px;color:var(--bone-3);border:1px solid var(--line-1);background:var(--ink-1);border-radius:8px;padding:6px 9px;cursor:pointer;transition:.2s}
-.kbtn:hover{border-color:var(--kin-2);color:var(--kin-text)}
-.kbtn kbd{font-family:var(--mono);font-size:9px;color:var(--bone-4);border:none;background:none;padding:0}
-@media(max-width:680px){.kbtn .lbl{display:none}}
-
-/* ════ shortcuts overlay (uses modal) ════ */
-.keys{display:grid;grid-template-columns:auto 1fr;gap:11px 18px;margin-top:18px;align-items:center}
-.keys .kc{display:flex;gap:5px}
-.keys .kd{font-size:13px;color:var(--bone-2)}
+/* ════ §08 the language, applied — real surfaces ════ */
+.applied{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+@media(max-width:860px){.applied{grid-template-columns:1fr}}
+.surf{border:1px solid var(--line-0);border-radius:16px;background:var(--ink-1);overflow:hidden;display:flex;flex-direction:column;transition:border-color .25s}
+.surf:hover{border-color:var(--line-1)}
+.surf-h{display:flex;align-items:center;gap:9px;padding:11px 15px;border-bottom:1px solid var(--line-0);font-family:var(--mono);font-size:10px;letter-spacing:1px;color:var(--bone-4)}
+.surf-h .dot{width:9px;height:9px;border-radius:50%}
+.surf-h .st2{margin-left:auto;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--kin-2)}
+.surf-b{padding:17px 18px;flex:1;min-height:150px}
+.surf-cap{padding:13px 18px 15px;border-top:1px solid var(--line-0);font-size:12.5px;color:var(--bone-3);line-height:1.65}
+.surf-cap b{color:var(--bone-1);font-weight:400}
+.surf-cap .k{color:var(--kin-text)}.surf-cap .r{color:var(--aka-0)}.surf-cap .g{color:var(--mori-0)}
+/* a web mini-card rendered inside a surface */
+.wcard{border:1px solid var(--line-1);border-radius:13px;background:var(--ink-0);padding:16px}
+.wcard .wt{font-family:var(--serif);font-size:18px;color:var(--bone-0);font-weight:700}
+.wcard .wd{font-size:12.5px;color:var(--bone-3);margin-top:4px;line-height:1.55}
+.wcard .wrow{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:14px;padding-top:13px;border-top:1px solid var(--line-0)}
+.wseg{font-family:var(--mono);font-size:11px;color:var(--bone-2)}
+/* markdown surface */
+.md{font-size:13.5px;line-height:1.7;color:var(--bone-2)}
+.md h5{font-family:var(--serif);font-size:19px;color:var(--bone-0);font-weight:700;margin-bottom:4px}
+.md .sub{font-family:var(--mono);font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--bone-4);margin-bottom:13px}
+.md hr{border:none;border-top:1px solid var(--line-1);margin:13px 0;position:relative}
+.md hr::after{content:'◆';position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:var(--ink-1);padding:0 9px;color:var(--kin-2);font-size:11px}
+.md code{font-family:var(--mono);font-size:12px;color:var(--kin-text);background:var(--ink-0);padding:1px 6px;border-radius:5px}
+.md p+p{margin-top:9px}
+.md .quote{border-left:2px solid var(--kin-2);padding-left:13px;color:var(--bone-2);font-style:italic}
+/* status line surface */
+.statusline{font-family:var(--mono);font-size:12px;display:flex;align-items:center;gap:0;border-radius:9px;overflow:hidden;border:1px solid var(--line-0)}
+.statusline span{padding:8px 13px}
+.statusline .sl-mode{background:var(--kin-1);color:var(--ink-0);font-weight:600}
+.statusline .sl-seg{background:var(--ink-2);color:var(--bone-2)}
+.statusline .sl-mid{flex:1;background:var(--ink-0);color:var(--bone-4)}
+.statusline .sl-warn{background:var(--ink-2);color:var(--kaki)}
+.statusline .sl-ok{background:var(--ink-2);color:var(--mori-0)}

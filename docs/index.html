@@ -15,16 +15,12 @@
 <link rel="stylesheet" href="assets/components.css">
 </head>
 <body>
-<div id="cur"></div><div id="cdot"></div>
 <div id="bg"></div><canvas id="sky"></canvas><div id="grain"></div>
-<canvas id="ripple"></canvas>
 <div id="prog"></div>
 
 <header class="bar" id="bar">
   <a class="logo" href="#top">様式 <small>yoshiki</small></a>
   <div class="right">
-    <button class="kbtn" id="kbtn" aria-label="command palette"><span class="lbl">search</span> <kbd><span class="mod">⌘</span>K</kbd></button>
-    <button class="fxtog" id="fxtog" aria-label="toggle effects" title="effects — on">◈</button>
     <button class="tdot on" data-t="kogane" aria-label="dark theme"></button>
     <button class="tdot" data-t="washi" aria-label="light theme"></button>
     <a class="gh" href="https://github.com/zinzaki/yoshiki">github ↗</a>
@@ -57,7 +53,7 @@
     <div class="meta">
       <p><b>A warm, contrast-proven design language.</b> Lacquer, bone and gold — struck rarely by a single spider-lily scarlet. Palette, type, lexicon, components, live demos, ready themes and drop-in AI prompts.</p>
       <div class="acts">
-        <button class="btn btn-p" data-copy="git clone https://github.com/zinzaki/yoshiki"><span class="pmt">❯</span> git clone</button>
+        <a class="btn btn-p" href="https://github.com/zinzaki/yoshiki">Browse the repo ↗</a>
         <a class="btn btn-g" href="#s2">Open the palette</a>
       </div>
     </div>
@@ -217,9 +213,98 @@
     </div>
   </section>
 
-  <!-- 08 · ECOSYSTEM -->
-  <section class="S" id="s8" data-nav="ecosystem">
+  <!-- 08 · THE LANGUAGE, APPLIED -->
+  <section class="S" id="s7b" data-nav="applied">
     <div class="mark"><span class="node"></span><span class="num">08</span></div>
+    <div class="wrap">
+      <div class="grid"><div class="r" style="grid-column:1/8">
+        <div class="kicker gold">one language · every surface</div>
+        <h2>The same rules, wherever it lands.</h2>
+        <p class="lead">A design language only proves itself in use. Here it is across six real surfaces — terminal, web, chat, docs, data and the status line. Same palette, same laws: almost all tone, gold on the edges, one scarlet kept for the irreversible.</p>
+      </div></div>
+
+      <div class="applied r" style="margin-top:40px">
+
+        <!-- CLI -->
+        <div class="surf">
+          <div class="surf-h"><span class="dot" style="background:var(--aka-1)"></span><span class="dot" style="background:var(--kin-1)"></span><span class="dot" style="background:var(--mori-1)"></span> &nbsp;cli · zsh<span class="st2">terminal</span></div>
+          <div class="surf-b"><div class="term"><span class="k">╭─ ◆ ─</span> deploy <span class="k">─  main</span> <span class="g">✓ clean</span> <span class="k">─</span> <span style="color:var(--seiji)">v1.4.0</span>
+<span class="k">╰─ ❯</span> ship --prod
+<span class="g">✓</span> build      <span class="d">passed · 214 files · 0.4s</span>
+<span class="g">✓</span> tests      <span class="d">passed · 1,820 ok</span>
+<span class="k">●</span> upload     <span class="d">in progress</span> <span class="k js-braille">⠹</span>
+<span class="r">✗</span> migrate    <span class="d">blocked · needs --confirm</span></div></div>
+          <div class="surf-cap">Gold gilds the prompt and the frame. Success is a quiet <span class="g">moss ✓</span>, work-in-flight a calm gold dot — and the one <span class="r">scarlet ✗</span> is spent on the single thing you can't undo.</div>
+        </div>
+
+        <!-- WEB -->
+        <div class="surf">
+          <div class="surf-h"><span class="dot" style="background:var(--aka-1)"></span><span class="dot" style="background:var(--kin-1)"></span><span class="dot" style="background:var(--mori-1)"></span> &nbsp;app · billing<span class="st2">web ui</span></div>
+          <div class="surf-b"><div class="wcard">
+            <div class="wt">Cancel subscription</div>
+            <div class="wd">You're on <b style="color:var(--bone-1)">Studio · ¥4,820/mo</b>. Access stays until the period ends on Jul 18.</div>
+            <div class="wrow"><span class="wseg"><span style="color:var(--mori-0)">●</span> active</span>
+              <span style="display:flex;gap:9px"><button class="btn btn-g btn-sm">Keep plan</button><button class="btn btn-x btn-sm">Cancel</button></span></div>
+          </div></div>
+          <div class="surf-cap">Surfaces in lacquer, body in bone, <span class="k">one gold edge</span> for focus. The destructive button is the only place <span class="r">scarlet</span> may fill — so it reads as a warning, not decoration.</div>
+        </div>
+
+        <!-- CHAT -->
+        <div class="surf">
+          <div class="surf-h"><span class="dot" style="background:var(--aka-1)"></span><span class="dot" style="background:var(--kin-1)"></span><span class="dot" style="background:var(--mori-1)"></span> &nbsp;bot · orders<span class="st2">chat</span></div>
+          <div class="surf-b"><div class="term"><span class="k">╭─ ◆</span> ORDER <span class="b">#1421</span>
+<span class="k">│</span>  item     Hand-bound notebook
+<span class="k">│</span>  status   <span class="g">✓ paid</span>   <span class="d">·</span>   ¥ 4,820
+<span class="k">│</span>  ship     <span class="d">Kyoto → Tokyo · 2 days</span>
+<span class="k">╰─ ❯</span> /track  /receipt  /cancel
+
+<span class="d">— delivered 14:02 —</span>
+<span class="k">◆</span> <span class="b">Your parcel left the workshop.</span></div></div>
+          <div class="surf-cap"><b>Structure carries the message.</b> Frames, a key glyph and aligned columns do the work that colour-shouting does elsewhere — so the thread stays calm and scannable.</div>
+        </div>
+
+        <!-- DOCS -->
+        <div class="surf">
+          <div class="surf-h"><span class="dot" style="background:var(--aka-1)"></span><span class="dot" style="background:var(--kin-1)"></span><span class="dot" style="background:var(--mori-1)"></span> &nbsp;README.md<span class="st2">docs</span></div>
+          <div class="surf-b"><div class="md">
+            <h5>様式 yoshiki</h5>
+            <div class="sub">a warm, contrast-proven design language</div>
+            <p>Lacquer, bone and gold — struck rarely by a single spider-lily scarlet. Install one token file: <code>tokens.json</code>.</p>
+            <hr>
+            <p class="quote">Colour earns its power by being rare.</p>
+          </div></div>
+          <div class="surf-cap">Headings in the warm <span class="k">serif</span>, code in mono, a single gold <span class="k">◆</span> rule to divide. The page is calm enough that the one pull-quote actually lands.</div>
+        </div>
+
+        <!-- DATA -->
+        <div class="surf">
+          <div class="surf-h"><span class="dot" style="background:var(--aka-1)"></span><span class="dot" style="background:var(--kin-1)"></span><span class="dot" style="background:var(--mori-1)"></span> &nbsp;report · weekly<span class="st2">data</span></div>
+          <div class="surf-b"><div class="chart" style="border:none;padding:0;background:none">
+            <div class="crow"><span class="cl">revenue</span><span class="cb"><span class="f">▰▰▰▰▰▰▰▰▰▰▰</span><span class="e">▱▱▱</span></span><span class="cv">¥ 1.2M</span></div>
+            <div class="crow"><span class="cl">orders</span><span class="cb"><span class="f">▰▰▰▰▰▰▰▰</span><span class="e">▱▱▱▱▱▱</span></span><span class="cv">318</span></div>
+            <div class="crow"><span class="cl">refunds</span><span class="cb"><span class="w">▰▰</span><span class="e">▱▱▱▱▱▱▱▱▱▱▱▱</span></span><span class="cv">2.1%</span></div>
+            <div class="crow"><span class="cl">load</span><span class="cb" style="letter-spacing:0;color:var(--kin-1)">⡠⠔⠊⠉⠉⠑⠢⠤⠄⠂⠁⠂⠄⠢⠤</span><span class="cv">41%</span></div>
+          </div></div>
+          <div class="surf-cap">Numbers drawn with <span class="k">squares and dots</span>, never a solid slab. The lone warm amber on <span style="color:var(--kaki)">refunds</span> flags the one figure that crossed its threshold.</div>
+        </div>
+
+        <!-- STATUS LINE -->
+        <div class="surf">
+          <div class="surf-h"><span class="dot" style="background:var(--aka-1)"></span><span class="dot" style="background:var(--kin-1)"></span><span class="dot" style="background:var(--mori-1)"></span> &nbsp;editor · status<span class="st2">status line</span></div>
+          <div class="surf-b">
+            <div class="statusline"><span class="sl-mode">NORMAL</span><span class="sl-seg">main ~2</span><span class="sl-mid">&nbsp;&nbsp;src/palette.rs</span><span class="sl-warn">⚠ 1</span><span class="sl-ok">✓ 0</span><span class="sl-seg">utf-8 · 42:8</span></div>
+            <p style="font-family:var(--mono);font-size:11.5px;color:var(--bone-4);margin-top:14px;line-height:1.7">One filled gold block for the mode — the rest is tone. A diagnostic count earns <span style="color:var(--kaki)">amber</span> only when it's non-zero; clean stays quiet.</p>
+          </div>
+          <div class="surf-cap">Even the densest strip obeys the ratio: a single solid accent, everything else in lacquer and bone. <b>The eye knows where to look without being shouted at.</b></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 09 · ECOSYSTEM -->
+  <section class="S" id="s8" data-nav="ecosystem">
+    <div class="mark"><span class="node"></span><span class="num">09</span></div>
     <div class="wrap">
       <div class="grid"><div class="r" style="grid-column:1/8">
         <div class="kicker gold">in use · shipped</div>
@@ -243,9 +328,9 @@
     </div>
   </section>
 
-  <!-- 09 · AI NAVIGATION -->
+  <!-- 10 · AI NAVIGATION -->
   <section class="S band" id="s9" data-nav="ai navigation">
-    <div class="mark"><span class="node"></span><span class="num">09</span></div>
+    <div class="mark"><span class="node"></span><span class="num">10</span></div>
     <div class="wrap">
       <div class="grid"><div class="r" style="grid-column:5/13;text-align:right">
         <div class="kicker gold">point an agent at it</div>
@@ -260,14 +345,17 @@
     </div>
   </section>
 
-  <!-- 10 · CTA -->
+  <!-- 11 · CTA -->
   <section class="S" id="s10" data-nav="take it">
-    <div class="mark"><span class="node"></span><span class="num">10</span></div>
+    <div class="mark"><span class="node"></span><span class="num">11</span></div>
     <div class="wrap"><div class="grid"><div class="r" style="grid-column:3/11;text-align:center">
       <div class="kicker gold" style="text-align:center">take it</div>
-      <h2>Take one file, or all of it.</h2>
-      <p class="lead" style="margin:18px auto 0">A palette, a lexicon, a component kit, ready terminal &amp; editor themes, and drop-in AI prompts. MIT — yours to use.</p>
-      <div style="margin-top:30px"><button class="copybox" data-copy="git clone https://github.com/zinzaki/yoshiki"><span class="pmt">❯</span> git clone github.com/zinzaki/yoshiki <span class="cp">copy</span></button></div>
+      <h2>Use it straight from the repo.</h2>
+      <p class="lead" style="margin:18px auto 0">A palette, a lexicon, a component kit, ready terminal &amp; editor themes, and drop-in AI prompts — all on GitHub. Read it, lift one file, or point an agent at the link. MIT.</p>
+      <div class="acts" style="justify-content:center;margin-top:30px;display:flex;gap:13px;flex-wrap:wrap">
+        <a class="btn btn-p" href="https://github.com/zinzaki/yoshiki">Open on GitHub ↗</a>
+        <a class="btn btn-g" href="https://github.com/zinzaki/yoshiki/blob/main/AGENTS.md">Read AGENTS.md</a>
+      </div>
       <div class="foot" style="justify-content:center"><span>様式 yoshiki</span><span class="sep">·</span><a href="https://github.com/zinzaki/yoshiki">github</a><span class="sep">·</span><span>an open design language</span><span class="sep">·</span><span>MIT</span></div>
     </div></div></div>
   </section>
@@ -283,6 +371,5 @@
 <script src="assets/components.js"></script>
 <script src="assets/demos.js"></script>
 <script src="assets/effects.js"></script>
-<script src="assets/palette.js"></script>
 </body>
 </html>

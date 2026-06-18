@@ -240,24 +240,3 @@ h4.gcat{font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform
   .gl:active,.ecard:active{border-color:var(--kin-2);background:var(--ink-2)}
   .tdot:active{transform:scale(.92)}
 }
-
-/* ════ cursor — a gilded bead trails the pointer; speaks the role language ════ */
-@media(hover:hover) and (pointer:fine){
-  html.cur body,html.cur a,html.cur button,html.cur label,html.cur .step,html.cur .ac,html.cur .gl,
-  html.cur .tdot,html.cur .copybox,html.cur .ecard,html.cur .sw2,html.cur [data-copy]{cursor:none}
-  #cur,#cdot{position:fixed;top:0;left:0;z-index:9000;pointer-events:none;border-radius:50%;opacity:0}
-  html.cur #cur,html.cur #cdot{opacity:1}
-  #cur{width:34px;height:34px;margin:-17px 0 0 -17px;border:1px solid var(--cur,var(--kin-1));will-change:transform;
-    box-shadow:0 0 13px color-mix(in srgb,var(--cur,var(--kin-1)) 34%,transparent),inset 0 0 7px color-mix(in srgb,var(--cur,var(--kin-1)) 12%,transparent);
-    transition:width .26s cubic-bezier(.2,.7,.2,1),height .26s cubic-bezier(.2,.7,.2,1),margin .26s cubic-bezier(.2,.7,.2,1),border-color .35s,background .35s,opacity .3s}
-  #cdot{width:5px;height:5px;margin:-2.5px 0 0 -2.5px;background:var(--cur,var(--kin-0));will-change:transform;
-    box-shadow:0 0 9px color-mix(in srgb,var(--cur,var(--kin-0)) 65%,transparent);transition:background .35s,opacity .3s}
-  .ctrail{position:fixed;top:0;left:0;z-index:8999;pointer-events:none;border-radius:50%;opacity:0;will-change:transform;
-    background:var(--cur,var(--kin-0));box-shadow:0 0 5px color-mix(in srgb,var(--cur,var(--kin-0)) 40%,transparent);transition:background .35s}
-  html.cur .ctrail{opacity:var(--bo,.3)}
-  html.cur.cur-out .ctrail{opacity:0}
-  html.cur.cur-hover #cur{width:52px;height:52px;margin:-26px 0 0 -26px;background:color-mix(in srgb,var(--cur,var(--kin-1)) 9%,transparent)}
-  html.cur.cur-down #cur{width:25px;height:25px;margin:-12.5px 0 0 -12.5px;background:color-mix(in srgb,var(--cur,var(--kin-1)) 16%,transparent)}
-  html.cur.cur-out #cur,html.cur.cur-out #cdot{opacity:0}
-}
-@media(prefers-reduced-motion:reduce){#cur,#cdot,.ctrail{display:none}}
