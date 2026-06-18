@@ -21,10 +21,13 @@
 
   /* ── toast ── */
   let tt;
-  function toast(m){
+  function toast(m,type){
     const t=document.getElementById('toast');if(!t)return;
-    t.textContent=m;t.classList.add('show');clearTimeout(tt);
-    tt=setTimeout(()=>t.classList.remove('show'),1700);
+    t.textContent=m;
+    t.classList.remove('t-ok','t-warn','t-crit');
+    if(type)t.classList.add('t-'+type);
+    t.classList.add('show');clearTimeout(tt);
+    tt=setTimeout(()=>t.classList.remove('show'),1900);
   }
 
   /* ── palette — single source of truth (kogane / washi) ── */

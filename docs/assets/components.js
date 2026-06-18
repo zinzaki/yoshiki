@@ -22,7 +22,17 @@
   function closeModal(){if(!mr)return;mr.classList.remove('open');mr.setAttribute('aria-hidden','true');mr.innerHTML='';if(lastFocus)lastFocus.focus();}
   if(mr){
     mr.addEventListener('click',e=>{if(e.target.closest('[data-mclose]'))closeModal();});
-    addEventListener('keydown',e=>{if(e.key==='Escape'&&mr.classList.contains('open'))closeModal();});
+    addEventListener('keydown',e=>{
+      if(!mr.classList.contains('open'))return;
+      if(e.key==='Escape'){closeModal();return;}
+      if(e.key==='Tab'){ // trap focus inside the dialog
+        const f=[...mr.querySelectorAll('button,a,input,select,textarea')].filter(x=>!x.disabled);
+        if(!f.length)return;
+        const first=f[0],last=f[f.length-1];
+        if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+        else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+      }
+    });
   }
   window.Y.openModal=openModal;window.Y.closeModal=closeModal;
 
@@ -78,11 +88,8 @@
   <div class="cx tilt">
     <div class="cx-h">inputs <span class="ct">text · select</span></div>
     <div class="fld"><label>email</label><input class="inp" type="text" placeholder="you@studio.jp" value=""></div>
-    <div class="cx-row" style="margin-top:13px"></div>
     <div class="fld err"><label>token</label><input class="inp" type="text" value="invalid-key" ><span class="hint2">✗ key must start with sk_</span></div>
-    <div class="cx-row" style="margin-top:13px"></div>
     <div class="fld"><label>theme</label><select class="inp"><option>kogane — lacquer dark</option><option>washi — paper light</option><option>auto — follow system</option></select></div>
-    <div class="cx-row" style="margin-top:13px"></div>
     <div class="fld"><label>note</label><textarea class="inp" placeholder="warm never grey…"></textarea></div>
   </div>
 
@@ -130,11 +137,8 @@
   <div class="cx tilt span2">
     <div class="cx-h">alerts <span class="ct">one glyph + one colour</span></div>
     <div class="alert info"><span class="ai">◆</span><span class="at"><b>Heads up</b>Tokens regenerate on every <span style="font-family:var(--mono);color:var(--kin-1)">build</span>. Edit the source, not the output.</span></div>
-    <div class="cx-row" style="margin-top:11px"></div>
     <div class="alert ok"><span class="ai">✓</span><span class="at"><b>Deployed</b>kogane &amp; washi pushed to all nine targets.</span></div>
-    <div class="cx-row" style="margin-top:11px"></div>
     <div class="alert warn"><span class="ai">⚠</span><span class="at"><b>Contrast</b>This pair sits at AA·lg — fine for large text only.</span></div>
-    <div class="cx-row" style="margin-top:11px"></div>
     <div class="alert crit"><span class="ai">✗</span><span class="at"><b>Irreversible</b>Scarlet earns its place — this cannot be undone.</span></div>
   </div>
 
@@ -172,6 +176,72 @@
       <button data-rel="-1" disabled>‹</button>
       <button class="on">1</button><button>2</button><button>3</button><button>…</button><button>9</button>
       <button data-rel="1">›</button>
+    </div>
+  </div>
+
+  <div class="cx tilt">
+    <div class="cx-h">menu <span class="ct">dropdown · popover</span></div>
+    <div class="menu-wrap" data-menu>
+      <button class="btn btn-g btn-sm" data-menu-t>Actions <span style="font-family:var(--mono);color:var(--kin-2)">▾</span></button>
+      <div class="menu">
+        <button data-act="copy" data-copy="git clone https://github.com/zinzaki/yoshiki"><span class="mi">❯</span> Clone repo <span class="mk">⌘C</span></button>
+        <button data-act="theme"><span class="mi">◐</span> Toggle theme <span class="mk">1·2</span></button>
+        <button data-act="export"><span class="mi">◆</span> Jump to export</button>
+        <div class="sepm"></div>
+        <button class="danger" data-act="del"><span class="mi">緋</span> Delete theme…</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="cx tilt">
+    <div class="cx-h">wizard <span class="ct">stepper</span></div>
+    <div class="stepper" id="stepper">
+      <div class="stp active"><span class="sc">1</span><span class="sl">palette</span></div><span class="sline"></span>
+      <div class="stp"><span class="sc">2</span><span class="sl">type</span></div><span class="sline"></span>
+      <div class="stp"><span class="sc">3</span><span class="sl">ship</span></div>
+    </div>
+    <div class="step-body" id="stepBody">Pick the role scales — lacquer, bone, gold, and the two triggers.</div>
+    <div class="cx-row">
+      <button class="btn btn-g btn-sm" id="stepBack" disabled>Back</button>
+      <button class="btn btn-p btn-sm" id="stepNext">Next</button>
+    </div>
+  </div>
+
+  <div class="cx tilt">
+    <div class="cx-h">rating &amp; people <span class="ct">stars · avatars</span></div>
+    <div class="cx-row"><div class="rate" id="rate"></div><span class="ratev" id="ratev">3 / 5</span></div>
+    <div class="cx-sub">presence</div>
+    <div class="cx-row" style="gap:14px">
+      <div class="ava k">様<span class="pres on"></span></div>
+      <div class="ava m">Z<span class="pres away"></span></div>
+      <div class="ava s">緋<span class="pres off"></span></div>
+      <div class="avstack"><div class="ava k">A</div><div class="ava m">B</div><div class="ava s">C</div><div class="ava" style="background:var(--ink-3);color:var(--bone-3)">+4</div></div>
+    </div>
+  </div>
+
+  <div class="cx tilt span2">
+    <div class="cx-h">code &amp; keys <span class="ct">copy · kbd</span></div>
+    <div class="codeblk"><button class="ccopy" data-codecopy>copy</button><pre id="codePre"><span class="d">// resolve a role to a token, current theme</span>
+<span class="k">fn</span> <span class="b">resolve</span>(role: <span class="k">&amp;str</span>) -&gt; Token {
+  palette.<span class="b">get</span>(role).<span class="b">unwrap_or</span>(Token::<span class="g">Bone</span>)
+}</pre></div>
+    <div class="cx-sub">shortcuts</div>
+    <div class="cx-row" style="gap:18px">
+      <span style="font-family:var(--mono);font-size:11.5px;color:var(--bone-3)"><span class="kbd">1</span> <span class="kbd">2</span> theme</span>
+      <span style="font-family:var(--mono);font-size:11.5px;color:var(--bone-3)"><span class="kbd">⌘</span> <span class="kbd">K</span> palette</span>
+      <span style="font-family:var(--mono);font-size:11.5px;color:var(--bone-3)"><span class="kbd">?</span> help</span>
+    </div>
+  </div>
+
+  <div class="cx tilt">
+    <div class="cx-h">toasts <span class="ct">fire one · by role</span></div>
+    <div class="cx-row">
+      <button class="btn btn-g btn-sm" data-toast2="◆ saved to disk|">Info</button>
+      <button class="btn btn-g btn-sm" data-toast2="✓ build passed|ok">Success</button>
+    </div>
+    <div class="cx-row">
+      <button class="btn btn-g btn-sm" data-toast2="⚠ low contrast|warn">Warn</button>
+      <button class="btn btn-g btn-sm" data-toast2="✗ 緋 deleted|crit">Scarlet</button>
     </div>
   </div>`;
 
@@ -216,12 +286,20 @@
     tblHost.innerHTML=tableHTML();bindTable();});}
   bindTable();
 
-  // pagination
+  // pagination — prev / numbers / next all move the active page
   const pag=root.querySelector('[data-pag]');
-  if(pag){const btns=[...pag.querySelectorAll('button')];
-    btns.forEach(b=>{if(!b.dataset.rel&&b.textContent!=='…')b.onclick=()=>{
-      btns.forEach(x=>x.classList.remove('on'));b.classList.add('on');
-      const prev=pag.querySelector('[data-rel="-1"]');if(prev)prev.disabled=b.textContent==='1';};});
+  if(pag){
+    const prev=pag.querySelector('[data-rel="-1"]'),next=pag.querySelector('[data-rel="1"]');
+    const nums=[...pag.querySelectorAll('button')].filter(b=>!b.dataset.rel&&b.textContent!=='…');
+    let i=0;
+    function paint(){
+      nums.forEach((b,j)=>b.classList.toggle('on',j===i));
+      prev.disabled=i===0;next.disabled=i===nums.length-1;
+    }
+    nums.forEach((b,j)=>b.onclick=()=>{i=j;paint();});
+    prev.onclick=()=>{if(i>0){i--;paint();}};
+    next.onclick=()=>{if(i<nums.length-1){i++;paint();}};
+    paint();
   }
 
   // demo progress bar — ease to a value when scrolled in
@@ -229,6 +307,70 @@
     const f=x.target.querySelector('i');if(f)setTimeout(()=>f.style.width='73%',150);pbObs.unobserve(x.target);}}),{threshold:.5});
   const pb=document.getElementById('prog1');if(pb)pbObs.observe(pb);
 
-  // reveal any new .r (none here, but keep the rail/geom fresh)
+  // dropdown menu
+  const mw=root.querySelector('[data-menu]');
+  if(mw){
+    const trg=mw.querySelector('[data-menu-t]'),menu=mw.querySelector('.menu');
+    const close=()=>menu.classList.remove('open');
+    trg.onclick=e=>{e.stopPropagation();menu.classList.toggle('open');};
+    menu.querySelectorAll('button').forEach(b=>b.onclick=()=>{
+      const a=b.dataset.act;
+      if(a==='theme')window.setTheme&&window.setTheme(document.documentElement.dataset.theme==='washi'?'kogane':'washi');
+      else if(a==='export')document.getElementById('s3').scrollIntoView({behavior:'smooth'});
+      else if(a==='del')openModal(`<button class="modal-x" data-mclose>✕</button><h3><span class="mi">緋</span> Delete this theme?</h3><p>Scarlet marks the irreversible. This cannot be undone.</p><div class="mrow2"><button class="btn btn-g btn-sm" data-mclose>Cancel</button><button class="btn btn-x btn-sm" data-mclose>Delete</button></div>`);
+      close();
+    });
+    document.addEventListener('click',e=>{if(!mw.contains(e.target))close();});
+  }
+
+  // stepper
+  const STEPS=[
+    'Pick the role scales — lacquer, bone, gold, and the two triggers.',
+    'Set the type: a warm serif to speak, a mono to count.',
+    'Run build — nine targets generated from the one palette.'
+  ];
+  const stepper=document.getElementById('stepper'),stepBody=document.getElementById('stepBody'),
+        stepBack=document.getElementById('stepBack'),stepNext=document.getElementById('stepNext');
+  if(stepper){
+    const stps=[...stepper.querySelectorAll('.stp')],lines=[...stepper.querySelectorAll('.sline')];let si=0;
+    function paintStep(){
+      stps.forEach((s,j)=>{s.classList.toggle('active',j===si);s.classList.toggle('done',j<si);});
+      lines.forEach((l,j)=>l.classList.toggle('fill',j<si));
+      stepBody.textContent=STEPS[si];stepBack.disabled=si===0;
+      stepNext.textContent=si===STEPS.length-1?'Done':'Next';
+    }
+    stepNext.onclick=()=>{if(si<STEPS.length-1){si++;paintStep();}else{toast('✓ shipped · 9 targets','ok');si=0;paintStep();}};
+    stepBack.onclick=()=>{if(si>0){si--;paintStep();}};
+    paintStep();
+  }
+
+  // rating
+  const rate=document.getElementById('rate'),ratev=document.getElementById('ratev');
+  if(rate){
+    let val=3;
+    rate.innerHTML=[1,2,3,4,5].map(n=>`<button data-n="${n}" aria-label="${n} stars">★</button>`).join('');
+    const stars=[...rate.querySelectorAll('button')];
+    const paint=v=>stars.forEach((s,j)=>s.classList.toggle('on',j<v));
+    stars.forEach(s=>{
+      s.onmouseenter=()=>paint(+s.dataset.n);
+      s.onclick=()=>{val=+s.dataset.n;ratev.textContent=val+' / 5';paint(val);};
+    });
+    rate.onmouseleave=()=>paint(val);
+    paint(val);
+  }
+
+  // code copy
+  const codeCopy=root.querySelector('[data-codecopy]'),codePre=document.getElementById('codePre');
+  if(codeCopy)codeCopy.onclick=()=>{if(navigator.clipboard)navigator.clipboard.writeText(codePre.textContent);toast('copied · snippet');};
+
+  // toasts (typed) + fix the never-wired [data-toast] buttons in the playground
+  document.addEventListener('click',e=>{
+    const t2=e.target.closest('[data-toast2]');
+    if(t2){const[m,ty]=t2.dataset.toast2.split('|');toast(m,ty||undefined);return;}
+    const t1=e.target.closest('[data-toast]');
+    if(t1)toast(t1.dataset.toast);
+  });
+
+  // keep the rail/geom fresh after building
   if(window.Y.geom)window.Y.geom();
 })();

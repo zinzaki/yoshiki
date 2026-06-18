@@ -69,7 +69,7 @@
         }
         if(rings.length)raf=requestAnimationFrame(draw);else raf=null;
       }
-      addEventListener('pointerdown',e=>{if(e.pointerType!=='touch'||true)spawn(e.clientX,e.clientY);},{passive:true});
+      addEventListener('pointerdown',e=>spawn(e.clientX,e.clientY),{passive:true});
     }
   }
 
@@ -92,7 +92,7 @@
   /* ════ card tilt — subtle pointer parallax ════ */
   if(matchMedia('(hover:hover) and (pointer:fine)').matches && !RM){
     const MAX=6;
-    document.querySelectorAll('.tilt').forEach(card=>{
+    document.querySelectorAll('.tilt:not(.wide)').forEach(card=>{
       card.addEventListener('pointermove',e=>{
         if(fxOff())return;
         const r=card.getBoundingClientRect();
