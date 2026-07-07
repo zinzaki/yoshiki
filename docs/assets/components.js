@@ -270,8 +270,11 @@
     if(open){item.classList.remove('open');a.style.maxHeight=null;}
     else{item.classList.add('open');a.style.maxHeight=a.scrollHeight+'px';}
   });
-  // open the first one
+  // open the first one; re-measure once web fonts land (heights shift)
   const first=acc&&acc.querySelector('.acc-i.open .acc-a');if(first)first.style.maxHeight=first.scrollHeight+'px';
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>{
+    acc&&acc.querySelectorAll('.acc-i.open .acc-a').forEach(a=>a.style.maxHeight=a.scrollHeight+'px');
+  });
 
   // sortable table
   const tblHost=document.getElementById('tblHost');
@@ -310,7 +313,7 @@
     menu.querySelectorAll('button').forEach(b=>b.onclick=()=>{
       const a=b.dataset.act;
       if(a==='theme')window.setTheme&&window.setTheme(document.documentElement.dataset.theme==='washi'?'kogane':'washi');
-      else if(a==='open')window.open('https://github.com/zinzaki/yoshiki','_blank');
+      else if(a==='open')window.open('https://github.com/zinzaki/yoshiki','_blank','noopener');
       else if(a==='export')document.getElementById('s3').scrollIntoView({behavior:'smooth'});
       else if(a==='del')openModal(`<button class="modal-x" data-mclose>✕</button><h3><span class="mi">緋</span> Delete this theme?</h3><p>Scarlet marks the irreversible. This cannot be undone.</p><div class="mrow2"><button class="btn btn-g btn-sm" data-mclose>Cancel</button><button class="btn btn-x btn-sm" data-mclose>Delete</button></div>`);
       close();

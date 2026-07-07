@@ -14,15 +14,16 @@
     toast('copied · '+(v.length>34?v.slice(0,34)+'…':v));
   });
 
-  /* ── theme ── */
+  /* ── theme — persists; the head restores it before first paint ── */
   const dots=document.querySelectorAll('.tdot');
   function theme(t){
     document.documentElement.dataset.theme=t;
     dots.forEach(d=>d.classList.toggle('on',d.dataset.t===t));
+    try{localStorage.setItem('yoshiki-theme',t);}catch(e){}
     fireRedraw();
   }
   window.setTheme=theme;
-  dots.forEach(d=>d.onclick=()=>theme(d.dataset.t));
+  dots.forEach(d=>{d.classList.toggle('on',d.dataset.t===document.documentElement.dataset.theme);d.onclick=()=>theme(d.dataset.t);});
   addEventListener('keydown',e=>{
     if(e.target.matches&&e.target.matches('input,textarea'))return;
     if(e.key==='1')theme('kogane');if(e.key==='2')theme('washi');
@@ -85,6 +86,12 @@
       document.querySelectorAll('.js-tape').forEach(b2=>{const full=Math.round(p/29*10);
         b2.innerHTML='<span class="f">'+'▰'.repeat(full)+'</span><span class="e">'+'▱'.repeat(10-full)+'</span> <span style="color:var(--bone-3)">'+Math.round(p/29*100)+'%</span>';});
     },120);
+  }else{
+    /* reduced motion — hold one honest frame instead of an empty row */
+    document.querySelectorAll('.js-matrix').forEach(b=>
+      b.innerHTML='<span class="f">⣿⣿⣿⣿⣿⣿⠧⠀⠀⠀⠀</span> <span style="color:var(--bone-3)">60%</span>');
+    document.querySelectorAll('.js-tape').forEach(b=>
+      b.innerHTML='<span class="f">▰▰▰▰▰▰</span><span class="e">▱▱▱▱</span> <span style="color:var(--bone-3)">60%</span>');
   }
 
   /* ── gold motes — warm embers drift up the lacquer (replaces the constellation) ── */
