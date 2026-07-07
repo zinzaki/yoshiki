@@ -42,7 +42,7 @@ The strength of a signal is inversely proportional to how often it fires.
 This is the one rule that everything else serves. 70% darkness, 20% bone,
 7% gold seams, 3% triggers — by meaning, never by taste.
 
-Canonical exception: the hanko seal  on a paper artifact is a signature,
+Canonical exception: the hanko seal 印 on a paper artifact is a signature,
 not a signal. It does not count as the bloom.
 
 ## Two poles, one hand
