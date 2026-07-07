@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/banner.png" alt="yoshiki" width="900">
+  <img src="docs/banner.webp" alt="yoshiki" width="900">
 </p>
 
 <h1 align="center">様式&nbsp; yoshiki</h1>
