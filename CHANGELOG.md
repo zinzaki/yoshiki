@@ -1,9 +1,13 @@
 # Changelog
 
-yoshiki follows the kintsugi rule even here: nothing is hidden, every
-seam is named.
-
 ## Unreleased
+
+- **Build** — `--check` mode verifies committed output against canon (runs in
+  CI); contrast failures now fail the build; the README palette preview
+  (`docs/assets/palette.svg`) is generated alongside the themes.
+- **Fix** — washi selection no longer inherits kogane's dark gold wash:
+  neovim `Visual`, tmux copy-mode and btop selection use washi's own
+  `kin-w` on paper.
 
 - **Motion** — `canon/motion` expanded: arc and circle-pulse spinners, a minimal
   `▰▱` square bar and number-only progress; a blacklist of heavy filled blocks.
@@ -38,8 +42,8 @@ The first sealed version of the language.
 - **Prompts** — modular system-prompt blocks so any model speaks yoshiki.
 
 ### Earlier internal drafts (not released)
-The palette was found through six private iterations before v1.0:
-standard → neon → pastel → carmine → blood → the noble scarlet that stayed.
-Three extra themes (urushi, higanbana, shinkai) were explored and then
-folded back: urushi's «gold as veins» became law for the whole language,
-so a separate theme was no longer needed.
+The palette went through six private iterations before v1.0: standard →
+neon → pastel → carmine → blood → the scarlet that stayed. Three extra
+themes (urushi, higanbana, shinkai) were explored and folded back:
+urushi's "gold as veins" became a law for the whole language, so a
+separate theme was no longer needed.
