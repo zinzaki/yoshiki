@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 360" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" role="img" aria-label="yoshiki palette — kogane and washi">
+<rect x="20" y="4" width="880" height="168" rx="14" fill="#0B0A08" stroke="#362C1B"/>
+<text x="36" y="46" font-size="15" fill="#F7EED2">黄金 kogane<tspan fill="#94866A"> · dark</tspan></text>
+<rect x="36" y="62" width="94" height="52" rx="8" fill="#12100C" stroke="#362C1B"/>
+<text x="36" y="136" font-size="11" fill="#C9BC96">surface</text>
+<text x="36" y="152" font-size="10" fill="#94866A">#12100C</text>
+<rect x="138" y="62" width="94" height="52" rx="8" fill="#262119" stroke="#362C1B"/>
+<text x="138" y="136" font-size="11" fill="#C9BC96">hover</text>
+<text x="138" y="152" font-size="10" fill="#94866A">#262119</text>
+<rect x="240" y="62" width="94" height="52" rx="8" fill="#4C3D24" stroke="#362C1B"/>
+<text x="240" y="136" font-size="11" fill="#C9BC96">border</text>
+<text x="240" y="152" font-size="10" fill="#94866A">#4C3D24</text>
+<rect x="342" y="62" width="94" height="52" rx="8" fill="#EDE3C4" stroke="#362C1B"/>
+<text x="342" y="136" font-size="11" fill="#C9BC96">text</text>
+<text x="342" y="152" font-size="10" fill="#94866A">#EDE3C4</text>
+<rect x="444" y="62" width="94" height="52" rx="8" fill="#D8AF52" stroke="#362C1B"/>
+<text x="444" y="136" font-size="11" fill="#C9BC96">gold</text>
+<text x="444" y="152" font-size="10" fill="#94866A">#D8AF52</text>
+<rect x="546" y="62" width="94" height="52" rx="8" fill="#C67F45" stroke="#362C1B"/>
+<text x="546" y="136" font-size="11" fill="#C9BC96">persimmon</text>
+<text x="546" y="152" font-size="10" fill="#94866A">#C67F45</text>
+<rect x="648" y="62" width="94" height="52" rx="8" fill="#d8392e" stroke="#362C1B"/>
+<text x="648" y="136" font-size="11" fill="#C9BC96">scarlet</text>
+<text x="648" y="152" font-size="10" fill="#94866A">#d8392e</text>
+<rect x="750" y="62" width="94" height="52" rx="8" fill="#52703F" stroke="#362C1B"/>
+<text x="750" y="136" font-size="11" fill="#C9BC96">moss</text>
+<text x="750" y="152" font-size="10" fill="#94866A">#52703F</text>
+<rect x="20" y="188" width="880" height="168" rx="14" fill="#E2D6B4" stroke="#C7B68C"/>
+<text x="36" y="230" font-size="15" fill="#1F1810">和紙 washi<tspan fill="#6E5E42"> · light</tspan></text>
+<rect x="36" y="246" width="94" height="52" rx="8" fill="#EBE1C3" stroke="#C7B68C"/>
+<text x="36" y="320" font-size="11" fill="#4A3D2A">surface</text>
+<text x="36" y="336" font-size="10" fill="#6E5E42">#EBE1C3</text>
+<rect x="138" y="246" width="94" height="52" rx="8" fill="#D7C9A3" stroke="#C7B68C"/>
+<text x="138" y="320" font-size="11" fill="#4A3D2A">hover</text>
+<text x="138" y="336" font-size="10" fill="#6E5E42">#D7C9A3</text>
+<rect x="240" y="246" width="94" height="52" rx="8" fill="#AE9C72" stroke="#C7B68C"/>
+<text x="240" y="320" font-size="11" fill="#4A3D2A">border</text>
+<text x="240" y="336" font-size="10" fill="#6E5E42">#AE9C72</text>
+<rect x="342" y="246" width="94" height="52" rx="8" fill="#2B2117" stroke="#C7B68C"/>
+<text x="342" y="320" font-size="11" fill="#4A3D2A">text</text>
+<text x="342" y="336" font-size="10" fill="#6E5E42">#2B2117</text>
+<rect x="444" y="246" width="94" height="52" rx="8" fill="#9C7A40" stroke="#C7B68C"/>
+<text x="444" y="320" font-size="11" fill="#4A3D2A">gold</text>
+<text x="444" y="336" font-size="10" fill="#6E5E42">#9C7A40</text>
+<rect x="546" y="246" width="94" height="52" rx="8" fill="#A5602B" stroke="#C7B68C"/>
+<text x="546" y="320" font-size="11" fill="#4A3D2A">persimmon</text>
+<text x="546" y="336" font-size="10" fill="#6E5E42">#A5602B</text>
+<rect x="648" y="246" width="94" height="52" rx="8" fill="#d8392e" stroke="#C7B68C"/>
+<text x="648" y="320" font-size="11" fill="#4A3D2A">scarlet</text>
+<text x="648" y="336" font-size="10" fill="#6E5E42">#d8392e</text>
+<rect x="750" y="246" width="94" height="52" rx="8" fill="#52703F" stroke="#C7B68C"/>
+<text x="750" y="320" font-size="11" fill="#4A3D2A">moss</text>
+<text x="750" y="336" font-size="10" fill="#6E5E42">#52703F</text>
+</svg>

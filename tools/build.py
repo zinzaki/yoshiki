@@ -4,7 +4,8 @@
 Source of truth: palette.yml per theme. Variants may declare `inherits: kogane`;
 tokens / terminal / base24 are merged over the parent. Run from repo root:
 
-    python3 tools/build.py
+    python3 tools/build.py            # regenerate everything
+    python3 tools/build.py --check    # verify committed output matches canon (CI)
 """
 import json, sys
 from pathlib import Path
@@ -17,7 +18,11 @@ except ImportError:
 ROOT = Path(__file__).resolve().parent.parent
 PAL = ROOT / "canon" / "palette"          # definition (source of truth)
 LIB = ROOT / "library" / "themes"         # ready-to-use program themes
+DOCS = ROOT / "docs" / "assets"           # site / README assets
 ORDER = ["kogane", "washi"]
+
+CHECK = "--check" in sys.argv
+drift: list[str] = []
 
 
 def load(slug: str) -> dict:
@@ -78,9 +83,14 @@ def contrast(a, b):
 
 
 def w(path: Path, text: str):
+    rel = path.relative_to(ROOT)
+    if CHECK:
+        if not path.exists() or path.read_text() != text:
+            drift.append(str(rel))
+        return
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(text)
-    print(f"  {path.relative_to(ROOT)}")
+    print(f"  {rel}")
 
 
 def emit(slug: str, p: dict):
@@ -178,7 +188,7 @@ def emit(slug: str, p: dict):
     #    but the integrated terminal stays a dark island, per the language.
     light = p["meta"]["mode"] == "light"
     efg, ebg = tok["bone-1"], tok["ink-0"]
-    sel = "#3F3112" if light else tok.get("kin-w", "#3F3112")
+    sel = tok.get("kin-w", "#3F3112")   # gold wash — each theme carries its own
     line_hl = tok["ink-3"] if light else tok["ink-2"]   # current-line wash
     gold_t = roles["text.gold"]      # gold as text (washi sinks it for contrast)
     gold_e = roles["border.gold"]    # gold as edge / underline
@@ -449,7 +459,7 @@ def emit(slug: str, p: dict):
     bp = [f"# {head}",
           bt("main_bg", ebg), bt("main_fg", efg),
           bt("title", tok["bone-0"]), bt("hi_fg", tok["kin-1"]),
-          bt("selected_bg", sel), bt("selected_fg", tok["kin-0"]),
+          bt("selected_bg", sel), bt("selected_fg", tok["bone-0"] if light else tok["kin-0"]),
           bt("inactive_fg", tok["bone-4"]), bt("graph_text", tok["bone-2"]),
           bt("proc_misc", tok["mori-0"]), bt("cpu_box", tok["line-1"]),
           bt("div_line", tok["line-0"]),
@@ -457,6 +467,33 @@ def emit(slug: str, p: dict):
           bt("cpu_start", tok["mori-1"]), bt("cpu_mid", tok["kin-2"]), bt("cpu_end", tok["kin-0"]),
           bt("free_start", tok["seiji-1"]), bt("free_mid", tok["hotaru-1"]), bt("free_end", tok["fuji-1"])]
     w(LIB / "btop" / f"{slug}.theme", "\n".join(bp) + "\n")
+
+
+PREVIEW = [("ink-1", "surface"), ("ink-3", "hover"), ("line-1", "border"),
+           ("bone-1", "text"), ("kin-1", "gold"), ("kaki-1", "persimmon"),
+           ("aka-1", "scarlet"), ("mori-1", "moss")]
+
+
+def emit_preview(resolved: dict):
+    """docs/assets/palette.svg — the two-theme palette strip shown in the README."""
+    mono = "ui-monospace,SFMono-Regular,Menlo,Consolas,monospace"
+    parts = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 360" '
+             f'font-family="{mono}" role="img" aria-label="yoshiki palette — kogane and washi">']
+    for i, p in enumerate(resolved.values()):
+        tok, y = p["tokens"], i * 184
+        parts.append(f'<rect x="20" y="{y + 4}" width="880" height="168" rx="14" '
+                     f'fill="{tok["ink-0"]}" stroke="{tok["line-0"]}"/>')
+        parts.append(f'<text x="36" y="{y + 46}" font-size="15" fill="{tok["bone-0"]}">'
+                     f'{p["meta"]["kanji"]} {p["meta"]["slug"]}'
+                     f'<tspan fill="{tok["bone-3"]}"> · {p["meta"]["mode"]}</tspan></text>')
+        for j, (t, label) in enumerate(PREVIEW):
+            x = 36 + j * 102
+            parts.append(f'<rect x="{x}" y="{y + 62}" width="94" height="52" rx="8" '
+                         f'fill="{tok[t]}" stroke="{tok["line-0"]}"/>')
+            parts.append(f'<text x="{x}" y="{y + 136}" font-size="11" fill="{tok["bone-2"]}">{label}</text>')
+            parts.append(f'<text x="{x}" y="{y + 152}" font-size="10" fill="{tok["bone-3"]}">{tok[t]}</text>')
+    parts.append("</svg>")
+    w(DOCS / "palette.svg", "\n".join(parts) + "\n")
 
 
 # text roles measured against their real background, with the WCAG floor
@@ -503,8 +540,20 @@ def main():
         parent = resolved.get(raw.get("inherits", ""))
         resolved[slug] = resolve(raw, parent)
         emit(slug, resolved[slug])
+    emit_preview(resolved)
     ok = write_contrast(resolved)
-    print("done." if ok else "done — CONTRAST FAILURES, see CONTRAST.md")
+    if CHECK:
+        for f in drift:
+            print(f"drift: {f}")
+        if drift:
+            sys.exit("out of sync with canon — run: python3 tools/build.py")
+        if not ok:
+            sys.exit("contrast failures — see canon/palette/CONTRAST.md")
+        print("clean — output matches canon, every text role passes.")
+        return
+    if not ok:
+        sys.exit("contrast failures — see canon/palette/CONTRAST.md")
+    print("done.")
 
 
 if __name__ == "__main__":
