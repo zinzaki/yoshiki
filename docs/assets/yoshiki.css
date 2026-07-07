@@ -34,6 +34,10 @@ body{background:var(--ink-0);color:var(--bone-1);font-family:var(--sans);font-we
 ::selection{background:color-mix(in srgb,var(--kin-1) 26%,transparent);color:var(--bone-0)}
 :focus-visible{outline:2px solid var(--kin-1);outline-offset:3px;border-radius:4px}
 a{color:inherit;text-decoration:none}
+*{scrollbar-width:thin;scrollbar-color:var(--line-1) transparent}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-thumb{background:var(--line-1);border-radius:5px}
+::-webkit-scrollbar-track{background:transparent}
 
 #bg{position:fixed;inset:0;z-index:-3;pointer-events:none;background:
   radial-gradient(130% 90% at 50% -10%,color-mix(in srgb,var(--kin-1) 9%,transparent),transparent 55%),
@@ -154,7 +158,7 @@ h4.gcat{font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform
 .pcard .pl{font-family:var(--mono);font-size:9.5px;letter-spacing:1px;color:var(--bone-3);margin-top:8px}
 .ansi{display:grid;grid-template-columns:repeat(16,1fr);gap:5px}
 @media(max-width:680px){.ansi{grid-template-columns:repeat(8,1fr)}}
-.ac{height:38px;border-radius:7px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:10px;font-weight:600;border:1px solid rgba(255,255,255,.04);padding:0;transition:.2s}
+.ac{height:38px;border-radius:7px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:10px;font-weight:600;border:1px solid var(--line-0);padding:0;transition:.2s}
 .ac:hover{transform:scale(1.12)}
 
 /* §03 playground + export */
@@ -217,8 +221,6 @@ h4.gcat{font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform
 .ecard:hover{border-color:var(--kin-2);transform:translateY(-3px)}
 .ecard .en{font-family:var(--mono);font-size:13px;color:var(--bone-0);display:flex;align-items:center;justify-content:space-between;gap:8px}
 .ecard .ed{font-family:var(--mono);font-size:10.5px;color:var(--bone-3);margin-top:7px;line-height:1.6}
-.tag2{font-family:var(--mono);font-size:8px;letter-spacing:1px;text-transform:uppercase;padding:2px 6px;border-radius:5px;border:1px solid var(--mori-1);color:var(--mori-0);flex-shrink:0}
-.tag2.plan{border-color:var(--line-1);color:var(--bone-4)}
 .map{font-family:var(--mono);font-size:12.5px;line-height:2;text-align:left;background:var(--ink-1);border:1px solid var(--line-0);border-radius:14px;padding:22px 24px;color:var(--bone-2);overflow-x:auto}
 .map .k{color:var(--kin-1)}.map .d{color:var(--bone-4)}.map .a{color:var(--seiji)}
 
