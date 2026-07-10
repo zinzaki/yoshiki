@@ -52,12 +52,12 @@
         {n:'kin-1',job:'edge · link · solid',k:'#D8AF52',w:'#9C7A40'},
         {n:'kin-0',job:'highlight',k:'#EDC85C',w:'#B8923F'}]},
       {key:'aka',label:'scarlet',steps:[
-        {n:'aka-2',job:'deep',k:'#7E302E',w:'#8E2A22'},
-        {n:'aka-1',job:'trigger · may fill',k:'#d8392e',w:'#C0392C'},
-        {n:'aka-0',job:'soft',k:'#D4665C',w:'#A8352B'}]},
+        {n:'aka-2',job:'deep',k:'#7E302E',w:'#7E302E'},
+        {n:'aka-1',job:'trigger · may fill',k:'#d8392e',w:'#d8392e'},
+        {n:'aka-0',job:'text-safe',k:'#D4665C',w:'#A8352B'}]},
       {key:'mori',label:'moss',steps:[
-        {n:'mori-1',job:'ok · may fill',k:'#52703F',w:'#3C5A2C'},
-        {n:'mori-0',job:'soft',k:'#8FAC6F',w:'#4A6B38'}]}
+        {n:'mori-1',job:'ok · may fill',k:'#52703F',w:'#52703F'},
+        {n:'mori-0',job:'text-safe',k:'#8FAC6F',w:'#4A6B38'}]}
     ],
     ansi:[['#1B1813','0'],['#C54D49','1'],['#8FAC6F','2'],['#D6AE66','3'],['#7C88B8','4'],['#9C7FB0','5'],['#6FA08E','6'],['#EDE3C4','7'],
           ['#6B5F49','8'],['#DC7265','9'],['#A8C48A','A'],['#EAC578','B'],['#98A4D4','C'],['#B89BCC','D'],['#8CBCA9','E'],['#F7EED2','F']]

@@ -73,7 +73,7 @@ select.inp{cursor:pointer;appearance:none;-webkit-appearance:none;background-ima
 .bdg.solid{background:var(--kin-1);border-color:var(--kin-1);color:var(--ink-0)}
 .stat{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:12px;color:var(--bone-2)}
 .stat::before{content:'';width:8px;height:8px;border-radius:50%;background:currentColor;box-shadow:0 0 7px currentColor}
-.stat.k{color:var(--kin-1)}.stat.m{color:var(--mori-0)}.stat.s{color:var(--aka-1)}.stat.d{color:var(--bone-4)}
+.stat.k{color:var(--kin-1)}.stat.m{color:var(--mori-0)}.stat.s{color:var(--aka-0)}.stat.d{color:var(--bone-4)}
 .stat.pulse::before{animation:statp 1.6s ease-in-out infinite}
 @keyframes statp{0%,100%{opacity:1}50%{opacity:.3}}
 
@@ -86,7 +86,7 @@ select.inp{cursor:pointer;appearance:none;-webkit-appearance:none;background-ima
 .alert.info{border-left-color:var(--kin-1)}.alert.info .ai{color:var(--kin-1)}
 .alert.ok{border-left-color:var(--mori-1)}.alert.ok .ai{color:var(--mori-0)}
 .alert.warn{border-left-color:var(--kaki)}.alert.warn .ai{color:var(--kaki)}
-.alert.crit{border-left-color:var(--aka-1)}.alert.crit .ai{color:var(--aka-1)}
+.alert.crit{border-left-color:var(--aka-1)}.alert.crit .ai{color:var(--aka-0)}
 
 /* data table — sortable */
 .tbl{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:12.5px}
@@ -212,7 +212,7 @@ select.inp{cursor:pointer;appearance:none;-webkit-appearance:none;background-ima
 @keyframes modalin{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){.modal-back,.modal-card{animation:none}}
 .modal-card h3{font-family:var(--serif);font-size:23px;color:var(--bone-0);font-weight:700;display:flex;align-items:center;gap:10px}
-.modal-card h3 .mi{color:var(--aka-1);font-family:var(--mono);font-size:18px}
+.modal-card h3 .mi{color:var(--aka-0);font-family:var(--mono);font-size:18px}
 .modal-card p{font-size:14px;color:var(--bone-2);line-height:1.7;margin-top:12px}
 .modal-card .mrow2{display:flex;gap:11px;justify-content:flex-end;margin-top:24px}
 .modal-x{position:absolute;top:14px;right:16px;background:none;border:none;color:var(--bone-4);font-family:var(--mono);font-size:18px;cursor:pointer;transition:color .2s}
