@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## v1.1 — 2026-07
 
 - **Themes** — four new generated targets: ghostty, wezterm (TOML scheme),
   zellij (new theme spec, 0.41+) and fzf (`--color` list). Terminal-drawn
