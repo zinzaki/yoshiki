@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+- **Themes** — four new generated targets: ghostty, wezterm (TOML scheme),
+  zellij (new theme spec, 0.41+) and fzf (`--color` list). Terminal-drawn
+  targets carry the same dark-island values in both theme files by design.
+- **Showcase** — the site palette now matches canon exactly (washi fill-triggers
+  had drifted); scarlet-as-text uses `danger.text`, never the fill token.
 - **Build** — `--check` mode verifies committed output against canon (runs in
   CI); contrast failures now fail the build; the README palette preview
   (`docs/assets/palette.svg`) is generated alongside the themes.

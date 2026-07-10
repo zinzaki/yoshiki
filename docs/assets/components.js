@@ -137,7 +137,7 @@
   <div class="cx span2">
     <div class="cx-h">alerts <span class="ct">one glyph + one colour</span></div>
     <div class="alert info"><span class="ai">◆</span><span class="at"><b>Heads up</b>Tokens regenerate on every <span style="font-family:var(--mono);color:var(--kin-1)">build</span>. Edit the source, not the output.</span></div>
-    <div class="alert ok"><span class="ai">✓</span><span class="at"><b>Deployed</b>kogane &amp; washi pushed to all nine targets.</span></div>
+    <div class="alert ok"><span class="ai">✓</span><span class="at"><b>Deployed</b>kogane &amp; washi pushed to all thirteen targets.</span></div>
     <div class="alert warn"><span class="ai">⚠</span><span class="at"><b>Contrast</b>This pair sits at AA·lg — fine for large text only.</span></div>
     <div class="alert crit"><span class="ai">✗</span><span class="at"><b>Irreversible</b>Scarlet earns its place — this cannot be undone.</span></div>
   </div>
@@ -249,7 +249,7 @@
   root.querySelectorAll('[data-modal]').forEach(b=>b.onclick=()=>openModal(
     `<button class="modal-x" data-mclose>✕</button>
      <h3><span class="mi">緋</span> Delete this theme?</h3>
-     <p>Scarlet marks the irreversible. <b style="color:var(--bone-0)">kogane-custom</b> and its nine generated targets will be removed. This cannot be undone.</p>
+     <p>Scarlet marks the irreversible. <b style="color:var(--bone-0)">kogane-custom</b> and its thirteen generated targets will be removed. This cannot be undone.</p>
      <div class="mrow2"><button class="btn btn-g btn-sm" data-mclose>Cancel</button><button class="btn btn-x btn-sm" data-mclose id="mdel">Delete</button></div>`
   ));
   mr&&mr.addEventListener('click',e=>{if(e.target.id==='mdel')toast('彼岸花 · deleted');});
@@ -325,7 +325,7 @@
   const STEPS=[
     'Pick the role scales — lacquer, bone, gold, and the two triggers.',
     'Set the type: a warm serif to speak, a mono to count.',
-    'Run build — nine targets generated from the one palette.'
+    'Run build — thirteen targets generated from the one palette.'
   ];
   const stepper=document.getElementById('stepper'),stepBody=document.getElementById('stepBody'),
         stepBack=document.getElementById('stepBack'),stepNext=document.getElementById('stepNext');
@@ -337,7 +337,7 @@
       stepBody.textContent=STEPS[si];stepBack.disabled=si===0;
       stepNext.textContent=si===STEPS.length-1?'Done':'Next';
     }
-    stepNext.onclick=()=>{if(si<STEPS.length-1){si++;paintStep();}else{toast('✓ shipped · 9 targets','ok');si=0;paintStep();}};
+    stepNext.onclick=()=>{if(si<STEPS.length-1){si++;paintStep();}else{toast('✓ shipped · 13 targets','ok');si=0;paintStep();}};
     stepBack.onclick=()=>{if(si>0){si--;paintStep();}};
     paintStep();
   }
