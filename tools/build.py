@@ -544,6 +544,34 @@ def emit_terminal_ui(dark: dict):
         w(LIB / "fzf" / f"{slug}.sh", "\n".join(fz) + "\n")
 
 
+def emit_terminal_svg(dark: dict):
+    """docs/assets/terminal.svg — the language in use, one terminal frame."""
+    t = dark["tokens"]
+    mono = "ui-monospace,SFMono-Regular,Menlo,Consolas,monospace"
+    gold, dim, mut = t["kin-1"], t["bone-4"], t["bone-3"]
+    LINES = [  # (segment, color) pairs per line
+        [("╭─ ◆ ─ ", gold), ("deploy", t["bone-0"]), (" ─  main ", gold), ("✓ clean", t["mori-0"]), (" ─ ", gold), ("v1.1", t["seiji-1"])],
+        [("╰─ ❯ ", gold), ("ship --prod", t["bone-1"])],
+        [("✓ build      ", t["mori-0"]), ("passed · 214 files · 0.4s", dim)],
+        [("✓ tests      ", t["mori-0"]), ("passed · 1,820 ok", dim)],
+        [("● upload     ", gold), ("in progress ", dim), ("⠹", gold)],
+        [("✗ migrate    ", t["aka-0"]), ("blocked · needs --confirm", dim)],
+    ]
+    s = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 236" font-family="{mono}" '
+         f'role="img" aria-label="a yoshiki terminal — gold prompt, moss checks, one scarlet">',
+         f'<rect x="1" y="1" width="758" height="234" rx="14" fill="{t["ink-0"]}" stroke="{t["line-0"]}"/>',
+         f'<line x1="1" y1="44" x2="759" y2="44" stroke="{t["line-0"]}"/>']
+    for i, c in enumerate((t["aka-1"], t["kin-1"], t["mori-1"])):
+        s.append(f'<circle cx="{26 + i * 20}" cy="23" r="5.5" fill="{c}"/>')
+    s.append(f'<text x="92" y="27" font-size="11.5" fill="{mut}" xml:space="preserve">zinzaki@yoshiki — zsh</text>')
+    for i, segs in enumerate(LINES):
+        y = 76 + i * 26
+        spans = "".join(f'<tspan fill="{c}">{seg}</tspan>' for seg, c in segs)
+        s.append(f'<text x="26" y="{y}" font-size="13" xml:space="preserve">{spans}</text>')
+    s.append("</svg>")
+    w(DOCS / "terminal.svg", "\n".join(s) + "\n")
+
+
 PREVIEW = [("ink-1", "surface"), ("ink-3", "hover"), ("line-1", "border"),
            ("bone-1", "text"), ("kin-1", "gold"), ("kaki-1", "persimmon"),
            ("aka-1", "scarlet"), ("mori-1", "moss")]
@@ -616,6 +644,7 @@ def main():
         resolved[slug] = resolve(raw, parent)
         emit(slug, resolved[slug])
     emit_terminal_ui(resolved["kogane"])
+    emit_terminal_svg(resolved["kogane"])
     emit_preview(resolved)
     ok = write_contrast(resolved)
     if CHECK:

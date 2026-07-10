@@ -26,6 +26,12 @@ lexicon, CSS variables, W3C design tokens, and system prompts that teach the
 style to an AI agent. Two themes share the same rules: **kogane** (dark) and
 **washi** (light).
 
+<img src="docs/assets/terminal.svg" alt="a yoshiki terminal — gold prompt frame, moss checks, one scarlet cross" width="760">
+
+Gold gilds the prompt and the frame; success is a quiet moss check; the one
+scarlet is spent on the single thing that blocks. Every mark above is the
+language, generated from its palette source.
+
 ## Palette
 
 <img src="docs/assets/palette.svg" alt="kogane (dark) and washi (light) palette strips" width="920">
