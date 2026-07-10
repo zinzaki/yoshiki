@@ -75,7 +75,7 @@
       out(`<span class="k">❯</span> building from canon/palette …`);
       const steps=[['tokens','12 roles · 2 themes'],['kitty · foot · alacritty','terminals'],['neovim · vscode','editors'],['starship · tmux · btop','shell'],['base24 · DTCG','schemes']];
       let i=0;(function next(){
-        if(i>=steps.length){out(`<span class="g">✓</span> built <span class="b">9 targets</span> <span class="d">· kogane &amp; washi · 0.4s</span>`);return;}
+        if(i>=steps.length){out(`<span class="g">✓</span> built <span class="b">13 targets</span> <span class="d">· kogane &amp; washi · 0.4s</span>`);return;}
         const[s,d]=steps[i++];out(`<span class="g">✓</span> ${s.padEnd(26,' ').replace(/ /g,'&nbsp;')}<span class="d">${d}</span>`);
         setTimeout(next,RM?0:240);
       })();

@@ -45,7 +45,8 @@ CONTRAST.md            WCAG proof for both themes
 ACCESSIBILITY.md       contrast + colour-blind safety (glyph, not colour alone)
 
 Ready-to-use program themes are generated OUT of here, into
-../../library/themes/<app>/<slug>.* (kitty · foot · alacritty · starship · base24).
+../../library/themes/<app>/<slug>.* — thirteen targets, kitty to fzf
+(the full list lives in library/themes/README.md).
 ```
 
 washi declares `inherits: kogane` and overrides only its deltas — regenerate

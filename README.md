@@ -48,7 +48,7 @@ every build.
 
 ```bash
 # a terminal theme — copy one file
-library/themes/kitty/kogane.conf        # or foot · alacritty · starship · base24
+library/themes/kitty/kogane.conf        # or ghostty · foot · alacritty · wezterm · …
 
 # web — CSS variables (raw tokens + semantic roles)
 canon/palette/kogane/kogane.css
@@ -79,7 +79,7 @@ yoshiki/
 │  ╰─ prompts/             drop-in AI system prompts
 │
 ├─ library/                the style in use — take & apply
-│  ├─ themes/              kitty · foot · alacritty · starship · base24 · vscode · neovim · tmux · btop
+│  ├─ themes/              kitty · foot · alacritty · ghostty · wezterm · starship · base24 · vscode · neovim · tmux · btop · zellij · fzf
 │  ├─ configs/             whole example configs
 │  ├─ snippets/            how to write code in the style, per language
 │  ├─ menus/               ready TUI menus, cards, lists

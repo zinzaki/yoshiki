@@ -44,7 +44,7 @@
 - [motion](canon/prompts/motion.md) · [effects](canon/prompts/effects.md) · [typography](canon/prompts/typography.md) · [image](canon/prompts/image.md) · [messaging](canon/prompts/messaging.md): motion, effects, fonts, images, chat in the style
 
 ## Library — ready artifacts to lift
-- [themes](library/themes/README.md): kitty · foot · alacritty · starship · base24 · vscode · neovim · tmux · btop (generated)
+- [themes](library/themes/README.md): kitty · foot · alacritty · ghostty · wezterm · starship · base24 · vscode · neovim · tmux · btop · zellij · fzf (generated)
 - [effects](library/effects/README.md) · [menus](library/menus/README.md) · [charts](library/charts/README.md) · [text](library/text/README.md) · [snippets](library/snippets/README.md) · [configs](library/configs/README.md) · [presets](library/presets/README.md) · [github](library/github/README.md) · [image-prompts](library/image-prompts/README.md)
 
 ## Build
