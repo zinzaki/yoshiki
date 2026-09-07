@@ -15,6 +15,8 @@ only the module your task needs.
    a role guarantees the right contrast in both themes. kogane (dark) · washi (light).
 5. The module for your task — load on demand:
    - color / UI → `canon/palette/` + `canon/prompts/palette.md`
+   - buttons, forms, tables, dialogs → `canon/components/` + `canon/prompts/components.md`
+     (and lift the implementation from `library/web/`)
    - terminal / CLI / TUI → `canon/lexicon/cli.md` + `canon/prompts/cli.md`
    - code comments → `canon/lexicon/comments.md` + `canon/prompts/comments.md`
    - text / chat / docs → `canon/lexicon/{glyphs,nameplates,frames,space,states}.md` + `canon/prompts/text.md`

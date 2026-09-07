@@ -1,11 +1,13 @@
 /* yoshiki · library/effects · sheen-sweep — canon: canon/effects/ambient.md
-   a single specular pass on hover. not a loop. usage: class="y-sheen" */
+   A single specular pass on hover. Not a loop — one breath, then done.
+   usage: class="y-sheen" */
 
 .y-sheen{ position: relative; overflow: hidden; }
 .y-sheen::after{
   content: ""; position: absolute; top: 0; left: -60%; width: 50%; height: 100%;
   pointer-events: none;
-  background: linear-gradient(105deg, transparent, rgba(255,247,222,.14), transparent);
+  background: linear-gradient(105deg, transparent,
+              color-mix(in srgb, var(--r-effect-sheen) 16%, transparent), transparent);
   transition: left .6s ease-out;
 }
 .y-sheen:hover::after{ left: 120%; }

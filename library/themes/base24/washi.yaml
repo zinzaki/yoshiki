@@ -6,23 +6,23 @@ palette:
   base00: E2D6B4
   base01: EBE1C3
   base02: D7C9A3
-  base03: 8E7C5A
-  base04: 6E5E42
+  base03: 7F6E50
+  base04: 62533B
   base05: 2B2117
   base06: 1F1810
   base07: 14100B
   base08: d8392e
-  base09: A5602B
-  base0A: 9C7A40
-  base0B: 4A6B38
-  base0C: 2F6B5E
-  base0D: 4C5A90
-  base0E: 6E5890
+  base09: 7D4820
+  base0A: 8A6B39
+  base0B: 415D31
+  base0C: 2A5E53
+  base0D: '465385'
+  base0E: 604C7D
   base0F: 9B635F
   base10: EBE1C3
   base11: F3EBD5
-  base12: A8352B
-  base13: 7A5F2E
+  base12: 9A3027
+  base13: '695228'
   base14: 52703F
   base15: 2C5A4C
   base16: 454E7A

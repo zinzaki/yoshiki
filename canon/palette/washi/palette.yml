@@ -3,7 +3,7 @@ meta:
   kanji: 和紙
   slug: washi
   role: light variant — paper and ink; terminal stays a dark island
-  version: 1.1.0
+  version: 1.2.0
   language: KINTSUGI (Zinzaki design language)
   author: Zinzaki
   mode: light
@@ -11,54 +11,60 @@ meta:
 inherits: kogane
 
 tokens:
-  # surfaces -> paper
+  # surfaces -> paper. Note the order inverts: on paper the RAISED surface is the
+  # lightest and hover sinks, so ink-3 is the darkest ground text ever sits on —
+  # every text role is proven against it, not just against the page.
   ink-0:  "#E2D6B4"   # page
   ink-1:  "#EBE1C3"   # panels
   ink-2:  "#F3EBD5"   # raised
-  ink-3:  "#D7C9A3"   # hover
+  ink-3:  "#D7C9A3"   # hover — the hardest surface on paper
   line-0: "#C7B68C"
   line-1: "#AE9C72"
   # text -> sumi ink
   bone-0: "#1F1810"
   bone-1: "#2B2117"
   bone-2: "#4A3D2A"
-  bone-3: "#6E5E42"
-  bone-4: "#8E7C5A"
-  # gold sinks deeper to stay readable on paper
-  kin-0:  "#B8923F"
-  kin-1:  "#9C7A40"   # decorative gold; TEXT gold must use kin-t
-  kin-t:  "#7A5F2E"   # text-safe gold on paper (4.6:1) — links, HUD accents, button fills
-  kin-2:  "#7A5F2E"
+  bone-3: "#62533B"
+  bone-4: "#7F6E50"
+  # Gold sinks on paper, and the ramp inverts with it: on lacquer a stronger gold
+  # is brighter, on paper it is deeper. So kin-0 (the hover edge) is DARKER than
+  # kin-1 here — hover must strengthen the seam in both worlds.
+  kin-0:  "#755C2B"   # hover edge — deepens (>=3:1 on every surface)
+  kin-1:  "#8A6B39"   # decorative gold edge (>=3:1); TEXT gold must use kin-t
+  kin-t:  "#695228"   # text-safe gold — 4.5:1 even on ink-3; links, HUD accents
+  kin-2:  "#695228"
   kin-3:  "#C9AE74"
   kin-w:  "#E6D7A8"
-  kaki-1: "#A5602B"
-  # triggers darkened to text-safe
-  aka-0:  "#A8352B"   # scarlet text on paper
+  kaki-1: "#7D4820"   # persimmon, sunk to hold 4.5:1 as text
+  # triggers darkened until they hold 4.5:1 on the hardest surface
+  aka-0:  "#9A3027"   # scarlet text on paper
   aka-w:  "#EBD3C8"
-  mori-0: "#4A6B38"   # moss text on paper
+  mori-0: "#415D31"   # moss text on paper
   mori-w: "#DCE2C2"
-  # service darkened
-  hotaru-1: "#4C5A90"
-  fuji-1:   "#6E5890"
-  seiji-1:  "#2F6B5E"
+  # service darkened to the same floor
+  hotaru-1: "#465385"
+  fuji-1:   "#604C7D"
+  seiji-1:  "#2A5E53"
   # the paper artifact inverts: darkness inside light
   washi-bg:   "#1B1813"
   washi-ink:  "#EDE3C4"
   washi-line: "#4C3D24"
 
 notes:
-  gold-law: "same as kogane: gold is gilding, never a slab. Primary button = paper surface (ink-3) + 1.5px gold border (#7A5F2E) + gold text. No gold-filled rectangles."
+  gold-law: "same as kogane: gold is gilding, never a slab. Primary button = paper surface (ink-2) + 1.5px gold border (kin-1) + gold text (kin-t). No gold-filled rectangles."
   terminal: "NOT inverted — the terminal is always a kogane-dark island (#0B0A08) pinned to the paper"
 
 # washi inherits kogane roles; override only where paper would break a token.
 # (aka-0/mori-0/kaki-1/fuji-1 tokens are already darkened above, so those roles
 #  stay safe automatically — only the gold split needs an explicit override.)
 roles:
-  text.gold:  kin-t    # #7A5F2E, 4.6:1 on paper — border.gold stays kin-1 (an edge)
+  text.gold:  kin-t    # gold as TEXT sinks; border.gold stays kin-1 — an edge, not a word
   text.link:  kin-t
+  syntax.keyword: kin-t  # a keyword is a word: it takes the text gold, not the edge gold
   action.text: kin-t
   info.text:  kin-t
-  warn.text:  kaki-1   # #A5602B on paper
+  warn.text:  kaki-1   # persimmon, already sunk in tokens
+  effect.sheen: shiro  # on paper the specular is lighter than the page, not darker
 
 terminal:
   # identical to kogane by design — dark island
@@ -68,23 +74,23 @@ base24:
   base00: "#E2D6B4"
   base01: "#EBE1C3"
   base02: "#D7C9A3"
-  base03: "#8E7C5A"
-  base04: "#6E5E42"
+  base03: "#7F6E50"
+  base04: "#62533B"
   base05: "#2B2117"
   base06: "#1F1810"
   base07: "#14100B"
   base08: "#d8392e"
-  base09: "#A5602B"
-  base0A: "#9C7A40"
-  base0B: "#4A6B38"
-  base0C: "#2F6B5E"
-  base0D: "#4C5A90"
-  base0E: "#6E5890"
+  base09: "#7D4820"
+  base0A: "#8A6B39"
+  base0B: "#415D31"
+  base0C: "#2A5E53"
+  base0D: "#465385"
+  base0E: "#604C7D"
   base0F: "#9B635F"
   base10: "#EBE1C3"
   base11: "#F3EBD5"
-  base12: "#A8352B"
-  base13: "#7A5F2E"
+  base12: "#9A3027"
+  base13: "#695228"
   base14: "#52703F"
   base15: "#2C5A4C"
   base16: "#454E7A"
