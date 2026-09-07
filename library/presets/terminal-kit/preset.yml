@@ -1,6 +1,5 @@
-# ⟦ 様式 ⟧ preset — a curation of existing artifacts, never a new source.
+# yoshiki preset — a curation of existing artifacts, never a new source.
 name: terminal-kit
-kanji: 端
 theme: kogane            # the whole kit is one theme; swap to washi for light
 intent: >
   A complete terminal in the style: emulator colors, the reference prompt,

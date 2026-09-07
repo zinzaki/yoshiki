@@ -16,7 +16,7 @@
 | [`ambient.md`](ambient.md) | aurora-bg · sheen-sweep |
 
 ## The effects law
-1. **One effect per surface.** Stacking reads as noise — 間 Ma applies to motion too.
+1. **One effect per surface.** Stacking reads as noise; the air rule applies to motion too.
 2. **Warm always.** Tint toward lacquer / gold; never a neutral-white or blue glow.
 3. **By place.** Cards, heroes, hover states — yes. Terminal, code, dense data, body
    text — no. If a surface is for reading or working, it stays flat.

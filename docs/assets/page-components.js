@@ -194,13 +194,13 @@
   ];
 
   document.getElementById('kit').innerHTML = SECTIONS.map((s, i) => `
-    <section class="sec ${i % 2 ? 'sec--band' : ''}" id="${s.key}">
+    <section class="sec ${i % 2 ? 'sec--plate' : ''}" id="${s.key}">
       <div class="shell">
         <div class="cols">
           <div class="c7 rv">
-            <div class="eyebrow"><i>${String(i + 1).padStart(2,'0')}</i> ${esc(s.title.toLowerCase())}</div>
+            <div class="idx"><b>${String(i + 1).padStart(2,'0')}</b> ${esc(s.title.toLowerCase())}</div>
             <h2>${esc(s.title)}</h2>
-            <p class="lead">${s.note}</p>
+            <p class="lede">${s.note}</p>
             <p class="y-hint" style="margin-top:14px">canon/components/${esc(s.canon)}</p>
           </div>
         </div>
@@ -210,7 +210,7 @@
           <div class="cols rv" style="margin-top:34px;align-items:stretch">
             <div class="c6">
               <div class="y-head">${esc(d[0])}</div>
-              <div class="y-panel" style="background:var(--r-bg-app)">${d[2]}</div>
+              <div class="plate" style="background:var(--r-bg-app)">${d[2]}</div>
               <p class="y-hint" style="margin-top:12px;line-height:1.7">${esc(d[1])}</p>
             </div>
             <div class="c6">

@@ -3,17 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>様式 yoshiki — a design language</title>
-<meta name="description" content="A warm monochrome design language — lacquer, bone and gold, struck rarely by a single spider-lily scarlet. Palette with a proven roles contract, component canon, thirteen ready themes and drop-in AI prompts.">
-<meta property="og:title" content="様式 yoshiki — a design language">
-<meta property="og:description" content="Warm monochrome, struck rarely by colour. A palette whose every role is proven on every surface, a component canon, thirteen generated themes.">
+<title>yoshiki — a design language</title>
+<meta name="description" content="A design language for terminals, editors and the web. Warm monochrome, struck rarely by colour: a palette proven on every surface, a component contract, thirteen generated themes.">
+<meta property="og:title" content="yoshiki — a design language">
+<meta property="og:description" content="Warm monochrome, struck rarely by colour. A palette proven on every surface, a component contract, thirteen generated themes.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://zinzaki.github.io/yoshiki/">
-<meta property="og:image" content="https://zinzaki.github.io/yoshiki/banner.webp">
+<meta property="og:image" content="https://zinzaki.github.io/yoshiki/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0B0A08">
 <link rel="canonical" href="https://zinzaki.github.io/yoshiki/">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B0A08'/%3E%3Ctext x='32' y='46' font-size='38' text-anchor='middle' fill='%23D8AF52' font-family='serif'%3E様%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="assets/favicon.svg">
 <script>(function(){var t=null;try{t=localStorage.getItem('yoshiki-theme')}catch(e){}
 if(t!=='washi'&&t!=='kogane')t=matchMedia('(prefers-color-scheme: light)').matches?'washi':'kogane';
 document.documentElement.dataset.theme=t})();</script>
@@ -25,225 +25,202 @@ document.documentElement.dataset.theme=t})();</script>
 <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
-<div id="ambient"></div><div id="grain"></div>
+<div id="ambient"></div><div id="sheen"></div><div id="grain"></div>
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="hdr">
-  <a class="brand" href="index.html"><b>様式</b><span>yoshiki</span></a>
+  <a class="brand" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="26" height="26" role="img" aria-label="yoshiki"><rect width="32" height="32" rx="8" fill="var(--ink-1)"/><text x="16" y="23.4" text-anchor="middle" font-family="'Shippori Mincho','Noto Serif JP','Hiragino Mincho ProN','Yu Mincho',serif" font-size="21" font-weight="700" fill="var(--kin-1)">式</text><rect x=".5" y=".5" width="31" height="31" rx="7.5" fill="none" stroke="var(--line-0)"/></svg><b>yoshiki</b></a>
   <nav class="nav" aria-label="Sections">
     <a href="palette.html">palette</a>
     <a href="components.html">components</a>
     <a href="lexicon.html">lexicon</a>
     <a href="themes.html">themes</a>
   </nav>
+  <button class="kbd-hint" data-cmdk aria-label="Search"><span>Search</span><kbd>⌘K</kbd></button>
   <div class="themesw" role="group" aria-label="Theme">
-    <button data-set-theme="kogane" title="kogane — dark (1)" aria-pressed="true">黄</button>
-    <button data-set-theme="washi" title="washi — light (2)" aria-pressed="false">和</button>
+    <button data-set-theme="kogane" title="kogane — dark (press 1)" aria-pressed="true">Dark</button>
+    <button data-set-theme="washi" title="washi — light (press 2)" aria-pressed="false">Light</button>
   </div>
   <a class="gh" href="https://github.com/zinzaki/yoshiki">github ↗</a>
 </header>
 
 <main id="main">
 
-<!-- ── hero ─────────────────────────────────────────────────────── -->
+<!-- ══ hero ═══════════════════════════════════════════════════════ -->
 <section class="shell hero">
-  <div class="cols" style="align-items:end">
-    <div class="c7">
-      <div class="eyebrow"><i>◆</i> a design language</div>
-      <h1 style="font-size:clamp(56px,11vw,116px);line-height:.92;letter-spacing:.02em">様式</h1>
-      <div style="font-family:var(--y-mono);font-size:12px;letter-spacing:11px;text-transform:uppercase;color:var(--r-text-muted);margin-top:18px">yoshiki</div>
-      <p class="lead" style="max-width:44ch;margin-top:28px">
-        <b>Warm monochrome, struck rarely by colour.</b> Almost everything is lacquer,
-        bone and gold; two triggers — spider-lily scarlet and moss — are spent only on
-        events. Colour is rare here, so it still means something.
-      </p>
-      <div class="y-actions" style="margin-top:28px">
+  <div class="hero__kicker">a design language &nbsp;·&nbsp; v1.2 &nbsp;·&nbsp; MIT</div>
+  <h1 class="hero__mark"><span class="gild">yoshiki</span></h1>
+  <div class="cols" style="margin-top:clamp(28px,4vh,52px);align-items:end">
+    <div class="c6">
+      <p class="hero__lede"><b>Warm monochrome, struck rarely by colour.</b> Almost every
+      surface is lacquer, bone and gold. Two triggers — a spider-lily scarlet and a moss
+      green — are spent only on events. Colour is rare here, so it still means something.</p>
+      <div class="y-actions" style="margin-top:30px">
         <a class="y-btn y-btn--primary" href="palette.html">Open the palette</a>
-        <a class="y-btn y-btn--ghost" href="https://github.com/zinzaki/yoshiki">Browse the repo ↗</a>
+        <a class="y-btn y-btn--ghost" href="https://github.com/zinzaki/yoshiki">View on GitHub ↗</a>
       </div>
     </div>
-    <div class="c5">
-      <svg class="lily" viewBox="0 0 100 100" aria-hidden="true">
-        <g fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round">
-          <path d="M50 86 C50 60 36 44 24 30 M24 30 C22 26 24 22 27 22"/>
-          <path d="M50 86 C50 58 42 38 36 20 M36 20 C35 15 38 12 41 13"/>
-          <path d="M50 86 C50 56 50 34 50 14 M50 14 C50 9 53 7 56 9"/>
-          <path d="M50 86 C50 58 58 38 64 20 M64 20 C65 15 62 12 59 13"/>
-          <path d="M50 86 C50 60 64 44 76 30 M76 30 C78 26 76 22 73 22"/>
-          <path d="M50 86 C52 62 70 52 84 46 M84 46 C88 45 90 48 89 51"/>
-          <path d="M50 86 C48 62 30 52 16 46 M16 46 C12 45 10 48 11 51"/>
-        </g>
-        <circle cx="50" cy="86" r="2.4" fill="currentColor" stroke="none"/>
-      </svg>
-      <div class="y-term" aria-label="a yoshiki terminal session"><span class="k">╭─ ◆ ─</span> deploy <span class="k">─  main</span> <span class="g">✓ clean</span> <span class="k">─</span> <span class="c">v1.2</span>
+    <div class="c6">
+      <figure>
+        <div class="y-term" aria-label="a yoshiki terminal session"><span class="k">╭─ ◆ ─</span> deploy <span class="k">─  main</span> <span class="g">✓ clean</span> <span class="k">─</span> <span class="c">v1.2</span>
 <span class="k">╰─ ❯</span> ship --prod
 <span class="g">✓</span> build      <span class="d">passed · 214 files · 0.4s</span>
 <span class="g">✓</span> tests      <span class="d">passed · 1,820 ok</span>
 <span class="k">●</span> upload     <span class="d">in progress</span> <span class="k" data-spin="braille">⠹</span>
 <span class="r">✗</span> migrate    <span class="d">blocked · needs --confirm</span></div>
-      <p style="font-size:12.5px;color:var(--r-text-muted);line-height:1.8;margin-top:14px">
-        Gold gilds the prompt and the frame. Success is a quiet moss ✓; the one scarlet
-        is spent on the single thing that blocks.
-      </p>
+        <figcaption>Gold gilds the prompt and the frame. Success is a quiet moss check;
+        the one scarlet is spent on the single thing that blocks.</figcaption>
+      </figure>
     </div>
   </div>
-
-  <div class="tiles rv" id="facts" style="margin-top:clamp(40px,7vh,72px)"></div>
+  <div class="facts rv" id="facts"></div>
 </section>
 
-<!-- ── 01 · the one law ─────────────────────────────────────────── -->
-<section class="sec sec--band">
+<!-- ══ 01 · the one law ═══════════════════════════════════════════ -->
+<section class="sec sec--plate">
   <div class="shell cols">
     <div class="c6 rv">
-      <div class="eyebrow"><i>01</i> the one law</div>
+      <div class="idx"><b>01</b> the one law</div>
       <h2>Colour earns its power by being rare.</h2>
-      <p class="lead">A signal used everywhere is dead. So a screen is almost all quiet
+      <p class="lede">A signal used everywhere is dead. So a screen is almost all quiet
       tone, and the rare strike lands like a seal — chosen by meaning, never by taste.
-      The budget below is not a style preference; it is the mechanism.</p>
+      The budget below is not a preference. It is the mechanism.</p>
     </div>
     <div class="c6 rv">
-      <div id="ratio"></div>
-      <dl class="y-kv" style="margin-top:22px">
-        <dt>tone</dt><dd>lacquer carries the screen — ~70%</dd>
-        <dt>bone</dt><dd>text and the surfaces it sits on — ~20%</dd>
-        <dt>gold</dt><dd>seams, edges, glyphs — ~7%, never a fill</dd>
-        <dt>trigger</dt><dd>scarlet 彼岸花 · moss 森 — ~3%, by meaning only</dd>
-      </dl>
+      <figure>
+        <div id="ratio"></div>
+        <figcaption>Roughly 70% tone, 20% bone, 7% gold seams, 3% triggers. Move any one
+        of those numbers and the language stops working.</figcaption>
+      </figure>
     </div>
   </div>
 </section>
 
-<!-- ── 02 · gold gilds ──────────────────────────────────────────── -->
+<!-- ══ 02 · the gold law ══════════════════════════════════════════ -->
 <section class="sec">
   <div class="shell">
     <div class="cols">
       <div class="c7 rv">
-        <div class="eyebrow"><i>02</i> the gold law</div>
+        <div class="idx"><b>02</b> the gold law</div>
         <h2>Gold is the seam, never the slab.</h2>
-        <p class="lead">No one would wear a solid-gold watch — but a gilded edge is
-        precious. So gold lives only as line, edge, frame or glyph. The largest gold
-        surface the language allows is a 2px stroke or a single mark. A primary action
-        is a <b>gold-framed tone surface with gold text</b>, and the difference is not
-        subtle once you see the two together.</p>
+        <p class="lede">Nobody would wear a solid-gold watch, but a gilded edge is
+        precious. So gold lives only as a line, an edge, a frame or a glyph — the largest
+        gold surface the language allows is a two-pixel stroke. A primary action is a
+        <b>gold-framed tone surface with gold text</b>, and the difference stops being
+        subtle the moment you see the two together.</p>
       </div>
     </div>
-    <div class="cols rv" style="margin-top:36px">
-      <div class="c6">
-        <div class="y-panel">
-          <div class="y-head">right — the edge is the affordance</div>
+    <div class="versus rv" style="margin-top:38px">
+      <figure>
+        <div class="plate">
+          <div class="versus__tag versus__tag--yes">✓ the edge is the affordance</div>
           <div class="y-actions">
             <button class="y-btn y-btn--primary">Publish</button>
             <button class="y-btn y-btn--ghost">Save draft</button>
           </div>
-          <p style="font-size:12.5px;color:var(--r-text-muted);margin-top:18px;line-height:1.8">
-            A tone surface, a 1.5px gold edge, gold text. It reads as primary because
-            nothing else on the surface wears an edge — hierarchy by rarity, not by area.
-          </p>
         </div>
-      </div>
-      <div class="c6">
-        <div class="y-panel">
-          <div class="y-head" style="color:var(--r-danger-text)">✗ wrong — gold as a fill</div>
+        <figcaption>A tone surface, a 1.5px gold edge, gold text. It reads as primary
+        because nothing else on the surface wears an edge — hierarchy by rarity, not
+        by area.</figcaption>
+      </figure>
+      <figure>
+        <div class="plate">
+          <div class="versus__tag versus__tag--no">✗ gold spent as a fill</div>
           <div class="y-actions">
             <button class="y-btn" style="background:var(--kin-1);border-color:var(--kin-1);color:var(--ink-0);cursor:not-allowed" disabled>Publish</button>
             <button class="y-btn y-btn--ghost" disabled>Save draft</button>
           </div>
-          <p style="font-size:12.5px;color:var(--r-text-muted);margin-top:18px;line-height:1.8">
-            The same gold, spent as a slab. It shouts, it flattens the warmth of the
-            screen, and by the third button of its kind it has stopped meaning anything.
-            This is the one shape the kit will not give you.
-          </p>
         </div>
-      </div>
+        <figcaption>The same gold, spent as a slab. It shouts, it flattens the warmth of
+        the screen, and by the third button of its kind it has stopped meaning anything.
+        This is the one shape the kit will not give you.</figcaption>
+      </figure>
     </div>
-    <p class="lead rv" style="margin-top:28px;max-width:70ch">
-      Scarlet is the exception that proves it: <b>scarlet may fill</b>, because the fill
-      is itself the rare event. One per screen, on the thing you cannot undo.
-    </p>
+    <p class="lede rv" style="margin-top:30px;max-width:72ch">Scarlet is the exception
+    that proves it: <b>scarlet may fill</b>, because a fill is itself the rare event. One
+    per screen, on the thing you cannot undo.</p>
   </div>
 </section>
 
-<!-- ── 03 · two themes ──────────────────────────────────────────── -->
-<section class="sec sec--band">
+<!-- ══ 03 · two themes ════════════════════════════════════════════ -->
+<section class="sec sec--plate">
   <div class="shell">
     <div class="cols">
       <div class="c7 rv">
-        <div class="eyebrow"><i>03</i> two themes, one language</div>
+        <div class="idx"><b>03</b> two themes, one language</div>
         <h2>Only the stage changes.</h2>
-        <p class="lead">kogane 黄金 is warm lacquer; washi 和紙 is paper and sumi ink.
-        The triggers and every rule are identical — what moves is which surfaces carry
-        the light and which family carries the text. Both blocks below are the same
-        markup, wearing the two themes at once.</p>
+        <p class="lede">kogane is warm lacquer. washi is paper and ink. The triggers and
+        every rule are identical — what moves is which surfaces carry the light and which
+        family carries the text. Both blocks below are the same markup, wearing the two
+        themes at once.</p>
       </div>
     </div>
-    <div class="cols rv" style="margin-top:34px">
-      <div class="c6" data-theme="kogane">
-        <div class="y-card" style="background:var(--r-bg-app);border-color:var(--r-border-hairline)">
-          <div class="y-head">kogane 黄金 · dark</div>
+    <div class="versus rv" style="margin-top:34px">
+      <div data-theme="kogane">
+        <div class="plate" style="background:var(--r-bg-app)">
+          <div class="y-head">kogane · dark</div>
           <p style="color:var(--r-text-body);font-size:14px">The lacquer carries the screen.</p>
-          <p style="color:var(--r-text-muted);font-size:12.5px;margin-top:6px">Gold gilds the edge; bone speaks.</p>
-          <div class="y-actions" style="margin-top:18px">
+          <p class="cap" style="margin-top:6px">Gold gilds the edge; bone speaks.</p>
+          <div class="y-actions" style="margin-top:20px">
             <button class="y-btn y-btn--primary y-btn--sm">Primary</button>
             <span class="y-status y-status--ok"><span class="y-status__mark">✓</span> healthy</span>
           </div>
         </div>
       </div>
-      <div class="c6" data-theme="washi">
-        <div class="y-card" style="background:var(--r-bg-app);border-color:var(--r-border-hairline)">
-          <div class="y-head">washi 和紙 · light</div>
+      <div data-theme="washi">
+        <div class="plate" style="background:var(--r-bg-app)">
+          <div class="y-head">washi · light</div>
           <p style="color:var(--r-text-body);font-size:14px">The paper carries the screen.</p>
-          <p style="color:var(--r-text-muted);font-size:12.5px;margin-top:6px">Gold sinks so it stays readable.</p>
-          <div class="y-actions" style="margin-top:18px">
+          <p class="cap" style="margin-top:6px">Gold sinks so it stays readable.</p>
+          <div class="y-actions" style="margin-top:20px">
             <button class="y-btn y-btn--primary y-btn--sm">Primary</button>
             <span class="y-status y-status--ok"><span class="y-status__mark">✓</span> healthy</span>
           </div>
         </div>
       </div>
     </div>
-    <p class="lead rv" style="margin-top:26px;max-width:70ch">
-      The terminal is the one thing that never inverts: it stays a dark island, pinned
-      to the paper. Worlds nest; they do not collide.
-    </p>
+    <p class="lede rv" style="margin-top:28px;max-width:72ch">The terminal is the one
+    thing that never inverts: it stays a dark island, pinned to the paper. Worlds nest;
+    they do not collide.</p>
   </div>
 </section>
 
-<!-- ── 04 · the palette ─────────────────────────────────────────── -->
+<!-- ══ 04 · the palette ═══════════════════════════════════════════ -->
 <section class="sec">
   <div class="shell">
     <div class="cols">
       <div class="c7 rv">
-        <div class="eyebrow"><i>04</i> the palette</div>
+        <div class="idx"><b>04</b> the palette</div>
         <h2>Every shade has a job — and a proof.</h2>
-        <p class="lead">Raw tokens are the paint; <b>roles</b> are the contract. Consume
+        <p class="lede">Raw tokens are the paint. <b>Roles</b> are the contract: reach for
         <code style="color:var(--r-text-gold)">text.body</code> or
-        <code style="color:var(--r-text-gold)">action.edge</code>, never a raw hex — a
-        role guarantees the right contrast in both themes, on every surface it can land
+        <code style="color:var(--r-text-gold)">action.edge</code> and the right value
+        arrives in either theme, at a contrast measured against every surface it can land
         on. The build fails if one cell drops below its floor.</p>
-        <div class="y-actions" style="margin-top:22px">
+        <div class="y-actions" style="margin-top:24px">
           <a class="y-btn y-btn--primary" href="palette.html">Every token and role →</a>
         </div>
       </div>
     </div>
-    <div id="glance" class="rv" style="margin-top:38px"></div>
+    <div id="glance" class="rv" style="margin-top:40px"></div>
   </div>
 </section>
 
-<!-- ── 05 · applied ─────────────────────────────────────────────── -->
-<section class="sec sec--band">
+<!-- ══ 05 · applied ═══════════════════════════════════════════════ -->
+<section class="sec sec--plate">
   <div class="shell">
     <div class="cols">
       <div class="c8 rv">
-        <div class="eyebrow"><i>05</i> the language, applied</div>
+        <div class="idx"><b>05</b> the language, applied</div>
         <h2>The same rules, wherever it lands.</h2>
-        <p class="lead">A design language only proves itself in use. Six surfaces, one
+        <p class="lede">A design language only proves itself in use. Four surfaces, one
         palette, the same laws: almost all tone, gold on the edges, one scarlet kept for
         the irreversible.</p>
       </div>
     </div>
     <div class="cols rv" style="margin-top:38px">
-
-      <div class="c6">
-        <div class="y-card">
+      <figure class="c6">
+        <div class="plate">
           <div class="y-head">web ui · a destructive decision</div>
           <div style="color:var(--r-text-heading);font-size:15px">Cancel subscription</div>
           <p style="color:var(--r-text-secondary);font-size:13px;margin-top:8px">
@@ -257,14 +234,11 @@ document.documentElement.dataset.theme=t})();</script>
             </span>
           </div>
         </div>
-        <p style="font-size:12.5px;color:var(--r-text-muted);margin-top:12px;line-height:1.8">
-          The destructive button is the only place scarlet fills — so it reads as a
-          warning rather than decoration.</p>
-      </div>
-
-      <div class="c6">
-        <div class="y-card" style="padding:0;overflow:hidden">
-          <div class="y-term" style="border:0;border-radius:0"><span class="k">╭─ ◆</span> ORDER <span class="b">#1421</span>
+        <figcaption>The destructive button is the only place scarlet fills — so it reads
+        as a warning rather than decoration.</figcaption>
+      </figure>
+      <figure class="c6">
+        <div class="y-term"><span class="k">╭─ ◆</span> ORDER <span class="b">#1421</span>
 <span class="k">│</span>  item     Hand-bound notebook
 <span class="k">│</span>  status   <span class="g">✓ paid</span>   <span class="d">·</span>   ¥ 4,820
 <span class="k">│</span>  ship     <span class="d">Kyoto → Tokyo · 2 days</span>
@@ -272,14 +246,11 @@ document.documentElement.dataset.theme=t})();</script>
 
 <span class="d">— delivered 14:02 —</span>
 <span class="k">◆</span> <span class="b">Your parcel left the workshop.</span></div>
-        </div>
-        <p style="font-size:12.5px;color:var(--r-text-muted);margin-top:12px;line-height:1.8">
-          Chat, where colour often cannot go: frames, one glyph and aligned columns do
-          the work instead.</p>
-      </div>
-
-      <div class="c6" style="margin-top:var(--y-6)">
-        <div class="y-card">
+        <figcaption>Chat, where colour often cannot go: frames, one glyph and aligned
+        columns do the work instead.</figcaption>
+      </figure>
+      <figure class="c6" style="margin-top:var(--gutter)">
+        <div class="plate">
           <div class="y-head">data · weekly report</div>
           <table class="y-table">
             <tbody>
@@ -290,100 +261,93 @@ document.documentElement.dataset.theme=t})();</script>
             </tbody>
           </table>
         </div>
-        <p style="font-size:12.5px;color:var(--r-text-muted);margin-top:12px;line-height:1.8">
-          One cell earns a colour, because one value crossed its threshold. The rest
-          stays in tone — which is why the one that moved is impossible to miss.</p>
-      </div>
-
-      <div class="c6" style="margin-top:var(--y-6)">
-        <div class="y-card">
+        <figcaption>One cell earns a colour, because one value crossed its threshold. The
+        rest stays in tone — which is why the one that moved is impossible to miss.</figcaption>
+      </figure>
+      <figure class="c6" style="margin-top:var(--gutter)">
+        <div class="plate">
           <div class="y-head">docs · a README</div>
-          <h3 style="font-size:19px">様式 yoshiki</h3>
-          <div style="font-family:var(--y-mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--r-text-muted);margin-top:6px">a warm design language</div>
+          <h3 style="font-size:19px">yoshiki</h3>
+          <div class="cap" style="letter-spacing:2px;text-transform:uppercase;margin-top:6px">a warm design language</div>
           <p style="color:var(--r-text-secondary);font-size:13px;margin-top:14px">
             Lacquer, bone and gold — struck rarely by a single spider-lily scarlet.
             Install one token file: <code style="color:var(--r-syntax-string)">palette.css</code>.</p>
           <div class="y-rule--mark" style="margin:18px 0">◆</div>
-          <p style="font-family:var(--y-serif);font-size:16px;color:var(--r-text-heading);line-height:1.6">
+          <p style="font-family:var(--y-serif);font-size:17px;color:var(--r-text-heading);line-height:1.6">
             Colour earns its power by being rare.</p>
         </div>
-        <p style="font-size:12.5px;color:var(--r-text-muted);margin-top:12px;line-height:1.8">
-          A page calm enough that one pull-quote actually lands.</p>
-      </div>
-
+        <figcaption>A page calm enough that one pull-quote actually lands.</figcaption>
+      </figure>
     </div>
   </div>
 </section>
 
-<!-- ── 06 · generated ───────────────────────────────────────────── -->
+<!-- ══ 06 · one source ════════════════════════════════════════════ -->
 <section class="sec">
-  <div class="shell">
-    <div class="cols">
-      <div class="c7 rv">
-        <div class="eyebrow"><i>06</i> one source</div>
-        <h2>Thirteen targets, generated.</h2>
-        <p class="lead">Nothing downstream is maintained by hand. One palette file is the
-        source; the build bakes every theme, every token export, this site's colours, and
-        the contrast proof — then CI re-runs it and fails on any drift. A palette that
-        can rot is not a design system.</p>
-        <div class="y-actions" style="margin-top:22px">
-          <a class="y-btn y-btn--primary" href="themes.html">See the themes →</a>
-        </div>
+  <div class="shell cols">
+    <div class="c6 rv">
+      <div class="idx"><b>06</b> one source</div>
+      <h2>Thirteen targets, generated.</h2>
+      <p class="lede">Nothing downstream is maintained by hand. One palette file is the
+      source; the build bakes every theme, every token export, this site's colours, the
+      banner and the mark, then CI re-runs it and fails on any drift. A palette that can
+      rot is not a design system.</p>
+      <div class="y-actions" style="margin-top:24px">
+        <a class="y-btn y-btn--primary" href="themes.html">See the themes →</a>
       </div>
-      <div class="c5 rv">
-        <div class="y-term" aria-label="the build pipeline"><span class="d">canon/palette/kogane/palette.yml</span>
+    </div>
+    <div class="c6 rv">
+      <div class="y-term" aria-label="the build pipeline"><span class="d">canon/palette/kogane/palette.yml</span>
    <span class="k">│</span>  <span class="d">washi inherits, overrides its deltas</span>
    <span class="k">▼</span>
 <span class="k">╭─</span> tools/build.py <span class="k">─────────────╮</span>
 <span class="k">│</span> <span class="g">✓</span> 13 program themes        <span class="k">│</span>
 <span class="k">│</span> <span class="g">✓</span> css · json · DTCG        <span class="k">│</span>
-<span class="k">│</span> <span class="g">✓</span> the site's own palette   <span class="k">│</span>
+<span class="k">│</span> <span class="g">✓</span> the site, banner, mark   <span class="k">│</span>
 <span class="k">│</span> <span class="g">✓</span> CONTRAST.md, enforced    <span class="k">│</span>
 <span class="k">╰──────────────────────────────╯</span>
 <span class="k">❯</span> build.py --check   <span class="d">— in CI</span>
 <span class="g">✓</span> <span class="d">clean — output matches canon</span></div>
-      </div>
     </div>
   </div>
 </section>
 
-<!-- ── 07 · agents ──────────────────────────────────────────────── -->
-<section class="sec sec--band">
-  <div class="shell">
-    <div class="cols">
-      <div class="c7 rv">
-        <div class="eyebrow"><i>07</i> point an agent at it</div>
-        <h2>A repository that steers the model.</h2>
-        <p class="lead">Give an agent the link and nothing else. It reads
-        <code style="color:var(--r-text-gold)">AGENTS.md</code>, learns the read order and
-        the laws, then loads only the module its task needs — palette, CLI, components,
-        comments, chat, image prompts. There is also a machine index at
-        <code style="color:var(--r-text-gold)">llms.txt</code> and W3C design tokens for
-        the tooling that wants structure instead of prose.</p>
-      </div>
-      <div class="c5 rv">
-        <div class="y-term"><span class="d"># AGENTS.md — the map, read first</span>
+<!-- ══ 07 · agents ════════════════════════════════════════════════ -->
+<section class="sec sec--plate">
+  <div class="shell cols">
+    <div class="c6 rv">
+      <div class="idx"><b>07</b> point an agent at it</div>
+      <h2>A repository that steers the model.</h2>
+      <p class="lede">Give an agent the link and nothing else. It reads
+      <code style="color:var(--r-text-gold)">AGENTS.md</code>, learns the read order and
+      the laws, then loads only the module its task needs — palette, CLI, components,
+      comments, chat, image prompts. There is a machine index at
+      <code style="color:var(--r-text-gold)">llms.txt</code> and W3C design tokens for
+      tooling that wants structure instead of prose.</p>
+    </div>
+    <div class="c6 rv">
+      <div class="y-term"><span class="d"># AGENTS.md — the map, read first</span>
 <span class="k">read in order</span>  <span class="d">→</span> philosophy <span class="d">·</span> principles <span class="d">·</span> roles
 <span class="k">load on task</span>   <span class="d">→</span> <span class="c">lexicon</span> <span class="d">·</span> <span class="c">components</span> <span class="d">·</span> <span class="c">motion</span>
 <span class="k">the laws</span>       <span class="d">→</span> rarity = power
                   gold gilds, never fills
                   warm, never grey</div>
-      </div>
     </div>
   </div>
 </section>
 
-<!-- ── 08 · the whole map ───────────────────────────────────────── -->
+<!-- ══ 08 · the map ═══════════════════════════════════════════════ -->
 <section class="sec">
   <div class="shell">
     <div class="cols">
       <div class="c7 rv">
-        <div class="eyebrow"><i>08</i> the whole map</div>
+        <div class="idx"><b>08</b> the whole map</div>
         <h2>Two halves: the definition, and the language in use.</h2>
-        <p class="lead"><code style="color:var(--r-text-gold)">canon/</code> is edited by
-        hand and is the source of truth. <code style="color:var(--r-text-gold)">library/</code>
-        is what falls out of it — things to lift whole. Most of the second half is
-        generated from the first, which is why they cannot disagree.</p>
+        <p class="lede"><code style="color:var(--r-text-gold)">canon/</code> is edited by
+        hand and is the source of truth.
+        <code style="color:var(--r-text-gold)">library/</code> is what falls out of it —
+        things to lift whole. Most of the second half is generated from the first, which
+        is why they cannot disagree.</p>
       </div>
     </div>
     <div class="cols rv" style="margin-top:34px">
@@ -393,18 +357,18 @@ document.documentElement.dataset.theme=t})();</script>
   </div>
 </section>
 
-<!-- ── cta ──────────────────────────────────────────────────────── -->
-<section class="sec">
+<!-- ══ cta ════════════════════════════════════════════════════════ -->
+<section class="sec sec--plate">
   <div class="shell" style="text-align:center">
     <div class="rv">
-      <div class="eyebrow" style="justify-content:center"><i>◆</i> take it</div>
+      <div class="idx" style="justify-content:center"><b>◆</b> take it</div>
       <h2 style="max-width:20ch;margin:0 auto">Lift one file, or the whole system.</h2>
-      <p class="lead" style="margin:18px auto 0">A palette with a proven contract, a
+      <p class="lede" style="margin:20px auto 0">A palette with a proven contract, a
       component canon and its drop-in stylesheet, thirteen terminal and editor themes,
       and prompt modules that teach the language to a model. MIT.</p>
-      <div class="y-actions" style="justify-content:center;margin-top:30px">
-        <a class="y-btn y-btn--primary" href="https://github.com/zinzaki/yoshiki">Open on GitHub ↗</a>
-        <a class="y-btn y-btn--ghost" href="https://github.com/zinzaki/yoshiki/blob/main/AGENTS.md">Read AGENTS.md</a>
+      <div class="y-actions" style="justify-content:center;margin-top:32px">
+        <a class="y-btn y-btn--primary y-btn--lg" href="https://github.com/zinzaki/yoshiki">Open on GitHub ↗</a>
+        <a class="y-btn y-btn--ghost y-btn--lg" href="palette.html">Browse the palette</a>
       </div>
     </div>
   </div>
@@ -413,10 +377,11 @@ document.documentElement.dataset.theme=t})();</script>
 
 <footer class="foot">
   <div class="foot__in">
-    <span style="color:var(--r-text-body)">様式 yoshiki</span>
+    <span style="color:var(--r-text-body)">yoshiki</span>
     <span class="sep">·</span><a href="https://github.com/zinzaki/yoshiki">github</a>
     <span class="sep">·</span><a href="https://github.com/zinzaki/yoshiki/blob/main/PHILOSOPHY.md">philosophy</a>
     <span class="sep">·</span><a href="https://github.com/zinzaki/yoshiki/blob/main/canon/palette/CONTRAST.md">contrast proof</a>
+    <span class="sep">·</span><a href="https://github.com/zinzaki/yoshiki/blob/main/AGENTS.md">for agents</a>
     <span class="sep">·</span><span>MIT</span>
     <span style="margin-left:auto">an open design language · <span data-year></span></span>
   </div>
@@ -425,6 +390,7 @@ document.documentElement.dataset.theme=t})();</script>
 <div id="toast" role="status" aria-live="polite"></div>
 <script src="assets/palette.data.js"></script>
 <script src="assets/site.js"></script>
+<script src="assets/cmdk.js"></script>
 <script src="assets/page-index.js"></script>
 </body>
 </html>

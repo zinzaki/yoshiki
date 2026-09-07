@@ -3,17 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>様式 yoshiki — lexicon</title>
-<meta name="description" content="Glyphs, frames, tracking, motion and text charts — the half of the yoshiki language that survives where colour cannot go.">
-<meta property="og:title" content="様式 yoshiki — lexicon">
-<meta property="og:description" content="Glyphs, frames, tracking, motion and text charts — the half of the yoshiki language that survives where colour cannot go.">
+<title>yoshiki — lexicon</title>
+<meta name="description" content="Glyphs, frames, tracking, motion and text charts — the half of the language that survives where colour cannot go.">
+<meta property="og:title" content="yoshiki — lexicon">
+<meta property="og:description" content="Glyphs, frames, tracking, motion and text charts — the half of the language that survives where colour cannot go.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://zinzaki.github.io/yoshiki/lexicon.html">
-<meta property="og:image" content="https://zinzaki.github.io/yoshiki/banner.webp">
+<meta property="og:image" content="https://zinzaki.github.io/yoshiki/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0B0A08">
 <link rel="canonical" href="https://zinzaki.github.io/yoshiki/lexicon.html">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B0A08'/%3E%3Ctext x='32' y='46' font-size='38' text-anchor='middle' fill='%23D8AF52' font-family='serif'%3E様%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="assets/favicon.svg">
 <script>(function(){var t=null;try{t=localStorage.getItem('yoshiki-theme')}catch(e){}
 if(t!=='washi'&&t!=='kogane')t=matchMedia('(prefers-color-scheme: light)').matches?'washi':'kogane';
 document.documentElement.dataset.theme=t})();</script>
@@ -25,29 +25,29 @@ document.documentElement.dataset.theme=t})();</script>
 <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
-<div id="ambient"></div><div id="grain"></div>
+<div id="ambient"></div><div id="sheen"></div><div id="grain"></div>
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="hdr">
-  <a class="brand" href="index.html"><b>様式</b><span>yoshiki</span></a>
+  <a class="brand" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="26" height="26" role="img" aria-label="yoshiki"><rect width="32" height="32" rx="8" fill="var(--ink-1)"/><text x="16" y="23.4" text-anchor="middle" font-family="'Shippori Mincho','Noto Serif JP','Hiragino Mincho ProN','Yu Mincho',serif" font-size="21" font-weight="700" fill="var(--kin-1)">式</text><rect x=".5" y=".5" width="31" height="31" rx="7.5" fill="none" stroke="var(--line-0)"/></svg><b>yoshiki</b></a>
   <nav class="nav" aria-label="Sections">
     <a href="palette.html">palette</a>
     <a href="components.html">components</a>
     <a href="lexicon.html">lexicon</a>
     <a href="themes.html">themes</a>
   </nav>
+  <button class="kbd-hint" data-cmdk aria-label="Search"><span>Search</span><kbd>⌘K</kbd></button>
   <div class="themesw" role="group" aria-label="Theme">
-    <button data-set-theme="kogane" title="kogane — dark (1)" aria-pressed="true">黄</button>
-    <button data-set-theme="washi" title="washi — light (2)" aria-pressed="false">和</button>
+    <button data-set-theme="kogane" title="kogane — dark (press 1)" aria-pressed="true">Dark</button>
+    <button data-set-theme="washi" title="washi — light (press 2)" aria-pressed="false">Light</button>
   </div>
   <a class="gh" href="https://github.com/zinzaki/yoshiki">github ↗</a>
 </header>
-
 <main id="main">
 <section class="shell phead">
-  <div class="eyebrow"><i>canon</i> lexicon</div>
+  <div class="idx"><b>canon</b> lexicon</div>
   <h1>The form, apart from colour.</h1>
-  <p class="lead">Half of this language survives in a plain terminal, a diff, a commit
+  <p class="lede">Half of this language survives in a plain terminal, a diff, a commit
   message or a chat window where colour cannot go. <b>Structure carries it</b>: one glyph
   per meaning, frames that say soft or hard, tracking that turns a word into a mark, and
   motion drawn with squares and dots instead of a slab. Click any glyph to copy it.</p>
@@ -57,15 +57,15 @@ document.documentElement.dataset.theme=t})();</script>
   <div class="shell">
     <div class="cols">
       <div class="c7 rv">
-        <div class="eyebrow"><i>01</i> glyphs</div>
+        <div class="idx"><b>01</b> glyphs</div>
         <h2>See, don't read.</h2>
-        <p class="lead">One glyph carries one meaning and keeps it everywhere — terminal,
+        <p class="lede">One glyph carries one meaning and keeps it everywhere — terminal,
         chat, comments, docs. The eye decodes a shape faster than a word, and a shape
         survives colour-blindness, greyscale and a monochrome print. Restraint is the law:
         one or two glyphs per line, never a parade.</p>
       </div>
       <div class="c5 rv">
-        <div class="y-panel">
+        <div class="plate">
           <div class="y-head">tiers — pick the lowest that does the job</div>
           <dl class="y-kv">
             <dt>tier 0</dt><dd>any font — ✓ ✗ ● ○ ◆ → ❯ ⚠</dd>
@@ -82,16 +82,16 @@ document.documentElement.dataset.theme=t})();</script>
   </div>
 </section>
 
-<section class="sec sec--band">
+<section class="sec sec--plate">
   <div class="shell">
     <div class="cols">
       <div class="c6 rv">
-        <div class="eyebrow"><i>02</i> frames &amp; space</div>
+        <div class="idx"><b>02</b> frames &amp; space</div>
         <h2>A soft capsule, or a hard spine.</h2>
-        <p class="lead">Rounded corners for the calm register, double rules for the
+        <p class="lede">Rounded corners for the calm register, double rules for the
         technical one — and one sharp mark permitted inside a soft frame, never two.
         Content never touches the wall: the margin is composition, not leftover.</p>
-        <p class="lead">Tracking turns a word into an emblem. Body text is never spaced;
+        <p class="lede">Tracking turns a word into an emblem. Body text is never spaced;
         only marks are.</p>
       </div>
       <div class="c6 rv">
@@ -122,16 +122,16 @@ document.documentElement.dataset.theme=t})();</script>
   <div class="shell">
     <div class="cols">
       <div class="c6 rv">
-        <div class="eyebrow"><i>03</i> motion</div>
+        <div class="idx"><b>03</b> motion</div>
         <h2>Density as meaning.</h2>
-        <p class="lead">A spinner lives at ~90ms — a breathing tempo, not a dizzy whirl.
+        <p class="lede">A spinner lives at ~90ms — a breathing tempo, not a dizzy whirl.
         Smoothness belongs to progress, and progress is drawn with sub-symbols: braille
         cells that fill, or a ▰▱ tape. Never a solid slab bar, and never a shimmer.</p>
         <p class="y-hint" style="margin-top:14px">Everything here holds one honest frame
         under <code>prefers-reduced-motion</code> rather than vanishing.</p>
       </div>
       <div class="c6 rv">
-        <div class="y-panel">
+        <div class="plate">
           <table class="spec">
             <tbody>
               <tr><td style="width:150px">spinner · braille</td>
@@ -152,13 +152,13 @@ document.documentElement.dataset.theme=t})();</script>
   </div>
 </section>
 
-<section class="sec sec--band">
+<section class="sec sec--plate">
   <div class="shell">
     <div class="cols">
       <div class="c6 rv">
-        <div class="eyebrow"><i>04</i> charts in text</div>
+        <div class="idx"><b>04</b> charts in text</div>
         <h2>Numbers, drawn with squares and dots.</h2>
-        <p class="lead">One role colour per run, and the first series is gold — the subject.
+        <p class="lede">One role colour per run, and the first series is gold — the subject.
         A threshold is a mark, not a filled band. A chart that needs a fourth hue needs
         small multiples instead.</p>
       </div>
@@ -181,9 +181,9 @@ document.documentElement.dataset.theme=t})();</script>
   <div class="shell">
     <div class="cols">
       <div class="c6 rv">
-        <div class="eyebrow"><i>05</i> messaging &amp; comments</div>
+        <div class="idx"><b>05</b> messaging &amp; comments</div>
         <h2>Where colour cannot go.</h2>
-        <p class="lead">Chat clients, bot messages, commit bodies and code comments strip
+        <p class="lede">Chat clients, bot messages, commit bodies and code comments strip
         every hue you had. What is left is the frame, the glyph and the column — and the
         language was built so that what is left is still the language.</p>
       </div>
@@ -205,12 +205,12 @@ document.documentElement.dataset.theme=t})();</script>
   </div>
 </section>
 
-<section class="sec sec--band">
+<section class="sec sec--plate">
   <div class="shell" style="text-align:center">
     <div class="rv">
-      <div class="eyebrow" style="justify-content:center"><i>◆</i> the rest of it</div>
+      <div class="idx" style="justify-content:center"><i>◆</i> the rest of it</div>
       <h2 style="max-width:22ch;margin:0 auto">Nameplates, states, image prompts, ready blocks.</h2>
-      <p class="lead" style="margin:18px auto 0">The full lexicon lives in the repository,
+      <p class="lede" style="margin:18px auto 0">The full lexicon lives in the repository,
       with ready-to-lift menus, cards, banners and glyph sets beside it.</p>
       <div class="y-actions" style="justify-content:center;margin-top:26px">
         <a class="y-btn y-btn--primary" href="https://github.com/zinzaki/yoshiki/tree/main/canon/lexicon">canon/lexicon ↗</a>
@@ -225,10 +225,11 @@ document.documentElement.dataset.theme=t})();</script>
 
 <footer class="foot">
   <div class="foot__in">
-    <span style="color:var(--r-text-body)">様式 yoshiki</span>
+    <span style="color:var(--r-text-body)">yoshiki</span>
     <span class="sep">·</span><a href="https://github.com/zinzaki/yoshiki">github</a>
     <span class="sep">·</span><a href="https://github.com/zinzaki/yoshiki/blob/main/PHILOSOPHY.md">philosophy</a>
     <span class="sep">·</span><a href="https://github.com/zinzaki/yoshiki/blob/main/canon/palette/CONTRAST.md">contrast proof</a>
+    <span class="sep">·</span><a href="https://github.com/zinzaki/yoshiki/blob/main/AGENTS.md">for agents</a>
     <span class="sep">·</span><span>MIT</span>
     <span style="margin-left:auto">an open design language · <span data-year></span></span>
   </div>
@@ -237,6 +238,7 @@ document.documentElement.dataset.theme=t})();</script>
 <div id="toast" role="status" aria-live="polite"></div>
 <script src="assets/palette.data.js"></script>
 <script src="assets/site.js"></script>
+<script src="assets/cmdk.js"></script>
 <script src="assets/page-lexicon.js"></script>
 </body>
 </html>

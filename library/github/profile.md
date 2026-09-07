@@ -3,7 +3,7 @@
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: light)" srcset="banner-washi.png">
-    <img alt="NAME" src="banner.png" width="860">
+    <img alt="NAME" src="banner.svg" width="860">
   </picture>
 </p>
 

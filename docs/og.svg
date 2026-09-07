@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+<defs><radialGradient id="g" cx="22%" cy="6%" r="88%"><stop offset="0%" stop-color="#D8AF52" stop-opacity=".12"/><stop offset="100%" stop-color="#D8AF52" stop-opacity="0"/></radialGradient></defs>
+<rect width="1200" height="630" fill="#0B0A08"/>
+<rect width="1200" height="630" fill="url(#g)"/>
+<g transform="translate(84 207)"><rect width="32" height="32" rx="8" fill="#12100C"/><text x="16" y="23.4" text-anchor="middle" font-family="'Shippori Mincho','Noto Serif JP','Hiragino Mincho ProN','Yu Mincho',serif" font-size="21" font-weight="700" fill="#D8AF52">式</text><rect x=".5" y=".5" width="31" height="31" rx="7.5" fill="none" stroke="#362C1B"/></g>
+<text x="172" y="264" font-family="Georgia,'Iowan Old Style','Times New Roman',serif" font-size="76" font-weight="700" letter-spacing="-1.5" fill="#F7EED2">yoshiki</text>
+<rect x="84" y="320" width="150" height="2" fill="#D8AF52"/>
+<text x="84" y="376" font-family="Georgia,'Iowan Old Style','Times New Roman',serif" font-size="30" fill="#EDE3C4">A design language for terminals, editors and the web.</text>
+<text x="84" y="418" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="16" fill="#96886B">Warm monochrome. Gold gilds, never fills.</text>
+<text x="84" y="446" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="16" fill="#96886B">One scarlet, kept for the irreversible.</text>
+<text x="84" y="506" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="14" letter-spacing=".5" fill="#A58444">13 GENERATED THEMES  ·  42 TOKENS  ·  35 ROLES  ·  PROVEN ON EVERY SURFACE</text>
+<rect x="0.0" y="596" width="71.6" height="34" fill="#0B0A08"/>
+<rect x="70.6" y="596" width="71.6" height="34" fill="#12100C"/>
+<rect x="141.2" y="596" width="71.6" height="34" fill="#1B1813"/>
+<rect x="211.8" y="596" width="71.6" height="34" fill="#262119"/>
+<rect x="282.4" y="596" width="71.6" height="34" fill="#4C3D24"/>
+<rect x="352.9" y="596" width="71.6" height="34" fill="#776A51"/>
+<rect x="423.5" y="596" width="71.6" height="34" fill="#96886B"/>
+<rect x="494.1" y="596" width="71.6" height="34" fill="#C9BC96"/>
+<rect x="564.7" y="596" width="71.6" height="34" fill="#EDE3C4"/>
+<rect x="635.3" y="596" width="71.6" height="34" fill="#F7EED2"/>
+<rect x="705.9" y="596" width="71.6" height="34" fill="#57441F"/>
+<rect x="776.5" y="596" width="71.6" height="34" fill="#A58444"/>
+<rect x="847.1" y="596" width="71.6" height="34" fill="#D8AF52"/>
+<rect x="917.6" y="596" width="71.6" height="34" fill="#EDC85C"/>
+<rect x="988.2" y="596" width="71.6" height="34" fill="#C67F45"/>
+<rect x="1058.8" y="596" width="71.6" height="34" fill="#52703F"/>
+<rect x="1129.4" y="596" width="71.6" height="34" fill="#d8392e"/>
+</svg>

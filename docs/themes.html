@@ -3,17 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>様式 yoshiki — themes</title>
-<meta name="description" content="Thirteen generated program themes — kitty, foot, alacritty, ghostty, wezterm, starship, tmux, zellij, fzf, btop, vscode, neovim and base24 — previewed and ready to install.">
-<meta property="og:title" content="様式 yoshiki — themes">
-<meta property="og:description" content="Thirteen generated program themes — kitty, foot, alacritty, ghostty, wezterm, starship, tmux, zellij, fzf, btop, vscode, neovim and base24 — previewed and ready to install.">
+<title>yoshiki — themes</title>
+<meta name="description" content="Thirteen generated program themes — kitty, ghostty, wezterm, vscode, neovim, starship, tmux, zellij, btop, fzf and more — previewed and ready to install.">
+<meta property="og:title" content="yoshiki — themes">
+<meta property="og:description" content="Thirteen generated program themes — kitty, ghostty, wezterm, vscode, neovim, starship, tmux, zellij, btop, fzf and more — previewed and ready to install.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://zinzaki.github.io/yoshiki/themes.html">
-<meta property="og:image" content="https://zinzaki.github.io/yoshiki/banner.webp">
+<meta property="og:image" content="https://zinzaki.github.io/yoshiki/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0B0A08">
 <link rel="canonical" href="https://zinzaki.github.io/yoshiki/themes.html">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B0A08'/%3E%3Ctext x='32' y='46' font-size='38' text-anchor='middle' fill='%23D8AF52' font-family='serif'%3E様%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="assets/favicon.svg">
 <script>(function(){var t=null;try{t=localStorage.getItem('yoshiki-theme')}catch(e){}
 if(t!=='washi'&&t!=='kogane')t=matchMedia('(prefers-color-scheme: light)').matches?'washi':'kogane';
 document.documentElement.dataset.theme=t})();</script>
@@ -25,29 +25,29 @@ document.documentElement.dataset.theme=t})();</script>
 <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
-<div id="ambient"></div><div id="grain"></div>
+<div id="ambient"></div><div id="sheen"></div><div id="grain"></div>
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="hdr">
-  <a class="brand" href="index.html"><b>様式</b><span>yoshiki</span></a>
+  <a class="brand" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="26" height="26" role="img" aria-label="yoshiki"><rect width="32" height="32" rx="8" fill="var(--ink-1)"/><text x="16" y="23.4" text-anchor="middle" font-family="'Shippori Mincho','Noto Serif JP','Hiragino Mincho ProN','Yu Mincho',serif" font-size="21" font-weight="700" fill="var(--kin-1)">式</text><rect x=".5" y=".5" width="31" height="31" rx="7.5" fill="none" stroke="var(--line-0)"/></svg><b>yoshiki</b></a>
   <nav class="nav" aria-label="Sections">
     <a href="palette.html">palette</a>
     <a href="components.html">components</a>
     <a href="lexicon.html">lexicon</a>
     <a href="themes.html">themes</a>
   </nav>
+  <button class="kbd-hint" data-cmdk aria-label="Search"><span>Search</span><kbd>⌘K</kbd></button>
   <div class="themesw" role="group" aria-label="Theme">
-    <button data-set-theme="kogane" title="kogane — dark (1)" aria-pressed="true">黄</button>
-    <button data-set-theme="washi" title="washi — light (2)" aria-pressed="false">和</button>
+    <button data-set-theme="kogane" title="kogane — dark (press 1)" aria-pressed="true">Dark</button>
+    <button data-set-theme="washi" title="washi — light (press 2)" aria-pressed="false">Light</button>
   </div>
   <a class="gh" href="https://github.com/zinzaki/yoshiki">github ↗</a>
 </header>
-
 <main id="main">
 <section class="shell phead">
-  <div class="eyebrow"><i>library</i> themes</div>
+  <div class="idx"><b>library</b> themes</div>
   <h1>Thirteen targets, one source.</h1>
-  <p class="lead">Every file below is baked out of a single palette by
+  <p class="lede">Every file below is baked out of a single palette by
   <code style="color:var(--r-text-gold)">tools/build.py</code>, and CI re-runs the build to
   make sure the committed output still matches. <b>Nothing here is maintained by hand</b> —
   change one token in <code style="color:var(--r-text-gold)">canon/palette</code> and all
@@ -58,9 +58,9 @@ document.documentElement.dataset.theme=t})();</script>
   <div class="shell">
     <div class="cols">
       <div class="c7 rv">
-        <div class="eyebrow"><i>01</i> the terminal</div>
+        <div class="idx"><b>01</b> the terminal</div>
         <h2>A dark island, in both themes.</h2>
-        <p class="lead">The terminal never inverts. Even under washi, where the page is
+        <p class="lede">The terminal never inverts. Even under washi, where the page is
         paper, the terminal stays lacquer — so the two theme files of a terminal-drawn
         target carry the same values, and the ANSI ramp is shared. Blue, wisteria and
         celadon exist only here and in syntax; they never enter the UI.</p>
@@ -80,13 +80,13 @@ document.documentElement.dataset.theme=t})();</script>
   </div>
 </section>
 
-<section class="sec sec--band">
+<section class="sec sec--plate">
   <div class="shell">
     <div class="cols">
       <div class="c7 rv">
-        <div class="eyebrow"><i>02</i> the editor</div>
+        <div class="idx"><b>02</b> the editor</div>
         <h2>Syntax lives in the roles, too.</h2>
-        <p class="lead">An editor follows the theme it is in — paper under washi, lacquer
+        <p class="lede">An editor follows the theme it is in — paper under washi, lacquer
         under kogane — while its integrated terminal stays the dark island. Keywords take
         the gold, strings the moss, numbers the persimmon; types and constants are the one
         place the cool service hues are allowed. Each is measured against the page it
@@ -104,9 +104,9 @@ document.documentElement.dataset.theme=t})();</script>
   <div class="shell">
     <div class="cols">
       <div class="c7 rv">
-        <div class="eyebrow"><i>03</i> everything else</div>
+        <div class="idx"><b>03</b> everything else</div>
         <h2>Prompt, panes, pickers, gauges.</h2>
-        <p class="lead">The parts of a desk that usually end up mismatched. Each one is
+        <p class="lede">The parts of a desk that usually end up mismatched. Each one is
         generated from the same tokens, so the seam between them disappears.</p>
       </div>
     </div>
@@ -114,13 +114,13 @@ document.documentElement.dataset.theme=t})();</script>
   </div>
 </section>
 
-<section class="sec sec--band">
+<section class="sec sec--plate">
   <div class="shell">
     <div class="cols">
       <div class="c6 rv">
-        <div class="eyebrow"><i>04</i> add your own</div>
+        <div class="idx"><b>04</b> add your own</div>
         <h2>One emit block is a new target.</h2>
-        <p class="lead">Every target resolves from the same tokens, so adding an app means
+        <p class="lede">Every target resolves from the same tokens, so adding an app means
         writing how its file is shaped — not choosing colours again. That is the whole
         argument for generating them: a palette change reaches thirteen programs at once,
         and a fourteenth costs an afternoon.</p>
@@ -149,10 +149,11 @@ k += [<span class="sy-s">f"color{i + 8} {c}"</span> <span class="sy-k">for</span
 
 <footer class="foot">
   <div class="foot__in">
-    <span style="color:var(--r-text-body)">様式 yoshiki</span>
+    <span style="color:var(--r-text-body)">yoshiki</span>
     <span class="sep">·</span><a href="https://github.com/zinzaki/yoshiki">github</a>
     <span class="sep">·</span><a href="https://github.com/zinzaki/yoshiki/blob/main/PHILOSOPHY.md">philosophy</a>
     <span class="sep">·</span><a href="https://github.com/zinzaki/yoshiki/blob/main/canon/palette/CONTRAST.md">contrast proof</a>
+    <span class="sep">·</span><a href="https://github.com/zinzaki/yoshiki/blob/main/AGENTS.md">for agents</a>
     <span class="sep">·</span><span>MIT</span>
     <span style="margin-left:auto">an open design language · <span data-year></span></span>
   </div>
@@ -161,6 +162,7 @@ k += [<span class="sy-s">f"color{i + 8} {c}"</span> <span class="sy-k">for</span
 <div id="toast" role="status" aria-live="polite"></div>
 <script src="assets/palette.data.js"></script>
 <script src="assets/site.js"></script>
+<script src="assets/cmdk.js"></script>
 <script src="assets/page-themes.js"></script>
 </body>
 </html>

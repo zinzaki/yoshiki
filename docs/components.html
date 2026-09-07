@@ -3,17 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>様式 yoshiki — components</title>
-<meta name="description" content="The yoshiki component kit, live: buttons, forms, surfaces, feedback and data, each with the exact markup that produced it.">
-<meta property="og:title" content="様式 yoshiki — components">
-<meta property="og:description" content="The yoshiki component kit, live: buttons, forms, surfaces, feedback and data, each with the exact markup that produced it.">
+<title>yoshiki — components</title>
+<meta name="description" content="The yoshiki component kit, live: buttons, forms, surfaces, feedback and data, each shown beside the exact markup that produced it.">
+<meta property="og:title" content="yoshiki — components">
+<meta property="og:description" content="The yoshiki component kit, live: buttons, forms, surfaces, feedback and data, each shown beside the exact markup that produced it.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://zinzaki.github.io/yoshiki/components.html">
-<meta property="og:image" content="https://zinzaki.github.io/yoshiki/banner.webp">
+<meta property="og:image" content="https://zinzaki.github.io/yoshiki/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0B0A08">
 <link rel="canonical" href="https://zinzaki.github.io/yoshiki/components.html">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B0A08'/%3E%3Ctext x='32' y='46' font-size='38' text-anchor='middle' fill='%23D8AF52' font-family='serif'%3E様%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="assets/favicon.svg">
 <script>(function(){var t=null;try{t=localStorage.getItem('yoshiki-theme')}catch(e){}
 if(t!=='washi'&&t!=='kogane')t=matchMedia('(prefers-color-scheme: light)').matches?'washi':'kogane';
 document.documentElement.dataset.theme=t})();</script>
@@ -26,29 +26,29 @@ document.documentElement.dataset.theme=t})();</script>
 <link rel="stylesheet" href="assets/effects.css">
 </head>
 <body>
-<div id="ambient"></div><div id="grain"></div>
+<div id="ambient"></div><div id="sheen"></div><div id="grain"></div>
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="hdr">
-  <a class="brand" href="index.html"><b>様式</b><span>yoshiki</span></a>
+  <a class="brand" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="26" height="26" role="img" aria-label="yoshiki"><rect width="32" height="32" rx="8" fill="var(--ink-1)"/><text x="16" y="23.4" text-anchor="middle" font-family="'Shippori Mincho','Noto Serif JP','Hiragino Mincho ProN','Yu Mincho',serif" font-size="21" font-weight="700" fill="var(--kin-1)">式</text><rect x=".5" y=".5" width="31" height="31" rx="7.5" fill="none" stroke="var(--line-0)"/></svg><b>yoshiki</b></a>
   <nav class="nav" aria-label="Sections">
     <a href="palette.html">palette</a>
     <a href="components.html">components</a>
     <a href="lexicon.html">lexicon</a>
     <a href="themes.html">themes</a>
   </nav>
+  <button class="kbd-hint" data-cmdk aria-label="Search"><span>Search</span><kbd>⌘K</kbd></button>
   <div class="themesw" role="group" aria-label="Theme">
-    <button data-set-theme="kogane" title="kogane — dark (1)" aria-pressed="true">黄</button>
-    <button data-set-theme="washi" title="washi — light (2)" aria-pressed="false">和</button>
+    <button data-set-theme="kogane" title="kogane — dark (press 1)" aria-pressed="true">Dark</button>
+    <button data-set-theme="washi" title="washi — light (press 2)" aria-pressed="false">Light</button>
   </div>
   <a class="gh" href="https://github.com/zinzaki/yoshiki">github ↗</a>
 </header>
-
 <main id="main">
 <section class="shell phead">
-  <div class="eyebrow"><i>canon</i> components</div>
+  <div class="idx"><b>canon</b> components</div>
   <h1>The kit, and the rules it obeys.</h1>
-  <p class="lead">Every control below is rendered by
+  <p class="lede">Every control below is rendered by
   <code style="color:var(--r-text-gold)">library/web/yoshiki.css</code> — the file the
   repository ships, mirrored here unchanged. Nothing on this page is styled specially for
   the showcase, so what you see is what you get. <b>The markup shown under each demo is the
@@ -86,13 +86,13 @@ document.documentElement.dataset.theme=t})();</script>
 
 <div id="kit"></div>
 
-<section class="sec sec--band" id="effects">
+<section class="sec sec--plate" id="effects">
   <div class="shell">
     <div class="cols">
       <div class="c7 rv">
-        <div class="eyebrow"><i>06</i> effects</div>
+        <div class="idx"><b>06</b> effects</div>
         <h2>Optional richness, by place.</h2>
-        <p class="lead">These are not part of the kit, because most surfaces do not want
+        <p class="lede">These are not part of the kit, because most surfaces do not want
         them. They ship as separate files and obey four rules: <b>one effect per surface</b>,
         always warm, only where a pointer and a GPU are, and a fallback is mandatory.
         Anything for reading or working — the terminal, code, dense data, body text —
@@ -140,10 +140,11 @@ document.documentElement.dataset.theme=t})();</script>
 
 <footer class="foot">
   <div class="foot__in">
-    <span style="color:var(--r-text-body)">様式 yoshiki</span>
+    <span style="color:var(--r-text-body)">yoshiki</span>
     <span class="sep">·</span><a href="https://github.com/zinzaki/yoshiki">github</a>
     <span class="sep">·</span><a href="https://github.com/zinzaki/yoshiki/blob/main/PHILOSOPHY.md">philosophy</a>
     <span class="sep">·</span><a href="https://github.com/zinzaki/yoshiki/blob/main/canon/palette/CONTRAST.md">contrast proof</a>
+    <span class="sep">·</span><a href="https://github.com/zinzaki/yoshiki/blob/main/AGENTS.md">for agents</a>
     <span class="sep">·</span><span>MIT</span>
     <span style="margin-left:auto">an open design language · <span data-year></span></span>
   </div>
@@ -152,6 +153,7 @@ document.documentElement.dataset.theme=t})();</script>
 <div id="toast" role="status" aria-live="polite"></div>
 <script src="assets/palette.data.js"></script>
 <script src="assets/site.js"></script>
+<script src="assets/cmdk.js"></script>
 <script src="assets/page-components.js"></script>
 </body>
 </html>

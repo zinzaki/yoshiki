@@ -68,6 +68,7 @@ for slug in ("kogane", "washi"):
 live |= {"#FFFFFF", "#000000"}          # the pure ends, named as themselves
 
 HAND = [ROOT / "library" / "configs", ROOT / "library" / "snippets",
+        ROOT / "library" / "integrations",
         ROOT / "library" / "github", ROOT / "library" / "presets",
         ROOT / "library" / "image-prompts", ROOT / "canon"]
 SKIP_NAMES = {"palette.yml", "CONTRAST.md"}
@@ -80,6 +81,41 @@ for base in HAND:
                 if len(hit) == 7 and hit.upper() not in live:
                     fail(f"{f.relative_to(ROOT)}:{i} — {hit} is not a value canon still has "
                          f"(stale copy of a token?)")
+
+# ── 1c · no CJK anywhere ────────────────────────────────────────────────
+# The language is named with a Japanese word and takes its ideas from Japanese
+# aesthetics; that is attribution, and it is written in English. Scattering
+# characters through labels, headings and UI is decoration standing in for an
+# identity — so none are allowed, and the guard is mechanical.
+CJK = re.compile(r"[\u3000-\u303f\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff\uff00-\uffef]")
+
+# ...with exactly one exception: the brand mark. It is declared once, in the
+# palette source, and permitted only in the files the build writes from that
+# declaration. Anywhere else it is decoration again, and fails like the rest.
+BRAND = yaml.safe_load((ROOT / "canon" / "palette" / "kogane" / "palette.yml").read_text()) \
+    .get("brand", {}).get("mark", "")
+MARK_OK = {"canon/palette/kogane/palette.yml", "docs/assets/mark.svg",
+           "canon/palette/kogane/kogane.json", "canon/palette/washi/washi.json",
+           "docs/assets/mark-inline.svg", "docs/assets/favicon.svg",
+           "docs/banner.svg", "docs/og.svg", "CHANGELOG.md"}
+
+for f in sorted(ROOT.rglob("*")):
+    if not f.is_file() or ".git" in f.parts or "node_modules" in f.parts:
+        continue
+    if f.suffix in {".webp", ".png", ".jpg", ".woff", ".woff2", ".ttf"}:
+        continue
+    try:
+        text = f.read_text()
+    except (UnicodeDecodeError, OSError):
+        continue
+    rel = str(f.relative_to(ROOT))
+    allowed = BRAND if (rel in MARK_OK or (rel.startswith("docs/") and rel.endswith(".html"))) else ""
+    for i, line in enumerate(text.splitlines(), 1):
+        for hit in CJK.findall(line):
+            if hit == allowed:
+                continue
+            fail(f"{rel}:{i} — CJK character {hit!r}; write it in English "
+                 f"(only brand.mark is allowed, and only where the build writes it)")
 
 # ── 2 · every link in the site resolves ─────────────────────────────────
 pages = sorted(DOCS.glob("*.html"))

@@ -1,5 +1,5 @@
 /* ════════════════════════════════════════════════════════════════════
-   様式 yoshiki — the component kit
+   yoshiki — the component kit
    The implementation of canon/components, built ONLY on the role variables
    from palette.css. Not generated: this file is the hand-written half of the
    contract. It introduces no colour of its own — every value below resolves
@@ -44,6 +44,10 @@
     --y-h-row: 32px;
     --y-gutter: var(--y-2);
   }
+
+  /* border-box everywhere: padding belongs inside the width a layout was given,
+     and every measurement in this kit assumes it */
+  *, *::before, *::after{ box-sizing: border-box }
 
   html{ -webkit-text-size-adjust:100% }
 
