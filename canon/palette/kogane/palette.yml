@@ -12,7 +12,7 @@ meta:
 # owner rather than sprinkled as decoration, and tools/check.py allows it only
 # in the files the build writes from here.
 brand:
-  mark: "様"          # the tile glyph — set to any single character, or ◆
+  mark: "式"          # the tile glyph — any single character; ◆ and ❯ also work
   wordmark: yoshiki
 
 tokens:
