@@ -61,6 +61,21 @@ island, even pinned to paper.
 <html data-theme="washi">                               <!-- light; omit for dark -->
 ```
 
+**npm** — the same files, plus typed values and a Tailwind preset:
+
+```bash
+npm i yoshiki-design
+```
+
+```js
+import 'yoshiki-design/css';                     // tokens + roles
+import 'yoshiki-design/kit.css';                 // the component kit
+import { kogane, washi } from 'yoshiki-design';  // resolved values, typed
+
+// tailwind.config.js
+module.exports = { presets: [require('yoshiki-design/tailwind')] };
+```
+
 **Terminal or editor** — copy one file:
 
 ```bash
@@ -72,6 +87,10 @@ library/themes/vscode/kogane.json    # or neovim · starship · tmux · zellij �
 first, or paste one prompt module from [`canon/prompts/`](canon/prompts/).
 
 **Everything, regenerated** — `python3 tools/build.py` (Python 3 + PyYAML).
+
+**Design tools** — one collection with two modes for Figma variables and Tokens
+Studio (`library/integrations/figma-variables.json`), W3C DTCG tokens, and a
+Style Dictionary config that builds CSS, JS, Swift and Android from them.
 
 ---
 
@@ -167,6 +186,7 @@ A palette change reaches every program at once, and a fourteenth target costs on
 - [`text/`](library/text/) — nameplates, banners, dividers, glyph sets
 - [`snippets/`](library/snippets/) — the style in code, per language
 - [`configs/`](library/configs/) — whole example configs
+- [`integrations/`](library/integrations/) — Tailwind, Figma, Style Dictionary, typed tokens
 - [`effects/`](library/effects/) · [`presets/`](library/presets/) · [`github/`](library/github/) · [`image-prompts/`](library/image-prompts/)
 
 </td></tr>

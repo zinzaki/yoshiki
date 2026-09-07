@@ -68,6 +68,7 @@ for slug in ("kogane", "washi"):
 live |= {"#FFFFFF", "#000000"}          # the pure ends, named as themselves
 
 HAND = [ROOT / "library" / "configs", ROOT / "library" / "snippets",
+        ROOT / "library" / "integrations",
         ROOT / "library" / "github", ROOT / "library" / "presets",
         ROOT / "library" / "image-prompts", ROOT / "canon"]
 SKIP_NAMES = {"palette.yml", "CONTRAST.md"}
