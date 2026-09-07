@@ -43,25 +43,25 @@
         "$type": "color"
       },
       "3": {
-        "$value": "#6E5E42",
+        "$value": "#62533B",
         "$type": "color"
       },
       "4": {
-        "$value": "#8E7C5A",
+        "$value": "#7F6E50",
         "$type": "color"
       }
     },
     "kin": {
       "0": {
-        "$value": "#B8923F",
+        "$value": "#755C2B",
         "$type": "color"
       },
       "1": {
-        "$value": "#9C7A40",
+        "$value": "#8A6B39",
         "$type": "color"
       },
       "2": {
-        "$value": "#7A5F2E",
+        "$value": "#695228",
         "$type": "color"
       },
       "3": {
@@ -73,13 +73,13 @@
         "$type": "color"
       },
       "t": {
-        "$value": "#7A5F2E",
+        "$value": "#695228",
         "$type": "color"
       }
     },
     "kaki": {
       "1": {
-        "$value": "#A5602B",
+        "$value": "#7D4820",
         "$type": "color"
       }
     },
@@ -99,7 +99,7 @@
     },
     "aka": {
       "0": {
-        "$value": "#A8352B",
+        "$value": "#9A3027",
         "$type": "color"
       },
       "1": {
@@ -121,7 +121,7 @@
     },
     "mori": {
       "0": {
-        "$value": "#4A6B38",
+        "$value": "#415D31",
         "$type": "color"
       },
       "1": {
@@ -137,13 +137,17 @@
         "$type": "color"
       }
     },
+    "shiro": {
+      "$value": "#FFFFFF",
+      "$type": "color"
+    },
     "hotaru": {
       "0": {
         "$value": "#98A4D4",
         "$type": "color"
       },
       "1": {
-        "$value": "#4C5A90",
+        "$value": "#465385",
         "$type": "color"
       },
       "2": {
@@ -157,7 +161,7 @@
         "$type": "color"
       },
       "1": {
-        "$value": "#6E5890",
+        "$value": "#604C7D",
         "$type": "color"
       },
       "2": {
@@ -171,7 +175,7 @@
         "$type": "color"
       },
       "1": {
-        "$value": "#2F6B5E",
+        "$value": "#2A5E53",
         "$type": "color"
       },
       "2": {
@@ -243,6 +247,10 @@
       "$value": "{color.kin.t}",
       "$type": "color"
     },
+    "text-gold-dim": {
+      "$value": "{color.kin.2}",
+      "$type": "color"
+    },
     "text-link": {
       "$value": "{color.kin.t}",
       "$type": "color"
@@ -256,7 +264,7 @@
       "$type": "color"
     },
     "action-tint": {
-      "$value": "color-mix(in srgb, #9C7A40 6%, transparent)",
+      "$value": "color-mix(in srgb, #8A6B39 6%, transparent)",
       "$type": "color"
     },
     "action-hover-edge": {
@@ -269,6 +277,10 @@
     },
     "ok-fill": {
       "$value": "{color.mori.1}",
+      "$type": "color"
+    },
+    "ok-on-fill": {
+      "$value": "{color.shiro}",
       "$type": "color"
     },
     "ok-wash": {
@@ -287,6 +299,10 @@
       "$value": "{color.aka.1}",
       "$type": "color"
     },
+    "danger-on-fill": {
+      "$value": "{color.shiro}",
+      "$type": "color"
+    },
     "danger-wash": {
       "$value": "{color.aka.w}",
       "$type": "color"
@@ -299,16 +315,24 @@
       "$value": "{color.fuji.1}",
       "$type": "color"
     },
+    "effect-glass": {
+      "$value": "{color.ink.2}",
+      "$type": "color"
+    },
+    "effect-sheen": {
+      "$value": "{color.shiro}",
+      "$type": "color"
+    },
     "focus-ring": {
-      "$value": "color-mix(in srgb, #9C7A40 40%, transparent)",
+      "$value": "color-mix(in srgb, #8A6B39 40%, transparent)",
       "$type": "color"
     },
     "selection-bg": {
-      "$value": "color-mix(in srgb, #9C7A40 22%, transparent)",
+      "$value": "color-mix(in srgb, #8A6B39 22%, transparent)",
       "$type": "color"
     },
     "syntax-keyword": {
-      "$value": "{color.kin.1}",
+      "$value": "{color.kin.t}",
       "$type": "color"
     },
     "syntax-string": {

@@ -26,5 +26,20 @@
 5. **Restraint over spectacle.** Small displacement, low opacity, single passes. The
    effect should be felt before it is noticed.
 
+## Effects consume roles too
+
+An effect that hard-codes a warm rgba is a dark-theme effect wearing a costume:
+on paper it becomes a dark card on a light page, or a shadow pretending to be a
+highlight. So the palette carries two roles for exactly this:
+
+| role | is |
+|---|---|
+| `effect.glass` | the surface a frosted ground is made of |
+| `effect.sheen` | the specular — *the light itself*, which flips with the stage |
+
+On lacquer the light is warm bone; on paper it is lighter than the page. Reach
+for the role and an effect survives the theme switch.
+
 These are the source-of-truth specs; ready instances live in
-[`../../library`](../../library) (the showcase and snippets).
+[`../../library/effects`](../../library/effects) — plain CSS on those roles,
+with the mandatory fallbacks already written.

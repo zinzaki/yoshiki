@@ -43,11 +43,11 @@
         "$type": "color"
       },
       "3": {
-        "$value": "#94866A",
+        "$value": "#96886B",
         "$type": "color"
       },
       "4": {
-        "$value": "#6B5F49",
+        "$value": "#776A51",
         "$type": "color"
       }
     },
@@ -61,7 +61,7 @@
         "$type": "color"
       },
       "2": {
-        "$value": "#8F713C",
+        "$value": "#A58444",
         "$type": "color"
       },
       "3": {
@@ -95,7 +95,7 @@
     },
     "aka": {
       "0": {
-        "$value": "#D4665C",
+        "$value": "#D6685D",
         "$type": "color"
       },
       "1": {
@@ -132,6 +132,10 @@
         "$value": "#1B2615",
         "$type": "color"
       }
+    },
+    "shiro": {
+      "$value": "#FFFFFF",
+      "$type": "color"
     },
     "hotaru": {
       "0": {
@@ -239,6 +243,10 @@
       "$value": "{color.kin.1}",
       "$type": "color"
     },
+    "text-gold-dim": {
+      "$value": "{color.kin.2}",
+      "$type": "color"
+    },
     "text-link": {
       "$value": "{color.kin.1}",
       "$type": "color"
@@ -267,6 +275,10 @@
       "$value": "{color.mori.1}",
       "$type": "color"
     },
+    "ok-on-fill": {
+      "$value": "{color.shiro}",
+      "$type": "color"
+    },
     "ok-wash": {
       "$value": "{color.mori.w}",
       "$type": "color"
@@ -283,6 +295,10 @@
       "$value": "{color.aka.1}",
       "$type": "color"
     },
+    "danger-on-fill": {
+      "$value": "{color.shiro}",
+      "$type": "color"
+    },
     "danger-wash": {
       "$value": "{color.aka.w}",
       "$type": "color"
@@ -293,6 +309,14 @@
     },
     "special-text": {
       "$value": "{color.fuji.1}",
+      "$type": "color"
+    },
+    "effect-glass": {
+      "$value": "{color.ink.2}",
+      "$type": "color"
+    },
+    "effect-sheen": {
+      "$value": "{color.bone.0}",
       "$type": "color"
     },
     "focus-ring": {

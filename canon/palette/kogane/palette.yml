@@ -3,7 +3,7 @@ meta:
   kanji: 黄金
   slug: kogane
   role: primary theme — gold acts
-  version: 1.1.0
+  version: 1.2.0
   language: KINTSUGI (Zinzaki design language)
   author: Zinzaki
   mode: dark
@@ -19,11 +19,11 @@ tokens:
   bone-0: "#F7EED2"   # headings / highlight
   bone-1: "#EDE3C4"   # primary text
   bone-2: "#C9BC96"   # secondary text
-  bone-3: "#94866A"   # muted / meta
-  bone-4: "#6B5F49"   # ghost / disabled
+  bone-3: "#96886B"   # muted / meta
+  bone-4: "#776A51"   # ghost / disabled
   kin-0:  "#EDC85C"   # gold glow — hover
   kin-1:  "#D8AF52"   # GOLD — action, links, cursor (true gold-leaf)
-  kin-2:  "#8F713C"   # dim gold — labels, glyphs
+  kin-2:  "#A58444"   # dim gold — labels, glyphs (text-safe: its job is words)
   kin-3:  "#57441F"   # deep gold
   kin-w:  "#3F3112"   # gold wash — fills
   kaki-1: "#C67F45"   # persimmon — warning, lamp
@@ -31,7 +31,7 @@ tokens:
   washi-ink:  "#292019"
   washi-line: "#C9BA92"
   # triggers — rare psychological events (~3%)
-  aka-0:  "#D4665C"   # scarlet text on dark / hover
+  aka-0:  "#D6685D"   # scarlet text on dark / hover
   aka-1:  "#d8392e"   # 彼岸花 SPIDER LILY (higanbana) — signature scarlet, vermilion 朱; the bloom, may fill
   aka-2:  "#7E302E"   # red lacquer — pressed
   sabi:   "#9B635F"   # dusty rust — calm red contexts
@@ -40,6 +40,10 @@ tokens:
   mori-1: "#52703F"   # MOSS — life, confirmation
   mori-2: "#2F4526"   # pine depth
   mori-w: "#1B2615"   # wash — diff-add
+  # the ONE pure white in the language. Text is bone everywhere else; on a filled
+  # trigger nothing warmer clears 4.5:1 against the spider-lily scarlet, and the
+  # scarlet is not negotiable — so legibility takes this one small surface.
+  shiro:  "#FFFFFF"   # label on danger.fill / ok.fill
   # service — terminal & syntax only, never UI
   hotaru-0: "#98A4D4"
   hotaru-1: "#7C88B8"  # ansi blue / types
@@ -52,6 +56,94 @@ tokens:
   seiji-2:  "#2C5A4C"
   shin-2:   "#0A3540"  # deep-water optional second darkness
   shin-3:   "#06222B"
+
+# ── GROUPS — the tokens read as scales. `job` is what a step is FOR, so the
+# intent travels with the value instead of living in a comment. Every token
+# must appear in exactly one group; tools/build.py fails the build otherwise.
+# Consumed by the contrast proof and docs/assets/palette.data.js.
+groups:
+  - key: surface
+    label: lacquer
+    note: the quiet ~70% that carries a screen — warm, never grey
+    steps:
+      - {token: ink-0, job: app · terminal background}
+      - {token: ink-1, job: panel surface}
+      - {token: ink-2, job: raised — cards, tiles}
+      - {token: ink-3, job: hover · active · inset}
+  - key: line
+    label: gilding
+    note: gold-tinted edges — an edge needs 3:1, never 4.5
+    steps:
+      - {token: line-0, job: hairline — the default divider}
+      - {token: line-1, job: strong border — inputs, frames}
+  - key: bone
+    label: bone
+    note: text, never pure white — the warm off-white of aged paper
+    steps:
+      - {token: bone-0, job: heading · emphasis}
+      - {token: bone-1, job: body text}
+      - {token: bone-2, job: secondary}
+      - {token: bone-3, job: muted · metadata}
+      - {token: bone-4, job: ghost · disabled}
+  - key: kin
+    label: gold 金
+    note: the seam — line, edge, frame, glyph. Never a filled slab.
+    steps:
+      - {token: kin-0, job: glow — hover edge}
+      - {token: kin-1, job: GOLD — action, link, cursor}
+      - {token: kin-t, job: text-safe gold on paper (washi only), optional: true}
+      - {token: kin-2, job: dim gold — labels, glyphs}
+      - {token: kin-3, job: deep gold}
+      - {token: kin-w, job: wash — selection, tint fills}
+  - key: kaki
+    label: persimmon 柿
+    note: warning — the lamp, not the alarm
+    steps:
+      - {token: kaki-1, job: warning · lamp · threshold crossed}
+  - key: aka
+    label: scarlet 彼岸花
+    note: the bloom — the irreversible. One per screen; it may fill.
+    steps:
+      - {token: aka-0, job: text-safe scarlet}
+      - {token: aka-1, job: SPIDER LILY — the trigger, may fill}
+      - {token: aka-2, job: red lacquer — pressed}
+      - {token: aka-w, job: wash — error field, diff-del}
+      - {token: sabi, job: dusty rust — calm red contexts}
+  - key: mori
+    label: moss 森
+    note: life, growth, confirmation — the quiet pair of scarlet
+    steps:
+      - {token: mori-0, job: text-safe moss}
+      - {token: mori-1, job: MOSS — success, may fill}
+      - {token: mori-2, job: pine depth}
+      - {token: mori-w, job: wash — diff-add}
+  - key: onfill
+    label: on-fill 白
+    note: the only pure white — a label on a filled trigger, where legibility outranks warmth
+    steps:
+      - {token: shiro, job: text on danger.fill · ok.fill}
+  - key: paper
+    label: washi 和紙
+    note: the paper artifact pinned inside the dark — and inverted on paper
+    steps:
+      - {token: washi-bg, job: artifact surface}
+      - {token: washi-ink, job: artifact text}
+      - {token: washi-line, job: artifact rule}
+  - key: service
+    label: service
+    note: terminal ANSI and syntax ONLY — these hues never enter the UI
+    steps:
+      - {token: hotaru-0, job: bright blue}
+      - {token: hotaru-1, job: ansi blue · types}
+      - {token: hotaru-2, job: deep blue}
+      - {token: fuji-0, job: bright wisteria}
+      - {token: fuji-1, job: ansi magenta · constants}
+      - {token: fuji-2, job: deep wisteria}
+      - {token: seiji-0, job: bright celadon}
+      - {token: seiji-1, job: ansi cyan · live data}
+      - {token: seiji-2, job: deep celadon}
+      - {token: shin-2, job: deep water — optional second darkness}
+      - {token: shin-3, job: deepest water}
 
 semantic:
   gold-law: "GOLD IS GILDING, NOT A SLAB. It lives only as line, edge, frame, glyph, thin stroke. Never a filled button / plate / large area. Max gold area = a <=2px stroke or an icon glyph. A primary button is a gold-framed dark surface with gold text — not a gold rectangle."
@@ -85,6 +177,7 @@ roles:
   text.muted:        bone-3
   text.ghost:        bone-4
   text.gold:         kin-1     # text-safe gold (washi overrides to kin-t)
+  text.gold-dim:     kin-2     # the quieter gold — labels, status-right, glyph rows
   text.link:         kin-1
   # action — a gilded frame, never a gold slab
   action.edge:       kin-1
@@ -94,13 +187,19 @@ roles:
   # feedback
   ok.text:           mori-0
   ok.fill:           mori-1
+  ok.on-fill:        shiro
   ok.wash:           mori-w
   warn.text:         kaki-1
   danger.text:       aka-0
   danger.fill:       aka-1     # scarlet MAY fill — the fill is the event
+  danger.on-fill:    shiro     # the label that sits on it (see the shiro note)
   danger.wash:       aka-w
   info.text:         kin-1     # info lives in tone, never blue
   special.text:      fuji-1
+  # effects — web surfaces only (canon/effects). Not text: no contrast floor,
+  # but they must know which way the light falls, and that flips with the stage.
+  effect.glass:      ink-2     # the ground a frosted surface is made of
+  effect.sheen:      bone-0    # the specular — the light itself
   # interaction
   focus.ring:        "kin-1 @40%"
   selection.bg:      "kin-1 @22%"
@@ -117,19 +216,19 @@ terminal:
   foreground: "#EDE3C4"
   cursor:     "#D6AE66"
   selection_background: "#3F3112"
-  ansi:    ["#1B1813","#C54D49","#8FAC6F","#D6AE66","#7C88B8","#9C7FB0","#6FA08E","#EDE3C4"]
-  brights: ["#6B5F49","#DC7265","#A8C48A","#EAC578","#98A4D4","#B89BCC","#8CBCA9","#F7EED2"]
+  ansi:    ["#1B1813","#CC534E","#8FAC6F","#D6AE66","#7C88B8","#9C7FB0","#6FA08E","#EDE3C4"]
+  brights: ["#776A51","#DC7265","#A8C48A","#EAC578","#98A4D4","#B89BCC","#8CBCA9","#F7EED2"]
 
 base24:
   base00: "#0B0A08"
   base01: "#12100C"
   base02: "#262119"
-  base03: "#6B5F49"
-  base04: "#94866A"
+  base03: "#776A51"
+  base04: "#96886B"
   base05: "#EDE3C4"
   base06: "#F7EED2"
   base07: "#FBF6E8"
-  base08: "#C54D49"
+  base08: "#CC534E"
   base09: "#C67F45"
   base0A: "#D6AE66"
   base0B: "#8FAC6F"

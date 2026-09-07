@@ -23,14 +23,30 @@ data trees, HUD-like annotations) set inside calm, rounded, noble surfaces.
 Japanese layer is present but dosed: a kanji, a quote, a seal — one per
 surface, never a parade.
 
+GOLD IS GILDING
+Gold is a line, edge, frame, glyph, thin stroke — never a filled slab. The
+largest gold surface allowed is a 2px stroke or one icon glyph. A primary
+button is a gold-FRAMED tone surface with gold text, not a gold rectangle.
+Scarlet may fill, because a fill is itself the rare event; the label standing
+on that fill is pure white (#FFFFFF) — the one place the language permits it,
+because nothing warmer stays legible on the spider-lily red.
+
 FORM
 - soft geometry: rounded capsules for calm content; hard double-line trees
   (╔ ╠ ╚) for dense data; never mix registers in one block
+- depth is a step between surfaces divided by a hairline, never a drop
+  shadow; only something floating above a scrim casts
 - semantic glyphs replace words where possible: ✓ ✗ ● ◆ → ▲ ❯ — one
   meaning per glyph, applied consistently
 - decoration budget: one decorative element per screen
 - rhythm: aligned columns, right-aligned deltas "(+24)", quiet dim meta
 - everything must survive monospace and line-wrap
+
+NEVER COLOR ALONE
+Every status carries a glyph; color is the second cue. The two triggers are a
+red-green pair, which is exactly what the commonest color-blindness collapses
+into one — so ✓ vs ✗ must carry the meaning before the hue does. A bare
+colored dot is not a state.
 
 LAW
 Rarity = power. A signal used everywhere is dead. When unsure whether to

@@ -1,0 +1,212 @@
+/* ════════════════════════════════════════════════════════════════════
+   様式 yoshiki — showcase chrome
+   The components come from kit.css (the shipped artifact); the colours come
+   from palette.css (generated from canon). This file is only what a
+   documentation site needs on top: header, page shell, section rhythm.
+   No hex value appears below — if one ever does, CI should fail.
+   ════════════════════════════════════════════════════════════════════ */
+
+:root{
+  --shell: 1180px;
+  --pad: clamp(20px, 5vw, 48px);
+  --grain: .05;
+}
+[data-theme="washi"]{ --grain: .03 }
+
+html{ scroll-behavior:smooth; scroll-padding-top:88px }
+@media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto } }
+body{ overflow-x:hidden }
+
+/* ── the ground: one warm gradient and a matte grain, per canon/effects ── */
+#ambient{
+  position:fixed; inset:0; z-index:-2; pointer-events:none;
+  background:
+    radial-gradient(120% 80% at 50% -10%, color-mix(in srgb, var(--kin-1) 8%, transparent), transparent 58%),
+    radial-gradient(70% 50% at 88% 12%, color-mix(in srgb, var(--aka-1) 3%, transparent), transparent 60%);
+}
+#grain{
+  position:fixed; inset:0; z-index:-1; pointer-events:none;
+  opacity:var(--grain); mix-blend-mode:overlay; background-size:180px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+@media (prefers-reduced-transparency: reduce){ #grain{ display:none } }
+
+/* ── header ───────────────────────────────────────────────────────── */
+.hdr{
+  position:fixed; top:0; left:0; right:0; z-index:60;
+  display:flex; align-items:center; gap:var(--y-6);
+  padding:14px var(--pad);
+  border-bottom:1px solid transparent;
+  transition: background-color var(--y-t), border-color var(--y-t);
+}
+.hdr[data-stuck]{
+  background: color-mix(in srgb, var(--r-bg-app) 86%, transparent);
+  backdrop-filter: blur(14px);
+  border-bottom-color: var(--r-border-hairline);
+}
+@media (prefers-reduced-transparency: reduce){
+  .hdr[data-stuck]{ background: var(--r-bg-surface); backdrop-filter:none }
+}
+.brand{ display:flex; align-items:baseline; gap:9px; flex:none }
+.brand b{ font-family:var(--y-serif); font-size:20px; font-weight:800; color:var(--r-text-heading) }
+.brand span{ font-family:var(--y-mono); font-size:9px; letter-spacing:4px;
+             text-transform:uppercase; color:var(--r-text-muted) }
+.brand:hover{ text-decoration:none }
+
+.nav{ display:flex; gap:2px; margin-right:auto }
+.nav a{
+  font-family:var(--y-mono); font-size:12px; padding:7px 12px; border-radius:9px;
+  color:var(--r-text-muted); transition:color var(--y-t), background-color var(--y-t);
+}
+.nav a:hover{ color:var(--r-text-body); background:var(--r-bg-hover); text-decoration:none }
+.nav a[aria-current="page"]{ color:var(--r-text-gold) }
+.hdr .gh{ font-family:var(--y-mono); font-size:12px; color:var(--r-text-muted); flex:none }
+.hdr .gh:hover{ color:var(--r-text-gold) }
+
+/* theme switch — a real 2-state control, not a pair of mystery dots */
+.themesw{ display:flex; gap:2px; padding:3px; flex:none;
+          border:1px solid var(--r-border-hairline); border-radius:var(--y-r-pill) }
+.themesw button{
+  width:28px; height:24px; padding:0; border:0; background:transparent; cursor:pointer;
+  border-radius:var(--y-r-pill); font-family:var(--y-mono); font-size:12px; line-height:1;
+  color:var(--r-text-muted); transition:background-color var(--y-t), color var(--y-t);
+}
+.themesw button:hover{ color:var(--r-text-body) }
+.themesw button[aria-pressed="true"]{ background:var(--r-action-tint); color:var(--r-action-text) }
+
+@media (max-width: 900px){
+  .nav{ order:3; width:100%; margin:0; overflow-x:auto; padding-top:4px }
+  .hdr{ flex-wrap:wrap; padding-bottom:8px }
+  html{ scroll-padding-top:120px }
+}
+
+/* ── page shell ───────────────────────────────────────────────────── */
+main{ padding-top:70px }
+.shell{ max-width:var(--shell); margin:0 auto; padding:0 var(--pad) }
+.sec{ padding: clamp(64px, 9vh, 112px) 0; position:relative }
+.sec--band{ background:
+  linear-gradient(180deg, transparent, var(--r-bg-surface) 12%, var(--r-bg-surface) 88%, transparent) }
+
+.eyebrow{
+  display:flex; align-items:center; gap:10px;
+  font-family:var(--y-mono); font-size:11px; letter-spacing:2.5px; text-transform:uppercase;
+  color:var(--r-text-muted); margin-bottom:16px;
+}
+.eyebrow i{ font-style:normal; color:var(--r-text-gold) }
+.sec h2{ font-size:clamp(27px, 4vw, 40px); max-width:18ch }
+.lead{ font-size:15.5px; line-height:1.9; color:var(--r-text-secondary);
+       max-width:56ch; margin-top:18px }
+.lead b{ color:var(--r-text-heading); font-weight:400 }
+.sub{ font-family:var(--y-mono); font-size:11px; letter-spacing:2px; text-transform:uppercase;
+      color:var(--r-text-muted); margin:var(--y-8) 0 var(--y-4) }
+
+/* page head — every page but the index opens with one */
+.phead{ padding: clamp(48px,7vh,88px) 0 var(--y-8) }
+.phead h1{ font-size:clamp(34px,5.5vw,56px); margin-top:8px }
+.phead .lead{ font-size:16px; max-width:62ch }
+
+/* min-width:0 or a grid child refuses to shrink below its widest line, and a
+   single unbroken code line drags the whole page sideways */
+.cols{ display:grid; gap:var(--y-6); grid-template-columns:repeat(12,1fr); align-items:start }
+.cols > *{ min-width:0 }
+.c6{ grid-column:span 6 } .c5{ grid-column:span 5 } .c7{ grid-column:span 7 }
+.c4{ grid-column:span 4 } .c8{ grid-column:span 8 } .c12{ grid-column:1/-1 }
+@media (max-width: 860px){ .cols > *{ grid-column:1/-1 } }
+
+.tiles{ display:grid; gap:var(--y-3);
+        grid-template-columns:repeat(auto-fill, minmax(190px,1fr)) }
+.tiles > *{ min-width:0 }
+
+/* ── reveal — a short lift, once, and never in reduced motion ─────── */
+.rv{ opacity:0; transform:translateY(14px);
+     transition:opacity .6s cubic-bezier(.2,.7,.2,1), transform .6s cubic-bezier(.2,.7,.2,1) }
+.rv[data-in]{ opacity:1; transform:none }
+@media (prefers-reduced-motion: reduce){ .rv{ opacity:1; transform:none; transition:none } }
+
+/* ── code ─────────────────────────────────────────────────────────── */
+.code{ position:relative; background:var(--r-bg-surface);
+       border:1px solid var(--r-border-hairline); border-radius:var(--y-r-card) }
+.code pre{ margin:0; padding:var(--y-5); overflow:auto; max-height:420px;
+           font-size:12px; line-height:1.75; color:var(--r-text-secondary);
+           white-space:pre; tab-size:2 }
+.code .copy{ position:absolute; top:10px; right:10px; z-index:2 }
+.code__tabs{ display:flex; gap:2px; flex-wrap:wrap; padding:8px;
+             border-bottom:1px solid var(--r-border-hairline) }
+.code__tabs button{
+  font-family:var(--y-mono); font-size:11.5px; padding:6px 11px; border-radius:8px;
+  border:0; background:transparent; color:var(--r-text-muted); cursor:pointer;
+  transition:color var(--y-t), background-color var(--y-t);
+}
+.code__tabs button:hover{ color:var(--r-text-body) }
+.code__tabs button[aria-selected="true"]{ background:var(--r-action-tint); color:var(--r-action-text) }
+
+/* syntax tint for the sample listings — role colours only */
+.sy-k{ color:var(--r-syntax-keyword) } .sy-s{ color:var(--r-syntax-string) }
+.sy-n{ color:var(--r-syntax-number) } .sy-t{ color:var(--r-syntax-type) }
+/* a comment on a documentation page is prose a reader reads, not a comment
+   receding inside an editor — it takes the muted text role, not syntax.comment */
+.sy-c{ color:var(--r-text-muted); font-style:italic } .sy-v{ color:var(--r-text-body) }
+.sy-f{ color:var(--r-text-heading) } .sy-p{ color:var(--r-text-muted) }
+.sy-o{ color:var(--r-syntax-constant) }
+
+/* ── copyable swatch / spec rows ──────────────────────────────────── */
+.swatch{ display:flex; flex-direction:column; gap:0; width:100%; text-align:left;
+         background:none; border:0; padding:0; cursor:pointer; font:inherit }
+.swatch__chip{ height:56px; border-radius:10px; border:1px solid var(--r-border-hairline);
+               transition:transform var(--y-t) }
+.swatch:hover .swatch__chip{ transform:translateY(-2px) }
+.swatch__n{ font-family:var(--y-mono); font-size:12px; color:var(--r-text-body); margin-top:9px }
+.swatch__v{ font-family:var(--y-mono); font-size:10.5px; color:var(--r-text-muted) }
+.swatch__job{ font-size:11px; color:var(--r-text-muted); line-height:1.5; margin-top:3px }
+
+.spec{ width:100%; border-collapse:collapse; font-size:13px }
+.spec th{ font-family:var(--y-mono); font-size:10.5px; letter-spacing:1.5px; font-weight:500;
+          text-transform:uppercase; color:var(--r-text-muted); text-align:left;
+          padding:0 var(--y-3) var(--y-2); border-bottom:1px solid var(--r-border-hairline) }
+.spec td{ padding:var(--y-2) var(--y-3); border-bottom:1px solid var(--r-border-hairline);
+          color:var(--r-text-secondary); vertical-align:top }
+.spec code{ color:var(--r-text-gold) }
+
+/* a pass/fail cell — the glyph carries it, the colour only confirms */
+.cell-pass{ color:var(--r-ok-text) } .cell-fail{ color:var(--r-danger-text); font-weight:600 }
+
+/* ── footer ───────────────────────────────────────────────────────── */
+.foot{ border-top:1px solid var(--r-border-hairline); margin-top:var(--y-12) }
+.foot__in{ max-width:var(--shell); margin:0 auto; padding:var(--y-8) var(--pad);
+           display:flex; flex-wrap:wrap; gap:var(--y-4) var(--y-6); align-items:baseline;
+           font-family:var(--y-mono); font-size:11.5px; color:var(--r-text-muted) }
+.foot__in a{ color:var(--r-text-gold) }
+.foot__in .sep{ color:var(--r-text-muted) }
+
+/* ── toast host ───────────────────────────────────────────────────── */
+#toast{ position:fixed; left:50%; bottom:26px; z-index:90;
+        transform:translate(-50%, 14px); opacity:0; pointer-events:none;
+        transition:opacity var(--y-t), transform var(--y-t) }
+#toast[data-show]{ opacity:1; transform:translate(-50%,0) }
+
+/* ── skip link ────────────────────────────────────────────────────── */
+.skip{ position:absolute; left:-9999px; top:8px; z-index:99 }
+.skip:focus{ left:var(--pad); background:var(--r-bg-raised); padding:10px 16px;
+             border:1px solid var(--r-action-edge); border-radius:var(--y-r-control);
+             color:var(--r-action-text) }
+
+/* ── hero — the one place the language shows its face ─────────────── */
+.hero{ position:relative; padding-top:clamp(72px,12vh,140px); padding-bottom:clamp(48px,8vh,96px) }
+.hero h1{ background:linear-gradient(122deg, var(--kin-3), var(--kin-1) 28%,
+          var(--r-text-heading) 54%, var(--kin-0) 76%, var(--kin-2));
+          -webkit-background-clip:text; background-clip:text; color:transparent }
+[data-theme="washi"] .hero h1{ background:none; color:var(--r-text-heading) }
+.lily{
+  position:absolute; top:5%; right:1%; width:clamp(150px,19vw,250px); aspect-ratio:1;
+  color:var(--r-danger-fill); opacity:.18; pointer-events:none; z-index:-1;
+}
+[data-theme="washi"] .lily{ opacity:.13 }
+@media (max-width:860px){ .lily{ opacity:.12; width:180px; top:0 } }
+
+/* the palette glance — label beside the strip, stacked when there is no room */
+.glance-row{
+  display:grid; grid-template-columns:150px minmax(0,1fr); gap:var(--y-5);
+  align-items:start; padding:var(--y-4) 0;
+  border-top:1px solid var(--r-border-hairline);
+}
+@media (max-width:640px){ .glance-row{ grid-template-columns:1fr; gap:var(--y-3) } }

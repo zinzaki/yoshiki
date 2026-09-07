@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="kogane">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>様式 yoshiki — components</title>
+<meta name="description" content="The yoshiki component kit, live: buttons, forms, surfaces, feedback and data, each with the exact markup that produced it.">
+<meta property="og:title" content="様式 yoshiki — components">
+<meta property="og:description" content="The yoshiki component kit, live: buttons, forms, surfaces, feedback and data, each with the exact markup that produced it.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://zinzaki.github.io/yoshiki/components.html">
+<meta property="og:image" content="https://zinzaki.github.io/yoshiki/banner.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0B0A08">
+<link rel="canonical" href="https://zinzaki.github.io/yoshiki/components.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B0A08'/%3E%3Ctext x='32' y='46' font-size='38' text-anchor='middle' fill='%23D8AF52' font-family='serif'%3E様%3C/text%3E%3C/svg%3E">
+<script>(function(){var t=null;try{t=localStorage.getItem('yoshiki-theme')}catch(e){}
+if(t!=='washi'&&t!=='kogane')t=matchMedia('(prefers-color-scheme: light)').matches?'washi':'kogane';
+document.documentElement.dataset.theme=t})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;700;800&family=Zen+Kaku+Gothic+New:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/palette.css">
+<link rel="stylesheet" href="assets/kit.css">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/effects.css">
+</head>
+<body>
+<div id="ambient"></div><div id="grain"></div>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="hdr">
+  <a class="brand" href="index.html"><b>様式</b><span>yoshiki</span></a>
+  <nav class="nav" aria-label="Sections">
+    <a href="palette.html">palette</a>
+    <a href="components.html">components</a>
+    <a href="lexicon.html">lexicon</a>
+    <a href="themes.html">themes</a>
+  </nav>
+  <div class="themesw" role="group" aria-label="Theme">
+    <button data-set-theme="kogane" title="kogane — dark (1)" aria-pressed="true">黄</button>
+    <button data-set-theme="washi" title="washi — light (2)" aria-pressed="false">和</button>
+  </div>
+  <a class="gh" href="https://github.com/zinzaki/yoshiki">github ↗</a>
+</header>
+
+<main id="main">
+<section class="shell phead">
+  <div class="eyebrow"><i>canon</i> components</div>
+  <h1>The kit, and the rules it obeys.</h1>
+  <p class="lead">Every control below is rendered by
+  <code style="color:var(--r-text-gold)">library/web/yoshiki.css</code> — the file the
+  repository ships, mirrored here unchanged. Nothing on this page is styled specially for
+  the showcase, so what you see is what you get. <b>The markup shown under each demo is the
+  markup that produced it</b>: one string, rendered and printed, so the two cannot drift.</p>
+  <div class="y-actions" style="margin-top:22px">
+    <a class="y-btn y-btn--primary" href="https://github.com/zinzaki/yoshiki/tree/main/library/web">Get the two files ↗</a>
+    <a class="y-btn y-btn--ghost" href="https://github.com/zinzaki/yoshiki/tree/main/canon/components">Read the canon ↗</a>
+  </div>
+</section>
+
+<section class="shell" style="padding-bottom:var(--y-8)">
+  <div class="y-panel">
+    <div class="cols" style="gap:var(--y-5);align-items:center">
+      <div class="c8">
+        <div class="y-head" style="margin-bottom:var(--y-3)">the three laws this file will not let you break</div>
+        <dl class="y-kv">
+          <dt>gold gilds</dt><dd>there is no gold-filled button in the kit — a primary action is a tone surface with a gold edge</dd>
+          <dt>depth steps</dt><dd>surfaces climb bg.app → surface → raised → hover; only a dialog casts a shadow</dd>
+          <dt>never colour alone</dt><dd>every status class expects a glyph beside it</dd>
+        </dl>
+      </div>
+      <div class="c4">
+        <div class="y-field" style="margin:0">
+          <label for="density">density</label>
+          <div class="y-seg" id="density">
+            <button aria-selected="true" data-density="comfortable">comfortable</button>
+            <button aria-selected="false" data-density="compact">compact</button>
+          </div>
+          <span class="y-hint">only padding moves — type, edge and radius never do</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="kit"></div>
+
+<section class="sec sec--band" id="effects">
+  <div class="shell">
+    <div class="cols">
+      <div class="c7 rv">
+        <div class="eyebrow"><i>06</i> effects</div>
+        <h2>Optional richness, by place.</h2>
+        <p class="lead">These are not part of the kit, because most surfaces do not want
+        them. They ship as separate files and obey four rules: <b>one effect per surface</b>,
+        always warm, only where a pointer and a GPU are, and a fallback is mandatory.
+        Anything for reading or working — the terminal, code, dense data, body text —
+        stays flat.</p>
+        <p class="y-hint" style="margin-top:14px">canon/effects · library/effects</p>
+      </div>
+    </div>
+    <div class="cols rv" style="margin-top:34px">
+      <div class="c6">
+        <div style="position:relative;border-radius:var(--y-r-card);overflow:hidden;padding:var(--y-8) var(--y-6);
+             background:
+               radial-gradient(120% 90% at 20% 0%, color-mix(in srgb, var(--kin-1) 26%, transparent), transparent 60%),
+               radial-gradient(90% 70% at 90% 90%, color-mix(in srgb, var(--aka-1) 18%, transparent), transparent 62%),
+               var(--r-bg-app)">
+          <div class="y-frost" style="padding:var(--y-5)">
+            <div class="y-head" style="border:0;margin:0 0 var(--y-2);padding:0">frosted card</div>
+            <p style="color:var(--r-text-body);font-size:14px">Warm ink, never white glass.</p>
+            <p class="y-hint" style="margin-top:6px">A gold hairline, one specular pass, and a
+            solid surface under <code>prefers-reduced-transparency</code>.</p>
+          </div>
+        </div>
+        <p class="y-hint" style="margin-top:12px;line-height:1.7">The glass is made of the
+        raised surface and the specular is whichever way the light falls, so it holds on
+        paper as well as on lacquer — switch the theme and watch.</p>
+      </div>
+      <div class="c6">
+        <div class="y-panel">
+          <div class="y-head">sheen — one pass on hover, not a loop</div>
+          <button class="y-btn y-btn--primary y-sheen" style="width:100%">Hover me</button>
+          <div class="y-head" style="margin-top:var(--y-6)">grain — the page you are on</div>
+          <p class="y-hint" style="line-height:1.7">A single fixed overlay at ~4% on
+          lacquer and ~2.5% on paper: enough to take the plastic off a flat surface,
+          not enough to read as dirt. It is already running behind this page.</p>
+          <div class="y-actions" style="margin-top:var(--y-5)">
+            <a class="y-btn y-btn--ghost y-btn--sm" href="https://github.com/zinzaki/yoshiki/tree/main/library/effects">library/effects ↗</a>
+            <a class="y-btn y-btn--quiet y-btn--sm" href="https://github.com/zinzaki/yoshiki/tree/main/canon/effects">the specs ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="foot__in">
+    <span style="color:var(--r-text-body)">様式 yoshiki</span>
+    <span class="sep">·</span><a href="https://github.com/zinzaki/yoshiki">github</a>
+    <span class="sep">·</span><a href="https://github.com/zinzaki/yoshiki/blob/main/PHILOSOPHY.md">philosophy</a>
+    <span class="sep">·</span><a href="https://github.com/zinzaki/yoshiki/blob/main/canon/palette/CONTRAST.md">contrast proof</a>
+    <span class="sep">·</span><span>MIT</span>
+    <span style="margin-left:auto">an open design language · <span data-year></span></span>
+  </div>
+</footer>
+
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="assets/palette.data.js"></script>
+<script src="assets/site.js"></script>
+<script src="assets/page-components.js"></script>
+</body>
+</html>

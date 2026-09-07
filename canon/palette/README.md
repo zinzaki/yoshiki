@@ -31,17 +31,17 @@ edge but not as text — is split into `border.gold` (decorative, ≥3:1) and
 pick wrong if you reach for the role.
 
 `<slug>.css` ships both: raw `--ink-0…` and semantic `--r-text-body…`.
-Every text role's contrast is proven in [`CONTRAST.md`](CONTRAST.md),
-regenerated on every build.
+Every role's contrast is proven in [`CONTRAST.md`](CONTRAST.md) against *every*
+surface it can sit on, and the build fails if one cell drops below its floor.
 
 ## Files per theme
 
 ```
-palette.yml            source of truth (tokens · roles · terminal · base24)
+palette.yml            source of truth (tokens · groups · roles · terminal · base24)
 <slug>.css             :root — raw tokens + semantic --r-<role> aliases
 <slug>.json            resolved bundle (tokens + roles_resolved)
 <slug>.tokens.json     W3C DTCG tokens (Style Dictionary / agent readable)
-CONTRAST.md            WCAG proof for both themes
+CONTRAST.md            WCAG proof — every role against every surface
 ACCESSIBILITY.md       contrast + colour-blind safety (glyph, not colour alone)
 
 Ready-to-use program themes are generated OUT of here, into
@@ -57,4 +57,4 @@ all exports with `python3 ../tools/build.py`.
 - triggers: spider-lily scarlet `#d8392e` (irreversible, one per screen) · moss `#52703F` (life)
 - warning: persimmon · info: tone, never blue
 - ANSI-16 accents shared; only backgrounds/cursor differ
-- contrast floors verified (WCAG): body ≥ 7:1, secondary ≥ 4.5:1
+- contrast floors verified (WCAG) on every surface: text ≥ 4.5:1, ghost and gilding ≥ 3:1
