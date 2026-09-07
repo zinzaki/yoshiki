@@ -129,17 +129,15 @@
         `<circle class="seam-node" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="2.6"
                  fill="var(--r-border-gold)"/>`).join('') +
       `</svg>`;
-    const line = $('.seam-line', seamHost);
-    const len = line.getTotalLength();
-    line.style.setProperty('--len', len + 'px');
-    seamHost._len = len;
     seamHost._h = H;
     paintSeam();
   }
   function paintSeam(){
-    if (!seamHost || !seamHost._len || RM) return;
-    const p = Math.min(1, Math.max(0, (scrollY + innerHeight * .78) / seamHost._h));
-    $('.seam-line', seamHost).style.setProperty('--drawn', (seamHost._len * p) + 'px');
+    if (!seamHost || !seamHost._h || RM) return;
+    const main = $('main');
+    const top = main ? main.offsetTop : 0;
+    const p = Math.min(1, Math.max(0, (scrollY - top + innerHeight * .8) / seamHost._h));
+    seamHost.style.setProperty('--drawn', (p * 100).toFixed(2) + '%');
   }
   addEventListener('scroll', paintSeam, {passive:true});
   addEventListener('resize', drawSeam);
