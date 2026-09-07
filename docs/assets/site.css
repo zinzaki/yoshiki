@@ -1,133 +1,230 @@
 /* ════════════════════════════════════════════════════════════════════
-   yoshiki — site chrome
-   The components come from kit.css (the shipped artifact); the colours come
-   from palette.css (generated from canon). This file is only what a
-   documentation site needs on top: header, page shell, section rhythm.
-   No hex value appears below — if one ever does, CI should fail.
+   yoshiki — site
+   ────────────────────────────────────────────────────────────────────
+   Components come from kit.css (the shipped artifact). Colour comes from
+   palette.css (generated from canon). This file is the art direction: the
+   type scale, the grid, the seam, and the way light behaves on lacquer.
+
+   No hex value appears below. If one ever does, tools/check.py fails.
    ════════════════════════════════════════════════════════════════════ */
 
 :root{
-  --shell: 1180px;
-  --pad: clamp(20px, 5vw, 48px);
+  /* ── type scale ──────────────────────────────────────────────────
+     A documentation page is read at two extremes at once: a display size
+     that has to carry a room, and a micro size that labels a swatch. The
+     distance between them is most of what makes a page feel expensive, so
+     the scale is deliberately wide and the middle is deliberately thin. */
+  --t-micro: 10.5px;   /* mono labels, spaced, uppercase */
+  --t-fine:  12px;     /* captions, meta */
+  --t-code:  12.5px;
+  --t-body:  15.5px;
+  --t-lede:  17.5px;
+  --t-h4:    21px;
+  --t-h3:    27px;
+  --t-h2:    clamp(30px, 4.2vw, 46px);
+  --t-h1:    clamp(44px, 7vw, 78px);
+  --t-hero:  clamp(64px, 12.5vw, 168px);
+
+  /* ── grid ── */
+  --shell: 1240px;
+  --pad: clamp(20px, 5vw, 56px);
+  --gutter: clamp(16px, 2.4vw, 32px);
+
+  /* ── motion — expo out; things arrive, they do not bounce ── */
+  --ease: cubic-bezier(.16, 1, .3, 1);
+  --slow: 720ms;
+  --mid: 420ms;
+
   --grain: .05;
+  --seam-w: 1.5px;
 }
-[data-theme="washi"]{ --grain: .03 }
+[data-theme="washi"]{ --grain: .028 }
 
-html{ scroll-behavior:smooth; scroll-padding-top:88px }
+html{ scroll-behavior:smooth; scroll-padding-top:96px }
 @media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto } }
-body{ overflow-x:hidden }
+body{ overflow-x:hidden; font-size:var(--t-body) }
 
-/* ── the ground: one warm gradient and a matte grain, per canon/effects ── */
+/* ════ the ground ═══════════════════════════════════════════════════
+   Two fixed layers and nothing else: a warm bloom that sits where the
+   light would fall, and a matte grain that takes the plastic off it. */
 #ambient{
-  position:fixed; inset:0; z-index:-2; pointer-events:none;
+  position:fixed; inset:0; z-index:-3; pointer-events:none;
   background:
-    radial-gradient(120% 80% at 50% -10%, color-mix(in srgb, var(--kin-1) 8%, transparent), transparent 58%),
-    radial-gradient(70% 50% at 88% 12%, color-mix(in srgb, var(--aka-1) 3%, transparent), transparent 60%);
+    radial-gradient(90% 60% at 50% -8%, color-mix(in srgb, var(--kin-1) 10%, transparent), transparent 62%),
+    radial-gradient(60% 44% at 92% 6%, color-mix(in srgb, var(--aka-1) 4%, transparent), transparent 64%);
 }
+/* light catching the gilding: a slow warm pool under the pointer */
+#sheen{
+  position:fixed; inset:0; z-index:-2; pointer-events:none; opacity:0;
+  transition:opacity 900ms var(--ease);
+  background:radial-gradient(340px 340px at var(--mx,50%) var(--my,50%),
+             color-mix(in srgb, var(--kin-1) 7%, transparent), transparent 70%);
+}
+body[data-pointer] #sheen{ opacity:1 }
+@media (prefers-reduced-motion: reduce), (hover: none){ #sheen{ display:none } }
 #grain{
   position:fixed; inset:0; z-index:-1; pointer-events:none;
-  opacity:var(--grain); mix-blend-mode:overlay; background-size:180px;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity:var(--grain); mix-blend-mode:overlay; background-size:170px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 @media (prefers-reduced-transparency: reduce){ #grain{ display:none } }
 
-/* ── header ───────────────────────────────────────────────────────── */
+/* ════ the seam ═════════════════════════════════════════════════════
+   The mark, at the scale of the page. It is not decoration: sections hang
+   off it, its nodes are the section indices, and it draws itself as you
+   descend — the gold arriving in the break, which is the whole idea. */
+#seam{ position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none }
+#seam svg{ width:100%; height:100%; display:block }
+#seam .seam-line{
+  fill:none; stroke:var(--r-border-gold); stroke-width:var(--seam-w);
+  stroke-linecap:round; stroke-linejoin:round;
+  stroke-dasharray:var(--len); stroke-dashoffset:calc(var(--len) - var(--drawn, 0px));
+}
+#seam .seam-ghost{
+  fill:none; stroke:var(--r-border-hairline); stroke-width:1;
+  stroke-linecap:round; stroke-linejoin:round;
+}
+#seam .seam-branch{ stroke-width:1; opacity:.5 }
+@media (prefers-reduced-motion: reduce){
+  #seam .seam-line{ stroke-dasharray:none; stroke-dashoffset:0 }
+}
+@media (max-width: 900px){ #seam{ display:none } }
+
+/* ════ header ═══════════════════════════════════════════════════════ */
 .hdr{
   position:fixed; top:0; left:0; right:0; z-index:60;
-  display:flex; align-items:center; gap:var(--y-6);
-  padding:14px var(--pad);
+  display:flex; align-items:center; gap:var(--gutter);
+  padding:13px var(--pad);
   border-bottom:1px solid transparent;
-  transition: background-color var(--y-t), border-color var(--y-t);
+  transition:background-color var(--mid) var(--ease), border-color var(--mid) var(--ease);
 }
 .hdr[data-stuck]{
-  background: color-mix(in srgb, var(--r-bg-app) 86%, transparent);
-  backdrop-filter: blur(14px);
-  border-bottom-color: var(--r-border-hairline);
+  background:color-mix(in srgb, var(--r-bg-app) 84%, transparent);
+  backdrop-filter:blur(16px) saturate(1.3);
+  border-bottom-color:var(--r-border-hairline);
 }
 @media (prefers-reduced-transparency: reduce){
-  .hdr[data-stuck]{ background: var(--r-bg-surface); backdrop-filter:none }
+  .hdr[data-stuck]{ background:var(--r-bg-surface); backdrop-filter:none }
 }
-.brand{ display:flex; align-items:baseline; gap:9px; flex:none }
-.brand b{ font-family:var(--y-serif); font-size:20px; font-weight:800; color:var(--r-text-heading) }
-.brand span{ font-family:var(--y-mono); font-size:9px; letter-spacing:4px;
-             text-transform:uppercase; color:var(--r-text-muted) }
+.brand{ display:flex; align-items:center; gap:10px; flex:none }
+.brand svg{ display:block; border-radius:6px }
+.brand b{ font-family:var(--y-serif); font-size:19px; font-weight:700;
+          color:var(--r-text-heading); letter-spacing:-.02em }
 .brand:hover{ text-decoration:none }
 
-.nav{ display:flex; gap:2px; margin-right:auto }
+.nav{ display:flex; gap:1px; margin-right:auto }
 .nav a{
-  font-family:var(--y-mono); font-size:12px; padding:7px 12px; border-radius:9px;
-  color:var(--r-text-muted); transition:color var(--y-t), background-color var(--y-t);
+  position:relative; font-family:var(--y-mono); font-size:var(--t-fine);
+  padding:8px 12px; border-radius:9px; color:var(--r-text-muted);
+  transition:color var(--mid) var(--ease);
 }
-.nav a:hover{ color:var(--r-text-body); background:var(--r-bg-hover); text-decoration:none }
+.nav a:hover{ color:var(--r-text-body); text-decoration:none }
 .nav a[aria-current="page"]{ color:var(--r-text-gold) }
-.hdr .gh{ font-family:var(--y-mono); font-size:12px; color:var(--r-text-muted); flex:none }
+/* the current page is underlined by a short seam, not a slab */
+.nav a[aria-current="page"]::after{
+  content:''; position:absolute; left:12px; right:12px; bottom:2px; height:1.5px;
+  background:var(--r-border-gold);
+}
+
+.hdr .gh{ font-family:var(--y-mono); font-size:var(--t-fine); color:var(--r-text-muted); flex:none }
 .hdr .gh:hover{ color:var(--r-text-gold) }
 
-/* theme switch — a real 2-state control, not a pair of mystery dots */
 .themesw{ display:flex; gap:2px; padding:3px; flex:none;
           border:1px solid var(--r-border-hairline); border-radius:var(--y-r-pill) }
 .themesw button{
-  width:28px; height:24px; padding:0; border:0; background:transparent; cursor:pointer;
-  border-radius:var(--y-r-pill); font-family:var(--y-mono); font-size:12px; line-height:1;
-  color:var(--r-text-muted); transition:background-color var(--y-t), color var(--y-t);
+  padding:0 11px; height:24px; border:0; background:transparent; cursor:pointer;
+  border-radius:var(--y-r-pill); font-family:var(--y-mono); font-size:11px; line-height:1;
+  color:var(--r-text-muted); transition:background-color var(--mid) var(--ease), color var(--mid) var(--ease);
 }
 .themesw button:hover{ color:var(--r-text-body) }
 .themesw button[aria-pressed="true"]{ background:var(--r-action-tint); color:var(--r-action-text) }
 
+.kbd-hint{
+  flex:none; display:inline-flex; align-items:center; gap:7px; cursor:pointer;
+  padding:0 10px; height:30px; border-radius:9px;
+  border:1px solid var(--r-border-hairline); background:transparent;
+  font-family:var(--y-mono); font-size:11px; color:var(--r-text-muted);
+  transition:border-color var(--mid) var(--ease), color var(--mid) var(--ease);
+}
+.kbd-hint:hover{ border-color:var(--r-border-gold); color:var(--r-text-body) }
+.kbd-hint kbd{ font-family:inherit; font-size:10px; color:var(--r-text-secondary) }
+@media (max-width: 1080px){ .kbd-hint{ display:none } }
 @media (max-width: 900px){
   .nav{ order:3; width:100%; margin:0; overflow-x:auto; padding-top:4px }
   .hdr{ flex-wrap:wrap; padding-bottom:8px }
-  html{ scroll-padding-top:120px }
+  html{ scroll-padding-top:124px }
 }
 
-/* ── page shell ───────────────────────────────────────────────────── */
-main{ padding-top:70px }
-.shell{ max-width:var(--shell); margin:0 auto; padding:0 var(--pad) }
-.sec{ padding: clamp(64px, 9vh, 112px) 0; position:relative }
-.sec--band{ background:
-  linear-gradient(180deg, transparent, var(--r-bg-surface) 12%, var(--r-bg-surface) 88%, transparent) }
+/* ════ page shell ═══════════════════════════════════════════════════ */
+main{ position:relative; padding-top:64px }
+.shell{ max-width:var(--shell); margin:0 auto; padding:0 var(--pad); position:relative; z-index:1 }
+.sec{ padding:clamp(72px, 11vh, 132px) 0; position:relative }
+.sec--plate{ background:
+  linear-gradient(180deg, transparent, var(--r-bg-surface) 10%, var(--r-bg-surface) 90%, transparent) }
 
-.eyebrow{
-  display:flex; align-items:center; gap:10px;
-  font-family:var(--y-mono); font-size:11px; letter-spacing:2.5px; text-transform:uppercase;
-  color:var(--r-text-muted); margin-bottom:16px;
+/* the section index — a number on the seam, the way a plate is stamped */
+.idx{
+  display:flex; align-items:center; gap:12px; margin-bottom:18px;
+  font-family:var(--y-mono); font-size:var(--t-micro); letter-spacing:2.6px;
+  text-transform:uppercase; color:var(--r-text-muted);
 }
-.eyebrow i{ font-style:normal; color:var(--r-text-gold) }
-.sec h2{ font-size:clamp(27px, 4vw, 40px); max-width:18ch }
-.lead{ font-size:15.5px; line-height:1.9; color:var(--r-text-secondary);
-       max-width:56ch; margin-top:18px }
-.lead b{ color:var(--r-text-heading); font-weight:400 }
-.sub{ font-family:var(--y-mono); font-size:11px; letter-spacing:2px; text-transform:uppercase;
-      color:var(--r-text-muted); margin:var(--y-8) 0 var(--y-4) }
+.idx b{ color:var(--r-text-gold); font-weight:500 }
+.idx::before{ content:''; width:22px; height:1px; background:var(--r-border-gold) }
 
-/* page head — every page but the index opens with one */
-.phead{ padding: clamp(48px,7vh,88px) 0 var(--y-8) }
-.phead h1{ font-size:clamp(34px,5.5vw,56px); margin-top:8px }
-.phead .lead{ font-size:16px; max-width:62ch }
+h1{ font-size:var(--t-h1); letter-spacing:-.025em }
+.sec h2{ font-size:var(--t-h2); max-width:17ch; letter-spacing:-.02em }
+.lede{ font-size:var(--t-lede); line-height:1.75; color:var(--r-text-secondary);
+       max-width:54ch; margin-top:20px }
+.lede b{ color:var(--r-text-heading); font-weight:400 }
+.note{ font-size:13px; line-height:1.75; color:var(--r-text-muted); max-width:60ch }
+.cap{ font-family:var(--y-mono); font-size:var(--t-fine); line-height:1.7;
+      color:var(--r-text-muted); margin-top:12px }
+.sub{ font-family:var(--y-mono); font-size:var(--t-micro); letter-spacing:2.4px;
+      text-transform:uppercase; color:var(--r-text-muted); margin:var(--y-8) 0 var(--y-4) }
 
-/* min-width:0 or a grid child refuses to shrink below its widest line, and a
-   single unbroken code line drags the whole page sideways */
-.cols{ display:grid; gap:var(--y-6); grid-template-columns:repeat(12,1fr); align-items:start }
+.phead{ padding-block:clamp(56px,8vh,104px) var(--y-8) }
+.phead .lede{ max-width:64ch }
+
+.cols{ display:grid; gap:var(--gutter); grid-template-columns:repeat(12,1fr); align-items:start }
 .cols > *{ min-width:0 }
-.c6{ grid-column:span 6 } .c5{ grid-column:span 5 } .c7{ grid-column:span 7 }
-.c4{ grid-column:span 4 } .c8{ grid-column:span 8 } .c12{ grid-column:1/-1 }
-@media (max-width: 860px){ .cols > *{ grid-column:1/-1 } }
+.c3{ grid-column:span 3 } .c4{ grid-column:span 4 } .c5{ grid-column:span 5 }
+.c6{ grid-column:span 6 } .c7{ grid-column:span 7 } .c8{ grid-column:span 8 }
+.c9{ grid-column:span 9 } .c12{ grid-column:1/-1 }
+@media (max-width: 900px){ .cols > *{ grid-column:1/-1 } }
 
-.tiles{ display:grid; gap:var(--y-3);
-        grid-template-columns:repeat(auto-fill, minmax(190px,1fr)) }
+.tiles{ display:grid; gap:var(--y-3); grid-template-columns:repeat(auto-fill,minmax(190px,1fr)) }
 .tiles > *{ min-width:0 }
 
-/* ── reveal — a short lift, once, and never in reduced motion ─────── */
-.rv{ opacity:0; transform:translateY(14px);
-     transition:opacity .6s cubic-bezier(.2,.7,.2,1), transform .6s cubic-bezier(.2,.7,.2,1) }
+/* ════ plates — the surfaces content sits on ════════════════════════
+   Depth is a step and a hairline, per canon. The only thing added here is
+   that a plate notices the pointer: the gilding brightens where the light
+   is, which is what gilding does. */
+.plate{
+  position:relative; background:var(--r-bg-raised);
+  border:1px solid var(--r-border-hairline); border-radius:var(--y-r-card);
+  padding:var(--y-6); overflow:hidden;
+}
+.plate::after{
+  content:''; position:absolute; inset:0; pointer-events:none; opacity:0;
+  transition:opacity var(--slow) var(--ease);
+  background:radial-gradient(260px 260px at var(--px,50%) var(--py,50%),
+             color-mix(in srgb, var(--kin-1) 8%, transparent), transparent 70%);
+}
+.plate:hover::after{ opacity:1 }
+@media (hover: none){ .plate::after{ display:none } }
+.plate--flush{ padding:0 }
+
+/* ════ reveal — staged, once, and never in reduced motion ═══════════ */
+.rv{ opacity:0; transform:translateY(16px);
+     transition:opacity var(--slow) var(--ease), transform var(--slow) var(--ease) }
 .rv[data-in]{ opacity:1; transform:none }
 @media (prefers-reduced-motion: reduce){ .rv{ opacity:1; transform:none; transition:none } }
 
-/* ── code ─────────────────────────────────────────────────────────── */
+/* ════ code ═════════════════════════════════════════════════════════ */
 .code{ position:relative; background:var(--r-bg-surface);
        border:1px solid var(--r-border-hairline); border-radius:var(--y-r-card) }
-.code pre{ margin:0; padding:var(--y-5); overflow:auto; max-height:420px;
-           font-size:12px; line-height:1.75; color:var(--r-text-secondary);
+.code pre{ margin:0; padding:var(--y-5); overflow:auto; max-height:440px;
+           font-size:var(--t-code); line-height:1.8; color:var(--r-text-secondary);
            white-space:pre; tab-size:2 }
 .code .copy{ position:absolute; top:10px; right:10px; z-index:2 }
 .code__tabs{ display:flex; gap:2px; flex-wrap:wrap; padding:8px;
@@ -135,78 +232,160 @@ main{ padding-top:70px }
 .code__tabs button{
   font-family:var(--y-mono); font-size:11.5px; padding:6px 11px; border-radius:8px;
   border:0; background:transparent; color:var(--r-text-muted); cursor:pointer;
-  transition:color var(--y-t), background-color var(--y-t);
+  transition:color var(--mid) var(--ease), background-color var(--mid) var(--ease);
 }
 .code__tabs button:hover{ color:var(--r-text-body) }
 .code__tabs button[aria-selected="true"]{ background:var(--r-action-tint); color:var(--r-action-text) }
 
-/* syntax tint for the sample listings — role colours only */
 .sy-k{ color:var(--r-syntax-keyword) } .sy-s{ color:var(--r-syntax-string) }
 .sy-n{ color:var(--r-syntax-number) } .sy-t{ color:var(--r-syntax-type) }
-/* a comment on a documentation page is prose a reader reads, not a comment
-   receding inside an editor — it takes the muted text role, not syntax.comment */
 .sy-c{ color:var(--r-text-muted); font-style:italic } .sy-v{ color:var(--r-text-body) }
 .sy-f{ color:var(--r-text-heading) } .sy-p{ color:var(--r-text-muted) }
 .sy-o{ color:var(--r-syntax-constant) }
 
-/* ── copyable swatch / spec rows ──────────────────────────────────── */
-.swatch{ display:flex; flex-direction:column; gap:0; width:100%; text-align:left;
+/* ════ swatches & spec tables ═══════════════════════════════════════ */
+.swatch{ display:flex; flex-direction:column; width:100%; text-align:left;
          background:none; border:0; padding:0; cursor:pointer; font:inherit }
 .swatch__chip{ height:56px; border-radius:10px; border:1px solid var(--r-border-hairline);
-               transition:transform var(--y-t) }
-.swatch:hover .swatch__chip{ transform:translateY(-2px) }
-.swatch__n{ font-family:var(--y-mono); font-size:12px; color:var(--r-text-body); margin-top:9px }
+               transition:transform var(--mid) var(--ease) }
+.swatch:hover .swatch__chip{ transform:translateY(-3px) }
+.swatch__n{ font-family:var(--y-mono); font-size:var(--t-fine); color:var(--r-text-body); margin-top:9px }
 .swatch__v{ font-family:var(--y-mono); font-size:10.5px; color:var(--r-text-muted) }
 .swatch__job{ font-size:11px; color:var(--r-text-muted); line-height:1.5; margin-top:3px }
 
 .spec{ width:100%; border-collapse:collapse; font-size:13px }
-.spec th{ font-family:var(--y-mono); font-size:10.5px; letter-spacing:1.5px; font-weight:500;
+.spec th{ font-family:var(--y-mono); font-size:var(--t-micro); letter-spacing:1.5px; font-weight:500;
           text-transform:uppercase; color:var(--r-text-muted); text-align:left;
           padding:0 var(--y-3) var(--y-2); border-bottom:1px solid var(--r-border-hairline) }
 .spec td{ padding:var(--y-2) var(--y-3); border-bottom:1px solid var(--r-border-hairline);
           color:var(--r-text-secondary); vertical-align:top }
 .spec code{ color:var(--r-text-gold) }
-
-/* a pass/fail cell — the glyph carries it, the colour only confirms */
 .cell-pass{ color:var(--r-ok-text) } .cell-fail{ color:var(--r-danger-text); font-weight:600 }
 
-/* ── footer ───────────────────────────────────────────────────────── */
-.foot{ border-top:1px solid var(--r-border-hairline); margin-top:var(--y-12) }
+/* ════ footer ═══════════════════════════════════════════════════════ */
+.foot{ border-top:1px solid var(--r-border-hairline); margin-top:var(--y-12); position:relative; z-index:1 }
 .foot__in{ max-width:var(--shell); margin:0 auto; padding:var(--y-8) var(--pad);
            display:flex; flex-wrap:wrap; gap:var(--y-4) var(--y-6); align-items:baseline;
-           font-family:var(--y-mono); font-size:11.5px; color:var(--r-text-muted) }
+           font-family:var(--y-mono); font-size:var(--t-fine); color:var(--r-text-muted) }
 .foot__in a{ color:var(--r-text-gold) }
 .foot__in .sep{ color:var(--r-text-muted) }
 
-/* ── toast host ───────────────────────────────────────────────────── */
 #toast{ position:fixed; left:50%; bottom:26px; z-index:90;
         transform:translate(-50%, 14px); opacity:0; pointer-events:none;
-        transition:opacity var(--y-t), transform var(--y-t) }
+        transition:opacity var(--mid) var(--ease), transform var(--mid) var(--ease) }
 #toast[data-show]{ opacity:1; transform:translate(-50%,0) }
 
-/* ── skip link ────────────────────────────────────────────────────── */
 .skip{ position:absolute; left:-9999px; top:8px; z-index:99 }
 .skip:focus{ left:var(--pad); background:var(--r-bg-raised); padding:10px 16px;
              border:1px solid var(--r-action-edge); border-radius:var(--y-r-control);
              color:var(--r-action-text) }
 
-/* ── hero — the one place the language shows its face ─────────────── */
-.hero{ position:relative; padding-top:clamp(72px,12vh,140px); padding-bottom:clamp(48px,8vh,96px) }
-.hero h1{ background:linear-gradient(122deg, var(--kin-3), var(--kin-1) 28%,
-          var(--r-text-heading) 54%, var(--kin-0) 76%, var(--kin-2));
-          -webkit-background-clip:text; background-clip:text; color:transparent }
-[data-theme="washi"] .hero h1{ background:none; color:var(--r-text-heading) }
-.lily{
-  position:absolute; top:5%; right:1%; width:clamp(150px,19vw,250px); aspect-ratio:1;
-  color:var(--r-danger-fill); opacity:.18; pointer-events:none; z-index:-1;
+/* ════ command palette ══════════════════════════════════════════════
+   A reference is a tool, and a tool answers the keyboard. Cmd/Ctrl-K
+   searches every token, role, component, theme and page, and Enter copies
+   the value. It is the fastest path to the thing this site is for. */
+#cmd{ position:fixed; inset:0; z-index:100; display:none }
+#cmd[data-open]{ display:block }
+#cmd .cmd-scrim{ position:absolute; inset:0;
+  background:color-mix(in srgb, var(--r-bg-app) 68%, transparent); backdrop-filter:blur(4px) }
+#cmd .cmd-box{
+  position:absolute; top:14vh; left:50%; transform:translateX(-50%);
+  width:min(620px, calc(100vw - 32px));
+  background:var(--r-bg-raised); border:1px solid var(--r-border-hairline);
+  border-radius:var(--y-r-dialog); overflow:hidden;
+  box-shadow:0 32px 80px -20px rgb(0 0 0 / .55);
+  animation:cmd-in 260ms var(--ease);
 }
-[data-theme="washi"] .lily{ opacity:.13 }
-@media (max-width:860px){ .lily{ opacity:.12; width:180px; top:0 } }
+@keyframes cmd-in{ from{ opacity:0; transform:translateX(-50%) translateY(-8px) } }
+@media (prefers-reduced-motion: reduce){ #cmd .cmd-box{ animation:none } }
+#cmd input{
+  width:100%; padding:18px 20px; border:0; outline:0;
+  background:transparent; color:var(--r-text-body);
+  font-family:var(--y-mono); font-size:15px;
+  border-bottom:1px solid var(--r-border-hairline);
+}
+#cmd input::placeholder{ color:var(--r-text-ghost) }
+#cmd .cmd-list{ max-height:min(52vh, 440px); overflow:auto; padding:6px }
+#cmd .cmd-row{
+  display:flex; align-items:center; gap:12px; width:100%;
+  padding:9px 13px; border:0; border-radius:9px; background:transparent;
+  cursor:pointer; text-align:left; font:inherit; color:var(--r-text-secondary);
+}
+#cmd .cmd-row[aria-selected="true"]{ background:var(--r-bg-hover); color:var(--r-text-body) }
+#cmd .cmd-row .sw{ width:18px; height:18px; border-radius:5px; flex:none;
+                   border:1px solid var(--r-border-hairline) }
+#cmd .cmd-row .nm{ font-family:var(--y-mono); font-size:13px }
+#cmd .cmd-row .kind{ margin-left:auto; font-family:var(--y-mono); font-size:10.5px;
+                     letter-spacing:1.4px; text-transform:uppercase; color:var(--r-text-ghost) }
+#cmd .cmd-empty{ padding:26px; text-align:center; color:var(--r-text-muted); font-size:13px }
+#cmd .cmd-foot{ display:flex; gap:16px; padding:10px 16px; border-top:1px solid var(--r-border-hairline);
+                font-family:var(--y-mono); font-size:10.5px; color:var(--r-text-ghost) }
+
+/* ════ hero ═════════════════════════════════════════════════════════
+   One object: a lacquer plate, the seam through it, and the wordmark set
+   at a size that has to be looked at rather than read. */
+.hero{ position:relative; padding-block:clamp(76px,13vh,168px) clamp(56px,9vh,104px) }
+.hero__mark{ font-size:var(--t-hero); line-height:.86; letter-spacing:-.045em;
+             font-family:var(--y-serif); font-weight:800; color:var(--r-text-heading);
+             margin:0 0 0 -.04em }
+.hero__mark .gild{
+  background:linear-gradient(96deg, var(--kin-2) 0%, var(--kin-0) 34%,
+             var(--r-text-heading) 58%, var(--kin-1) 88%);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+[data-theme="washi"] .hero__mark .gild{
+  background:linear-gradient(96deg, var(--kin-2) 0%, var(--kin-1) 30%,
+             var(--r-text-heading) 62%, var(--kin-2) 92%);
+  -webkit-background-clip:text; background-clip:text;
+}
+.hero__kicker{ font-family:var(--y-mono); font-size:var(--t-micro); letter-spacing:5px;
+               text-transform:uppercase; color:var(--r-text-muted); margin-bottom:22px }
+.hero__lede{ font-size:var(--t-lede); line-height:1.75; color:var(--r-text-secondary); max-width:46ch }
+.hero__lede b{ color:var(--r-text-heading); font-weight:400 }
+
+/* the running figures under the hero — a spec sheet, not a badge row */
+.facts{ display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+        border-top:1px solid var(--r-border-hairline); margin-top:clamp(40px,6vh,72px) }
+.facts > div{ padding:var(--y-5) var(--y-4) var(--y-4) 0 }
+.facts .n{ font-family:var(--y-mono); font-size:clamp(26px,3vw,38px); line-height:1.1;
+           color:var(--r-text-heading); font-variant-numeric:tabular-nums }
+.facts .l{ font-family:var(--y-mono); font-size:var(--t-micro); letter-spacing:2px;
+           text-transform:uppercase; color:var(--r-text-muted); margin-top:8px }
+.facts .d{ font-size:12px; color:var(--r-text-muted); margin-top:6px; line-height:1.6 }
+
+/* a figure: any demonstration with a mono caption under it */
+figure{ margin:0 }
+figure figcaption{ font-family:var(--y-mono); font-size:var(--t-fine); line-height:1.7;
+                   color:var(--r-text-muted); margin-top:12px }
+
+/* two things put beside each other to be compared */
+.versus{ display:grid; gap:var(--gutter); grid-template-columns:1fr 1fr }
+@media (max-width: 760px){ .versus{ grid-template-columns:1fr } }
+.versus__tag{ display:inline-flex; align-items:center; gap:7px;
+              font-family:var(--y-mono); font-size:var(--t-micro); letter-spacing:2px;
+              text-transform:uppercase; margin-bottom:14px }
+.versus__tag--yes{ color:var(--r-ok-text) }
+.versus__tag--no{ color:var(--r-danger-text) }
 
 /* the palette glance — label beside the strip, stacked when there is no room */
 .glance-row{
-  display:grid; grid-template-columns:150px minmax(0,1fr); gap:var(--y-5);
+  display:grid; grid-template-columns:170px minmax(0,1fr); gap:var(--y-5);
   align-items:start; padding:var(--y-4) 0;
   border-top:1px solid var(--r-border-hairline);
 }
 @media (max-width:640px){ .glance-row{ grid-template-columns:1fr; gap:var(--y-3) } }
+
+/* ════ the forge ════════════════════════════════════════════════════ */
+.forge-v{ float:right; font-family:var(--y-mono); color:var(--r-text-gold) }
+.forge-score{ display:flex; align-items:baseline; gap:16px; margin-bottom:16px }
+.forge-score .n{ font-family:var(--y-mono); font-size:clamp(34px,4.6vw,52px); line-height:1;
+                 color:var(--r-ok-text); font-variant-numeric:tabular-nums }
+.forge-score .n span{ font-size:.44em; color:var(--r-text-muted) }
+.forge-score .l{ font-family:var(--y-mono); font-size:var(--t-fine); color:var(--r-text-muted) }
+.forge-score.is-bad .n{ color:var(--r-danger-text) }
+.forge-fails{ display:flex; flex-direction:column; gap:5px; font-family:var(--y-mono); font-size:11.5px }
+.forge-fails > div{ display:flex; gap:8px; align-items:baseline; color:var(--r-text-muted) }
+.forge-fails code{ color:var(--r-text-secondary) }
+.forge-fails b{ color:var(--r-danger-text); margin-left:auto }
+.forge-fails span{ color:var(--r-text-ghost) }
+.forge-fails .more{ color:var(--r-text-ghost); padding-top:4px }
