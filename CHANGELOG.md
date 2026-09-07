@@ -58,6 +58,14 @@
   tone for real information; and an unescaped `<g>` was being parsed as an
   element. The sweep now returns nothing, and the four exemptions are declared
   in the markup as `data-floor` rather than argued after the fact.
+- **Stale copies, found and stopped** — `check.py` now refuses any hand-written
+  hex that canon no longer has, and it immediately found seventeen: the tmux
+  example config, both palette READMEs, `canon/components/controls.md` and the
+  palette prompt were all quoting values that had moved. The prompt's token
+  block is generated now, so the one file whose whole job is to hand a model the
+  palette cannot hand it last month's palette. Two of its rules were wrong on
+  their own terms as well — it described text on a gold fill, which the language
+  does not have, and quoted the old single-surface contrast floors.
 - **`tools/check.py`** — the invariants a build cannot see: no hard-coded
   colour in the showcase, every link in the repository resolving, and the pages
   agreeing on their own navigation. Runs in CI beside `build.py --check`.

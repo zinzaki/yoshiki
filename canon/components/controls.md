@@ -13,7 +13,7 @@ between buttons is carried by the edge and the text, never by a bigger fill.
 primary     bg.raised   + action.edge 1.5px   + action.text     ◆ one per view
 ghost       transparent + border.strong 1px   + text.secondary
 quiet       transparent + no edge             + text.secondary    (a link, really)
-danger      danger.fill + no edge             + #FFF3ED         ✗ one per surface
+danger      danger.fill + no edge             + danger.on-fill  ✗ one per surface
 ```
 
 `ok` exists but is rarely earned: prefer a primary button whose *label* says the
@@ -24,7 +24,7 @@ a moment must read as completion itself.
 |---|---|
 | surface | `bg.raised` (primary) · transparent (ghost, quiet) |
 | edge | `action.edge` · `border.strong` · none |
-| label | `action.text` · `text.secondary` · `#FFF3ED` on `danger.fill` |
+| label | `action.text` · `text.secondary` · `danger.on-fill` on `danger.fill` |
 | hover | edge → `action.hover.edge`, surface → `action.tint` |
 | pressed | edge deepens, the whole control drops 1px — no scale bounce |
 | focus | `focus.ring`, 2px, offset 2px — over the edge, never instead of it |

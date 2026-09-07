@@ -51,6 +51,36 @@ for i, line in enumerate(kit.splitlines(), 1):
         if hit not in allowed_kit:
             fail(f"library/web/yoshiki.css:{i} — {hit} is not part of the terminal island; use a role")
 
+# ── 1b · a hex written by hand must still be a colour the palette has ───
+# This is the drift that hides: an example config, a prompt module or a README
+# quoting a value that canon has since moved. It reads correct and is wrong.
+import yaml
+live = set()
+for slug in ("kogane", "washi"):
+    pal = yaml.safe_load((ROOT / "canon" / "palette" / slug / "palette.yml").read_text())
+    live |= {v.upper() for v in pal.get("tokens", {}).values()}
+    live |= {v.upper() for v in pal.get("base24", {}).values()}
+    term = pal.get("terminal", {})
+    for key in ("background", "foreground", "cursor", "selection_background"):
+        if key in term:
+            live.add(term[key].upper())
+    live |= {c.upper() for c in term.get("ansi", []) + term.get("brights", [])}
+live |= {"#FFFFFF", "#000000"}          # the pure ends, named as themselves
+
+HAND = [ROOT / "library" / "configs", ROOT / "library" / "snippets",
+        ROOT / "library" / "github", ROOT / "library" / "presets",
+        ROOT / "library" / "image-prompts", ROOT / "canon"]
+SKIP_NAMES = {"palette.yml", "CONTRAST.md"}
+for base in HAND:
+    for f in sorted(base.rglob("*")):
+        if not f.is_file() or f.suffix in {".json", ".css"} or f.name in SKIP_NAMES:
+            continue
+        for i, line in enumerate(f.read_text(errors="ignore").splitlines(), 1):
+            for hit in HEX.findall(line):
+                if len(hit) == 7 and hit.upper() not in live:
+                    fail(f"{f.relative_to(ROOT)}:{i} — {hit} is not a value canon still has "
+                         f"(stale copy of a token?)")
+
 # ── 2 · every link in the site resolves ─────────────────────────────────
 pages = sorted(DOCS.glob("*.html"))
 if not pages:
