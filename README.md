@@ -1,129 +1,207 @@
 <p align="center">
-  <img src="docs/banner.webp" alt="yoshiki — a spider lily on black lacquer" width="900">
+  <img src="docs/banner.svg" alt="yoshiki — a design language for terminals, editors and the web" width="900">
 </p>
-
-<h1 align="center">様式&nbsp; yoshiki</h1>
-
-<p align="center">A design language: warm monochrome, struck rarely by color.</p>
 
 <p align="center">
-  <a href="https://zinzaki.github.io/yoshiki/"><b>Live showcase ↗</b></a>
-  &nbsp;·&nbsp; <a href="#palette">Palette</a>
-  &nbsp;·&nbsp; <a href="#quick-start">Quick start</a>
-  &nbsp;·&nbsp; <a href="#whats-inside">What's inside</a>
+  <b>Warm monochrome, struck rarely by colour.</b><br>
+  A design language with a palette you can prove, a component contract, thirteen
+  generated themes, and prompt modules that teach it to a model.
 </p>
 
-<br>
+<p align="center">
+  <a href="https://github.com/zinzaki/yoshiki/actions/workflows/build.yml"><img alt="build" src="https://img.shields.io/github/actions/workflow/status/zinzaki/yoshiki/build.yml?branch=main&style=flat-square&labelColor=0B0A08&color=D8AF52"></a>
+  <img alt="contrast" src="https://img.shields.io/badge/WCAG_AA-proven_on_every_surface-52703F?style=flat-square&labelColor=0B0A08">
+  <img alt="themes" src="https://img.shields.io/badge/themes-13_generated-D8AF52?style=flat-square&labelColor=0B0A08">
+  <img alt="dependencies" src="https://img.shields.io/badge/runtime_deps-none-C67F45?style=flat-square&labelColor=0B0A08">
+  <a href="LICENSE"><img alt="license" src="https://img.shields.io/badge/license-MIT-94866A?style=flat-square&labelColor=0B0A08"></a>
+</p>
 
-yoshiki is a visual system built around one idea: color is rare, so it means
-something. Almost everything sits in a warm lacquer-and-bone monochrome; gold
-appears only as a line or an edge; two accents (spider-lily scarlet and moss)
-are reserved for events — danger and success.
+<p align="center">
+  <a href="https://zinzaki.github.io/yoshiki/"><b>Live showcase</b></a> ·
+  <a href="https://zinzaki.github.io/yoshiki/palette.html">Palette</a> ·
+  <a href="https://zinzaki.github.io/yoshiki/components.html">Components</a> ·
+  <a href="https://zinzaki.github.io/yoshiki/themes.html">Themes</a> ·
+  <a href="PHILOSOPHY.md">Philosophy</a> ·
+  <a href="AGENTS.md">For agents</a>
+</p>
 
-The repo holds the definition and everything derived from it: a palette with a
-semantic roles contract, a component canon and its drop-in stylesheet, terminal
-and editor themes, TUI patterns and a text lexicon, W3C design tokens, and
-system prompts that teach the style to an AI agent. Two themes share the same
-rules: **kogane** (dark) and **washi** (light).
+---
 
-<img src="docs/assets/terminal.svg" alt="a yoshiki terminal — gold prompt frame, moss checks, one scarlet cross" width="760">
+## The idea, in one minute
 
-Gold gilds the prompt and the frame; success is a quiet moss check; the one
-scarlet is spent on the single thing that blocks. Every mark above is the
-language, generated from its palette source.
+Colour is a signal, and a signal used everywhere is dead. So yoshiki spends
+almost nothing: about 97% of any surface is a warm lacquer-and-bone monochrome,
+gold appears only as a line or an edge, and two triggers — a spider-lily scarlet
+and a moss green — are reserved for events. When something finally turns red, you
+believe it.
 
-## Palette
+Three rules hold the whole system up:
 
-<img src="docs/assets/palette.svg" alt="kogane (dark) and washi (light) palette strips" width="920">
+| | |
+|---|---|
+| **Warm, never grey** | every dark tone carries a brown lacquer undertone; text is bone, not white |
+| **Gold gilds, never fills** | gold is a line, edge, frame or glyph — a primary button is a *gold-framed* surface with gold text, never a gold rectangle |
+| **Rarity is the mechanism** | one accent per view, at most one scarlet per screen; unsure whether to add a colour — don't |
 
-| Layer | Colors | Share |
-|---|---|---|
-| Tone | lacquer `#0B0A08` · bone `#EDE3C4` · gold `#D8AF52` · persimmon `#C67F45` | ~97% |
-| Triggers | scarlet `#d8392e` · moss `#52703F` | ~3% |
-| Service | dusty-blue · wisteria · celadon — terminal ANSI and syntax only | — |
+Two themes carry the same rules: **kogane** (dark lacquer) and **washi** (paper
+and ink). Only the stage changes. The terminal never inverts — it stays a dark
+island, even pinned to paper.
 
-Three rules: warm, never grey · color is rare · gold is a line, not a fill.
+<img src="docs/assets/terminal.svg" alt="a yoshiki terminal — gold prompt frame, moss checks, one scarlet cross" width="820">
 
-Color values come in two kinds: raw **tokens** (`ink-0`, `kin-1`) and the
-**roles** contract (`text.body`, `action.edge`, `danger.fill`). Consume a role,
-never a raw token — a role guarantees readable contrast in both themes.
+---
 
-The [contrast proof](canon/palette/CONTRAST.md) measures every role against
-**every surface it can sit on**, not just a flattering one, and the build fails
-on a single cell below its floor. Measuring only against `bg.surface` is how a
-palette hides its failures; it hid five of ours until v1.2.
+## Install
 
-## Quick start
+**Web** — two plain CSS files, no build step, both themes:
+
+```html
+<link rel="stylesheet" href="library/web/palette.css">  <!-- tokens + roles -->
+<link rel="stylesheet" href="library/web/yoshiki.css">  <!-- the component kit -->
+<html data-theme="washi">                               <!-- light; omit for dark -->
+```
+
+**Terminal or editor** — copy one file:
 
 ```bash
-# a terminal theme — copy one file
-library/themes/kitty/kogane.conf        # or ghostty · foot · alacritty · wezterm · …
-
-# web — two plain CSS files, both themes, no build step
-library/web/palette.css                 # tokens + the roles contract
-library/web/yoshiki.css                 # the component kit
-
-# make an AI follow the language — point it at the repo (it reads AGENTS.md),
-# or paste one prompt:
-canon/prompts/identity.md               # + principles.md for the defaults
-
-# regenerate everything from the palette source
-python3 tools/build.py
+library/themes/kitty/kogane.conf     # or ghostty · foot · alacritty · wezterm
+library/themes/vscode/kogane.json    # or neovim · starship · tmux · zellij · btop · fzf
 ```
 
-## What's inside
+**An AI agent** — point it at the repository and it reads [`AGENTS.md`](AGENTS.md)
+first, or paste one prompt module from [`canon/prompts/`](canon/prompts/).
 
-```
-yoshiki/
-│
-├─ AGENTS.md               how an agent applies yoshiki (read first)
-├─ llms.txt                machine-readable index of every module
-│
-├─ canon/                  the definition — edited by hand, the source of truth
-│  ├─ principles/          the ordered defaults — what wins when nothing is set
-│  ├─ palette/             tokens · roles · contrast proof · kogane · washi
-│  ├─ components/         the anatomy — controls · forms · surfaces · feedback · data
-│  ├─ lexicon/             glyphs · nameplates · frames · CLI/TUI · code comments
-│  ├─ motion/              loading & progress — spinners · dot-matrix · ▰▱
-│  ├─ effects/             web effects — glass · grain · pointer · ambient
-│  ├─ typography/          serif display + mono — Maple · JetBrains · Geist
-│  ╰─ prompts/             drop-in AI system prompts
-│
-├─ library/                the style in use — take & apply
-│  ├─ web/                 the drop-in kit — palette.css + yoshiki.css
-│  ├─ themes/              kitty · foot · alacritty · ghostty · wezterm · starship · base24 · vscode · neovim · tmux · btop · zellij · fzf
-│  ├─ configs/             whole example configs
-│  ├─ snippets/            how to write code in the style, per language
-│  ├─ menus/               ready TUI menus, cards, lists
-│  ├─ charts/              text data-viz — sparkline · bars · gauge
-│  ├─ text/                nameplates · banners · glyph sets · dividers
-│  ╰─ presets/             named kits
-│
-├─ tools/build.py          bakes every theme, export and proof out of canon/palette
-├─ tools/check.py          the invariants a build cannot see — links, stray colour
-├─ PHILOSOPHY.md           why it looks like this
-╰─ CHANGELOG.md            the sealed versions
+**Everything, regenerated** — `python3 tools/build.py` (Python 3 + PyYAML).
+
+---
+
+## Tokens are the paint. Roles are the contract.
+
+A raw token is a value and promises nothing. A **role** is a promise: reach for
+`text.body` or `action.edge` and the right value arrives in either theme, at a
+contrast that has been measured against every surface it can land on.
+
+```css
+.thing {
+  background: var(--r-bg-raised);
+  color:      var(--r-text-body);
+  border:     1.5px solid var(--r-action-edge);   /* gold gilds */
+}
 ```
 
-`canon/` defines the language; `library/` is the language in use.
+That split is what stops the classic mistake. Gold is readable as an *edge* but
+not as a *word*, so the language separates `border.gold` from `text.gold` — and
+on paper only the second one sinks. You cannot pick wrong if you reach for a role.
+
+<img src="docs/assets/palette.svg" alt="kogane and washi palette strips" width="900">
+
+---
+
+## The proof
+
+Most palettes measure text against one flattering background. This one measures
+every role against **every surface it can sit on** — including hover, which on
+paper is the darkest ground of all — and **the build fails on a single cell below
+its floor**.
+
+| held to | floor |
+|---|---|
+| text roles — body, gold, link, ok, warn, danger, special | 4.5:1 |
+| ghost text, and gilding (an edge, not a word) | 3:1 |
+| syntax roles on the editor page, terminal ANSI on its ground | 4.5:1 |
+
+That check found five real failures the day it was written. The current proof is
+[`canon/palette/CONTRAST.md`](canon/palette/CONTRAST.md), regenerated on every
+build; the rendered pages are swept separately by
+[`tools/audit.mjs`](tools/audit.mjs), which composites the background actually
+painted behind every text node rather than trusting the token it was meant to use.
+
+---
+
+## One source, thirteen targets
+
+Nothing downstream is maintained by hand.
+
+```
+canon/palette/kogane/palette.yml          the source of truth
+        │  washi inherits it and overrides only its deltas
+        ▼
+tools/build.py
+        ├─ 13 program themes    kitty · foot · alacritty · ghostty · wezterm
+        │                       starship · tmux · zellij · btop · fzf
+        │                       vscode · neovim · base24
+        ├─ token exports        CSS variables · JSON · W3C DTCG
+        ├─ the web kit's palette, the site's colours, the banner and the mark
+        └─ CONTRAST.md          the proof, enforced
+
+tools/build.py --check     ← CI: committed output must match canon
+tools/check.py             ← CI: no stray colour, no dead link, no drifted copy
+```
+
+A palette change reaches every program at once, and a fourteenth target costs one
+`emit` block.
+
+---
+
+## What's in the box
+
+<table>
+<tr><th align="left" width="50%">canon — the definition</th><th align="left">library — the language in use</th></tr>
+<tr><td valign="top">
+
+- [`principles/`](canon/principles/) — the ordered ladder: what wins when nothing is specified
+- [`palette/`](canon/palette/) — tokens, the roles contract, the proof
+- [`components/`](canon/components/) — the anatomy of a control, part by part
+- [`lexicon/`](canon/lexicon/) — glyphs, frames, space, states
+- [`motion/`](canon/motion/) — spinners and progress, drawn with sub-symbols
+- [`effects/`](canon/effects/) — glass, grain, pointer, ambient
+- [`typography/`](canon/typography/) — a serif to speak, a mono to count
+- [`prompts/`](canon/prompts/) — drop-in modules for a model
+
+</td><td valign="top">
+
+- [`web/`](library/web/) — the drop-in kit, two plain CSS files
+- [`themes/`](library/themes/) — thirteen programs, generated
+- [`menus/`](library/menus/) — ready TUI menus, panels, status lines
+- [`charts/`](library/charts/) — text data-viz: sparkline, bars, gauge
+- [`text/`](library/text/) — nameplates, banners, dividers, glyph sets
+- [`snippets/`](library/snippets/) — the style in code, per language
+- [`configs/`](library/configs/) — whole example configs
+- [`effects/`](library/effects/) · [`presets/`](library/presets/) · [`github/`](library/github/) · [`image-prompts/`](library/image-prompts/)
+
+</td></tr>
+</table>
+
+---
+
+## Built for agents, not just people
+
+An agent given only the repository link can apply the language without being
+told how. [`AGENTS.md`](AGENTS.md) is the map it reads first: the read order, the
+laws it may not break, and which module to load for the task at hand.
+[`llms.txt`](llms.txt) is the machine index, and the palette also ships as
+[W3C design tokens](canon/palette/kogane/kogane.tokens.json) for tooling that
+wants structure instead of prose.
+
+---
 
 ## Build
 
-[![build](https://github.com/zinzaki/yoshiki/actions/workflows/build.yml/badge.svg)](https://github.com/zinzaki/yoshiki/actions/workflows/build.yml)
-
 ```bash
-python3 tools/build.py          # regenerate themes, token exports, contrast proof
-python3 tools/build.py --check  # verify committed output matches canon (runs in CI)
-python3 tools/check.py          # links resolve, the showcase carries no palette of its own
+python3 tools/build.py          # regenerate every theme, export, asset and proof
+python3 tools/build.py --check  # verify committed output matches canon (CI)
+python3 tools/check.py          # links, stray colour, drifted copies (CI)
 node tools/audit.mjs            # optional: sweep the rendered pages for real contrast
 ```
 
 Requires Python 3 and PyYAML. Everything under `library/themes/`, the palette
-exports and the showcase's colours are generated — edit
+exports, the banner, the mark and the showcase's colours are generated — edit
 `canon/palette/*/palette.yml` and rebuild. `library/web/yoshiki.css` is the one
 hand-written artifact, and the build mirrors it into `docs/` so the showcase
 always wears the file it ships.
 
-## License
+---
 
-MIT — see [LICENSE](LICENSE).
+<p align="center">
+  <sub>MIT — see <a href="LICENSE">LICENSE</a>. Built by <a href="https://github.com/zinzaki">Zinzaki</a>.</sub>
+</p>

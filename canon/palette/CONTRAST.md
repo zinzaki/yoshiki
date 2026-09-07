@@ -8,7 +8,7 @@ that column is the real test. Gilding is measured at the 3:1 non-text floor
 
 **Status: every role passes on every surface.**
 
-## Kogane 黄金 (dark)
+## Kogane (dark)
 
 ### Text on every surface
 
@@ -66,7 +66,7 @@ that column is the real test. Gilding is measured at the 3:1 non-text floor
 | `bright.cyan` | `terminal.background` | 9.31:1 | 4.5 | ✓ |
 | `bright.white` | `terminal.background` | 17.07:1 | 4.5 | ✓ |
 
-## Washi 和紙 (light)
+## Washi (light)
 
 ### Text on every surface
 

@@ -161,7 +161,7 @@
         S(tok['kin-1'], '╰─ ❯ ')),
       tmux: island(
         S(tok['kin-1'], ' ◆ yoshiki ') + S(tok['bone-0'], ' 1:build* ') + S(tok['bone-3'], ' 2:test  3:docs ') +
-        S(tok['bone-3'], '                    ') + S(tok['kin-2'], ' 14:02 · 誠 ')),
+        S(tok['bone-3'], '                    ') + S(tok['kin-2'], ' 14:02 ')),
       zellij: island(
         S(tok['bone-0'], ' NORMAL ') + S(tok['kin-0'], '│ Tab #1 ') + S(tok['bone-3'], '│ Tab #2 ') +
         S(tok['bone-3'], '                 ') + S(tok['mori-0'], '✓ 0') + S(tok['bone-3'], ' · ') +

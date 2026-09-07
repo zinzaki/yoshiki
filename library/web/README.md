@@ -15,8 +15,8 @@ colour of its own.
 ```
 
 ```html
-<html>                       <!-- kogane 黄金 — dark, the default -->
-<html data-theme="washi">    <!-- washi 和紙 — paper and ink -->
+<html>                       <!-- kogane — dark lacquer, the default -->
+<html data-theme="washi">    <!-- washi — paper and ink -->
 <html data-density="compact"><!-- tighter padding; type and radius never move -->
 ```
 
