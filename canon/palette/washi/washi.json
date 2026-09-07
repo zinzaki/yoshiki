@@ -4,7 +4,7 @@
     "kanji": "和紙",
     "slug": "washi",
     "role": "light variant — paper and ink; terminal stays a dark island",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "language": "KINTSUGI (Zinzaki design language)",
     "author": "Zinzaki",
     "mode": "light"
@@ -44,6 +44,7 @@
     "mori-1": "#52703F",
     "mori-2": "#2F4526",
     "mori-w": "#DCE2C2",
+    "shiro": "#FFFFFF",
     "hotaru-0": "#98A4D4",
     "hotaru-1": "#465385",
     "hotaru-2": "#454E7A",
@@ -130,10 +131,12 @@
     "action.hover.edge": "kin-0",
     "ok.text": "mori-0",
     "ok.fill": "mori-1",
+    "ok.on-fill": "shiro",
     "ok.wash": "mori-w",
     "warn.text": "kaki-1",
     "danger.text": "aka-0",
     "danger.fill": "aka-1",
+    "danger.on-fill": "shiro",
     "danger.wash": "aka-w",
     "info.text": "kin-t",
     "special.text": "fuji-1",
@@ -315,6 +318,17 @@
       ]
     },
     {
+      "key": "onfill",
+      "label": "on-fill 白",
+      "note": "the only pure white — a label on a filled trigger, where legibility outranks warmth",
+      "steps": [
+        {
+          "token": "shiro",
+          "job": "text on danger.fill · ok.fill"
+        }
+      ]
+    },
+    {
       "key": "paper",
       "label": "washi 和紙",
       "note": "the paper artifact pinned inside the dark — and inverted on paper",
@@ -406,10 +420,12 @@
     "action.hover.edge": "#755C2B",
     "ok.text": "#415D31",
     "ok.fill": "#52703F",
+    "ok.on-fill": "#FFFFFF",
     "ok.wash": "#DCE2C2",
     "warn.text": "#7D4820",
     "danger.text": "#9A3027",
     "danger.fill": "#d8392e",
+    "danger.on-fill": "#FFFFFF",
     "danger.wash": "#EBD3C8",
     "info.text": "#695228",
     "special.text": "#604C7D",

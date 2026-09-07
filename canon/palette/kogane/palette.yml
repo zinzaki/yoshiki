@@ -3,7 +3,7 @@ meta:
   kanji: 黄金
   slug: kogane
   role: primary theme — gold acts
-  version: 1.1.0
+  version: 1.2.0
   language: KINTSUGI (Zinzaki design language)
   author: Zinzaki
   mode: dark
@@ -40,6 +40,10 @@ tokens:
   mori-1: "#52703F"   # MOSS — life, confirmation
   mori-2: "#2F4526"   # pine depth
   mori-w: "#1B2615"   # wash — diff-add
+  # the ONE pure white in the language. Text is bone everywhere else; on a filled
+  # trigger nothing warmer clears 4.5:1 against the spider-lily scarlet, and the
+  # scarlet is not negotiable — so legibility takes this one small surface.
+  shiro:  "#FFFFFF"   # label on danger.fill / ok.fill
   # service — terminal & syntax only, never UI
   hotaru-0: "#98A4D4"
   hotaru-1: "#7C88B8"  # ansi blue / types
@@ -113,6 +117,11 @@ groups:
       - {token: mori-1, job: MOSS — success, may fill}
       - {token: mori-2, job: pine depth}
       - {token: mori-w, job: wash — diff-add}
+  - key: onfill
+    label: on-fill 白
+    note: the only pure white — a label on a filled trigger, where legibility outranks warmth
+    steps:
+      - {token: shiro, job: text on danger.fill · ok.fill}
   - key: paper
     label: washi 和紙
     note: the paper artifact pinned inside the dark — and inverted on paper
@@ -177,10 +186,12 @@ roles:
   # feedback
   ok.text:           mori-0
   ok.fill:           mori-1
+  ok.on-fill:        shiro
   ok.wash:           mori-w
   warn.text:         kaki-1
   danger.text:       aka-0
   danger.fill:       aka-1     # scarlet MAY fill — the fill is the event
+  danger.on-fill:    shiro     # the label that sits on it (see the shiro note)
   danger.wash:       aka-w
   info.text:         kin-1     # info lives in tone, never blue
   special.text:      fuji-1

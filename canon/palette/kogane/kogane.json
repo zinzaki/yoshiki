@@ -4,7 +4,7 @@
     "kanji": "黄金",
     "slug": "kogane",
     "role": "primary theme — gold acts",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "language": "KINTSUGI (Zinzaki design language)",
     "author": "Zinzaki",
     "mode": "dark"
@@ -52,6 +52,7 @@
     "mori-1": "#52703F",
     "mori-2": "#2F4526",
     "mori-w": "#1B2615",
+    "shiro": "#FFFFFF",
     "hotaru-0": "#98A4D4",
     "hotaru-1": "#7C88B8",
     "hotaru-2": "#454E7A",
@@ -137,10 +138,12 @@
     "action.hover.edge": "kin-0",
     "ok.text": "mori-0",
     "ok.fill": "mori-1",
+    "ok.on-fill": "shiro",
     "ok.wash": "mori-w",
     "warn.text": "kaki-1",
     "danger.text": "aka-0",
     "danger.fill": "aka-1",
+    "danger.on-fill": "shiro",
     "danger.wash": "aka-w",
     "info.text": "kin-1",
     "special.text": "fuji-1",
@@ -322,6 +325,17 @@
       ]
     },
     {
+      "key": "onfill",
+      "label": "on-fill 白",
+      "note": "the only pure white — a label on a filled trigger, where legibility outranks warmth",
+      "steps": [
+        {
+          "token": "shiro",
+          "job": "text on danger.fill · ok.fill"
+        }
+      ]
+    },
+    {
       "key": "paper",
       "label": "washi 和紙",
       "note": "the paper artifact pinned inside the dark — and inverted on paper",
@@ -413,10 +427,12 @@
     "action.hover.edge": "#EDC85C",
     "ok.text": "#8FAC6F",
     "ok.fill": "#52703F",
+    "ok.on-fill": "#FFFFFF",
     "ok.wash": "#1B2615",
     "warn.text": "#C67F45",
     "danger.text": "#D6685D",
     "danger.fill": "#d8392e",
+    "danger.on-fill": "#FFFFFF",
     "danger.wash": "#331514",
     "info.text": "#D8AF52",
     "special.text": "#9C7FB0",

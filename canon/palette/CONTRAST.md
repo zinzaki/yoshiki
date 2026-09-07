@@ -48,6 +48,8 @@ that column is the real test. Gilding is measured at the 3:1 non-text floor
 | `syntax.comment` | `bg.app` | 3.74:1 | 3.0 | ✓ |
 | `ok.text` | `ok.wash` | 6.22:1 | 4.5 | ✓ |
 | `danger.text` | `danger.wash` | 4.77:1 | 4.5 | ✓ |
+| `ok.on-fill` | `ok.fill` | 5.6:1 | 4.5 | ✓ |
+| `danger.on-fill` | `danger.fill` | 4.62:1 | 4.5 | ✓ |
 | `ansi.red` | `terminal.background` | 4.63:1 | 4.5 | ✓ |
 | `ansi.green` | `terminal.background` | 7.82:1 | 4.5 | ✓ |
 | `ansi.yellow` | `terminal.background` | 9.52:1 | 4.5 | ✓ |
@@ -103,6 +105,8 @@ that column is the real test. Gilding is measured at the 3:1 non-text floor
 | `syntax.comment` | `bg.app` | 3.42:1 | 3.0 | ✓ |
 | `ok.text` | `ok.wash` | 5.54:1 | 4.5 | ✓ |
 | `danger.text` | `danger.wash` | 5.2:1 | 4.5 | ✓ |
+| `ok.on-fill` | `ok.fill` | 5.6:1 | 4.5 | ✓ |
+| `danger.on-fill` | `danger.fill` | 4.62:1 | 4.5 | ✓ |
 | `ansi.red` | `terminal.background` | 4.63:1 | 4.5 | ✓ |
 | `ansi.green` | `terminal.background` | 7.82:1 | 4.5 | ✓ |
 | `ansi.yellow` | `terminal.background` | 9.52:1 | 4.5 | ✓ |
