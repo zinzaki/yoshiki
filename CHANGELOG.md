@@ -9,10 +9,13 @@
   borrows are attributed in `PHILOSOPHY.md`, in plain terms, because a rule you
   have to translate is a rule you will not apply. `tools/check.py` fails the
   build if one comes back.
-- **A mark of its own** — the logo was a borrowed character. It is now a quiet
-  tile: two rules of type on a lacquer ground and one small scarlet — the whole
-  language stated at 16px, with no metaphor to explain. Generated from the
-  palette, so it cannot drift.
+- **One deliberate mark** — the character stays, as the logo and only as the
+  logo. It is declared once in `canon/palette/kogane/palette.yml` under
+  `brand.mark` and rendered on a lacquer tile by the build, so changing the
+  identity is a one-line edit rather than a redraw. `tools/check.py` allows that
+  single character only in the files the build writes from that declaration;
+  everywhere else, every CJK character still fails. Decoration was the problem,
+  not the mark.
 - **A banner that shows rather than claims** — generated from canon as a specimen
   sheet: identity left, the language actually running on the right, and the token
   ramp full-bleed along the bottom. Plus `og.svg`/`og.png` for link previews.

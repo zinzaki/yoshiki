@@ -7,6 +7,14 @@ meta:
   author: Zinzaki
   mode: dark
 
+# ── BRAND — the one deliberate mark. Everything else in this repository is
+# written in English; this single character is the name itself, chosen by the
+# owner rather than sprinkled as decoration, and tools/check.py allows it only
+# in the files the build writes from here.
+brand:
+  mark: "様"          # the tile glyph — set to any single character, or ◆
+  wordmark: yoshiki
+
 tokens:
   # tone — warm lacquer monochrome (~97% of any screen)
   ink-0:  "#0B0A08"   # void — app / terminal background

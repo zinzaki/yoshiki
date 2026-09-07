@@ -2,7 +2,7 @@
 <defs><radialGradient id="g" cx="22%" cy="6%" r="88%"><stop offset="0%" stop-color="#D8AF52" stop-opacity=".12"/><stop offset="100%" stop-color="#D8AF52" stop-opacity="0"/></radialGradient></defs>
 <rect width="1200" height="630" fill="#0B0A08"/>
 <rect width="1200" height="630" fill="url(#g)"/>
-<g transform="translate(84 207)"><rect width="32" height="32" rx="8" fill="#12100C"/><rect x="7" y="12" width="18" height="2.6" rx="1.3" fill="#EDE3C4"/><rect x="7" y="18.2" width="11" height="2.6" rx="1.3" fill="#D8AF52"/><circle cx="22.4" cy="19.5" r="1.7" fill="#d8392e"/><rect x=".5" y=".5" width="31" height="31" rx="7.5" fill="none" stroke="#362C1B"/></g>
+<g transform="translate(84 207)"><rect width="32" height="32" rx="8" fill="#12100C"/><text x="16" y="23.4" text-anchor="middle" font-family="'Shippori Mincho','Noto Serif JP','Hiragino Mincho ProN','Yu Mincho',serif" font-size="21" font-weight="700" fill="#D8AF52">様</text><rect x=".5" y=".5" width="31" height="31" rx="7.5" fill="none" stroke="#362C1B"/></g>
 <text x="172" y="264" font-family="Georgia,'Iowan Old Style','Times New Roman',serif" font-size="76" font-weight="700" letter-spacing="-1.5" fill="#F7EED2">yoshiki</text>
 <rect x="84" y="320" width="150" height="2" fill="#D8AF52"/>
 <text x="84" y="376" font-family="Georgia,'Iowan Old Style','Times New Roman',serif" font-size="30" fill="#EDE3C4">A design language for terminals, editors and the web.</text>

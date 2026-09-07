@@ -88,6 +88,17 @@ for base in HAND:
 # characters through labels, headings and UI is decoration standing in for an
 # identity — so none are allowed, and the guard is mechanical.
 CJK = re.compile(r"[\u3000-\u303f\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff\uff00-\uffef]")
+
+# ...with exactly one exception: the brand mark. It is declared once, in the
+# palette source, and permitted only in the files the build writes from that
+# declaration. Anywhere else it is decoration again, and fails like the rest.
+BRAND = yaml.safe_load((ROOT / "canon" / "palette" / "kogane" / "palette.yml").read_text()) \
+    .get("brand", {}).get("mark", "")
+MARK_OK = {"canon/palette/kogane/palette.yml", "docs/assets/mark.svg",
+           "canon/palette/kogane/kogane.json", "canon/palette/washi/washi.json",
+           "docs/assets/mark-inline.svg", "docs/assets/favicon.svg",
+           "docs/banner.svg", "docs/og.svg", "CHANGELOG.md"}
+
 for f in sorted(ROOT.rglob("*")):
     if not f.is_file() or ".git" in f.parts or "node_modules" in f.parts:
         continue
@@ -97,10 +108,14 @@ for f in sorted(ROOT.rglob("*")):
         text = f.read_text()
     except (UnicodeDecodeError, OSError):
         continue
+    rel = str(f.relative_to(ROOT))
+    allowed = BRAND if (rel in MARK_OK or (rel.startswith("docs/") and rel.endswith(".html"))) else ""
     for i, line in enumerate(text.splitlines(), 1):
-        hit = CJK.search(line)
-        if hit:
-            fail(f"{f.relative_to(ROOT)}:{i} — CJK character {hit.group()!r}; write it in English")
+        for hit in CJK.findall(line):
+            if hit == allowed:
+                continue
+            fail(f"{rel}:{i} — CJK character {hit!r}; write it in English "
+                 f"(only brand.mark is allowed, and only where the build writes it)")
 
 # ── 2 · every link in the site resolves ─────────────────────────────────
 pages = sorted(DOCS.glob("*.html"))

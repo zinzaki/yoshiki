@@ -408,6 +408,10 @@
       ]
     }
   ],
+  "brand": {
+    "mark": "様",
+    "wordmark": "yoshiki"
+  },
   "roles_resolved": {
     "bg.app": "#0B0A08",
     "bg.surface": "#12100C",
