@@ -950,6 +950,24 @@ def emit_integrations(resolved: dict):
     w(ROOT / "package.json", json.dumps(pkg, indent=2) + "\n")
 
 
+def stamp_brand(resolved: dict):
+    """The pages carry the mark inline so it recolours with the theme — which
+    means changing `brand.mark` has to reach five HTML files. Doing that by hand
+    is exactly the drift this repository exists to refuse, so the build owns it
+    and `--check` catches a page that fell behind."""
+    tok = resolved["kogane"]["tokens"]
+    glyph = resolved["kogane"]["brand"]["mark"]
+    word = resolved["kogane"]["brand"]["wordmark"]
+    inline = mark_svg(tok, glyph, 26, live=True)
+    import re as _re
+    pat = _re.compile(r'(<a class="brand" href="index\.html">).*?(</a>)', _re.S)
+    for page in sorted((ROOT / "docs").glob("*.html")):
+        cur = page.read_text()
+        new = pat.sub(lambda m: m.group(1) + inline + f"<b>{word}</b>" + m.group(2), cur)
+        if new != cur or CHECK:
+            w(page, new)
+
+
 def mirror_kit():
     """docs/ is the Pages root and cannot reach into library/, so the site is
     served a copy of the shipped kit. Copying it here — instead of by hand —
@@ -1211,6 +1229,7 @@ def main():
     emit_site_palette(resolved)
     emit_site_data(resolved, proofs)
     mirror_kit()
+    stamp_brand(resolved)
     emit_mark(resolved)
     emit_banner(resolved)
     emit_integrations(resolved)
