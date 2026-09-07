@@ -61,6 +61,7 @@ def resolve(raw: dict, parent: dict | None) -> dict:
 
     # groups describe the tokens as scales; a variant inherits the parent's map
     out["groups"] = raw.get("groups") or (parent["groups"] if parent else [])
+    out["brand"] = raw.get("brand") or (parent["brand"] if parent else {})
     return out
 
 
@@ -632,20 +633,27 @@ def emit_palette_prompt(pal: dict):
 
 
 # ── the mark ────────────────────────────────────────────────────────────
-# A quiet tile, not a logo with a story: two rules of type on a lacquer
-# ground, and one small scarlet — the whole language stated at 16px with no
-# metaphor to explain. Generated from the palette, so it cannot drift.
-def mark_svg(tok: dict, size: int = 32, rounded: bool = True, live: bool = False) -> str:
+# One character on a lacquer tile, set in the display serif. The character is
+# declared in canon/palette/kogane/palette.yml under `brand.mark`, so changing
+# the identity is a one-line edit rather than a redraw — and so the guard in
+# tools/check.py can tell the one deliberate mark apart from decoration.
+MARK_SERIF = "'Shippori Mincho','Noto Serif JP','Hiragino Mincho ProN','Yu Mincho',serif"
+
+
+def mark_svg(tok: dict, glyph: str, size: int = 32, rounded: bool = True,
+             live: bool = False) -> str:
     if live:
-        tok = {k: f"var(--{k})" for k in ("ink-0", "ink-1", "line-0", "bone-1", "kin-1", "aka-1")}
+        tok = {k: f"var(--{k})" for k in ("ink-0", "ink-1", "line-0", "kin-1")}
     r = 8 if rounded else 0
+    # a latin mark sits on its baseline; a CJK one is centred on its em box
+    wide = any(ord(c) > 0x2E7F for c in glyph)
+    fs, y = (21, 23.4) if wide else (19, 22.6)
     return (
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="{size}" '
         f'height="{size}" role="img" aria-label="yoshiki">'
         f'<rect width="32" height="32" rx="{r}" fill="{tok["ink-1"]}"/>'
-        f'<rect x="7" y="12" width="18" height="2.6" rx="1.3" fill="{tok["bone-1"]}"/>'
-        f'<rect x="7" y="18.2" width="11" height="2.6" rx="1.3" fill="{tok["kin-1"]}"/>'
-        f'<circle cx="22.4" cy="19.5" r="1.7" fill="{tok["aka-1"]}"/>'
+        f'<text x="16" y="{y}" text-anchor="middle" font-family="{MARK_SERIF}" '
+        f'font-size="{fs}" font-weight="700" fill="{tok["kin-1"]}">{glyph}</text>'
         f'<rect x=".5" y=".5" width="31" height="31" rx="{max(0, r - 0.5)}" fill="none" '
         f'stroke="{tok["line-0"]}"/></svg>'
     )
@@ -653,10 +661,11 @@ def mark_svg(tok: dict, size: int = 32, rounded: bool = True, live: bool = False
 
 def emit_mark(resolved: dict):
     tok = resolved["kogane"]["tokens"]
-    w(DOCS / "mark.svg", mark_svg(tok, 32) + "\n")
-    w(DOCS / "favicon.svg", mark_svg(tok, 32) + "\n")
+    glyph = resolved["kogane"]["brand"]["mark"]
+    w(DOCS / "mark.svg", mark_svg(tok, glyph, 32) + "\n")
+    w(DOCS / "favicon.svg", mark_svg(tok, glyph, 32) + "\n")
     # the paste-in copy the pages carry: it recolours with the theme
-    w(DOCS / "mark-inline.svg", mark_svg(tok, 32, live=True) + "\n")
+    w(DOCS / "mark-inline.svg", mark_svg(tok, glyph, 32, live=True) + "\n")
 
 
 # ── the banner ──────────────────────────────────────────────────────────
@@ -674,12 +683,13 @@ BANNER_STRIP = ["ink-0", "ink-1", "ink-2", "ink-3", "line-1", "bone-4", "bone-3"
 
 def emit_banner(resolved: dict):
     tok = resolved["kogane"]["tokens"]
+    glyph = resolved["kogane"]["brand"]["mark"]
     W, H = 1280, 420
     PAD = 88
     BAR = 28                      # the full-bleed specimen strip
     serif = "Georgia,'Iowan Old Style','Times New Roman',serif"
     mono = "ui-monospace,SFMono-Regular,Menlo,Consolas,monospace"
-    inner = mark_svg(tok, 54).split(">", 1)[1].rsplit("</svg>", 1)[0]
+    inner = mark_svg(tok, glyph, 54).split(">", 1)[1].rsplit("</svg>", 1)[0]
 
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" '
@@ -745,17 +755,17 @@ def emit_banner(resolved: dict):
     parts.append(f'<rect x=".5" y=".5" width="{W - 1}" height="{H - 1}" fill="none" stroke="{tok["line-0"]}"/>')
     parts.append("</svg>")
     w(ROOT / "docs" / "banner.svg", "\n".join(parts) + "\n")
-    emit_og(tok)
+    emit_og(tok, glyph)
 
 
-def emit_og(tok: dict):
+def emit_og(tok: dict, glyph: str):
     """docs/og.svg — the same sheet at the 1.91:1 the link previews want.
     Rasterised to og.png by tools/render-og.mjs (social platforms will not
     render SVG)."""
     W, H, PAD = 1200, 630, 84
     serif = "Georgia,'Iowan Old Style','Times New Roman',serif"
     mono = "ui-monospace,SFMono-Regular,Menlo,Consolas,monospace"
-    inner = mark_svg(tok, 66).split(">", 1)[1].rsplit("</svg>", 1)[0]
+    inner = mark_svg(tok, glyph, 66).split(">", 1)[1].rsplit("</svg>", 1)[0]
     strip = BANNER_STRIP
     step = W / len(strip)
     parts = [

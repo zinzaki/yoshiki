@@ -4,7 +4,7 @@
 </defs>
 <rect width="1280" height="420" fill="#0B0A08"/>
 <rect width="1280" height="420" fill="url(#glow)"/>
-<g transform="translate(88 101)"><rect width="32" height="32" rx="8" fill="#12100C"/><rect x="7" y="12" width="18" height="2.6" rx="1.3" fill="#EDE3C4"/><rect x="7" y="18.2" width="11" height="2.6" rx="1.3" fill="#D8AF52"/><circle cx="22.4" cy="19.5" r="1.7" fill="#d8392e"/><rect x=".5" y=".5" width="31" height="31" rx="7.5" fill="none" stroke="#362C1B"/></g>
+<g transform="translate(88 101)"><rect width="32" height="32" rx="8" fill="#12100C"/><text x="16" y="23.4" text-anchor="middle" font-family="'Shippori Mincho','Noto Serif JP','Hiragino Mincho ProN','Yu Mincho',serif" font-size="21" font-weight="700" fill="#D8AF52">様</text><rect x=".5" y=".5" width="31" height="31" rx="7.5" fill="none" stroke="#362C1B"/></g>
 <text x="162" y="149" font-family="Georgia,'Iowan Old Style','Times New Roman',serif" font-size="60" font-weight="700" letter-spacing="-1.2" fill="#F7EED2">yoshiki</text>
 <rect x="88" y="188" width="132" height="1.5" fill="#D8AF52"/>
 <text x="88" y="232" font-family="Georgia,'Iowan Old Style','Times New Roman',serif" font-size="23" fill="#EDE3C4">A design language for terminals, editors and the web.</text>
