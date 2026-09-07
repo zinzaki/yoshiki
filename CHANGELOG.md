@@ -9,12 +9,10 @@
   borrows are attributed in `PHILOSOPHY.md`, in plain terms, because a rule you
   have to translate is a rule you will not apply. `tools/check.py` fails the
   build if one comes back.
-- **A mark of its own** — the logo was a borrowed character. It is now drawn from
-  the project's actual motif: a break in lacquer, rejoined by a gold seam that
-  forks — and the fork happens to be a Y. It is a *filled* shape, not a stroke,
-  because gold leaf swells at the junction and tapers to nothing, and a uniform
-  line reads as a lightning bolt. Generated from the palette, so it cannot drift,
-  and legible down to 16px.
+- **A mark of its own** — the logo was a borrowed character. It is now a quiet
+  tile: two rules of type on a lacquer ground and one small scarlet — the whole
+  language stated at 16px, with no metaphor to explain. Generated from the
+  palette, so it cannot drift.
 - **A banner that shows rather than claims** — generated from canon as a specimen
   sheet: identity left, the language actually running on the right, and the token
   ramp full-bleed along the bottom. Plus `og.svg`/`og.png` for link previews.

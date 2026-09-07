@@ -194,7 +194,7 @@
   ];
 
   document.getElementById('kit').innerHTML = SECTIONS.map((s, i) => `
-    <section class="sec ${i % 2 ? 'sec--plate' : ''}" id="${s.key}" data-seam>
+    <section class="sec ${i % 2 ? 'sec--plate' : ''}" id="${s.key}">
       <div class="shell">
         <div class="cols">
           <div class="c7 rv">

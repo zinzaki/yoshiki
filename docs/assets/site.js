@@ -1,6 +1,6 @@
 /* ════════════════════════════════════════════════════════════════════
    site.js — everything every page shares
-   theme · header · seam · light · reveal · copy · command palette
+   theme · header · light · reveal · copy · command palette
    Reads window.YOSHIKI (generated from canon). Holds no palette itself.
    ════════════════════════════════════════════════════════════════════ */
 (function(){
@@ -84,66 +84,6 @@
     }, {passive:true});
   }
 
-  /* ── the seam ──────────────────────────────────────────────────────
-     The mark at page scale. Generated from the real section positions, so
-     it threads the content rather than decorating beside it, and it draws
-     itself as you descend: the gold arriving in the break. */
-  const seamHost = $('#seam');
-  function drawSeam(){
-    if (!seamHost) return;
-    const main = $('main');
-    if (!main) return;
-    const W = main.offsetWidth, H = main.offsetHeight;
-    if (H < 600) return;
-    /* measure the content column rather than parsing --pad: a custom property
-       computes to its own token, so clamp() comes back as the literal string */
-    const shell = $('.shell');
-    const left = shell ? shell.getBoundingClientRect().left : 40;
-    const baseX = Math.max(24, left - 30);
-    if (!isFinite(baseX)) return;
-    const pts = [];
-    let seed = 7;
-    const rnd = () => (seed = (seed * 1103515245 + 12345) % 2147483648) / 2147483648;
-    for (let y = 0; y <= H; y += 118){
-      pts.push([baseX + (rnd() - .5) * 26, y]);
-    }
-    pts.push([baseX + (rnd() - .5) * 20, H]);
-    const d = 'M ' + pts.map(p => p[0].toFixed(1) + ' ' + p[1].toFixed(1)).join(' L ');
-
-    // short branches reaching toward the sections they mark
-    const nodes = $$('main [data-seam]').map(el => {
-      const top = el.getBoundingClientRect().top + scrollY - main.offsetTop;
-      let i = Math.round(top / 118);
-      i = Math.max(1, Math.min(pts.length - 2, i));
-      return [pts[i][0], pts[i][1]];
-    });
-    const branches = nodes.map(([x, y]) =>
-      `M ${x.toFixed(1)} ${y.toFixed(1)} L ${(x + 34).toFixed(1)} ${(y + 16).toFixed(1)}`).join(' ');
-
-    seamHost.innerHTML =
-      `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" aria-hidden="true">` +
-      `<path class="seam-ghost" d="${d}"/>` +
-      `<path class="seam-ghost seam-branch" d="${branches}"/>` +
-      `<path class="seam-line" d="${d}"/>` +
-      nodes.map(([x, y]) =>
-        `<circle class="seam-node" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="2.6"
-                 fill="var(--r-border-gold)"/>`).join('') +
-      `</svg>`;
-    seamHost._h = H;
-    paintSeam();
-  }
-  function paintSeam(){
-    if (!seamHost || !seamHost._h || RM) return;
-    const main = $('main');
-    const top = main ? main.offsetTop : 0;
-    const p = Math.min(1, Math.max(0, (scrollY - top + innerHeight * .8) / seamHost._h));
-    seamHost.style.setProperty('--drawn', (p * 100).toFixed(2) + '%');
-  }
-  addEventListener('scroll', paintSeam, {passive:true});
-  addEventListener('resize', drawSeam);
-  addEventListener('load', drawSeam);
-  drawSeam();
-
   /* ── toast + copy ──────────────────────────────────────────────── */
   let timer;
   const host = $('#toast');
@@ -219,5 +159,5 @@
 
   window.YS = {RM, Y, theme, toast, copy, reveal, lum, ratio, grade, onTheme, esc,
                current: () => Y.themes ? Y.themes[root.dataset.theme] : null,
-               drawSeam, $, $$};
+               $, $$};
 })();

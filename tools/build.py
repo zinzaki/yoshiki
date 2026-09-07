@@ -632,67 +632,20 @@ def emit_palette_prompt(pal: dict):
 
 
 # ── the mark ────────────────────────────────────────────────────────────
-# Kintsugi, drawn. A break forks — so the seam forks, and the fork happens to
-# be a Y, which is the letter the name starts with. Three pieces of lacquer at
-# three depths, rejoined by one gold seam.
-#
-# The seam is a FILLED shape, not a stroke: real gold leaf swells at the
-# junction and tapers to nothing at the ends, and a uniform line reads as a
-# lightning bolt instead. Widths below are in the 32-unit grid.
-#                 (point, half-width)
-SEAM_STEM = [((14.0, 33.0), 1.0), ((14.9, 26.0), 1.3), ((16.4, 18.4), 1.6)]
-SEAM_LEFT = [((16.4, 18.4), 1.6), ((11.6, 12.9), 1.15), ((7.4, 3.6), 0.3)]
-SEAM_RIGHT = [((16.4, 18.4), 1.6), ((21.8, 13.6), 1.0), ((25.6, 6.0), 0.28)]
-
-
-def _norm(ax, ay, bx, by):
-    dx, dy = bx - ax, by - ay
-    n = (dx * dx + dy * dy) ** .5 or 1
-    return -dy / n, dx / n           # the left normal
-
-
-def _ribbon(spine):
-    """A tapered band along a polyline: one side out, the other side back."""
-    left, right = [], []
-    for i, ((x, y), hw) in enumerate(spine):
-        a = spine[max(0, i - 1)][0]
-        b = spine[min(len(spine) - 1, i + 1)][0]
-        nx, ny = _norm(*a, *b)
-        left.append((x + nx * hw, y + ny * hw))
-        right.append((x - nx * hw, y - ny * hw))
-    pts = left + right[::-1]
-    return "M " + " L ".join(f"{x:.2f} {y:.2f}" for x, y in pts) + " Z"
-
-
+# A quiet tile, not a logo with a story: two rules of type on a lacquer
+# ground, and one small scarlet — the whole language stated at 16px with no
+# metaphor to explain. Generated from the palette, so it cannot drift.
 def mark_svg(tok: dict, size: int = 32, rounded: bool = True, live: bool = False) -> str:
-    """The mark, at any size, drawn from the palette it belongs to.
-
-    `live` paints from CSS variables instead of baked hexes, so an inlined mark
-    follows the theme switch — the seam has to survive the stage changing."""
     if live:
-        tok = {k: f"var(--{k})" for k in ("ink-0", "ink-1", "ink-2", "ink-3", "kin-1", "line-0")}
-    r = 7 if rounded else 0
-    # the three pieces, cut by the seam's centre lines
-    stem = [p for p, _ in SEAM_STEM]
-    larm = [p for p, _ in SEAM_LEFT][1:]
-    rarm = [p for p, _ in SEAM_RIGHT][1:]
-    def poly(points):
-        return " ".join(f"{x:.2f},{y:.2f}" for x, y in points)
-    piece_l = stem + larm + [(-1, -1), (-1, 34)]
-    piece_r = stem[::-1] + [(-1, 34)][:0] + rarm[::-1][:0] + rarm + [(34, -1), (34, 34)]
-    piece_top = larm[::-1] + [(16.4, 18.4)] + rarm + [(34, -1), (-1, -1)]
-    seam = " ".join(_ribbon(s) for s in (SEAM_STEM, SEAM_LEFT, SEAM_RIGHT))
+        tok = {k: f"var(--{k})" for k in ("ink-0", "ink-1", "line-0", "bone-1", "kin-1", "aka-1")}
+    r = 8 if rounded else 0
     return (
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="{size}" '
         f'height="{size}" role="img" aria-label="yoshiki">'
-        f'<defs><clipPath id="m"><rect width="32" height="32" rx="{r}"/></clipPath></defs>'
-        f'<g clip-path="url(#m)">'
-        f'<rect width="32" height="32" fill="{tok["ink-1"]}"/>'
-        f'<polygon points="{poly(piece_l)}" fill="{tok["ink-0"]}"/>'
-        f'<polygon points="{poly(piece_r)}" fill="{tok["ink-3"]}"/>'
-        f'<polygon points="{poly(piece_top)}" fill="{tok["ink-2"]}"/>'
-        f'<path d="{seam}" fill="{tok["kin-1"]}"/>'
-        f'</g>'
+        f'<rect width="32" height="32" rx="{r}" fill="{tok["ink-1"]}"/>'
+        f'<rect x="7" y="12" width="18" height="2.6" rx="1.3" fill="{tok["bone-1"]}"/>'
+        f'<rect x="7" y="18.2" width="11" height="2.6" rx="1.3" fill="{tok["kin-1"]}"/>'
+        f'<circle cx="22.4" cy="19.5" r="1.7" fill="{tok["aka-1"]}"/>'
         f'<rect x=".5" y=".5" width="31" height="31" rx="{max(0, r - 0.5)}" fill="none" '
         f'stroke="{tok["line-0"]}"/></svg>'
     )
@@ -701,8 +654,7 @@ def mark_svg(tok: dict, size: int = 32, rounded: bool = True, live: bool = False
 def emit_mark(resolved: dict):
     tok = resolved["kogane"]["tokens"]
     w(DOCS / "mark.svg", mark_svg(tok, 32) + "\n")
-    # the favicon drops the rounded container: at 16px a 7px radius eats the seam
-    w(DOCS / "favicon.svg", mark_svg(tok, 32, rounded=False) + "\n")
+    w(DOCS / "favicon.svg", mark_svg(tok, 32) + "\n")
     # the paste-in copy the pages carry: it recolours with the theme
     w(DOCS / "mark-inline.svg", mark_svg(tok, 32, live=True) + "\n")
 
@@ -727,7 +679,7 @@ def emit_banner(resolved: dict):
     BAR = 28                      # the full-bleed specimen strip
     serif = "Georgia,'Iowan Old Style','Times New Roman',serif"
     mono = "ui-monospace,SFMono-Regular,Menlo,Consolas,monospace"
-    inner = mark_svg(tok, 72).split(">", 1)[1].rsplit("</svg>", 1)[0]
+    inner = mark_svg(tok, 54).split(">", 1)[1].rsplit("</svg>", 1)[0]
 
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" '
@@ -739,11 +691,9 @@ def emit_banner(resolved: dict):
         '</defs>',
         f'<rect width="{W}" height="{H}" fill="{tok["ink-0"]}"/>',
         f'<rect width="{W}" height="{H}" fill="url(#glow)"/>',
-        # the seam again, enormous and almost invisible — a watermark, not a picture
-        f'<g transform="translate({W - 250} -150) scale(16)" opacity=".022">{inner}</g>',
         # mark and wordmark, optically aligned on the cap line
-        f'<g transform="translate({PAD} 92)">{inner}</g>',
-        f'<text x="{PAD + 96}" y="149" font-family="{serif}" font-size="60" font-weight="700" '
+        f'<g transform="translate({PAD} 101)">{inner}</g>',
+        f'<text x="{PAD + 74}" y="149" font-family="{serif}" font-size="60" font-weight="700" '
         f'letter-spacing="-1.2" fill="{tok["bone-0"]}">yoshiki</text>',
         f'<rect x="{PAD}" y="188" width="132" height="1.5" fill="{tok["kin-1"]}"/>',
         f'<text x="{PAD}" y="232" font-family="{serif}" font-size="23" fill="{tok["bone-1"]}">'
@@ -805,7 +755,7 @@ def emit_og(tok: dict):
     W, H, PAD = 1200, 630, 84
     serif = "Georgia,'Iowan Old Style','Times New Roman',serif"
     mono = "ui-monospace,SFMono-Regular,Menlo,Consolas,monospace"
-    inner = mark_svg(tok, 84).split(">", 1)[1].rsplit("</svg>", 1)[0]
+    inner = mark_svg(tok, 66).split(">", 1)[1].rsplit("</svg>", 1)[0]
     strip = BANNER_STRIP
     step = W / len(strip)
     parts = [
@@ -815,9 +765,8 @@ def emit_og(tok: dict):
         f'<stop offset="100%" stop-color="{tok["kin-1"]}" stop-opacity="0"/></radialGradient></defs>',
         f'<rect width="{W}" height="{H}" fill="{tok["ink-0"]}"/>',
         f'<rect width="{W}" height="{H}" fill="url(#g)"/>',
-        f'<g transform="translate({W - 210} -40) scale(15)" opacity=".03">{inner}</g>',
-        f'<g transform="translate({PAD} 196)">{inner}</g>',
-        f'<text x="{PAD + 112}" y="264" font-family="{serif}" font-size="76" font-weight="700" '
+        f'<g transform="translate({PAD} 207)">{inner}</g>',
+        f'<text x="{PAD + 88}" y="264" font-family="{serif}" font-size="76" font-weight="700" '
         f'letter-spacing="-1.5" fill="{tok["bone-0"]}">yoshiki</text>',
         f'<rect x="{PAD}" y="320" width="150" height="2" fill="{tok["kin-1"]}"/>',
         f'<text x="{PAD}" y="376" font-family="{serif}" font-size="30" fill="{tok["bone-1"]}">'
