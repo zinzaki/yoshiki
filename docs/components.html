@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>yoshiki — components</title>
-<meta name="description" content="The yoshiki component kit, live: buttons, forms, surfaces, feedback and data, each with the exact markup that produced it.">
+<meta name="description" content="The yoshiki component kit, live: buttons, forms, surfaces, feedback and data, each shown beside the exact markup that produced it.">
 <meta property="og:title" content="yoshiki — components">
-<meta property="og:description" content="The yoshiki component kit, live: buttons, forms, surfaces, feedback and data, each with the exact markup that produced it.">
+<meta property="og:description" content="The yoshiki component kit, live: buttons, forms, surfaces, feedback and data, each shown beside the exact markup that produced it.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://zinzaki.github.io/yoshiki/components.html">
 <meta property="og:image" content="https://zinzaki.github.io/yoshiki/og.png">
@@ -26,29 +26,30 @@ document.documentElement.dataset.theme=t})();</script>
 <link rel="stylesheet" href="assets/effects.css">
 </head>
 <body>
-<div id="ambient"></div><div id="grain"></div>
+<div id="ambient"></div><div id="sheen"></div><div id="grain"></div>
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="hdr">
-  <a class="brand" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="26" height="26" role="img" aria-label="yoshiki"><defs><clipPath id="m"><rect width="26" height="26" rx="7"/></clipPath></defs><g clip-path="url(#m)"><rect width="26" height="26" fill="var(--ink-1)"/><polygon points="14.00,33.00 14.90,26.00 16.40,18.40 11.60,12.90 7.40,3.60 -1.00,-1.00 -1.00,34.00" fill="var(--ink-0)"/><polygon points="16.40,18.40 14.90,26.00 14.00,33.00 21.80,13.60 25.60,6.00 34.00,-1.00 34.00,34.00" fill="var(--ink-3)"/><polygon points="7.40,3.60 11.60,12.90 16.40,18.40 21.80,13.60 25.60,6.00 34.00,-1.00 -1.00,-1.00" fill="var(--ink-2)"/><path d="M 14.99 33.13 L 16.18 26.21 L 17.97 18.71 L 14.83 18.09 L 13.62 25.79 L 13.01 32.87 Z M 17.61 17.35 L 12.58 12.30 L 7.67 3.48 L 7.13 3.72 L 10.62 13.50 L 15.19 19.45 Z M 17.46 19.60 L 22.60 14.20 L 25.85 6.13 L 25.35 5.87 L 21.00 13.00 L 15.34 17.20 Z" fill="var(--kin-1)"/></g><rect x=".5" y=".5" width="31" height="31" rx="6.5" fill="none" stroke="var(--line-0)"/></svg><b>yoshiki</b></a>
+  <a class="brand" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="26" height="26" role="img" aria-label="yoshiki"><defs><clipPath id="m"><rect width="32" height="32" rx="7"/></clipPath></defs><g clip-path="url(#m)"><rect width="32" height="32" fill="var(--ink-1)"/><polygon points="14.00,33.00 14.90,26.00 16.40,18.40 11.60,12.90 7.40,3.60 -1.00,-1.00 -1.00,34.00" fill="var(--ink-0)"/><polygon points="16.40,18.40 14.90,26.00 14.00,33.00 21.80,13.60 25.60,6.00 34.00,-1.00 34.00,34.00" fill="var(--ink-3)"/><polygon points="7.40,3.60 11.60,12.90 16.40,18.40 21.80,13.60 25.60,6.00 34.00,-1.00 -1.00,-1.00" fill="var(--ink-2)"/><path d="M 14.99 33.13 L 16.18 26.21 L 17.97 18.71 L 14.83 18.09 L 13.62 25.79 L 13.01 32.87 Z M 17.61 17.35 L 12.58 12.30 L 7.67 3.48 L 7.13 3.72 L 10.62 13.50 L 15.19 19.45 Z M 17.46 19.60 L 22.60 14.20 L 25.85 6.13 L 25.35 5.87 L 21.00 13.00 L 15.34 17.20 Z" fill="var(--kin-1)"/></g><rect x=".5" y=".5" width="31" height="31" rx="6.5" fill="none" stroke="var(--line-0)"/></svg><b>yoshiki</b></a>
   <nav class="nav" aria-label="Sections">
     <a href="palette.html">palette</a>
     <a href="components.html">components</a>
     <a href="lexicon.html">lexicon</a>
     <a href="themes.html">themes</a>
   </nav>
+  <button class="kbd-hint" data-cmdk aria-label="Search"><span>Search</span><kbd>⌘K</kbd></button>
   <div class="themesw" role="group" aria-label="Theme">
     <button data-set-theme="kogane" title="kogane — dark (press 1)" aria-pressed="true">Dark</button>
     <button data-set-theme="washi" title="washi — light (press 2)" aria-pressed="false">Light</button>
   </div>
   <a class="gh" href="https://github.com/zinzaki/yoshiki">github ↗</a>
 </header>
-
 <main id="main">
+<div id="seam"></div>
 <section class="shell phead">
-  <div class="eyebrow"><i>canon</i> components</div>
+  <div class="idx"><b>canon</b> components</div>
   <h1>The kit, and the rules it obeys.</h1>
-  <p class="lead">Every control below is rendered by
+  <p class="lede">Every control below is rendered by
   <code style="color:var(--r-text-gold)">library/web/yoshiki.css</code> — the file the
   repository ships, mirrored here unchanged. Nothing on this page is styled specially for
   the showcase, so what you see is what you get. <b>The markup shown under each demo is the
@@ -86,13 +87,13 @@ document.documentElement.dataset.theme=t})();</script>
 
 <div id="kit"></div>
 
-<section class="sec sec--band" id="effects">
+<section class="sec sec--plate" data-seam id="effects">
   <div class="shell">
     <div class="cols">
       <div class="c7 rv">
-        <div class="eyebrow"><i>06</i> effects</div>
+        <div class="idx"><b>06</b> effects</div>
         <h2>Optional richness, by place.</h2>
-        <p class="lead">These are not part of the kit, because most surfaces do not want
+        <p class="lede">These are not part of the kit, because most surfaces do not want
         them. They ship as separate files and obey four rules: <b>one effect per surface</b>,
         always warm, only where a pointer and a GPU are, and a fallback is mandatory.
         Anything for reading or working — the terminal, code, dense data, body text —
@@ -144,6 +145,7 @@ document.documentElement.dataset.theme=t})();</script>
     <span class="sep">·</span><a href="https://github.com/zinzaki/yoshiki">github</a>
     <span class="sep">·</span><a href="https://github.com/zinzaki/yoshiki/blob/main/PHILOSOPHY.md">philosophy</a>
     <span class="sep">·</span><a href="https://github.com/zinzaki/yoshiki/blob/main/canon/palette/CONTRAST.md">contrast proof</a>
+    <span class="sep">·</span><a href="https://github.com/zinzaki/yoshiki/blob/main/AGENTS.md">for agents</a>
     <span class="sep">·</span><span>MIT</span>
     <span style="margin-left:auto">an open design language · <span data-year></span></span>
   </div>
@@ -152,6 +154,7 @@ document.documentElement.dataset.theme=t})();</script>
 <div id="toast" role="status" aria-live="polite"></div>
 <script src="assets/palette.data.js"></script>
 <script src="assets/site.js"></script>
+<script src="assets/cmdk.js"></script>
 <script src="assets/page-components.js"></script>
 </body>
 </html>
