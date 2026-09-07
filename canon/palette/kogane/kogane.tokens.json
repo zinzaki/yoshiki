@@ -43,11 +43,11 @@
         "$type": "color"
       },
       "3": {
-        "$value": "#94866A",
+        "$value": "#96886B",
         "$type": "color"
       },
       "4": {
-        "$value": "#6B5F49",
+        "$value": "#776A51",
         "$type": "color"
       }
     },
@@ -95,7 +95,7 @@
     },
     "aka": {
       "0": {
-        "$value": "#D4665C",
+        "$value": "#D6685D",
         "$type": "color"
       },
       "1": {

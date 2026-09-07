@@ -1,0 +1,508 @@
+/* ════════════════════════════════════════════════════════════════════
+   様式 yoshiki — the component kit
+   The implementation of canon/components, built ONLY on the role variables
+   from palette.css. Not generated: this file is the hand-written half of the
+   contract. It introduces no colour of its own — every value below resolves
+   to a --r-* role, so both themes follow for free.
+
+   usage:
+     <link rel="stylesheet" href="palette.css">   ← tokens + roles, generated
+     <link rel="stylesheet" href="yoshiki.css">   ← this kit
+     <html data-theme="washi">                    ← light; omit for kogane
+
+   Layers let you take the components without the base element styles:
+     @layer yoshiki.components;                   ← in your own sheet
+   ════════════════════════════════════════════════════════════════════ */
+@layer yoshiki.base, yoshiki.components;
+
+@layer yoshiki.base {
+
+  :root{
+    /* geometry — canon/components/README.md §4 */
+    --y-r-control: 12px;
+    --y-r-card: 16px;
+    --y-r-dialog: 20px;
+    --y-r-pill: 999px;
+    /* the 8px rhythm — canon/lexicon/space.md */
+    --y-1: 4px;  --y-2: 8px;  --y-3: 12px; --y-4: 16px;
+    --y-5: 20px; --y-6: 24px; --y-8: 32px; --y-12: 48px;
+    /* density — only padding moves; type, edge and radius never do */
+    --y-h-control: 40px;
+    --y-h-row: 44px;
+    --y-gutter: var(--y-4);
+    /* one transition at a time, 120–200ms, no bounce */
+    --y-t: 160ms cubic-bezier(.2,.7,.2,1);
+    --y-edge: 1.5px;
+    /* faces — swap for the shipped stack (canon/typography) if you load it */
+    --y-serif: 'Shippori Mincho','Noto Serif JP',Georgia,serif;
+    --y-sans: 'Zen Kaku Gothic New',system-ui,-apple-system,'Segoe UI',sans-serif;
+    --y-mono: 'Maple Mono','JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  }
+
+  [data-density="compact"]{
+    --y-h-control: 32px;
+    --y-h-row: 32px;
+    --y-gutter: var(--y-2);
+  }
+
+  html{ -webkit-text-size-adjust:100% }
+
+  body{
+    margin:0;
+    background: var(--r-bg-app);
+    color: var(--r-text-body);
+    font-family: var(--y-sans);
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,h2,h3,h4{ font-family: var(--y-serif); color: var(--r-text-heading);
+               font-weight:700; line-height:1.15; letter-spacing:-.01em; margin:0 }
+  h5,h6{ font-family: var(--y-mono); color: var(--r-text-muted); font-weight:500;
+         font-size:11px; letter-spacing:2px; text-transform:uppercase; margin:0 }
+  p{ margin:0 }
+  code,kbd,samp,pre{ font-family: var(--y-mono); font-size:.92em }
+
+  a{ color: var(--r-text-link); text-decoration:none }
+  a:hover{ text-decoration:underline; text-underline-offset:3px }
+  a[target="_blank"]::after{ content:' ↗'; color: var(--r-text-muted) }
+
+  ::selection{ background: var(--r-selection-bg); color: var(--r-text-heading) }
+
+  /* focus is the one state you may not skip — canon/lexicon/states.md */
+  :focus-visible{
+    outline: 2px solid var(--r-focus-ring);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  *{ scrollbar-width:thin; scrollbar-color: var(--r-border-strong) transparent }
+  ::-webkit-scrollbar{ width:10px; height:10px }
+  ::-webkit-scrollbar-thumb{ background: var(--r-border-strong); border-radius:5px }
+  ::-webkit-scrollbar-track{ background:transparent }
+
+  @media (prefers-reduced-motion: reduce){
+    :root{ --y-t: 1ms }
+    *{ animation-duration:1ms !important; animation-iteration-count:1 !important }
+  }
+}
+
+@layer yoshiki.components {
+
+  /* ── surfaces ─────────────────────────────────────────────────────
+     Depth is a step in the ladder, never a shadow. Only what floats
+     above a scrim casts. */
+  .y-panel{
+    background: var(--r-bg-surface);
+    border: 1px solid var(--r-border-hairline);
+    border-radius: var(--y-r-card);
+    padding: var(--y-6);
+  }
+  .y-card{
+    background: var(--r-bg-raised);
+    border: 1px solid var(--r-border-hairline);
+    border-radius: var(--y-r-card);
+    padding: var(--y-5);
+  }
+  .y-card--link{ display:block; transition: border-color var(--y-t), transform var(--y-t) }
+  .y-card--link:hover{ border-color: var(--r-action-edge); transform: translateY(-2px);
+                       text-decoration:none }
+  /* one sharp mark inside a soft frame — use ONCE on a screen */
+  .y-cut{ border-top-right-radius:0 }
+
+  .y-head{
+    font-family: var(--y-mono); font-size:11px; letter-spacing:2px;
+    text-transform:uppercase; color: var(--r-text-muted);
+    padding-bottom: var(--y-3); margin-bottom: var(--y-4);
+    border-bottom: 1px solid var(--r-border-hairline);
+  }
+
+  .y-rule{ border:0; border-top:1px solid var(--r-border-hairline); margin: var(--y-6) 0 }
+  .y-rule--mark{
+    display:flex; align-items:center; gap: var(--y-4);
+    border:0; color: var(--r-text-gold); font-family: var(--y-mono); font-size:12px;
+  }
+  .y-rule--mark::before,.y-rule--mark::after{
+    content:''; flex:1; height:1px; background: var(--r-border-hairline);
+  }
+
+  /* ── controls ─────────────────────────────────────────────────────
+     The edge is the affordance. Gold frames; it never fills. */
+  .y-btn{
+    display:inline-flex; align-items:center; justify-content:center; gap: var(--y-2);
+    min-height: var(--y-h-control); padding: 0 var(--y-5);
+    font-family: var(--y-sans); font-size:14px; font-weight:500; line-height:1;
+    border-radius: var(--y-r-control);
+    border: 1px solid transparent; background: transparent;
+    color: var(--r-text-secondary);
+    cursor:pointer; position:relative;
+    transition: border-color var(--y-t), background-color var(--y-t),
+                color var(--y-t), transform var(--y-t);
+  }
+  /* the target is bigger than the mark: a control under 44px grows its hit
+     area, not its ornament (the pseudo is a child, so the click still lands) */
+  .y-btn--sm::before,.y-btn--icon::before,.y-seg button::before{
+    content:''; position:absolute; inset:50% 0 auto;
+    transform:translateY(-50%); height:44px;
+  }
+  .y-btn:active{ transform: translateY(1px) }
+  .y-btn[disabled],.y-btn[aria-disabled="true"]{
+    border-color: var(--r-border-hairline); color: var(--r-text-ghost);
+    cursor:not-allowed; transform:none; background:transparent;
+  }
+
+  .y-btn--primary{
+    background: var(--r-bg-raised);
+    border-width: var(--y-edge);
+    border-color: var(--r-action-edge);
+    color: var(--r-action-text);
+  }
+  .y-btn--primary:hover:not([disabled]){
+    border-color: var(--r-action-hover-edge); background: var(--r-action-tint);
+  }
+  .y-btn--ghost{ border-color: var(--r-border-strong); color: var(--r-text-secondary) }
+  .y-btn--ghost:hover:not([disabled]){ border-color: var(--r-border-gold); color: var(--r-text-heading) }
+  .y-btn--quiet{ color: var(--r-text-secondary); padding-inline: var(--y-3) }
+  .y-btn--quiet:hover:not([disabled]){ color: var(--r-text-heading) }
+  /* scarlet MAY fill — the fill is itself the event. One per surface. */
+  .y-btn--danger{ background: var(--r-danger-fill); border-color: var(--r-danger-fill); color:#FFF3ED }
+  .y-btn--danger:hover:not([disabled]){ filter: brightness(1.08) }
+  .y-btn--ok{ background: var(--r-ok-fill); border-color: var(--r-ok-fill); color:#F7EED2 }
+
+  .y-btn--sm{ min-height:32px; padding:0 var(--y-3); font-size:13px }
+  .y-btn--lg{ min-height:48px; padding:0 var(--y-6); font-size:15px }
+  .y-btn--icon{ width: var(--y-h-control); padding:0; font-family: var(--y-mono); font-size:15px }
+  /* loading holds its width — the label is replaced, not resized */
+  .y-btn[data-loading]{ pointer-events:none }
+  .y-btn[data-loading] .y-btn__label{ visibility:hidden }
+  .y-btn[data-loading]::after{
+    content: attr(data-loading); position:absolute; inset:0;
+    display:flex; align-items:center; justify-content:center;
+    font-family: var(--y-mono); color: var(--r-action-text);
+  }
+
+  .y-actions{ display:flex; gap: var(--y-3); align-items:center; flex-wrap:wrap }
+  .y-actions--end{ justify-content:flex-end }
+
+  /* segmented — one of a few; the tint is the boundary, no inner rules */
+  .y-seg{
+    display:inline-flex; padding:3px; gap:2px;
+    background: var(--r-bg-surface);
+    border:1px solid var(--r-border-hairline);
+    border-radius: var(--y-r-control);
+  }
+  .y-seg button{
+    font-family: var(--y-mono); font-size:12px; line-height:1;
+    padding: var(--y-2) var(--y-3); border:0; background:transparent; position:relative;
+    color: var(--r-text-secondary); border-radius:9px; cursor:pointer;
+    transition: background-color var(--y-t), color var(--y-t);
+  }
+  .y-seg button:hover{ color: var(--r-text-heading) }
+  .y-seg button[aria-selected="true"]{ background: var(--r-action-tint); color: var(--r-action-text) }
+
+  /* ── forms ────────────────────────────────────────────────────────── */
+  .y-field{ display:flex; flex-direction:column; gap: var(--y-2); margin-bottom: var(--y-5) }
+  .y-field > label{
+    font-family: var(--y-mono); font-size:12px; letter-spacing:.5px;
+    color: var(--r-text-secondary);
+  }
+  .y-field > label .y-req{ color: var(--r-action-text) }   /* a ·, never a scarlet * */
+  .y-hint{ font-size:11.5px; color: var(--r-text-muted); font-family: var(--y-mono) }
+  .y-hint--error{ color: var(--r-danger-text) }
+
+  .y-input{
+    width:100%; min-height: var(--y-h-control); padding: var(--y-2) var(--y-3);
+    font-family: var(--y-sans); font-size:14px; color: var(--r-text-body);
+    background: var(--r-bg-surface);
+    border:1px solid var(--r-border-strong);
+    border-radius: var(--y-r-control);
+    transition: border-color var(--y-t);
+  }
+  .y-input::placeholder{ color: var(--r-text-ghost) }
+  .y-input:hover:not([disabled]){ border-color: var(--r-border-gold) }
+  .y-input:focus-visible{ border-color: var(--r-action-edge) }
+  .y-input[disabled]{ background: var(--r-bg-app); color: var(--r-text-ghost);
+                      border-color: var(--r-border-hairline); cursor:not-allowed }
+  .y-input--mono{ font-family: var(--y-mono); font-size:13px }
+  textarea.y-input{ min-height:96px; resize:vertical; line-height:1.7 }
+  select.y-input{
+    appearance:none; cursor:pointer; padding-right: var(--y-8);
+    background-image: linear-gradient(transparent,transparent);
+  }
+  .y-select{ position:relative; display:block }
+  .y-select::after{
+    content:'▾'; position:absolute; right: var(--y-3); top:50%; transform:translateY(-50%);
+    color: var(--r-text-muted); font-family: var(--y-mono); pointer-events:none;
+  }
+  .y-field--error .y-input{ border-color: var(--r-danger-fill) }
+
+  /* choice — the SHAPE says single or multiple before the colour does */
+  .y-opt{
+    display:flex; align-items:center; gap: var(--y-3);
+    min-height:32px; cursor:pointer; font-size:14px; color: var(--r-text-body);
+  }
+  .y-opt input{ position:absolute; opacity:0; width:16px; height:16px; margin:0 }
+  .y-box{
+    width:16px; height:16px; flex:none; border-radius:4px;
+    border:1px solid var(--r-border-strong);
+    display:grid; place-items:center;
+    font-family: var(--y-mono); font-size:11px; line-height:1; color:transparent;
+    transition: border-color var(--y-t), background-color var(--y-t), color var(--y-t);
+  }
+  .y-box--radio{ border-radius:50% }
+  .y-opt:hover .y-box{ border-color: var(--r-border-gold) }
+  .y-opt input:checked + .y-box{ border-color: var(--r-action-edge); color: var(--r-action-text) }
+  .y-opt input:checked + .y-box::before{ content:'✓' }
+  .y-opt input:checked + .y-box--radio::before{
+    content:''; width:6px; height:6px; border-radius:50%; background: var(--r-action-text);
+  }
+  .y-opt input:indeterminate + .y-box{ border-color: var(--r-action-edge); color: var(--r-action-text) }
+  .y-opt input:indeterminate + .y-box::before{ content:'–' }
+  .y-opt input:focus-visible + .y-box{ outline:2px solid var(--r-focus-ring); outline-offset:2px }
+  .y-opt input[disabled] ~ *{ color: var(--r-text-ghost) }
+
+  /* switch — only when the change applies itself */
+  .y-switch{
+    width:44px; height:24px; flex:none; padding:0; cursor:pointer; position:relative;
+    background: var(--r-bg-hover);
+    border:1px solid var(--r-border-strong);
+    border-radius: var(--y-r-pill);
+    transition: background-color var(--y-t), border-color var(--y-t);
+  }
+  .y-switch::after{
+    content:''; position:absolute; top:2px; left:2px; width:18px; height:18px;
+    border-radius:50%; background: var(--r-text-muted);
+    transition: transform 180ms cubic-bezier(.2,.7,.2,1), background-color var(--y-t);
+  }
+  .y-switch[aria-checked="true"]{ background: var(--r-action-tint); border-color: var(--r-action-edge) }
+  .y-switch[aria-checked="true"]::after{ transform: translateX(20px); background: var(--r-action-text) }
+
+  /* range — a slider with no number is a guess */
+  .y-range{ display:flex; align-items:center; gap: var(--y-3) }
+  .y-range input{
+    -webkit-appearance:none; appearance:none; flex:1; height:2px; border-radius:1px;
+    background: linear-gradient(90deg, var(--r-action-edge) var(--y-p,50%),
+                                var(--r-border-strong) var(--y-p,50%));
+  }
+  .y-range input::-webkit-slider-thumb{
+    -webkit-appearance:none; width:14px; height:14px; border-radius:50%;
+    background: var(--r-action-text); border:2px solid var(--r-bg-surface); cursor:pointer;
+  }
+  .y-range input::-moz-range-thumb{
+    width:14px; height:14px; border-radius:50%; border:2px solid var(--r-bg-surface);
+    background: var(--r-action-text); cursor:pointer;
+  }
+  .y-range output{ font-family: var(--y-mono); font-size:12px; color: var(--r-text-secondary);
+                   min-width:3ch; text-align:right }
+}
+
+@layer yoshiki.components {
+
+  /* ── float: dialog · popover ───────────────────────────────────────
+     The only things that cast a shadow, because they float above a scrim. */
+  .y-scrim{
+    position:fixed; inset:0; z-index:80;
+    background: color-mix(in srgb, var(--r-bg-app) 72%, transparent);
+    backdrop-filter: blur(3px);
+  }
+  @media (prefers-reduced-transparency: reduce){
+    .y-scrim{ backdrop-filter:none; background: var(--r-bg-app) }
+  }
+  .y-dialog{
+    position:fixed; z-index:81; top:50%; left:50%; transform:translate(-50%,-50%);
+    width:min(480px, calc(100vw - var(--y-8)));
+    background: var(--r-bg-raised);
+    border:1px solid var(--r-border-hairline);
+    border-radius: var(--y-r-dialog);
+    padding: var(--y-6);
+    box-shadow: 0 24px 64px -12px rgb(0 0 0 / .55);
+  }
+  .y-dialog--wide{ width:min(720px, calc(100vw - var(--y-8))) }
+  .y-dialog h3{ font-size:20px; margin-bottom: var(--y-3) }
+  .y-dialog p{ color: var(--r-text-secondary); font-size:14px }
+  .y-dialog .y-actions{ margin-top: var(--y-6); justify-content:flex-end }
+
+  .y-pop{
+    background: var(--r-bg-surface);
+    border:1px solid var(--r-border-hairline);
+    border-radius: var(--y-r-control);
+    padding: var(--y-2);
+    box-shadow: 0 16px 40px -12px rgb(0 0 0 / .5);
+    min-width:180px;
+  }
+  .y-pop button,.y-pop a{
+    display:flex; align-items:center; gap: var(--y-3);
+    width:100%; min-height:36px; padding:0 var(--y-3);
+    background:transparent; border:0; border-radius:8px; cursor:pointer;
+    font-family: var(--y-sans); font-size:14px; color: var(--r-text-secondary);
+    text-align:left; transition: background-color var(--y-t), color var(--y-t);
+  }
+  .y-pop button:hover,.y-pop a:hover{ background: var(--r-bg-hover); color: var(--r-text-body);
+                                      text-decoration:none }
+  .y-pop [aria-current="true"]{ color: var(--r-action-text) }
+  .y-pop hr{ border:0; border-top:1px solid var(--r-border-hairline); margin:6px 0 }
+
+  /* ── feedback ──────────────────────────────────────────────────────
+     Every element here carries a glyph. Colour is the second cue. */
+  .y-alert{
+    display:flex; gap: var(--y-3);
+    background: var(--r-bg-surface);
+    border-radius: var(--y-r-control);
+    border-left:2px solid var(--r-border-gold);
+    padding: var(--y-4);
+  }
+  .y-alert__mark{ font-family: var(--y-mono); color: var(--r-text-gold); line-height:1.6 }
+  .y-alert__title{ color: var(--r-text-heading); font-weight:500; font-size:14px }
+  .y-alert__body{ color: var(--r-text-secondary); font-size:13.5px; margin-top:2px }
+  .y-alert--ok{ border-left-color: var(--r-ok-fill) }
+  .y-alert--ok .y-alert__mark{ color: var(--r-ok-text) }
+  .y-alert--warn{ border-left-color: var(--r-warn-text) }
+  .y-alert--warn .y-alert__mark{ color: var(--r-warn-text) }
+  /* the one alert that may take a wash — and only one per surface */
+  .y-alert--danger{ border-left-color: var(--r-danger-fill); background: var(--r-danger-wash) }
+  .y-alert--danger .y-alert__mark{ color: var(--r-danger-text) }
+
+  .y-toast{
+    display:inline-flex; align-items:center; gap: var(--y-2);
+    background: var(--r-bg-raised);
+    border:1px solid var(--r-border-hairline);
+    border-radius: var(--y-r-control);
+    padding: var(--y-2) var(--y-4);
+    font-family: var(--y-mono); font-size:12px; color: var(--r-text-body);
+    box-shadow: 0 12px 32px -12px rgb(0 0 0 / .5);
+  }
+
+  .y-badge{
+    display:inline-flex; align-items:center; gap:6px;
+    height:22px; padding:0 10px; border-radius: var(--y-r-pill);
+    font-family: var(--y-mono); font-size:11px; line-height:1;
+    border:1px solid var(--r-border-strong); color: var(--r-text-secondary);
+  }
+  .y-badge--gold{ border-color: var(--r-border-gold); color: var(--r-text-gold) }
+  .y-badge--ok{ border-color: var(--r-ok-fill); color: var(--r-ok-text) }
+  .y-badge--warn{ border-color: var(--r-warn-text); color: var(--r-warn-text) }
+  .y-badge--danger{ border-color: var(--r-danger-fill); color: var(--r-danger-text) }
+  .y-badge--count{ border-color:transparent; background: var(--r-bg-hover) }
+
+  /* a status is a glyph plus a word — never a bare coloured dot */
+  .y-status{ display:inline-flex; align-items:baseline; gap:7px;
+             font-family: var(--y-mono); font-size:12px; color: var(--r-text-secondary) }
+  .y-status__mark{ color: var(--r-text-muted) }
+  .y-status--ok .y-status__mark{ color: var(--r-ok-text) }
+  .y-status--warn .y-status__mark{ color: var(--r-warn-text) }
+  .y-status--bad .y-status__mark{ color: var(--r-danger-text) }
+  .y-status--live .y-status__mark{ color: var(--r-action-text); animation: y-breathe 2s ease-in-out infinite }
+  @keyframes y-breathe{ 0%,100%{opacity:1} 50%{opacity:.4} }
+
+  .y-progress{ display:flex; align-items:center; gap: var(--y-3) }
+  .y-progress__track{
+    flex:1; height:4px; border-radius:2px; overflow:hidden;
+    background: var(--r-border-hairline);
+  }
+  .y-progress__fill{ height:100%; background: var(--r-action-edge); transition: width var(--y-t) }
+  .y-progress__val{ font-family: var(--y-mono); font-size:12px; color: var(--r-text-secondary);
+                    min-width:4ch; text-align:right }
+
+  .y-empty{ text-align:center; padding: var(--y-12) var(--y-6); color: var(--r-text-secondary) }
+  .y-empty__mark{ font-family: var(--y-mono); font-size:22px; color: var(--r-text-muted) }
+  .y-empty p{ margin: var(--y-4) 0 var(--y-5); font-size:14px }
+
+  /* a pulse, never a shimmer — a sweep is decoration pretending to be progress */
+  .y-skeleton{
+    background: var(--r-bg-hover); border-radius:6px;
+    animation: y-pulse 1.6s ease-in-out infinite;
+  }
+  @keyframes y-pulse{ 0%,100%{opacity:1} 50%{opacity:.6} }
+  @media (prefers-reduced-motion: reduce){ .y-skeleton{ animation:none; opacity:.8 } }
+
+  /* ── data ──────────────────────────────────────────────────────────
+     Numbers right and mono; no vertical rules; no zebra stripes. */
+  .y-table{ width:100%; border-collapse:collapse; font-size:13.5px }
+  .y-table th{
+    font-family: var(--y-mono); font-size:11px; font-weight:500; letter-spacing:1.5px;
+    text-transform:uppercase; color: var(--r-text-muted); text-align:left;
+    padding: 0 var(--y-3) var(--y-2);
+    border-bottom:1px solid var(--r-border-hairline); white-space:nowrap;
+  }
+  .y-table th[aria-sort]{ color: var(--r-text-gold) }
+  .y-table td{
+    padding: 0 var(--y-3); height: var(--y-h-row);
+    color: var(--r-text-secondary);
+    border-bottom:1px solid var(--r-border-hairline);
+  }
+  .y-table tbody tr{ transition: background-color var(--y-t) }
+  .y-table tbody tr:hover{ background: var(--r-bg-hover) }
+  .y-table tbody tr[aria-selected="true"]{ background: var(--r-action-tint) }
+  .y-table td:first-child{ color: var(--r-text-body) }
+  .y-num{ text-align:right; font-family: var(--y-mono);
+          font-variant-numeric: tabular-nums lining-nums }
+  .y-mark{ text-align:center; font-family: var(--y-mono) }
+  .y-scroll-x{ overflow-x:auto }
+
+  .y-list{ list-style:none; margin:0; padding:0 }
+  .y-list li{
+    display:flex; align-items:center; gap: var(--y-4);
+    min-height:56px; padding: var(--y-3) 0;
+    border-bottom:1px solid var(--r-border-hairline);
+  }
+  .y-list__title{ color: var(--r-text-body); font-size:14px }
+  .y-list__sub{ color: var(--r-text-muted); font-size:12px; font-family: var(--y-mono) }
+  .y-list__meta{ margin-left:auto; font-family: var(--y-mono); font-size:12px;
+                 color: var(--r-text-muted) }
+
+  .y-kv{ display:grid; grid-template-columns:auto 1fr; gap: var(--y-2) var(--y-5);
+         font-family: var(--y-mono); font-size:13px }
+  .y-kv dt{ color: var(--r-text-muted) }
+  .y-kv dd{ margin:0; color: var(--r-text-body) }
+
+  .y-stat{
+    background: var(--r-bg-raised);
+    border:1px solid var(--r-border-hairline);
+    border-radius: var(--y-r-card);
+    padding: var(--y-4) var(--y-5);
+  }
+  .y-stat__label{ font-family: var(--y-mono); font-size:11px; letter-spacing:1.5px;
+                  text-transform:uppercase; color: var(--r-text-muted) }
+  .y-stat__value{ font-family: var(--y-mono); font-size:26px; line-height:1.3;
+                  color: var(--r-text-heading); font-variant-numeric: tabular-nums }
+  /* the delta reads by DIRECTION, not by sign — a falling error rate is good */
+  .y-stat__delta{ font-family: var(--y-mono); font-size:12px; color: var(--r-text-muted) }
+  .y-stat__delta--good{ color: var(--r-ok-text) }
+  .y-stat__delta--bad{ color: var(--r-danger-text) }
+
+  .y-pager{ display:flex; align-items:center; gap: var(--y-2);
+            font-family: var(--y-mono); font-size:12px; color: var(--r-text-secondary) }
+  .y-pager button{
+    min-width:28px; height:28px; padding:0 var(--y-2); cursor:pointer;
+    background:transparent; border:0; border-radius:8px;
+    font-family: var(--y-mono); font-size:12px; color:inherit;
+  }
+  .y-pager button:hover{ background: var(--r-bg-hover) }
+  .y-pager button[aria-current="page"]{ background: var(--r-action-tint); color: var(--r-action-text) }
+  .y-pager__range{ margin-left: var(--y-3); color: var(--r-text-muted) }
+
+  /* ── terminal — always a dark island, in both themes ──────────────── */
+  .y-term{
+    background: var(--ink-0); color: var(--bone-1);
+    border:1px solid var(--line-0); border-radius: var(--y-r-card);
+    padding: var(--y-5);
+    font-family: var(--y-mono); font-size:13px; line-height:1.9;
+    white-space:pre-wrap; overflow-x:auto;
+  }
+  [data-theme] .y-term{
+    /* the island keeps kogane values whatever the page is wearing */
+    --ink-0:#0B0A08; --line-0:#362C1B; --bone-0:#F7EED2; --bone-1:#EDE3C4;
+    --bone-3:#96886B; --bone-4:#776A51; --kin-1:#D8AF52;
+    --mori-0:#8FAC6F; --aka-0:#D6685D; --seiji-1:#6FA08E; --kaki-1:#C67F45;
+  }
+  .y-term .k{ color: var(--kin-1) }
+  .y-term .g{ color: var(--mori-0) }
+  .y-term .r{ color: var(--aka-0) }
+  .y-term .w{ color: var(--kaki-1) }
+  .y-term .c{ color: var(--seiji-1) }
+  .y-term .b{ color: var(--bone-0) }
+  .y-term .d{ color: var(--bone-4) }
+}
