@@ -2,6 +2,26 @@
 
 ## v1.2 — 2026-09
 
+- **No Japanese characters anywhere** — 430 of them across 56 files, scattered
+  through labels, headings, theme names, group titles and the UI. They were
+  decoration standing in for an identity, and a character chosen for you is not
+  an identity. Everything is written in English now; the ideas the language
+  borrows are attributed in `PHILOSOPHY.md`, in plain terms, because a rule you
+  have to translate is a rule you will not apply. `tools/check.py` fails the
+  build if one comes back.
+- **A mark of its own** — the logo was a borrowed character. It is now drawn from
+  the project's actual motif: a break in lacquer, rejoined by a gold seam that
+  forks — and the fork happens to be a Y. It is a *filled* shape, not a stroke,
+  because gold leaf swells at the junction and tapers to nothing, and a uniform
+  line reads as a lightning bolt. Generated from the palette, so it cannot drift,
+  and legible down to 16px.
+- **A banner that shows rather than claims** — generated from canon as a specimen
+  sheet: identity left, the language actually running on the right, and the token
+  ramp full-bleed along the bottom. Plus `og.svg`/`og.png` for link previews.
+- **README, rewritten** — hero, badge row, the idea in one minute, install in
+  three forms, the tokens-versus-roles contract with a code sample, the proof,
+  the pipeline, and the whole map in two columns.
+
 - **Contrast, re-proven** — the proof measured every text role against
   `bg.surface` alone, which flattered the palette instead of testing it.
   It is now a full role x surface matrix, `bg.hover` included — on paper the

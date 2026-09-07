@@ -7,7 +7,7 @@ PALETTE: a warm near-black lacquer background (#0B0A08 family, deep brown-gold
 undertone — never a neutral grey or pure black). Bone / ivory light. Aged gold
 (#D8AF52) only as FINE HAIRLINES and seams — like kintsugi gold filling a crack —
 never large gold fills. At most ONE saturated accent: spider-lily scarlet
-(#d8392e, 彼岸花) — the ONLY saturated color in the frame, used once.
+(#d8392e, the spider lily) — the ONLY saturated color in the frame, used once.
 
 STYLE: sumi-e ink-brush meets modern editorial design — refined, premium,
 atmospheric. Large calm negative space (a quiet empty pocket, e.g. for a title).

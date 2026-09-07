@@ -1,6 +1,5 @@
 meta:
   name: Washi
-  kanji: 和紙
   slug: washi
   role: light variant — paper and ink; terminal stays a dark island
   version: 1.2.0

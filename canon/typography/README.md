@@ -27,7 +27,7 @@ mono · data / code   one of the three below, by register
 The owner leans heavier (medium / bold) and warm → **Maple Mono** is the recommended
 default; **JetBrains Mono** for a neutral-technical register; **Geist Mono** for
 Vercel-grade minimalism. Maple's CN build (Resource Han Rounded) carries full CJK
-including Japanese at 2:1 width — the only one of the three with 日本語.
+including Japanese at 2:1 width — the only one of the three that covers it.
 
 ## Ligatures
 On by default where shipped; offer the no-ligature build (`Maple Mono NL`,

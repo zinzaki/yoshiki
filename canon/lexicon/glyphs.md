@@ -5,9 +5,9 @@
 ```
 
 One glyph carries one meaning and keeps it everywhere — terminal, chat,
-comments, docs. The eye decodes a shape faster than a word (簡素 kanso:
-say it by omission). Restraint is the law: one or two glyphs per line, never
-a parade.
+comments, docs. The eye decodes a shape faster than a word, and a shape
+survives colour-blindness, greyscale and a monochrome print. Restraint is the
+law: one or two glyphs per line, never a parade.
 
 ## Tiers — by how safely they render
 
@@ -59,7 +59,7 @@ neutral marks (· │ — ⟥ ⬡) ↦ bone / dim
 
 1. One glyph, one meaning — never `▲` for both "up" and "warning".
 2. Semantic before decorative. The decoration budget is **one** flavor mark
-   per screen (間 Ma — let the emptiness carry the rest).
+   per screen — let the emptiness carry the rest.
 3. Repeated rows align their glyphs into a column; the column is the rhythm.
 4. Fallback-aware: drop a tier if a target font is unknown.
 5. A glyph that explains nothing is removed — it is not ornament.

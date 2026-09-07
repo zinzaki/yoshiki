@@ -27,7 +27,7 @@
   function drawGroups(slug){
     const tok = Y.themes[slug].tokens;
     const el = $('tokenTheme');
-    if (el) el.textContent = Y.themes[slug].meta.slug + ' ' + Y.themes[slug].meta.kanji;
+    if (el) el.textContent = Y.themes[slug].meta.slug;
     $('groups').innerHTML = Y.groups.map(g => {
       const steps = g.steps.filter(s => tok[s.token]);
       if (!steps.length) return '';
@@ -121,7 +121,7 @@
       `<div class="y-alert ${bad ? 'y-alert--danger' : 'y-alert--ok'}">
          <span class="y-alert__mark" aria-hidden="true">${bad ? '✗' : '✓'}</span>
          <div><div class="y-alert__title">${bad ? 'Failures present' : 'Every role passes on every surface'}</div>
-         <div class="y-alert__body">${esc(Y.themes[slug].meta.name)} ${esc(Y.themes[slug].meta.kanji)} ·
+         <div class="y-alert__body">${esc(Y.themes[slug].meta.name)} ·
          regenerated and enforced by <code>tools/build.py</code> on every build.</div></div>
        </div>`
       + block('text — floor 4.5:1, ghost 3:1', p.matrix)

@@ -43,8 +43,8 @@ dialog · sheet                  20px
 pill (badge, switch, tag)       999px
 ```
 A single element on a screen may cut one corner square, or carry one hard
-`┌╴` mark inside its soft frame. One. (両 duality — see
-[`../principles/priority.md`](../principles/priority.md).)
+`┌╴` mark inside its soft frame. One — see **duality** in
+[`../principles/priority.md`](../principles/priority.md).
 
 **5 · The target is bigger than the mark.**
 Visual height may be 28px; the hit area is never below 44×44. Pad the target,

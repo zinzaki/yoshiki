@@ -3,17 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>様式 yoshiki — a design language</title>
+<title>yoshiki — a design language</title>
 <meta name="description" content="A warm monochrome design language — lacquer, bone and gold, struck rarely by a single spider-lily scarlet. Palette with a proven roles contract, component canon, thirteen ready themes and drop-in AI prompts.">
-<meta property="og:title" content="様式 yoshiki — a design language">
+<meta property="og:title" content="yoshiki — a design language">
 <meta property="og:description" content="Warm monochrome, struck rarely by colour. A palette whose every role is proven on every surface, a component canon, thirteen generated themes.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://zinzaki.github.io/yoshiki/">
-<meta property="og:image" content="https://zinzaki.github.io/yoshiki/banner.webp">
+<meta property="og:image" content="https://zinzaki.github.io/yoshiki/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0B0A08">
 <link rel="canonical" href="https://zinzaki.github.io/yoshiki/">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B0A08'/%3E%3Ctext x='32' y='46' font-size='38' text-anchor='middle' fill='%23D8AF52' font-family='serif'%3E様%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="assets/favicon.svg">
 <script>(function(){var t=null;try{t=localStorage.getItem('yoshiki-theme')}catch(e){}
 if(t!=='washi'&&t!=='kogane')t=matchMedia('(prefers-color-scheme: light)').matches?'washi':'kogane';
 document.documentElement.dataset.theme=t})();</script>
@@ -29,7 +29,7 @@ document.documentElement.dataset.theme=t})();</script>
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="hdr">
-  <a class="brand" href="index.html"><b>様式</b><span>yoshiki</span></a>
+  <a class="brand" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="26" height="26" role="img" aria-label="yoshiki"><defs><clipPath id="m"><rect width="26" height="26" rx="7"/></clipPath></defs><g clip-path="url(#m)"><rect width="26" height="26" fill="var(--ink-1)"/><polygon points="14.00,33.00 14.90,26.00 16.40,18.40 11.60,12.90 7.40,3.60 -1.00,-1.00 -1.00,34.00" fill="var(--ink-0)"/><polygon points="16.40,18.40 14.90,26.00 14.00,33.00 21.80,13.60 25.60,6.00 34.00,-1.00 34.00,34.00" fill="var(--ink-3)"/><polygon points="7.40,3.60 11.60,12.90 16.40,18.40 21.80,13.60 25.60,6.00 34.00,-1.00 -1.00,-1.00" fill="var(--ink-2)"/><path d="M 14.99 33.13 L 16.18 26.21 L 17.97 18.71 L 14.83 18.09 L 13.62 25.79 L 13.01 32.87 Z M 17.61 17.35 L 12.58 12.30 L 7.67 3.48 L 7.13 3.72 L 10.62 13.50 L 15.19 19.45 Z M 17.46 19.60 L 22.60 14.20 L 25.85 6.13 L 25.35 5.87 L 21.00 13.00 L 15.34 17.20 Z" fill="var(--kin-1)"/></g><rect x=".5" y=".5" width="31" height="31" rx="6.5" fill="none" stroke="var(--line-0)"/></svg><b>yoshiki</b></a>
   <nav class="nav" aria-label="Sections">
     <a href="palette.html">palette</a>
     <a href="components.html">components</a>
@@ -37,8 +37,8 @@ document.documentElement.dataset.theme=t})();</script>
     <a href="themes.html">themes</a>
   </nav>
   <div class="themesw" role="group" aria-label="Theme">
-    <button data-set-theme="kogane" title="kogane — dark (1)" aria-pressed="true">黄</button>
-    <button data-set-theme="washi" title="washi — light (2)" aria-pressed="false">和</button>
+    <button data-set-theme="kogane" title="kogane — dark (press 1)" aria-pressed="true">Dark</button>
+    <button data-set-theme="washi" title="washi — light (press 2)" aria-pressed="false">Light</button>
   </div>
   <a class="gh" href="https://github.com/zinzaki/yoshiki">github ↗</a>
 </header>
@@ -50,8 +50,8 @@ document.documentElement.dataset.theme=t})();</script>
   <div class="cols" style="align-items:end">
     <div class="c7">
       <div class="eyebrow"><i>◆</i> a design language</div>
-      <h1 style="font-size:clamp(56px,11vw,116px);line-height:.92;letter-spacing:.02em">様式</h1>
-      <div style="font-family:var(--y-mono);font-size:12px;letter-spacing:11px;text-transform:uppercase;color:var(--r-text-muted);margin-top:18px">yoshiki</div>
+      <h1 style="font-size:clamp(56px,11vw,116px);line-height:.92;letter-spacing:-.02em">yoshiki</h1>
+      <div style="font-family:var(--y-mono);font-size:12px;letter-spacing:7px;text-transform:uppercase;color:var(--r-text-muted);margin-top:18px">a design language</div>
       <p class="lead" style="max-width:44ch;margin-top:28px">
         <b>Warm monochrome, struck rarely by colour.</b> Almost everything is lacquer,
         bone and gold; two triggers — spider-lily scarlet and moss — are spent only on
@@ -107,7 +107,7 @@ document.documentElement.dataset.theme=t})();</script>
         <dt>tone</dt><dd>lacquer carries the screen — ~70%</dd>
         <dt>bone</dt><dd>text and the surfaces it sits on — ~20%</dd>
         <dt>gold</dt><dd>seams, edges, glyphs — ~7%, never a fill</dd>
-        <dt>trigger</dt><dd>scarlet 彼岸花 · moss 森 — ~3%, by meaning only</dd>
+        <dt>trigger</dt><dd>scarlet · moss — ~3%, by meaning only</dd>
       </dl>
     </div>
   </div>
@@ -170,7 +170,7 @@ document.documentElement.dataset.theme=t})();</script>
       <div class="c7 rv">
         <div class="eyebrow"><i>03</i> two themes, one language</div>
         <h2>Only the stage changes.</h2>
-        <p class="lead">kogane 黄金 is warm lacquer; washi 和紙 is paper and sumi ink.
+        <p class="lead">kogane is warm lacquer; washi is paper and ink.
         The triggers and every rule are identical — what moves is which surfaces carry
         the light and which family carries the text. Both blocks below are the same
         markup, wearing the two themes at once.</p>
@@ -179,7 +179,7 @@ document.documentElement.dataset.theme=t})();</script>
     <div class="cols rv" style="margin-top:34px">
       <div class="c6" data-theme="kogane">
         <div class="y-card" style="background:var(--r-bg-app);border-color:var(--r-border-hairline)">
-          <div class="y-head">kogane 黄金 · dark</div>
+          <div class="y-head">kogane · dark</div>
           <p style="color:var(--r-text-body);font-size:14px">The lacquer carries the screen.</p>
           <p style="color:var(--r-text-muted);font-size:12.5px;margin-top:6px">Gold gilds the edge; bone speaks.</p>
           <div class="y-actions" style="margin-top:18px">
@@ -190,7 +190,7 @@ document.documentElement.dataset.theme=t})();</script>
       </div>
       <div class="c6" data-theme="washi">
         <div class="y-card" style="background:var(--r-bg-app);border-color:var(--r-border-hairline)">
-          <div class="y-head">washi 和紙 · light</div>
+          <div class="y-head">washi · light</div>
           <p style="color:var(--r-text-body);font-size:14px">The paper carries the screen.</p>
           <p style="color:var(--r-text-muted);font-size:12.5px;margin-top:6px">Gold sinks so it stays readable.</p>
           <div class="y-actions" style="margin-top:18px">
@@ -298,7 +298,7 @@ document.documentElement.dataset.theme=t})();</script>
       <div class="c6" style="margin-top:var(--y-6)">
         <div class="y-card">
           <div class="y-head">docs · a README</div>
-          <h3 style="font-size:19px">様式 yoshiki</h3>
+          <h3 style="font-size:19px">yoshiki</h3>
           <div style="font-family:var(--y-mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--r-text-muted);margin-top:6px">a warm design language</div>
           <p style="color:var(--r-text-secondary);font-size:13px;margin-top:14px">
             Lacquer, bone and gold — struck rarely by a single spider-lily scarlet.
@@ -413,7 +413,7 @@ document.documentElement.dataset.theme=t})();</script>
 
 <footer class="foot">
   <div class="foot__in">
-    <span style="color:var(--r-text-body)">様式 yoshiki</span>
+    <span style="color:var(--r-text-body)">yoshiki</span>
     <span class="sep">·</span><a href="https://github.com/zinzaki/yoshiki">github</a>
     <span class="sep">·</span><a href="https://github.com/zinzaki/yoshiki/blob/main/PHILOSOPHY.md">philosophy</a>
     <span class="sep">·</span><a href="https://github.com/zinzaki/yoshiki/blob/main/canon/palette/CONTRAST.md">contrast proof</a>

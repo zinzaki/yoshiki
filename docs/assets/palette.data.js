@@ -76,7 +76,7 @@ window.YOSHIKI = {
   },
   {
    "key": "kin",
-   "label": "gold 金",
+   "label": "gold",
    "note": "the seam — line, edge, frame, glyph. Never a filled slab.",
    "steps": [
     {
@@ -112,7 +112,7 @@ window.YOSHIKI = {
   },
   {
    "key": "kaki",
-   "label": "persimmon 柿",
+   "label": "persimmon",
    "note": "warning — the lamp, not the alarm",
    "steps": [
     {
@@ -123,7 +123,7 @@ window.YOSHIKI = {
   },
   {
    "key": "aka",
-   "label": "scarlet 彼岸花",
+   "label": "scarlet",
    "note": "the bloom — the irreversible. One per screen; it may fill.",
    "steps": [
     {
@@ -152,7 +152,7 @@ window.YOSHIKI = {
   },
   {
    "key": "mori",
-   "label": "moss 森",
+   "label": "moss",
    "note": "life, growth, confirmation — the quiet pair of scarlet",
    "steps": [
     {
@@ -176,7 +176,7 @@ window.YOSHIKI = {
   },
   {
    "key": "onfill",
-   "label": "on-fill 白",
+   "label": "on-fill",
    "note": "the only pure white — a label on a filled trigger, where legibility outranks warmth",
    "steps": [
     {
@@ -187,7 +187,7 @@ window.YOSHIKI = {
   },
   {
    "key": "paper",
-   "label": "washi 和紙",
+   "label": "paper",
    "note": "the paper artifact pinned inside the dark — and inverted on paper",
    "steps": [
     {
@@ -260,7 +260,6 @@ window.YOSHIKI = {
   "kogane": {
    "meta": {
     "name": "Kogane",
-    "kanji": "黄金",
     "slug": "kogane",
     "role": "primary theme — gold acts",
     "version": "1.2.0",
@@ -1138,7 +1137,6 @@ window.YOSHIKI = {
   "washi": {
    "meta": {
     "name": "Washi",
-    "kanji": "和紙",
     "slug": "washi",
     "role": "light variant — paper and ink; terminal stays a dark island",
     "version": "1.2.0",

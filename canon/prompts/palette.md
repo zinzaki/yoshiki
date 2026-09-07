@@ -17,19 +17,19 @@ GILDING  line-0 #362C1B (hairline — the default divider) · line-1 #4C3D24
 BONE  bone-0 #F7EED2 (heading · emphasis) · bone-1 #EDE3C4 (body text) ·
   bone-2 #C9BC96 (secondary) · bone-3 #96886B (muted · metadata) ·
   bone-4 #776A51 (ghost · disabled)
-GOLD 金  kin-0 #EDC85C (glow — hover edge) · kin-1 #D8AF52 (GOLD — action)
-  · kin-2 #A58444 (dim gold — labels) · kin-3 #57441F (deep gold)
-  · kin-w #3F3112 (wash — selection)
-PERSIMMON 柿  kaki-1 #C67F45 (warning · lamp · threshold crossed)
-SCARLET 彼岸花  aka-0 #D6685D (text-safe scarlet) · aka-1 #d8392e (SPIDER
-  LILY — the trigger) · aka-2 #7E302E (red lacquer — pressed)
-  · aka-w #331514 (wash — error field) · sabi #9B635F (dusty
-  rust — calm red contexts)
-MOSS 森  mori-0 #8FAC6F (text-safe moss) · mori-1 #52703F (MOSS — success)
-  · mori-2 #2F4526 (pine depth) · mori-w #1B2615 (wash — diff-add)
-ON-FILL 白  shiro #FFFFFF (text on danger.fill · ok.fill)
-WASHI 和紙  washi-bg #E7DCBB (artifact surface) · washi-ink #292019
-  (artifact text) · washi-line #C9BA92 (artifact rule)
+GOLD  kin-0 #EDC85C (glow — hover edge) · kin-1 #D8AF52 (GOLD — action) ·
+  kin-2 #A58444 (dim gold — labels) · kin-3 #57441F (deep gold) ·
+  kin-w #3F3112 (wash — selection)
+PERSIMMON  kaki-1 #C67F45 (warning · lamp · threshold crossed)
+SCARLET  aka-0 #D6685D (text-safe scarlet) · aka-1 #d8392e (SPIDER LILY —
+  the trigger) · aka-2 #7E302E (red lacquer — pressed) · aka-w
+  #331514 (wash — error field) · sabi #9B635F (dusty rust — calm
+  red contexts)
+MOSS  mori-0 #8FAC6F (text-safe moss) · mori-1 #52703F (MOSS — success) ·
+  mori-2 #2F4526 (pine depth) · mori-w #1B2615 (wash — diff-add)
+ON-FILL  shiro #FFFFFF (text on danger.fill · ok.fill)
+PAPER  washi-bg #E7DCBB (artifact surface) · washi-ink #292019 (artifact
+  text) · washi-line #C9BA92 (artifact rule)
 SERVICE  hotaru-0 #98A4D4 (bright blue) · hotaru-1 #7C88B8 (ansi blue ·
   types) · hotaru-2 #454E7A (deep blue) · fuji-0 #B89BCC (bright
   wisteria) · fuji-1 #9C7FB0 (ansi magenta · constants) · fuji-2

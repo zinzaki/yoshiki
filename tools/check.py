@@ -81,6 +81,26 @@ for base in HAND:
                     fail(f"{f.relative_to(ROOT)}:{i} — {hit} is not a value canon still has "
                          f"(stale copy of a token?)")
 
+# ── 1c · no CJK anywhere ────────────────────────────────────────────────
+# The language is named with a Japanese word and takes its ideas from Japanese
+# aesthetics; that is attribution, and it is written in English. Scattering
+# characters through labels, headings and UI is decoration standing in for an
+# identity — so none are allowed, and the guard is mechanical.
+CJK = re.compile(r"[\u3000-\u303f\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff\uff00-\uffef]")
+for f in sorted(ROOT.rglob("*")):
+    if not f.is_file() or ".git" in f.parts or "node_modules" in f.parts:
+        continue
+    if f.suffix in {".webp", ".png", ".jpg", ".woff", ".woff2", ".ttf"}:
+        continue
+    try:
+        text = f.read_text()
+    except (UnicodeDecodeError, OSError):
+        continue
+    for i, line in enumerate(text.splitlines(), 1):
+        hit = CJK.search(line)
+        if hit:
+            fail(f"{f.relative_to(ROOT)}:{i} — CJK character {hit.group()!r}; write it in English")
+
 # ── 2 · every link in the site resolves ─────────────────────────────────
 pages = sorted(DOCS.glob("*.html"))
 if not pages:

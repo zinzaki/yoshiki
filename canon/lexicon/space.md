@@ -4,10 +4,10 @@
 ╰╴
 ```
 
-Space is a material, not a gap (間 Ma). These are the measured ways the
+Space is a material, not a gap. These are the measured ways the
 language uses emptiness — the part most styles forget to specify.
 
-## Margin (余白) — never to the edge
+## Margin — never to the edge
 
 Content never touches the frame. Leave a consistent inset; the breathing room
 is composition, not waste.
