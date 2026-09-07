@@ -1,7 +1,6 @@
 {
   "meta": {
     "name": "Washi",
-    "kanji": "和紙",
     "slug": "washi",
     "role": "light variant — paper and ink; terminal stays a dark island",
     "version": "1.2.0",
@@ -222,7 +221,7 @@
     },
     {
       "key": "kin",
-      "label": "gold 金",
+      "label": "gold",
       "note": "the seam — line, edge, frame, glyph. Never a filled slab.",
       "steps": [
         {
@@ -258,7 +257,7 @@
     },
     {
       "key": "kaki",
-      "label": "persimmon 柿",
+      "label": "persimmon",
       "note": "warning — the lamp, not the alarm",
       "steps": [
         {
@@ -269,7 +268,7 @@
     },
     {
       "key": "aka",
-      "label": "scarlet 彼岸花",
+      "label": "scarlet",
       "note": "the bloom — the irreversible. One per screen; it may fill.",
       "steps": [
         {
@@ -298,7 +297,7 @@
     },
     {
       "key": "mori",
-      "label": "moss 森",
+      "label": "moss",
       "note": "life, growth, confirmation — the quiet pair of scarlet",
       "steps": [
         {
@@ -322,7 +321,7 @@
     },
     {
       "key": "onfill",
-      "label": "on-fill 白",
+      "label": "on-fill",
       "note": "the only pure white — a label on a filled trigger, where legibility outranks warmth",
       "steps": [
         {
@@ -333,7 +332,7 @@
     },
     {
       "key": "paper",
-      "label": "washi 和紙",
+      "label": "paper",
       "note": "the paper artifact pinned inside the dark — and inverted on paper",
       "steps": [
         {
@@ -402,6 +401,10 @@
       ]
     }
   ],
+  "brand": {
+    "mark": "式",
+    "wordmark": "yoshiki"
+  },
   "roles_resolved": {
     "bg.app": "#E2D6B4",
     "bg.surface": "#EBE1C3",

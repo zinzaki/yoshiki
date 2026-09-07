@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 360" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" role="img" aria-label="yoshiki palette — kogane and washi">
 <rect x="20" y="4" width="880" height="168" rx="14" fill="#0B0A08" stroke="#362C1B"/>
-<text x="36" y="46" font-size="15" fill="#F7EED2">黄金 kogane<tspan fill="#96886B"> · dark</tspan></text>
+<text x="36" y="46" font-size="15" fill="#F7EED2">kogane<tspan fill="#96886B"> · dark</tspan></text>
 <rect x="36" y="62" width="94" height="52" rx="8" fill="#12100C" stroke="#362C1B"/>
 <text x="36" y="136" font-size="11" fill="#C9BC96">surface</text>
 <text x="36" y="152" font-size="10" fill="#96886B">#12100C</text>
@@ -26,7 +26,7 @@
 <text x="750" y="136" font-size="11" fill="#C9BC96">moss</text>
 <text x="750" y="152" font-size="10" fill="#96886B">#52703F</text>
 <rect x="20" y="188" width="880" height="168" rx="14" fill="#E2D6B4" stroke="#C7B68C"/>
-<text x="36" y="230" font-size="15" fill="#1F1810">和紙 washi<tspan fill="#62533B"> · light</tspan></text>
+<text x="36" y="230" font-size="15" fill="#1F1810">washi<tspan fill="#62533B"> · light</tspan></text>
 <rect x="36" y="246" width="94" height="52" rx="8" fill="#EBE1C3" stroke="#C7B68C"/>
 <text x="36" y="320" font-size="11" fill="#4A3D2A">surface</text>
 <text x="36" y="336" font-size="10" fill="#62533B">#EBE1C3</text>

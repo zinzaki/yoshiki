@@ -3,7 +3,7 @@
  * A theme overrides tokens only; every role follows through var(). */
 :root, [data-theme="kogane"]{
   color-scheme: dark;
-  /* tokens — Kogane 黄金 */
+  /* tokens — Kogane */
   --ink-0: #0B0A08;
   --ink-1: #12100C;
   --ink-2: #1B1813;
@@ -89,7 +89,7 @@
 }
 [data-theme="washi"]{
   color-scheme: light;
-  /* tokens that change on paper — Washi 和紙 */
+  /* tokens that change on paper — Washi */
   --ink-0: #E2D6B4;
   --ink-1: #EBE1C3;
   --ink-2: #F3EBD5;

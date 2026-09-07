@@ -1,0 +1,28 @@
+name: New theme target
+description: A program that should have a generated yoshiki theme.
+labels: ["target"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        A target costs one `emit` block in `tools/build.py`. The useful part of
+        this issue is the file format — what the program actually reads.
+  - type: input
+    id: program
+    attributes:
+      label: Program
+      placeholder: helix
+    validations: {required: true}
+  - type: textarea
+    id: format
+    attributes:
+      label: The config format
+      description: A working example of a theme file for that program, or a link to its docs.
+      render: shell
+    validations: {required: true}
+  - type: dropdown
+    id: island
+    attributes:
+      label: Does it draw inside the terminal?
+      description: Terminal-drawn targets stay a dark island in both themes.
+      options: ["yes — it draws in the terminal", "no — it has its own surfaces", "not sure"]

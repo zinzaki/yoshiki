@@ -42,8 +42,8 @@ The strength of a signal is inversely proportional to how often it fires.
 This is the one rule that everything else serves. 70% darkness, 20% bone,
 7% gold seams, 3% triggers — by meaning, never by taste.
 
-Canonical exception: the hanko seal 印 on a paper artifact is a signature,
-not a signal. It does not count as the bloom.
+One canonical exception: a seal on a paper artifact is a signature, not a
+signal. It does not count as the bloom.
 
 ## Two poles, one hand
 
@@ -61,30 +61,33 @@ undertone of lacquer. Light surfaces are paper (washi) pinned inside the
 dark — and, in the light theme, the dark terminal pinned to the paper.
 Worlds nest; they do not collide.
 
-## Roots — the principles underneath
+## Where the rules come from
 
-The rules above are not invented; they are old. Four Japanese ideas and two
-laws of perception name what the language already does.
+None of this is invented. Four of the rules are old ideas about restraint —
+they have Japanese names in the tradition they come from, and they are stated
+here in plain terms, because a rule you have to translate is a rule you will
+not apply.
 
-- **間 Ma — the active gap.** Empty space is not absence, it is a participant.
-  The pause between things holds as much weight as the things. This is why
-  ~97% of a screen is quiet tone: the silence is doing work.
-- **余白の美 Yohaku-no-bi — the beauty of the empty.** Margin is composition,
-  not leftover. Air is a luxury, deliberately placed — never filled to the edge.
-- **簡素 Kanso — clarity by omission.** Simplicity reached by removing the
-  non-essential, not by adding decoration. If a mark earns nothing, it goes.
-- **渋い Shibui — understated depth.** Beautiful by being exactly what it is,
-  never flashy; simple on the surface, complex underneath. The whole palette
-  is shibui: warm monochrome that rewards a long look.
+- **Empty space is a participant.** The pause between things carries as much
+  weight as the things. This is why roughly 97% of a screen is quiet tone: the
+  silence is doing work, not waiting to be filled.
+- **Margin is composition, not leftover.** Air is placed deliberately, the way
+  a mark is. Nothing is filled to the edge because there was room.
+- **Simplicity is reached by removing.** Not by adding a simpler decoration. If
+  a mark earns nothing, it goes — and the test is whether anything is lost when
+  it does.
+- **Depth without display.** Beautiful by being exactly what it is: plain at a
+  glance, precise underneath, and better the longer it is looked at. The whole
+  palette works this way — a warm monochrome that rewards a long look.
 
-And how the eye actually reads it:
+And two facts about how the eye actually reads a screen:
 
-- **Hierarchy through space, not shouting.** Scale, weight, contrast and —
-  above all — emptiness set the order. A single accent in a field of calm
-  commands attention without force (gestalt: contrast draws the eye).
-- **Proximity groups; rhythm reassures.** Things near each other read as one;
-  consistent spacing builds a mental model the user trusts. Premium is not
-  more — it is restraint, repeated precisely.
+- **Hierarchy comes from space, not volume.** Scale, weight, contrast and above
+  all emptiness set the order. A single accent in a field of calm commands
+  attention without force; three accents command none.
+- **Proximity groups, rhythm reassures.** Things near each other read as one,
+  and consistent spacing builds a model the reader trusts. Premium is not more.
+  It is restraint, repeated precisely.
 
 ## Lineage
 

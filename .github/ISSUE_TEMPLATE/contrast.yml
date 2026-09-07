@@ -1,0 +1,34 @@
+name: Contrast or accessibility problem
+description: A role that is hard to read, or a state that relies on colour alone.
+labels: ["accessibility"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The build measures every text role against every surface it can sit on,
+        so a genuine failure here is either a case the matrix does not cover yet
+        or a place the markup reached for the wrong role. Both are worth fixing.
+  - type: input
+    id: roles
+    attributes:
+      label: Which roles
+      description: The foreground and the background, by name.
+      placeholder: text.muted on bg.hover
+    validations: {required: true}
+  - type: dropdown
+    id: theme
+    attributes:
+      label: Theme
+      options: [kogane (dark), washi (light), both]
+    validations: {required: true}
+  - type: textarea
+    id: where
+    attributes:
+      label: Where you saw it
+      description: A page, a component, a generated theme file, or a screenshot.
+    validations: {required: true}
+  - type: textarea
+    id: measured
+    attributes:
+      label: Measured ratio, if you have it
+      placeholder: "3.9:1 — needs 4.5"

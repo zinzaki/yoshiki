@@ -3,17 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>様式 yoshiki — palette</title>
-<meta name="description" content="Every token and semantic role in the yoshiki design language, with a WCAG matrix proving each role against every surface it can sit on, in both themes.">
-<meta property="og:title" content="様式 yoshiki — palette">
-<meta property="og:description" content="Every token and semantic role in the yoshiki design language, with a WCAG matrix proving each role against every surface it can sit on, in both themes.">
+<title>yoshiki — palette</title>
+<meta name="description" content="Every token and semantic role in yoshiki, with a WCAG matrix proving each role against every surface it can sit on, in both themes.">
+<meta property="og:title" content="yoshiki — palette">
+<meta property="og:description" content="Every token and semantic role in yoshiki, with a WCAG matrix proving each role against every surface it can sit on, in both themes.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://zinzaki.github.io/yoshiki/palette.html">
-<meta property="og:image" content="https://zinzaki.github.io/yoshiki/banner.webp">
+<meta property="og:image" content="https://zinzaki.github.io/yoshiki/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0B0A08">
 <link rel="canonical" href="https://zinzaki.github.io/yoshiki/palette.html">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B0A08'/%3E%3Ctext x='32' y='46' font-size='38' text-anchor='middle' fill='%23D8AF52' font-family='serif'%3E様%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="assets/favicon.svg">
 <script>(function(){var t=null;try{t=localStorage.getItem('yoshiki-theme')}catch(e){}
 if(t!=='washi'&&t!=='kogane')t=matchMedia('(prefers-color-scheme: light)').matches?'washi':'kogane';
 document.documentElement.dataset.theme=t})();</script>
@@ -25,29 +25,29 @@ document.documentElement.dataset.theme=t})();</script>
 <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
-<div id="ambient"></div><div id="grain"></div>
+<div id="ambient"></div><div id="sheen"></div><div id="grain"></div>
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="hdr">
-  <a class="brand" href="index.html"><b>様式</b><span>yoshiki</span></a>
+  <a class="brand" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="26" height="26" role="img" aria-label="yoshiki"><rect width="32" height="32" rx="8" fill="var(--ink-1)"/><text x="16" y="23.4" text-anchor="middle" font-family="'Shippori Mincho','Noto Serif JP','Hiragino Mincho ProN','Yu Mincho',serif" font-size="21" font-weight="700" fill="var(--kin-1)">式</text><rect x=".5" y=".5" width="31" height="31" rx="7.5" fill="none" stroke="var(--line-0)"/></svg><b>yoshiki</b></a>
   <nav class="nav" aria-label="Sections">
     <a href="palette.html">palette</a>
     <a href="components.html">components</a>
     <a href="lexicon.html">lexicon</a>
     <a href="themes.html">themes</a>
   </nav>
+  <button class="kbd-hint" data-cmdk aria-label="Search"><span>Search</span><kbd>⌘K</kbd></button>
   <div class="themesw" role="group" aria-label="Theme">
-    <button data-set-theme="kogane" title="kogane — dark (1)" aria-pressed="true">黄</button>
-    <button data-set-theme="washi" title="washi — light (2)" aria-pressed="false">和</button>
+    <button data-set-theme="kogane" title="kogane — dark (press 1)" aria-pressed="true">Dark</button>
+    <button data-set-theme="washi" title="washi — light (press 2)" aria-pressed="false">Light</button>
   </div>
   <a class="gh" href="https://github.com/zinzaki/yoshiki">github ↗</a>
 </header>
-
 <main id="main">
 <section class="shell phead">
-  <div class="eyebrow"><i>canon</i> palette</div>
+  <div class="idx"><b>canon</b> palette</div>
   <h1>Tokens, roles, and the proof.</h1>
-  <p class="lead">Two layers. <b>Tokens</b> are the raw paint — <code style="color:var(--r-text-gold)">ink-0</code>,
+  <p class="lede">Two layers. <b>Tokens</b> are the raw paint — <code style="color:var(--r-text-gold)">ink-0</code>,
   <code style="color:var(--r-text-gold)">kin-1</code> — and they carry no promise.
   <b>Roles</b> are the contract: reach for <code style="color:var(--r-text-gold)">text.body</code>
   or <code style="color:var(--r-text-gold)">action.edge</code> and the right value arrives in
@@ -60,13 +60,13 @@ document.documentElement.dataset.theme=t})();</script>
   <div id="groups"></div>
 </section>
 
-<section class="sec sec--band">
+<section class="sec sec--plate">
   <div class="shell">
     <div class="cols">
       <div class="c7">
-        <div class="eyebrow"><i>◆</i> the contract</div>
+        <div class="idx"><b>◆</b> the contract</div>
         <h2>Roles — what you actually consume.</h2>
-        <p class="lead">A role resolves to a token, and a theme may remap it. That is the
+        <p class="lede">A role resolves to a token, and a theme may remap it. That is the
         whole mechanism behind the classic trap: gold is readable as an edge but not as a
         word, so the language splits it into
         <code style="color:var(--r-text-gold)">border.gold</code> and
@@ -82,9 +82,9 @@ document.documentElement.dataset.theme=t})();</script>
   <div class="shell">
     <div class="cols">
       <div class="c7">
-        <div class="eyebrow"><i>◆</i> proven, not asserted</div>
+        <div class="idx"><b>◆</b> proven, not asserted</div>
         <h2>Every role, on every surface it can sit on.</h2>
-        <p class="lead">Measuring text against one flattering background is how a palette
+        <p class="lede">Measuring text against one flattering background is how a palette
         hides its failures. This matrix is generated by the build and the build fails on a
         single cell below its floor — including <code style="color:var(--r-text-gold)">bg.hover</code>,
         which on paper is the darkest ground of all.</p>
@@ -93,7 +93,7 @@ document.documentElement.dataset.theme=t})();</script>
     <div id="matrix" style="margin-top:34px"></div>
 
     <div class="sub">check any pair yourself</div>
-    <div class="y-panel">
+    <div class="plate">
       <div class="cols" style="gap:var(--y-4)">
         <div class="c4"><div class="y-field" style="margin:0">
           <label for="fgSel">foreground role</label>
@@ -109,13 +109,68 @@ document.documentElement.dataset.theme=t})();</script>
   </div>
 </section>
 
-<section class="sec sec--band">
+
+<!-- ══ the forge ══════════════════════════════════════════════════ -->
+<section class="sec sec--plate" id="forge">
+  <div class="shell">
+    <div class="cols">
+      <div class="c7 rv">
+        <div class="idx"><b>◆</b> the forge</div>
+        <h2>Move the source. Watch everything follow.</h2>
+        <p class="lede">Two claims run through this repository: that one file decides
+        everything downstream, and that the contrast is proven rather than asserted. Both
+        are easy to write and hard to believe — so take the source apart and watch. The
+        page recolours, the generated files rewrite themselves, and the entire WCAG matrix
+        re-runs on every frame. <b>Push far enough and the proof starts failing</b>, which
+        is exactly what it is for.</p>
+        <p class="cap">The transform runs in OKLab, not HSL. HSL's "lightness" is not
+        lightness — rotating hue in it swings perceived brightness wildly, which would
+        make the contrast readout a lie.</p>
+      </div>
+    </div>
+
+    <div class="cols rv" style="margin-top:36px">
+      <div class="c5">
+        <div class="plate">
+          <div class="y-head">the source</div>
+          <div class="y-field">
+            <label for="forgeHue">hue rotation <span id="forgeHueV" class="forge-v">+0°</span></label>
+            <div class="y-range"><input id="forgeHue" type="range" min="-180" max="180" step="1" value="0" style="--y-p:50%"></div>
+          </div>
+          <div class="y-field">
+            <label for="forgeChroma">saturation <span id="forgeChromaV" class="forge-v">1.00×</span></label>
+            <div class="y-range"><input id="forgeChroma" type="range" min="0" max="2" step="0.01" value="1" style="--y-p:50%"></div>
+          </div>
+          <div class="y-field" style="margin-bottom:var(--y-3)">
+            <label for="forgeSpread">tonal spread <span id="forgeSpreadV" class="forge-v">1.00×</span></label>
+            <div class="y-range"><input id="forgeSpread" type="range" min="0.55" max="1.45" step="0.01" value="1" style="--y-p:50%"></div>
+          </div>
+          <button class="y-btn y-btn--ghost y-btn--sm" id="forgeReset">Back to canon</button>
+          <div class="y-head" style="margin-top:var(--y-6)">the tokens, forged</div>
+          <div id="forgeSwatches" class="tiles" style="grid-template-columns:repeat(5,minmax(0,1fr))"></div>
+        </div>
+      </div>
+      <div class="c7">
+        <div class="plate" id="forgeProofPlate">
+          <div class="y-head">the proof, re-run</div>
+          <div id="forgeProof"></div>
+        </div>
+        <div class="code" style="margin-top:var(--gutter)">
+          <div class="code__tabs" role="tablist" aria-label="Generated file" id="forgeTabs"></div>
+          <button class="y-btn y-btn--ghost y-btn--sm copy" data-copy-from="forgeFile" data-copy-label="copied · forged file">copy</button>
+          <pre id="forgeFile" style="max-height:300px"></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="sec sec--plate">
   <div class="shell">
     <div class="cols">
       <div class="c7">
-        <div class="eyebrow"><i>◆</i> take it</div>
+        <div class="idx"><b>◆</b> take it</div>
         <h2>Export, in the shape your tooling wants.</h2>
-        <p class="lead">The same values, serialised. These are generated in the browser from
+        <p class="lede">The same values, serialised. These are generated in the browser from
         the same data — the canonical files live in
         <code style="color:var(--r-text-gold)">canon/palette/</code> and are regenerated by
         <code style="color:var(--r-text-gold)">tools/build.py</code>.</p>
@@ -133,10 +188,11 @@ document.documentElement.dataset.theme=t})();</script>
 
 <footer class="foot">
   <div class="foot__in">
-    <span style="color:var(--r-text-body)">様式 yoshiki</span>
+    <span style="color:var(--r-text-body)">yoshiki</span>
     <span class="sep">·</span><a href="https://github.com/zinzaki/yoshiki">github</a>
     <span class="sep">·</span><a href="https://github.com/zinzaki/yoshiki/blob/main/PHILOSOPHY.md">philosophy</a>
     <span class="sep">·</span><a href="https://github.com/zinzaki/yoshiki/blob/main/canon/palette/CONTRAST.md">contrast proof</a>
+    <span class="sep">·</span><a href="https://github.com/zinzaki/yoshiki/blob/main/AGENTS.md">for agents</a>
     <span class="sep">·</span><span>MIT</span>
     <span style="margin-left:auto">an open design language · <span data-year></span></span>
   </div>
@@ -145,6 +201,8 @@ document.documentElement.dataset.theme=t})();</script>
 <div id="toast" role="status" aria-live="polite"></div>
 <script src="assets/palette.data.js"></script>
 <script src="assets/site.js"></script>
+<script src="assets/cmdk.js"></script>
 <script src="assets/page-palette.js"></script>
+<script src="assets/forge.js"></script>
 </body>
 </html>

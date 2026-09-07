@@ -1,36 +1,33 @@
 /* ════════════════════════════════════════════════════════════════════
-   page-index.js — the three blocks the index draws from canon
-   facts · the density ratio · the palette at a glance
+   page-index.js — the three blocks the front page draws from canon
+   the running figures · the density band · the palette at a glance
    ════════════════════════════════════════════════════════════════════ */
 (function(){
   'use strict';
   const {Y, onTheme, esc} = window.YS;
   if (!Y.themes) return;
+  const $ = id => document.getElementById(id);
 
-  /* ── facts, counted from the data rather than claimed in prose ── */
-  const kogane = Y.themes[Y.order[0]];
+  /* ── figures, counted from the data rather than claimed in prose ── */
+  const base = Y.themes[Y.order[0]];
   const tokenCount = new Set(Y.order.flatMap(s => Object.keys(Y.themes[s].tokens))).size;
-  const roleCount = Object.keys(kogane.roles).length;
-  const proofCells = Y.order.reduce((n, s) => {
-    const p = Y.themes[s].proof;
-    return n + p.matrix.length * Object.keys(p.surfaces).length
-             + p.edges.length * Object.keys(p.surfaces).length
+  const roleCount = Object.keys(base.roles).length;
+  const checks = Y.order.reduce((n, s) => {
+    const p = Y.themes[s].proof, surfaces = Object.keys(p.surfaces).length;
+    return n + (p.matrix.length + p.edges.length) * surfaces
              + p.syntax.length + p.wash.length + p.ansi.length;
   }, 0);
 
   const FACTS = [
-    ['13', 'program themes', 'kitty to fzf — all generated'],
-    [String(tokenCount), 'raw tokens', 'grouped, each with a stated job'],
-    [String(roleCount), 'semantic roles', 'the contract you actually consume'],
-    [String(proofCells), 'contrast checks', 'run on every build, enforced']
+    ['13', 'generated themes', 'kitty to fzf, from one file'],
+    [String(tokenCount), 'raw tokens', 'each with a stated job'],
+    [String(roleCount), 'semantic roles', 'the contract you consume'],
+    [String(checks), 'contrast checks', 'enforced on every build']
   ];
-  const facts = document.getElementById('facts');
-  if (facts) facts.innerHTML = FACTS.map(([v, label, note]) => `
-    <div class="y-stat">
-      <div class="y-stat__label">${esc(label)}</div>
-      <div class="y-stat__value">${esc(v)}</div>
-      <div class="y-stat__delta">${esc(note)}</div>
-    </div>`).join('');
+  const facts = $('facts');
+  if (facts) facts.innerHTML = FACTS.map(([n, l, d]) =>
+    `<div><div class="n">${esc(n)}</div><div class="l">${esc(l)}</div><div class="d">${esc(d)}</div></div>`
+  ).join('');
 
   /* ── the density budget, drawn in the tokens it describes ── */
   const RATIO = [
@@ -39,44 +36,43 @@
     ['7', 'gold', 'var(--kin-1)'],
     ['3', 'trigger', 'var(--r-danger-fill)']
   ];
-  const ratio = document.getElementById('ratio');
-  if (ratio){
-    /* the labels sit UNDER the bands, on the page ground: a label printed on a
+  const ratio = $('ratio');
+  if (ratio) ratio.innerHTML =
+    `<div style="display:flex;height:64px;border-radius:12px;overflow:hidden;
+          border:1px solid var(--r-border-hairline)">` +
+    RATIO.map(([w, label, bg]) =>
+      `<div style="width:${w}%;background:${bg}" role="img"
+            aria-label="${esc(w)} percent ${esc(label)}"></div>`).join('') +
+    /* the labels sit under the bands, on the page ground: a label printed on a
        band has to fight whatever colour that band happens to be */
-    ratio.innerHTML =
-      `<div style="display:flex;height:56px;border-radius:12px;overflow:hidden;
-            border:1px solid var(--r-border-hairline)">` +
-      RATIO.map(([w, label, bg]) =>
-        `<div style="width:${w}%;background:${bg}" role="img"
-              aria-label="${esc(w)} percent ${esc(label)}"></div>`).join('') +
-      `</div><div style="display:flex;margin-top:9px">` +
-      RATIO.map(([w, label]) =>
-        `<div style="width:${w}%;font-family:var(--y-mono);font-size:11px;
-              color:var(--r-text-muted);white-space:nowrap;overflow:hidden">${esc(w)} · ${esc(label)}</div>`).join('') +
-      `</div>`;
-  }
+    `</div><div style="display:flex;margin-top:10px">` +
+    RATIO.map(([w, label]) =>
+      `<div style="width:${w}%;font-family:var(--y-mono);font-size:11px;
+            color:var(--r-text-muted);white-space:nowrap;overflow:hidden">${esc(w)} · ${esc(label)}</div>`
+    ).join('') + `</div>`;
 
   /* ── the palette at a glance — the group map, live in the current theme ── */
-  const glance = document.getElementById('glance');
+  const glance = $('glance');
   function drawGlance(slug){
     if (!glance) return;
     const tok = Y.themes[slug].tokens;
     glance.innerHTML = Y.groups.map(g => {
       const steps = g.steps.filter(s => tok[s.token]);
       if (!steps.length) return '';
-      const chips = steps.map(s => `
-        <button class="swatch" data-copy="${esc(tok[s.token])}" style="flex:1;min-width:0"
-                title="${esc(s.token)} — ${esc(s.job)}">
-          <span class="swatch__chip" style="background:${esc(tok[s.token])};height:44px"></span>
-          <span class="swatch__v" style="margin-top:7px">${esc(s.token)}</span>
-        </button>`).join('');
       return `
         <div class="glance-row">
           <div>
             <div style="font-family:var(--y-mono);font-size:13px;color:var(--r-text-body)">${esc(g.label)}</div>
-            <div style="font-size:11.5px;color:var(--r-text-muted);line-height:1.6;margin-top:4px">${esc(g.note)}</div>
+            <div style="font-size:11.5px;color:var(--r-text-muted);line-height:1.6;margin-top:5px">${esc(g.note)}</div>
           </div>
-          <div style="display:flex;gap:6px;min-width:0">${chips}</div>
+          <div style="display:flex;gap:6px;min-width:0">
+            ${steps.map(s => `
+              <button class="swatch" data-copy="${esc(tok[s.token])}" style="flex:1;min-width:0"
+                      title="${esc(s.token)} — ${esc(s.job)}">
+                <span class="swatch__chip" style="background:${esc(tok[s.token])};height:44px"></span>
+                <span class="swatch__v" style="margin-top:7px">${esc(s.token)}</span>
+              </button>`).join('')}
+          </div>
         </div>`;
     }).join('');
   }
@@ -107,12 +103,11 @@
     ['image-prompts', 'recipes for generating images in the language'],
     ['github', 'a README and profile wearing it']
   ];
-  const mapCard = base => ([name, note]) => `
-    <a class="y-card y-card--link" href="${REPO}${base}/${name}">
+  const card = base_ => ([name, note]) => `
+    <a class="plate" href="${REPO}${base_}/${name}" style="padding:var(--y-4);display:block">
       <div style="font-family:var(--y-mono);font-size:13px;color:var(--r-text-heading)">${esc(name)}</div>
-      <div class="y-hint" style="margin-top:7px;line-height:1.6">${esc(note)}</div>
+      <div style="font-size:11.5px;color:var(--r-text-muted);line-height:1.6;margin-top:7px">${esc(note)}</div>
     </a>`;
-  const canonEl = document.getElementById('mapCanon'), libEl = document.getElementById('mapLib');
-  if (canonEl) canonEl.innerHTML = CANON.map(mapCard('canon')).join('');
-  if (libEl) libEl.innerHTML = LIB.map(mapCard('library')).join('');
+  if ($('mapCanon')) $('mapCanon').innerHTML = CANON.map(card('canon')).join('');
+  if ($('mapLib')) $('mapLib').innerHTML = LIB.map(card('library')).join('');
 })();

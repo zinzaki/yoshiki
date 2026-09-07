@@ -21,10 +21,10 @@
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: light)" srcset="docs/banner-washi.png">
-    <img alt="様式 yoshiki" src="docs/banner.png" width="900">
+    <img alt="yoshiki" src="docs/banner.svg" width="900">
   </picture>
 </p>
-<h1 align="center">様式&nbsp; Y O S H I K I</h1>
+<h1 align="center">Y O S H I K I</h1>
 <p align="center"><i>warm monochrome, struck rarely by color</i></p>
 ```
 
@@ -32,7 +32,7 @@
 Use `style=flat` (calm), never `for-the-badge` walls. Gold on lacquer is the
 default; spend scarlet once.
 ```
-![](https://img.shields.io/badge/様式-yoshiki-D8AF52?style=flat&labelColor=0B0A08)
+![](https://img.shields.io/badge/yoshiki-D8AF52?style=flat&labelColor=0B0A08)
 ![](https://img.shields.io/badge/theme-kogane_·_washi-D8AF52?style=flat&labelColor=0B0A08)
 ![](https://img.shields.io/badge/license-MIT-52703F?style=flat&labelColor=0B0A08)
 ![](https://img.shields.io/badge/status-active-d8392e?style=flat&labelColor=0B0A08)

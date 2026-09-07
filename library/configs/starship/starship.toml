@@ -8,7 +8,7 @@ palette = "yoshiki-kogane"
 add_newline = true
 
 format = """
-[╭─ ](golddim)[心](gold)[ ─ ](golddim)\
+[╭─ ](golddim)[◆](gold)[ ─ ](golddim)\
 $directory$git_branch$git_status$python$rust$nodejs$cmd_duration$status\
 $line_break[╰─ ](golddim)$character"""
 
