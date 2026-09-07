@@ -21,6 +21,7 @@ that column is the real test. Gilding is measured at the 3:1 non-text floor
 | `text.ghost` | 3.74 | 3.59 | 3.34 | 3.02 | 3.0 |
 | `text.gold` | 9.59 | 9.21 | 8.57 | 7.74 | 4.5 |
 | `text.link` | 9.59 | 9.21 | 8.57 | 7.74 | 4.5 |
+| `text.gold-dim` | 5.64 | 5.41 | 5.04 | 4.55 | 4.5 |
 | `action.text` | 9.59 | 9.21 | 8.57 | 7.74 | 4.5 |
 | `ok.text` | 7.82 | 7.51 | 6.99 | 6.32 | 4.5 |
 | `warn.text` | 6.15 | 5.9 | 5.5 | 4.96 | 4.5 |
@@ -78,6 +79,7 @@ that column is the real test. Gilding is measured at the 3:1 non-text floor
 | `text.ghost` | 3.42 | 3.79 | 4.16 | 3.01 | 3.0 |
 | `text.gold` | 5.11 | 5.67 | 6.22 | 4.5 | 4.5 |
 | `text.link` | 5.11 | 5.67 | 6.22 | 4.5 | 4.5 |
+| `text.gold-dim` | 5.11 | 5.67 | 6.22 | 4.5 | 4.5 |
 | `action.text` | 5.11 | 5.67 | 6.22 | 4.5 | 4.5 |
 | `ok.text` | 5.12 | 5.68 | 6.23 | 4.51 | 4.5 |
 | `warn.text` | 5.15 | 5.71 | 6.26 | 4.53 | 4.5 |

@@ -115,6 +115,7 @@ yoshiki/
 python3 tools/build.py          # regenerate themes, token exports, contrast proof
 python3 tools/build.py --check  # verify committed output matches canon (runs in CI)
 python3 tools/check.py          # links resolve, the showcase carries no palette of its own
+node tools/audit.mjs            # optional: sweep the rendered pages for real contrast
 ```
 
 Requires Python 3 and PyYAML. Everything under `library/themes/`, the palette

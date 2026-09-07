@@ -46,7 +46,10 @@
 
   /* ── the terminal: one session, drawn in the theme's own ANSI ── */
   function drawTerminal(slug){
-    const t = Y.themes[slug], term = t.terminal, a = term.ansi, br = term.brights;
+    /* the terminal is a dark island in BOTH themes, so its chrome takes the
+       dark theme's tokens whatever the page is wearing — reading them from the
+       current theme is how a light-theme preview ends up with ink on ink */
+    const t = Y.themes[Y.order[0]], term = Y.themes[slug].terminal, a = term.ansi, br = term.brights;
     const S = (c, s) => `<span style="color:${c}">${s}</span>`;
     const line = [
       S(br[3], '╭─ ◆ ─') + ' ' + S(term.foreground, 'deploy') + ' ' + S(br[3], '─  main') + ' ' +
@@ -54,12 +57,12 @@
       S(br[3], '╰─ ❯ ') + S(term.foreground, 'cargo test --release'),
       '',
       S(a[2], '   Compiling') + ' ' + S(br[7], 'yoshiki v1.2.0'),
-      S(a[2], '✓ ') + S(term.foreground, 'palette') + '    ' + S(a[3], '41 tokens') + ' ' + S(br[0], '· 34 roles'),
-      S(a[2], '✓ ') + S(term.foreground, 'contrast') + '   ' + S(br[0], '172 checks, every floor met'),
-      S(br[3], '● ') + S(term.foreground, 'themes') + '     ' + S(br[0], 'baking 13 targets ') + S(br[3], '⠹'),
-      S(a[1], '✗ ') + S(term.foreground, 'publish') + '    ' + S(br[0], 'blocked · needs --confirm'),
+      S(a[2], '✓ ') + S(term.foreground, 'palette') + '    ' + S(a[3], '42 tokens') + ' ' + S(t.tokens['bone-3'], '· 35 roles'),
+      S(a[2], '✓ ') + S(term.foreground, 'contrast') + '   ' + S(t.tokens['bone-3'], '181 checks, every floor met'),
+      S(br[3], '● ') + S(term.foreground, 'themes') + '     ' + S(t.tokens['bone-3'], 'baking 13 targets ') + S(br[3], '⠹'),
+      S(a[1], '✗ ') + S(term.foreground, 'publish') + '    ' + S(t.tokens['bone-3'], 'blocked · needs --confirm'),
       '',
-      S(a[4], 'note') + S(br[0], ': blue, wisteria and celadon live only here')
+      S(a[4], 'note') + S(t.tokens['bone-3'], ': blue, wisteria and celadon live only here')
     ].join('\n');
     $('termDemo').innerHTML =
       `<div style="background:${term.background};border:1px solid ${t.tokens['line-0']};
@@ -75,13 +78,14 @@
               white-space:pre-wrap;color:${term.foreground}">${line}</pre>
        </div>`;
 
+    const ansiName = ['black','red','green','yellow','blue','magenta','cyan','white'];
     $('ansiGrid').innerHTML =
-      `<div style="display:grid;grid-template-columns:repeat(8,1fr);gap:5px">` +
+      `<div style="display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:5px">` +
       a.concat(br).map((c, i) => `
-        <button data-copy="${c}" title="${i < 8 ? 'ansi' : 'bright'} ${i % 8}"
-          style="height:34px;border-radius:7px;border:1px solid ${t.tokens['line-0']};background:${c};
-                 cursor:pointer;font-family:var(--y-mono);font-size:10px;
-                 color:${lum(c) < .3 ? t.tokens['bone-0'] : t.tokens['ink-0']}">${i.toString(16).toUpperCase()}</button>`).join('') +
+        <button class="swatch" data-copy="${c}" title="${i < 8 ? 'ansi' : 'bright'} ${esc(ansiName[i % 8])}">
+          <span class="swatch__chip" style="background:${c};height:30px;border-radius:7px"></span>
+          <span class="swatch__v" style="margin-top:5px;text-align:center">${i.toString(16).toUpperCase()}</span>
+        </button>`).join('') +
       `</div>`;
 
     $('termMeta').innerHTML = `<dl class="y-kv">
@@ -99,7 +103,7 @@
     const t = Y.themes[slug], r = t.roles, tok = t.tokens;
     const S = (c, s) => `<span style="color:${c}">${s}</span>`;
     const code = [
-      S(r['syntax.comment'], '// a role resolves to a token — the theme decides which'),
+      `<span data-floor="3" style="color:${r['syntax.comment']}">// a role resolves to a token — the theme decides which</span>`,
       S(r['syntax.keyword'], 'pub fn ') + S(r['text.heading'], 'resolve') +
         S(tok['bone-3'], '(') + S(tok['bone-2'], 'role') + S(tok['bone-3'], ': ') +
         S(r['syntax.type'], '&str') + S(tok['bone-3'], ') -> ') + S(r['syntax.type'], 'Token') + S(tok['bone-3'], ' {'),
@@ -121,7 +125,7 @@
          <div style="display:flex;gap:2px;padding:8px 8px 0;background:${r['bg.surface']}">
            <span style="font-family:var(--y-mono);font-size:11px;padding:7px 12px;border-radius:8px 8px 0 0;
                  background:${r['bg.app']};color:${r['text.heading']};border-top:2px solid ${r['border.gold']}">palette.rs</span>
-           <span style="font-family:var(--y-mono);font-size:11px;padding:7px 12px;color:${r['text.ghost']}">build.py</span>
+           <span style="font-family:var(--y-mono);font-size:11px;padding:7px 12px;color:${r['text.muted']}">build.py</span>
          </div>
          <pre style="margin:0;padding:18px;font-family:var(--y-mono);font-size:12.5px;line-height:1.9;
               white-space:pre-wrap">${code}</pre>
@@ -137,8 +141,14 @@
 
   /* ── the strips: prompt, panes, picker, gauges, scheme ── */
   function drawRest(slug){
-    const t = Y.themes[slug], tok = t.tokens, r = t.roles, term = t.terminal;
+    const t = Y.themes[slug], r = t.roles, term = t.terminal;
+    const tok = Y.themes[Y.order[0]].tokens;   // the island, again
     const S = (c, s) => `<span style="color:${c}">${s}</span>`;
+    /* a gauge bar is a graphic: canon gives it the 3:1 non-text floor.
+       A hairline rule carries no floor at all — it divides, it does not
+       identify a control. Both say which they are, where they are used. */
+    const G = (c, s) => `<span data-floor="3" style="color:${c}">${s}</span>`;
+    const HAIR = (c, s) => `<span data-floor="1" style="color:${c}">${s}</span>`;
     const island = body => `<pre style="margin:0;padding:14px 16px;background:${term.background};
         border:1px solid ${tok['line-0']};border-radius:var(--y-r-control);
         font-family:var(--y-mono);font-size:12px;line-height:1.85;white-space:pre-wrap;overflow-x:auto">${body}</pre>`;
@@ -150,23 +160,23 @@
         S(tok['seiji-1'], 'py 3.12') + S(tok['kin-1'], ' ─ ') + S(tok['kaki-1'], '2.4s') + '\n' +
         S(tok['kin-1'], '╰─ ❯ ')),
       tmux: island(
-        S(tok['kin-1'], ' ◆ yoshiki ') + S(tok['bone-0'], ' 1:build* ') + S(tok['bone-4'], ' 2:test  3:docs ') +
+        S(tok['kin-1'], ' ◆ yoshiki ') + S(tok['bone-0'], ' 1:build* ') + S(tok['bone-3'], ' 2:test  3:docs ') +
         S(tok['bone-3'], '                    ') + S(tok['kin-2'], ' 14:02 · 誠 ')),
       zellij: island(
-        S(tok['bone-0'], ' NORMAL ') + S(tok['kin-0'], '│ Tab #1 ') + S(tok['bone-4'], '│ Tab #2 ') +
-        S(tok['bone-3'], '                 ') + S(tok['mori-0'], '✓ 0') + S(tok['bone-4'], ' · ') +
+        S(tok['bone-0'], ' NORMAL ') + S(tok['kin-0'], '│ Tab #1 ') + S(tok['bone-3'], '│ Tab #2 ') +
+        S(tok['bone-3'], '                 ') + S(tok['mori-0'], '✓ 0') + S(tok['bone-3'], ' · ') +
         S(tok['kaki-1'], '⚠ 1') + '\n' +
-        S(tok['bone-4'], ' <g> go to · <n> new pane · <q> quit')),
+        S(tok['bone-3'], ' &lt;g&gt; go to · &lt;n&gt; new pane · &lt;q&gt; quit')),
       fzf: island(
         S(tok['kin-1'], '❯ ') + S(tok['bone-1'], 'pal') + '\n' +
-        S(tok['bone-3'], '  3/41 ') + S(tok['bone-4'], '───────────────────') + '\n' +
+        S(tok['bone-3'], '  3/41 ') + HAIR(tok['line-1'], '───────────────────') + '\n' +
         S(tok['kin-0'], '▌ ') + S(tok['bone-0'], 'canon/') + S(tok['kin-1'], 'pal') + S(tok['bone-0'], 'ette/kogane') + '\n' +
-        S(tok['bone-4'], '  ') + S(tok['bone-2'], 'canon/') + S(tok['kin-1'], 'pal') + S(tok['bone-2'], 'ette/washi') + '\n' +
-        S(tok['bone-4'], '  ') + S(tok['bone-2'], 'library/web/') + S(tok['kin-1'], 'pal') + S(tok['bone-2'], 'ette.css')),
+        S(tok['bone-3'], '  ') + S(tok['bone-2'], 'canon/') + S(tok['kin-1'], 'pal') + S(tok['bone-2'], 'ette/washi') + '\n' +
+        S(tok['bone-3'], '  ') + S(tok['bone-2'], 'library/web/') + S(tok['kin-1'], 'pal') + S(tok['bone-2'], 'ette.css')),
       btop: island(
-        S(tok['bone-3'], 'cpu  ') + S(tok['mori-1'], '▁▂▃') + S(tok['kin-2'], '▄▅▆') + S(tok['kin-0'], '▇█') + S(tok['bone-2'], '  42%') + '\n' +
-        S(tok['bone-3'], 'mem  ') + S(tok['seiji-1'], '▁▂▃▄') + S(tok['hotaru-1'], '▅▆') + S(tok['fuji-1'], '▇') + S(tok['bone-2'], '   61%') + '\n' +
-        S(tok['bone-3'], 'temp ') + S(tok['mori-1'], '▁▂▃▄') + S(tok['kaki-1'], '▅▆') + S(tok['aka-1'], '▇█') + S(tok['bone-2'], '  71°'))
+        S(tok['bone-3'], 'cpu  ') + G(tok['mori-1'], '▁▂▃') + G(tok['kin-2'], '▄▅▆') + G(tok['kin-0'], '▇█') + S(tok['bone-2'], '  42%') + '\n' +
+        S(tok['bone-3'], 'mem  ') + G(tok['seiji-1'], '▁▂▃▄') + G(tok['hotaru-1'], '▅▆') + G(tok['fuji-1'], '▇') + S(tok['bone-2'], '   61%') + '\n' +
+        S(tok['bone-3'], 'temp ') + G(tok['mori-1'], '▁▂▃▄') + G(tok['kaki-1'], '▅▆') + G(tok['aka-1'], '▇█') + S(tok['bone-2'], '  71°'))
     };
 
     const b24 = `<div style="display:grid;grid-template-columns:repeat(12,1fr);gap:4px">` +

@@ -47,13 +47,13 @@
         const level = Math.max(0, Math.min(7, Math.round((pct / 100 * cells - i) * 7)));
         out += MATRIX[pct / 100 * cells > i + 1 ? 7 : level];
       }
-      mx.innerHTML = `<span style="color:var(--r-action-edge)">${out}</span>` +
+      mx.innerHTML = `<span style="color:var(--r-text-gold)">${out}</span>` +
                      `<span style="color:var(--r-text-muted);font-size:12px"> ${Math.round(pct)}%</span>`;
     }
     if (tp){
       const full = Math.round(pct / 10);
-      tp.innerHTML = `<span style="color:var(--r-action-edge)">${'▰'.repeat(full)}</span>` +
-                     `<span style="color:var(--r-border-strong)">${'▱'.repeat(10 - full)}</span>` +
+      tp.innerHTML = `<span style="color:var(--r-text-gold)">${'▰'.repeat(full)}</span>` +
+                     `<span data-floor="3" style="color:var(--r-text-ghost)">${'▱'.repeat(10 - full)}</span>` +
                      `<span style="color:var(--r-text-muted)"> ${Math.round(pct)}%</span>`;
     }
   }

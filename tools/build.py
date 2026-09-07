@@ -550,14 +550,18 @@ def emit_site_palette(resolved: dict):
     out.append("}")
 
     diff = {k: val for k, val in var["tokens"].items() if base["tokens"].get(k) != val}
-    remap = {r: spec for r, spec in var["roles"].items() if base["roles"].get(r) != spec}
     out += [f'[data-theme="{var["meta"]["slug"]}"]{{',
             f"  color-scheme: {var['meta']['mode']};",
             f"  /* tokens that change on paper — {var['meta']['name']} {var['meta']['kanji']} */"]
     out += [f"  --{k}: {val};" for k, val in diff.items()]
-    if remap:
-        out.append("  /* roles that remap on paper (gold sinks to stay text-safe) */")
-        out += [f"  --r-{r.replace('.', '-')}: {role_var(spec)};" for r, spec in remap.items()]
+    # Every role is repeated here, not just the ones washi remaps. A custom
+    # property is substituted where it is DECLARED, so a child inherits the
+    # value the parent already resolved: an element carrying data-theme="washi"
+    # inside a kogane page would take paper tokens and the dark theme's
+    # already-computed roles. Re-declaring the whole contract is what makes a
+    # nested scope — two themes shown side by side — actually work.
+    out.append("  /* the whole contract again, so a nested scope resolves it here */")
+    out += [f"  --r-{r.replace('.', '-')}: {role_var(spec)};" for r, spec in var["roles"].items()]
     out.append("}")
     css = "\n".join(out) + "\n"
     # the shipped artifact, and the copy the site is served from (docs/ is the
@@ -721,7 +725,7 @@ SURFACES = ["bg.app", "bg.surface", "bg.raised", "bg.hover"]
 TEXT_ROLES = [
     ("text.heading", 4.5), ("text.body", 4.5), ("text.secondary", 4.5),
     ("text.muted", 4.5), ("text.ghost", 3.0), ("text.gold", 4.5),
-    ("text.link", 4.5), ("action.text", 4.5), ("ok.text", 4.5),
+    ("text.link", 4.5), ("text.gold-dim", 4.5), ("action.text", 4.5), ("ok.text", 4.5),
     ("warn.text", 4.5), ("danger.text", 4.5), ("info.text", 4.5),
     ("special.text", 4.5),
 ]

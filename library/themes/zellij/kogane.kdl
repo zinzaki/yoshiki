@@ -82,7 +82,7 @@ themes {
             emphasis_3 156 127 176
         }
         frame_selected {
-            base 143 113 60
+            base 165 132 68
             background 11 10 8
             emphasis_0 198 127 69
             emphasis_1 111 160 142
@@ -122,7 +122,7 @@ themes {
             player_6 143 172 111
             player_7 214 104 93
             player_8 201 188 150
-            player_9 143 113 60
+            player_9 165 132 68
             player_10 155 99 95
         }
     }

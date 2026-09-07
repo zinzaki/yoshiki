@@ -143,7 +143,9 @@ main{ padding-top:70px }
 /* syntax tint for the sample listings — role colours only */
 .sy-k{ color:var(--r-syntax-keyword) } .sy-s{ color:var(--r-syntax-string) }
 .sy-n{ color:var(--r-syntax-number) } .sy-t{ color:var(--r-syntax-type) }
-.sy-c{ color:var(--r-syntax-comment); font-style:italic } .sy-v{ color:var(--r-text-body) }
+/* a comment on a documentation page is prose a reader reads, not a comment
+   receding inside an editor — it takes the muted text role, not syntax.comment */
+.sy-c{ color:var(--r-text-muted); font-style:italic } .sy-v{ color:var(--r-text-body) }
 .sy-f{ color:var(--r-text-heading) } .sy-p{ color:var(--r-text-muted) }
 .sy-o{ color:var(--r-syntax-constant) }
 
@@ -174,7 +176,7 @@ main{ padding-top:70px }
            display:flex; flex-wrap:wrap; gap:var(--y-4) var(--y-6); align-items:baseline;
            font-family:var(--y-mono); font-size:11.5px; color:var(--r-text-muted) }
 .foot__in a{ color:var(--r-text-gold) }
-.foot__in .sep{ color:var(--r-border-strong) }
+.foot__in .sep{ color:var(--r-text-muted) }
 
 /* ── toast host ───────────────────────────────────────────────────── */
 #toast{ position:fixed; left:50%; bottom:26px; z-index:90;

@@ -12,8 +12,11 @@
   /* ── theme ── the head restores it before first paint; this only switches ── */
   const listeners = [];
   function announce(next){
+    /* the control uses data-set-theme, not data-theme: palette.css styles
+       [data-theme="kogane"] so any element carrying that attribute takes the
+       whole dark token set — including, once, these very buttons */
     document.querySelectorAll('.themesw button').forEach(b =>
-      b.setAttribute('aria-pressed', String(b.dataset.theme === next)));
+      b.setAttribute('aria-pressed', String(b.dataset.setTheme === next)));
     listeners.forEach(fn => { try { fn(next); } catch(err){ console.error(err); } });
   }
   function theme(next){
@@ -32,8 +35,8 @@
     if (!stored) root.dataset.theme = e.matches ? 'washi' : 'kogane';
   });
   document.querySelectorAll('.themesw button').forEach(b => {
-    b.setAttribute('aria-pressed', String(b.dataset.theme === root.dataset.theme));
-    b.addEventListener('click', () => theme(b.dataset.theme));
+    b.setAttribute('aria-pressed', String(b.dataset.setTheme === root.dataset.theme));
+    b.addEventListener('click', () => theme(b.dataset.setTheme));
   });
   addEventListener('keydown', e => {
     if (e.target.closest('input,textarea,select')) return;
