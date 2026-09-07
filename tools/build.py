@@ -601,6 +601,36 @@ def emit_site_data(resolved: dict, proof: dict):
       "window.YOSHIKI = " + body + ";\n")
 
 
+PROMPT_START = "# ── tokens, generated from canon/palette/kogane/palette.yml ──"
+PROMPT_END = "# ── end tokens ──"
+
+
+def emit_palette_prompt(pal: dict):
+    """canon/prompts/palette.md ships the tokens inline, so a model can be given
+    the palette in one paste. A hand-copied token block is a hand-copied token
+    block: it went stale the first time a value moved. The build owns it now."""
+    import textwrap
+    tok = pal["tokens"]
+    lines = [PROMPT_START]
+    for g in pal["groups"]:
+        steps = [s for s in g["steps"] if s["token"] in tok]
+        if not steps:
+            continue
+        body = " · ".join(f"{s['token']} {tok[s['token']]} ({s['job']})" for s in steps)
+        head = g["label"].upper()
+        wrapped = textwrap.wrap(body, width=74 - len(head) - 2,
+                                subsequent_indent="  ", break_long_words=False)
+        lines.append(f"{head}  {wrapped[0]}")
+        lines += wrapped[1:]
+    lines.append(PROMPT_END)
+    block = "\n".join(lines)
+
+    f = ROOT / "canon" / "prompts" / "palette.md"
+    cur = f.read_text()
+    a, b = cur.index(PROMPT_START), cur.index(PROMPT_END) + len(PROMPT_END)
+    w(f, cur[:a] + block + cur[b:])
+
+
 def mirror_kit():
     """docs/ is the Pages root and cannot reach into library/, so the site is
     served a copy of the shipped kit. Copying it here — instead of by hand —
@@ -862,6 +892,7 @@ def main():
     emit_site_palette(resolved)
     emit_site_data(resolved, proofs)
     mirror_kit()
+    emit_palette_prompt(resolved["kogane"])
 
     if CHECK:
         for f in drift:
