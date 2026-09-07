@@ -40,9 +40,21 @@
     ['3', 'trigger', 'var(--r-danger-fill)']
   ];
   const ratio = document.getElementById('ratio');
-  if (ratio) ratio.innerHTML = RATIO.map(([w, label, bg]) =>
-    `<div style="width:${w}%;background:${bg}" role="img" aria-label="${esc(w)} percent ${esc(label)}"></div>`
-  ).join('');
+  if (ratio){
+    /* the labels sit UNDER the bands, on the page ground: a label printed on a
+       band has to fight whatever colour that band happens to be */
+    ratio.innerHTML =
+      `<div style="display:flex;height:56px;border-radius:12px;overflow:hidden;
+            border:1px solid var(--r-border-hairline)">` +
+      RATIO.map(([w, label, bg]) =>
+        `<div style="width:${w}%;background:${bg}" role="img"
+              aria-label="${esc(w)} percent ${esc(label)}"></div>`).join('') +
+      `</div><div style="display:flex;margin-top:9px">` +
+      RATIO.map(([w, label]) =>
+        `<div style="width:${w}%;font-family:var(--y-mono);font-size:11px;
+              color:var(--r-text-muted);white-space:nowrap;overflow:hidden">${esc(w)} · ${esc(label)}</div>`).join('') +
+      `</div>`;
+  }
 
   /* ── the palette at a glance — the group map, live in the current theme ── */
   const glance = document.getElementById('glance');
