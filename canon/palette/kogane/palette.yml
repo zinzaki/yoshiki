@@ -23,7 +23,7 @@ tokens:
   bone-4: "#776A51"   # ghost / disabled
   kin-0:  "#EDC85C"   # gold glow — hover
   kin-1:  "#D8AF52"   # GOLD — action, links, cursor (true gold-leaf)
-  kin-2:  "#8F713C"   # dim gold — labels, glyphs
+  kin-2:  "#A58444"   # dim gold — labels, glyphs (text-safe: its job is words)
   kin-3:  "#57441F"   # deep gold
   kin-w:  "#3F3112"   # gold wash — fills
   kaki-1: "#C67F45"   # persimmon — warning, lamp
@@ -177,6 +177,7 @@ roles:
   text.muted:        bone-3
   text.ghost:        bone-4
   text.gold:         kin-1     # text-safe gold (washi overrides to kin-t)
+  text.gold-dim:     kin-2     # the quieter gold — labels, status-right, glyph rows
   text.link:         kin-1
   # action — a gilded frame, never a gold slab
   action.edge:       kin-1

@@ -266,7 +266,8 @@
   .y-opt input:focus-visible + .y-box{ outline:2px solid var(--r-focus-ring); outline-offset:2px }
   .y-opt input[disabled] ~ *{ color: var(--r-text-ghost) }
 
-  /* switch — only when the change applies itself */
+  /* switch — only when the change applies itself. It carries no text, so give
+     it a name: wrap it in a <label>, or set aria-label. */
   .y-switch{
     width:44px; height:24px; flex:none; padding:0; cursor:pointer; position:relative;
     background: var(--r-bg-hover);
@@ -506,5 +507,7 @@
   .y-term .w{ color: var(--kaki-1) }
   .y-term .c{ color: var(--seiji-1) }
   .y-term .b{ color: var(--bone-0) }
-  .y-term .d{ color: var(--bone-4) }
+  /* dim, not ghost: a terminal's trailing detail is still information,
+     and bone-4 does not clear the text floor even on the island */
+  .y-term .d{ color: var(--bone-3) }
 }

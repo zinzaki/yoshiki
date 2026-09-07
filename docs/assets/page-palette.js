@@ -77,7 +77,7 @@
                   data-copy-label="copied · CSS variable"><code>${esc(n)}</code></button></td>
               <td style="font-family:var(--y-mono);font-size:12px">${esc(tokName)}</td>
               <td style="font-family:var(--y-mono);font-size:12px">${esc(val)}</td>
-              <td style="font-size:12px">${remap ? '<span style="color:var(--r-text-gold)">◆ yes — ' + esc(other.roleTokens[n]) + '</span>' : '<span style="color:var(--r-text-ghost)">—</span>'}</td>
+              <td style="font-size:12px">${remap ? '<span style="color:var(--r-text-gold)">◆ yes — ' + esc(other.roleTokens[n]) + '</span>' : '<span style="color:var(--r-text-muted)">—</span>'}</td>
             </tr>`;
           }).join('')}</tbody>
         </table></div>

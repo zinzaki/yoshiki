@@ -247,6 +247,10 @@
       "$value": "{color.kin.t}",
       "$type": "color"
     },
+    "text-gold-dim": {
+      "$value": "{color.kin.2}",
+      "$type": "color"
+    },
     "text-link": {
       "$value": "{color.kin.t}",
       "$type": "color"

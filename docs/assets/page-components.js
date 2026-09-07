@@ -60,7 +60,7 @@
 <label class="y-opt"><input type="radio" name="d-dens"><span class="y-box y-box--radio"></span> compact</label>`],
     ['switch · range', 'A switch only when the change applies itself. A slider without a number is a guess.',
 `<div class="y-actions">
-  <button class="y-switch" role="switch" aria-checked="true"></button>
+  <button class="y-switch" role="switch" aria-checked="true" aria-label="grain overlay"></button>
   <span class="y-hint">applies immediately</span>
 </div>
 <div class="y-range" style="margin-top:16px">

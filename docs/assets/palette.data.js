@@ -282,7 +282,7 @@ window.YOSHIKI = {
     "bone-4": "#776A51",
     "kin-0": "#EDC85C",
     "kin-1": "#D8AF52",
-    "kin-2": "#8F713C",
+    "kin-2": "#A58444",
     "kin-3": "#57441F",
     "kin-w": "#3F3112",
     "kaki-1": "#C67F45",
@@ -325,6 +325,7 @@ window.YOSHIKI = {
     "text.muted": "#96886B",
     "text.ghost": "#776A51",
     "text.gold": "#D8AF52",
+    "text.gold-dim": "#A58444",
     "text.link": "#D8AF52",
     "action.edge": "#D8AF52",
     "action.text": "#D8AF52",
@@ -364,6 +365,7 @@ window.YOSHIKI = {
     "text.muted": "bone-3",
     "text.ghost": "bone-4",
     "text.gold": "kin-1",
+    "text.gold-dim": "kin-2",
     "text.link": "kin-1",
     "action.edge": "kin-1",
     "action.text": "kin-1",
@@ -633,6 +635,33 @@ window.YOSHIKI = {
        },
        "bg.hover": {
         "ratio": 7.74,
+        "floor": 4.5,
+        "pass": true
+       }
+      }
+     },
+     {
+      "role": "text.gold-dim",
+      "hex": "#A58444",
+      "floor": 4.5,
+      "cells": {
+       "bg.app": {
+        "ratio": 5.64,
+        "floor": 4.5,
+        "pass": true
+       },
+       "bg.surface": {
+        "ratio": 5.41,
+        "floor": 4.5,
+        "pass": true
+       },
+       "bg.raised": {
+        "ratio": 5.04,
+        "floor": 4.5,
+        "pass": true
+       },
+       "bg.hover": {
+        "ratio": 4.55,
         "floor": 4.5,
         "pass": true
        }
@@ -1171,6 +1200,7 @@ window.YOSHIKI = {
     "text.muted": "#62533B",
     "text.ghost": "#7F6E50",
     "text.gold": "#695228",
+    "text.gold-dim": "#695228",
     "text.link": "#695228",
     "action.edge": "#8A6B39",
     "action.text": "#695228",
@@ -1210,6 +1240,7 @@ window.YOSHIKI = {
     "text.muted": "bone-3",
     "text.ghost": "bone-4",
     "text.gold": "kin-t",
+    "text.gold-dim": "kin-2",
     "text.link": "kin-t",
     "action.edge": "kin-1",
     "action.text": "kin-t",
@@ -1459,6 +1490,33 @@ window.YOSHIKI = {
      },
      {
       "role": "text.link",
+      "hex": "#695228",
+      "floor": 4.5,
+      "cells": {
+       "bg.app": {
+        "ratio": 5.11,
+        "floor": 4.5,
+        "pass": true
+       },
+       "bg.surface": {
+        "ratio": 5.67,
+        "floor": 4.5,
+        "pass": true
+       },
+       "bg.raised": {
+        "ratio": 6.22,
+        "floor": 4.5,
+        "pass": true
+       },
+       "bg.hover": {
+        "ratio": 4.5,
+        "floor": 4.5,
+        "pass": true
+       }
+      }
+     },
+     {
+      "role": "text.gold-dim",
       "hex": "#695228",
       "floor": 4.5,
       "cells": {

@@ -35,6 +35,20 @@
 - **`groups`** — tokens carry a group map, so what a step is *for* travels with
   its value instead of living in a comment the build discards. A token in no
   group fails the build.
+- **`tools/audit.mjs`** — the palette is proven, but the page is what people
+  see, so this walks every visible text node in a browser, composites the
+  background actually painted behind it, and measures. It found six real bugs:
+  the theme switch carried `data-theme`, so the buttons matched the theme rule
+  and painted themselves in the *other* theme's tokens; the generated
+  `palette.css` declared roles once on `:root`, and since a custom property is
+  substituted where it is declared, a nested `[data-theme]` scope inherited the
+  parent's already-resolved roles — the two themes shown side by side were half
+  wrong; the terminal previews read their chrome from the current theme instead
+  of the island, so the light preview drew ink on ink; `kin-2`'s stated job is
+  "labels", but it sat at 4.33:1 as text; a terminal's dim detail used the ghost
+  tone for real information; and an unescaped `<g>` was being parsed as an
+  element. The sweep now returns nothing, and the four exemptions are declared
+  in the markup as `data-floor` rather than argued after the fact.
 - **`tools/check.py`** — the invariants a build cannot see: no hard-coded
   colour in the showcase, every link in the repository resolving, and the pages
   agreeing on their own navigation. Runs in CI beside `build.py --check`.

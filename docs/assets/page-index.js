@@ -34,17 +34,15 @@
 
   /* ── the density budget, drawn in the tokens it describes ── */
   const RATIO = [
-    ['70', 'tone', 'var(--r-bg-raised)', 'var(--r-text-muted)'],
-    ['20', 'bone', 'var(--bone-2)', 'var(--ink-0)'],
-    ['7', 'gold', 'var(--kin-1)', 'var(--ink-0)'],
-    ['3', '', 'var(--r-danger-fill)', 'var(--r-danger-on-fill)']
+    ['70', 'tone', 'var(--r-bg-raised)'],
+    ['20', 'bone', 'var(--bone-2)'],
+    ['7', 'gold', 'var(--kin-1)'],
+    ['3', 'trigger', 'var(--r-danger-fill)']
   ];
   const ratio = document.getElementById('ratio');
-  if (ratio) ratio.innerHTML = RATIO.map(([w, label, bg, fg]) => `
-    <div style="width:${w}%;background:${bg};color:${fg};display:flex;align-items:center;
-                padding:0 12px;font-family:var(--y-mono);font-size:11px;white-space:nowrap;overflow:hidden">
-      ${esc(w)}${label ? ' · ' + esc(label) : ''}
-    </div>`).join('');
+  if (ratio) ratio.innerHTML = RATIO.map(([w, label, bg]) =>
+    `<div style="width:${w}%;background:${bg}" role="img" aria-label="${esc(w)} percent ${esc(label)}"></div>`
+  ).join('');
 
   /* ── the palette at a glance — the group map, live in the current theme ── */
   const glance = document.getElementById('glance');

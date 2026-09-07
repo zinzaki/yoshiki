@@ -22,6 +22,21 @@ Hairlines (`border.hairline`, `border.strong`) are dividers, not affordances, an
 carry no floor — the thing a control is recognised by is its **gold edge**, which
 does.
 
+**What is exempt, and why.** Four things are measured differently on purpose, so
+that the floors above stay honest rather than negotiable:
+
+| exempt | reason |
+|---|---|
+| disabled controls | WCAG 1.4.3 excludes text in an inactive component |
+| hairlines · drawn rules | dividers, not affordances — see above |
+| a progress *track*, gauge bars | non-text graphics; the fill and the number carry the value |
+| `syntax.comment` | its floor is 3:1 by declaration — a comment recedes by design |
+
+Nothing else is exempt. The rendered pages are swept against exactly these rules
+by [`tools/audit.mjs`](../../tools/audit.mjs), which composites the background
+actually painted behind every text node instead of trusting the token it was
+supposed to use.
+
 ## 2. Colour is never the only signal (WCAG 1.4.1)
 This matters MORE here than usual, because the two triggers are a **red–green pair**:
 **scarlet** (danger / error) and **moss** (success) are exactly the colours that

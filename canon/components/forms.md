@@ -56,7 +56,9 @@ On: `action.tint` track, `action.edge` edge, `action.text` knob. The knob slides
 180ms; nothing else moves.
 
 Use a switch only when the change takes effect immediately. If it needs a Save,
-it is a checkbox.
+it is a checkbox. A switch has no text of its own, so it needs a name given to
+it — a `<label>` it sits inside, or an `aria-label`. An unnamed switch is a
+control a screen reader can operate but not describe.
 
 ## Range
 
