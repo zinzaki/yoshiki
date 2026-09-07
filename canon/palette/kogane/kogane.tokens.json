@@ -133,6 +133,10 @@
         "$type": "color"
       }
     },
+    "shiro": {
+      "$value": "#FFFFFF",
+      "$type": "color"
+    },
     "hotaru": {
       "0": {
         "$value": "#98A4D4",
@@ -267,6 +271,10 @@
       "$value": "{color.mori.1}",
       "$type": "color"
     },
+    "ok-on-fill": {
+      "$value": "{color.shiro}",
+      "$type": "color"
+    },
     "ok-wash": {
       "$value": "{color.mori.w}",
       "$type": "color"
@@ -281,6 +289,10 @@
     },
     "danger-fill": {
       "$value": "{color.aka.1}",
+      "$type": "color"
+    },
+    "danger-on-fill": {
+      "$value": "{color.shiro}",
       "$type": "color"
     },
     "danger-wash": {

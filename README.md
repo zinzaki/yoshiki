@@ -21,10 +21,10 @@ appears only as a line or an edge; two accents (spider-lily scarlet and moss)
 are reserved for events — danger and success.
 
 The repo holds the definition and everything derived from it: a palette with a
-semantic roles contract, terminal and editor themes, TUI patterns and a text
-lexicon, CSS variables, W3C design tokens, and system prompts that teach the
-style to an AI agent. Two themes share the same rules: **kogane** (dark) and
-**washi** (light).
+semantic roles contract, a component canon and its drop-in stylesheet, terminal
+and editor themes, TUI patterns and a text lexicon, W3C design tokens, and
+system prompts that teach the style to an AI agent. Two themes share the same
+rules: **kogane** (dark) and **washi** (light).
 
 <img src="docs/assets/terminal.svg" alt="a yoshiki terminal — gold prompt frame, moss checks, one scarlet cross" width="760">
 
@@ -46,9 +46,12 @@ Three rules: warm, never grey · color is rare · gold is a line, not a fill.
 
 Color values come in two kinds: raw **tokens** (`ink-0`, `kin-1`) and the
 **roles** contract (`text.body`, `action.edge`, `danger.fill`). Consume a role,
-never a raw token — a role guarantees readable contrast in both themes, and the
-[contrast proof](canon/palette/CONTRAST.md) is regenerated and verified on
-every build.
+never a raw token — a role guarantees readable contrast in both themes.
+
+The [contrast proof](canon/palette/CONTRAST.md) measures every role against
+**every surface it can sit on**, not just a flattering one, and the build fails
+on a single cell below its floor. Measuring only against `bg.surface` is how a
+palette hides its failures; it hid five of ours until v1.2.
 
 ## Quick start
 
@@ -56,8 +59,9 @@ every build.
 # a terminal theme — copy one file
 library/themes/kitty/kogane.conf        # or ghostty · foot · alacritty · wezterm · …
 
-# web — CSS variables (raw tokens + semantic roles)
-canon/palette/kogane/kogane.css
+# web — two plain CSS files, both themes, no build step
+library/web/palette.css                 # tokens + the roles contract
+library/web/yoshiki.css                 # the component kit
 
 # make an AI follow the language — point it at the repo (it reads AGENTS.md),
 # or paste one prompt:
@@ -78,6 +82,7 @@ yoshiki/
 ├─ canon/                  the definition — edited by hand, the source of truth
 │  ├─ principles/          the ordered defaults — what wins when nothing is set
 │  ├─ palette/             tokens · roles · contrast proof · kogane · washi
+│  ├─ components/         the anatomy — controls · forms · surfaces · feedback · data
 │  ├─ lexicon/             glyphs · nameplates · frames · CLI/TUI · code comments
 │  ├─ motion/              loading & progress — spinners · dot-matrix · ▰▱
 │  ├─ effects/             web effects — glass · grain · pointer · ambient
@@ -85,6 +90,7 @@ yoshiki/
 │  ╰─ prompts/             drop-in AI system prompts
 │
 ├─ library/                the style in use — take & apply
+│  ├─ web/                 the drop-in kit — palette.css + yoshiki.css
 │  ├─ themes/              kitty · foot · alacritty · ghostty · wezterm · starship · base24 · vscode · neovim · tmux · btop · zellij · fzf
 │  ├─ configs/             whole example configs
 │  ├─ snippets/            how to write code in the style, per language
@@ -93,14 +99,13 @@ yoshiki/
 │  ├─ text/                nameplates · banners · glyph sets · dividers
 │  ╰─ presets/             named kits
 │
-├─ tools/build.py          bakes library/themes out of canon/palette
+├─ tools/build.py          bakes every theme, export and proof out of canon/palette
+├─ tools/check.py          the invariants a build cannot see — links, stray colour
 ├─ PHILOSOPHY.md           why it looks like this
 ╰─ CHANGELOG.md            the sealed versions
 ```
 
-`canon/` defines the language; `library/` is the language in use. Everything
-under `library/themes/` and the palette exports are generated — edit
-`canon/palette/*/palette.yml` and rebuild.
+`canon/` defines the language; `library/` is the language in use.
 
 ## Build
 
@@ -109,9 +114,14 @@ under `library/themes/` and the palette exports are generated — edit
 ```bash
 python3 tools/build.py          # regenerate themes, token exports, contrast proof
 python3 tools/build.py --check  # verify committed output matches canon (runs in CI)
+python3 tools/check.py          # links resolve, the showcase carries no palette of its own
 ```
 
-Requires Python 3 and PyYAML.
+Requires Python 3 and PyYAML. Everything under `library/themes/`, the palette
+exports and the showcase's colours are generated — edit
+`canon/palette/*/palette.yml` and rebuild. `library/web/yoshiki.css` is the one
+hand-written artifact, and the build mirrors it into `docs/` so the showcase
+always wears the file it ships.
 
 ## License
 

@@ -21,6 +21,14 @@
 - [contrast proof](canon/palette/CONTRAST.md): WCAG, regenerated on every build
 - [accessibility](canon/palette/ACCESSIBILITY.md): contrast + colour-blind safety — glyph, not colour alone
 
+## Components — the anatomy of a control
+- [components](canon/components/README.md): the five shared laws, geometry, density
+- [controls](canon/components/controls.md): buttons, links, segmented — the edge is the affordance
+- [forms](canon/components/forms.md): field anatomy, inputs, choice, switch, range
+- [surfaces](canon/components/surfaces.md): card, panel, dialog, popover, divider
+- [feedback](canon/components/feedback.md): alert, toast, badge, status, progress, empty
+- [data](canon/components/data.md): table, list, key-value, tree, stat tile, charts
+
 ## Lexicon — the form of the language, apart from color
 - [glyphs](canon/lexicon/glyphs.md): semantic symbols — one glyph, one meaning
 - [nameplates](canon/lexicon/nameplates.md): spaced-capital seals
@@ -44,8 +52,10 @@
 - [motion](canon/prompts/motion.md) · [effects](canon/prompts/effects.md) · [typography](canon/prompts/typography.md) · [image](canon/prompts/image.md) · [messaging](canon/prompts/messaging.md): motion, effects, fonts, images, chat in the style
 
 ## Library — ready artifacts to lift
+- [web](library/web/README.md): the drop-in kit — palette.css + yoshiki.css, no build step
 - [themes](library/themes/README.md): kitty · foot · alacritty · ghostty · wezterm · starship · base24 · vscode · neovim · tmux · btop · zellij · fzf (generated)
 - [effects](library/effects/README.md) · [menus](library/menus/README.md) · [charts](library/charts/README.md) · [text](library/text/README.md) · [snippets](library/snippets/README.md) · [configs](library/configs/README.md) · [presets](library/presets/README.md) · [github](library/github/README.md) · [image-prompts](library/image-prompts/README.md)
 
 ## Build
-- [tools/build.py](tools/build.py): bakes every theme + the contrast proof from `canon/palette`
+- [tools/build.py](tools/build.py): bakes every theme, export and the contrast proof from `canon/palette`
+- [tools/check.py](tools/check.py): links resolve; the showcase carries no palette of its own

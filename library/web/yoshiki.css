@@ -168,9 +168,11 @@
   .y-btn--quiet{ color: var(--r-text-secondary); padding-inline: var(--y-3) }
   .y-btn--quiet:hover:not([disabled]){ color: var(--r-text-heading) }
   /* scarlet MAY fill — the fill is itself the event. One per surface. */
-  .y-btn--danger{ background: var(--r-danger-fill); border-color: var(--r-danger-fill); color:#FFF3ED }
+  .y-btn--danger{ background: var(--r-danger-fill); border-color: var(--r-danger-fill);
+                  color: var(--r-danger-on-fill) }
   .y-btn--danger:hover:not([disabled]){ filter: brightness(1.08) }
-  .y-btn--ok{ background: var(--r-ok-fill); border-color: var(--r-ok-fill); color:#F7EED2 }
+  .y-btn--ok{ background: var(--r-ok-fill); border-color: var(--r-ok-fill);
+              color: var(--r-ok-on-fill) }
 
   .y-btn--sm{ min-height:32px; padding:0 var(--y-3); font-size:13px }
   .y-btn--lg{ min-height:48px; padding:0 var(--y-6); font-size:15px }

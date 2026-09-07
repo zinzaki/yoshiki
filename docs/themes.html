@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="kogane">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>様式 yoshiki — themes</title>
+<meta name="description" content="Thirteen generated program themes — kitty, foot, alacritty, ghostty, wezterm, starship, tmux, zellij, fzf, btop, vscode, neovim and base24 — previewed and ready to install.">
+<meta property="og:title" content="様式 yoshiki — themes">
+<meta property="og:description" content="Thirteen generated program themes — kitty, foot, alacritty, ghostty, wezterm, starship, tmux, zellij, fzf, btop, vscode, neovim and base24 — previewed and ready to install.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://zinzaki.github.io/yoshiki/themes.html">
+<meta property="og:image" content="https://zinzaki.github.io/yoshiki/banner.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0B0A08">
+<link rel="canonical" href="https://zinzaki.github.io/yoshiki/themes.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B0A08'/%3E%3Ctext x='32' y='46' font-size='38' text-anchor='middle' fill='%23D8AF52' font-family='serif'%3E様%3C/text%3E%3C/svg%3E">
+<script>(function(){var t=null;try{t=localStorage.getItem('yoshiki-theme')}catch(e){}
+if(t!=='washi'&&t!=='kogane')t=matchMedia('(prefers-color-scheme: light)').matches?'washi':'kogane';
+document.documentElement.dataset.theme=t})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;700;800&family=Zen+Kaku+Gothic+New:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/palette.css">
+<link rel="stylesheet" href="assets/kit.css">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<div id="ambient"></div><div id="grain"></div>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="hdr">
+  <a class="brand" href="index.html"><b>様式</b><span>yoshiki</span></a>
+  <nav class="nav" aria-label="Sections">
+    <a href="palette.html">palette</a>
+    <a href="components.html">components</a>
+    <a href="lexicon.html">lexicon</a>
+    <a href="themes.html">themes</a>
+  </nav>
+  <div class="themesw" role="group" aria-label="Theme">
+    <button data-theme="kogane" title="kogane — dark (1)" aria-pressed="true">黄</button>
+    <button data-theme="washi" title="washi — light (2)" aria-pressed="false">和</button>
+  </div>
+  <a class="gh" href="https://github.com/zinzaki/yoshiki">github ↗</a>
+</header>
+
+<main id="main">
+<section class="shell phead">
+  <div class="eyebrow"><i>library</i> themes</div>
+  <h1>Thirteen targets, one source.</h1>
+  <p class="lead">Every file below is baked out of a single palette by
+  <code style="color:var(--r-text-gold)">tools/build.py</code>, and CI re-runs the build to
+  make sure the committed output still matches. <b>Nothing here is maintained by hand</b> —
+  change one token in <code style="color:var(--r-text-gold)">canon/palette</code> and all
+  thirteen move together. The previews are drawn from the same values the files carry.</p>
+</section>
+
+<section class="sec">
+  <div class="shell">
+    <div class="cols">
+      <div class="c7 rv">
+        <div class="eyebrow"><i>01</i> the terminal</div>
+        <h2>A dark island, in both themes.</h2>
+        <p class="lead">The terminal never inverts. Even under washi, where the page is
+        paper, the terminal stays lacquer — so the two theme files of a terminal-drawn
+        target carry the same values, and the ANSI ramp is shared. Blue, wisteria and
+        celadon exist only here and in syntax; they never enter the UI.</p>
+      </div>
+    </div>
+    <div class="cols rv" style="margin-top:32px">
+      <div class="c7"><div id="termDemo"></div></div>
+      <div class="c5">
+        <div class="y-head">ansi · 16 — click to copy</div>
+        <div id="ansiGrid"></div>
+        <div class="y-head" style="margin-top:var(--y-6)">chrome</div>
+        <div id="termMeta"></div>
+      </div>
+    </div>
+    <div class="sub">emulators</div>
+    <div id="terminals" class="rv"></div>
+  </div>
+</section>
+
+<section class="sec sec--band">
+  <div class="shell">
+    <div class="cols">
+      <div class="c7 rv">
+        <div class="eyebrow"><i>02</i> the editor</div>
+        <h2>Syntax lives in the roles, too.</h2>
+        <p class="lead">An editor follows the theme it is in — paper under washi, lacquer
+        under kogane — while its integrated terminal stays the dark island. Keywords take
+        the gold, strings the moss, numbers the persimmon; types and constants are the one
+        place the cool service hues are allowed. Each is measured against the page it
+        renders on.</p>
+      </div>
+    </div>
+    <div class="cols rv" style="margin-top:32px">
+      <div class="c7"><div id="editorDemo"></div></div>
+      <div class="c5"><div id="editors"></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="shell">
+    <div class="cols">
+      <div class="c7 rv">
+        <div class="eyebrow"><i>03</i> everything else</div>
+        <h2>Prompt, panes, pickers, gauges.</h2>
+        <p class="lead">The parts of a desk that usually end up mismatched. Each one is
+        generated from the same tokens, so the seam between them disappears.</p>
+      </div>
+    </div>
+    <div id="rest" class="rv" style="margin-top:32px"></div>
+  </div>
+</section>
+
+<section class="sec sec--band">
+  <div class="shell">
+    <div class="cols">
+      <div class="c6 rv">
+        <div class="eyebrow"><i>04</i> add your own</div>
+        <h2>One emit block is a new target.</h2>
+        <p class="lead">Every target resolves from the same tokens, so adding an app means
+        writing how its file is shaped — not choosing colours again. That is the whole
+        argument for generating them: a palette change reaches thirteen programs at once,
+        and a fourteenth costs an afternoon.</p>
+        <div class="y-actions" style="margin-top:22px">
+          <a class="y-btn y-btn--primary" href="https://github.com/zinzaki/yoshiki/blob/main/tools/build.py">Read build.py ↗</a>
+        </div>
+      </div>
+      <div class="c6 rv">
+        <div class="code">
+          <button class="y-btn y-btn--ghost y-btn--sm copy" data-copy-from="emitex" data-copy-label="copied · emit block">copy</button>
+<pre id="emitex"><span class="sy-c"># kitty — one block, and the target is done</span>
+k = [<span class="sy-s">f"# {head}"</span>,
+     <span class="sy-s">f"foreground {term['foreground']}"</span>,
+     <span class="sy-s">f"background {term['background']}"</span>,
+     <span class="sy-s">f"cursor {term['cursor']}"</span>]
+k += [<span class="sy-s">f"color{i} {c}"</span> <span class="sy-k">for</span> i, c <span class="sy-k">in</span> <span class="sy-f">enumerate</span>(a)]
+k += [<span class="sy-s">f"color{i + 8} {c}"</span> <span class="sy-k">for</span> i, c <span class="sy-k">in</span> <span class="sy-f">enumerate</span>(br)]
+<span class="sy-f">w</span>(LIB / <span class="sy-s">"kitty"</span> / <span class="sy-s">f"{slug}.conf"</span>, <span class="sy-s">"\n"</span>.<span class="sy-f">join</span>(k) + <span class="sy-s">"\n"</span>)</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="foot__in">
+    <span style="color:var(--r-text-body)">様式 yoshiki</span>
+    <span class="sep">·</span><a href="https://github.com/zinzaki/yoshiki">github</a>
+    <span class="sep">·</span><a href="https://github.com/zinzaki/yoshiki/blob/main/PHILOSOPHY.md">philosophy</a>
+    <span class="sep">·</span><a href="https://github.com/zinzaki/yoshiki/blob/main/canon/palette/CONTRAST.md">contrast proof</a>
+    <span class="sep">·</span><span>MIT</span>
+    <span style="margin-left:auto">an open design language · <span data-year></span></span>
+  </div>
+</footer>
+
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="assets/palette.data.js"></script>
+<script src="assets/site.js"></script>
+<script src="assets/page-themes.js"></script>
+</body>
+</html>

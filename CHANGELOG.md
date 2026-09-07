@@ -1,5 +1,44 @@
 # Changelog
 
+## v1.2 — 2026-09
+
+- **Contrast, re-proven** — the proof measured every text role against
+  `bg.surface` alone, which flattered the palette instead of testing it.
+  It is now a full role x surface matrix, `bg.hover` included — on paper the
+  darkest ground of all — and the build fails on a single cell below its floor.
+  It found five real failures in washi (links and gold text at 4.14:1, muted
+  4.34, moss 4.20, wisteria 4.19) and a gilded edge at 2.75:1 against the 3:1
+  non-text floor; washi's hover gold also sat *lighter* than its resting gold,
+  so the seam faded exactly when the hand arrived. ANSI red was 4.27:1 on the
+  terminal ground, and washi's `syntax.keyword` pointed at the decorative gold
+  rather than the text gold — a keyword is a word. Both palettes are retuned by
+  a few RGB points each: the language looks the same and is now true.
+- **`danger.on-fill` · `ok.on-fill`** — the contract never said what colour a
+  label takes when it stands *on* a trigger, so the kit had been guessing. It
+  was 4.25:1 on the scarlet. The new `shiro` token is the one pure white in the
+  language, and it exists for exactly that surface — nothing warmer clears AA
+  against the spider-lily scarlet, and the scarlet is not negotiable.
+- **`canon/components`** — the missing contract. The showcase documented
+  buttons, forms, dialogs and tables that canon never specified. Six files now
+  say what a control is made of, which role each part takes, and the five laws
+  underneath — plus `canon/prompts/components.md` for an agent.
+- **`library/web`** — the kit those rules describe: two plain CSS files, no
+  build step, built only on `--r-*` roles. There is no gold-filled button in
+  it, nothing casts a shadow but a dialog, and every status class expects a
+  glyph.
+- **Showcase, rebuilt** — one page became five: the language, the palette
+  (every token, the roles contract, the live matrix, six export formats), the
+  components (each demo printed beside the exact markup that produced it), the
+  lexicon and the thirteen themes, each previewed in its own generated values.
+  The site had been carrying a third hand-written copy of the palette; it now
+  wears `library/web` unchanged and reads its colours from canon.
+- **`groups`** — tokens carry a group map, so what a step is *for* travels with
+  its value instead of living in a comment the build discards. A token in no
+  group fails the build.
+- **`tools/check.py`** — the invariants a build cannot see: no hard-coded
+  colour in the showcase, every link in the repository resolving, and the pages
+  agreeing on their own navigation. Runs in CI beside `build.py --check`.
+
 ## v1.1 — 2026-07
 
 - **Themes** — four new generated targets: ghostty, wezterm (TOML scheme),
