@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Question or idea
+    url: https://github.com/zinzaki/yoshiki/discussions
+    about: Anything open-ended — how to apply the language, a target worth adding.
+  - name: The live showcase
+    url: https://zinzaki.github.io/yoshiki/
+    about: Every token, role, component and theme, with the proof running.

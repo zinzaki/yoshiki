@@ -1,0 +1,56 @@
+{
+  "name": "yoshiki-design",
+  "version": "1.2.0",
+  "description": "A design language for terminals, editors and the web: warm monochrome, struck rarely by colour. Tokens with a proven roles contract, a component stylesheet, and thirteen generated themes.",
+  "keywords": [
+    "design-system",
+    "design-tokens",
+    "css",
+    "theme",
+    "dark-theme",
+    "light-theme",
+    "palette",
+    "accessibility",
+    "wcag",
+    "terminal-theme",
+    "vscode-theme",
+    "tailwind",
+    "dtcg"
+  ],
+  "license": "MIT",
+  "author": "Zinzaki",
+  "homepage": "https://zinzaki.github.io/yoshiki/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zinzaki/yoshiki.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zinzaki/yoshiki/issues"
+  },
+  "type": "module",
+  "sideEffects": [
+    "*.css"
+  ],
+  "main": "./library/integrations/tokens.mjs",
+  "types": "./library/integrations/tokens.d.ts",
+  "exports": {
+    ".": {
+      "types": "./library/integrations/tokens.d.ts",
+      "default": "./library/integrations/tokens.mjs"
+    },
+    "./css": "./library/web/palette.css",
+    "./kit.css": "./library/web/yoshiki.css",
+    "./tailwind": "./library/integrations/tailwind.cjs",
+    "./figma": "./library/integrations/figma-variables.json",
+    "./tokens/kogane": "./canon/palette/kogane/kogane.tokens.json",
+    "./tokens/washi": "./canon/palette/washi/washi.tokens.json",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "canon/palette",
+    "library/web",
+    "library/integrations",
+    "README.md",
+    "LICENSE"
+  ]
+}

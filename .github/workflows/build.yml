@@ -18,3 +18,15 @@ jobs:
       - run: python3 tools/build.py --check
       # the showcase must carry no palette of its own, and every link must resolve
       - run: python3 tools/check.py
+      # the published surface has to load: a broken preset is a broken install
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: integrations load
+        run: |
+          node -e "const p=require('./library/integrations/tailwind.cjs');
+                   if(!p.theme.extend.colors.y['text-body']) throw new Error('tailwind preset is empty')"
+          node -e "import('./library/integrations/tokens.mjs').then(m=>{
+                   if(!m.kogane.roles['text-body']) throw new Error('token module is empty')})"
+          node -e "JSON.parse(require('fs').readFileSync('package.json'));
+                   JSON.parse(require('fs').readFileSync('library/integrations/figma-variables.json'))"

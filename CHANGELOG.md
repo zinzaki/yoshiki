@@ -18,6 +18,18 @@
 - **A banner that shows rather than claims** — generated from canon as a specimen
   sheet: identity left, the language actually running on the right, and the token
   ramp full-bleed along the bottom. Plus `og.svg`/`og.png` for link previews.
+- **Installable** — `npm i yoshiki-design` publishes the tokens, the roles, the
+  component kit and a typed module; a Tailwind preset whose colours resolve to
+  the role *variables* rather than baked hexes, so one preset covers both themes;
+  Figma variables as one collection with two modes; and a Style Dictionary config
+  pointed at the DTCG files, which builds CSS, JS, Swift and Android without
+  translating a translation. All generated — an integration that drifts is worse
+  than none — and CI now loads each one, because a broken preset is a broken
+  install.
+- **Repository furniture** — contributing guide built around the one rule that
+  matters here (canon is written, everything else is generated), a security
+  policy, four issue templates including one for contrast reports, a pull request
+  checklist that asks for the proof, and an editorconfig.
 - **README, rewritten** — hero, badge row, the idea in one minute, install in
   three forms, the tokens-versus-roles contract with a code sample, the proof,
   the pipeline, and the whole map in two columns.
