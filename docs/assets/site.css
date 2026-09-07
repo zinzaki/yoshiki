@@ -3,7 +3,7 @@
    ────────────────────────────────────────────────────────────────────
    Components come from kit.css (the shipped artifact). Colour comes from
    palette.css (generated from canon). This file is the art direction: the
-   type scale, the grid, the seam, and the way light behaves on lacquer.
+   type scale, the grid, and the way light behaves on lacquer.
 
    No hex value appears below. If one ever does, tools/check.py fails.
    ════════════════════════════════════════════════════════════════════ */
@@ -36,7 +36,6 @@
   --mid: 420ms;
 
   --grain: .05;
-  --seam-w: 1.5px;
 }
 [data-theme="washi"]{ --grain: .028 }
 
@@ -69,28 +68,6 @@ body[data-pointer] #sheen{ opacity:1 }
 }
 @media (prefers-reduced-transparency: reduce){ #grain{ display:none } }
 
-/* ════ the seam ═════════════════════════════════════════════════════
-   The mark, at the scale of the page. It is not decoration: sections hang
-   off it, its nodes are the section indices, and it draws itself as you
-   descend — the gold arriving in the break, which is the whole idea. */
-#seam{ position:absolute; top:0; left:0; width:100%; height:100%; z-index:1; pointer-events:none }
-#seam svg{ width:100%; height:100%; display:block }
-/* the gold is revealed top-down by a clip, not by a dash offset: a dash
-   pattern reveals from whichever end the path was drawn from, which is a
-   detail of the path data rather than a decision */
-#seam .seam-line{
-  fill:none; stroke:var(--r-border-gold); stroke-width:var(--seam-w);
-  stroke-linecap:round; stroke-linejoin:round;
-  clip-path:inset(0 0 calc(100% - var(--drawn, 0%)) 0);
-}
-#seam .seam-ghost{
-  fill:none; stroke:var(--r-border-strong); stroke-width:1; opacity:.6;
-  stroke-linecap:round; stroke-linejoin:round;
-}
-#seam .seam-branch{ stroke-width:1; opacity:.5 }
-@media (prefers-reduced-motion: reduce){ #seam .seam-line{ clip-path:none } }
-@media (max-width: 900px){ #seam{ display:none } }
-
 /* ════ header ═══════════════════════════════════════════════════════ */
 .hdr{
   position:fixed; top:0; left:0; right:0; z-index:60;
@@ -121,7 +98,7 @@ body[data-pointer] #sheen{ opacity:1 }
 }
 .nav a:hover{ color:var(--r-text-body); text-decoration:none }
 .nav a[aria-current="page"]{ color:var(--r-text-gold) }
-/* the current page is underlined by a short seam, not a slab */
+/* the current page takes a thin gold rule, not a filled tab */
 .nav a[aria-current="page"]::after{
   content:''; position:absolute; left:12px; right:12px; bottom:2px; height:1.5px;
   background:var(--r-border-gold);
@@ -158,12 +135,12 @@ body[data-pointer] #sheen{ opacity:1 }
 
 /* ════ page shell ═══════════════════════════════════════════════════ */
 main{ position:relative; padding-top:64px }
-.shell{ max-width:var(--shell); margin:0 auto; padding:0 var(--pad); position:relative; z-index:2 }
+.shell{ max-width:var(--shell); margin:0 auto; padding:0 var(--pad); position:relative; z-index:1 }
 .sec{ padding:clamp(72px, 11vh, 132px) 0; position:relative }
 .sec--plate{ background:
   linear-gradient(180deg, transparent, var(--r-bg-surface) 10%, var(--r-bg-surface) 90%, transparent) }
 
-/* the section index — a number on the seam, the way a plate is stamped */
+/* the section index — a number and a short rule, the way a plate is stamped */
 .idx{
   display:flex; align-items:center; gap:12px; margin-bottom:18px;
   font-family:var(--y-mono); font-size:var(--t-micro); letter-spacing:2.6px;
@@ -264,7 +241,7 @@ h1{ font-size:var(--t-h1); letter-spacing:-.025em }
 .cell-pass{ color:var(--r-ok-text) } .cell-fail{ color:var(--r-danger-text); font-weight:600 }
 
 /* ════ footer ═══════════════════════════════════════════════════════ */
-.foot{ border-top:1px solid var(--r-border-hairline); margin-top:var(--y-12); position:relative; z-index:2 }
+.foot{ border-top:1px solid var(--r-border-hairline); margin-top:var(--y-12); position:relative; z-index:1 }
 .foot__in{ max-width:var(--shell); margin:0 auto; padding:var(--y-8) var(--pad);
            display:flex; flex-wrap:wrap; gap:var(--y-4) var(--y-6); align-items:baseline;
            font-family:var(--y-mono); font-size:var(--t-fine); color:var(--r-text-muted) }
@@ -323,8 +300,8 @@ h1{ font-size:var(--t-h1); letter-spacing:-.025em }
                 font-family:var(--y-mono); font-size:10.5px; color:var(--r-text-ghost) }
 
 /* ════ hero ═════════════════════════════════════════════════════════
-   One object: a lacquer plate, the seam through it, and the wordmark set
-   at a size that has to be looked at rather than read. */
+   The wordmark set at a size that has to be looked at rather than read,
+   with the figures under it on a single hairline. */
 .hero{ position:relative; padding-block:clamp(76px,13vh,168px) clamp(56px,9vh,104px) }
 .hero__mark{ font-size:var(--t-hero); line-height:.86; letter-spacing:-.045em;
              font-family:var(--y-serif); font-weight:800; color:var(--r-text-heading);
