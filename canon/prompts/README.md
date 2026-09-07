@@ -14,6 +14,7 @@ for model stability; the output language follows your conversation.
 | `principles.md` | the ordered defaults — what wins when nothing is specified |
 | `palette.md` | use the color tokens and semantic roles (either theme) |
 | `cli.md` | format CLI/TUI output: prompt, statuses, menus, trees |
+| `components.md` | build UI components — the edge is the affordance, never a gold fill |
 | `comments.md` | write code comments the yoshiki way |
 | `text.md` | nameplates, glyphs, frames in chats and docs |
 | `motion.md` | animate loading & progress — spinners, dot-matrix, the blacklist |

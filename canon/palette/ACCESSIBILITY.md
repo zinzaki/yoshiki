@@ -3,9 +3,24 @@
 Two guarantees, both already built into the language. This file makes them explicit
 and names the one place that needs extra care.
 
-## 1. Contrast — proven ([`CONTRAST.md`](CONTRAST.md))
-Every text role meets WCAG AA on the surface it actually sits on, in both themes,
-regenerated on every build: body ≥ 7:1, secondary ≥ 4.5:1, decorative edges ≥ 3:1.
+## 1. Contrast — proven on every surface ([`CONTRAST.md`](CONTRAST.md))
+Every text role meets WCAG AA against **every** surface it can sit on — `bg.app`,
+`bg.surface`, `bg.raised` and `bg.hover` — in both themes, regenerated and enforced
+on every build. A role that passed only on its favourite background would be
+flattered, not proven; on paper `bg.hover` is the darkest ground of all, so that
+column is the real test.
+
+| what | floor |
+|---|---|
+| text roles (body, gold, link, ok, warn, danger, special…) | 4.5:1 |
+| `text.ghost` — disabled / placeholder | 3:1 |
+| gilding — `border.gold`, `action.edge`, `action.hover.edge` | 3:1 (WCAG 1.4.11) |
+| syntax roles, on the editor page | 4.5:1 (comment 3:1) |
+| terminal ANSI foregrounds, on the terminal ground | 4.5:1 |
+
+Hairlines (`border.hairline`, `border.strong`) are dividers, not affordances, and
+carry no floor — the thing a control is recognised by is its **gold edge**, which
+does.
 
 ## 2. Colour is never the only signal (WCAG 1.4.1)
 This matters MORE here than usual, because the two triggers are a **red–green pair**:
