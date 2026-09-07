@@ -315,6 +315,14 @@
       "$value": "{color.fuji.1}",
       "$type": "color"
     },
+    "effect-glass": {
+      "$value": "{color.ink.2}",
+      "$type": "color"
+    },
+    "effect-sheen": {
+      "$value": "{color.shiro}",
+      "$type": "color"
+    },
     "focus-ring": {
       "$value": "color-mix(in srgb, #8A6B39 40%, transparent)",
       "$type": "color"

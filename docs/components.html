@@ -23,6 +23,7 @@ document.documentElement.dataset.theme=t})();</script>
 <link rel="stylesheet" href="assets/palette.css">
 <link rel="stylesheet" href="assets/kit.css">
 <link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/effects.css">
 </head>
 <body>
 <div id="ambient"></div><div id="grain"></div>
@@ -84,6 +85,56 @@ document.documentElement.dataset.theme=t})();</script>
 </section>
 
 <div id="kit"></div>
+
+<section class="sec sec--band" id="effects">
+  <div class="shell">
+    <div class="cols">
+      <div class="c7 rv">
+        <div class="eyebrow"><i>06</i> effects</div>
+        <h2>Optional richness, by place.</h2>
+        <p class="lead">These are not part of the kit, because most surfaces do not want
+        them. They ship as separate files and obey four rules: <b>one effect per surface</b>,
+        always warm, only where a pointer and a GPU are, and a fallback is mandatory.
+        Anything for reading or working — the terminal, code, dense data, body text —
+        stays flat.</p>
+        <p class="y-hint" style="margin-top:14px">canon/effects · library/effects</p>
+      </div>
+    </div>
+    <div class="cols rv" style="margin-top:34px">
+      <div class="c6">
+        <div style="position:relative;border-radius:var(--y-r-card);overflow:hidden;padding:var(--y-8) var(--y-6);
+             background:
+               radial-gradient(120% 90% at 20% 0%, color-mix(in srgb, var(--kin-1) 26%, transparent), transparent 60%),
+               radial-gradient(90% 70% at 90% 90%, color-mix(in srgb, var(--aka-1) 18%, transparent), transparent 62%),
+               var(--r-bg-app)">
+          <div class="y-frost" style="padding:var(--y-5)">
+            <div class="y-head" style="border:0;margin:0 0 var(--y-2);padding:0">frosted card</div>
+            <p style="color:var(--r-text-body);font-size:14px">Warm ink, never white glass.</p>
+            <p class="y-hint" style="margin-top:6px">A gold hairline, one specular pass, and a
+            solid surface under <code>prefers-reduced-transparency</code>.</p>
+          </div>
+        </div>
+        <p class="y-hint" style="margin-top:12px;line-height:1.7">The glass is made of the
+        raised surface and the specular is whichever way the light falls, so it holds on
+        paper as well as on lacquer — switch the theme and watch.</p>
+      </div>
+      <div class="c6">
+        <div class="y-panel">
+          <div class="y-head">sheen — one pass on hover, not a loop</div>
+          <button class="y-btn y-btn--primary y-sheen" style="width:100%">Hover me</button>
+          <div class="y-head" style="margin-top:var(--y-6)">grain — the page you are on</div>
+          <p class="y-hint" style="line-height:1.7">A single fixed overlay at ~4% on
+          lacquer and ~2.5% on paper: enough to take the plastic off a flat surface,
+          not enough to read as dirt. It is already running behind this page.</p>
+          <div class="y-actions" style="margin-top:var(--y-5)">
+            <a class="y-btn y-btn--ghost y-btn--sm" href="https://github.com/zinzaki/yoshiki/tree/main/library/effects">library/effects ↗</a>
+            <a class="y-btn y-btn--quiet y-btn--sm" href="https://github.com/zinzaki/yoshiki/tree/main/canon/effects">the specs ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 </main>
 

@@ -41,7 +41,7 @@
 
 ## Motion & effects
 - [motion](canon/motion/README.md): spinners (braille · arc · pulse), progress (dot-matrix · ▰▱)
-- [effects](canon/effects/README.md): glass, grain, pointer, ambient — web surfaces only
+- [effects](canon/effects/README.md): glass, grain, pointer, ambient — web surfaces only, on the effect.* roles
 
 ## Typography
 - [typography](canon/typography/README.md): warm serif display + mono (Maple · JetBrains · Geist), all OFL

@@ -33,6 +33,14 @@ for name in HAND_WRITTEN:
         for hit in HEX.findall(line):
             fail(f"{f.relative_to(ROOT)}:{i} — hard-coded colour {hit}; consume a --r-* role")
 
+# the shipped effects were once dark-theme-only rgba literals; they are roles now
+for fx in sorted((ROOT / "library" / "effects").glob("*.css")):
+    for i, line in enumerate(fx.read_text().splitlines(), 1):
+        if "data:image/svg+xml" in line:
+            continue
+        for hit in HEX.findall(line):
+            fail(f"{fx.relative_to(ROOT)}:{i} — {hit}; an effect must reach for a role too")
+
 # the kit may name the two colours canon says are not tokens of a theme:
 # the terminal island, which never inverts. Nothing else.
 kit = (ROOT / "library" / "web" / "yoshiki.css").read_text()

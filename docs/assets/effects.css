@@ -1,0 +1,65 @@
+/* yoshiki — the shipped web effects, concatenated by tools/build.py.
+
+ * Sources: library/effects/*.css. Do not edit here. */
+
+/* yoshiki · library/effects · frosted-card — canon: canon/effects/glass.md
+   Warm frosted glass with a specular edge, built on roles so it works on
+   lacquer and on paper: the glass is made of the raised surface, and the
+   specular is whichever way the light falls in that theme.
+   Honors prefers-reduced-transparency. */
+
+.y-frost{
+  position: relative;
+  background: color-mix(in srgb, var(--r-effect-glass) 62%, transparent);
+  border: 1px solid color-mix(in srgb, var(--r-border-gold) 22%, transparent);
+  border-radius: 18px;
+  overflow: hidden;
+  backdrop-filter: blur(8px) saturate(1.4);
+  -webkit-backdrop-filter: blur(8px) saturate(1.4);
+  box-shadow: 0 22px 50px rgb(0 0 0 / .32),
+              inset 0 1px 0 color-mix(in srgb, var(--r-effect-sheen) 8%, transparent);
+}
+.y-frost::before{                        /* one specular pass, top-left */
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  background: linear-gradient(150deg,
+              color-mix(in srgb, var(--r-effect-sheen) 16%, transparent), transparent 44%);
+}
+
+@media (prefers-reduced-transparency: reduce){
+  .y-frost{
+    background: var(--r-effect-glass);
+    backdrop-filter: none; -webkit-backdrop-filter: none;
+  }
+}
+
+/* yoshiki · library/effects · film-grain — canon: canon/effects/grain.md
+   One fixed overlay for the whole page. Opacity .03–.05 on lacquer; paper takes
+   less, because grain over a light ground reads sooner. Above ~.08 it is dirt.
+   usage: <div class="y-grain"></div> as a direct child of <body>. */
+
+.y-grain{
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  opacity: .04; mix-blend-mode: overlay; background-size: 190px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+[data-theme="washi"] .y-grain{ opacity: .025 }
+
+@media (prefers-reduced-transparency: reduce){ .y-grain{ display: none } }
+
+/* yoshiki · library/effects · sheen-sweep — canon: canon/effects/ambient.md
+   A single specular pass on hover. Not a loop — one breath, then done.
+   usage: class="y-sheen" */
+
+.y-sheen{ position: relative; overflow: hidden; }
+.y-sheen::after{
+  content: ""; position: absolute; top: 0; left: -60%; width: 50%; height: 100%;
+  pointer-events: none;
+  background: linear-gradient(105deg, transparent,
+              color-mix(in srgb, var(--r-effect-sheen) 16%, transparent), transparent);
+  transition: left .6s ease-out;
+}
+.y-sheen:hover::after{ left: 120%; }
+
+@media (prefers-reduced-motion: reduce){
+  .y-sheen::after{ display: none; }
+}

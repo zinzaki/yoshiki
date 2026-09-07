@@ -69,4 +69,38 @@
     }).join('');
   }
   onTheme(drawGlance);
+
+  /* ── the map — every module, with the one line that says why it exists ── */
+  const REPO = 'https://github.com/zinzaki/yoshiki/tree/main/';
+  const CANON = [
+    ['principles', 'the ordered ladder — what wins when nothing is specified'],
+    ['palette', 'tokens, the roles contract, and the proof'],
+    ['components', 'the anatomy of a control, part by part'],
+    ['lexicon', 'glyphs, frames, space, states — the form apart from colour'],
+    ['motion', 'spinners and progress drawn with sub-symbols'],
+    ['effects', 'glass, grain, pointer, ambient — web surfaces only'],
+    ['typography', 'a warm serif to speak, a mono to count'],
+    ['prompts', 'drop-in modules that teach the language to a model']
+  ];
+  const LIB = [
+    ['web', 'the drop-in kit — two plain CSS files'],
+    ['themes', 'thirteen programs, generated from one palette'],
+    ['menus', 'ready TUI menus, cards, panels, status lines'],
+    ['charts', 'text data-viz — sparkline, bars, gauge'],
+    ['text', 'nameplates, banners, dividers, glyph sets'],
+    ['snippets', 'how to write code in the style, per language'],
+    ['configs', 'whole example configs — kitty, tmux, starship'],
+    ['presets', 'named kits, assembled'],
+    ['effects', 'the web effects as working files'],
+    ['image-prompts', 'recipes for generating images in the language'],
+    ['github', 'a README and profile wearing it']
+  ];
+  const mapCard = base => ([name, note]) => `
+    <a class="y-card y-card--link" href="${REPO}${base}/${name}">
+      <div style="font-family:var(--y-mono);font-size:13px;color:var(--r-text-heading)">${esc(name)}</div>
+      <div class="y-hint" style="margin-top:7px;line-height:1.6">${esc(note)}</div>
+    </a>`;
+  const canonEl = document.getElementById('mapCanon'), libEl = document.getElementById('mapLib');
+  if (canonEl) canonEl.innerHTML = CANON.map(mapCard('canon')).join('');
+  if (libEl) libEl.innerHTML = LIB.map(mapCard('library')).join('');
 })();

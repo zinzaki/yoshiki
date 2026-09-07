@@ -76,6 +76,8 @@
   --r-danger-wash: var(--aka-w);
   --r-info-text: var(--kin-1);
   --r-special-text: var(--fuji-1);
+  --r-effect-glass: var(--ink-2);
+  --r-effect-sheen: var(--bone-0);
   --r-focus-ring: color-mix(in srgb, var(--kin-1) 40%, transparent);
   --r-selection-bg: color-mix(in srgb, var(--kin-1) 22%, transparent);
   --r-syntax-keyword: var(--kin-1);
@@ -147,6 +149,8 @@
   --r-danger-wash: var(--aka-w);
   --r-info-text: var(--kin-t);
   --r-special-text: var(--fuji-1);
+  --r-effect-glass: var(--ink-2);
+  --r-effect-sheen: var(--shiro);
   --r-focus-ring: color-mix(in srgb, var(--kin-1) 40%, transparent);
   --r-selection-bg: color-mix(in srgb, var(--kin-1) 22%, transparent);
   --r-syntax-keyword: var(--kin-t);

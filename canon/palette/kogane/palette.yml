@@ -196,6 +196,10 @@ roles:
   danger.wash:       aka-w
   info.text:         kin-1     # info lives in tone, never blue
   special.text:      fuji-1
+  # effects — web surfaces only (canon/effects). Not text: no contrast floor,
+  # but they must know which way the light falls, and that flips with the stage.
+  effect.glass:      ink-2     # the ground a frosted surface is made of
+  effect.sheen:      bone-0    # the specular — the light itself
   # interaction
   focus.ring:        "kin-1 @40%"
   selection.bg:      "kin-1 @22%"
