@@ -74,6 +74,8 @@
   --r-danger-wash: #EBD3C8;
   --r-info-text: #695228;
   --r-special-text: #604C7D;
+  --r-effect-glass: #F3EBD5;
+  --r-effect-sheen: #FFFFFF;
   --r-focus-ring: color-mix(in srgb, #8A6B39 40%, transparent);
   --r-selection-bg: color-mix(in srgb, #8A6B39 22%, transparent);
   --r-syntax-keyword: #695228;

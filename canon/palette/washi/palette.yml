@@ -64,6 +64,7 @@ roles:
   action.text: kin-t
   info.text:  kin-t
   warn.text:  kaki-1   # persimmon, already sunk in tokens
+  effect.sheen: shiro  # on paper the specular is lighter than the page, not darker
 
 terminal:
   # identical to kogane by design — dark island

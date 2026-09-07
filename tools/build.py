@@ -606,8 +606,15 @@ def mirror_kit():
     served a copy of the shipped kit. Copying it here — instead of by hand —
     is what makes `--check` catch a showcase that has drifted from the artifact
     it is supposed to be proving."""
-    src = WEB / "yoshiki.css"
-    w(DOCS / "kit.css", src.read_text())
+    w(DOCS / "kit.css", (WEB / "yoshiki.css").read_text())
+    # the web effects ship as separate files (they are optional richness, not
+    # part of the kit); the site demonstrates the real ones, concatenated
+    fx = ROOT / "library" / "effects"
+    parts = ["/* yoshiki — the shipped web effects, concatenated by tools/build.py.",
+             " * Sources: library/effects/*.css. Do not edit here. */"]
+    for name in ("frosted-card.css", "grain.css", "sheen.css"):
+        parts.append((fx / name).read_text().rstrip())
+    w(DOCS / "effects.css", "\n\n".join(parts) + "\n")
 
 
 def emit_terminal_ui(dark: dict):

@@ -32,6 +32,15 @@
   lexicon and the thirteen themes, each previewed in its own generated values.
   The site had been carrying a third hand-written copy of the palette; it now
   wears `library/web` unchanged and reads its colours from canon.
+- **`effect.glass` · `effect.sheen`** — the shipped web effects were dark-theme
+  effects in a costume: hard-coded warm rgba, so on paper the frosted card
+  became a dark slab on a light page and the sheen became a shadow pretending to
+  be a highlight. Two roles now carry which way the light falls, and
+  `library/effects` reaches for them — an effect survives the theme switch.
+- **The whole map** — the rebuilt index dropped the ecosystem grid, which meant
+  menus, charts, text blocks, snippets, configs, presets, effects, image prompts
+  and the GitHub kit were invisible to anyone who did not already know the repo.
+  Both halves are listed again, each with the one line that says why it exists.
 - **`groups`** — tokens carry a group map, so what a step is *for* travels with
   its value instead of living in a comment the build discards. A token in no
   group fails the build.
