@@ -73,21 +73,22 @@ body[data-pointer] #sheen{ opacity:1 }
    The mark, at the scale of the page. It is not decoration: sections hang
    off it, its nodes are the section indices, and it draws itself as you
    descend — the gold arriving in the break, which is the whole idea. */
-#seam{ position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none }
+#seam{ position:absolute; top:0; left:0; width:100%; height:100%; z-index:1; pointer-events:none }
 #seam svg{ width:100%; height:100%; display:block }
+/* the gold is revealed top-down by a clip, not by a dash offset: a dash
+   pattern reveals from whichever end the path was drawn from, which is a
+   detail of the path data rather than a decision */
 #seam .seam-line{
   fill:none; stroke:var(--r-border-gold); stroke-width:var(--seam-w);
   stroke-linecap:round; stroke-linejoin:round;
-  stroke-dasharray:var(--len); stroke-dashoffset:calc(var(--len) - var(--drawn, 0px));
+  clip-path:inset(0 0 calc(100% - var(--drawn, 0%)) 0);
 }
 #seam .seam-ghost{
-  fill:none; stroke:var(--r-border-hairline); stroke-width:1;
+  fill:none; stroke:var(--r-border-strong); stroke-width:1; opacity:.6;
   stroke-linecap:round; stroke-linejoin:round;
 }
 #seam .seam-branch{ stroke-width:1; opacity:.5 }
-@media (prefers-reduced-motion: reduce){
-  #seam .seam-line{ stroke-dasharray:none; stroke-dashoffset:0 }
-}
+@media (prefers-reduced-motion: reduce){ #seam .seam-line{ clip-path:none } }
 @media (max-width: 900px){ #seam{ display:none } }
 
 /* ════ header ═══════════════════════════════════════════════════════ */
@@ -157,7 +158,7 @@ body[data-pointer] #sheen{ opacity:1 }
 
 /* ════ page shell ═══════════════════════════════════════════════════ */
 main{ position:relative; padding-top:64px }
-.shell{ max-width:var(--shell); margin:0 auto; padding:0 var(--pad); position:relative; z-index:1 }
+.shell{ max-width:var(--shell); margin:0 auto; padding:0 var(--pad); position:relative; z-index:2 }
 .sec{ padding:clamp(72px, 11vh, 132px) 0; position:relative }
 .sec--plate{ background:
   linear-gradient(180deg, transparent, var(--r-bg-surface) 10%, var(--r-bg-surface) 90%, transparent) }
@@ -263,7 +264,7 @@ h1{ font-size:var(--t-h1); letter-spacing:-.025em }
 .cell-pass{ color:var(--r-ok-text) } .cell-fail{ color:var(--r-danger-text); font-weight:600 }
 
 /* ════ footer ═══════════════════════════════════════════════════════ */
-.foot{ border-top:1px solid var(--r-border-hairline); margin-top:var(--y-12); position:relative; z-index:1 }
+.foot{ border-top:1px solid var(--r-border-hairline); margin-top:var(--y-12); position:relative; z-index:2 }
 .foot__in{ max-width:var(--shell); margin:0 auto; padding:var(--y-8) var(--pad);
            display:flex; flex-wrap:wrap; gap:var(--y-4) var(--y-6); align-items:baseline;
            font-family:var(--y-mono); font-size:var(--t-fine); color:var(--r-text-muted) }

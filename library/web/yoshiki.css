@@ -45,6 +45,10 @@
     --y-gutter: var(--y-2);
   }
 
+  /* border-box everywhere: padding belongs inside the width a layout was given,
+     and every measurement in this kit assumes it */
+  *, *::before, *::after{ box-sizing: border-box }
+
   html{ -webkit-text-size-adjust:100% }
 
   body{
