@@ -491,7 +491,18 @@
   .y-pager button[aria-current="page"]{ background: var(--r-action-tint); color: var(--r-action-text) }
   .y-pager__range{ margin-left: var(--y-3); color: var(--r-text-muted) }
 
-  /* ── terminal — always a dark island, in both themes ──────────────── */
+  /* ── the dark island ──────────────────────────────────────────────
+     Terminal-owned content never inverts, so anything that belongs to the
+     terminal — a session, an ANSI ramp, a picker — sits on a pinned dark
+     ground whatever the page is wearing. .y-island is the bare container;
+     .y-term is the same island set for monospace output. */
+  .y-island{
+    background: var(--ink-0);
+    border: 1px solid var(--line-0);
+    border-radius: var(--y-r-card);
+    padding: var(--y-3);
+    color: var(--bone-2);
+  }
   .y-term{
     background: var(--ink-0); color: var(--bone-1);
     border:1px solid var(--line-0); border-radius: var(--y-r-card);
@@ -499,7 +510,7 @@
     font-family: var(--y-mono); font-size:13px; line-height:1.9;
     white-space:pre-wrap; overflow-x:auto;
   }
-  [data-theme] .y-term{
+  [data-theme] .y-term, [data-theme] .y-island{
     /* the island keeps kogane values whatever the page is wearing */
     --ink-0:#0B0A08; --line-0:#362C1B; --bone-0:#F7EED2; --bone-1:#EDE3C4;
     --bone-3:#96886B; --bone-4:#776A51; --kin-1:#D8AF52;
