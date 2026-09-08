@@ -415,3 +415,36 @@ figure figcaption{ font-family:var(--y-mono); font-size:var(--t-fine); line-heig
                font-family:var(--y-mono); font-size:10.5px; color:var(--bone-3) }
 .island__chip:hover{ background:var(--ink-2); color:var(--bone-1) }
 .island__chip span{ width:11px; height:11px; border-radius:3px; display:block }
+
+/* ════ the pattern catalogue ════════════════════════════════════════ */
+.pat{ display:grid; grid-template-columns:300px minmax(0,1fr); gap:var(--gutter); align-items:start }
+@media (max-width:900px){ .pat{ grid-template-columns:1fr } }
+.pat-modules{ display:flex; gap:2px; flex-wrap:wrap; margin-bottom:var(--y-4) }
+.pat-modules button{
+  display:inline-flex; align-items:baseline; gap:7px;
+  padding:7px 12px; border:0; border-radius:9px; background:transparent; cursor:pointer;
+  font-family:var(--y-mono); font-size:12.5px; color:var(--r-text-muted);
+  transition:color var(--mid) var(--ease), background-color var(--mid) var(--ease);
+}
+.pat-modules button:hover{ color:var(--r-text-body) }
+.pat-modules button[aria-selected="true"]{ background:var(--r-action-tint); color:var(--r-action-text) }
+/* a count is information, not a switched-off control */
+.pat-modules button span{ font-size:10.5px; color:var(--r-text-muted) }
+.pat-list{ display:flex; flex-direction:column; max-height:640px; overflow:auto;
+           border:1px solid var(--r-border-hairline); border-radius:var(--y-r-card) }
+.pat-row{ text-align:left; border:0; background:transparent; cursor:pointer;
+          padding:11px 14px; border-bottom:1px solid var(--r-border-hairline);
+          transition:background-color var(--mid) var(--ease) }
+.pat-row:last-child{ border-bottom:0 }
+.pat-row:hover{ background:var(--r-bg-hover) }
+.pat-row[aria-current="true"]{ background:var(--r-action-tint) }
+.pat-row b{ display:block; font-family:var(--y-mono); font-size:12.5px; font-weight:400;
+            color:var(--r-text-body) }
+.pat-row[aria-current="true"] b{ color:var(--r-action-text) }
+.pat-row span{ display:block; font-size:11.5px; color:var(--r-text-muted);
+               line-height:1.5; margin-top:4px }
+.pat-note{ font-family:var(--y-mono); font-size:11.5px; line-height:1.75;
+           color:var(--r-text-muted); white-space:pre-wrap; margin-top:var(--y-4);
+           padding-left:var(--y-4); border-left:1px solid var(--r-border-hairline) }
+#patView .y-code pre{ max-height:520px; font-size:12.5px; line-height:1.7 }
+#patView .y-code__bar a{ color:var(--r-text-gold) }
