@@ -41,7 +41,10 @@ it, it only reflects what it finds.
 | float | `.y-scrim` `.y-dialog` `.y-pop` |
 | feedback | `.y-alert` `.y-toast` `.y-badge` `.y-status` `.y-progress` `.y-empty` `.y-skeleton` |
 | data | `.y-table` `.y-num` `.y-list` `.y-kv` `.y-stat` `.y-pager` |
-| terminal | `.y-term` — a dark island in both themes, with `.k .g .r .w .c .b .d` spans |
+| chrome | `.y-kbd` `.y-tag` `.y-tip` `.y-crumb` `.y-tabs` `.y-fold` `.y-avatar` |
+| sequence | `.y-meter` `.y-steps` `.y-timeline` |
+| notice | `.y-banner` + `--warn --danger` · `.y-split` · `.y-code` · `.y-mono` |
+| terminal | `.y-island` — a pinned-dark container · `.y-term` — the same, set for output, with `.k .g .r .w .c .b .d` spans |
 
 A range prints its value into any `<output>` in the same `.y-range`; add
 `data-y-format="%v&#37;"` to give the number a unit.

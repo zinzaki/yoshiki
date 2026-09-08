@@ -526,3 +526,180 @@
      and bone-4 does not clear the text floor even on the island */
   .y-term .d{ color: var(--bone-3) }
 }
+
+@layer yoshiki.components {
+
+  /* ── keycap ───────────────────────────────────────────────────────
+     A key is an object, so it gets an object's edge: a bottom border one
+     step stronger than the rest, which is the whole illusion. */
+  .y-kbd{
+    display:inline-flex; align-items:center; justify-content:center;
+    min-width:22px; height:22px; padding:0 6px;
+    background: var(--r-bg-raised);
+    border:1px solid var(--r-border-hairline);
+    border-bottom-color: var(--r-border-strong);
+    border-radius:6px;
+    font-family: var(--y-mono); font-size:11px; line-height:1;
+    color: var(--r-text-secondary);
+  }
+
+  /* ── tag — a badge you can take off ─────────────────────────────── */
+  .y-tag{
+    display:inline-flex; align-items:center; gap:8px;
+    height:26px; padding:0 6px 0 11px; border-radius: var(--y-r-pill);
+    border:1px solid var(--r-border-strong);
+    font-family: var(--y-mono); font-size:11.5px; color: var(--r-text-secondary);
+  }
+  .y-tag button{
+    width:16px; height:16px; padding:0; border:0; border-radius:50%;
+    background:transparent; color: var(--r-text-muted); cursor:pointer;
+    font-family: var(--y-mono); font-size:11px; line-height:1;
+    transition: background-color var(--y-t), color var(--y-t);
+  }
+  .y-tag button:hover{ background: var(--r-bg-hover); color: var(--r-danger-text) }
+
+  /* ── tooltip — a label the pointer earns, never a place for content ─ */
+  .y-tip{ position:relative }
+  .y-tip::after{
+    content: attr(data-tip);
+    position:absolute; bottom:calc(100% + 8px); left:50%; transform:translateX(-50%);
+    white-space:nowrap; pointer-events:none; opacity:0;
+    padding:5px 9px; border-radius:8px;
+    background: var(--r-bg-raised); border:1px solid var(--r-border-hairline);
+    font-family: var(--y-mono); font-size:11px; color: var(--r-text-body);
+    transition: opacity var(--y-t);
+  }
+  .y-tip:hover::after, .y-tip:focus-visible::after{ opacity:1 }
+
+  /* ── breadcrumb ─────────────────────────────────────────────────── */
+  .y-crumb{ display:flex; align-items:center; gap:8px; flex-wrap:wrap;
+            font-family: var(--y-mono); font-size:12px }
+  .y-crumb a{ color: var(--r-text-secondary) }
+  .y-crumb a:hover{ color: var(--r-text-body) }
+  .y-crumb [aria-current="page"]{ color: var(--r-text-gold) }
+  .y-crumb li::before{ content:'▸'; color: var(--r-text-ghost); margin-right:8px }
+  .y-crumb li:first-child::before{ content:none }
+  .y-crumb ol, .y-crumb li{ list-style:none; margin:0; padding:0; display:contents }
+
+  /* ── tabs — an underline, never a filled slab ───────────────────── */
+  .y-tabs{ display:flex; gap:2px; border-bottom:1px solid var(--r-border-hairline) }
+  .y-tabs button{
+    position:relative; padding:9px 14px; border:0; background:transparent;
+    font-family: var(--y-sans); font-size:13.5px; color: var(--r-text-secondary);
+    cursor:pointer; transition: color var(--y-t);
+  }
+  .y-tabs button:hover{ color: var(--r-text-body) }
+  .y-tabs button[aria-selected="true"]{ color: var(--r-text-gold) }
+  .y-tabs button[aria-selected="true"]::after{
+    content:''; position:absolute; left:10px; right:10px; bottom:-1px; height:1.5px;
+    background: var(--r-action-edge);
+  }
+
+  /* ── disclosure ─────────────────────────────────────────────────── */
+  .y-fold{ border-bottom:1px solid var(--r-border-hairline) }
+  .y-fold > summary{
+    display:flex; align-items:center; gap:10px; cursor:pointer; list-style:none;
+    padding: var(--y-3) 0; color: var(--r-text-body); font-size:14px;
+  }
+  .y-fold > summary::-webkit-details-marker{ display:none }
+  .y-fold > summary::before{
+    content:'▸'; color: var(--r-text-muted); font-family: var(--y-mono);
+    transition: transform var(--y-t);
+  }
+  .y-fold[open] > summary::before{ transform: rotate(90deg) }
+  .y-fold > div{ padding:0 0 var(--y-4) 22px; color: var(--r-text-secondary); font-size:13.5px }
+
+  /* ── avatar ─────────────────────────────────────────────────────── */
+  .y-avatar{
+    display:inline-grid; place-items:center; width:32px; height:32px; flex:none;
+    border-radius:50%; background: var(--r-bg-hover);
+    border:1px solid var(--r-border-hairline);
+    font-family: var(--y-mono); font-size:12px; color: var(--r-text-secondary);
+    overflow:hidden;
+  }
+  .y-avatar img{ width:100%; height:100%; object-fit:cover }
+  .y-avatar--gold{ border-color: var(--r-action-edge); color: var(--r-action-text) }
+
+  /* ── meter — a value against a scale, not a task in flight ──────── */
+  .y-meter{ display:grid; grid-template-columns:1fr auto; gap:4px 12px;
+            font-family: var(--y-mono); font-size:12px }
+  .y-meter__label{ color: var(--r-text-muted) }
+  .y-meter__value{ color: var(--r-text-body); font-variant-numeric: tabular-nums }
+  .y-meter__track{
+    grid-column:1/-1; height:6px; border-radius:3px; position:relative;
+    background: var(--r-border-hairline); overflow:hidden;
+  }
+  .y-meter__fill{ height:100%; background: var(--r-action-edge) }
+  .y-meter--warn .y-meter__fill{ background: var(--r-warn-text) }
+  .y-meter--danger .y-meter__fill{ background: var(--r-danger-fill) }
+  /* the threshold is a mark, never a filled band */
+  .y-meter__mark{ position:absolute; top:-2px; bottom:-2px; width:1px;
+                  background: var(--r-text-muted) }
+
+  /* ── steps — a sequence with a position in it ───────────────────── */
+  .y-steps{ display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+            font-family: var(--y-mono); font-size:12px }
+  /* a queued step is still information — ghost is for a control that is
+     switched off, not for a thing that has not happened yet */
+  .y-steps__step{ display:inline-flex; align-items:center; gap:7px; color: var(--r-text-muted) }
+  .y-steps__step[data-state="done"]{ color: var(--r-ok-text) }
+  .y-steps__step[data-state="now"]{ color: var(--r-action-text) }
+  .y-steps__step[data-state="failed"]{ color: var(--r-danger-text) }
+  .y-steps__rail{ width:26px; height:1px; background: var(--r-border-hairline) }
+
+  /* ── timeline — the same sequence, vertical, with detail ────────── */
+  .y-timeline{ list-style:none; margin:0; padding:0 }
+  .y-timeline li{ position:relative; padding:0 0 var(--y-5) 26px }
+  .y-timeline li::before{
+    content:''; position:absolute; left:5px; top:6px; width:7px; height:7px;
+    border-radius:50%; background: var(--r-bg-app);
+    border:1.5px solid var(--r-border-strong);
+  }
+  .y-timeline li::after{
+    content:''; position:absolute; left:8px; top:17px; bottom:0; width:1px;
+    background: var(--r-border-hairline);
+  }
+  .y-timeline li:last-child::after{ display:none }
+  .y-timeline li[data-state="done"]::before{ border-color: var(--r-ok-fill); background: var(--r-ok-fill) }
+  .y-timeline li[data-state="now"]::before{ border-color: var(--r-action-edge) }
+  .y-timeline__title{ color: var(--r-text-body); font-size:13.5px }
+  .y-timeline__meta{ font-family: var(--y-mono); font-size:11.5px; color: var(--r-text-muted); margin-top:3px }
+
+  /* ── banner — a notice across the width of what it concerns ─────── */
+  .y-banner{
+    display:flex; align-items:center; gap: var(--y-3);
+    padding: var(--y-3) var(--y-4);
+    background: var(--r-bg-surface);
+    border:1px solid var(--r-border-hairline);
+    border-radius: var(--y-r-control);
+    font-size:13.5px; color: var(--r-text-secondary);
+  }
+  .y-banner__mark{ font-family: var(--y-mono); color: var(--r-text-gold) }
+  .y-banner--warn{ border-color: var(--r-warn-text) }
+  .y-banner--warn .y-banner__mark{ color: var(--r-warn-text) }
+  .y-banner--danger{ border-color: var(--r-danger-fill); background: var(--r-danger-wash) }
+  .y-banner--danger .y-banner__mark{ color: var(--r-danger-text) }
+  .y-banner > :last-child{ margin-left:auto }
+
+  /* ── split button — one action, and its variants ────────────────── */
+  .y-split{ display:inline-flex }
+  .y-split > .y-btn:first-child{ border-top-right-radius:0; border-bottom-right-radius:0 }
+  .y-split > .y-btn:last-child{
+    border-top-left-radius:0; border-bottom-left-radius:0;
+    border-left-width:0; padding-inline: var(--y-3); min-width:36px;
+  }
+
+  /* ── code block — a header, and the code under it ───────────────── */
+  .y-code{ background: var(--r-bg-surface); border:1px solid var(--r-border-hairline);
+           border-radius: var(--y-r-card); overflow:hidden }
+  .y-code__bar{
+    display:flex; align-items:center; gap: var(--y-3);
+    padding:8px var(--y-4); border-bottom:1px solid var(--r-border-hairline);
+    font-family: var(--y-mono); font-size:11px; color: var(--r-text-muted);
+  }
+  .y-code__bar > :last-child{ margin-left:auto }
+  .y-code pre{ margin:0; padding: var(--y-4); overflow:auto;
+               font-size: 12.5px; line-height:1.75; color: var(--r-text-secondary) }
+  /* an inline mention of code, inside prose */
+  .y-mono{ font-family: var(--y-mono); font-size:.92em; color: var(--r-text-gold) }
+}

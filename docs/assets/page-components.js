@@ -190,7 +190,100 @@
   <button aria-current="page">1</button><button>2</button><button>3</button>
   <button aria-label="next">›</button>
   <span class="y-pager__range">21–40 of 318</span>
+</div>`]]},
+
+  { key:'chrome', title:'Chrome', canon:'controls.md',
+    note:'The small furniture a real interface is mostly made of. None of it is decorative: a keycap is an object so it gets an object\u2019s edge, a tooltip is a label the pointer earns and never a place to hide content, and tabs are an underline rather than a filled slab.',
+    demos:[
+    ['keys · tags · tooltip', 'A tag is a badge you can take off; the remove control turns scarlet only under the hand.',
+`<div class="y-actions">
+  <kbd class="y-kbd">\u2318</kbd><kbd class="y-kbd">K</kbd>
+  <span class="y-hint">open the palette</span>
+</div>
+<div class="y-actions" style="margin-top:16px">
+  <span class="y-tag">kogane <button aria-label="remove kogane">\u2717</button></span>
+  <span class="y-tag">washi <button aria-label="remove washi">\u2717</button></span>
+  <button class="y-btn y-btn--ghost y-btn--sm y-tip" data-tip="a label the pointer earns">Hover me</button>
+</div>`],
+    ['breadcrumb · tabs', 'The current page takes the gold; the trail behind it stays secondary.',
+`<nav class="y-crumb" aria-label="Breadcrumb"><ol>
+  <li><a href="#chrome">canon</a></li>
+  <li><a href="#chrome">palette</a></li>
+  <li><a href="#chrome" aria-current="page">kogane</a></li>
+</ol></nav>
+<div class="y-tabs" style="margin-top:18px">
+  <button aria-selected="true">Palette</button>
+  <button aria-selected="false">Type</button>
+  <button aria-selected="false">Motion</button>
+</div>`],
+    ['disclosure · avatar', 'A fold hides detail without hiding that there is detail.',
+`<details class="y-fold" open>
+  <summary>Why roles and not tokens?</summary>
+  <div>A token is a value and promises nothing. A role is a promise: the right
+  value in either theme, at a contrast measured against every surface.</div>
+</details>
+<details class="y-fold">
+  <summary>What does the build actually generate?</summary>
+  <div>Thirteen program themes, the token exports, this page\u2019s colours, the
+  banner, the mark and the contrast proof.</div>
+</details>
+<div class="y-actions" style="margin-top:18px">
+  <span class="y-avatar">ZK</span>
+  <span class="y-avatar y-avatar--gold">\u25c6</span>
+  <span class="y-hint">initials, or one mark</span>
+</div>`]]},
+
+  { key:'sequence', title:'Sequence and notice', canon:'feedback.md',
+    note:'Work that takes time, and the things an interface says while it does. A meter shows a value against a scale; progress shows a task in flight; a stage list shows both and is almost always the better answer.',
+    demos:[
+    ['meters', 'The threshold is a mark, never a filled band \u2014 a band would colour values that are still fine.',
+`<div class="y-meter">
+  <span class="y-meter__label">cpu</span><span class="y-meter__value">42%</span>
+  <div class="y-meter__track"><div class="y-meter__fill" style="width:42%"></div>
+    <span class="y-meter__mark" style="left:80%"></span></div>
+</div>
+<div class="y-meter y-meter--warn" style="margin-top:14px">
+  <span class="y-meter__label">disk</span><span class="y-meter__value">84%</span>
+  <div class="y-meter__track"><div class="y-meter__fill" style="width:84%"></div>
+    <span class="y-meter__mark" style="left:80%"></span></div>
+</div>`],
+    ['steps · timeline', 'The same sequence twice: inline when only the position matters, vertical when each step has something to say.',
+`<div class="y-steps">
+  <span class="y-steps__step" data-state="done">\u2713 source</span>
+  <span class="y-steps__rail"></span>
+  <span class="y-steps__step" data-state="now">\u25cf proof</span>
+  <span class="y-steps__rail"></span>
+  <span class="y-steps__step">\u25cb export</span>
+</div>
+<ul class="y-timeline" style="margin-top:22px">
+  <li data-state="done"><div class="y-timeline__title">Palette resolved</div>
+    <div class="y-timeline__meta">42 tokens \u00b7 0.4s</div></li>
+  <li data-state="now"><div class="y-timeline__title">Contrast proof</div>
+    <div class="y-timeline__meta">184 checks <span data-spin="braille">\u2839</span></div></li>
+  <li><div class="y-timeline__title">Bake thirteen themes</div>
+    <div class="y-timeline__meta">queued</div></li>
+</ul>`],
+    ['banner · split · code', 'A banner runs the width of what it concerns; an alert sits inside it.',
+`<div class="y-banner">
+  <span class="y-banner__mark">\u25c6</span>
+  <div>A new release is available.</div>
+  <button class="y-btn y-btn--quiet y-btn--sm">Read the notes</button>
+</div>
+<div class="y-banner y-banner--warn" style="margin-top:10px">
+  <span class="y-banner__mark">\u26a0</span>
+  <div>The washi gold moved in v1.2 \u2014 regenerate any vendored theme.</div>
+</div>
+<div class="y-actions" style="margin-top:18px">
+  <span class="y-split">
+    <button class="y-btn y-btn--primary y-btn--sm">Deploy</button>
+    <button class="y-btn y-btn--primary y-btn--sm" aria-label="more">\u25be</button>
+  </span>
+</div>
+<div class="y-code" style="margin-top:18px">
+  <div class="y-code__bar"><span>palette.css</span><span>generated</span></div>
+  <pre>:root { --r-text-body: var(--bone-1); }</pre>
 </div>`]]}
+
   ];
 
   document.getElementById('kit').innerHTML = SECTIONS.map((s, i) => `

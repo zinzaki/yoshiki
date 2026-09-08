@@ -67,6 +67,24 @@ A single `bg.surface` track with a hairline edge; the chosen segment takes
 between segments — the tint is the boundary. Three to five segments; beyond
 that it is a select.
 
+## Keys, tags and the split button
+
+A **keycap** is an object, so it gets an object's edge: the same hairline as
+everything else, with the bottom border one step stronger. That asymmetry is the
+entire illusion, and a shadow would be both heavier and less convincing.
+
+A **tag** is a badge you can take off. The remove control is a `✗` in
+`text.muted` that turns `danger.text` only under the hand — a row of scarlet
+crosses would spend the trigger on housekeeping.
+
+A **split button** is one action and its variants: the primary on the left, a
+`▾` on the right, sharing an edge with no seam between them. Use it only when
+the left half is genuinely the common case; when it is not, it is a menu.
+
+A **tooltip** names a control the pointer has reached. It is a label, never a
+place to put content — anything a reader must read cannot live somewhere it can
+only be found by hovering, and never on a touch screen at all.
+
 ## Links
 
 `text.link`, no underline at rest, underline on hover — the colour already

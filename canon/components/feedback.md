@@ -32,6 +32,13 @@ information the user needs. Toasts stack downward, three at most; the oldest
 leaves first. A toast never reports an error the user must act on — that is an
 alert, in place.
 
+## Banner
+
+A banner runs the full width of what it concerns, at the top of it; an alert
+sits inside the content. That is the whole distinction — a banner is about the
+page, an alert is about the thing beside it. One banner at a time, and it may
+carry exactly one action, right-aligned.
+
 ## Badge · chip · tag
 
 A pill, 22px tall, 11px mono, padding `0 10px`.

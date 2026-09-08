@@ -58,6 +58,25 @@
       return;
     }
 
+    /* an underline tab strip: same contract as a segment */
+    var utab = e.target.closest('.y-tabs button');
+    if (utab) {
+      utab.parentElement.querySelectorAll('button').forEach(function (b) {
+        b.setAttribute('aria-selected', String(b === utab));
+      });
+      utab.dispatchEvent(new CustomEvent('y-change', {bubbles: true, detail: {value: utab.textContent.trim()}}));
+      return;
+    }
+
+    /* a tag you can take off actually comes off */
+    var rm = e.target.closest('.y-tag button');
+    if (rm) {
+      var tag = rm.closest('.y-tag');
+      tag.dispatchEvent(new CustomEvent('y-remove', {bubbles: true, detail: {label: tag.textContent.trim()}}));
+      tag.remove();
+      return;
+    }
+
     var tab = e.target.closest('[role="tab"]');
     if (tab) {
       var list = tab.closest('[role="tablist"]');
