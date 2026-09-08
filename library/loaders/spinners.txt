@@ -1,0 +1,45 @@
+# spinners — indeterminate, small. Frames left to right, cycling.
+# Tempo is per frame. The default is braille at ~90ms.
+
+# 1 · braille orbit — the default. Dense, smooth, survives any font.
+⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏                          ~90ms
+
+# 2 · braille pulse — fills and empties, calmer than the orbit
+⠁ ⠃ ⠇ ⠧ ⠷ ⠿ ⠷ ⠧ ⠇ ⠃                          ~110ms
+
+# 3 · arc — one quiet ring. For a long wait that should not fidget.
+◜ ◠ ◝ ◞ ◡ ◟                                   ~120ms
+
+# 4 · quadrant — heavier, reads at a distance
+◴ ◵ ◶ ◷                                       ~140ms
+
+# 5 · half-circle — the slowest of the rings
+◐ ◓ ◑ ◒                                       ~160ms
+
+# 6 · dot orbit — minimal, three cells
+⠂ ⠄ ⡀ ⢀ ⠠ ⠐                                   ~100ms
+
+# 7 · bar sweep — a single cell rising and falling
+▁ ▂ ▃ ▄ ▅ ▆ ▇ ▆ ▅ ▄ ▃ ▂                       ~90ms
+
+# 8 · line — the most compatible thing there is
+| / — \                                       ~130ms
+
+# 9 · dots — for a sentence, not a status column
+.   ..   ...                                   ~340ms
+
+# 10 · breath — one glyph fading, drawn with tone rather than shape
+◆ ◆ ◇ ◇                                       ~420ms   (paint, not frames)
+
+# 11 · seam — two marks passing, for the brand moment only
+❯   ❯❯  ❯❯❯ ❯❯  ❯                             ~120ms
+
+# every one of them needs a word beside it:
+⠹ uploading 12 of 40
+◜ waiting for the runner
+▃ compiling palette.rs
+
+# reduced motion: hold frame one. ⠹ standing still is honest; nothing at
+# all is a lie about whether anything is happening.
+
+# paint: the spinner -> action.edge · the label -> text.muted

@@ -1,0 +1,29 @@
+# soft register — a destructive confirmation. The one place scarlet fills.
+
+╭─ delete the workshop key? ───
+│
+│  The key stops working immediately and cannot be recovered.
+│  Anything already signed with it stays valid.
+│
+╰╴                       [ Keep it ]  [ Delete key ]
+
+# with a typed confirmation, for the truly irreversible
+╭─ delete the workshop key? ───
+│
+│  Type the key name to confirm.
+│
+│  ❯ workshop-2026▏
+│
+╰╴                       [ Cancel ]  [ Delete key ]
+
+# inline, in a terminal
+  ✗ migrate    blocked · two columns would lose data
+    re-run with --confirm to proceed
+
+# rule: the title names the thing, and stays bone. Only the confirm button
+#       is scarlet, and the safe choice comes first in reading order so the
+#       hand does not land on the destructive one by momentum.
+
+# paint: title -> text.heading · body -> text.secondary
+#        [ Keep it ] -> a ghost button · [ Delete key ] -> danger.fill
+#        typed field -> border.strong, focus -> action.edge

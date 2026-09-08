@@ -93,7 +93,9 @@
   const LIB = [
     ['web', 'the drop-in kit — two plain CSS files'],
     ['themes', 'thirteen programs, generated from one palette'],
-    ['menus', 'ready TUI menus, cards, panels, status lines'],
+    ['frames', 'twelve ways to draw an edge, and when each is wrong'],
+    ['menus', '22 TUI patterns — pickers, forms, panels, logs, dashboards'],
+    ['loaders', 'every way to say "working" — spinners, bars, stages'],
     ['charts', 'text data-viz — sparkline, bars, gauge'],
     ['text', 'nameplates, banners, dividers, glyph sets'],
     ['snippets', 'how to write code in the style, per language'],

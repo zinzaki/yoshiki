@@ -1,0 +1,39 @@
+# hard-ish register — a tree. Two spaces per level, spine drawn.
+
+  canon
+  ├─ principles
+  ├─ palette
+  │  ├─ kogane          42 tokens
+  │  ╰─ washi           14 overrides
+  ├─ components
+  ╰─ lexicon
+
+# collapsed and expanded, with the state on the left
+  ▾ canon
+    ▾ palette
+        kogane
+        washi
+    ▸ components                              6
+    ▸ lexicon                                 8
+
+# with kinds, by glyph
+  ⬡ canon
+  │  ◆ palette          the source of truth
+  │  · components
+  ╰─ · lexicon
+
+# a file tree with status, the way a diff reads
+  canon
+  ├─ palette
+  │  ├─ + kogane.css
+  │  ├─ ~ palette.yml
+  │  ╰─ - old.json
+  ╰─ components
+
+# rule: past three levels the spine stops helping. Give the fourth level
+#       its own pane, or a breadcrumb.
+
+# paint: spine -> border.hairline · ▾ ▸ -> text.muted
+#        directory names -> text.body · leaves -> text.secondary
+#        counts and notes -> text.muted
+#        + -> ok.text · ~ -> warn.text · - -> danger.text

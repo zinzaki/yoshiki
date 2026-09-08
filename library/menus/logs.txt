@@ -1,0 +1,34 @@
+# minimal register — a log. It scrolls, so it gets no frame at all.
+
+14:02:11  ✓  resolve      214 packages
+14:02:11  ✓  fetch        18.4 MB
+14:02:13  ●  build        ⠹
+14:02:19  ⚠  build        2 warnings in palette.rs
+14:02:24  ✗  build        exit 1 · seal mismatch
+
+# without timestamps, which is the default — a timestamp on every line is
+# the most-repeated and least-read column there is
+  ✓  resolve      214 packages
+  ✓  fetch        18.4 MB
+  ✗  build        exit 1 · seal mismatch
+
+# grouped by run, with a rule between
+  ─── run 41 ─ 14:02 ─────────────
+  ✓  resolve      0.4s
+  ✗  build        exit 1
+
+  ─── run 42 ─ 14:09 ─────────────
+  ✓  resolve      0.4s
+  ✓  build        4.1s
+
+# with a follow indicator pinned at the bottom
+  ✓  fetch        18.4 MB
+  ⠹  build
+  ────────────────────────────────
+  following · 1,204 lines · esc to stop
+
+# rule: one mark column, aligned, and the message left-aligned beside it.
+#       The eye scans the marks and stops at the one that is not a check.
+
+# paint: ✓ -> ok.text · ⚠ -> warn.text · ✗ -> danger.text · ● -> action.text
+#        timestamps -> text.ghost · sources -> text.muted · messages -> text.body

@@ -1,0 +1,25 @@
+# inline — where you are, and nothing else.
+
+  canon ▸ palette ▸ kogane
+
+# with the current level unlinked and lit
+  canon ▸ palette ▸ kogane
+
+# truncated in the middle, never at the end — the end is where you are
+  canon ▸ … ▸ kogane ▸ palette.yml
+
+# with a count at the tail
+  canon ▸ palette                              42 tokens
+
+# as the title of a frame
+╭─ canon ▸ palette ▸ kogane ───
+│  42 tokens · 35 roles
+╰╴
+
+# vertical, for a narrow pane
+  canon
+   └ palette
+      └ kogane
+
+# paint: separators ▸ -> text.ghost · ancestors -> text.secondary
+#        the current level -> text.gold · counts -> text.muted

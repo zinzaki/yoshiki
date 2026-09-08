@@ -54,6 +54,8 @@
 ## Library — ready artifacts to lift
 - [web](library/web/README.md): the drop-in kit — palette.css + yoshiki.css, no build step
 - [integrations](library/integrations/README.md): npm, Tailwind preset, Figma variables, Style Dictionary, typed tokens
+- [frames](library/frames/README.md): twelve edge registers — soft, hard, minimal, brackets, callouts, ascii
+- [loaders](library/loaders/README.md): spinners by tempo, bars by shape, stages, skeletons, inline
 - [themes](library/themes/README.md): kitty · foot · alacritty · ghostty · wezterm · starship · base24 · vscode · neovim · tmux · btop · zellij · fzf (generated)
 - [effects](library/effects/README.md) · [menus](library/menus/README.md) · [charts](library/charts/README.md) · [text](library/text/README.md) · [snippets](library/snippets/README.md) · [configs](library/configs/README.md) · [presets](library/presets/README.md) · [github](library/github/README.md) · [image-prompts](library/image-prompts/README.md)
 

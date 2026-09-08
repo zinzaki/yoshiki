@@ -1,0 +1,42 @@
+# stages — multi-step work. The best loader there is, because it says what
+# is happening rather than that something is.
+
+# 1 · the list, filling in
+✓ resolve      214 packages
+✓ fetch        18.4 MB
+● build        ⠹
+○ test
+○ publish
+
+# 2 · with timings, once each step lands
+✓ resolve      0.4s
+✓ fetch        2.1s
+● build        ⠹ 12s
+○ test
+○ publish
+
+# 3 · a failure stops the run and says so
+✓ resolve      0.4s
+✓ fetch        2.1s
+✗ build        exit 1 · seal mismatch
+⊘ test         skipped
+⊘ publish      skipped
+
+# 4 · nested sub-steps, one level only
+● build        ⠹
+  │  palette      done
+  │  contrast     done
+  │  themes       ⠹ 8 of 13
+
+# 5 · inline, for a narrow place
+  [✓✓●○○]  build · 3 of 5
+
+# 6 · with a total, when the count is known and steady
+✓ 2 done   ● 1 running   ○ 2 queued        3 of 5
+
+# the marks, and nothing else in this position:
+#   ✓ done   ● running   ○ queued   ✗ failed   ⊘ skipped   ⚠ done with warnings
+
+# paint: ✓ -> ok.text · ● -> action.text · ○ -> text.ghost
+#        ✗ -> danger.text · ⊘ -> text.muted · ⚠ -> warn.text
+#        step names -> text.body · detail -> text.muted

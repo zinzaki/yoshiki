@@ -1,0 +1,33 @@
+# tabs — an edge with a notch. One of several views.
+
+# 1 · soft tabs, the active one joined to the body
+ ╭ palette ╮  type    motion
+╭┴─────────┴──────────────────────
+│  42 tokens · 35 roles
+╰╴
+
+# 2 · underline only (the calmest, and the default)
+  palette    type    motion
+  ───────
+
+# 3 · a bar of segments, the chosen one tinted
+  [ palette ]  type   motion
+
+# 4 · numbered, for a wizard
+  1 source ── 2 proof ── 3 export
+    ────────
+
+# 5 · vertical tabs, for a sidebar
+  ▸ palette
+    type
+    motion
+
+# 6 · with counters
+  files 128   changes 12   history
+
+# rule: three to five tabs. Beyond that it is a picker, and the tabs are
+#       lying about how much there is.
+
+# paint: active label -> text.gold · active underline -> action.edge
+#        idle labels -> text.secondary · counters -> text.muted
+#        the joining frame -> border.hairline

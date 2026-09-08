@@ -1,0 +1,37 @@
+# titled — the name set into the edge, so the frame says what it holds.
+
+# 1 · title in the opening line (the default)
+╭─ deploy ───
+│  ship --prod
+╰╴
+
+# 2 · title with a counter, right-aligned in the same edge
+╭─ files ─────────────────────────── 128 ─
+│  src/palette.rs
+│  src/roles.rs
+╰╴
+
+# 3 · title with a state mark
+╭─ ◆ deploy ─  main ─ clean ───
+│  ship --prod
+╰╴
+
+# 4 · hard register, sigil instead of a capsule
+⧉ RESOURCES
+╔ cpu       42%
+╚ memory    61%
+
+# 5 · title in a rule, no box
+──────────── DEPLOY ─────────────
+  ship --prod
+
+# 6 · a title that is also the breadcrumb
+╭─ canon ▸ palette ▸ kogane ───
+│  42 tokens · 35 roles
+╰╴
+
+# rule: a title earns its place by naming something the content does not
+#       already say. "Panel" is not a title.
+
+# paint: title -> text.gold · separators ▸ -> text.ghost
+#        counters -> text.muted · frame -> border.hairline

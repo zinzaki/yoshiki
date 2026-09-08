@@ -1,0 +1,27 @@
+# panels — a fixed grid of gauges. Nothing moves position, ever.
+
+╭─ cpu ─────────────────╮╭─ memory ──────────────╮
+│ ▁▂▃▅▆▇▆▅▃▂▂▃▄   42%   ││ ▃▃▄▄▅▅▅▆▆▆▆▇▇   61%   │
+╰───────────────────────╯╰───────────────────────╯
+╭─ requests ────────────╮╭─ errors ──────────────╮
+│ 18,420 / min          ││ 0.02 %                │
+│ ▲ 4.2%                ││ ▼ 0.6pp               │
+╰───────────────────────╯╰───────────────────────╯
+
+# a strip of figures, when the shape does not matter
+  REQ/MIN     ERRORS      P99        UPTIME
+  18,420      0.02%       42 ms      99.7%
+  ▲ 4.2%      ▼ 0.6pp     ▲ 11ms     ─
+
+# with one value over its threshold — and only one
+  cpu       ▰▰▰▰▰▰▱▱▱▱   42%
+  memory    ▰▰▰▰▰▰▰▱▱▱   61%
+  disk      ▰▰▰▰▰▰▰▰▰▱   84%   ⚠ over 80
+
+# rule: the delta reads by DIRECTION, not by sign. A falling error rate is
+#       good and takes ok.text; a rising one takes danger.text.
+
+# paint: frames -> border.hairline · figures -> text.heading, mono
+#        labels -> text.muted, spaced · sparkline -> action.edge
+#        good delta -> ok.text · bad delta -> danger.text
+#        a crossed threshold -> warn.text, one cell only

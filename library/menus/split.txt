@@ -1,0 +1,36 @@
+# panels — two or three fixed panes. Spatial consistency is the rule:
+# a pane never moves unless the user asked it to.
+
+# 1 · list and detail
+╭─ services ───────────╮╭─ gateway ────────────────────
+│ ▌ gateway            ││  req/min      18,420
+│   auth               ││  p99              42 ms
+│   billing            ││  errors         0.02 %
+│   render             ││  region        eu-west
+│                      ││
+│                      ││  ✓ healthy
+╰──────────────────────╯╰╴
+
+# 2 · three panes — nav, list, detail
+╭─ canon ─────╮╭─ palette ──────╮╭─ kogane ─────────────
+│ ▌ palette   ││ ▌ kogane       ││  42 tokens
+│   lexicon   ││   washi        ││  35 roles
+│   motion    ││   CONTRAST.md  ││  184 checks · all pass
+╰─────────────╯╰────────────────╯╰╴
+
+# 3 · horizontal split, when the second pane is output
+╭─ editor ─────────────────────────────────────
+│  fn resolve(role: &str) -> Token {
+│      match role { … }
+│  }
+├──────────────────────────────────────────────
+│  ⠹ cargo test --release
+│  ✓ 1,820 passed
+╰╴
+
+# 4 · the focused pane is the only one with a lit edge
+#     — never two, and never a heavier border to say so
+
+# paint: frames -> border.hairline · the focused frame -> action.edge
+#        pane titles -> text.gold · selected row ▌ -> action.edge
+#        idle rows -> text.secondary

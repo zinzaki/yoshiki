@@ -1,0 +1,32 @@
+# soft register — a form. Label above, one hint line, the error replaces it.
+
+╭─ new target ───
+│
+│  name ·
+│  ▏helix                                  │
+│  the program's own name, lowercase
+│
+│  format
+│  ▏toml                                 ▾ │
+│
+│  api key
+│  ▏sk-invalid                             │
+│  ✗ a key must start with sk_
+│
+│  ▢ generate both themes
+│  ▣ run the contrast proof
+│
+╰╴                        [ Cancel ]  [ Create ]
+
+# the compact register, for a settings pane rather than a task
+  language        English
+  theme           kogane
+  startup         restore session
+
+# rule: validate on blur, never on keystroke. A field that turns scarlet
+#       while you are still typing is scolding, not helping.
+
+# paint: labels -> text.secondary · the required mark · -> action.text
+#        fields -> border.strong, focus -> action.edge
+#        hints -> text.muted · errors -> danger.text with ✗
+#        ▣ checked -> action.text · ▢ unchecked -> border.strong

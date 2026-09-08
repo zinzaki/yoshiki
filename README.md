@@ -187,7 +187,9 @@ yoshiki/
 │  │                       starship · tmux · zellij · btop · fzf
 │  │                       vscode · neovim · base24
 │  ├─ integrations/        Tailwind · Figma variables · Style Dictionary · typed tokens
-│  ├─ menus/               ready TUI menus, panels, cards, status lines
+│  ├─ frames/              twelve ways to draw an edge, and when each is wrong
+│  ├─ menus/               22 ready TUI patterns — pickers, forms, panels, logs
+│  ├─ loaders/             every way to say "working" — spinners, bars, stages
 │  ├─ charts/              text data-viz — sparkline · bars · gauge
 │  ├─ text/                nameplates · banners · dividers · glyph sets
 │  ├─ snippets/            the style in code, per language
