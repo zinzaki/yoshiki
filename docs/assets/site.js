@@ -1,6 +1,7 @@
 /* ════════════════════════════════════════════════════════════════════
    site.js — everything every page shares
    theme · header · light · reveal · copy · command palette
+   (tabs, switches, segments and ranges come from the kit itself)
    Reads window.YOSHIKI (generated from canon). Holds no palette itself.
    ════════════════════════════════════════════════════════════════════ */
 (function(){
@@ -111,7 +112,21 @@
     }
   });
 
-  /* ── spinners, tabs, switches ──────────────────────────────────── */
+  /* ── a demonstrated control still answers the hand ──────────────────
+     A button in a specimen has nothing to submit, but a button that does
+     nothing at all reads as broken. Pressing one names the class it is
+     demonstrating, which is what you came to the page to find out. */
+  document.addEventListener('click', e => {
+    const btn = e.target.closest('.y-btn, .y-badge, .y-status');
+    if (!btn || btn.hasAttribute('href') || btn.disabled) return;
+    if (btn.closest('[data-copy], [data-copy-from], .hdr, #cmd')) return;
+    if (btn.dataset.copy || btn.dataset.cmdk !== undefined) return;
+    if (!btn.closest('.plate, figure, .y-dialog, .y-panel')) return;
+    const cls = [...btn.classList].filter(c => c.startsWith('y-')).join(' .');
+    toast('.' + cls, '◆');
+  });
+
+  /* ── spinners ──────────────────────────────────────────────────── */
   const braille = ['⠋','⠙','⠹','⠸','⠼','⠴','⠦','⠧','⠇','⠏'];
   const arc = ['◜','◠','◝','◞','◡','◟'];
   if (!RM){
@@ -123,26 +138,8 @@
     }, 90);
   } else $$('[data-spin]').forEach(el => el.textContent = '⠹');
 
-  document.addEventListener('click', e => {
-    const tab = e.target.closest('[role="tab"]');
-    if (tab){
-      $$('[role="tab"]', tab.closest('[role="tablist"]')).forEach(t => {
-        const on = t === tab;
-        t.setAttribute('aria-selected', String(on));
-        const panel = document.getElementById(t.getAttribute('aria-controls'));
-        if (panel) panel.hidden = !on;
-      });
-    }
-    const seg = e.target.closest('.y-seg button');
-    if (seg) $$('button', seg.parentElement).forEach(b => b.setAttribute('aria-selected', String(b === seg)));
-    const sw = e.target.closest('.y-switch');
-    if (sw) sw.setAttribute('aria-checked', sw.getAttribute('aria-checked') === 'true' ? 'false' : 'true');
-  });
-  document.addEventListener('keydown', e => {
-    if (e.key !== ' ' && e.key !== 'Enter') return;
-    const sw = e.target.closest && e.target.closest('.y-switch');
-    if (sw){ e.preventDefault(); sw.click(); }
-  });
+  /* tabs, segments, switches and ranges are the kit's own behaviour —
+     docs/assets/kit.js is library/web/yoshiki.js, mirrored by the build */
 
   $$('[data-year]').forEach(el => el.textContent = new Date().getFullYear());
 

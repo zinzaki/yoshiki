@@ -164,35 +164,48 @@ A palette change reaches every program at once, and a fourteenth target costs on
 
 ## What's in the box
 
-<table>
-<tr><th align="left" width="50%">canon — the definition</th><th align="left">library — the language in use</th></tr>
-<tr><td valign="top">
+```
+yoshiki/
+│
+├─ AGENTS.md               how an agent applies the language (it reads this first)
+├─ PHILOSOPHY.md           why it looks like this
+├─ llms.txt                machine-readable index of every module
+│
+├─ canon/                  the definition — edited by hand, the source of truth
+│  ├─ principles/          the ordered ladder: what wins when nothing is set
+│  ├─ palette/             tokens · roles · contrast proof · kogane · washi
+│  ├─ components/          the anatomy of a control, part by part
+│  ├─ lexicon/             glyphs · frames · space · states · CLI · comments
+│  ├─ motion/              loading & progress — spinners · dot-matrix · tapes
+│  ├─ effects/             web effects — glass · grain · pointer · ambient
+│  ├─ typography/          serif to speak, mono to count
+│  ╰─ prompts/             drop-in modules that teach the language to a model
+│
+├─ library/                the language in use — take and apply
+│  ├─ web/                 the drop-in kit: palette.css + yoshiki.css
+│  ├─ themes/              kitty · foot · alacritty · ghostty · wezterm
+│  │                       starship · tmux · zellij · btop · fzf
+│  │                       vscode · neovim · base24
+│  ├─ integrations/        Tailwind · Figma variables · Style Dictionary · typed tokens
+│  ├─ menus/               ready TUI menus, panels, cards, status lines
+│  ├─ charts/              text data-viz — sparkline · bars · gauge
+│  ├─ text/                nameplates · banners · dividers · glyph sets
+│  ├─ snippets/            the style in code, per language
+│  ├─ configs/             whole example configs
+│  ├─ effects/             the web effects as working files
+│  ├─ presets/             named kits, assembled
+│  ├─ image-prompts/       recipes for generating images in the language
+│  ╰─ github/              a README and profile wearing it
+│
+├─ tools/build.py          bakes every theme, export, asset and proof from canon
+├─ tools/check.py          links, stray colour, drifted copies, stray characters
+├─ tools/audit.mjs         sweeps the rendered pages for real contrast
+╰─ docs/                   the showcase — github.io/yoshiki
+```
 
-- [`principles/`](canon/principles/) — the ordered ladder: what wins when nothing is specified
-- [`palette/`](canon/palette/) — tokens, the roles contract, the proof
-- [`components/`](canon/components/) — the anatomy of a control, part by part
-- [`lexicon/`](canon/lexicon/) — glyphs, frames, space, states
-- [`motion/`](canon/motion/) — spinners and progress, drawn with sub-symbols
-- [`effects/`](canon/effects/) — glass, grain, pointer, ambient
-- [`typography/`](canon/typography/) — a serif to speak, a mono to count
-- [`prompts/`](canon/prompts/) — drop-in modules for a model
-
-</td><td valign="top">
-
-- [`web/`](library/web/) — the drop-in kit, two plain CSS files
-- [`themes/`](library/themes/) — thirteen programs, generated
-- [`menus/`](library/menus/) — ready TUI menus, panels, status lines
-- [`charts/`](library/charts/) — text data-viz: sparkline, bars, gauge
-- [`text/`](library/text/) — nameplates, banners, dividers, glyph sets
-- [`snippets/`](library/snippets/) — the style in code, per language
-- [`configs/`](library/configs/) — whole example configs
-- [`integrations/`](library/integrations/) — Tailwind, Figma, Style Dictionary, typed tokens
-- [`effects/`](library/effects/) · [`presets/`](library/presets/) · [`github/`](library/github/) · [`image-prompts/`](library/image-prompts/)
-
-</td></tr>
-</table>
-
----
+`canon/` defines the language; `library/` is the language in use. Everything
+under `library/themes/`, the palette exports, the banner, the mark and the
+showcase's colours are generated — edit `canon/palette/*/palette.yml` and rebuild.
 
 ## Built for agents, not just people
 

@@ -938,6 +938,7 @@ def emit_integrations(resolved: dict):
                   "default": "./library/integrations/tokens.mjs"},
             "./css": "./library/web/palette.css",
             "./kit.css": "./library/web/yoshiki.css",
+            "./kit.js": "./library/web/yoshiki.js",
             "./tailwind": "./library/integrations/tailwind.cjs",
             "./figma": "./library/integrations/figma-variables.json",
             "./tokens/kogane": "./canon/palette/kogane/kogane.tokens.json",
@@ -974,6 +975,7 @@ def mirror_kit():
     is what makes `--check` catch a showcase that has drifted from the artifact
     it is supposed to be proving."""
     w(DOCS / "kit.css", (WEB / "yoshiki.css").read_text())
+    w(DOCS / "kit.js", (WEB / "yoshiki.js").read_text())
     # the web effects ship as separate files (they are optional richness, not
     # part of the kit); the site demonstrates the real ones, concatenated
     fx = ROOT / "library" / "effects"

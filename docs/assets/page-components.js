@@ -64,8 +64,8 @@
   <span class="y-hint">applies immediately</span>
 </div>
 <div class="y-range" style="margin-top:16px">
-  <input type="range" min="0" max="100" value="62" style="--y-p:62%" aria-label="gold">
-  <output>62</output>
+  <input type="range" min="0" max="100" value="62" aria-label="gold intensity" data-y-format="%v&#37;">
+  <output>62%</output>
 </div>`]]},
 
   { key:'surfaces', title:'Surfaces', canon:'surfaces.md',

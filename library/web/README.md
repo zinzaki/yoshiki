@@ -12,6 +12,7 @@ colour of its own.
 ```html
 <link rel="stylesheet" href="palette.css">   <!-- tokens + roles, both themes -->
 <link rel="stylesheet" href="yoshiki.css">   <!-- the component kit -->
+<script src="yoshiki.js" defer></script>     <!-- optional: the kit's behaviour -->
 ```
 
 ```html
@@ -20,7 +21,15 @@ colour of its own.
 <html data-density="compact"><!-- tighter padding; type and radius never move -->
 ```
 
-Both files are plain CSS: no build, no dependency, ~28 KB together.
+The stylesheets are plain CSS: no build, no dependency, ~28 KB together.
+
+`yoshiki.js` is optional and about 2 KB. The CSS draws states it cannot reach on
+its own — a range knows how full it is, a switch knows it is on, a segment knows
+it is chosen — and this is the small amount of JavaScript those states need, and
+nothing more. It is delegated and idempotent, so markup added later works
+without re-initialising anything, and it emits a `y-change` event you can listen
+for. If you already own that behaviour, skip the file: the CSS never depends on
+it, it only reflects what it finds.
 
 ## What you get
 
@@ -33,6 +42,9 @@ Both files are plain CSS: no build, no dependency, ~28 KB together.
 | feedback | `.y-alert` `.y-toast` `.y-badge` `.y-status` `.y-progress` `.y-empty` `.y-skeleton` |
 | data | `.y-table` `.y-num` `.y-list` `.y-kv` `.y-stat` `.y-pager` |
 | terminal | `.y-term` — a dark island in both themes, with `.k .g .r .w .c .b .d` spans |
+
+A range prints its value into any `<output>` in the same `.y-range`; add
+`data-y-format="%v&#37;"` to give the number a unit.
 
 ## Layers
 
