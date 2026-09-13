@@ -190,8 +190,8 @@ yoshiki/
 │  ├─ frames/              twelve ways to draw an edge, and when each is wrong
 │  ├─ menus/               22 ready TUI patterns — pickers, forms, panels, logs
 │  ├─ loaders/             every way to say "working" — spinners, bars, stages
-│  ├─ charts/              text data-viz — sparkline · bars · gauge
-│  ├─ text/                nameplates · banners · dividers · glyph sets
+│  ├─ charts/              ten text charts — sparkline · histogram · heatmap
+│  ├─ text/                lists · steps · callouts · badges · commits
 │  ├─ snippets/            the style in code, per language
 │  ├─ configs/             whole example configs
 │  ├─ effects/             the web effects as working files

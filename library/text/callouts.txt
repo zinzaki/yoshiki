@@ -1,11 +1,45 @@
-# Callouts — a flagged line, color by role. No box: the mark is the category.
+# Callouts — a flagged line, colour by role. No box: the mark is the category.
 # Verdict glyph, short label, one clause. The same five everywhere.
 
+## the five
  ✓ ok      build passed · 46 tokens synced
  ⚠ warn    cache expires in two hours
  ✗ error   seal mismatch — cannot continue
  ⧉ note    information lives in tone, not in blue
  → tip     paste one prompt module, stack the rest
 
+## without the label, when the glyph is unambiguous in context
+ ✓ 1,820 tests passed
+ ⚠ 3 deprecated tokens still referenced
+ ✗ contrast floor missed: text.ghost on bg.hover — 2.9:1
+
+## with a cause and a way out — the shape an error actually owes you
+ ✗ error   build failed
+           ↳ canon/palette/washi: kin-2 on ink-3 is 4.33:1, floor is 4.5
+           ↳ raise kin-2, or drop text.gold-dim from the proof
+
+## indented under the thing it is about
+ palette.yml
+   ✓ 42 tokens resolved
+   ⚠ 2 tokens declared but never used by a role
+ themes/
+   ✓ 13 targets written
+
+## a block callout, when one clause is genuinely not enough
+ ⧉ note
+   A custom property resolves where it is DECLARED, not where it is used.
+   A nested [data-theme] scope therefore has to re-declare the whole role
+   contract — inheriting half of it is the bug that looks like a theme bug.
+
+## in a changelog or a README, where it has to survive plain text
+ > **⚠ breaking** — `--y-radius` is now `--y-r-card`. One rename, no shim.
+
+## what a callout must not do
+ ✗  a box around every line               five boxes is a stack, not a flag
+ ✗  ⚠ used for anything you want noticed  then nothing is a warning
+ ✗  three callouts in a row               that is a list; write it as one
+ ✗  a callout with no subject             "⚠ something went wrong" is noise
+
 # paint: ✓ -> ok.text (moss) · ⚠ -> warn.text (persimmon) · ✗ -> danger.text
 #        ⧉ note / → tip -> text.gold or bone · label -> dim, clause -> bone
+#        the ↳ continuation lines -> text.muted, never the trigger colour again

@@ -1,11 +1,32 @@
 # Gauge — one value against its whole. Same squares or dot-matrix as bars,
 # read as a single fraction.
 
+## the row form — a label, a fraction, a number
  disk   ▰▰▰▰▰▰▰▱▱▱  71%
  load   ▰▰▰▰▰▱▱▱▱▱  58%
  temp   ▰▰▰▰▰▰▰▰▰▱  84%  ⚠      past 80%: filled squares -> kaki
+ mem    ⣿⣿⣿⣿⣿⣷⠀⠀⠀⠀  63%       dot-matrix variant
 
- mem    ⣿⣿⣿⣿⣿⣷⠀⠀⠀⠀  63%      dot-matrix variant
+## with a threshold mark — the limit is a tick, never a filled band
+ temp   ▰▰▰▰▰▰▰▰│▱  84%   limit 90
+ quota  ▰▰▰▰▱▱▱│▱▱  42%   soft 70
+ ↑ │ sits where the threshold falls; a coloured band would spend colour on
+   a region instead of on the one value that crossed it
+
+## the budget form — what is left, not what is spent
+ error budget   ▰▰▰▰▰▰▰▱▱▱   68% spent · 9d left
+ rate limit     ▰▰▱▱▱▱▱▱▱▱   1,204 / 5,000 this hour
+
+## compact — a gauge inside a line of prose or a status bar
+ disk 71% ▰▰▰▰▰▰▰▱▱▱ · mem 63% ▰▰▰▰▰▰▱▱▱▱ · load 0.58
+
+## a ring, when a row will not fit
+   ╭───╮       ╭───╮       ╭───╮
+   │ 24│       │ 71│       │ 96│
+   ╰───╯       ╰───╯       ╰───╯
+    ▰▱▱▱        ▰▰▰▱        ▰▰▰▰ ⚠
+ ↑ the arc is faked with a four-step ramp under the box. Real arcs need
+   glyphs that half the terminals in the world do not have.
 
 # paint: filled -> kin-1 normal · kaki past warn · aka past critical
 # track -> ink-3; percent -> bone; the ⚠ shows only when a threshold is crossed

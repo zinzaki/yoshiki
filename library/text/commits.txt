@@ -1,0 +1,52 @@
+# Commits, changelogs and releases — the parts of a project that are read long
+# after they are written. Plain text, no colour available, every time.
+
+## a commit subject — the change, not the activity
+ ✓  fix(palette): raise kin-2 so dim gold clears 4.5:1 as text
+ ✓  feat(kit): a settings row, and the canon entry behind it
+ ✗  updates                        what updated, and why
+ ✗  fix bug                        which bug
+ ✗  WIP                            then do not commit it
+
+## the body — why, not what. The diff already says what.
+ fix(palette): raise kin-2 so dim gold clears 4.5:1 as text
+
+ kin-2 was measured only against bg.surface, where it passed at 4.6:1.
+ Against bg.app it was 4.33:1 — and bg.app is where labels actually land.
+
+ The proof now measures every text role against every surface, which is
+ why this was caught at all.
+
+## a changelog entry — one line, one fact, the impact first
+ ## 1.2.0 — 2026-06-24
+
+ ### Breaking
+ · `--y-radius` is now `--y-r-card`. One rename, no shim.
+
+ ### Added
+ · `.y-row` — a settings row, with the canon entry behind it.
+ · Arrow-key navigation inside every tablist.
+
+ ### Fixed
+ · Nested `[data-theme]` scopes now re-declare the whole role contract; the
+   side-by-side theme demo was rendering half of it in the parent's values.
+
+## a release note — what a person gets, in their words not yours
+ yoshiki 1.2.0
+
+ The front page is now an instrument rather than a brochure: one live
+ specimen you switch, restage and operate in the first screen.
+
+ Upgrading is one rename — `--y-radius` → `--y-r-card`.
+
+## a tag and its badge row
+ v1.2.0   ◆ stable   MIT   42 tokens · 184 contrast checks
+
+## conventions worth holding
+ · imperative mood: "raise", not "raised" or "raises"
+ · one change per commit; a commit that needs "and" is two commits
+ · the subject fits in 72 columns, because something will truncate it
+ · a breaking change says so in the subject, not only in the body
+
+# paint: nothing. This is the text that has to survive with no colour at all —
+# which is exactly why the language puts so much weight on structure.

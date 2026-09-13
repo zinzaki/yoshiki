@@ -1,16 +1,44 @@
 # Bars — compare a few values. Squares (your pick) or dot-matrix; no lines,
 # no solid slab.
 
+## plain — one series, sorted, largest first
  rust    ▰▰▰▰▰▰▰▰▰▰  62%
  python  ▰▰▰▰▰▰      38%
  shell   ▰▰          12%
  lua     ▰            6%
 
-# with an explicit track (empty squares mark the whole):
+## with a track — the empty squares state the whole
  disk    ▰▰▰▰▰▰▰▱▱▱  71%
+ mem     ▰▰▰▰▰▰▱▱▱▱  63%
+ swap    ▰▱▱▱▱▱▱▱▱▱   8%
 
-# dot-matrix variant (density, the Nothing way):
+## dot-matrix — more resolution than ten squares can give
  mem     ⣿⣿⣿⣿⣿⣷⠀⠀⠀⠀  63%
+ cache   ⣿⣿⣿⣿⣿⣿⣿⣿⣇⠀  91%
 
-# paint: filled ▰ / ⣿ -> kin-1 (gold); track ▱ / ⠀ -> ink-3
+## grouped — two series, same scale, one label
+ jun   this  ▰▰▰▰▰▰▰▰    1.2M
+       last  ▰▰▰▰▰▰      0.9M
+ may   this  ▰▰▰▰▰▰      0.9M
+       last  ▰▰▰▰▰▰▰     1.0M
+
+## diverging — a signed value around a zero rule
+ latency    ▰▰▰▰▰│            -34 ms   faster
+ payload        │▰▰            +8 kB   heavier
+ cold start     │▰▰▰▰▰▰▰▰▰    +91 ms   worse
+ ↑ the rule is the baseline, not a bar: keep it │, never a filled cell
+
+## stacked — the composition of one whole
+ build  ▰▰▰▰▰▰▱▱▱▱▒▒  compile 6 · link 4 · sign 2   (12.0s)
+ ↑ at most three segments. A fourth needs its own row; a fifth needs a table.
+
+## ranked — when the order is the point
+  1  kyoto      ▰▰▰▰▰▰▰▰▰▰  4,820
+  2  osaka      ▰▰▰▰▰▰▰      3,140
+  3  sapporo    ▰▰▰▰         1,890
+ …
+ 12  naha       ▰              120
+
+# paint: filled ▰ / ⣿ -> kin-1 (gold) · track ▱ / ⠀ -> ink-3
+# past warn -> kaki-1 · past critical -> aka-0 · the zero rule -> line-0
 # label left and dim, value right and bone; one row per value

@@ -979,13 +979,17 @@ PATTERN_ORDER = {
               "form", "confirm", "wizard", "panel", "miller", "multipanel",
               "split", "status-line", "keyhints", "help", "toast"],
     "loaders": ["spinners", "bars", "stages", "indeterminate", "inline", "skeleton"],
+    "charts": ["sparkline", "histogram", "timeline", "bars", "table", "scatter",
+               "gauge", "kpi", "heatmap", "axis"],
+    "text": ["lists", "steps", "kv", "quotes", "banners", "nameplates",
+             "dividers", "callouts", "badges", "glyph-sets", "commits"],
 }
 PATTERN_MODULES = [
     ("frames", "twelve ways to draw an edge, and when each is wrong"),
     ("menus", "ready TUI patterns — choosing, showing, asking, laying out"),
     ("loaders", "every way this language says \"working\""),
-    ("charts", "data drawn with squares and dots, in text"),
-    ("text", "nameplates, banners, dividers, glyph sets"),
+    ("charts", "ten ways to draw data in text — squares, dots, and no slabs"),
+    ("text", "the blocks that still read as this language with no colour at all"),
 ]
 
 
