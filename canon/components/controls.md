@@ -67,6 +67,21 @@ A single `bg.surface` track with a hairline edge; the chosen segment takes
 between segments — the tint is the boundary. Three to five segments; beyond
 that it is a select.
 
+The shape is one thing; the role it plays is two. Say which:
+
+- **A toggle group** — a filter, a unit, a sort order. The buttons carry
+  `aria-pressed`, and the group carries `role="group"` with a name.
+- **A tablist** — the segments swap panels below them. The buttons carry
+  `role="tab"`, `aria-selected` and `aria-controls`; the group carries
+  `role="tablist"`. A tablist is **one** tab stop: the selected tab is
+  `tabindex="0"`, the rest `-1`, and the arrow keys move between them. Paying
+  one Tab per segment before reaching the panel is the exact cost the pattern
+  exists to remove.
+
+`aria-selected` is only meaningful on a tab or an option. Putting it on a plain
+button says nothing to a screen reader, so a toggle group that borrows it is
+silently unlabelled.
+
 ## Keys, tags and the split button
 
 A **keycap** is an object, so it gets an object's edge: the same hairline as

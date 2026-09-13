@@ -1,12 +1,42 @@
 /* ════════════════════════════════════════════════════════════════════
-   page-index.js — the three blocks the front page draws from canon
-   the running figures · the density band · the palette at a glance
+   page-index.js — what the front page draws from canon, plus the stage
+   the live specimen · the running figures · the density band · the glance
    ════════════════════════════════════════════════════════════════════ */
 (function(){
   'use strict';
   const {Y, onTheme, esc} = window.YS;
   if (!Y.themes) return;
   const $ = id => document.getElementById(id);
+
+  /* ── the stage — the first screen is an object, not a picture ──────
+     Two independent axes: which specimen is on the plate, and which theme
+     the plate wears. The theme is set on the PLATE, not on the document, so
+     you can put the specimen on paper while the page stays lacquer. That is
+     the whole "only the stage changes" claim, made checkable in one click.
+     The tablist itself is the kit's — it moves the panels and the focus;
+     all the page adds is the line that says what you are looking at. */
+  const plate = $('stagePlate'), note = $('stageNote');
+  if (plate && note) {
+    const panes = [...plate.querySelectorAll('.stage__pane')];
+    const shown = () => panes.find(p => !p.hidden);
+
+    function sync(){
+      const p = shown();
+      if (!p) return;
+      note.innerHTML = p.dataset.note || '';
+      /* an entrance animation only runs on a fresh node: restart it by hand */
+      p.style.animation = 'none'; void p.offsetWidth; p.style.animation = '';
+    }
+    $('stageWhat').addEventListener('y-change', sync);
+    $('stageWhat').addEventListener('click', sync);
+
+    $('stageTheme').addEventListener('click', e => {
+      const b = e.target.closest('button[data-stage-theme]');
+      if (b) plate.dataset.theme = b.dataset.stageTheme;
+    });
+
+    note.innerHTML = (shown() || panes[0]).dataset.note || '';
+  }
 
   /* ── figures, counted from the data rather than claimed in prose ── */
   const base = Y.themes[Y.order[0]];
@@ -51,30 +81,49 @@
             color:var(--r-text-muted);white-space:nowrap;overflow:hidden">${esc(w)} · ${esc(label)}</div>`
     ).join('') + `</div>`;
 
-  /* ── the palette at a glance — the group map, live in the current theme ── */
+  /* ── the palette at a glance ────────────────────────────────────────
+     Not every family: the front page shows the budget, not the inventory.
+     The quiet four that carry a screen, then the three that are spent on
+     events — shown at half the height, because that is the claim. Roles,
+     on-fill pairs and the service hues live on the palette page, where a
+     reader has asked for them. A front page that prints all ten families
+     side by side is a swatch dump, and it reads as a rainbow. */
+  const GLANCE = [
+    ['the quiet ninety per cent', ['surface', 'line', 'bone', 'kin'], 74, ''],
+    /* the event families are drawn short as well as shallow: rarity is an
+       area claim, and a full-width band of scarlet contradicts the sentence
+       printed right above it */
+    ['spent only on events', ['kaki', 'aka', 'mori'], 46, ' glance-band--rare']
+  ];
   const glance = $('glance');
   function drawGlance(slug){
     if (!glance) return;
     const tok = Y.themes[slug].tokens;
-    glance.innerHTML = Y.groups.map(g => {
-      const steps = g.steps.filter(s => tok[s.token]);
-      if (!steps.length) return '';
-      return `
-        <div class="glance-row">
-          <div>
-            <div style="font-family:var(--y-mono);font-size:13px;color:var(--r-text-body)">${esc(g.label)}</div>
-            <div style="font-size:11.5px;color:var(--r-text-muted);line-height:1.6;margin-top:5px">${esc(g.note)}</div>
-          </div>
-          <div style="display:flex;gap:6px;min-width:0">
-            ${steps.map(s => `
-              <button class="swatch" data-copy="${esc(tok[s.token])}" style="flex:1;min-width:0"
-                      title="${esc(s.token)} — ${esc(s.job)}">
-                <span class="swatch__chip" style="background:${esc(tok[s.token])};height:44px"></span>
-                <span class="swatch__v" style="margin-top:7px">${esc(s.token)}</span>
-              </button>`).join('')}
-          </div>
-        </div>`;
-    }).join('');
+    const byKey = Object.fromEntries(Y.groups.map(g => [g.key, g]));
+    glance.innerHTML = GLANCE.map(([band, keys, h, mod]) => `
+      <div class="glance-band${mod}">
+        <div class="glance-band__head">${esc(band)}</div>
+        ${keys.map(k => {
+          const g = byKey[k];
+          if (!g) return '';
+          const steps = g.steps.filter(s => tok[s.token]);
+          if (!steps.length) return '';
+          return `
+            <div class="glance-fam">
+              <div class="glance-fam__name" title="${esc(g.note)}">${esc(g.label)}</div>
+              <div style="min-width:0">
+                <div class="ramp">
+                  ${steps.map(s => `
+                    <button class="ramp__step" style="background:${esc(tok[s.token])};height:${h}px"
+                            data-copy="${esc(tok[s.token])}" title="${esc(s.token)} — ${esc(s.job)}">
+                      <span class="ramp__hex">${esc(tok[s.token])}</span>
+                    </button>`).join('')}
+                </div>
+                <div class="glance-fam__note">${esc(g.note)}</div>
+              </div>
+            </div>`;
+        }).join('')}
+      </div>`).join('');
   }
   onTheme(drawGlance);
 

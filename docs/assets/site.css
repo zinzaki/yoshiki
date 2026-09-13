@@ -448,3 +448,63 @@ figure figcaption{ font-family:var(--y-mono); font-size:var(--t-fine); line-heig
            padding-left:var(--y-4); border-left:1px solid var(--r-border-hairline) }
 #patView .y-code pre{ max-height:520px; font-size:12.5px; line-height:1.7 }
 #patView .y-code__bar a{ color:var(--r-text-gold) }
+
+/* ════ the stage — the front page's live specimen ════════════════════
+   One object, in the first screen, that you operate rather than read.
+   The plate carries its own data-theme: you can put the specimen on paper
+   without putting the page on paper, which is the "only the stage changes"
+   claim made checkable instead of asserted. */
+.stage{
+  border:1px solid var(--r-border-hairline); border-radius:var(--y-r-dialog);
+  background:var(--r-bg-surface); overflow:hidden;
+}
+.stage__rail{
+  display:flex; align-items:center; gap:var(--y-3); flex-wrap:wrap;
+  padding:10px 12px; border-bottom:1px solid var(--r-border-hairline);
+  background:var(--r-bg-app);
+}
+.stage__rail .y-seg{ background:transparent; border-color:transparent; padding:0; gap:2px }
+.stage__rail .y-seg + .y-seg{ margin-left:auto }
+.stage__plate{
+  /* surface, not app: the plate is a stage the specimen stands on, and on
+     kogane the app ground is near-black — a hole rather than a stage. The
+     terminal keeps its own darker island, so the two still read apart. */
+  background:var(--r-bg-surface); padding:var(--y-5);
+  /* a reserved minimum stops the switch from shifting everything below it */
+  min-height:330px; display:flex; flex-direction:column;
+}
+.stage__pane{ flex:1; display:flex; flex-direction:column;
+              animation:stage-in 280ms var(--ease) both }
+/* display beats the UA rule for [hidden]: say it again, or every pane shows */
+.stage__pane[hidden]{ display:none }
+.stage__pane > .y-term{ flex:1 }
+@keyframes stage-in{ from{ opacity:0; transform:translateY(6px) } to{ opacity:1; transform:none } }
+@media (prefers-reduced-motion: reduce){ .stage__pane{ animation:none } }
+.stage__note{
+  padding:11px 14px; border-top:1px solid var(--r-border-hairline);
+  font-size:12.5px; line-height:1.65; color:var(--r-text-muted); background:var(--r-bg-surface);
+}
+.stage__note b{ color:var(--r-text-secondary); font-weight:400 }
+.stage .y-term{ font-size:12.5px }
+@media (max-width:560px){
+  .stage__plate{ padding:var(--y-4); min-height:0 }
+  .stage__rail .y-seg + .y-seg{ margin-left:0 }
+}
+
+/* ── the glance: the budget, not the inventory ─────────────────────── */
+.glance-band + .glance-band{ margin-top:var(--y-7) }
+.glance-band__head{
+  font-family:var(--y-mono); font-size:var(--t-micro); letter-spacing:3px;
+  text-transform:uppercase; color:var(--r-text-muted); margin-bottom:var(--y-4);
+  display:flex; align-items:center; gap:12px;
+}
+.glance-band__head::after{ content:''; flex:1; height:1px; background:var(--r-border-hairline) }
+.glance-fam{ display:grid; grid-template-columns:130px minmax(0,1fr); gap:var(--y-4);
+             align-items:start; padding:var(--y-3) 0 }
+.glance-fam__name{ font-family:var(--y-mono); font-size:13px; color:var(--r-text-body);
+                   padding-top:6px }
+.glance-fam__note{ font-size:11.5px; color:var(--r-text-muted); line-height:1.6; margin-top:9px }
+@media (max-width:640px){
+  .glance-fam{ grid-template-columns:1fr; gap:var(--y-2) }
+}
+.glance-band--rare .ramp{ max-width:440px }

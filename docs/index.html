@@ -50,27 +50,111 @@ document.documentElement.dataset.theme=t})();</script>
 <section class="shell hero">
   <div class="hero__kicker">a design language &nbsp;·&nbsp; v1.2 &nbsp;·&nbsp; MIT</div>
   <h1 class="hero__mark"><span class="gild">yoshiki</span></h1>
-  <div class="cols" style="margin-top:clamp(28px,4vh,52px);align-items:end">
-    <div class="c6">
+  <div class="cols" style="margin-top:clamp(26px,3.6vh,44px);align-items:start">
+    <div class="c5">
       <p class="hero__lede"><b>Warm monochrome, struck rarely by colour.</b> Almost every
       surface is lacquer, bone and gold. Two triggers — a spider-lily scarlet and a moss
       green — are spent only on events. Colour is rare here, so it still means something.</p>
-      <div class="y-actions" style="margin-top:30px">
+      <div class="y-actions" style="margin-top:26px">
         <a class="y-btn y-btn--primary" href="palette.html">Open the palette</a>
         <a class="y-btn y-btn--ghost" href="https://github.com/zinzaki/yoshiki">View on GitHub ↗</a>
       </div>
+      <p class="cap" style="margin-top:26px;max-width:34ch">The panel on the right is the
+      language itself, not a picture of it — switch the specimen, switch its stage, work
+      the controls.</p>
     </div>
-    <div class="c6">
-      <figure>
-        <div class="y-term" aria-label="a yoshiki terminal session"><span class="k">╭─ ◆ ─</span> deploy <span class="k">─  main</span> <span class="g">✓ clean</span> <span class="k">─</span> <span class="c">v1.2</span>
+
+    <div class="c7">
+      <div class="stage" id="stage">
+        <div class="stage__rail">
+          <div class="y-seg" id="stageWhat" role="tablist" aria-label="Specimen">
+            <button role="tab" id="stab-term"  aria-controls="spane-term"  aria-selected="true">terminal</button>
+            <button role="tab" id="stab-ui"    aria-controls="spane-ui"    aria-selected="false">interface</button>
+            <button role="tab" id="stab-data"  aria-controls="spane-data"  aria-selected="false">data</button>
+            <button role="tab" id="stab-prose" aria-controls="spane-prose" aria-selected="false">prose</button>
+          </div>
+          <div class="y-seg" id="stageTheme" role="group" aria-label="Stage theme">
+            <button aria-pressed="true"  data-stage-theme="kogane">kogane</button>
+            <button aria-pressed="false" data-stage-theme="washi">washi</button>
+          </div>
+        </div>
+
+        <div class="stage__plate" id="stagePlate" data-theme="kogane">
+
+          <div class="stage__pane" role="tabpanel" id="spane-term" aria-labelledby="stab-term" tabindex="0" data-pane="term"
+               data-note="<b>The terminal never inverts.</b> Put the stage on paper and this island stays lacquer — worlds nest, they do not collide.">
+            <div class="y-term" aria-label="a yoshiki terminal session"><span class="k">╭─ ◆ ─</span> deploy <span class="k">─  main</span> <span class="g">✓ clean</span> <span class="k">─</span> <span class="c">v1.2</span>
 <span class="k">╰─ ❯</span> ship --prod
 <span class="g">✓</span> build      <span class="d">passed · 214 files · 0.4s</span>
 <span class="g">✓</span> tests      <span class="d">passed · 1,820 ok</span>
 <span class="k">●</span> upload     <span class="d">in progress</span> <span class="k" data-spin="braille">⠹</span>
 <span class="r">✗</span> migrate    <span class="d">blocked · needs --confirm</span></div>
-        <figcaption>Gold gilds the prompt and the frame. Success is a quiet moss check;
-        the one scarlet is spent on the single thing that blocks.</figcaption>
-      </figure>
+          </div>
+
+          <div class="stage__pane" role="tabpanel" id="spane-ui" aria-labelledby="stab-ui" tabindex="0" data-pane="ui" hidden
+               data-note="<b>Every control here is live.</b> One scarlet fill, on the one thing you cannot undo; everything else is tone with a gilded edge.">
+            <div class="y-head">deployment · settings</div>
+            <div class="y-row">
+              <div>
+                <label for="stAuto">Auto-promote to production</label>
+                <p class="cap" style="margin-top:4px">Ships the build the moment every check is green.</p>
+              </div>
+              <button class="y-switch" id="stAuto" role="switch" aria-checked="true"
+                      aria-label="Auto-promote to production"></button>
+            </div>
+            <div class="y-row">
+              <label for="stCanary">Canary share</label>
+              <div class="y-range y-row__control" style="min-width:190px">
+                <input id="stCanary" type="range" min="0" max="100" step="5" value="25"
+                       data-y-format="%v%">
+                <output for="stCanary">25%</output>
+              </div>
+            </div>
+            <div class="y-row">
+              <span class="y-status y-status--ok"><span class="y-status__mark">●</span> 3 replicas healthy</span>
+              <span class="y-actions">
+                <button class="y-btn y-btn--ghost y-btn--sm">Dry run</button>
+                <button class="y-btn y-btn--primary y-btn--sm">Promote</button>
+                <button class="y-btn y-btn--danger y-btn--sm">Roll back</button>
+              </span>
+            </div>
+          </div>
+
+          <div class="stage__pane" role="tabpanel" id="spane-data" aria-labelledby="stab-data" tabindex="0" data-pane="data" hidden
+               data-note="<b>One cell earns a colour</b>, because one value crossed its threshold. The rest stays in tone — which is why the one that moved is impossible to miss.">
+            <div class="y-head">weekly report · 24 Jun</div>
+            <table class="y-table">
+              <tbody>
+                <tr><td>revenue</td><td class="y-num">¥ 1.2M</td><td class="y-num" style="color:var(--r-text-muted);letter-spacing:1px">▁▂▄▃▅▇█</td><td class="y-mark"><span style="color:var(--r-ok-text)">▲</span></td></tr>
+                <tr><td>orders</td><td class="y-num">318</td><td class="y-num" style="color:var(--r-text-muted);letter-spacing:1px">▂▃▃▅▄▆▇</td><td class="y-mark"><span style="color:var(--r-ok-text)">▲</span></td></tr>
+                <tr><td>refunds</td><td class="y-num" style="color:var(--r-warn-text)">2.1%</td><td class="y-num" style="color:var(--r-text-muted);letter-spacing:1px">▁▁▂▂▃▄▅</td><td class="y-mark"><span style="color:var(--r-warn-text)">⚠</span></td></tr>
+                <tr><td>p99 latency</td><td class="y-num" style="color:var(--r-danger-text)">140 ms</td><td class="y-num" style="color:var(--r-text-muted);letter-spacing:1px">▂▂▃▃▄▆█</td><td class="y-mark"><span style="color:var(--r-danger-text)">▲</span></td></tr>
+              </tbody>
+            </table>
+            <div class="y-meter y-meter--warn" style="margin-top:var(--y-5)">
+              <span class="y-meter__label">error budget, this quarter</span>
+              <span class="y-meter__value">68% spent</span>
+              <span class="y-meter__track"><span class="y-meter__fill" style="width:68%"></span></span>
+            </div>
+          </div>
+
+          <div class="stage__pane" role="tabpanel" id="spane-prose" aria-labelledby="stab-prose" tabindex="0" data-pane="prose" hidden
+               data-note="<b>A page calm enough that one pull-quote lands.</b> No colour is spent at all here — the serif, the measure and one divider carry it.">
+            <div style="font-family:var(--y-serif);font-size:20px;color:var(--r-text-heading)">yoshiki</div>
+            <div class="cap" style="letter-spacing:2px;text-transform:uppercase;margin-top:6px">a warm design language</div>
+            <p style="color:var(--r-text-secondary);font-size:13.5px;line-height:1.8;margin-top:16px;max-width:58ch">
+              Lacquer, bone and gold — struck rarely by a single spider-lily scarlet. Install one
+              token file, <code style="color:var(--r-syntax-string)">palette.css</code>, and the
+              roles contract arrives with it: every value already proven against every surface it
+              can land on.</p>
+            <div class="y-rule--mark" style="margin:20px 0">◆</div>
+            <p style="font-family:var(--y-serif);font-size:19px;color:var(--r-text-heading);line-height:1.6;max-width:30ch">
+              Colour earns its power by being rare.</p>
+          </div>
+
+        </div>
+        <div class="stage__note" id="stageNote" aria-live="polite"></div>
+      </div>
     </div>
   </div>
   <div class="facts rv" id="facts"></div>
@@ -142,55 +226,12 @@ document.documentElement.dataset.theme=t})();</script>
   </div>
 </section>
 
-<!-- ══ 03 · two themes ════════════════════════════════════════════ -->
+<!-- ══ 03 · the palette ═══════════════════════════════════════════ -->
 <section class="sec sec--plate">
   <div class="shell">
     <div class="cols">
       <div class="c7 rv">
-        <div class="idx"><b>03</b> two themes, one language</div>
-        <h2>Only the stage changes.</h2>
-        <p class="lede">kogane is warm lacquer. washi is paper and ink. The triggers and
-        every rule are identical — what moves is which surfaces carry the light and which
-        family carries the text. Both blocks below are the same markup, wearing the two
-        themes at once.</p>
-      </div>
-    </div>
-    <div class="versus rv" style="margin-top:34px">
-      <div data-theme="kogane">
-        <div class="plate" style="background:var(--r-bg-app)">
-          <div class="y-head">kogane · dark</div>
-          <p style="color:var(--r-text-body);font-size:14px">The lacquer carries the screen.</p>
-          <p class="cap" style="margin-top:6px">Gold gilds the edge; bone speaks.</p>
-          <div class="y-actions" style="margin-top:20px">
-            <button class="y-btn y-btn--primary y-btn--sm">Primary</button>
-            <span class="y-status y-status--ok"><span class="y-status__mark">✓</span> healthy</span>
-          </div>
-        </div>
-      </div>
-      <div data-theme="washi">
-        <div class="plate" style="background:var(--r-bg-app)">
-          <div class="y-head">washi · light</div>
-          <p style="color:var(--r-text-body);font-size:14px">The paper carries the screen.</p>
-          <p class="cap" style="margin-top:6px">Gold sinks so it stays readable.</p>
-          <div class="y-actions" style="margin-top:20px">
-            <button class="y-btn y-btn--primary y-btn--sm">Primary</button>
-            <span class="y-status y-status--ok"><span class="y-status__mark">✓</span> healthy</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <p class="lede rv" style="margin-top:28px;max-width:72ch">The terminal is the one
-    thing that never inverts: it stays a dark island, pinned to the paper. Worlds nest;
-    they do not collide.</p>
-  </div>
-</section>
-
-<!-- ══ 04 · the palette ═══════════════════════════════════════════ -->
-<section class="sec">
-  <div class="shell">
-    <div class="cols">
-      <div class="c7 rv">
-        <div class="idx"><b>04</b> the palette</div>
+        <div class="idx"><b>03</b> the palette</div>
         <h2>Every shade has a job — and a proof.</h2>
         <p class="lede">Raw tokens are the paint. <b>Roles</b> are the contract: reach for
         <code style="color:var(--r-text-gold)">text.body</code> or
@@ -206,87 +247,11 @@ document.documentElement.dataset.theme=t})();</script>
   </div>
 </section>
 
-<!-- ══ 05 · applied ═══════════════════════════════════════════════ -->
-<section class="sec sec--plate">
-  <div class="shell">
-    <div class="cols">
-      <div class="c8 rv">
-        <div class="idx"><b>05</b> the language, applied</div>
-        <h2>The same rules, wherever it lands.</h2>
-        <p class="lede">A design language only proves itself in use. Four surfaces, one
-        palette, the same laws: almost all tone, gold on the edges, one scarlet kept for
-        the irreversible.</p>
-      </div>
-    </div>
-    <div class="cols rv" style="margin-top:38px">
-      <figure class="c6">
-        <div class="plate">
-          <div class="y-head">web ui · a destructive decision</div>
-          <div style="color:var(--r-text-heading);font-size:15px">Cancel subscription</div>
-          <p style="color:var(--r-text-secondary);font-size:13px;margin-top:8px">
-            You are on <b style="color:var(--r-text-body)">Studio · ¥4,820/mo</b>. Access
-            stays until the period ends on Jul 18.</p>
-          <div class="y-actions" style="margin-top:20px;justify-content:space-between">
-            <span class="y-status y-status--ok"><span class="y-status__mark">●</span> active</span>
-            <span class="y-actions">
-              <button class="y-btn y-btn--ghost y-btn--sm">Keep plan</button>
-              <button class="y-btn y-btn--danger y-btn--sm">Cancel</button>
-            </span>
-          </div>
-        </div>
-        <figcaption>The destructive button is the only place scarlet fills — so it reads
-        as a warning rather than decoration.</figcaption>
-      </figure>
-      <figure class="c6">
-        <div class="y-term"><span class="k">╭─ ◆</span> ORDER <span class="b">#1421</span>
-<span class="k">│</span>  item     Hand-bound notebook
-<span class="k">│</span>  status   <span class="g">✓ paid</span>   <span class="d">·</span>   ¥ 4,820
-<span class="k">│</span>  ship     <span class="d">Kyoto → Tokyo · 2 days</span>
-<span class="k">╰─ ❯</span> /track  /receipt  /cancel
-
-<span class="d">— delivered 14:02 —</span>
-<span class="k">◆</span> <span class="b">Your parcel left the workshop.</span></div>
-        <figcaption>Chat, where colour often cannot go: frames, one glyph and aligned
-        columns do the work instead.</figcaption>
-      </figure>
-      <figure class="c6" style="margin-top:var(--gutter)">
-        <div class="plate">
-          <div class="y-head">data · weekly report</div>
-          <table class="y-table">
-            <tbody>
-              <tr><td>revenue</td><td class="y-num">¥ 1.2M</td><td class="y-mark"><span style="color:var(--r-ok-text)">▲</span></td></tr>
-              <tr><td>orders</td><td class="y-num">318</td><td class="y-mark"><span style="color:var(--r-ok-text)">▲</span></td></tr>
-              <tr><td>refunds</td><td class="y-num" style="color:var(--r-warn-text)">2.1%</td><td class="y-mark"><span style="color:var(--r-warn-text)">⚠</span></td></tr>
-              <tr><td>p99</td><td class="y-num">140 ms</td><td class="y-mark"><span style="color:var(--r-danger-text)">▲</span></td></tr>
-            </tbody>
-          </table>
-        </div>
-        <figcaption>One cell earns a colour, because one value crossed its threshold. The
-        rest stays in tone — which is why the one that moved is impossible to miss.</figcaption>
-      </figure>
-      <figure class="c6" style="margin-top:var(--gutter)">
-        <div class="plate">
-          <div class="y-head">docs · a README</div>
-          <h3 style="font-size:19px">yoshiki</h3>
-          <div class="cap" style="letter-spacing:2px;text-transform:uppercase;margin-top:6px">a warm design language</div>
-          <p style="color:var(--r-text-secondary);font-size:13px;margin-top:14px">
-            Lacquer, bone and gold — struck rarely by a single spider-lily scarlet.
-            Install one token file: <code style="color:var(--r-syntax-string)">palette.css</code>.</p>
-          <div class="y-rule--mark" style="margin:18px 0">◆</div>
-          <p style="font-family:var(--y-serif);font-size:17px;color:var(--r-text-heading);line-height:1.6">
-            Colour earns its power by being rare.</p>
-        </div>
-        <figcaption>A page calm enough that one pull-quote actually lands.</figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
-<!-- ══ 06 · one source ════════════════════════════════════════════ -->
+<!-- ══ 04 · one source ════════════════════════════════════════════ -->
 <section class="sec">
   <div class="shell cols">
     <div class="c6 rv">
-      <div class="idx"><b>06</b> one source</div>
+      <div class="idx"><b>04</b> one source</div>
       <h2>Thirteen targets, generated.</h2>
       <p class="lede">Nothing downstream is maintained by hand. One palette file is the
       source; the build bakes every theme, every token export, this site's colours, the
@@ -312,11 +277,11 @@ document.documentElement.dataset.theme=t})();</script>
   </div>
 </section>
 
-<!-- ══ 07 · agents ════════════════════════════════════════════════ -->
+<!-- ══ 05 · agents ════════════════════════════════════════════════ -->
 <section class="sec sec--plate">
   <div class="shell cols">
     <div class="c6 rv">
-      <div class="idx"><b>07</b> point an agent at it</div>
+      <div class="idx"><b>05</b> point an agent at it</div>
       <h2>A repository that steers the model.</h2>
       <p class="lede">Give an agent the link and nothing else. It reads
       <code style="color:var(--r-text-gold)">AGENTS.md</code>, learns the read order and
@@ -336,12 +301,12 @@ document.documentElement.dataset.theme=t})();</script>
   </div>
 </section>
 
-<!-- ══ 08 · the map ═══════════════════════════════════════════════ -->
+<!-- ══ 06 · the map ═══════════════════════════════════════════════ -->
 <section class="sec">
   <div class="shell">
     <div class="cols">
       <div class="c7 rv">
-        <div class="idx"><b>08</b> the whole map</div>
+        <div class="idx"><b>06</b> the whole map</div>
         <h2>Two halves: the definition, and the language in use.</h2>
         <p class="lede"><code style="color:var(--r-text-gold)">canon/</code> is edited by
         hand and is the source of truth.

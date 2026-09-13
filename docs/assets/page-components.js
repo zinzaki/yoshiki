@@ -25,12 +25,21 @@
   <button class="y-btn y-btn--ghost y-btn--sm">Small</button>
   <button class="y-btn y-btn--primary y-btn--icon" aria-label="run">❯</button>
 </div>`],
-    ['segmented', 'One of a few. The tint is the boundary — there are no inner rules.',
-`<div class="y-seg">
-  <button aria-selected="true">palette</button>
-  <button aria-selected="false">type</button>
-  <button aria-selected="false">motion</button>
-</div>`]]},
+    ['segmented — a toggle group', 'One of a few. The tint is the boundary — there are no inner rules. Nothing below it moves, so the buttons carry aria-pressed.',
+`<div class="y-seg" role="group" aria-label="Section">
+  <button aria-pressed="true">palette</button>
+  <button aria-pressed="false">type</button>
+  <button aria-pressed="false">motion</button>
+</div>`],
+    ['segmented — a tablist', 'The same shape swapping panels: role="tab", one tab stop for the whole strip, and the arrow keys move inside it.',
+`<div class="y-seg" role="tablist" aria-label="Theme">
+  <button role="tab" id="d-t1" aria-controls="d-p1" aria-selected="true">kogane</button>
+  <button role="tab" id="d-t2" aria-controls="d-p2" aria-selected="false">washi</button>
+</div>
+<div id="d-p1" role="tabpanel" aria-labelledby="d-t1" tabindex="0"
+     style="margin-top:14px;color:var(--r-text-body)">Lacquer, bone and gold.</div>
+<div id="d-p2" role="tabpanel" aria-labelledby="d-t2" tabindex="0" hidden
+     style="margin-top:14px;color:var(--r-text-body)">Paper and ink.</div>`]]},
 
   { key:'forms', title:'Forms', canon:'forms.md',
     note:'Label above the control, one hint line, and the error replaces the hint. Validate on blur — a field that turns scarlet while you are still typing is scolding, not helping.',
@@ -66,6 +75,28 @@
 <div class="y-range" style="margin-top:16px">
   <input type="range" min="0" max="100" value="62" aria-label="gold intensity" data-y-format="%v&#37;">
   <output>62%</output>
+</div>`],
+    ['settings row', 'A settings list is not a form: nothing is submitted, so the label sits beside its control and a hairline — never a box — separates one decision from the next.',
+`<div class="y-row">
+  <div>
+    <label for="d-grain">Grain overlay</label>
+    <p class="y-hint" style="margin-top:4px">A little tooth, so flat areas stop looking like plastic.</p>
+  </div>
+  <button class="y-switch" id="d-grain" role="switch" aria-checked="true" aria-label="Grain overlay"></button>
+</div>
+<div class="y-row">
+  <label for="d-gold">Gold intensity</label>
+  <div class="y-range y-row__control" style="min-width:180px">
+    <input id="d-gold" type="range" min="0" max="100" value="40" data-y-format="%v&#37;">
+    <output for="d-gold">40%</output>
+  </div>
+</div>
+<div class="y-row">
+  <label>Density</label>
+  <div class="y-seg y-row__control" role="group" aria-label="Density">
+    <button aria-pressed="true">comfortable</button>
+    <button aria-pressed="false">compact</button>
+  </div>
 </div>`]]},
 
   { key:'surfaces', title:'Surfaces', canon:'surfaces.md',
@@ -317,6 +348,10 @@
         }).join('')}
       </div>
     </section>`).join('');
+
+  /* the kit seals its tablists and paints its ranges at load; these demos
+     arrive after that, so hand them the same treatment */
+  if (window.yoshiki) { window.yoshiki.sealTablists(); window.yoshiki.paintRanges(); }
 
   reveal();
 

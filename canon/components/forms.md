@@ -67,6 +67,23 @@ is a 14px circle in `action.text` with a 2px `bg.surface` ring so it reads on
 any surface. The current value sits to the right in mono `text.secondary` — a
 slider without a number is a guess.
 
+## Settings row — a decision and the control that changes it
+
+A settings list is not a form: nothing is submitted, and each control applies
+itself the moment it moves. So it is laid out against the form rule above —
+label **beside** the control, not above it — because here the label is a
+statement of what is true, and the control on the right is its current answer.
+
+The label takes `text.body`; an explanatory line under it takes `text.muted` and
+stays one sentence. A hairline separates one decision from the next; never a box
+per row, which turns a quiet list into a stack of cards. The last row drops its
+rule — a border with nothing after it is a line to nowhere. Under about 480px
+the control drops beneath its label rather than squeezing it.
+
+Only controls that apply themselves belong here: a switch, a range, a segmented
+control, a select. A text input in a settings row is a form in disguise and
+needs a Save.
+
 ## Form layout
 
 One column. Labels above controls, never beside them — a left-aligned label
