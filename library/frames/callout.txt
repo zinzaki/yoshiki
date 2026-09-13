@@ -1,0 +1,32 @@
+# callout — one left rule. A note inside running text, without a box.
+
+# 1 · the plain note
+│  A frame costs one line. A box costs four, and three of them are
+│  usually decoration.
+
+# 2 · with a leading mark, by kind
+◆│ note      the diamond is the language's own mark for "important"
+✓│ done      moss, and the glyph carries it before the colour does
+⚠│ warning   persimmon — the lamp, not the alarm
+✗│ danger    scarlet, and only one of these per surface
+
+# 3 · a heavier rule for the one that blocks
+┃  migrate is blocked: two columns would lose data.
+┃  Re-run with --confirm to proceed.
+
+# 4 · a quotation
+│
+│   Colour earns its power by being rare.
+│
+                            — PHILOSOPHY.md
+
+# 5 · a callout inside a capsule (the frame holds, the rule marks)
+╭─ release ───
+│  v1.2 is out.
+│
+│  ⚠│ the washi gold moved; regenerate any vendored theme
+╰╴
+
+# paint: rule -> the role of its kind (border.gold · ok.fill · warn.text
+#        · danger.fill) · mark -> the matching text role
+#        body -> text.secondary · attribution -> text.muted

@@ -1,13 +1,54 @@
-# Banners — section openers and headers. One heavy rule per screen.
+# Banners — section openers and headers. One heavy rule per screen; everything
+# else is light. A page with two heavy banners has no hierarchy, only weight.
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+## rules, by weight
+ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━   heavy — once per screen
+ ─────────────────────────────────────────────────   light — between blocks
+ ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌   dashed — an aside
 
-⧉  S E C T I O N                              marker opener — data blocks
-[ Section ]                                   bracket title — settings, groups
-◇ ─────────────  title  ───────────── ◇       centered ceremonial
+## the openers
+ ⧉  S E C T I O N                              marker opener — data blocks
+ [ Section ]                                   bracket title — settings, groups
+ ◇ ─────────────  title  ───────────── ◇       centered ceremonial
+ ── 01 · the one law ─────────────────────     numbered, for a document
+ ❯ section                                     prompt opener — CLI output
 
-╭──────────────────────────────────────────╮
-│  ◆   t i t l e                          │   capsule banner — calm pages
-╰──────────────────────────────────────────╯
+## the capsule — a calm page's heading
+ ╭──────────────────────────────────────────╮
+ │  ◆   t i t l e                           │
+ ╰──────────────────────────────────────────╯
 
-─────────────────────────────────────────────   light rule — paragraphs
+## the titled rule — a heading that is also a divider
+ ╭─ palette ─────────────────────────────────
+ │  tokens, roles, and the proof
+ ╰╴
+
+## with a status on the right — the shape a build banner wants
+ ╭─ ◆ ─ deploy ─  main  ✓ clean ─ v1.2 ──────╮
+ ╰───────────────────────────────────────────╯
+
+## a document header — the block at the top of a file
+ ════════════════════════════════════════════════
+  yoshiki · palette
+  the single source; everything downstream is baked
+ ════════════════════════════════════════════════
+
+## a comment-block header, for source files
+ /* ════════════════════════════════════════════
+    build.py — one palette in, thirteen targets out
+    ════════════════════════════════════════════ */
+
+## sizes — pick by how much of the page the section owns
+ a page       the capsule, or the heavy rule
+ a section    the numbered rule, or ⧉ S E C T I O N
+ a block      [ Section ] or the titled rule
+ a paragraph  a light rule, or nothing at all
+
+## what a banner must not do
+ ✗  a heavy rule above and below the same title     it is a heading, not a cage
+ ✗  a banner wider than the content under it
+ ✗  ASCII art as a heading in a must-read path      it does not survive a diff
+ ✗  two ceremonial openers on one screen
+
+# paint: rules and frames -> border.hairline · the accent glyph -> text.gold
+#        the title -> text.heading · any status on the rule -> its own role

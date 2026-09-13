@@ -1,13 +1,49 @@
 # Glyph sets — curated rows by meaning. One glyph, one job.
 # Pick from a row; never reuse a glyph for two meanings on one screen.
 
-status    ✓ ✗ ● ○ ◉ ◌ ⊘ ⏻ ⟳ ↺
-flow      → ← ↑ ↓ ↦ ↻ ⇄ ⇅ » «
-mark      ◆ ◇ ◈ ▲ ▼ ★ ☆ ⬡ ⬢
-field     · — │ ┃ ┊ ┆
-sigil     ⧉ ⛬ ⊙ ◷ ❖
-bracket   [ ] ( ) ⟨ ⟩ « »
-spinner   ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏      (braille, for live ticks)
+## by meaning
+ status     ✓ ✗ ● ○ ◉ ◌ ⊘ ⏻ ⟳ ↺ ◐ ▫ ⋯
+ verdict    ✓ ⚠ ✗ ⊝ ⋯                    passed · flaky · failed · skipped · pending
+ flow       → ← ↑ ↓ ↦ ↻ ⇄ ⇅ » « ↳ ⤷
+ rank       ◆ ◇ ◈ ▲ ▼ ★ ☆ ⬡ ⬢ ▵ ▪
+ field      · — │ ┃ ┊ ┆ ╌ ┄
+ sigil      ⧉ ⛬ ⊙ ◷ ❖ ⌁ ⌂ ✦ ⚑
+ bracket    [ ] ( ) ⟨ ⟩ « » ⟦ ⟧ ◸ ◿
+ corner     ╭ ╮ ╰ ╯ ┌ ┐ └ ┘ ╔ ╗ ╚ ╝
+ join       ├ ┤ ┬ ┴ ┼ ╞ ╡
+ fill       ▰ ▱ ░ ▒ ▓ ▁ ▂ ▃ ▄ ▅ ▆ ▇
+ spinner    ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏         braille, for live ticks
+ braille    ⠀ ⡀ ⡄ ⡆ ⡇ ⣇ ⣧ ⣷ ⣿           a density ramp, eight steps
 
-# Reliable core in common fonts:  ✓ ✗ ● ◆ → ▲ ▼ · — │ ⧉
-# Anything rarer may need a Nerd Font — keep it out of must-read paths.
+## the pairs that must not be mixed
+ ✓ / ✗      verdict          ●  / ○     state
+ ▲ / ▼      direction        ⚠         judgement
+ ↑ ▲ is not "good" and ● is not "passed". A glyph that carries two meanings
+   on one screen carries neither.
+
+## tiers — pick the lowest that does the job
+ tier 0    ✓ ✗ ● ◆ → ▲ ▼ · — │ ⧉        any font, anywhere, no exceptions
+ tier 1    ◇ ○ ◉ ⟳ ↻ ⊘ ★ ▰ ▱ ╭ ╰ ┤      common Unicode, safe in practice
+ tier 2    ⣿ ⠋ ⛬ ◷ ❖ ⌁ ⟦ ◸              Nerd Font or a rich terminal —
+                                          never on a must-read path
+ Box-drawing and braille are the safest of all: terminals draw them
+ programmatically, so they align whatever the font.
+
+## what to reach for, by the question being answered
+ did it work?           ✓ ⚠ ✗
+ is it on?              ● ○ ◐
+ is it working now?     ⟳ ⠹ ⋯
+ which way?             → ↑ ▲ ▼
+ how important?         ◆ ◇ ·
+ where does it go?      ↳ ⤷ »
+ is this a warning?     ⚠            and nothing else, ever
+
+## what a glyph must not do
+ ✗  an emoji in a must-read line       width is unpredictable, colour is not yours
+ ✗  three glyphs on one line           one per line, two at most in a whole row
+ ✗  a glyph instead of a word          "✓" alone is not "build passed"
+ ✗  a tier-2 glyph in an error message  the one line that must always render
+
+# paint: verdict glyphs -> their own role colour (ok · warn · danger)
+#        marks, sigils and frames -> text.gold or border.hairline
+#        field and flow glyphs -> text.muted — they are punctuation, not signal

@@ -78,13 +78,16 @@
               white-space:pre-wrap;color:${term.foreground}">${line}</pre>
        </div>`;
 
+    /* the ANSI ramp belongs to the terminal, so it is shown inside one:
+       at page weight sixteen saturated chips read as the brand, which is
+       the opposite of what this palette is */
     const ansiName = ['black','red','green','yellow','blue','magenta','cyan','white'];
     $('ansiGrid').innerHTML =
-      `<div style="display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:5px">` +
+      `<div class="y-island island" style="gap:4px">` +
       a.concat(br).map((c, i) => `
-        <button class="swatch" data-copy="${c}" title="${i < 8 ? 'ansi' : 'bright'} ${esc(ansiName[i % 8])}">
-          <span class="swatch__chip" style="background:${c};height:30px;border-radius:7px"></span>
-          <span class="swatch__v" style="margin-top:5px;text-align:center">${i.toString(16).toUpperCase()}</span>
+        <button class="island__chip" data-copy="${c}" style="padding:3px 6px"
+                title="${i < 8 ? 'ansi' : 'bright'} ${esc(ansiName[i % 8])} — ${c}">
+          <span style="background:${c}"></span>${i.toString(16).toUpperCase()}
         </button>`).join('') +
       `</div>`;
 
@@ -179,10 +182,10 @@
         S(tok['bone-3'], 'temp ') + G(tok['mori-1'], '▁▂▃▄') + G(tok['kaki-1'], '▅▆') + G(tok['aka-1'], '▇█') + S(tok['bone-2'], '  71°'))
     };
 
-    const b24 = `<div style="display:grid;grid-template-columns:repeat(12,1fr);gap:4px">` +
+    const b24 = `<div class="y-island island" style="gap:3px">` +
       Object.entries(t.base24).sort().map(([k, v]) =>
-        `<button data-copy="${v}" title="${k}" style="height:26px;border-radius:6px;border:1px solid ${r['border.hairline']};
-           background:${v};cursor:pointer"></button>`).join('') + `</div>`;
+        `<button class="island__chip" data-copy="${v}" title="${k} — ${v}" style="padding:3px 6px">
+           <span style="background:${v}"></span>${k.replace('base','')}</button>`).join('') + `</div>`;
 
     $('rest').innerHTML = ['starship','tmux','zellij','fzf','btop'].map(name => `
       <div class="cols" style="margin-bottom:var(--y-6);align-items:start">

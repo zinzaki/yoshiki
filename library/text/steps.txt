@@ -1,0 +1,52 @@
+# Steps — a procedure someone is going to follow while looking at it. Every
+# step is one action, in the imperative, with its result stated.
+
+## the plain form
+ 1  Copy palette.css into your project.
+ 2  Link it before your own stylesheet.
+ 3  Set data-theme="kogane" on <html>.
+    → the roles contract is now live; nothing else is required.
+
+## with commands, which is the common case
+ 1  install
+    ❯ npm i @zinzaki/yoshiki
+ 2  import the tokens
+    ❯ import '@zinzaki/yoshiki/palette.css'
+ 3  check it took
+    ❯ getComputedStyle(document.documentElement)
+        .getPropertyValue('--r-text-body')
+      → "#E8DCC8"
+
+## with a position — when the procedure is long enough to get lost in
+ ✓ 1  resolve the palette
+ ✓ 2  prove the contrast
+ ● 3  bake thirteen themes        ⠹
+ ○ 4  rebuild the site
+ ○ 5  stamp the brand
+ ↑ done, current, not yet. Three states, and "not yet" is never scarlet.
+
+## branching — the fork is a step, not a footnote
+ 3  Does the project already ship a reset?
+      yes →  4a  import yoshiki.css after it
+      no  →  4b  import yoshiki.css alone; it carries its own base layer
+
+## a step that can fail — say what failure looks like here
+ 2  Run the proof.
+    ❯ python3 tools/build.py --check
+    ✓ clean — output matches canon
+    ✗ drift — a generated file was edited by hand; re-run without --check
+
+## prerequisites — before step 1, never inside it
+ before you start
+   · python 3.11+
+   · node 20+ (only for the a11y sweep)
+   · nothing else
+
+## what a procedure must not do
+ ✗  a step that is two actions joined by "and"
+ ✗  "simply", "just", "obviously"     — if it were, there would be no step
+ ✗  a result the reader cannot check
+ ✗  numbering that restarts mid-procedure
+
+# paint: numbers -> text.gold · ❯ and commands -> mono, bone · output -> muted
+#        ✓ -> ok.text · ✗ -> danger.text · ○ pending -> text.muted, not ghost

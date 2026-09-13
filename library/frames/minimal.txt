@@ -1,0 +1,38 @@
+# minimal — no frame at all. For long documents, logs, anything that scrolls.
+# The most under-used register: emptiness is composition, and a page of boxes
+# is a page with no hierarchy left to spend.
+
+# 1 · indent only
+  deploy
+    build      passed
+    tests      passed
+    upload     in progress
+
+# 2 · a rule above, nothing else
+────────────────────────────────
+  RESOURCES
+  cpu       42%
+  memory    61%
+
+# 3 · label column, no rules (alignment IS the frame)
+  service      req/min      p99
+  gateway       18,420       42
+  auth           9,310       88
+  billing        1,208      140
+
+# 4 · a leading mark per line instead of a box
+  ◆ the seam is the affordance
+  ◇ everything else is tone
+  ◇ one accent per view
+
+# 5 · hanging indent for prose
+  rarity
+      A signal used everywhere is dead, so a screen is almost all
+      quiet tone and the rare strike lands like a seal.
+
+# 6 · the whole frame is one glyph
+  ⧉ SECTION
+    content sits under its sigil and nowhere else
+
+# paint: rules -> border.hairline · labels -> text.muted
+#        values -> text.body · marks -> text.gold

@@ -1,0 +1,44 @@
+# Numeric table — when a chart would lose the exact values. Columns align on
+# the decimal point, not on the left edge.
+
+## the plain form — no vertical rules, one hairline under the head
+ metric        now      1h ago     24h      trend
+ ────────────────────────────────────────────────────
+ requests    18,402     17,908   402,118   ▁▂▄▃▅▆▇
+ p50 (ms)        42         44        41   ▃▃▂▃▂▂▁
+ p99 (ms)       486        198       211   ▁▁▂▂▃▅▇   ⚠
+ errors        0.31%      0.08%     0.12%  ▁▁▁▂▁▁▇   ✗
+ ────────────────────────────────────────────────────
+ ↑ numbers right, labels left, units in the header — never repeated per cell
+
+## with a delta column, signed and aligned
+ revenue     ¥ 1.24M    ▲  +8.2%
+ orders          318    ▲  +2.6%
+ refunds        2.1%    ▲  +0.4%   ⚠   up is bad here, so it is marked
+ aov         ¥ 3,899    ▼  −5.4%
+ ↑ ▲ is not "good". The arrow states direction; the mark states judgement.
+
+## grouped rows — one blank line, never a nested box
+ edge
+   tokyo      4,820     ▰▰▰▰▰▰▰▰▰▰
+   osaka      3,140     ▰▰▰▰▰▰
+   kyoto      1,890     ▰▰▰▰
+
+ origin
+   tokyo      2,204     ▰▰▰▰
+   frankfurt    980     ▰▰
+
+## a wide table that must not wrap — drop columns, never shrink the font
+ full      name · region · status · p50 · p99 · errors · last deploy
+ narrow    name · status · p99 · errors
+ tight     name · p99
+ ↑ decide the drop order once and write it down; a table that drops a
+   different column each render is unreadable across two runs
+
+## totals — separated by a rule, never bolded into the body
+ ────────────────────────────────────────
+ total       9,850     ▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰
+
+# paint: head -> text.muted, uppercase, letterspaced · body numbers -> bone-1
+# a value past its threshold -> kaki-1 · past critical -> aka-0
+# rules -> line-0 · trend columns -> kin-1 · never a fill behind a row

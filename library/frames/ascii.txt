@@ -1,0 +1,37 @@
+# ascii — when box-drawing will not survive. A CI log, an email, a commit
+# body, a font you do not control. Same shapes, seven-bit.
+
+# 1 · the capsule
++-- notes ---
+|   plain ASCII survives anything that renders text at all
++-
+
+# 2 · closed, narrow
++----------------------------+
+|  calm . closed . soft      |
++----------------------------+
+
+# 3 · the spine
+|> node web-01
+|  uptime    99.7%
+|  commits   86      (+18%)
+|_ focus     3/12
+
+# 4 · dividers
+----------------------------------------
+---------------- * ---------------------
+
+# 5 · the prompt
++- * - ~/dev/yoshiki - main ~2
++- >
+
+# 6 · status marks, when the glyphs are gone
+  [ok]   build      passed
+  [..]   upload     in progress
+  [!!]   migrate    blocked
+
+# rule: pick ASCII for the whole block or none of it. A capsule with one
+#       box-drawing corner and three plus signs is worse than either.
+
+# paint: identical to the Unicode registers — the shapes changed, the
+#        roles did not

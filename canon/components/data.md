@@ -93,6 +93,22 @@ rule, never as a filled band.
 Axes and gridlines are `border.hairline` and may be omitted entirely — a
 baseline and two labels usually say more than a grid.
 
+## Meter
+
+A meter shows a value against a scale; a progress bar shows a task in flight.
+They look alike and answer different questions, and using one for the other is
+the commonest mistake in this whole file. A meter carries its number, and its
+threshold is drawn as a **1px mark**, never as a filled band — a band colours
+every value on the wrong side of it, including the ones that are still fine.
+
+## Steps and timeline
+
+The same sequence, twice. `.y-steps` is inline, for when only the position
+matters; the timeline is vertical, for when each step has something to say.
+Both take the state marks from [`feedback.md`](feedback.md) and nothing else in
+that position. The number of steps is stated up front and never changes: a
+sequence that grows a fourth step at step three has lied twice.
+
 ## Pagination
 
 `‹ 1 2 3 ›` in mono; the current page takes `action.text` and `action.tint`, the

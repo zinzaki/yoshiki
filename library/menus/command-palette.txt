@@ -1,0 +1,21 @@
+# soft register — a command palette. Grouped, with the key hint on the right.
+
+╭─ ⌘K ───────────────────────────────────────────
+│  ❯ theme
+│  ─────────────────────────────────────────────
+│    NAVIGATE
+│  ▌ Palette                                    ↵
+│    Components
+│    ─────────────────────────────────────────
+│    ACTIONS
+│    Switch to kogane · dark
+│    Switch to washi · light
+│    Copy text.body                        ⌘⇧C
+╰╴  ↑↓ move    ↵ run    esc close
+
+# rule: group headings only once there are more than about seven rows.
+#       Below that, groups are ceremony.
+
+# paint: group headings -> text.muted, spaced · rows -> text.secondary
+#        selected -> text.heading + action.tint · key hints -> text.ghost
+#        the footer -> text.ghost

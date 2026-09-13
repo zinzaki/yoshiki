@@ -1,0 +1,43 @@
+# soft register — rounded capsules. For words, read slowly.
+
+# 1 · the open capsule (the default; the right edge is deliberately absent)
+╭─ notes ───
+│  A frame costs one line and tells the eye where a thing begins.
+│  Anything wider than ~50 columns opens on the right, so a wrap
+│  cannot turn the closing column into confetti.
+╰╴
+
+# 2 · closed, for a narrow block only
+╭────────────────────────────╮
+│  calm · closed · soft      │
+╰────────────────────────────╯
+
+# 3 · with a footer note
+╭─ deploy ───
+│  214 files · 0.4s
+├╴
+│  last shipped 4 minutes ago
+╰╴
+
+# 4 · two-column body
+╭─ order #1421 ───
+│  item      Hand-bound notebook
+│  status    paid
+│  total     4,820
+╰╴
+
+# 5 · a stack of capsules, one blank line between
+╭─ build ───
+│  passed
+╰╴
+
+╭─ tests ───
+│  1,820 ok
+╰╴
+
+# 6 · the shallow capsule — a single line that still wants an edge
+╭─ tip ─  press ? for the key map
+╰╴
+
+# paint: frame -> border.hairline · title after ╭─ -> text.gold
+#        body -> text.body · meta -> text.muted

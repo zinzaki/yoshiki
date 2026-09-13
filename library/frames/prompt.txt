@@ -1,0 +1,33 @@
+# prompt — the two-line capsule. The language's signature, and the one
+# frame that is allowed on every single screen.
+
+# 1 · the full capsule
+╭─ ◆ ─ ~/dev/yoshiki ─  main ~2 +1 ─ py 3.12 ─ 2.4s
+╰─ ❯
+
+# 2 · minimal — path and prompt only
+╭─ ~/dev/yoshiki
+╰─ ❯
+
+# 3 · with an exit code (scarlet, and only when non-zero)
+╭─ ◆ ─ ~/dev ─  main ─ ✗ 1
+╰─ ❯
+
+# 4 · one line, for narrow terminals
+◆ ~/dev/yoshiki  main ❯
+
+# 5 · with a running job
+╭─ ◆ ─ ~/dev/yoshiki ─  main ─ ⠹ build 12s
+╰─ ❯
+
+# 6 · right-hand side, when the shell supports it
+╭─ ◆ ─ ~/dev/yoshiki                          14:02 · 2.4s
+╰─ ❯
+
+# order of the segments, left to right, and never rearranged:
+#   mark · path · branch and git state · language · duration · exit code
+
+# paint: connectors ╭ ╰ ─ -> text.gold-dim · path -> text.heading
+#        branch -> text.secondary · clean state -> ok.text
+#        duration -> warn.text only when slow · exit code -> danger.text
+#        ❯ -> action.text

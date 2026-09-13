@@ -40,6 +40,7 @@
     },
     "./css": "./library/web/palette.css",
     "./kit.css": "./library/web/yoshiki.css",
+    "./kit.js": "./library/web/yoshiki.js",
     "./tailwind": "./library/integrations/tailwind.cjs",
     "./figma": "./library/integrations/figma-variables.json",
     "./tokens/kogane": "./canon/palette/kogane/kogane.tokens.json",

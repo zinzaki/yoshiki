@@ -1,0 +1,39 @@
+# nested — a frame inside a frame. A reply, a quote, a sub-result.
+# Two levels is the whole depth. Three means the content wants a page.
+
+# 1 · a reply inside a message
+╭─ ◆ order #1421 ───
+│  status   paid
+│
+│  ╭─ note from the workshop ───
+│  │  binding takes two more days
+│  ╰╴
+╰╴
+
+# 2 · a sub-result under a step
+╭─ tests ───
+│  1,820 passed
+│  │  palette      412
+│  │  contrast     184
+│  │  components   224
+╰╴
+
+# 3 · registers may nest, but only outward-soft, inward-hard
+╭─ report ───
+│  ⟥ node web-01
+│  ╔ uptime   99.7%
+│  ╚ p99       42 ms
+╰╴
+
+# 4 · a quotation inside a quotation, by indent alone
+│  she wrote:
+│
+│      │  the seam is the affordance
+│
+│  and that settled it
+
+# rule: the inner frame is dimmer than the outer one. Depth is a step in
+#       tone, not a heavier line.
+
+# paint: outer frame -> border.hairline · inner frame -> text.ghost
+#        body -> text.body · inner body -> text.secondary

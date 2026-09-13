@@ -367,3 +367,144 @@ figure figcaption{ font-family:var(--y-mono); font-size:var(--t-fine); line-heig
 .forge-fails b{ color:var(--r-danger-text); margin-left:auto }
 .forge-fails span{ color:var(--r-text-ghost) }
 .forge-fails .more{ color:var(--r-text-ghost); padding-top:4px }
+
+/* ════ colour families, as ramps ════════════════════════════════════
+   A family is a scale, so it is drawn as one continuous band. Detached
+   tiles read as scattered; a ramp reads as a system, and the eye can see
+   the step between two neighbours because they touch. */
+.fam{ display:grid; grid-template-columns:200px minmax(0,1fr); gap:var(--y-6);
+      align-items:start; padding:var(--y-5) 0;
+      border-top:1px solid var(--r-border-hairline) }
+.fam__name{ font-family:var(--y-serif); font-size:19px; color:var(--r-text-heading) }
+.fam__note{ font-size:12.5px; color:var(--r-text-muted); line-height:1.65; margin-top:6px; max-width:30ch }
+.ramp{ display:flex; border-radius:14px; overflow:hidden;
+       border:1px solid var(--r-border-hairline) }
+.ramp__step{ flex:1; min-width:0; height:74px; border:0; padding:0; cursor:pointer;
+             position:relative; display:grid; place-items:center;
+             transition:flex var(--mid) var(--ease) }
+.ramp__step:hover{ flex:1.5 }
+.ramp__hex{ font-family:var(--y-mono); font-size:10px; opacity:0; color:inherit;
+            mix-blend-mode:difference; filter:invert(1) grayscale(1) contrast(9);
+            transition:opacity var(--mid) var(--ease) }
+.ramp__step:hover .ramp__hex{ opacity:.85 }
+.ramp__legend{ display:flex; margin-top:10px }
+.ramp__label{ flex:1; min-width:0; padding-right:8px }
+.ramp__label b{ display:block; font-family:var(--y-mono); font-size:11.5px; font-weight:400;
+                color:var(--r-text-secondary); overflow:hidden; text-overflow:ellipsis; white-space:nowrap }
+.ramp__label span{ display:block; font-size:10.5px; color:var(--r-text-muted);
+                   line-height:1.45; margin-top:3px }
+@media (max-width:820px){
+  .fam{ grid-template-columns:1fr; gap:var(--y-3) }
+  .ramp__label span{ display:none }
+}
+
+/* the colours that are real but are not the surface palette */
+.aside-demo{ display:flex; gap:10px; flex-wrap:wrap; align-items:center; min-height:64px }
+.chip-fill{ display:inline-flex; align-items:center; gap:7px; height:32px; padding:0 14px;
+            border-radius:var(--y-r-pill); font-family:var(--y-mono); font-size:12px }
+.paper-card{ border:1px solid; border-radius:12px; padding:12px 14px; width:100%;
+             font-family:var(--y-mono); font-size:12px; line-height:1.6 }
+.paper-card b{ display:block; font-weight:500 }
+.paper-card span{ opacity:.75 }
+/* the service hues live in the terminal, so they are shown inside one —
+   .y-island is the kit's own pinned-dark container, so no colour is spelled
+   out here and the island cannot drift from the terminal it represents */
+.island{ display:flex; flex-wrap:wrap; gap:5px }
+.island__chip{ display:inline-flex; align-items:center; gap:6px; padding:4px 8px;
+               border:0; border-radius:7px; background:transparent; cursor:pointer;
+               font-family:var(--y-mono); font-size:10.5px; color:var(--bone-3) }
+.island__chip:hover{ background:var(--ink-2); color:var(--bone-1) }
+.island__chip span{ width:11px; height:11px; border-radius:3px; display:block }
+
+/* ════ the pattern catalogue ════════════════════════════════════════ */
+.pat{ display:grid; grid-template-columns:300px minmax(0,1fr); gap:var(--gutter); align-items:start }
+@media (max-width:900px){ .pat{ grid-template-columns:1fr } }
+.pat-modules{ display:flex; gap:2px; flex-wrap:wrap; margin-bottom:var(--y-4) }
+.pat-modules button{
+  display:inline-flex; align-items:baseline; gap:7px;
+  padding:7px 12px; border:0; border-radius:9px; background:transparent; cursor:pointer;
+  font-family:var(--y-mono); font-size:12.5px; color:var(--r-text-muted);
+  transition:color var(--mid) var(--ease), background-color var(--mid) var(--ease);
+}
+.pat-modules button:hover{ color:var(--r-text-body) }
+.pat-modules button[aria-selected="true"]{ background:var(--r-action-tint); color:var(--r-action-text) }
+/* a count is information, not a switched-off control */
+.pat-modules button span{ font-size:10.5px; color:var(--r-text-muted) }
+.pat-list{ display:flex; flex-direction:column; max-height:640px; overflow:auto;
+           border:1px solid var(--r-border-hairline); border-radius:var(--y-r-card) }
+.pat-row{ text-align:left; border:0; background:transparent; cursor:pointer;
+          padding:11px 14px; border-bottom:1px solid var(--r-border-hairline);
+          transition:background-color var(--mid) var(--ease) }
+.pat-row:last-child{ border-bottom:0 }
+.pat-row:hover{ background:var(--r-bg-hover) }
+.pat-row[aria-current="true"]{ background:var(--r-action-tint) }
+.pat-row b{ display:block; font-family:var(--y-mono); font-size:12.5px; font-weight:400;
+            color:var(--r-text-body) }
+.pat-row[aria-current="true"] b{ color:var(--r-action-text) }
+.pat-row span{ display:block; font-size:11.5px; color:var(--r-text-muted);
+               line-height:1.5; margin-top:4px }
+.pat-note{ font-family:var(--y-mono); font-size:11.5px; line-height:1.75;
+           color:var(--r-text-muted); white-space:pre-wrap; margin-top:var(--y-4);
+           padding-left:var(--y-4); border-left:1px solid var(--r-border-hairline) }
+#patView .y-code pre{ max-height:520px; font-size:12.5px; line-height:1.7 }
+#patView .y-code__bar a{ color:var(--r-text-gold) }
+
+/* ════ the stage — the front page's live specimen ════════════════════
+   One object, in the first screen, that you operate rather than read.
+   The plate carries its own data-theme: you can put the specimen on paper
+   without putting the page on paper, which is the "only the stage changes"
+   claim made checkable instead of asserted. */
+.stage{
+  border:1px solid var(--r-border-hairline); border-radius:var(--y-r-dialog);
+  background:var(--r-bg-surface); overflow:hidden;
+}
+.stage__rail{
+  display:flex; align-items:center; gap:var(--y-3); flex-wrap:wrap;
+  padding:10px 12px; border-bottom:1px solid var(--r-border-hairline);
+  background:var(--r-bg-app);
+}
+.stage__rail .y-seg{ background:transparent; border-color:transparent; padding:0; gap:2px }
+.stage__rail .y-seg + .y-seg{ margin-left:auto }
+.stage__plate{
+  /* surface, not app: the plate is a stage the specimen stands on, and on
+     kogane the app ground is near-black — a hole rather than a stage. The
+     terminal keeps its own darker island, so the two still read apart. */
+  background:var(--r-bg-surface); padding:var(--y-5);
+  /* a reserved minimum stops the switch from shifting everything below it */
+  min-height:330px; display:flex; flex-direction:column;
+}
+.stage__pane{ flex:1; display:flex; flex-direction:column;
+              animation:stage-in 280ms var(--ease) both }
+/* display beats the UA rule for [hidden]: say it again, or every pane shows */
+.stage__pane[hidden]{ display:none }
+.stage__pane > .y-term{ flex:1 }
+@keyframes stage-in{ from{ opacity:0; transform:translateY(6px) } to{ opacity:1; transform:none } }
+@media (prefers-reduced-motion: reduce){ .stage__pane{ animation:none } }
+.stage__note{
+  padding:11px 14px; border-top:1px solid var(--r-border-hairline);
+  font-size:12.5px; line-height:1.65; color:var(--r-text-muted); background:var(--r-bg-surface);
+}
+.stage__note b{ color:var(--r-text-secondary); font-weight:400 }
+.stage .y-term{ font-size:12.5px }
+@media (max-width:560px){
+  .stage__plate{ padding:var(--y-4); min-height:0 }
+  .stage__rail .y-seg + .y-seg{ margin-left:0 }
+}
+
+/* ── the glance: the budget, not the inventory ─────────────────────── */
+.glance-band + .glance-band{ margin-top:var(--y-7) }
+.glance-band__head{
+  font-family:var(--y-mono); font-size:var(--t-micro); letter-spacing:3px;
+  text-transform:uppercase; color:var(--r-text-muted); margin-bottom:var(--y-4);
+  display:flex; align-items:center; gap:12px;
+}
+.glance-band__head::after{ content:''; flex:1; height:1px; background:var(--r-border-hairline) }
+.glance-fam{ display:grid; grid-template-columns:130px minmax(0,1fr); gap:var(--y-4);
+             align-items:start; padding:var(--y-3) 0 }
+.glance-fam__name{ font-family:var(--y-mono); font-size:13px; color:var(--r-text-body);
+                   padding-top:6px }
+.glance-fam__note{ font-size:11.5px; color:var(--r-text-muted); line-height:1.6; margin-top:9px }
+@media (max-width:640px){
+  .glance-fam{ grid-template-columns:1fr; gap:var(--y-2) }
+}
+.glance-band--rare .ramp{ max-width:440px }

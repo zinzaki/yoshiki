@@ -1,0 +1,20 @@
+# soft register — a fuzzy picker. Query, count, matches with the hit lit.
+
+╭─ open file ────────────────────────────────
+│  ❯ pal
+│    3/41 ─────────────────────────────────
+│  ▌ canon/palette/kogane
+│    canon/palette/washi
+│    library/web/palette.css
+╰╴
+
+# with a preview pane
+╭─ open file ──────────────╮╭─ preview ───────────
+│  ❯ pal                   ││  meta:
+│  ▌ canon/palette/kogane  ││    name: Kogane
+│    canon/palette/washi   ││    version: 1.2.0
+╰──────────────────────────╯╰╴
+
+# paint: ❯ -> action.text · query -> text.body · count -> text.muted
+#        matched substring -> text.gold · selected row marker ▌ -> action.edge
+#        selected row -> text.heading + action.tint · rest -> text.secondary

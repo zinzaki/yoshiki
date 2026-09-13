@@ -1,0 +1,29 @@
+# inline — one line, one glyph, no title. It leaves on its own.
+
+  ✓ copied · text.body
+
+  ⚠ certificate expires in 6 days
+
+  ✗ could not reach the registry
+
+# framed, when it floats over content
+╭────────────────────────────────╮
+│  ✓ copied · text.body          │
+╰────────────────────────────────╯
+
+# with an action, which is the only reason a toast may live longer
+╭────────────────────────────────────────╮
+│  ✓ 3 files moved            [ Undo ]   │
+╰────────────────────────────────────────╯
+
+# a stack — newest at the bottom, three at most, oldest leaves first
+  ✓ palette rebuilt
+  ✓ themes rebuilt
+  ⠹ contrast proof
+
+# rule: a toast never carries the only copy of something the reader needs,
+#       and it never reports an error that requires action. That is an
+#       alert, in place, where the thing went wrong.
+
+# paint: ✓ -> ok.text · ⚠ -> warn.text · ✗ -> danger.text
+#        body -> text.body · frame -> border.hairline · action -> action.text

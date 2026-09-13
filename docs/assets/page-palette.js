@@ -23,35 +23,86 @@
     ['syntax.', 'syntax', 'editors and terminals only']
   ];
 
-  /* ── tokens, by group ── */
+  /* ── tokens, as ramps ──────────────────────────────────────────────
+     A colour family is a scale, so it is drawn as one continuous ramp
+     rather than a row of separate tiles: the steps belong to each other,
+     and forty-two detached rectangles read as scattered rather than as a
+     system. The families that are NOT part of the surface palette are
+     pulled out below, because showing them at equal weight is what makes
+     a warm monochrome look like a rainbow. */
+  const UI_GROUPS = ['surface', 'line', 'bone', 'kin', 'kaki', 'aka', 'mori'];
+
+  function ramp(g, tok){
+    const steps = g.steps.filter(s => tok[s.token]);
+    if (!steps.length) return '';
+    return `
+      <div class="fam">
+        <div class="fam__head">
+          <div class="fam__name">${esc(g.label)}</div>
+          <div class="fam__note">${esc(g.note)}</div>
+        </div>
+        <div class="fam__body">
+          <div class="ramp">
+            ${steps.map(s => `
+              <button class="ramp__step" style="background:${esc(tok[s.token])}"
+                      data-copy="${esc(tok[s.token])}" title="${esc(s.token)} — ${esc(s.job)}">
+                <span class="ramp__hex">${esc(tok[s.token])}</span>
+              </button>`).join('')}
+          </div>
+          <div class="ramp__legend">
+            ${steps.map(s => `
+              <div class="ramp__label">
+                <b>${esc(s.token)}</b><span>${esc(s.job)}</span>
+              </div>`).join('')}
+          </div>
+        </div>
+      </div>`;
+  }
+
   function drawGroups(slug){
     const tok = Y.themes[slug].tokens;
     const el = $('tokenTheme');
     if (el) el.textContent = Y.themes[slug].meta.slug;
-    $('groups').innerHTML = Y.groups.map(g => {
-      const steps = g.steps.filter(s => tok[s.token]);
-      if (!steps.length) return '';
-      return `
-      <div style="padding:var(--y-5) 0;border-top:1px solid var(--r-border-hairline)">
-        <div class="cols" style="gap:var(--y-5)">
-          <div class="c4">
-            <div style="font-family:var(--y-serif);font-size:19px;color:var(--r-text-heading)">${esc(g.label)}</div>
-            <div style="font-size:12.5px;color:var(--r-text-muted);line-height:1.7;margin-top:6px;max-width:34ch">${esc(g.note)}</div>
+    const by = k => Y.groups.find(g => g.key === k);
+
+    $('groups').innerHTML = UI_GROUPS.map(k => ramp(by(k), tok)).filter(Boolean).join('');
+
+    /* ── the rest: real colours, deliberately not part of the surface ── */
+    const onfill = by('onfill'), paper = by('paper'), service = by('service');
+    $('aside').innerHTML = `
+      <div class="cols" style="gap:var(--gutter)">
+        <div class="c4">
+          <div class="y-head">on a fill</div>
+          <div class="aside-demo">
+            <span class="chip-fill" style="background:${esc(tok['aka-1'])};color:${esc(tok['shiro'])}">✗ Delete</span>
+            <span class="chip-fill" style="background:${esc(tok['mori-1'])};color:${esc(tok['shiro'])}">✓ Done</span>
           </div>
-          <div class="c8">
-            <div class="tiles" style="grid-template-columns:repeat(auto-fill,minmax(150px,1fr))">
-              ${steps.map(s => `
-                <button class="swatch" data-copy="${esc(tok[s.token])}">
-                  <span class="swatch__chip" style="background:${esc(tok[s.token])}"></span>
-                  <span class="swatch__n">${esc(s.token)}</span>
-                  <span class="swatch__v">${esc(tok[s.token])}</span>
-                  <span class="swatch__job">${esc(s.job)}</span>
-                </button>`).join('')}
+          <p class="cap">${esc(onfill.note)}. It never appears as a surface — only as
+          the label standing on one of the two fills.</p>
+        </div>
+        <div class="c4">
+          <div class="y-head">the paper artifact</div>
+          <div class="aside-demo">
+            <div class="paper-card" style="background:${esc(tok['washi-bg'])};color:${esc(tok['washi-ink'])};
+                 border-color:${esc(tok['washi-line'])}">
+              <b>Receipt</b><span>a light card pinned inside the dark</span>
             </div>
           </div>
+          <p class="cap">${esc(paper.note)}</p>
+        </div>
+        <div class="c4">
+          <div class="y-head">terminal and syntax only</div>
+          <div class="y-island island">
+            ${service.steps.filter(s => tok[s.token]).map(s => `
+              <button class="island__chip" data-copy="${esc(tok[s.token])}" title="${esc(s.token)} — ${esc(s.job)}">
+                <span style="background:${esc(tok[s.token])}"></span>${esc(s.token)}
+              </button>`).join('')}
+          </div>
+          <p class="cap">${esc(service.note)}. They are shown small and apart on purpose:
+          at equal weight they turn a warm monochrome into a rainbow, which is exactly
+          the mistake the language exists to avoid.</p>
         </div>
       </div>`;
-    }).join('');
   }
 
   /* ── the roles contract ── */

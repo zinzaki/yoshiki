@@ -1,0 +1,31 @@
+# inline + soft — a sequence with a position in it.
+
+# 1 · the rail
+  1 source ──── 2 proof ──── 3 export
+    ──────
+
+# 2 · with state marks
+  ✓ source ──── ● proof ──── ○ export
+
+# 3 · inside the frame it belongs to
+╭─ new theme ─  step 2 of 3 ───
+│
+│  ✓ source     kogane
+│  ● proof      running 184 checks ⠹
+│  ○ export
+│
+╰╴                    [ Back ]  [ Continue ]
+
+# 4 · vertical, when the steps have detail
+  ✓ source
+  │    kogane, 42 tokens
+  ● proof
+  │    184 checks · 92 done ⠹
+  ○ export
+       13 targets
+
+# rule: the number of steps is stated up front and never changes. A wizard
+#       that grows a fourth step at step three has lied twice.
+
+# paint: done ✓ -> ok.text · current ● -> action.text · queued ○ -> text.ghost
+#        the rail -> border.hairline · the current label -> text.heading

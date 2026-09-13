@@ -1,0 +1,34 @@
+# minimal — nothing here yet. One glyph, one line, at most one action.
+
+              ◌
+
+     nothing deployed yet
+
+     [ Deploy the first build ]
+
+# for a search with no result — say what was searched
+              ◌
+
+     no files match "palet"
+
+     press esc to clear
+
+# for a filtered view, which is a different emptiness
+              ◌
+
+     no failing services
+
+     3 healthy · 1 degraded are hidden by the filter
+
+# for an error that produced emptiness, which is not emptiness at all
+              ✗
+
+     could not reach the registry
+
+     [ Retry ]
+
+# rule: no illustration, no apology, no exclamation mark. Say what would be
+#       here, and give exactly one way forward if one exists.
+
+# paint: the glyph -> text.muted (✗ -> danger.text) · the line -> text.secondary
+#        the detail -> text.muted · the action -> a ghost button
