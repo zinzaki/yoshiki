@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://zinzaki.github.io/yoshiki/schema/manifest.schema.json",
+  "title": "yoshiki manifest",
+  "description": "One entity of the foundation: a reference, material, effect, motion, palette, object, pattern, treatment or type pairing. Stored as manifest.yml next to its files.",
+  "type": "object",
+  "required": ["id", "kind", "title", "zone", "status"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^yk:(ref|mat|fx|mo|pal|role|obj|pat|tr|ty)/[a-z0-9][a-z0-9._/-]*$",
+      "description": "Permanent key. Never reused; a renamed entity keeps a deprecated manifest pointing at the new id."
+    },
+    "kind": {"enum": ["ref", "material", "effect", "motion", "palette", "object", "pattern", "treatment", "type"]},
+    "title": {"type": "string", "minLength": 1},
+    "summary": {"type": "string"},
+    "zone": {"enum": ["graphic", "text", "any"]},
+    "surfaces": {
+      "type": "array", "uniqueItems": true,
+      "items": {"enum": ["web", "desktop", "mobile", "terminal", "tui", "chat", "comment", "doc"]}
+    },
+    "shelf": {"type": "array", "items": {"type": "string", "pattern": "^[a-z0-9-]+$"}, "uniqueItems": true},
+    "tags": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "uses": {"type": "array", "items": {"$ref": "#/$defs/idref"}, "uniqueItems": true},
+    "derived-from": {"type": "array", "items": {"$ref": "#/$defs/idref"}, "uniqueItems": true},
+    "palettes": {
+      "oneOf": [{"const": "any"}, {"type": "array", "items": {"$ref": "#/$defs/idref"}, "minItems": 1}]
+    },
+    "treatments": {"type": "array", "items": {"type": "string", "pattern": "^[a-z0-9-]+$"}, "uniqueItems": true},
+    "status": {"enum": ["draft", "voted", "stable", "deprecated"]},
+    "replaced-by": {"$ref": "#/$defs/idref"},
+    "preview": {
+      "type": "object",
+      "required": ["format"],
+      "additionalProperties": false,
+      "properties": {
+        "format": {"type": "string", "pattern": "^[a-z]+\\.[a-z0-9-]+$"},
+        "files": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "prompt": {"type": "string", "description": "Path to prompt.md, relative to the manifest."},
+    "command": {"type": "string"},
+    "votes": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "round": {"type": "string"},
+        "verdict": {"enum": ["want", "fine", "miss"]},
+        "note": {"type": "string"}
+      }
+    }
+  },
+  "$defs": {
+    "idref": {"type": "string", "pattern": "^yk:(ref|mat|fx|mo|pal|role|obj|pat|tr|ty)/[a-z0-9][a-z0-9._/-]*$"}
+  },
+  "allOf": [
+    {"if": {"properties": {"status": {"const": "deprecated"}}}, "then": {"required": ["replaced-by"]}},
+    {"if": {"properties": {"kind": {"const": "material"}}}, "then": {"properties": {"zone": {"const": "graphic"}}}}
+  ]
+}

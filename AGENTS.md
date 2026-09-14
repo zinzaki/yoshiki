@@ -16,10 +16,12 @@ disagree, **this file wins**.
 | **text** | terminal, TUI, CLI output, chat and bot messages, code comments, commit messages | box-drawing frames, semantic glyphs, character spinners, ANSI colours | pretending to be graphics; banners of ASCII art |
 
 A desktop app is **graphic** even if it is for developers. Only a terminal is text.
+Full rules: [`canon/language/zones.md`](canon/language/zones.md).
 
 ## Step 2 — pick the palette
 
-Consume **roles** (`text.body`, `action.edge`, `danger.fill`), never raw token values.
+Consume **roles** (`text.primary`, `accent.edge`, `signal.fill` — the contract is in
+[`canon/language/roles.md`](canon/language/roles.md)), never raw token values.
 
 - dark: [`canon/palettes/night-beige/palette.yml`](canon/palettes/night-beige/palette.yml) — default
 - light: [`canon/palettes/beige-glass/palette.yml`](canon/palettes/beige-glass/palette.yml)

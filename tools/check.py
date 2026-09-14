@@ -129,6 +129,12 @@ for f in sorted(tracked_files()):
             fail(f"{rel}:{i} — CJK character {hit!r}; write it in English "
                  f"(only brand.mark is allowed, and only where the build writes it)")
 
+# ── 1d · every manifest is valid, every id unique, every reference known ─
+sys.path.insert(0, str(ROOT / "tools"))
+import manifests
+for problem in manifests.load_all()[1]:
+    fail(problem)
+
 # ── 2 · every link in the site resolves ─────────────────────────────────
 pages = sorted(DOCS.glob("*.html"))
 if not pages:

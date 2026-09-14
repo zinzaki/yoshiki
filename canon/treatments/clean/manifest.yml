@@ -1,0 +1,10 @@
+id: yk:tr/clean
+kind: treatment
+title: Clean
+summary: Glass and glow only. The default treatment and the owner's preferred main version.
+zone: graphic
+surfaces: [web, desktop, mobile]
+uses: [yk:mat/glass.frost, yk:mat/glow.warm]
+palettes: any
+status: voted
+votes: {round: sync-round, verdict: want, note: preferred as the clean main version}

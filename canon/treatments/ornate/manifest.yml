@@ -1,0 +1,10 @@
+id: yk:tr/ornate
+kind: treatment
+title: Ornate
+summary: Clean plus a faint cross-grid ground, corner brackets on panels and control hints.
+zone: graphic
+surfaces: [web, desktop, mobile]
+uses: [yk:mat/glass.frost, yk:mat/glow.warm, yk:mat/pattern.cross]
+palettes: any
+status: voted
+votes: {round: sync-round, verdict: want, note: the full-set option}

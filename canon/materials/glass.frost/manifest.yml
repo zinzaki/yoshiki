@@ -1,0 +1,10 @@
+id: yk:mat/glass.frost
+kind: material
+title: Frosted glass
+summary: Translucent rows and panels over the ground, blurring the glow behind them.
+zone: graphic
+surfaces: [web, desktop, mobile]
+tags: [nier, glass]
+uses: [yk:role/bg.surface, yk:role/border.hairline]
+palettes: any
+status: draft

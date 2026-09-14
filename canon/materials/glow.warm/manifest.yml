@@ -1,0 +1,10 @@
+id: yk:mat/glow.warm
+kind: material
+title: Warm glow
+summary: A large soft glow behind content, coloured by the glow role.
+zone: graphic
+surfaces: [web, desktop, mobile]
+tags: [glow]
+uses: [yk:role/glow]
+palettes: any
+status: draft

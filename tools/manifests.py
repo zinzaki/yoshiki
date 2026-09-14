@@ -1,0 +1,99 @@
+"""yoshiki manifests — find, validate and index every manifest.yml in canon/.
+
+The validator implements the subset of JSON Schema 2020-12 that schema/manifest.schema.json
+uses (type, required, additionalProperties, enum, const, pattern, minLength, items,
+minItems, uniqueItems, oneOf, allOf with if/then, local $ref), so the check runs with
+PyYAML alone — no extra dependency in CI or on a fresh machine.
+"""
+import json, re
+from pathlib import Path
+
+import yaml
+
+ROOT = Path(__file__).resolve().parent.parent
+SCHEMA = json.loads((ROOT / "schema" / "manifest.schema.json").read_text())
+
+TYPES = {"object": dict, "array": list, "string": str, "boolean": bool}
+
+
+def _resolve(ref: str) -> dict:
+    node = SCHEMA
+    for part in ref.removeprefix("#/").split("/"):
+        node = node[part]
+    return node
+
+
+def _errors(value, schema: dict, path: str) -> list[str]:
+    if "$ref" in schema:
+        return _errors(value, _resolve(schema["$ref"]), path)
+    out: list[str] = []
+    t = schema.get("type")
+    if t and not isinstance(value, TYPES[t]):
+        return [f"{path}: expected {t}"]
+    if "const" in schema and value != schema["const"]:
+        out.append(f"{path}: must be {schema['const']!r}")
+    if "enum" in schema and value not in schema["enum"]:
+        out.append(f"{path}: {value!r} is not one of {schema['enum']}")
+    if isinstance(value, str):
+        if "pattern" in schema and not re.search(schema["pattern"], value):
+            out.append(f"{path}: {value!r} does not match {schema['pattern']}")
+        if len(value) < schema.get("minLength", 0):
+            out.append(f"{path}: too short")
+    if isinstance(value, list):
+        if len(value) < schema.get("minItems", 0):
+            out.append(f"{path}: needs at least {schema['minItems']} item(s)")
+        if schema.get("uniqueItems") and len({json.dumps(v, sort_keys=True) for v in value}) != len(value):
+            out.append(f"{path}: items must be unique")
+        if "items" in schema:
+            for i, v in enumerate(value):
+                out += _errors(v, schema["items"], f"{path}[{i}]")
+    if isinstance(value, dict):
+        for key in schema.get("required", []):
+            if key not in value:
+                out.append(f"{path}: missing {key!r}")
+        props = schema.get("properties", {})
+        for key, v in value.items():
+            if key in props:
+                out += _errors(v, props[key], f"{path}.{key}")
+            elif schema.get("additionalProperties") is False:
+                out.append(f"{path}: unknown field {key!r}")
+    if "oneOf" in schema:
+        if sum(1 for s in schema["oneOf"] if not _errors(value, s, path)) != 1:
+            out.append(f"{path}: must match exactly one allowed form")
+    for sub in schema.get("allOf", []):
+        if "if" in sub:
+            if not _errors(value, sub["if"], path):
+                out += _errors(value, sub.get("then", {}), path)
+        else:
+            out += _errors(value, sub, path)
+    return out
+
+
+def validate(data) -> list[str]:
+    return _errors(data, SCHEMA, "manifest")
+
+
+def find() -> list[Path]:
+    return sorted((ROOT / "canon").rglob("manifest.yml"))
+
+
+def load_all() -> tuple[list[dict], list[str]]:
+    """Every manifest, plus every problem: schema errors, duplicate ids, dangling references."""
+    items, problems, seen = [], [], {}
+    for f in find():
+        rel = f.relative_to(ROOT)
+        data = yaml.safe_load(f.read_text())
+        errs = validate(data)
+        problems += [f"{rel}: {e}" for e in errs]
+        if errs:
+            continue
+        if data["id"] in seen:
+            problems.append(f"{rel}: id {data['id']} already used by {seen[data['id']]}")
+        seen[data["id"]] = rel
+        items.append({**data, "_path": str(rel.parent)})
+    for it in items:
+        for key in ("uses", "derived-from"):
+            for ref in it.get(key, []):
+                if ref not in seen and not ref.startswith(("yk:role/", "yk:pal/", "yk:ref/")):
+                    problems.append(f"{it['_path']}/manifest.yml: {key} points at unknown {ref}")
+    return items, problems

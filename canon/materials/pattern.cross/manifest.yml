@@ -1,0 +1,10 @@
+id: yk:mat/pattern.cross
+kind: material
+title: Cross grid
+summary: A faint grid of plus marks on the ground; the base layer of the ornate treatment.
+zone: graphic
+surfaces: [web, desktop]
+tags: [nier, ornate, pattern]
+uses: [yk:role/border.hairline]
+palettes: any
+status: draft
