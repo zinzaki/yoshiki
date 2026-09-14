@@ -12,4 +12,4 @@
 ## If this moves a colour
 
 - [ ] The contrast proof still passes on **every** surface, in both themes
-- [ ] `canon/palette/CONTRAST.md` is regenerated and committed
+- [ ] `canon/palettes/CONTRAST.md` is regenerated and committed

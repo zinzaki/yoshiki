@@ -50,7 +50,7 @@ circle — circles are for status dots and avatars.
 
 Sentence case, a verb, no ellipsis unless a dialog follows ("Delete…"). No
 ALL-CAPS on a button; spaced capitals are a nameplate, not an action
-([`../lexicon/space.md`](../lexicon/space.md)). A glyph may lead the label when
+([`../lexicon/space.md`](../text/space.md)). A glyph may lead the label when
 it carries meaning — `❯ Run`, `✓ Confirm` — never as decoration.
 
 ## Groups

@@ -5,8 +5,8 @@
 ```
 
 The language as a working stylesheet. `palette.css` is generated from
-[`canon/palette`](../../canon/palette); `yoshiki.css` implements
-[`canon/components`](../../canon/components) on top of it and introduces no
+[`canon/palettes`](../../canon/palettes); `yoshiki.css` implements
+[`canon/objects/graphic`](../../canon/objects/graphic) on top of it and introduces no
 colour of its own.
 
 ```html
@@ -58,7 +58,7 @@ role, never a raw token:
 ```
 
 Every `--r-*` role is proven at its WCAG floor against every surface it can sit
-on, in both themes — see [`CONTRAST.md`](../../canon/palette/CONTRAST.md).
+on, in both themes — see [`CONTRAST.md`](../../canon/palettes/CONTRAST.md).
 Raw tokens (`--kin-1`, `--ink-0`) are also exposed, but they carry no such
 guarantee: that is the whole reason roles exist.
 

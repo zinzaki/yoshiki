@@ -18,4 +18,4 @@ sheen.css          single specular sweep on hover         ← canon/effects/ambi
 ```
 
 Colors reference palette variables (`--kin-1`, `--ink-2`, …) — load a theme CSS
-(`canon/palette/<theme>/<theme>.css`) first.
+(`canon/palettes/<theme>/<theme>.css`) first.

@@ -20,7 +20,7 @@ it should be dividing. Nothing casts a shadow except what floats above a scrim.
 ## Card
 
 Radius 16px, `border.hairline`, padding 20–24px. Weight rides the top: title,
-then content; the bottom is left open ([`../lexicon/space.md`](../lexicon/space.md)).
+then content; the bottom is left open ([`../lexicon/space.md`](../text/space.md)).
 
 ```
 ╭──────────────────────────────╮

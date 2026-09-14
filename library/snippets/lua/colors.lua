@@ -1,5 +1,5 @@
 -- ╭─ colors ─ map the yoshiki palette onto highlights ───
--- │  values come from canon/palette — generated, not hand-edited
+-- │  values come from canon/palettes — generated, not hand-edited
 -- ╰╴
 local p = require("yoshiki.palette")   -- ← generated; do not edit by hand
 local hl = vim.api.nvim_set_hl

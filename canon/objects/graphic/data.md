@@ -80,7 +80,7 @@ sign** — a falling error rate is good.
 
 Never a sparkline behind the number as a background wash. If the shape of the
 series matters, give it its own row underneath, drawn in braille
-([`../motion`](../motion) · [`../../library/charts`](../../library/charts)).
+([`../motion`](../text/motion) · [`../../library/charts`](../../../library/charts)).
 
 ## Charts
 

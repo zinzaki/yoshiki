@@ -9,7 +9,7 @@ spec.loader.exec_module(B)
 
 class ProductionPalettes(unittest.TestCase):
     def load(self, slug):
-        return B.resolve(yaml.safe_load((ROOT / "canon/palette" / slug / "palette.yml").read_text()), None)
+        return B.resolve(yaml.safe_load((ROOT / "canon/palettes" / slug / "palette.yml").read_text()), None)
 
     def test_both_pass_every_contrast_floor(self):
         for slug in ("night-beige", "beige-glass"):

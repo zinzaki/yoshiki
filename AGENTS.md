@@ -21,8 +21,8 @@ A desktop app is **graphic** even if it is for developers. Only a terminal is te
 
 Consume **roles** (`text.body`, `action.edge`, `danger.fill`), never raw token values.
 
-- dark: [`canon/palette/night-beige/palette.yml`](canon/palette/night-beige/palette.yml) — default
-- light: [`canon/palette/beige-glass/palette.yml`](canon/palette/beige-glass/palette.yml)
+- dark: [`canon/palettes/night-beige/palette.yml`](canon/palettes/night-beige/palette.yml) — default
+- light: [`canon/palettes/beige-glass/palette.yml`](canon/palettes/beige-glass/palette.yml)
 - web: `library/web/palette.css` gives the roles as `--r-*` variables; `data-theme="beige-glass"` switches to light.
 
 Roles every palette provides: surfaces (`bg.app → surface → raised → hover`), text
@@ -58,13 +58,13 @@ structure**, not their styling, until the v2 kit lands.
 
 ## Step 4 — modules
 
-- text zone: `canon/lexicon/{cli,comments,messaging,glyphs,frames,states,space}.md` and
+- text zone: `canon/objects/text/{cli,comments,messaging,glyphs,frames,states,space}.md` and
   the matching `canon/prompts/*.md` — still valid for terminals, chat and comments.
-- components (anatomy, states, density): `canon/components/` — anatomy is valid; the
+- components (anatomy, states, density): `canon/objects/graphic/` — anatomy is valid; the
   visual rules inside follow Step 3.
 - effects: `canon/effects/` — web only.
 - identity in one paste: [`canon/prompts/identity.md`](canon/prompts/identity.md).
-- legacy, read for history only: `PHILOSOPHY.md`, `canon/palette/archive/`.
+- legacy, read for history only: `PHILOSOPHY.md`, `canon/palettes/archive/`.
 
 ## When you output
 

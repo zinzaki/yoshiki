@@ -4,10 +4,10 @@
 ╰╴
 ```
 
-The lexicon says what marks mean; [`../lexicon/states.md`](../lexicon/states.md)
+The lexicon says what marks mean; [`../lexicon/states.md`](../text/states.md)
 says how they shift under the hand. This module says what a control **is**: its
 parts, its geometry, and the role each part consumes. Nothing here introduces a
-colour — every value is a role from [`../palette`](../palette).
+colour — every value is a role from [`../palette`](../../palettes).
 
 | file | covers |
 |---|---|
@@ -44,7 +44,7 @@ pill (badge, switch, tag)       999px
 ```
 A single element on a screen may cut one corner square, or carry one hard
 `┌╴` mark inside its soft frame. One — see **duality** in
-[`../principles/priority.md`](../principles/priority.md).
+[`../principles/priority.md`](../../language/priority.md).
 
 **5 · The target is bigger than the mark.**
 Visual height may be 28px; the hit area is never below 44×44. Pad the target,
@@ -53,9 +53,9 @@ don't grow the ornament.
 ## What every component owes
 
 - a visible focus ring — `focus.ring`, 2px, 2px offset, in every state
-- a glyph wherever colour carries meaning ([`../palette/ACCESSIBILITY.md`](../palette/ACCESSIBILITY.md))
+- a glyph wherever colour carries meaning ([`../palette/ACCESSIBILITY.md`](../../palettes/ACCESSIBILITY.md))
 - a disabled state that dims (`text.ghost`) without moving the layout
-- spacing in multiples of 8 ([`../lexicon/space.md`](../lexicon/space.md)), padding
+- spacing in multiples of 8 ([`../lexicon/space.md`](../text/space.md)), padding
   inside a group tighter than the gap between groups
 - one transition at a time, 120–200ms; nothing bounces
 
@@ -73,5 +73,5 @@ gutter        16px          8px
 ```
 
 The implementation of every rule here ships as
-[`../../library/web`](../../library/web) — a drop-in stylesheet built on the
+[`../../library/web`](../../../library/web) — a drop-in stylesheet built on the
 role variables, nothing else.

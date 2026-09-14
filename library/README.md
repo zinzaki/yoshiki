@@ -5,11 +5,11 @@
 ```
 
 > The canon defines; the library delivers. Ready artifacts, much of it
-> generated from `canon/palette`. Take one piece without dragging the rest.
+> generated from `canon/palettes`. Take one piece without dragging the rest.
 
 | Dir | Holds | Source |
 |---|---|---|
-| [`themes/`](themes/) | program color themes (kitty, foot, alacritty, starship, base24, …) | **generated** from `canon/palette` by `tools/build.py` |
+| [`themes/`](themes/) | program color themes (kitty, foot, alacritty, starship, base24, …) | **generated** from `canon/palettes` by `tools/build.py` |
 | [`configs/`](configs/) | whole example config files in the style (a full starship.toml, …) | hand-authored |
 | [`snippets/`](snippets/) | how to write code in the style — frames + meaning-marks, per language | hand-authored |
 | [`menus/`](menus/) | ready TUI menus, cards, lists — hard/soft frames | hand-authored |
@@ -22,7 +22,7 @@
 
 ## Rules of the library
 1. **Generated vs authored** — `themes/` is built; never hand-edit it, edit
-   `canon/palette` and rerun the build. Everything else is authored by hand.
+   `canon/palettes` and rerun the build. Everything else is authored by hand.
 2. **Every artifact names its roles** — a menu or snippet states which palette
    roles and glyphs it uses, so it stays correctable when the canon shifts.
 3. **One artifact, one file, one purpose** — modular: take a single piece

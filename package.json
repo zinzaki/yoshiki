@@ -42,12 +42,12 @@
     "./kit.css": "./library/web/yoshiki.css",
     "./tailwind": "./library/integrations/tailwind.cjs",
     "./figma": "./library/integrations/figma-variables.json",
-    "./tokens/night-beige": "./canon/palette/night-beige/night-beige.tokens.json",
-    "./tokens/beige-glass": "./canon/palette/beige-glass/beige-glass.tokens.json",
+    "./tokens/night-beige": "./canon/palettes/night-beige/night-beige.tokens.json",
+    "./tokens/beige-glass": "./canon/palettes/beige-glass/beige-glass.tokens.json",
     "./package.json": "./package.json"
   },
   "files": [
-    "canon/palette",
+    "canon/palettes",
     "library/web",
     "library/integrations",
     "README.md",

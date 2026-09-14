@@ -43,5 +43,5 @@ Maple exposes `cv*` / `ss*` stylistic features frozen at build time.
 
 ## Rules
 1. Serif for display, mono for data — never a mono headline or a serif table.
-2. Spaced capitals are a *mark*, not body text (see [`../lexicon/space.md`](../lexicon/space.md)).
+2. Spaced capitals are a *mark*, not body text (see [`../lexicon/space.md`](../objects/text/space.md)).
 3. One display weight, one body weight, one or two mono weights — no font zoo.

@@ -68,7 +68,7 @@ B = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(B)
 live = set()
 for slug in B.ORDER:
-    pal = yaml.safe_load((ROOT / "canon" / "palette" / slug / "palette.yml").read_text())
+    pal = yaml.safe_load((ROOT / "canon" / "palettes" / slug / "palette.yml").read_text())
     live |= {v.upper() for v in pal.get("tokens", {}).values()}
     live |= {v.upper() for v in pal.get("base24", {}).values()}
     term = pal.get("terminal", {})
@@ -104,10 +104,10 @@ CJK = re.compile(r"[\u3000-\u303f\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff\uff00-\
 # ...with exactly one exception: the brand mark. It is declared once, in the
 # palette source, and permitted only in the files the build writes from that
 # declaration. Anywhere else it is decoration again, and fails like the rest.
-BRAND = yaml.safe_load((ROOT / "canon" / "palette" / B.ORDER[0] / "palette.yml").read_text()) \
+BRAND = yaml.safe_load((ROOT / "canon" / "palettes" / B.ORDER[0] / "palette.yml").read_text()) \
     .get("brand", {}).get("mark", "")
-MARK_OK = {f"canon/palette/{B.ORDER[0]}/palette.yml", "docs/assets/mark.svg",
-           *(f"canon/palette/{s}/{s}.json" for s in B.ORDER),
+MARK_OK = {f"canon/palettes/{B.ORDER[0]}/palette.yml", "docs/assets/mark.svg",
+           *(f"canon/palettes/{s}/{s}.json" for s in B.ORDER),
            "docs/assets/mark-inline.svg", "docs/assets/favicon.svg",
            "docs/banner.svg", "docs/og.svg", "CHANGELOG.md"}
 
@@ -121,7 +121,7 @@ for f in sorted(tracked_files()):
     except (UnicodeDecodeError, OSError):
         continue
     rel = str(f.relative_to(ROOT))
-    allowed = BRAND if (rel in MARK_OK or rel.startswith("canon/palette/archive/") or (rel.startswith("docs/") and rel.endswith(".html"))) else ""
+    allowed = BRAND if (rel in MARK_OK or rel.startswith("canon/palettes/archive/") or (rel.startswith("docs/") and rel.endswith(".html"))) else ""
     for i, line in enumerate(text.splitlines(), 1):
         for hit in CJK.findall(line):
             if hit == allowed:

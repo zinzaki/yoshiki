@@ -5,7 +5,7 @@
 ```
 
 Every element here carries a **glyph**. Colour is the second cue, never the
-first ([`../palette/ACCESSIBILITY.md`](../palette/ACCESSIBILITY.md)) — and in a
+first ([`../palette/ACCESSIBILITY.md`](../../palettes/ACCESSIBILITY.md)) — and in a
 language this quiet, the glyph is usually enough on its own.
 
 ## Alert · callout
@@ -64,7 +64,7 @@ the glyph may stand alone — it is a shape, so it survives.
 
 Determinate: a 4px track in `border.hairline`, the filled part `action.edge`,
 with the percentage in mono to the right. In text and terminals, the dot-matrix
-or `▰▱` tape from [`../motion`](../motion) instead — never a solid slab bar.
+or `▰▱` tape from [`../motion`](../text/motion) instead — never a solid slab bar.
 
 Indeterminate: the braille spinner at ~90ms with a label saying what is
 happening. A spinner with no label is a shrug. Beyond ~10 seconds, replace it

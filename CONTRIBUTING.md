@@ -8,13 +8,13 @@ way to get a change merged is to know which half of the repository it belongs in
 **`canon/` is written by hand. Almost everything else is generated.**
 
 ```
-canon/palette/*/palette.yml   ← edit this
+canon/palettes/*/palette.yml   ← edit this
         │
         ▼  python3 tools/build.py
 library/themes/**             ← never edit these
 library/web/palette.css
 library/integrations/**
-canon/palette/*.css · *.json · CONTRAST.md
+canon/palettes/*.css · *.json · CONTRAST.md
 docs/assets/**  ·  docs/banner.svg  ·  package.json
 ```
 

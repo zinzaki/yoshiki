@@ -130,7 +130,7 @@ its floor**.
 | syntax roles on the editor page, terminal ANSI on its ground | 4.5:1 |
 
 That check found five real failures the day it was written. The current proof is
-[`canon/palette/CONTRAST.md`](canon/palette/CONTRAST.md), regenerated on every
+[`canon/palettes/CONTRAST.md`](canon/palettes/CONTRAST.md), regenerated on every
 build; the rendered pages are swept separately by
 [`tools/audit.mjs`](tools/audit.mjs), which composites the background actually
 painted behind every text node rather than trusting the token it was meant to use.
@@ -142,7 +142,7 @@ painted behind every text node rather than trusting the token it was meant to us
 Nothing downstream is maintained by hand.
 
 ```
-canon/palette/night-beige/palette.yml     the source of truth
+canon/palettes/night-beige/palette.yml     the source of truth
         │  beige-glass is its standalone light companion
         ▼
 tools/build.py
@@ -168,13 +168,13 @@ A palette change reaches every program at once, and a fourteenth target costs on
 <tr><th align="left" width="50%">canon — the definition</th><th align="left">library — the language in use</th></tr>
 <tr><td valign="top">
 
-- [`principles/`](canon/principles/) — the ordered ladder: what wins when nothing is specified
-- [`palette/`](canon/palette/) — tokens, the roles contract, the proof
-- [`components/`](canon/components/) — the anatomy of a control, part by part
-- [`lexicon/`](canon/lexicon/) — glyphs, frames, space, states
-- [`motion/`](canon/motion/) — spinners and progress, drawn with sub-symbols
+- [`principles/`](canon/language/) — the ordered ladder: what wins when nothing is specified
+- [`palette/`](canon/palettes/) — tokens, the roles contract, the proof
+- [`components/`](canon/objects/graphic/) — the anatomy of a control, part by part
+- [`lexicon/`](canon/objects/text/) — glyphs, frames, space, states
+- [`motion/`](canon/objects/text/motion/) — spinners and progress, drawn with sub-symbols
 - [`effects/`](canon/effects/) — glass, grain, pointer, ambient
-- [`typography/`](canon/typography/) — a serif to speak, a mono to count
+- [`typography/`](canon/type/) — a serif to speak, a mono to count
 - [`prompts/`](canon/prompts/) — drop-in modules for a model
 
 </td><td valign="top">
@@ -200,7 +200,7 @@ An agent given only the repository link can apply the language without being
 told how. [`AGENTS.md`](AGENTS.md) is the map it reads first: the read order, the
 laws it may not break, and which module to load for the task at hand.
 [`llms.txt`](llms.txt) is the machine index, and the palette also ships as
-[W3C design tokens](canon/palette/night-beige/night-beige.tokens.json) for tooling that
+[W3C design tokens](canon/palettes/night-beige/night-beige.tokens.json) for tooling that
 wants structure instead of prose.
 
 ---
@@ -216,7 +216,7 @@ node tools/audit.mjs            # optional: sweep the rendered pages for real co
 
 Requires Python 3 and PyYAML. Everything under `library/themes/`, the palette
 exports, the banner, the mark and the showcase's colours are generated — edit
-`canon/palette/*/palette.yml` and rebuild. `library/web/yoshiki.css` is the one
+`canon/palettes/*/palette.yml` and rebuild. `library/web/yoshiki.css` is the one
 hand-written artifact, and the build mirrors it into `docs/` so the showcase
 always wears the file it ships.
 

@@ -1,6 +1,6 @@
 /* ════════════════════════════════════════════════════════════════════
    page-palette.js — tokens, the roles contract, the proof, exports
-   Every value comes from window.YOSHIKI (generated from canon/palette).
+   Every value comes from window.YOSHIKI (generated from canon/palettes).
    ════════════════════════════════════════════════════════════════════ */
 (function(){
   'use strict';

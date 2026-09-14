@@ -64,4 +64,4 @@ don't retune the hue.**
 ## Motion & transparency
 Effects honour `prefers-reduced-motion` and `prefers-reduced-transparency` (see
 [`../effects`](../effects)). Focus is always visible (see
-[`../lexicon/states.md`](../lexicon/states.md)). These are invariants, not options.
+[`../lexicon/states.md`](../objects/text/states.md)). These are invariants, not options.

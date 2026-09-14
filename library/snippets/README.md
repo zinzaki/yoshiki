@@ -5,7 +5,7 @@
 ```
 
 > how code is written in the style. Not a library — *examples*.
-> The comment canon (`../../canon/lexicon/comments.md`) shown on real code.
+> The comment canon (`../../canon/objects/text/comments.md`) shown on real code.
 
 ## What every snippet demonstrates
 The reading order the eye should get for free:

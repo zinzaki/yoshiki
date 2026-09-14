@@ -14,7 +14,7 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install pyyaml
-      # generated themes and the contrast proof must match canon/palette exactly
+      # generated themes and the contrast proof must match canon/palettes exactly
       - run: python3 tools/build.py --check
       # the showcase must carry no palette of its own, and every link must resolve
       - run: python3 tools/check.py

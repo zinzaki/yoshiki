@@ -114,4 +114,4 @@ delta in parentheses.
 5. One heavy rule `━━━` per screen, maximum.
 
 ---
-Ready-made blocks built on these frames live in [`../../library/menus`](../../library/menus).
+Ready-made blocks built on these frames live in [`../../library/menus`](../../../library/menus).

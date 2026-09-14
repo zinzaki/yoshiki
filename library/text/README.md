@@ -4,7 +4,7 @@
 ╰╴
 ```
 
-> Copy-paste text blocks — the applied form of `../../canon/lexicon/`.
+> Copy-paste text blocks — the applied form of `../../canon/objects/text/`.
 > Plain UTF-8, monospace-safe, line-wrap-safe. One decorative element per block.
 
 ```

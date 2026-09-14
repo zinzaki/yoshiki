@@ -1,6 +1,6 @@
 /* ════════════════════════════════════════════════════════════════════
    yoshiki — the component kit
-   The implementation of canon/components, built ONLY on the role variables
+   The implementation of canon/objects/graphic, built ONLY on the role variables
    from palette.css. Not generated: this file is the hand-written half of the
    contract. It introduces no colour of its own — every value below resolves
    to a --r-* role, so both themes follow for free.
@@ -18,12 +18,12 @@
 @layer yoshiki.base {
 
   :root{
-    /* geometry — canon/components/README.md §4 */
+    /* geometry — canon/objects/graphic/README.md §4 */
     --y-r-control: 12px;
     --y-r-card: 16px;
     --y-r-dialog: 20px;
     --y-r-pill: 999px;
-    /* the 8px rhythm — canon/lexicon/space.md */
+    /* the 8px rhythm — canon/objects/text/space.md */
     --y-1: 4px;  --y-2: 8px;  --y-3: 12px; --y-4: 16px;
     --y-5: 20px; --y-6: 24px; --y-8: 32px; --y-12: 48px;
     /* density — only padding moves; type, edge and radius never do */
@@ -33,7 +33,7 @@
     /* one transition at a time, 120–200ms, no bounce */
     --y-t: 160ms cubic-bezier(.2,.7,.2,1);
     --y-edge: 1.5px;
-    /* faces — swap for the shipped stack (canon/typography) if you load it */
+    /* faces — swap for the shipped stack (canon/type) if you load it */
     --y-serif: 'Shippori Mincho','Noto Serif JP',Georgia,serif;
     --y-sans: 'Zen Kaku Gothic New',system-ui,-apple-system,'Segoe UI',sans-serif;
     --y-mono: 'Maple Mono','JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
@@ -76,7 +76,7 @@
 
   ::selection{ background: var(--r-selection-bg); color: var(--r-text-heading) }
 
-  /* focus is the one state you may not skip — canon/lexicon/states.md */
+  /* focus is the one state you may not skip — canon/objects/text/states.md */
   :focus-visible{
     outline: 2px solid var(--r-focus-ring);
     outline-offset: 2px;

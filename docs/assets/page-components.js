@@ -201,7 +201,7 @@
             <div class="idx"><b>${String(i + 1).padStart(2,'0')}</b> ${esc(s.title.toLowerCase())}</div>
             <h2>${esc(s.title)}</h2>
             <p class="lede">${s.note}</p>
-            <p class="y-hint" style="margin-top:14px">canon/components/${esc(s.canon)}</p>
+            <p class="y-hint" style="margin-top:14px">canon/objects/graphic/${esc(s.canon)}</p>
           </div>
         </div>
         ${s.demos.map((d, j) => {

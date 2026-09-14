@@ -5,7 +5,7 @@
   'use strict';
   const {esc, RM} = window.YS;
 
-  /* one glyph, one meaning — grouped the way canon/lexicon/glyphs.md groups them */
+  /* one glyph, one meaning — grouped the way canon/objects/text/glyphs.md groups them */
   const SETS = [
     ['status', 'where something stands', [
       ['✓','done','ok'], ['✗','failed','bad'], ['●','active','gold'], ['○','idle',''],

@@ -4,8 +4,8 @@
 ╰╴
 ```
 
-> program color themes, **generated** from `canon/palette`.
-> Do not hand-edit: change `canon/palette/<theme>/palette.yml` and run
+> program color themes, **generated** from `canon/palettes`.
+> Do not hand-edit: change `canon/palettes/<theme>/palette.yml` and run
 > `python3 tools/build.py`.
 
 ```

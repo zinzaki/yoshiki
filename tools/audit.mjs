@@ -1,7 +1,7 @@
 /* ════════════════════════════════════════════════════════════════════
    tools/audit.mjs — the showcase, measured as it is actually painted
    ════════════════════════════════════════════════════════════════════
-   canon/palette/CONTRAST.md proves the palette. This proves the pages: it
+   canon/palettes/CONTRAST.md proves the palette. This proves the pages: it
    walks every visible text node in a real browser, composites the background
    actually painted behind it, and reports anything under its WCAG floor. It
    also checks heading order, labels and landmarks.
@@ -11,7 +11,7 @@
        npm i playwright-core          # and a Chromium on the machine
        CHROMIUM=/path/to/chrome node tools/audit.mjs
 
-   Accepted exceptions, and why (see canon/palette/ACCESSIBILITY.md):
+   Accepted exceptions, and why (see canon/palettes/ACCESSIBILITY.md):
      · disabled controls — WCAG 1.4.3 exempts inactive components
      · hairlines and box-drawing rules — dividers, not affordances (floor 1)
      · a progress TRACK, gauge bars — non-text graphics, floor 3:1
