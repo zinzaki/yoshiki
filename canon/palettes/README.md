@@ -45,8 +45,8 @@ CONTRAST.md            WCAG proof — every role against every surface
 ACCESSIBILITY.md       contrast + colour-blind safety (glyph, not colour alone)
 
 Ready-to-use program themes are generated OUT of here, into
-../../library/themes/<app>/<slug>.* — thirteen targets, kitty to fzf
-(the full list lives in library/themes/README.md).
+https://github.com/zinzaki/yoshiki-themes/tree/main/themes/<app>/<slug>.* — thirteen targets, kitty to fzf
+(the full list lives in https://github.com/zinzaki/yoshiki-themes#readme).
 ```
 
 Beige glass is a standalone palette, not a delta over the dark one — regenerate

@@ -8,7 +8,7 @@
   const {Y, onTheme, esc, lum} = window.YS;
   if (!Y.themes) return;
   const $ = id => document.getElementById(id);
-  const REPO = 'https://github.com/zinzaki/yoshiki/tree/main/library/themes/';
+  const REPO = 'https://github.com/zinzaki/yoshiki/tree/main/https://github.com/zinzaki/yoshiki-themes/tree/main/themes/';
 
   const TARGETS = {
     kitty:     ['terminal', 'night-beige.conf · beige-glass.conf', 'include the file from kitty.conf', 'include ./night-beige.conf'],

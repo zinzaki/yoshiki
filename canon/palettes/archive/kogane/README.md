@@ -16,5 +16,5 @@ rectangle. Scarlet blooms once per screen for the irreversible; moss confirms.
   light pinned inside darkness (the seal is a signature, not a signal)
 
 Definition: `palette.yml` · `kogane.css` · `kogane.json`. Program themes:
-`../../../library/themes/<app>/kogane.*`.
+`https://github.com/zinzaki/yoshiki-themes/tree/main/themes/<app>/kogane.*`.
 Full token table with roles: `palette.yml`.

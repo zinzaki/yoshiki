@@ -11,7 +11,7 @@ way to get a change merged is to know which half of the repository it belongs in
 canon/palettes/*/palette.yml   ← edit this
         │
         ▼  python3 tools/build.py
-library/themes/**             ← never edit these
+https://github.com/zinzaki/yoshiki-themes/tree/main/themes/**             ← never edit these
 library/web/palette.css
 library/integrations/**
 canon/palettes/*.css · *.json · CONTRAST.md
@@ -62,7 +62,7 @@ fastest way to find out what a change does before you commit it.
 One `emit` block in `tools/build.py`, next to the others. Every target resolves
 from the same tokens, so you are describing the shape of that program's config
 file — not choosing colours again. Add the file pair to
-`library/themes/README.md` and the target list in `README.md`.
+`https://github.com/zinzaki/yoshiki-themes#readme` and the target list in `README.md`.
 
 ## Style
 

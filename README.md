@@ -79,8 +79,8 @@ module.exports = { presets: [require('yoshiki-design/tailwind')] };
 **Terminal or editor** — copy one file:
 
 ```bash
-library/themes/kitty/night-beige.conf    # or ghostty · foot · alacritty · wezterm
-library/themes/vscode/night-beige.json   # or neovim · starship · tmux · zellij · btop · fzf
+https://github.com/zinzaki/yoshiki-themes/tree/main/themes/kitty/night-beige.conf    # or ghostty · foot · alacritty · wezterm
+https://github.com/zinzaki/yoshiki-themes/tree/main/themes/vscode/night-beige.json   # or neovim · starship · tmux · zellij · btop · fzf
 ```
 
 **An AI agent** — point it at the repository and it reads [`AGENTS.md`](AGENTS.md)
@@ -180,14 +180,14 @@ A palette change reaches every program at once, and a fourteenth target costs on
 </td><td valign="top">
 
 - [`web/`](library/web/) — the drop-in kit, two plain CSS files
-- [`themes/`](library/themes/) — thirteen programs, generated
+- [`themes/`](https://github.com/zinzaki/yoshiki-themes/tree/main/themes/) — thirteen programs, generated
 - [`menus/`](library/menus/) — ready TUI menus, panels, status lines
 - [`charts/`](library/charts/) — text data-viz: sparkline, bars, gauge
 - [`text/`](library/text/) — nameplates, banners, dividers, glyph sets
-- [`snippets/`](library/snippets/) — the style in code, per language
-- [`configs/`](library/configs/) — whole example configs
+- [`snippets/`](https://github.com/zinzaki/yoshiki-themes/tree/main/snippets/) — the style in code, per language
+- [`configs/`](https://github.com/zinzaki/yoshiki-themes/tree/main/configs/) — whole example configs
 - [`integrations/`](library/integrations/) — Tailwind, Figma, Style Dictionary, typed tokens
-- [`effects/`](library/effects/) · [`presets/`](library/presets/) · [`github/`](library/github/) · [`image-prompts/`](library/image-prompts/)
+- [`effects/`](library/effects/) · [`presets/`](https://github.com/zinzaki/yoshiki-themes/tree/main/presets/) · [`github/`](library/github/) · [`image-prompts/`](library/image-prompts/)
 
 </td></tr>
 </table>
@@ -214,7 +214,7 @@ python3 tools/check.py          # links, stray colour, drifted copies (CI)
 node tools/audit.mjs            # optional: sweep the rendered pages for real contrast
 ```
 
-Requires Python 3 and PyYAML. Everything under `library/themes/`, the palette
+Requires Python 3 and PyYAML. Everything under `https://github.com/zinzaki/yoshiki-themes/tree/main/themes/`, the palette
 exports, the banner, the mark and the showcase's colours are generated — edit
 `canon/palettes/*/palette.yml` and rebuild. `library/web/yoshiki.css` is the one
 hand-written artifact, and the build mirrors it into `docs/` so the showcase

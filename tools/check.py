@@ -78,9 +78,8 @@ for slug in B.ORDER:
     live |= {c.upper() for c in term.get("ansi", []) + term.get("brights", [])}
 live |= {"#FFFFFF", "#000000"}          # the pure ends, named as themselves
 
-HAND = [ROOT / "library" / "configs", ROOT / "library" / "snippets",
-        ROOT / "library" / "integrations",
-        ROOT / "library" / "github", ROOT / "library" / "presets",
+HAND = [ROOT / "library" / "integrations",
+        ROOT / "library" / "github",
         ROOT / "library" / "image-prompts", ROOT / "canon"]
 SKIP_NAMES = {"palette.yml", "CONTRAST.md"}
 for base in HAND:

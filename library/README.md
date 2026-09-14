@@ -9,16 +9,16 @@
 
 | Dir | Holds | Source |
 |---|---|---|
-| [`themes/`](themes/) | program color themes (kitty, foot, alacritty, starship, base24, …) | **generated** from `canon/palettes` by `tools/build.py` |
-| [`configs/`](configs/) | whole example config files in the style (a full starship.toml, …) | hand-authored |
-| [`snippets/`](snippets/) | how to write code in the style — frames + meaning-marks, per language | hand-authored |
+| [`themes/`](https://github.com/zinzaki/yoshiki-themes/tree/main/themes) | program color themes (kitty, foot, alacritty, starship, base24, …) | **generated** from `canon/palettes` by `tools/build.py` |
+| [`configs/`](https://github.com/zinzaki/yoshiki-themes/tree/main/configs) | whole example config files in the style (a full starship.toml, …) | hand-authored |
+| [`snippets/`](https://github.com/zinzaki/yoshiki-themes/tree/main/snippets) | how to write code in the style — frames + meaning-marks, per language | hand-authored |
 | [`menus/`](menus/) | ready TUI menus, cards, lists — hard/soft frames | hand-authored |
 | [`effects/`](effects/) | ready web effects — glass · grain · pointer · ambient | hand-authored |
 | [`github/`](github/) | profile & README styling — banner, badges, layout | hand-authored |
 | [`image-prompts/`](image-prompts/) | generate images in the style — per model + recipes | hand-authored |
 | [`charts/`](charts/) | data viz in text — sparklines · bars · gauges | hand-authored |
 | [`text/`](text/) | nameplates, banners, glyph sets — copy-paste blocks | hand-authored |
-| [`presets/`](presets/) | named combinations that pull several artifacts into one kit | curated |
+| [`presets/`](https://github.com/zinzaki/yoshiki-themes/tree/main/presets) | named combinations that pull several artifacts into one kit | curated |
 
 ## Rules of the library
 1. **Generated vs authored** — `themes/` is built; never hand-edit it, edit
