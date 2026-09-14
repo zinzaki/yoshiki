@@ -127,3 +127,843 @@ that column is the real test. Gilding is measured at the 3:1 non-text floor
 | `bright.magenta` | `terminal.background` | 9.58:1 | 4.5 | ✓ |
 | `bright.cyan` | `terminal.background` | 9.91:1 | 4.5 | ✓ |
 | `bright.white` | `terminal.background` | 14.67:1 | 4.5 | ✓ |
+
+## Porcelain (light)
+
+### Text on every surface
+
+| role | app | surface | raised | hover | floor |
+|---|---|---|---|---|---|
+| `text.heading` | 16.58 | 17.9 | 18.19 | 14.18 | 4.5 |
+| `text.body` | 14.39 | 15.54 | 15.79 | 12.31 | 4.5 |
+| `text.secondary` | 10.82 | 11.69 | 11.88 | 9.26 | 4.5 |
+| `text.muted` | 6.15 | 6.64 | 6.75 | 5.26 | 4.5 |
+| `text.ghost` | 4.68 | 5.05 | 5.13 | 4.0 | 3.0 |
+| `text.gold` | 7.8 | 8.43 | 8.56 | 6.68 | 4.5 |
+| `text.link` | 7.8 | 8.43 | 8.56 | 6.68 | 4.5 |
+| `text.gold-dim` | 7.8 | 8.43 | 8.56 | 6.68 | 4.5 |
+| `action.text` | 7.8 | 8.43 | 8.56 | 6.68 | 4.5 |
+| `ok.text` | 7.48 | 8.08 | 8.21 | 6.4 | 4.5 |
+| `warn.text` | 7.21 | 7.79 | 7.92 | 6.17 | 4.5 |
+| `danger.text` | 6.51 | 7.03 | 7.14 | 5.57 | 4.5 |
+| `info.text` | 7.8 | 8.43 | 8.56 | 6.68 | 4.5 |
+| `special.text` | 7.35 | 7.94 | 8.07 | 6.29 | 4.5 |
+
+### Gilding — an edge, floor 3:1
+
+| role | app | surface | raised | hover | floor |
+|---|---|---|---|---|---|
+| `border.gold` | 3.07 | 3.32 | 3.37 | 2.63 | 1.5 |
+| `action.edge` | 3.07 | 3.32 | 3.37 | 2.63 | 1.5 |
+| `action.hover.edge` | 4.79 | 5.17 | 5.25 | 4.1 | 1.5 |
+
+### Syntax on the editor page · washes · terminal ANSI
+
+| role | on | ratio | floor | |
+|---|---|---|---|---|
+| `syntax.keyword` | `bg.app` | 6.25:1 | 4.5 | ✓ |
+| `syntax.function` | `bg.app` | 6.68:1 | 4.5 | ✓ |
+| `syntax.string` | `bg.app` | 6.3:1 | 4.5 | ✓ |
+| `syntax.number` | `bg.app` | 6.82:1 | 4.5 | ✓ |
+| `syntax.type` | `bg.app` | 6.41:1 | 4.5 | ✓ |
+| `syntax.constant` | `bg.app` | 6.82:1 | 4.5 | ✓ |
+| `syntax.comment` | `bg.app` | 4.26:1 | 3.0 | ✓ |
+| `bar.text` | `bar.fill` | 14.39:1 | 4.5 | ✓ |
+| `ok.text` | `ok.wash` | 5.49:1 | 4.5 | ✓ |
+| `danger.text` | `danger.wash` | 4.76:1 | 4.5 | ✓ |
+| `ok.on-fill` | `ok.fill` | 5.6:1 | 4.5 | ✓ |
+| `danger.on-fill` | `danger.fill` | 4.9:1 | 4.5 | ✓ |
+| `ansi.red` | `terminal.background` | 5.98:1 | 4.5 | ✓ |
+| `ansi.green` | `terminal.background` | 9.48:1 | 4.5 | ✓ |
+| `ansi.yellow` | `terminal.background` | 10.49:1 | 4.5 | ✓ |
+| `ansi.blue` | `terminal.background` | 7.54:1 | 4.5 | ✓ |
+| `ansi.magenta` | `terminal.background` | 7.64:1 | 4.5 | ✓ |
+| `ansi.cyan` | `terminal.background` | 7.96:1 | 4.5 | ✓ |
+| `ansi.white` | `terminal.background` | 12.1:1 | 4.5 | ✓ |
+| `bright.red` | `terminal.background` | 7.24:1 | 4.5 | ✓ |
+| `bright.green` | `terminal.background` | 11.35:1 | 4.5 | ✓ |
+| `bright.yellow` | `terminal.background` | 12.25:1 | 4.5 | ✓ |
+| `bright.blue` | `terminal.background` | 9.58:1 | 4.5 | ✓ |
+| `bright.magenta` | `terminal.background` | 9.58:1 | 4.5 | ✓ |
+| `bright.cyan` | `terminal.background` | 9.91:1 | 4.5 | ✓ |
+| `bright.white` | `terminal.background` | 14.67:1 | 4.5 | ✓ |
+
+## Concrete (light)
+
+### Text on every surface
+
+| role | app | surface | raised | hover | floor |
+|---|---|---|---|---|---|
+| `text.heading` | 12.1 | 13.59 | 15.0 | 10.51 | 4.5 |
+| `text.body` | 10.15 | 11.4 | 12.58 | 8.81 | 4.5 |
+| `text.secondary` | 7.93 | 8.91 | 9.83 | 6.89 | 4.5 |
+| `text.muted` | 5.22 | 5.87 | 6.48 | 4.54 | 4.5 |
+| `text.ghost` | 4.09 | 4.59 | 5.06 | 3.55 | 3.0 |
+| `text.gold` | 6.94 | 7.8 | 8.61 | 6.03 | 4.5 |
+| `text.link` | 6.94 | 7.8 | 8.61 | 6.03 | 4.5 |
+| `text.gold-dim` | 6.94 | 7.8 | 8.61 | 6.03 | 4.5 |
+| `action.text` | 6.94 | 7.8 | 8.61 | 6.03 | 4.5 |
+| `ok.text` | 6.28 | 7.06 | 7.79 | 5.46 | 4.5 |
+| `warn.text` | 5.56 | 6.24 | 6.89 | 4.83 | 4.5 |
+| `danger.text` | 6.11 | 6.86 | 7.57 | 5.31 | 4.5 |
+| `info.text` | 6.94 | 7.8 | 8.61 | 6.03 | 4.5 |
+| `special.text` | 5.67 | 6.36 | 7.02 | 4.92 | 4.5 |
+
+### Gilding — an edge, floor 3:1
+
+| role | app | surface | raised | hover | floor |
+|---|---|---|---|---|---|
+| `border.gold` | 2.37 | 2.66 | 2.93 | 2.06 | 1.5 |
+| `action.edge` | 2.37 | 2.66 | 2.93 | 2.06 | 1.5 |
+| `action.hover.edge` | 3.58 | 4.02 | 4.44 | 3.11 | 1.5 |
+
+### Syntax on the editor page · washes · terminal ANSI
+
+| role | on | ratio | floor | |
+|---|---|---|---|---|
+| `syntax.keyword` | `bg.app` | 4.82:1 | 4.5 | ✓ |
+| `syntax.function` | `bg.app` | 5.15:1 | 4.5 | ✓ |
+| `syntax.string` | `bg.app` | 4.86:1 | 4.5 | ✓ |
+| `syntax.number` | `bg.app` | 5.26:1 | 4.5 | ✓ |
+| `syntax.type` | `bg.app` | 4.94:1 | 4.5 | ✓ |
+| `syntax.constant` | `bg.app` | 5.26:1 | 4.5 | ✓ |
+| `syntax.comment` | `bg.app` | 3.28:1 | 3.0 | ✓ |
+| `bar.text` | `bar.fill` | 10.15:1 | 4.5 | ✓ |
+| `ok.text` | `ok.wash` | 4.72:1 | 4.5 | ✓ |
+| `danger.text` | `danger.wash` | 4.58:1 | 4.5 | ✓ |
+| `ok.on-fill` | `ok.fill` | 5.6:1 | 4.5 | ✓ |
+| `danger.on-fill` | `danger.fill` | 4.9:1 | 4.5 | ✓ |
+| `ansi.red` | `terminal.background` | 5.98:1 | 4.5 | ✓ |
+| `ansi.green` | `terminal.background` | 9.48:1 | 4.5 | ✓ |
+| `ansi.yellow` | `terminal.background` | 10.49:1 | 4.5 | ✓ |
+| `ansi.blue` | `terminal.background` | 7.54:1 | 4.5 | ✓ |
+| `ansi.magenta` | `terminal.background` | 7.64:1 | 4.5 | ✓ |
+| `ansi.cyan` | `terminal.background` | 7.96:1 | 4.5 | ✓ |
+| `ansi.white` | `terminal.background` | 12.1:1 | 4.5 | ✓ |
+| `bright.red` | `terminal.background` | 7.24:1 | 4.5 | ✓ |
+| `bright.green` | `terminal.background` | 11.35:1 | 4.5 | ✓ |
+| `bright.yellow` | `terminal.background` | 12.25:1 | 4.5 | ✓ |
+| `bright.blue` | `terminal.background` | 9.58:1 | 4.5 | ✓ |
+| `bright.magenta` | `terminal.background` | 9.58:1 | 4.5 | ✓ |
+| `bright.cyan` | `terminal.background` | 9.91:1 | 4.5 | ✓ |
+| `bright.white` | `terminal.background` | 14.67:1 | 4.5 | ✓ |
+
+## YoRHa (light)
+
+### Text on every surface
+
+| role | app | surface | raised | hover | floor |
+|---|---|---|---|---|---|
+| `text.heading` | 8.83 | 9.84 | 11.24 | 7.88 | 4.5 |
+| `text.body` | 6.35 | 7.08 | 8.09 | 5.67 | 4.5 |
+| `text.secondary` | 5.1 | 5.69 | 6.5 | 4.56 | 4.5 |
+| `text.muted` | 5.16 | 5.74 | 6.57 | 4.6 | 4.5 |
+| `text.ghost` | 3.85 | 4.29 | 4.9 | 3.43 | 3.0 |
+| `text.gold` | 8.83 | 9.84 | 11.24 | 7.88 | 4.5 |
+| `text.link` | 8.83 | 9.84 | 11.24 | 7.88 | 4.5 |
+| `text.gold-dim` | 8.83 | 9.84 | 11.24 | 7.88 | 4.5 |
+| `action.text` | 8.83 | 9.84 | 11.24 | 7.88 | 4.5 |
+| `ok.text` | 6.26 | 6.98 | 7.98 | 5.59 | 4.5 |
+| `warn.text` | 5.09 | 5.67 | 6.48 | 4.54 | 4.5 |
+| `danger.text` | 6.38 | 7.11 | 8.12 | 5.69 | 4.5 |
+| `info.text` | 8.83 | 9.84 | 11.24 | 7.88 | 4.5 |
+| `special.text` | 5.18 | 5.78 | 6.6 | 4.63 | 4.5 |
+
+### Gilding — an edge, floor 3:1
+
+| role | app | surface | raised | hover | floor |
+|---|---|---|---|---|---|
+| `border.gold` | 6.35 | 7.08 | 8.09 | 5.67 | 1.5 |
+| `action.edge` | 6.35 | 7.08 | 8.09 | 5.67 | 1.5 |
+| `action.hover.edge` | 6.35 | 7.08 | 8.09 | 5.67 | 1.5 |
+
+### Syntax on the editor page · washes · terminal ANSI
+
+| role | on | ratio | floor | |
+|---|---|---|---|---|
+| `syntax.keyword` | `bg.app` | 4.65:1 | 4.5 | ✓ |
+| `syntax.function` | `bg.app` | 4.71:1 | 4.5 | ✓ |
+| `syntax.string` | `bg.app` | 4.84:1 | 4.5 | ✓ |
+| `syntax.number` | `bg.app` | 4.81:1 | 4.5 | ✓ |
+| `syntax.type` | `bg.app` | 4.52:1 | 4.5 | ✓ |
+| `syntax.constant` | `bg.app` | 4.81:1 | 4.5 | ✓ |
+| `syntax.comment` | `bg.app` | 3.0:1 | 3.0 | ✓ |
+| `bar.text` | `bar.fill` | 6.35:1 | 4.5 | ✓ |
+| `ok.text` | `ok.wash` | 4.77:1 | 4.5 | ✓ |
+| `danger.text` | `danger.wash` | 4.8:1 | 4.5 | ✓ |
+| `ok.on-fill` | `ok.fill` | 5.6:1 | 4.5 | ✓ |
+| `danger.on-fill` | `danger.fill` | 4.9:1 | 4.5 | ✓ |
+| `ansi.red` | `terminal.background` | 5.98:1 | 4.5 | ✓ |
+| `ansi.green` | `terminal.background` | 9.48:1 | 4.5 | ✓ |
+| `ansi.yellow` | `terminal.background` | 10.49:1 | 4.5 | ✓ |
+| `ansi.blue` | `terminal.background` | 7.54:1 | 4.5 | ✓ |
+| `ansi.magenta` | `terminal.background` | 7.64:1 | 4.5 | ✓ |
+| `ansi.cyan` | `terminal.background` | 7.96:1 | 4.5 | ✓ |
+| `ansi.white` | `terminal.background` | 12.1:1 | 4.5 | ✓ |
+| `bright.red` | `terminal.background` | 7.24:1 | 4.5 | ✓ |
+| `bright.green` | `terminal.background` | 11.35:1 | 4.5 | ✓ |
+| `bright.yellow` | `terminal.background` | 12.25:1 | 4.5 | ✓ |
+| `bright.blue` | `terminal.background` | 9.58:1 | 4.5 | ✓ |
+| `bright.magenta` | `terminal.background` | 9.58:1 | 4.5 | ✓ |
+| `bright.cyan` | `terminal.background` | 9.91:1 | 4.5 | ✓ |
+| `bright.white` | `terminal.background` | 14.67:1 | 4.5 | ✓ |
+
+## Blush (light)
+
+### Text on every surface
+
+| role | app | surface | raised | hover | floor |
+|---|---|---|---|---|---|
+| `text.heading` | 16.76 | 18.42 | 18.92 | 14.27 | 4.5 |
+| `text.body` | 15.75 | 17.32 | 17.78 | 13.41 | 4.5 |
+| `text.secondary` | 12.45 | 13.68 | 14.05 | 10.6 | 4.5 |
+| `text.muted` | 6.61 | 7.27 | 7.47 | 5.63 | 4.5 |
+| `text.ghost` | 5.0 | 5.49 | 5.64 | 4.25 | 3.0 |
+| `text.gold` | 6.46 | 7.11 | 7.3 | 5.5 | 4.5 |
+| `text.link` | 6.46 | 7.11 | 7.3 | 5.5 | 4.5 |
+| `text.gold-dim` | 6.46 | 7.11 | 7.3 | 5.5 | 4.5 |
+| `action.text` | 6.46 | 7.11 | 7.3 | 5.5 | 4.5 |
+| `ok.text` | 7.13 | 7.84 | 8.05 | 6.07 | 4.5 |
+| `warn.text` | 6.88 | 7.56 | 7.76 | 5.86 | 4.5 |
+| `danger.text` | 6.46 | 7.11 | 7.3 | 5.5 | 4.5 |
+| `info.text` | 6.46 | 7.11 | 7.3 | 5.5 | 4.5 |
+| `special.text` | 7.01 | 7.71 | 7.91 | 5.97 | 4.5 |
+
+### Gilding — an edge, floor 3:1
+
+| role | app | surface | raised | hover | floor |
+|---|---|---|---|---|---|
+| `border.gold` | 3.98 | 4.37 | 4.49 | 3.38 | 1.5 |
+| `action.edge` | 3.98 | 4.37 | 4.49 | 3.38 | 1.5 |
+| `action.hover.edge` | 6.39 | 7.02 | 7.21 | 5.44 | 1.5 |
+
+### Syntax on the editor page · washes · terminal ANSI
+
+| role | on | ratio | floor | |
+|---|---|---|---|---|
+| `syntax.keyword` | `bg.app` | 5.96:1 | 4.5 | ✓ |
+| `syntax.function` | `bg.app` | 6.37:1 | 4.5 | ✓ |
+| `syntax.string` | `bg.app` | 6.01:1 | 4.5 | ✓ |
+| `syntax.number` | `bg.app` | 6.5:1 | 4.5 | ✓ |
+| `syntax.type` | `bg.app` | 6.11:1 | 4.5 | ✓ |
+| `syntax.constant` | `bg.app` | 6.5:1 | 4.5 | ✓ |
+| `syntax.comment` | `bg.app` | 4.06:1 | 3.0 | ✓ |
+| `bar.text` | `bar.fill` | 15.75:1 | 4.5 | ✓ |
+| `ok.text` | `ok.wash` | 5.24:1 | 4.5 | ✓ |
+| `danger.text` | `danger.wash` | 4.89:1 | 4.5 | ✓ |
+| `ok.on-fill` | `ok.fill` | 5.6:1 | 4.5 | ✓ |
+| `danger.on-fill` | `danger.fill` | 4.7:1 | 4.5 | ✓ |
+| `ansi.red` | `terminal.background` | 5.98:1 | 4.5 | ✓ |
+| `ansi.green` | `terminal.background` | 9.48:1 | 4.5 | ✓ |
+| `ansi.yellow` | `terminal.background` | 10.49:1 | 4.5 | ✓ |
+| `ansi.blue` | `terminal.background` | 7.54:1 | 4.5 | ✓ |
+| `ansi.magenta` | `terminal.background` | 7.64:1 | 4.5 | ✓ |
+| `ansi.cyan` | `terminal.background` | 7.96:1 | 4.5 | ✓ |
+| `ansi.white` | `terminal.background` | 12.1:1 | 4.5 | ✓ |
+| `bright.red` | `terminal.background` | 7.24:1 | 4.5 | ✓ |
+| `bright.green` | `terminal.background` | 11.35:1 | 4.5 | ✓ |
+| `bright.yellow` | `terminal.background` | 12.25:1 | 4.5 | ✓ |
+| `bright.blue` | `terminal.background` | 9.58:1 | 4.5 | ✓ |
+| `bright.magenta` | `terminal.background` | 9.58:1 | 4.5 | ✓ |
+| `bright.cyan` | `terminal.background` | 9.91:1 | 4.5 | ✓ |
+| `bright.white` | `terminal.background` | 14.67:1 | 4.5 | ✓ |
+
+## Blush night (dark)
+
+### Text on every surface
+
+| role | app | surface | raised | hover | floor |
+|---|---|---|---|---|---|
+| `text.heading` | 17.19 | 16.48 | 15.72 | 13.68 | 4.5 |
+| `text.body` | 15.83 | 15.18 | 14.48 | 12.59 | 4.5 |
+| `text.secondary` | 11.3 | 10.83 | 10.33 | 8.99 | 4.5 |
+| `text.muted` | 7.65 | 7.34 | 7.0 | 6.09 | 4.5 |
+| `text.ghost` | 5.09 | 4.88 | 4.65 | 4.05 | 3.0 |
+| `text.gold` | 8.23 | 7.89 | 7.53 | 6.55 | 4.5 |
+| `text.link` | 8.23 | 7.89 | 7.53 | 6.55 | 4.5 |
+| `text.gold-dim` | 5.66 | 5.42 | 5.17 | 4.5 | 4.5 |
+| `action.text` | 8.23 | 7.89 | 7.53 | 6.55 | 4.5 |
+| `ok.text` | 9.53 | 9.14 | 8.72 | 7.58 | 4.5 |
+| `warn.text` | 6.8 | 6.52 | 6.22 | 5.41 | 4.5 |
+| `danger.text` | 6.76 | 6.48 | 6.18 | 5.37 | 4.5 |
+| `info.text` | 8.23 | 7.89 | 7.53 | 6.55 | 4.5 |
+| `special.text` | 8.63 | 8.27 | 7.89 | 6.86 | 4.5 |
+
+### Gilding — an edge, floor 3:1
+
+| role | app | surface | raised | hover | floor |
+|---|---|---|---|---|---|
+| `border.gold` | 8.23 | 7.89 | 7.53 | 6.55 | 3.0 |
+| `action.edge` | 8.23 | 7.89 | 7.53 | 6.55 | 3.0 |
+| `action.hover.edge` | 10.95 | 10.5 | 10.01 | 8.71 | 3.0 |
+
+### Syntax on the editor page · washes · terminal ANSI
+
+| role | on | ratio | floor | |
+|---|---|---|---|---|
+| `syntax.keyword` | `bg.app` | 5.99:1 | 4.5 | ✓ |
+| `syntax.function` | `bg.app` | 10.55:1 | 4.5 | ✓ |
+| `syntax.string` | `bg.app` | 9.53:1 | 4.5 | ✓ |
+| `syntax.number` | `bg.app` | 8.63:1 | 4.5 | ✓ |
+| `syntax.type` | `bg.app` | 9.69:1 | 4.5 | ✓ |
+| `syntax.constant` | `bg.app` | 8.63:1 | 4.5 | ✓ |
+| `syntax.comment` | `bg.app` | 4.73:1 | 3.0 | ✓ |
+| `bar.text` | `bar.fill` | 15.83:1 | 4.5 | ✓ |
+| `ok.text` | `ok.wash` | 7.15:1 | 4.5 | ✓ |
+| `danger.text` | `danger.wash` | 5.63:1 | 4.5 | ✓ |
+| `ok.on-fill` | `ok.fill` | 5.6:1 | 4.5 | ✓ |
+| `danger.on-fill` | `danger.fill` | 5.29:1 | 4.5 | ✓ |
+| `ansi.red` | `terminal.background` | 6.01:1 | 4.5 | ✓ |
+| `ansi.green` | `terminal.background` | 9.53:1 | 4.5 | ✓ |
+| `ansi.yellow` | `terminal.background` | 10.55:1 | 4.5 | ✓ |
+| `ansi.blue` | `terminal.background` | 7.58:1 | 4.5 | ✓ |
+| `ansi.magenta` | `terminal.background` | 7.68:1 | 4.5 | ✓ |
+| `ansi.cyan` | `terminal.background` | 8.0:1 | 4.5 | ✓ |
+| `ansi.white` | `terminal.background` | 15.83:1 | 4.5 | ✓ |
+| `bright.red` | `terminal.background` | 7.28:1 | 4.5 | ✓ |
+| `bright.green` | `terminal.background` | 11.42:1 | 4.5 | ✓ |
+| `bright.yellow` | `terminal.background` | 12.32:1 | 4.5 | ✓ |
+| `bright.blue` | `terminal.background` | 9.64:1 | 4.5 | ✓ |
+| `bright.magenta` | `terminal.background` | 9.64:1 | 4.5 | ✓ |
+| `bright.cyan` | `terminal.background` | 9.97:1 | 4.5 | ✓ |
+| `bright.white` | `terminal.background` | 17.19:1 | 4.5 | ✓ |
+
+## Lab (light)
+
+### Text on every surface
+
+| role | app | surface | raised | hover | floor |
+|---|---|---|---|---|---|
+| `text.heading` | 16.21 | 18.24 | 18.72 | 13.81 | 4.5 |
+| `text.body` | 15.04 | 16.92 | 17.36 | 12.81 | 4.5 |
+| `text.secondary` | 11.83 | 13.3 | 13.65 | 10.07 | 4.5 |
+| `text.muted` | 5.88 | 6.61 | 6.79 | 5.01 | 4.5 |
+| `text.ghost` | 4.52 | 5.09 | 5.22 | 3.85 | 3.0 |
+| `text.gold` | 5.45 | 6.13 | 6.29 | 4.64 | 4.5 |
+| `text.link` | 5.45 | 6.13 | 6.29 | 4.64 | 4.5 |
+| `text.gold-dim` | 5.45 | 6.13 | 6.29 | 4.64 | 4.5 |
+| `action.text` | 5.45 | 6.13 | 6.29 | 4.64 | 4.5 |
+| `ok.text` | 6.95 | 7.81 | 8.02 | 5.92 | 4.5 |
+| `warn.text` | 6.7 | 7.53 | 7.73 | 5.71 | 4.5 |
+| `danger.text` | 5.77 | 6.49 | 6.66 | 4.91 | 4.5 |
+| `info.text` | 5.45 | 6.13 | 6.29 | 4.64 | 4.5 |
+| `special.text` | 6.83 | 7.68 | 7.88 | 5.82 | 4.5 |
+
+### Gilding — an edge, floor 3:1
+
+| role | app | surface | raised | hover | floor |
+|---|---|---|---|---|---|
+| `border.gold` | 2.9 | 3.26 | 3.35 | 2.47 | 1.5 |
+| `action.edge` | 2.9 | 3.26 | 3.35 | 2.47 | 1.5 |
+| `action.hover.edge` | 4.93 | 5.54 | 5.69 | 4.2 | 1.5 |
+
+### Syntax on the editor page · washes · terminal ANSI
+
+| role | on | ratio | floor | |
+|---|---|---|---|---|
+| `syntax.keyword` | `bg.app` | 5.81:1 | 4.5 | ✓ |
+| `syntax.function` | `bg.app` | 6.2:1 | 4.5 | ✓ |
+| `syntax.string` | `bg.app` | 5.85:1 | 4.5 | ✓ |
+| `syntax.number` | `bg.app` | 6.33:1 | 4.5 | ✓ |
+| `syntax.type` | `bg.app` | 5.95:1 | 4.5 | ✓ |
+| `syntax.constant` | `bg.app` | 6.33:1 | 4.5 | ✓ |
+| `syntax.comment` | `bg.app` | 3.95:1 | 3.0 | ✓ |
+| `bar.text` | `bar.fill` | 15.04:1 | 4.5 | ✓ |
+| `ok.text` | `ok.wash` | 5.11:1 | 4.5 | ✓ |
+| `danger.text` | `danger.wash` | 4.62:1 | 4.5 | ✓ |
+| `ok.on-fill` | `ok.fill` | 5.6:1 | 4.5 | ✓ |
+| `danger.on-fill` | `danger.fill` | 5.59:1 | 4.5 | ✓ |
+| `ansi.red` | `terminal.background` | 6.36:1 | 4.5 | ✓ |
+| `ansi.green` | `terminal.background` | 10.09:1 | 4.5 | ✓ |
+| `ansi.yellow` | `terminal.background` | 11.16:1 | 4.5 | ✓ |
+| `ansi.blue` | `terminal.background` | 8.02:1 | 4.5 | ✓ |
+| `ansi.magenta` | `terminal.background` | 8.13:1 | 4.5 | ✓ |
+| `ansi.cyan` | `terminal.background` | 8.47:1 | 4.5 | ✓ |
+| `ansi.white` | `terminal.background` | 12.88:1 | 4.5 | ✓ |
+| `bright.red` | `terminal.background` | 7.7:1 | 4.5 | ✓ |
+| `bright.green` | `terminal.background` | 12.08:1 | 4.5 | ✓ |
+| `bright.yellow` | `terminal.background` | 13.03:1 | 4.5 | ✓ |
+| `bright.blue` | `terminal.background` | 10.2:1 | 4.5 | ✓ |
+| `bright.magenta` | `terminal.background` | 10.2:1 | 4.5 | ✓ |
+| `bright.cyan` | `terminal.background` | 10.55:1 | 4.5 | ✓ |
+| `bright.white` | `terminal.background` | 15.61:1 | 4.5 | ✓ |
+
+## Lab night (dark)
+
+### Text on every surface
+
+| role | app | surface | raised | hover | floor |
+|---|---|---|---|---|---|
+| `text.heading` | 18.08 | 17.46 | 16.75 | 13.51 | 4.5 |
+| `text.body` | 16.09 | 15.54 | 14.91 | 12.02 | 4.5 |
+| `text.secondary` | 11.41 | 11.02 | 10.57 | 8.52 | 4.5 |
+| `text.muted` | 6.03 | 5.82 | 5.58 | 4.5 | 4.5 |
+| `text.ghost` | 4.06 | 3.92 | 3.76 | 3.03 | 3.0 |
+| `text.gold` | 6.69 | 6.46 | 6.2 | 5.0 | 4.5 |
+| `text.link` | 6.69 | 6.46 | 6.2 | 5.0 | 4.5 |
+| `text.gold-dim` | 6.17 | 5.96 | 5.72 | 4.61 | 4.5 |
+| `action.text` | 6.69 | 6.46 | 6.2 | 5.0 | 4.5 |
+| `ok.text` | 10.09 | 9.74 | 9.35 | 7.54 | 4.5 |
+| `warn.text` | 7.19 | 6.95 | 6.67 | 5.37 | 4.5 |
+| `danger.text` | 6.97 | 6.73 | 6.46 | 5.21 | 4.5 |
+| `info.text` | 6.69 | 6.46 | 6.2 | 5.0 | 4.5 |
+| `special.text` | 9.13 | 8.81 | 8.46 | 6.82 | 4.5 |
+
+### Gilding — an edge, floor 3:1
+
+| role | app | surface | raised | hover | floor |
+|---|---|---|---|---|---|
+| `border.gold` | 5.56 | 5.36 | 5.15 | 4.15 | 3.0 |
+| `action.edge` | 5.56 | 5.36 | 5.15 | 4.15 | 3.0 |
+| `action.hover.edge` | 6.69 | 6.46 | 6.2 | 5.0 | 3.0 |
+
+### Syntax on the editor page · washes · terminal ANSI
+
+| role | on | ratio | floor | |
+|---|---|---|---|---|
+| `syntax.keyword` | `bg.app` | 6.34:1 | 4.5 | ✓ |
+| `syntax.function` | `bg.app` | 11.16:1 | 4.5 | ✓ |
+| `syntax.string` | `bg.app` | 10.09:1 | 4.5 | ✓ |
+| `syntax.number` | `bg.app` | 9.13:1 | 4.5 | ✓ |
+| `syntax.type` | `bg.app` | 10.25:1 | 4.5 | ✓ |
+| `syntax.constant` | `bg.app` | 9.13:1 | 4.5 | ✓ |
+| `syntax.comment` | `bg.app` | 5.0:1 | 3.0 | ✓ |
+| `bar.text` | `bar.fill` | 16.09:1 | 4.5 | ✓ |
+| `ok.text` | `ok.wash` | 7.67:1 | 4.5 | ✓ |
+| `danger.text` | `danger.wash` | 6.01:1 | 4.5 | ✓ |
+| `ok.on-fill` | `ok.fill` | 5.6:1 | 4.5 | ✓ |
+| `danger.on-fill` | `danger.fill` | 5.56:1 | 4.5 | ✓ |
+| `ansi.red` | `terminal.background` | 6.36:1 | 4.5 | ✓ |
+| `ansi.green` | `terminal.background` | 10.09:1 | 4.5 | ✓ |
+| `ansi.yellow` | `terminal.background` | 11.16:1 | 4.5 | ✓ |
+| `ansi.blue` | `terminal.background` | 8.02:1 | 4.5 | ✓ |
+| `ansi.magenta` | `terminal.background` | 8.13:1 | 4.5 | ✓ |
+| `ansi.cyan` | `terminal.background` | 8.47:1 | 4.5 | ✓ |
+| `ansi.white` | `terminal.background` | 16.09:1 | 4.5 | ✓ |
+| `bright.red` | `terminal.background` | 7.7:1 | 4.5 | ✓ |
+| `bright.green` | `terminal.background` | 12.08:1 | 4.5 | ✓ |
+| `bright.yellow` | `terminal.background` | 13.03:1 | 4.5 | ✓ |
+| `bright.blue` | `terminal.background` | 10.2:1 | 4.5 | ✓ |
+| `bright.magenta` | `terminal.background` | 10.2:1 | 4.5 | ✓ |
+| `bright.cyan` | `terminal.background` | 10.55:1 | 4.5 | ✓ |
+| `bright.white` | `terminal.background` | 18.08:1 | 4.5 | ✓ |
+
+## Hanko (light)
+
+### Text on every surface
+
+| role | app | surface | raised | hover | floor |
+|---|---|---|---|---|---|
+| `text.heading` | 17.33 | 18.91 | 19.23 | 14.68 | 4.5 |
+| `text.body` | 16.27 | 17.76 | 18.06 | 13.79 | 4.5 |
+| `text.secondary` | 12.79 | 13.96 | 14.19 | 10.83 | 4.5 |
+| `text.muted` | 6.75 | 7.36 | 7.49 | 5.71 | 4.5 |
+| `text.ghost` | 5.03 | 5.49 | 5.59 | 4.27 | 3.0 |
+| `text.gold` | 6.82 | 7.45 | 7.57 | 5.78 | 4.5 |
+| `text.link` | 6.82 | 7.45 | 7.57 | 5.78 | 4.5 |
+| `text.gold-dim` | 6.82 | 7.45 | 7.57 | 5.78 | 4.5 |
+| `action.text` | 6.82 | 7.45 | 7.57 | 5.78 | 4.5 |
+| `ok.text` | 7.35 | 8.02 | 8.15 | 6.23 | 4.5 |
+| `warn.text` | 7.09 | 7.73 | 7.86 | 6.0 | 4.5 |
+| `danger.text` | 6.82 | 7.45 | 7.57 | 5.78 | 4.5 |
+| `info.text` | 6.82 | 7.45 | 7.57 | 5.78 | 4.5 |
+| `special.text` | 7.22 | 7.88 | 8.01 | 6.12 | 4.5 |
+
+### Gilding — an edge, floor 3:1
+
+| role | app | surface | raised | hover | floor |
+|---|---|---|---|---|---|
+| `border.gold` | 4.27 | 4.66 | 4.74 | 3.62 | 1.5 |
+| `action.edge` | 4.27 | 4.66 | 4.74 | 3.62 | 1.5 |
+| `action.hover.edge` | 6.94 | 7.58 | 7.7 | 5.88 | 1.5 |
+
+### Syntax on the editor page · washes · terminal ANSI
+
+| role | on | ratio | floor | |
+|---|---|---|---|---|
+| `syntax.keyword` | `bg.app` | 6.14:1 | 4.5 | ✓ |
+| `syntax.function` | `bg.app` | 6.56:1 | 4.5 | ✓ |
+| `syntax.string` | `bg.app` | 6.19:1 | 4.5 | ✓ |
+| `syntax.number` | `bg.app` | 6.7:1 | 4.5 | ✓ |
+| `syntax.type` | `bg.app` | 6.3:1 | 4.5 | ✓ |
+| `syntax.constant` | `bg.app` | 6.7:1 | 4.5 | ✓ |
+| `syntax.comment` | `bg.app` | 4.18:1 | 3.0 | ✓ |
+| `bar.text` | `bar.fill` | 16.27:1 | 4.5 | ✓ |
+| `ok.text` | `ok.wash` | 5.38:1 | 4.5 | ✓ |
+| `danger.text` | `danger.wash` | 4.98:1 | 4.5 | ✓ |
+| `ok.on-fill` | `ok.fill` | 5.6:1 | 4.5 | ✓ |
+| `danger.on-fill` | `danger.fill` | 4.9:1 | 4.5 | ✓ |
+| `ansi.red` | `terminal.background` | 6.31:1 | 4.5 | ✓ |
+| `ansi.green` | `terminal.background` | 10.01:1 | 4.5 | ✓ |
+| `ansi.yellow` | `terminal.background` | 11.08:1 | 4.5 | ✓ |
+| `ansi.blue` | `terminal.background` | 7.96:1 | 4.5 | ✓ |
+| `ansi.magenta` | `terminal.background` | 8.06:1 | 4.5 | ✓ |
+| `ansi.cyan` | `terminal.background` | 8.4:1 | 4.5 | ✓ |
+| `ansi.white` | `terminal.background` | 12.78:1 | 4.5 | ✓ |
+| `bright.red` | `terminal.background` | 7.64:1 | 4.5 | ✓ |
+| `bright.green` | `terminal.background` | 11.99:1 | 4.5 | ✓ |
+| `bright.yellow` | `terminal.background` | 12.93:1 | 4.5 | ✓ |
+| `bright.blue` | `terminal.background` | 10.12:1 | 4.5 | ✓ |
+| `bright.magenta` | `terminal.background` | 10.12:1 | 4.5 | ✓ |
+| `bright.cyan` | `terminal.background` | 10.47:1 | 4.5 | ✓ |
+| `bright.white` | `terminal.background` | 15.49:1 | 4.5 | ✓ |
+
+## Hanko night (dark)
+
+### Text on every surface
+
+| role | app | surface | raised | hover | floor |
+|---|---|---|---|---|---|
+| `text.heading` | 18.02 | 17.34 | 16.59 | 13.26 | 4.5 |
+| `text.body` | 15.92 | 15.32 | 14.66 | 11.71 | 4.5 |
+| `text.secondary` | 11.3 | 10.87 | 10.4 | 8.31 | 4.5 |
+| `text.muted` | 6.54 | 6.29 | 6.03 | 4.81 | 4.5 |
+| `text.ghost` | 4.38 | 4.21 | 4.03 | 3.22 | 3.0 |
+| `text.gold` | 7.16 | 6.89 | 6.59 | 5.27 | 4.5 |
+| `text.link` | 7.16 | 6.89 | 6.59 | 5.27 | 4.5 |
+| `text.gold-dim` | 6.21 | 5.97 | 5.72 | 4.57 | 4.5 |
+| `action.text` | 7.16 | 6.89 | 6.59 | 5.27 | 4.5 |
+| `ok.text` | 10.01 | 9.63 | 9.22 | 7.36 | 4.5 |
+| `warn.text` | 7.14 | 6.87 | 6.57 | 5.25 | 4.5 |
+| `danger.text` | 6.25 | 6.01 | 5.75 | 4.6 | 4.5 |
+| `info.text` | 7.16 | 6.89 | 6.59 | 5.27 | 4.5 |
+| `special.text` | 9.06 | 8.71 | 8.34 | 6.66 | 4.5 |
+
+### Gilding — an edge, floor 3:1
+
+| role | app | surface | raised | hover | floor |
+|---|---|---|---|---|---|
+| `border.gold` | 7.16 | 6.89 | 6.59 | 5.27 | 3.0 |
+| `action.edge` | 7.16 | 6.89 | 6.59 | 5.27 | 3.0 |
+| `action.hover.edge` | 7.16 | 6.89 | 6.59 | 5.27 | 3.0 |
+
+### Syntax on the editor page · washes · terminal ANSI
+
+| role | on | ratio | floor | |
+|---|---|---|---|---|
+| `syntax.keyword` | `bg.app` | 6.29:1 | 4.5 | ✓ |
+| `syntax.function` | `bg.app` | 11.08:1 | 4.5 | ✓ |
+| `syntax.string` | `bg.app` | 10.01:1 | 4.5 | ✓ |
+| `syntax.number` | `bg.app` | 9.06:1 | 4.5 | ✓ |
+| `syntax.type` | `bg.app` | 10.17:1 | 4.5 | ✓ |
+| `syntax.constant` | `bg.app` | 9.06:1 | 4.5 | ✓ |
+| `syntax.comment` | `bg.app` | 4.96:1 | 3.0 | ✓ |
+| `bar.text` | `bar.fill` | 15.92:1 | 4.5 | ✓ |
+| `ok.text` | `ok.wash` | 7.56:1 | 4.5 | ✓ |
+| `danger.text` | `danger.wash` | 5.73:1 | 4.5 | ✓ |
+| `ok.on-fill` | `ok.fill` | 5.6:1 | 4.5 | ✓ |
+| `danger.on-fill` | `danger.fill` | 4.9:1 | 4.5 | ✓ |
+| `ansi.red` | `terminal.background` | 6.31:1 | 4.5 | ✓ |
+| `ansi.green` | `terminal.background` | 10.01:1 | 4.5 | ✓ |
+| `ansi.yellow` | `terminal.background` | 11.08:1 | 4.5 | ✓ |
+| `ansi.blue` | `terminal.background` | 7.96:1 | 4.5 | ✓ |
+| `ansi.magenta` | `terminal.background` | 8.06:1 | 4.5 | ✓ |
+| `ansi.cyan` | `terminal.background` | 8.4:1 | 4.5 | ✓ |
+| `ansi.white` | `terminal.background` | 15.92:1 | 4.5 | ✓ |
+| `bright.red` | `terminal.background` | 7.64:1 | 4.5 | ✓ |
+| `bright.green` | `terminal.background` | 11.99:1 | 4.5 | ✓ |
+| `bright.yellow` | `terminal.background` | 12.93:1 | 4.5 | ✓ |
+| `bright.blue` | `terminal.background` | 10.12:1 | 4.5 | ✓ |
+| `bright.magenta` | `terminal.background` | 10.12:1 | 4.5 | ✓ |
+| `bright.cyan` | `terminal.background` | 10.47:1 | 4.5 | ✓ |
+| `bright.white` | `terminal.background` | 18.02:1 | 4.5 | ✓ |
+
+## Café (dark)
+
+### Text on every surface
+
+| role | app | surface | raised | hover | floor |
+|---|---|---|---|---|---|
+| `text.heading` | 15.16 | 14.41 | 13.58 | 11.47 | 4.5 |
+| `text.body` | 13.55 | 12.88 | 12.14 | 10.25 | 4.5 |
+| `text.secondary` | 9.88 | 9.39 | 8.85 | 7.47 | 4.5 |
+| `text.muted` | 6.67 | 6.34 | 5.98 | 5.05 | 4.5 |
+| `text.ghost` | 4.58 | 4.36 | 4.11 | 3.47 | 3.0 |
+| `text.gold` | 8.54 | 8.12 | 7.65 | 6.46 | 4.5 |
+| `text.link` | 8.54 | 8.12 | 7.65 | 6.46 | 4.5 |
+| `text.gold-dim` | 6.18 | 5.87 | 5.53 | 4.67 | 4.5 |
+| `action.text` | 8.54 | 8.12 | 7.65 | 6.46 | 4.5 |
+| `ok.text` | 8.82 | 8.38 | 7.9 | 6.67 | 4.5 |
+| `warn.text` | 6.29 | 5.98 | 5.63 | 4.76 | 4.5 |
+| `danger.text` | 6.33 | 6.02 | 5.67 | 4.79 | 4.5 |
+| `info.text` | 8.54 | 8.12 | 7.65 | 6.46 | 4.5 |
+| `special.text` | 7.98 | 7.59 | 7.15 | 6.04 | 4.5 |
+
+### Gilding — an edge, floor 3:1
+
+| role | app | surface | raised | hover | floor |
+|---|---|---|---|---|---|
+| `border.gold` | 8.54 | 8.12 | 7.65 | 6.46 | 3.0 |
+| `action.edge` | 8.54 | 8.12 | 7.65 | 6.46 | 3.0 |
+| `action.hover.edge` | 10.19 | 9.69 | 9.13 | 7.71 | 3.0 |
+
+### Syntax on the editor page · washes · terminal ANSI
+
+| role | on | ratio | floor | |
+|---|---|---|---|---|
+| `syntax.keyword` | `bg.app` | 5.54:1 | 4.5 | ✓ |
+| `syntax.function` | `bg.app` | 9.76:1 | 4.5 | ✓ |
+| `syntax.string` | `bg.app` | 8.82:1 | 4.5 | ✓ |
+| `syntax.number` | `bg.app` | 7.98:1 | 4.5 | ✓ |
+| `syntax.type` | `bg.app` | 8.96:1 | 4.5 | ✓ |
+| `syntax.constant` | `bg.app` | 7.98:1 | 4.5 | ✓ |
+| `syntax.comment` | `bg.app` | 4.37:1 | 3.0 | ✓ |
+| `bar.text` | `bar.fill` | 13.55:1 | 4.5 | ✓ |
+| `ok.text` | `ok.wash` | 6.58:1 | 4.5 | ✓ |
+| `danger.text` | `danger.wash` | 5.31:1 | 4.5 | ✓ |
+| `ok.on-fill` | `ok.fill` | 5.6:1 | 4.5 | ✓ |
+| `danger.on-fill` | `danger.fill` | 4.51:1 | 4.5 | ✓ |
+| `ansi.red` | `terminal.background` | 5.56:1 | 4.5 | ✓ |
+| `ansi.green` | `terminal.background` | 8.82:1 | 4.5 | ✓ |
+| `ansi.yellow` | `terminal.background` | 9.76:1 | 4.5 | ✓ |
+| `ansi.blue` | `terminal.background` | 7.01:1 | 4.5 | ✓ |
+| `ansi.magenta` | `terminal.background` | 7.1:1 | 4.5 | ✓ |
+| `ansi.cyan` | `terminal.background` | 7.4:1 | 4.5 | ✓ |
+| `ansi.white` | `terminal.background` | 13.55:1 | 4.5 | ✓ |
+| `bright.red` | `terminal.background` | 6.73:1 | 4.5 | ✓ |
+| `bright.green` | `terminal.background` | 10.56:1 | 4.5 | ✓ |
+| `bright.yellow` | `terminal.background` | 11.39:1 | 4.5 | ✓ |
+| `bright.blue` | `terminal.background` | 8.91:1 | 4.5 | ✓ |
+| `bright.magenta` | `terminal.background` | 8.91:1 | 4.5 | ✓ |
+| `bright.cyan` | `terminal.background` | 9.22:1 | 4.5 | ✓ |
+| `bright.white` | `terminal.background` | 15.16:1 | 4.5 | ✓ |
+
+## Ember (dark)
+
+### Text on every surface
+
+| role | app | surface | raised | hover | floor |
+|---|---|---|---|---|---|
+| `text.heading` | 13.41 | 12.68 | 11.9 | 9.79 | 4.5 |
+| `text.body` | 11.36 | 10.75 | 10.09 | 8.3 | 4.5 |
+| `text.secondary` | 8.35 | 7.89 | 7.41 | 6.09 | 4.5 |
+| `text.muted` | 6.24 | 5.9 | 5.54 | 4.55 | 4.5 |
+| `text.ghost` | 4.31 | 4.08 | 3.83 | 3.15 | 3.0 |
+| `text.gold` | 8.32 | 7.87 | 7.38 | 6.07 | 4.5 |
+| `text.link` | 8.32 | 7.87 | 7.38 | 6.07 | 4.5 |
+| `text.gold-dim` | 6.27 | 5.93 | 5.56 | 4.58 | 4.5 |
+| `action.text` | 8.32 | 7.87 | 7.38 | 6.07 | 4.5 |
+| `ok.text` | 8.85 | 8.37 | 7.85 | 6.46 | 4.5 |
+| `warn.text` | 6.31 | 5.97 | 5.6 | 4.61 | 4.5 |
+| `danger.text` | 6.31 | 5.96 | 5.6 | 4.6 | 4.5 |
+| `info.text` | 8.32 | 7.87 | 7.38 | 6.07 | 4.5 |
+| `special.text` | 8.01 | 7.57 | 7.11 | 5.84 | 4.5 |
+
+### Gilding — an edge, floor 3:1
+
+| role | app | surface | raised | hover | floor |
+|---|---|---|---|---|---|
+| `border.gold` | 8.32 | 7.87 | 7.38 | 6.07 | 3.0 |
+| `action.edge` | 8.32 | 7.87 | 7.38 | 6.07 | 3.0 |
+| `action.hover.edge` | 9.63 | 9.11 | 8.55 | 7.03 | 3.0 |
+
+### Syntax on the editor page · washes · terminal ANSI
+
+| role | on | ratio | floor | |
+|---|---|---|---|---|
+| `syntax.keyword` | `bg.app` | 5.56:1 | 4.5 | ✓ |
+| `syntax.function` | `bg.app` | 9.79:1 | 4.5 | ✓ |
+| `syntax.string` | `bg.app` | 8.85:1 | 4.5 | ✓ |
+| `syntax.number` | `bg.app` | 8.01:1 | 4.5 | ✓ |
+| `syntax.type` | `bg.app` | 8.99:1 | 4.5 | ✓ |
+| `syntax.constant` | `bg.app` | 8.01:1 | 4.5 | ✓ |
+| `syntax.comment` | `bg.app` | 4.39:1 | 3.0 | ✓ |
+| `bar.text` | `bar.fill` | 11.36:1 | 4.5 | ✓ |
+| `ok.text` | `ok.wash` | 6.58:1 | 4.5 | ✓ |
+| `danger.text` | `danger.wash` | 5.78:1 | 4.5 | ✓ |
+| `ok.on-fill` | `ok.fill` | 5.6:1 | 4.5 | ✓ |
+| `danger.on-fill` | `danger.fill` | 4.9:1 | 4.5 | ✓ |
+| `ansi.red` | `terminal.background` | 5.58:1 | 4.5 | ✓ |
+| `ansi.green` | `terminal.background` | 8.85:1 | 4.5 | ✓ |
+| `ansi.yellow` | `terminal.background` | 9.79:1 | 4.5 | ✓ |
+| `ansi.blue` | `terminal.background` | 7.03:1 | 4.5 | ✓ |
+| `ansi.magenta` | `terminal.background` | 7.13:1 | 4.5 | ✓ |
+| `ansi.cyan` | `terminal.background` | 7.43:1 | 4.5 | ✓ |
+| `ansi.white` | `terminal.background` | 11.36:1 | 4.5 | ✓ |
+| `bright.red` | `terminal.background` | 6.75:1 | 4.5 | ✓ |
+| `bright.green` | `terminal.background` | 10.6:1 | 4.5 | ✓ |
+| `bright.yellow` | `terminal.background` | 11.43:1 | 4.5 | ✓ |
+| `bright.blue` | `terminal.background` | 8.94:1 | 4.5 | ✓ |
+| `bright.magenta` | `terminal.background` | 8.94:1 | 4.5 | ✓ |
+| `bright.cyan` | `terminal.background` | 9.25:1 | 4.5 | ✓ |
+| `bright.white` | `terminal.background` | 13.41:1 | 4.5 | ✓ |
+
+## Moss (dark)
+
+### Text on every surface
+
+| role | app | surface | raised | hover | floor |
+|---|---|---|---|---|---|
+| `text.heading` | 15.77 | 15.09 | 14.33 | 11.63 | 4.5 |
+| `text.body` | 14.11 | 13.5 | 12.81 | 10.4 | 4.5 |
+| `text.secondary` | 10.13 | 9.69 | 9.2 | 7.47 | 4.5 |
+| `text.muted` | 7.33 | 7.01 | 6.66 | 5.4 | 4.5 |
+| `text.ghost` | 4.91 | 4.7 | 4.46 | 3.62 | 3.0 |
+| `text.gold` | 6.55 | 6.26 | 5.95 | 4.83 | 4.5 |
+| `text.link` | 6.55 | 6.26 | 5.95 | 4.83 | 4.5 |
+| `text.gold-dim` | 6.24 | 5.97 | 5.67 | 4.6 | 4.5 |
+| `action.text` | 6.55 | 6.26 | 5.95 | 4.83 | 4.5 |
+| `ok.text` | 9.49 | 9.08 | 8.62 | 7.0 | 4.5 |
+| `warn.text` | 6.77 | 6.48 | 6.15 | 4.99 | 4.5 |
+| `danger.text` | 6.22 | 5.95 | 5.65 | 4.59 | 4.5 |
+| `info.text` | 6.55 | 6.26 | 5.95 | 4.83 | 4.5 |
+| `special.text` | 8.59 | 8.22 | 7.8 | 6.34 | 4.5 |
+
+### Gilding — an edge, floor 3:1
+
+| role | app | surface | raised | hover | floor |
+|---|---|---|---|---|---|
+| `border.gold` | 6.55 | 6.26 | 5.95 | 4.83 | 3.0 |
+| `action.edge` | 6.55 | 6.26 | 5.95 | 4.83 | 3.0 |
+| `action.hover.edge` | 8.03 | 7.69 | 7.3 | 5.93 | 3.0 |
+
+### Syntax on the editor page · washes · terminal ANSI
+
+| role | on | ratio | floor | |
+|---|---|---|---|---|
+| `syntax.keyword` | `bg.app` | 5.97:1 | 4.5 | ✓ |
+| `syntax.function` | `bg.app` | 10.5:1 | 4.5 | ✓ |
+| `syntax.string` | `bg.app` | 9.49:1 | 4.5 | ✓ |
+| `syntax.number` | `bg.app` | 8.59:1 | 4.5 | ✓ |
+| `syntax.type` | `bg.app` | 9.64:1 | 4.5 | ✓ |
+| `syntax.constant` | `bg.app` | 8.59:1 | 4.5 | ✓ |
+| `syntax.comment` | `bg.app` | 4.71:1 | 3.0 | ✓ |
+| `bar.text` | `bar.fill` | 14.11:1 | 4.5 | ✓ |
+| `ok.text` | `ok.wash` | 7.13:1 | 4.5 | ✓ |
+| `danger.text` | `danger.wash` | 5.74:1 | 4.5 | ✓ |
+| `ok.on-fill` | `ok.fill` | 5.6:1 | 4.5 | ✓ |
+| `danger.on-fill` | `danger.fill` | 4.9:1 | 4.5 | ✓ |
+| `ansi.red` | `terminal.background` | 5.98:1 | 4.5 | ✓ |
+| `ansi.green` | `terminal.background` | 9.49:1 | 4.5 | ✓ |
+| `ansi.yellow` | `terminal.background` | 10.5:1 | 4.5 | ✓ |
+| `ansi.blue` | `terminal.background` | 7.55:1 | 4.5 | ✓ |
+| `ansi.magenta` | `terminal.background` | 7.65:1 | 4.5 | ✓ |
+| `ansi.cyan` | `terminal.background` | 7.97:1 | 4.5 | ✓ |
+| `ansi.white` | `terminal.background` | 14.11:1 | 4.5 | ✓ |
+| `bright.red` | `terminal.background` | 7.25:1 | 4.5 | ✓ |
+| `bright.green` | `terminal.background` | 11.37:1 | 4.5 | ✓ |
+| `bright.yellow` | `terminal.background` | 12.27:1 | 4.5 | ✓ |
+| `bright.blue` | `terminal.background` | 9.59:1 | 4.5 | ✓ |
+| `bright.magenta` | `terminal.background` | 9.6:1 | 4.5 | ✓ |
+| `bright.cyan` | `terminal.background` | 9.93:1 | 4.5 | ✓ |
+| `bright.white` | `terminal.background` | 15.77:1 | 4.5 | ✓ |
+
+## Signal (dark)
+
+### Text on every surface
+
+| role | app | surface | raised | hover | floor |
+|---|---|---|---|---|---|
+| `text.heading` | 17.25 | 16.64 | 15.92 | 12.81 | 4.5 |
+| `text.body` | 15.32 | 14.79 | 14.15 | 11.38 | 4.5 |
+| `text.secondary` | 10.92 | 10.54 | 10.08 | 8.11 | 4.5 |
+| `text.muted` | 6.58 | 6.35 | 6.07 | 4.89 | 4.5 |
+| `text.ghost` | 4.41 | 4.25 | 4.07 | 3.27 | 3.0 |
+| `text.gold` | 9.42 | 9.09 | 8.7 | 7.0 | 4.5 |
+| `text.link` | 9.42 | 9.09 | 8.7 | 7.0 | 4.5 |
+| `text.gold-dim` | 6.33 | 6.11 | 5.85 | 4.7 | 4.5 |
+| `action.text` | 9.42 | 9.09 | 8.7 | 7.0 | 4.5 |
+| `ok.text` | 10.02 | 9.67 | 9.25 | 7.45 | 4.5 |
+| `warn.text` | 7.15 | 6.9 | 6.6 | 5.31 | 4.5 |
+| `danger.text` | 6.92 | 6.68 | 6.39 | 5.14 | 4.5 |
+| `info.text` | 9.42 | 9.09 | 8.7 | 7.0 | 4.5 |
+| `special.text` | 9.07 | 8.75 | 8.37 | 6.74 | 4.5 |
+
+### Gilding — an edge, floor 3:1
+
+| role | app | surface | raised | hover | floor |
+|---|---|---|---|---|---|
+| `border.gold` | 9.42 | 9.09 | 8.7 | 7.0 | 3.0 |
+| `action.edge` | 9.42 | 9.09 | 8.7 | 7.0 | 3.0 |
+| `action.hover.edge` | 10.91 | 10.53 | 10.08 | 8.11 | 3.0 |
+
+### Syntax on the editor page · washes · terminal ANSI
+
+| role | on | ratio | floor | |
+|---|---|---|---|---|
+| `syntax.keyword` | `bg.app` | 6.3:1 | 4.5 | ✓ |
+| `syntax.function` | `bg.app` | 11.09:1 | 4.5 | ✓ |
+| `syntax.string` | `bg.app` | 10.02:1 | 4.5 | ✓ |
+| `syntax.number` | `bg.app` | 9.07:1 | 4.5 | ✓ |
+| `syntax.type` | `bg.app` | 10.18:1 | 4.5 | ✓ |
+| `syntax.constant` | `bg.app` | 9.07:1 | 4.5 | ✓ |
+| `syntax.comment` | `bg.app` | 4.97:1 | 3.0 | ✓ |
+| `bar.text` | `bar.fill` | 15.32:1 | 4.5 | ✓ |
+| `ok.text` | `ok.wash` | 7.59:1 | 4.5 | ✓ |
+| `danger.text` | `danger.wash` | 5.94:1 | 4.5 | ✓ |
+| `ok.on-fill` | `ok.fill` | 5.6:1 | 4.5 | ✓ |
+| `danger.on-fill` | `danger.fill` | 5.52:1 | 4.5 | ✓ |
+| `ansi.red` | `terminal.background` | 6.32:1 | 4.5 | ✓ |
+| `ansi.green` | `terminal.background` | 10.02:1 | 4.5 | ✓ |
+| `ansi.yellow` | `terminal.background` | 11.09:1 | 4.5 | ✓ |
+| `ansi.blue` | `terminal.background` | 7.97:1 | 4.5 | ✓ |
+| `ansi.magenta` | `terminal.background` | 8.07:1 | 4.5 | ✓ |
+| `ansi.cyan` | `terminal.background` | 8.41:1 | 4.5 | ✓ |
+| `ansi.white` | `terminal.background` | 15.32:1 | 4.5 | ✓ |
+| `bright.red` | `terminal.background` | 7.65:1 | 4.5 | ✓ |
+| `bright.green` | `terminal.background` | 12.01:1 | 4.5 | ✓ |
+| `bright.yellow` | `terminal.background` | 12.95:1 | 4.5 | ✓ |
+| `bright.blue` | `terminal.background` | 10.13:1 | 4.5 | ✓ |
+| `bright.magenta` | `terminal.background` | 10.13:1 | 4.5 | ✓ |
+| `bright.cyan` | `terminal.background` | 10.48:1 | 4.5 | ✓ |
+| `bright.white` | `terminal.background` | 17.25:1 | 4.5 | ✓ |
+
+## Walnut (dark)
+
+### Text on every surface
+
+| role | app | surface | raised | hover | floor |
+|---|---|---|---|---|---|
+| `text.heading` | 15.44 | 14.8 | 14.13 | 11.91 | 4.5 |
+| `text.body` | 13.6 | 13.04 | 12.45 | 10.5 | 4.5 |
+| `text.secondary` | 9.87 | 9.46 | 9.03 | 7.61 | 4.5 |
+| `text.muted` | 6.87 | 6.59 | 6.29 | 5.3 | 4.5 |
+| `text.ghost` | 4.67 | 4.47 | 4.27 | 3.6 | 3.0 |
+| `text.gold` | 8.67 | 8.32 | 7.94 | 6.69 | 4.5 |
+| `text.link` | 8.67 | 8.32 | 7.94 | 6.69 | 4.5 |
+| `text.gold-dim` | 5.94 | 5.7 | 5.44 | 4.58 | 4.5 |
+| `action.text` | 8.67 | 8.32 | 7.94 | 6.69 | 4.5 |
+| `ok.text` | 9.23 | 8.85 | 8.44 | 7.12 | 4.5 |
+| `warn.text` | 6.58 | 6.31 | 6.02 | 5.08 | 4.5 |
+| `danger.text` | 6.38 | 6.12 | 5.84 | 4.93 | 4.5 |
+| `info.text` | 8.67 | 8.32 | 7.94 | 6.69 | 4.5 |
+| `special.text` | 8.35 | 8.0 | 7.64 | 6.44 | 4.5 |
+
+### Gilding — an edge, floor 3:1
+
+| role | app | surface | raised | hover | floor |
+|---|---|---|---|---|---|
+| `border.gold` | 8.67 | 8.32 | 7.94 | 6.69 | 3.0 |
+| `action.edge` | 8.67 | 8.32 | 7.94 | 6.69 | 3.0 |
+| `action.hover.edge` | 10.05 | 9.63 | 9.2 | 7.75 | 3.0 |
+
+### Syntax on the editor page · washes · terminal ANSI
+
+| role | on | ratio | floor | |
+|---|---|---|---|---|
+| `syntax.keyword` | `bg.app` | 5.8:1 | 4.5 | ✓ |
+| `syntax.function` | `bg.app` | 10.21:1 | 4.5 | ✓ |
+| `syntax.string` | `bg.app` | 9.23:1 | 4.5 | ✓ |
+| `syntax.number` | `bg.app` | 8.35:1 | 4.5 | ✓ |
+| `syntax.type` | `bg.app` | 9.37:1 | 4.5 | ✓ |
+| `syntax.constant` | `bg.app` | 8.35:1 | 4.5 | ✓ |
+| `syntax.comment` | `bg.app` | 4.58:1 | 3.0 | ✓ |
+| `bar.text` | `bar.fill` | 13.6:1 | 4.5 | ✓ |
+| `ok.text` | `ok.wash` | 6.91:1 | 4.5 | ✓ |
+| `danger.text` | `danger.wash` | 5.41:1 | 4.5 | ✓ |
+| `ok.on-fill` | `ok.fill` | 5.6:1 | 4.5 | ✓ |
+| `danger.on-fill` | `danger.fill` | 4.6:1 | 4.5 | ✓ |
+| `ansi.red` | `terminal.background` | 5.82:1 | 4.5 | ✓ |
+| `ansi.green` | `terminal.background` | 9.23:1 | 4.5 | ✓ |
+| `ansi.yellow` | `terminal.background` | 10.21:1 | 4.5 | ✓ |
+| `ansi.blue` | `terminal.background` | 7.33:1 | 4.5 | ✓ |
+| `ansi.magenta` | `terminal.background` | 7.43:1 | 4.5 | ✓ |
+| `ansi.cyan` | `terminal.background` | 7.74:1 | 4.5 | ✓ |
+| `ansi.white` | `terminal.background` | 13.6:1 | 4.5 | ✓ |
+| `bright.red` | `terminal.background` | 7.04:1 | 4.5 | ✓ |
+| `bright.green` | `terminal.background` | 11.05:1 | 4.5 | ✓ |
+| `bright.yellow` | `terminal.background` | 11.92:1 | 4.5 | ✓ |
+| `bright.blue` | `terminal.background` | 9.33:1 | 4.5 | ✓ |
+| `bright.magenta` | `terminal.background` | 9.33:1 | 4.5 | ✓ |
+| `bright.cyan` | `terminal.background` | 9.65:1 | 4.5 | ✓ |
+| `bright.white` | `terminal.background` | 15.44:1 | 4.5 | ✓ |

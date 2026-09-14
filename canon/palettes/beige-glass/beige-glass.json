@@ -2,6 +2,12 @@
   "meta": {
     "name": "Beige glass",
     "slug": "beige-glass",
+    "family": "Beige",
+    "code": "BE-D",
+    "variant": "day",
+    "temperature": "warm",
+    "accent": "gold",
+    "material": "glass",
     "role": "production light",
     "version": "2.0.0",
     "language": "yoshiki",

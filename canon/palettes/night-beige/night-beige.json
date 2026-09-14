@@ -2,6 +2,12 @@
   "meta": {
     "name": "Night beige",
     "slug": "night-beige",
+    "family": "Beige",
+    "code": "BE-N",
+    "variant": "night",
+    "temperature": "warm",
+    "accent": "gold",
+    "material": "glass",
     "role": "production dark",
     "version": "2.0.0",
     "language": "yoshiki",

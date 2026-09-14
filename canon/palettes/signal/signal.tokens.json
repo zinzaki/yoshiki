@@ -1,0 +1,433 @@
+{
+  "$description": "yoshiki signal — W3C DTCG design tokens (generated)",
+  "color": {
+    "ink": {
+      "0": {
+        "$value": "#0C0D0E",
+        "$type": "color"
+      },
+      "1": {
+        "$value": "#101214",
+        "$type": "color"
+      },
+      "2": {
+        "$value": "#15171A",
+        "$type": "color"
+      },
+      "3": {
+        "$value": "#262A2E",
+        "$type": "color"
+      }
+    },
+    "line": {
+      "0": {
+        "$value": "#323538",
+        "$type": "color"
+      },
+      "1": {
+        "$value": "#4D4F50",
+        "$type": "color"
+      }
+    },
+    "bone": {
+      "0": {
+        "$value": "#F4F1EA",
+        "$type": "color"
+      },
+      "1": {
+        "$value": "#E8E4DA",
+        "$type": "color"
+      },
+      "2": {
+        "$value": "#C5C2B9",
+        "$type": "color"
+      },
+      "3": {
+        "$value": "#9A968A",
+        "$type": "color"
+      },
+      "4": {
+        "$value": "#7B786F",
+        "$type": "color"
+      }
+    },
+    "kin": {
+      "0": {
+        "$value": "#E0BE73",
+        "$type": "color"
+      },
+      "1": {
+        "$value": "#D8AF52",
+        "$type": "color"
+      },
+      "2": {
+        "$value": "#AF8F44",
+        "$type": "color"
+      },
+      "3": {
+        "$value": "#5A4B28",
+        "$type": "color"
+      },
+      "w": {
+        "$value": "#312A1A",
+        "$type": "color"
+      }
+    },
+    "kaki": {
+      "1": {
+        "$value": "#D98A55",
+        "$type": "color"
+      }
+    },
+    "washi": {
+      "bg": {
+        "$value": "#E8E4DA",
+        "$type": "color"
+      },
+      "ink": {
+        "$value": "#0C0D0E",
+        "$type": "color"
+      },
+      "line": {
+        "$value": "#9A968A",
+        "$type": "color"
+      }
+    },
+    "aka": {
+      "0": {
+        "$value": "#FF6A5E",
+        "$type": "color"
+      },
+      "1": {
+        "$value": "#FF3D2E",
+        "$type": "color"
+      },
+      "2": {
+        "$value": "#86251E",
+        "$type": "color"
+      },
+      "w": {
+        "$value": "#331513",
+        "$type": "color"
+      }
+    },
+    "sabi": {
+      "$value": "#C76E61",
+      "$type": "color"
+    },
+    "mori": {
+      "0": {
+        "$value": "#AFC27A",
+        "$type": "color"
+      },
+      "1": {
+        "$value": "#56702A",
+        "$type": "color"
+      },
+      "2": {
+        "$value": "#2F3D1B",
+        "$type": "color"
+      },
+      "w": {
+        "$value": "#222B16",
+        "$type": "color"
+      }
+    },
+    "shiro": {
+      "$value": "#FFFFFF",
+      "$type": "color"
+    },
+    "hotaru": {
+      "0": {
+        "$value": "#D4CF96",
+        "$type": "color"
+      },
+      "1": {
+        "$value": "#C2BE84",
+        "$type": "color"
+      },
+      "2": {
+        "$value": "#5F5C3A",
+        "$type": "color"
+      }
+    },
+    "fuji": {
+      "0": {
+        "$value": "#F2B878",
+        "$type": "color"
+      },
+      "1": {
+        "$value": "#EBA15E",
+        "$type": "color"
+      },
+      "2": {
+        "$value": "#6E4A2A",
+        "$type": "color"
+      }
+    },
+    "seiji": {
+      "0": {
+        "$value": "#A6C6AF",
+        "$type": "color"
+      },
+      "1": {
+        "$value": "#8FB39A",
+        "$type": "color"
+      },
+      "2": {
+        "$value": "#3F5A48",
+        "$type": "color"
+      }
+    },
+    "shin": {
+      "2": {
+        "$value": "#202826",
+        "$type": "color"
+      },
+      "3": {
+        "$value": "#141917",
+        "$type": "color"
+      }
+    },
+    "syn": {
+      "keyword": {
+        "$value": "#EC6B55",
+        "$type": "color"
+      },
+      "function": {
+        "$value": "#E8BE62",
+        "$type": "color"
+      },
+      "string": {
+        "$value": "#AFC27A",
+        "$type": "color"
+      },
+      "number": {
+        "$value": "#EBA15E",
+        "$type": "color"
+      },
+      "type": {
+        "$value": "#C2BE84",
+        "$type": "color"
+      },
+      "comment": {
+        "$value": "#8C7F6C",
+        "$type": "color"
+      }
+    }
+  },
+  "role": {
+    "bg-app": {
+      "$value": "{color.ink.0}",
+      "$type": "color"
+    },
+    "bg-surface": {
+      "$value": "{color.ink.1}",
+      "$type": "color"
+    },
+    "bg-raised": {
+      "$value": "{color.ink.2}",
+      "$type": "color"
+    },
+    "bg-hover": {
+      "$value": "{color.ink.3}",
+      "$type": "color"
+    },
+    "border-hairline": {
+      "$value": "{color.line.0}",
+      "$type": "color"
+    },
+    "border-strong": {
+      "$value": "{color.line.1}",
+      "$type": "color"
+    },
+    "border-gold": {
+      "$value": "{color.kin.1}",
+      "$type": "color"
+    },
+    "text-heading": {
+      "$value": "{color.bone.0}",
+      "$type": "color"
+    },
+    "text-body": {
+      "$value": "{color.bone.1}",
+      "$type": "color"
+    },
+    "text-secondary": {
+      "$value": "{color.bone.2}",
+      "$type": "color"
+    },
+    "text-muted": {
+      "$value": "{color.bone.3}",
+      "$type": "color"
+    },
+    "text-ghost": {
+      "$value": "{color.bone.4}",
+      "$type": "color"
+    },
+    "text-gold": {
+      "$value": "{color.kin.1}",
+      "$type": "color"
+    },
+    "text-gold-dim": {
+      "$value": "{color.kin.2}",
+      "$type": "color"
+    },
+    "text-link": {
+      "$value": "{color.kin.1}",
+      "$type": "color"
+    },
+    "action-edge": {
+      "$value": "{color.kin.1}",
+      "$type": "color"
+    },
+    "action-text": {
+      "$value": "{color.kin.1}",
+      "$type": "color"
+    },
+    "action-tint": {
+      "$value": "color-mix(in srgb, #D8AF52 6%, transparent)",
+      "$type": "color"
+    },
+    "action-hover-edge": {
+      "$value": "{color.kin.0}",
+      "$type": "color"
+    },
+    "ok-text": {
+      "$value": "{color.mori.0}",
+      "$type": "color"
+    },
+    "ok-fill": {
+      "$value": "{color.mori.1}",
+      "$type": "color"
+    },
+    "ok-on-fill": {
+      "$value": "{color.shiro}",
+      "$type": "color"
+    },
+    "ok-wash": {
+      "$value": "{color.mori.w}",
+      "$type": "color"
+    },
+    "warn-text": {
+      "$value": "{color.kaki.1}",
+      "$type": "color"
+    },
+    "danger-text": {
+      "$value": "{color.aka.0}",
+      "$type": "color"
+    },
+    "danger-fill": {
+      "$value": "{color.aka.1}",
+      "$type": "color"
+    },
+    "danger-on-fill": {
+      "$value": "{color.ink.0}",
+      "$type": "color"
+    },
+    "danger-wash": {
+      "$value": "{color.aka.w}",
+      "$type": "color"
+    },
+    "info-text": {
+      "$value": "{color.kin.1}",
+      "$type": "color"
+    },
+    "special-text": {
+      "$value": "{color.fuji.1}",
+      "$type": "color"
+    },
+    "effect-glass": {
+      "$value": "{color.ink.2}",
+      "$type": "color"
+    },
+    "effect-sheen": {
+      "$value": "{color.bone.0}",
+      "$type": "color"
+    },
+    "focus-ring": {
+      "$value": "color-mix(in srgb, #D8AF52 40%, transparent)",
+      "$type": "color"
+    },
+    "selection-bg": {
+      "$value": "color-mix(in srgb, #D8AF52 22%, transparent)",
+      "$type": "color"
+    },
+    "syntax-keyword": {
+      "$value": "{color.syn.keyword}",
+      "$type": "color"
+    },
+    "syntax-function": {
+      "$value": "{color.syn.function}",
+      "$type": "color"
+    },
+    "syntax-string": {
+      "$value": "{color.syn.string}",
+      "$type": "color"
+    },
+    "syntax-number": {
+      "$value": "{color.syn.number}",
+      "$type": "color"
+    },
+    "syntax-type": {
+      "$value": "{color.syn.type}",
+      "$type": "color"
+    },
+    "syntax-constant": {
+      "$value": "{color.syn.number}",
+      "$type": "color"
+    },
+    "syntax-comment": {
+      "$value": "{color.syn.comment}",
+      "$type": "color"
+    },
+    "text-primary": {
+      "$value": "{color.bone.1}",
+      "$type": "color"
+    },
+    "bar-fill": {
+      "$value": "{color.bone.1}",
+      "$type": "color"
+    },
+    "bar-text": {
+      "$value": "{color.ink.0}",
+      "$type": "color"
+    },
+    "accent-edge": {
+      "$value": "{color.kin.1}",
+      "$type": "color"
+    },
+    "accent-text": {
+      "$value": "{color.kin.1}",
+      "$type": "color"
+    },
+    "accent-hover": {
+      "$value": "{color.kin.0}",
+      "$type": "color"
+    },
+    "accent-tint": {
+      "$value": "color-mix(in srgb, #D8AF52 6%, transparent)",
+      "$type": "color"
+    },
+    "signal-fill": {
+      "$value": "{color.aka.1}",
+      "$type": "color"
+    },
+    "signal-text": {
+      "$value": "{color.aka.0}",
+      "$type": "color"
+    },
+    "signal-on-fill": {
+      "$value": "{color.ink.0}",
+      "$type": "color"
+    },
+    "signal-wash": {
+      "$value": "{color.aka.w}",
+      "$type": "color"
+    },
+    "glow": {
+      "$value": "{color.aka.1}",
+      "$type": "color"
+    }
+  }
+}

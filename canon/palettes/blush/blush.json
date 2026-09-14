@@ -1,0 +1,514 @@
+{
+  "meta": {
+    "name": "Blush",
+    "slug": "blush",
+    "family": "Blush",
+    "code": "BL-D",
+    "variant": "day",
+    "mode": "light",
+    "temperature": "warm",
+    "accent": "red",
+    "material": "powder",
+    "role": "family",
+    "version": "2.0.0",
+    "language": "yoshiki",
+    "author": "Zinzaki",
+    "edge-floor": 1.5
+  },
+  "semantic": {},
+  "notes": {},
+  "tokens": {
+    "ink-0": "#FFE6E9",
+    "ink-1": "#FFF4F5",
+    "ink-2": "#FFF8F8",
+    "ink-3": "#EDD5D8",
+    "line-0": "#F2C6CC",
+    "line-1": "#B69398",
+    "bone-0": "#0F0809",
+    "bone-1": "#1A1012",
+    "bone-2": "#312528",
+    "bone-3": "#634C51",
+    "bone-4": "#765E63",
+    "kin-0": "#A81226",
+    "kin-1": "#E5132E",
+    "kin-t": "#A80D22",
+    "kin-2": "#A80D22",
+    "kin-3": "#F27C8C",
+    "kin-w": "#FABCC4",
+    "kaki-1": "#794116",
+    "washi-bg": "#161410",
+    "washi-ink": "#D6D2BD",
+    "washi-line": "#322E27",
+    "aka-0": "#A80D22",
+    "aka-1": "#E5132E",
+    "aka-2": "#8A1221",
+    "sabi": "#A43040",
+    "aka-w": "#FAC0C7",
+    "mori-0": "#3E541B",
+    "mori-1": "#56702A",
+    "mori-2": "#2F3D1B",
+    "mori-w": "#D8C9C0",
+    "shiro": "#FFFFFF",
+    "hotaru-0": "#6E6B30",
+    "hotaru-1": "#5C5920",
+    "hotaru-2": "#C9C58F",
+    "fuji-0": "#A85A1F",
+    "fuji-1": "#793F11",
+    "fuji-2": "#E3C2A0",
+    "seiji-0": "#4F7A62",
+    "seiji-1": "#3F6B55",
+    "seiji-2": "#BFD1C4",
+    "shin-2": "#1E2A26",
+    "shin-3": "#141C19",
+    "syn-keyword": "#A2301E",
+    "syn-function": "#6E4F0C",
+    "syn-string": "#46601F",
+    "syn-number": "#804312",
+    "syn-type": "#5C5920",
+    "syn-comment": "#78725F"
+  },
+  "terminal": {
+    "background": "#161410",
+    "foreground": "#D6D2BD",
+    "cursor": "#D8AF52",
+    "selection_background": "#3A3120",
+    "ansi": [
+      "#24211C",
+      "#FF5A4D",
+      "#AFC27A",
+      "#E8BE62",
+      "#8FA8C8",
+      "#C99AAE",
+      "#8FB39A",
+      "#D6D2BD"
+    ],
+    "brights": [
+      "#8A8577",
+      "#FF7A6E",
+      "#C4D28F",
+      "#F2CF7A",
+      "#A9BDD6",
+      "#D9B0C2",
+      "#A6C6AF",
+      "#EAE6D2"
+    ]
+  },
+  "base24": {
+    "base00": "#FFE6E9",
+    "base01": "#FFF4F5",
+    "base02": "#EDD5D8",
+    "base03": "#765E63",
+    "base04": "#634C51",
+    "base05": "#1A1012",
+    "base06": "#0F0809",
+    "base07": "#000000",
+    "base08": "#A80D22",
+    "base09": "#804312",
+    "base0A": "#E5132E",
+    "base0B": "#46601F",
+    "base0C": "#3F6B55",
+    "base0D": "#6E4F0C",
+    "base0E": "#A2301E",
+    "base0F": "#A43040",
+    "base10": "#FFF4F5",
+    "base11": "#FFF8F8",
+    "base12": "#FF7A6E",
+    "base13": "#F2CF7A",
+    "base14": "#C4D28F",
+    "base15": "#A6C6AF",
+    "base16": "#A9BDD6",
+    "base17": "#D9B0C2"
+  },
+  "roles": {
+    "bg.app": "ink-0",
+    "bg.surface": "ink-1",
+    "bg.raised": "ink-2",
+    "bg.hover": "ink-3",
+    "border.hairline": "line-0",
+    "border.strong": "line-1",
+    "border.gold": "kin-1",
+    "text.heading": "bone-0",
+    "text.body": "bone-1",
+    "text.secondary": "bone-2",
+    "text.muted": "bone-3",
+    "text.ghost": "bone-4",
+    "text.gold": "kin-t",
+    "text.gold-dim": "kin-2",
+    "text.link": "kin-t",
+    "action.edge": "kin-1",
+    "action.text": "kin-t",
+    "action.tint": "kin-1 @6%",
+    "action.hover.edge": "kin-0",
+    "ok.text": "mori-0",
+    "ok.fill": "mori-1",
+    "ok.on-fill": "shiro",
+    "ok.wash": "mori-w",
+    "warn.text": "kaki-1",
+    "danger.text": "aka-0",
+    "danger.fill": "aka-1",
+    "danger.on-fill": "shiro",
+    "danger.wash": "aka-w",
+    "info.text": "kin-t",
+    "special.text": "fuji-1",
+    "effect.glass": "ink-2",
+    "effect.sheen": "shiro",
+    "focus.ring": "kin-1 @40%",
+    "selection.bg": "kin-1 @22%",
+    "syntax.keyword": "syn-keyword",
+    "syntax.function": "syn-function",
+    "syntax.string": "syn-string",
+    "syntax.number": "syn-number",
+    "syntax.type": "syn-type",
+    "syntax.constant": "syn-number",
+    "syntax.comment": "syn-comment",
+    "text.primary": "bone-1",
+    "bar.fill": "bone-1",
+    "bar.text": "ink-0",
+    "accent.edge": "kin-1",
+    "accent.text": "kin-t",
+    "accent.hover": "kin-0",
+    "accent.tint": "kin-1 @6%",
+    "signal.fill": "aka-1",
+    "signal.text": "aka-0",
+    "signal.on-fill": "shiro",
+    "signal.wash": "aka-w",
+    "glow": "aka-1"
+  },
+  "groups": [
+    {
+      "key": "surface",
+      "label": "lacquer",
+      "note": "the quiet ~70% that carries a screen — warm, never grey",
+      "steps": [
+        {
+          "token": "ink-0",
+          "job": "app · terminal background"
+        },
+        {
+          "token": "ink-1",
+          "job": "panel surface"
+        },
+        {
+          "token": "ink-2",
+          "job": "raised — cards",
+          "tiles": null
+        },
+        {
+          "token": "ink-3",
+          "job": "hover · active · inset"
+        }
+      ]
+    },
+    {
+      "key": "line",
+      "label": "gilding",
+      "note": "gold-tinted edges — an edge needs 3:1, never 4.5",
+      "steps": [
+        {
+          "token": "line-0",
+          "job": "hairline — the default divider"
+        },
+        {
+          "token": "line-1",
+          "job": "strong border — inputs",
+          "frames": null
+        }
+      ]
+    },
+    {
+      "key": "bone",
+      "label": "bone",
+      "note": "text, never pure white — the warm off-white of aged paper",
+      "steps": [
+        {
+          "token": "bone-0",
+          "job": "heading · emphasis"
+        },
+        {
+          "token": "bone-1",
+          "job": "body text"
+        },
+        {
+          "token": "bone-2",
+          "job": "secondary"
+        },
+        {
+          "token": "bone-3",
+          "job": "muted · metadata"
+        },
+        {
+          "token": "bone-4",
+          "job": "ghost · disabled"
+        }
+      ]
+    },
+    {
+      "key": "kin",
+      "label": "gold",
+      "note": "the seam — line, edge, frame, glyph. Never a filled slab.",
+      "steps": [
+        {
+          "token": "kin-0",
+          "job": "glow — hover edge"
+        },
+        {
+          "token": "kin-1",
+          "job": "GOLD — action",
+          "link": null,
+          "cursor": null
+        },
+        {
+          "token": "kin-t",
+          "job": "text-safe gold on paper (washi only)",
+          "optional": true
+        },
+        {
+          "token": "kin-2",
+          "job": "dim gold — labels",
+          "glyphs": null
+        },
+        {
+          "token": "kin-3",
+          "job": "deep gold"
+        },
+        {
+          "token": "kin-w",
+          "job": "wash — selection",
+          "tint fills": null
+        }
+      ]
+    },
+    {
+      "key": "kaki",
+      "label": "persimmon",
+      "note": "warning — the lamp, not the alarm",
+      "steps": [
+        {
+          "token": "kaki-1",
+          "job": "warning · lamp · threshold crossed"
+        }
+      ]
+    },
+    {
+      "key": "aka",
+      "label": "scarlet",
+      "note": "the bloom — the irreversible. One per screen; it may fill.",
+      "steps": [
+        {
+          "token": "aka-0",
+          "job": "text-safe scarlet"
+        },
+        {
+          "token": "aka-1",
+          "job": "SPIDER LILY — the trigger",
+          "may fill": null
+        },
+        {
+          "token": "aka-2",
+          "job": "red lacquer — pressed"
+        },
+        {
+          "token": "aka-w",
+          "job": "wash — error field",
+          "diff-del": null
+        },
+        {
+          "token": "sabi",
+          "job": "dusty rust — calm red contexts"
+        }
+      ]
+    },
+    {
+      "key": "mori",
+      "label": "moss",
+      "note": "life, growth, confirmation — the quiet pair of scarlet",
+      "steps": [
+        {
+          "token": "mori-0",
+          "job": "text-safe moss"
+        },
+        {
+          "token": "mori-1",
+          "job": "MOSS — success",
+          "may fill": null
+        },
+        {
+          "token": "mori-2",
+          "job": "pine depth"
+        },
+        {
+          "token": "mori-w",
+          "job": "wash — diff-add"
+        }
+      ]
+    },
+    {
+      "key": "onfill",
+      "label": "on-fill",
+      "note": "the only pure white — a label on a filled trigger, where legibility outranks warmth",
+      "steps": [
+        {
+          "token": "shiro",
+          "job": "text on danger.fill · ok.fill"
+        }
+      ]
+    },
+    {
+      "key": "paper",
+      "label": "paper",
+      "note": "the paper artifact pinned inside the dark — and inverted on paper",
+      "steps": [
+        {
+          "token": "washi-bg",
+          "job": "artifact surface"
+        },
+        {
+          "token": "washi-ink",
+          "job": "artifact text"
+        },
+        {
+          "token": "washi-line",
+          "job": "artifact rule"
+        }
+      ]
+    },
+    {
+      "key": "service",
+      "label": "service",
+      "note": "terminal ANSI and syntax ONLY — these hues never enter the UI",
+      "steps": [
+        {
+          "token": "hotaru-0",
+          "job": "bright blue"
+        },
+        {
+          "token": "hotaru-1",
+          "job": "ansi blue · types"
+        },
+        {
+          "token": "hotaru-2",
+          "job": "deep blue"
+        },
+        {
+          "token": "fuji-0",
+          "job": "bright wisteria"
+        },
+        {
+          "token": "fuji-1",
+          "job": "ansi magenta · constants"
+        },
+        {
+          "token": "fuji-2",
+          "job": "deep wisteria"
+        },
+        {
+          "token": "seiji-0",
+          "job": "bright celadon"
+        },
+        {
+          "token": "seiji-1",
+          "job": "ansi cyan · live data"
+        },
+        {
+          "token": "seiji-2",
+          "job": "deep celadon"
+        },
+        {
+          "token": "shin-2",
+          "job": "deep water — optional second darkness"
+        },
+        {
+          "token": "shin-3",
+          "job": "deepest water"
+        }
+      ]
+    },
+    {
+      "key": "syntax",
+      "label": "syntax",
+      "note": "editor colours — warm bright: coral, gold, olive, amber, dry olive; no blue or pink",
+      "steps": [
+        {
+          "token": "syn-keyword",
+          "job": "keyword · control flow"
+        },
+        {
+          "token": "syn-function",
+          "job": "function · the action"
+        },
+        {
+          "token": "syn-string",
+          "job": "string · content"
+        },
+        {
+          "token": "syn-number",
+          "job": "number · constant"
+        },
+        {
+          "token": "syn-type",
+          "job": "type · shape of data"
+        },
+        {
+          "token": "syn-comment",
+          "job": "comment"
+        }
+      ]
+    }
+  ],
+  "brand": {},
+  "roles_resolved": {
+    "bg.app": "#FFE6E9",
+    "bg.surface": "#FFF4F5",
+    "bg.raised": "#FFF8F8",
+    "bg.hover": "#EDD5D8",
+    "border.hairline": "#F2C6CC",
+    "border.strong": "#B69398",
+    "border.gold": "#E5132E",
+    "text.heading": "#0F0809",
+    "text.body": "#1A1012",
+    "text.secondary": "#312528",
+    "text.muted": "#634C51",
+    "text.ghost": "#765E63",
+    "text.gold": "#A80D22",
+    "text.gold-dim": "#A80D22",
+    "text.link": "#A80D22",
+    "action.edge": "#E5132E",
+    "action.text": "#A80D22",
+    "action.tint": "color-mix(in srgb, #E5132E 6%, transparent)",
+    "action.hover.edge": "#A81226",
+    "ok.text": "#3E541B",
+    "ok.fill": "#56702A",
+    "ok.on-fill": "#FFFFFF",
+    "ok.wash": "#D8C9C0",
+    "warn.text": "#794116",
+    "danger.text": "#A80D22",
+    "danger.fill": "#E5132E",
+    "danger.on-fill": "#FFFFFF",
+    "danger.wash": "#FAC0C7",
+    "info.text": "#A80D22",
+    "special.text": "#793F11",
+    "effect.glass": "#FFF8F8",
+    "effect.sheen": "#FFFFFF",
+    "focus.ring": "color-mix(in srgb, #E5132E 40%, transparent)",
+    "selection.bg": "color-mix(in srgb, #E5132E 22%, transparent)",
+    "syntax.keyword": "#A2301E",
+    "syntax.function": "#6E4F0C",
+    "syntax.string": "#46601F",
+    "syntax.number": "#804312",
+    "syntax.type": "#5C5920",
+    "syntax.constant": "#804312",
+    "syntax.comment": "#78725F",
+    "text.primary": "#1A1012",
+    "bar.fill": "#1A1012",
+    "bar.text": "#FFE6E9",
+    "accent.edge": "#E5132E",
+    "accent.text": "#A80D22",
+    "accent.hover": "#A81226",
+    "accent.tint": "color-mix(in srgb, #E5132E 6%, transparent)",
+    "signal.fill": "#E5132E",
+    "signal.text": "#A80D22",
+    "signal.on-fill": "#FFFFFF",
+    "signal.wash": "#FAC0C7",
+    "glow": "#E5132E"
+  }
+}
