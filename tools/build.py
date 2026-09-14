@@ -23,6 +23,23 @@ WEB = ROOT / "library" / "web"            # the shipped web kit
 ORDER = ["night-beige", "beige-glass"]
 DARK, LIGHT = ORDER
 
+# v2 role contract (canon/language/roles.md) → the v1 role each one currently resolves
+# from. A palette may declare the v2 name directly; the alias only fills a gap.
+ROLE_ALIASES = {
+    "text.primary": "text.body",
+    "bar.fill": "text.body",
+    "bar.text": "bg.app",
+    "accent.edge": "action.edge",
+    "accent.text": "text.gold",
+    "accent.hover": "action.hover.edge",
+    "accent.tint": "action.tint",
+    "signal.fill": "danger.fill",
+    "signal.text": "danger.text",
+    "signal.on-fill": "danger.on-fill",
+    "signal.wash": "danger.wash",
+    "glow": "danger.fill",
+}
+
 CHECK = "--check" in sys.argv
 drift: list[str] = []
 
@@ -58,6 +75,9 @@ def resolve(raw: dict, parent: dict | None) -> dict:
 
     roles = dict(parent["roles"]) if parent else {}
     roles.update(raw.get("roles", {}))
+    for new, old in ROLE_ALIASES.items():     # v2 contract names, resolved from the v1 roles
+        if old in roles:
+            roles.setdefault(new, roles[old])
     out["roles"] = roles
 
     # groups describe the tokens as scales; a variant inherits the parent's map
@@ -1133,11 +1153,12 @@ TEXT_ROLES = [
 EDGE_ROLES = [("border.gold", 3.0), ("action.edge", 3.0), ("action.hover.edge", 3.0)]
 # syntax renders on the theme's own page (the editor follows the theme; only the
 # integrated terminal stays a dark island)
-SYNTAX_ROLES = [("syntax.keyword", 4.5), ("syntax.string", 4.5), ("syntax.number", 4.5),
+SYNTAX_ROLES = [("syntax.keyword", 4.5), ("syntax.function", 4.5), ("syntax.string", 4.5), ("syntax.number", 4.5),
                 ("syntax.type", 4.5), ("syntax.constant", 4.5), ("syntax.comment", 3.0)]
 # a wash is the tinted field its own text sits in; a fill is the trigger itself,
 # and the label standing on it is the easiest contrast to forget
-WASH_PAIRS = [("ok.text", "ok.wash", 4.5), ("danger.text", "danger.wash", 4.5),
+WASH_PAIRS = [("bar.text", "bar.fill", 4.5),
+              ("ok.text", "ok.wash", 4.5), ("danger.text", "danger.wash", 4.5),
               ("ok.on-fill", "ok.fill", 4.5), ("danger.on-fill", "danger.fill", 4.5)]
 ANSI_FLOOR = 4.5   # every foreground colour over the terminal background
 

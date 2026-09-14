@@ -89,11 +89,24 @@ export const themes = {
       "focus-ring": "color-mix(in srgb, #D8AF52 40%, transparent)",
       "selection-bg": "color-mix(in srgb, #D8AF52 22%, transparent)",
       "syntax-keyword": "#EC6B55",
+      "syntax-function": "#E8BE62",
       "syntax-string": "#AFC27A",
       "syntax-number": "#EBA15E",
       "syntax-type": "#C2BE84",
       "syntax-constant": "#EBA15E",
-      "syntax-comment": "#8C7F6C"
+      "syntax-comment": "#8C7F6C",
+      "text-primary": "#D6D2BD",
+      "bar-fill": "#D6D2BD",
+      "bar-text": "#161410",
+      "accent-edge": "#D8AF52",
+      "accent-text": "#D8AF52",
+      "accent-hover": "#EDC85C",
+      "accent-tint": "color-mix(in srgb, #D8AF52 6%, transparent)",
+      "signal-fill": "#E3001B",
+      "signal-text": "#FF6155",
+      "signal-on-fill": "#FFFFFF",
+      "signal-wash": "#3A1412",
+      "glow": "#E3001B"
     }
   },
   "beige-glass": {
@@ -183,11 +196,24 @@ export const themes = {
       "focus-ring": "color-mix(in srgb, #A8852F 40%, transparent)",
       "selection-bg": "color-mix(in srgb, #A8852F 22%, transparent)",
       "syntax-keyword": "#A2301E",
+      "syntax-function": "#6E4F0C",
       "syntax-string": "#46601F",
       "syntax-number": "#804312",
       "syntax-type": "#5C5920",
       "syntax-constant": "#804312",
-      "syntax-comment": "#78725F"
+      "syntax-comment": "#78725F",
+      "text-primary": "#454138",
+      "bar-fill": "#454138",
+      "bar-text": "#D6D2BD",
+      "accent-edge": "#A8852F",
+      "accent-text": "#533E13",
+      "accent-hover": "#7A5E24",
+      "accent-tint": "color-mix(in srgb, #A8852F 6%, transparent)",
+      "signal-fill": "#E3001B",
+      "signal-text": "#A00019",
+      "signal-on-fill": "#FFFFFF",
+      "signal-wash": "#EBCFC6",
+      "glow": "#E3001B"
     }
   }
 };

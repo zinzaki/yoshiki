@@ -87,11 +87,24 @@
   --r-focus-ring: color-mix(in srgb, var(--kin-1) 40%, transparent);
   --r-selection-bg: color-mix(in srgb, var(--kin-1) 22%, transparent);
   --r-syntax-keyword: var(--syn-keyword);
+  --r-syntax-function: var(--syn-function);
   --r-syntax-string: var(--syn-string);
   --r-syntax-number: var(--syn-number);
   --r-syntax-type: var(--syn-type);
   --r-syntax-constant: var(--syn-number);
   --r-syntax-comment: var(--syn-comment);
+  --r-text-primary: var(--bone-1);
+  --r-bar-fill: var(--bone-1);
+  --r-bar-text: var(--ink-0);
+  --r-accent-edge: var(--kin-1);
+  --r-accent-text: var(--kin-1);
+  --r-accent-hover: var(--kin-0);
+  --r-accent-tint: color-mix(in srgb, var(--kin-1) 6%, transparent);
+  --r-signal-fill: var(--aka-1);
+  --r-signal-text: var(--aka-0);
+  --r-signal-on-fill: var(--shiro);
+  --r-signal-wash: var(--aka-w);
+  --r-glow: var(--aka-1);
 }
 [data-theme="beige-glass"]{
   color-scheme: light;
@@ -173,9 +186,22 @@
   --r-focus-ring: color-mix(in srgb, var(--kin-1) 40%, transparent);
   --r-selection-bg: color-mix(in srgb, var(--kin-1) 22%, transparent);
   --r-syntax-keyword: var(--syn-keyword);
+  --r-syntax-function: var(--syn-function);
   --r-syntax-string: var(--syn-string);
   --r-syntax-number: var(--syn-number);
   --r-syntax-type: var(--syn-type);
   --r-syntax-constant: var(--syn-number);
   --r-syntax-comment: var(--syn-comment);
+  --r-text-primary: var(--bone-1);
+  --r-bar-fill: var(--bone-1);
+  --r-bar-text: var(--ink-0);
+  --r-accent-edge: var(--kin-1);
+  --r-accent-text: var(--kin-t);
+  --r-accent-hover: var(--kin-0);
+  --r-accent-tint: color-mix(in srgb, var(--kin-1) 6%, transparent);
+  --r-signal-fill: var(--aka-1);
+  --r-signal-text: var(--aka-0);
+  --r-signal-on-fill: var(--shiro);
+  --r-signal-wash: var(--aka-w);
+  --r-glow: var(--aka-1);
 }

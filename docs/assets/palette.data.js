@@ -383,11 +383,24 @@ window.YOSHIKI = {
     "focus.ring": "color-mix(in srgb, #D8AF52 40%, transparent)",
     "selection.bg": "color-mix(in srgb, #D8AF52 22%, transparent)",
     "syntax.keyword": "#EC6B55",
+    "syntax.function": "#E8BE62",
     "syntax.string": "#AFC27A",
     "syntax.number": "#EBA15E",
     "syntax.type": "#C2BE84",
     "syntax.constant": "#EBA15E",
-    "syntax.comment": "#8C7F6C"
+    "syntax.comment": "#8C7F6C",
+    "text.primary": "#D6D2BD",
+    "bar.fill": "#D6D2BD",
+    "bar.text": "#161410",
+    "accent.edge": "#D8AF52",
+    "accent.text": "#D8AF52",
+    "accent.hover": "#EDC85C",
+    "accent.tint": "color-mix(in srgb, #D8AF52 6%, transparent)",
+    "signal.fill": "#E3001B",
+    "signal.text": "#FF6155",
+    "signal.on-fill": "#FFFFFF",
+    "signal.wash": "#3A1412",
+    "glow": "#E3001B"
    },
    "roleTokens": {
     "bg.app": "ink-0",
@@ -425,11 +438,24 @@ window.YOSHIKI = {
     "focus.ring": "kin-1 @40%",
     "selection.bg": "kin-1 @22%",
     "syntax.keyword": "syn-keyword",
+    "syntax.function": "syn-function",
     "syntax.string": "syn-string",
     "syntax.number": "syn-number",
     "syntax.type": "syn-type",
     "syntax.constant": "syn-number",
-    "syntax.comment": "syn-comment"
+    "syntax.comment": "syn-comment",
+    "text.primary": "bone-1",
+    "bar.fill": "bone-1",
+    "bar.text": "ink-0",
+    "accent.edge": "kin-1",
+    "accent.text": "kin-1",
+    "accent.hover": "kin-0",
+    "accent.tint": "kin-1 @6%",
+    "signal.fill": "aka-1",
+    "signal.text": "aka-0",
+    "signal.on-fill": "shiro",
+    "signal.wash": "aka-w",
+    "glow": "aka-1"
    },
    "terminal": {
     "background": "#161410",
@@ -880,6 +906,14 @@ window.YOSHIKI = {
       "pass": true
      },
      {
+      "role": "syntax.function",
+      "hex": "#E8BE62",
+      "on": "bg.app",
+      "ratio": 10.49,
+      "floor": 4.5,
+      "pass": true
+     },
+     {
       "role": "syntax.string",
       "hex": "#AFC27A",
       "on": "bg.app",
@@ -1004,6 +1038,15 @@ window.YOSHIKI = {
      }
     ],
     "wash": [
+     {
+      "role": "bar.text",
+      "on": "bar.fill",
+      "hex": "#161410",
+      "bg": "#D6D2BD",
+      "ratio": 12.1,
+      "floor": 4.5,
+      "pass": true
+     },
      {
       "role": "ok.text",
       "on": "ok.wash",
@@ -1268,11 +1311,24 @@ window.YOSHIKI = {
     "focus.ring": "color-mix(in srgb, #A8852F 40%, transparent)",
     "selection.bg": "color-mix(in srgb, #A8852F 22%, transparent)",
     "syntax.keyword": "#A2301E",
+    "syntax.function": "#6E4F0C",
     "syntax.string": "#46601F",
     "syntax.number": "#804312",
     "syntax.type": "#5C5920",
     "syntax.constant": "#804312",
-    "syntax.comment": "#78725F"
+    "syntax.comment": "#78725F",
+    "text.primary": "#454138",
+    "bar.fill": "#454138",
+    "bar.text": "#D6D2BD",
+    "accent.edge": "#A8852F",
+    "accent.text": "#533E13",
+    "accent.hover": "#7A5E24",
+    "accent.tint": "color-mix(in srgb, #A8852F 6%, transparent)",
+    "signal.fill": "#E3001B",
+    "signal.text": "#A00019",
+    "signal.on-fill": "#FFFFFF",
+    "signal.wash": "#EBCFC6",
+    "glow": "#E3001B"
    },
    "roleTokens": {
     "bg.app": "ink-0",
@@ -1310,11 +1366,24 @@ window.YOSHIKI = {
     "focus.ring": "kin-1 @40%",
     "selection.bg": "kin-1 @22%",
     "syntax.keyword": "syn-keyword",
+    "syntax.function": "syn-function",
     "syntax.string": "syn-string",
     "syntax.number": "syn-number",
     "syntax.type": "syn-type",
     "syntax.constant": "syn-number",
-    "syntax.comment": "syn-comment"
+    "syntax.comment": "syn-comment",
+    "text.primary": "bone-1",
+    "bar.fill": "bone-1",
+    "bar.text": "ink-0",
+    "accent.edge": "kin-1",
+    "accent.text": "kin-t",
+    "accent.hover": "kin-0",
+    "accent.tint": "kin-1 @6%",
+    "signal.fill": "aka-1",
+    "signal.text": "aka-0",
+    "signal.on-fill": "shiro",
+    "signal.wash": "aka-w",
+    "glow": "aka-1"
    },
    "terminal": {
     "background": "#161410",
@@ -1765,6 +1834,14 @@ window.YOSHIKI = {
       "pass": true
      },
      {
+      "role": "syntax.function",
+      "hex": "#6E4F0C",
+      "on": "bg.app",
+      "ratio": 4.96,
+      "floor": 4.5,
+      "pass": true
+     },
+     {
       "role": "syntax.string",
       "hex": "#46601F",
       "on": "bg.app",
@@ -1889,6 +1966,15 @@ window.YOSHIKI = {
      }
     ],
     "wash": [
+     {
+      "role": "bar.text",
+      "on": "bar.fill",
+      "hex": "#D6D2BD",
+      "bg": "#454138",
+      "ratio": 6.68,
+      "floor": 4.5,
+      "pass": true
+     },
      {
       "role": "ok.text",
       "on": "ok.wash",

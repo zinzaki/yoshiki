@@ -45,11 +45,24 @@ module.exports = {
                   "focus-ring": "var(--r-focus-ring)",
                   "selection-bg": "var(--r-selection-bg)",
                   "syntax-keyword": "var(--r-syntax-keyword)",
+                  "syntax-function": "var(--r-syntax-function)",
                   "syntax-string": "var(--r-syntax-string)",
                   "syntax-number": "var(--r-syntax-number)",
                   "syntax-type": "var(--r-syntax-type)",
                   "syntax-constant": "var(--r-syntax-constant)",
-                  "syntax-comment": "var(--r-syntax-comment)"
+                  "syntax-comment": "var(--r-syntax-comment)",
+                  "text-primary": "var(--r-text-primary)",
+                  "bar-fill": "var(--r-bar-fill)",
+                  "bar-text": "var(--r-bar-text)",
+                  "accent-edge": "var(--r-accent-edge)",
+                  "accent-text": "var(--r-accent-text)",
+                  "accent-hover": "var(--r-accent-hover)",
+                  "accent-tint": "var(--r-accent-tint)",
+                  "signal-fill": "var(--r-signal-fill)",
+                  "signal-text": "var(--r-signal-text)",
+                  "signal-on-fill": "var(--r-signal-on-fill)",
+                  "signal-wash": "var(--r-signal-wash)",
+                  "glow": "var(--r-glow)"
         },
         yt: {
                   "ink": {

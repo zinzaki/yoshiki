@@ -42,11 +42,13 @@ that column is the real test. Gilding is measured at the 3:1 non-text floor
 | role | on | ratio | floor | |
 |---|---|---|---|---|
 | `syntax.keyword` | `bg.app` | 5.96:1 | 4.5 | ✓ |
+| `syntax.function` | `bg.app` | 10.49:1 | 4.5 | ✓ |
 | `syntax.string` | `bg.app` | 9.48:1 | 4.5 | ✓ |
 | `syntax.number` | `bg.app` | 8.58:1 | 4.5 | ✓ |
 | `syntax.type` | `bg.app` | 9.63:1 | 4.5 | ✓ |
 | `syntax.constant` | `bg.app` | 8.58:1 | 4.5 | ✓ |
 | `syntax.comment` | `bg.app` | 4.7:1 | 3.0 | ✓ |
+| `bar.text` | `bar.fill` | 12.1:1 | 4.5 | ✓ |
 | `ok.text` | `ok.wash` | 8.03:1 | 4.5 | ✓ |
 | `danger.text` | `danger.wash` | 5.5:1 | 4.5 | ✓ |
 | `ok.on-fill` | `ok.fill` | 5.6:1 | 4.5 | ✓ |
@@ -100,11 +102,13 @@ that column is the real test. Gilding is measured at the 3:1 non-text floor
 | role | on | ratio | floor | |
 |---|---|---|---|---|
 | `syntax.keyword` | `bg.app` | 4.64:1 | 4.5 | ✓ |
+| `syntax.function` | `bg.app` | 4.96:1 | 4.5 | ✓ |
 | `syntax.string` | `bg.app` | 4.68:1 | 4.5 | ✓ |
 | `syntax.number` | `bg.app` | 5.06:1 | 4.5 | ✓ |
 | `syntax.type` | `bg.app` | 4.76:1 | 4.5 | ✓ |
 | `syntax.constant` | `bg.app` | 5.06:1 | 4.5 | ✓ |
 | `syntax.comment` | `bg.app` | 3.16:1 | 3.0 | ✓ |
+| `bar.text` | `bar.fill` | 6.68:1 | 4.5 | ✓ |
 | `ok.text` | `ok.wash` | 6.04:1 | 4.5 | ✓ |
 | `danger.text` | `danger.wash` | 5.69:1 | 4.5 | ✓ |
 | `ok.on-fill` | `ok.fill` | 5.6:1 | 4.5 | ✓ |

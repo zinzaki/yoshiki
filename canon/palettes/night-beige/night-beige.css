@@ -84,9 +84,22 @@
   --r-focus-ring: color-mix(in srgb, #D8AF52 40%, transparent);
   --r-selection-bg: color-mix(in srgb, #D8AF52 22%, transparent);
   --r-syntax-keyword: #EC6B55;
+  --r-syntax-function: #E8BE62;
   --r-syntax-string: #AFC27A;
   --r-syntax-number: #EBA15E;
   --r-syntax-type: #C2BE84;
   --r-syntax-constant: #EBA15E;
   --r-syntax-comment: #8C7F6C;
+  --r-text-primary: #D6D2BD;
+  --r-bar-fill: #D6D2BD;
+  --r-bar-text: #161410;
+  --r-accent-edge: #D8AF52;
+  --r-accent-text: #D8AF52;
+  --r-accent-hover: #EDC85C;
+  --r-accent-tint: color-mix(in srgb, #D8AF52 6%, transparent);
+  --r-signal-fill: #E3001B;
+  --r-signal-text: #FF6155;
+  --r-signal-on-fill: #FFFFFF;
+  --r-signal-wash: #3A1412;
+  --r-glow: #E3001B;
 }

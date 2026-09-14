@@ -246,6 +246,7 @@ roles:
   focus.ring: kin-1 @40%
   selection.bg: kin-1 @22%
   syntax.keyword: syn-keyword
+  syntax.function: syn-function
   syntax.string: syn-string
   syntax.number: syn-number
   syntax.type: syn-type

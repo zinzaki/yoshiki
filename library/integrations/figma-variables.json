@@ -331,6 +331,10 @@
         "$value": "#EC6B55",
         "$type": "color"
       },
+      "syntax-function": {
+        "$value": "#E8BE62",
+        "$type": "color"
+      },
       "syntax-string": {
         "$value": "#AFC27A",
         "$type": "color"
@@ -349,6 +353,54 @@
       },
       "syntax-comment": {
         "$value": "#8C7F6C",
+        "$type": "color"
+      },
+      "text-primary": {
+        "$value": "#D6D2BD",
+        "$type": "color"
+      },
+      "bar-fill": {
+        "$value": "#D6D2BD",
+        "$type": "color"
+      },
+      "bar-text": {
+        "$value": "#161410",
+        "$type": "color"
+      },
+      "accent-edge": {
+        "$value": "#D8AF52",
+        "$type": "color"
+      },
+      "accent-text": {
+        "$value": "#D8AF52",
+        "$type": "color"
+      },
+      "accent-hover": {
+        "$value": "#EDC85C",
+        "$type": "color"
+      },
+      "accent-tint": {
+        "$value": "color-mix(in srgb, #D8AF52 6%, transparent)",
+        "$type": "color"
+      },
+      "signal-fill": {
+        "$value": "#E3001B",
+        "$type": "color"
+      },
+      "signal-text": {
+        "$value": "#FF6155",
+        "$type": "color"
+      },
+      "signal-on-fill": {
+        "$value": "#FFFFFF",
+        "$type": "color"
+      },
+      "signal-wash": {
+        "$value": "#3A1412",
+        "$type": "color"
+      },
+      "glow": {
+        "$value": "#E3001B",
         "$type": "color"
       }
     },
@@ -685,6 +737,10 @@
         "$value": "#A2301E",
         "$type": "color"
       },
+      "syntax-function": {
+        "$value": "#6E4F0C",
+        "$type": "color"
+      },
       "syntax-string": {
         "$value": "#46601F",
         "$type": "color"
@@ -703,6 +759,54 @@
       },
       "syntax-comment": {
         "$value": "#78725F",
+        "$type": "color"
+      },
+      "text-primary": {
+        "$value": "#454138",
+        "$type": "color"
+      },
+      "bar-fill": {
+        "$value": "#454138",
+        "$type": "color"
+      },
+      "bar-text": {
+        "$value": "#D6D2BD",
+        "$type": "color"
+      },
+      "accent-edge": {
+        "$value": "#A8852F",
+        "$type": "color"
+      },
+      "accent-text": {
+        "$value": "#533E13",
+        "$type": "color"
+      },
+      "accent-hover": {
+        "$value": "#7A5E24",
+        "$type": "color"
+      },
+      "accent-tint": {
+        "$value": "color-mix(in srgb, #A8852F 6%, transparent)",
+        "$type": "color"
+      },
+      "signal-fill": {
+        "$value": "#E3001B",
+        "$type": "color"
+      },
+      "signal-text": {
+        "$value": "#A00019",
+        "$type": "color"
+      },
+      "signal-on-fill": {
+        "$value": "#FFFFFF",
+        "$type": "color"
+      },
+      "signal-wash": {
+        "$value": "#EBCFC6",
+        "$type": "color"
+      },
+      "glow": {
+        "$value": "#E3001B",
         "$type": "color"
       }
     }

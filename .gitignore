@@ -4,3 +4,7 @@ __pycache__/
 node_modules
 style/
 beautiful/
+
+# private references for the workshop — never committed
+workshop/inbox/
+материал/

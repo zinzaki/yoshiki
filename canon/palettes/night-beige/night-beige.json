@@ -147,11 +147,24 @@
     "focus.ring": "kin-1 @40%",
     "selection.bg": "kin-1 @22%",
     "syntax.keyword": "syn-keyword",
+    "syntax.function": "syn-function",
     "syntax.string": "syn-string",
     "syntax.number": "syn-number",
     "syntax.type": "syn-type",
     "syntax.constant": "syn-number",
-    "syntax.comment": "syn-comment"
+    "syntax.comment": "syn-comment",
+    "text.primary": "bone-1",
+    "bar.fill": "bone-1",
+    "bar.text": "ink-0",
+    "accent.edge": "kin-1",
+    "accent.text": "kin-1",
+    "accent.hover": "kin-0",
+    "accent.tint": "kin-1 @6%",
+    "signal.fill": "aka-1",
+    "signal.text": "aka-0",
+    "signal.on-fill": "shiro",
+    "signal.wash": "aka-w",
+    "glow": "aka-1"
   },
   "groups": [
     {
@@ -474,10 +487,23 @@
     "focus.ring": "color-mix(in srgb, #D8AF52 40%, transparent)",
     "selection.bg": "color-mix(in srgb, #D8AF52 22%, transparent)",
     "syntax.keyword": "#EC6B55",
+    "syntax.function": "#E8BE62",
     "syntax.string": "#AFC27A",
     "syntax.number": "#EBA15E",
     "syntax.type": "#C2BE84",
     "syntax.constant": "#EBA15E",
-    "syntax.comment": "#8C7F6C"
+    "syntax.comment": "#8C7F6C",
+    "text.primary": "#D6D2BD",
+    "bar.fill": "#D6D2BD",
+    "bar.text": "#161410",
+    "accent.edge": "#D8AF52",
+    "accent.text": "#D8AF52",
+    "accent.hover": "#EDC85C",
+    "accent.tint": "color-mix(in srgb, #D8AF52 6%, transparent)",
+    "signal.fill": "#E3001B",
+    "signal.text": "#FF6155",
+    "signal.on-fill": "#FFFFFF",
+    "signal.wash": "#3A1412",
+    "glow": "#E3001B"
   }
 }

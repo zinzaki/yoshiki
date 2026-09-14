@@ -361,6 +361,10 @@
       "$value": "{color.syn.keyword}",
       "$type": "color"
     },
+    "syntax-function": {
+      "$value": "{color.syn.function}",
+      "$type": "color"
+    },
     "syntax-string": {
       "$value": "{color.syn.string}",
       "$type": "color"
@@ -379,6 +383,54 @@
     },
     "syntax-comment": {
       "$value": "{color.syn.comment}",
+      "$type": "color"
+    },
+    "text-primary": {
+      "$value": "{color.bone.1}",
+      "$type": "color"
+    },
+    "bar-fill": {
+      "$value": "{color.bone.1}",
+      "$type": "color"
+    },
+    "bar-text": {
+      "$value": "{color.ink.0}",
+      "$type": "color"
+    },
+    "accent-edge": {
+      "$value": "{color.kin.1}",
+      "$type": "color"
+    },
+    "accent-text": {
+      "$value": "{color.kin.t}",
+      "$type": "color"
+    },
+    "accent-hover": {
+      "$value": "{color.kin.0}",
+      "$type": "color"
+    },
+    "accent-tint": {
+      "$value": "color-mix(in srgb, #A8852F 6%, transparent)",
+      "$type": "color"
+    },
+    "signal-fill": {
+      "$value": "{color.aka.1}",
+      "$type": "color"
+    },
+    "signal-text": {
+      "$value": "{color.aka.0}",
+      "$type": "color"
+    },
+    "signal-on-fill": {
+      "$value": "{color.shiro}",
+      "$type": "color"
+    },
+    "signal-wash": {
+      "$value": "{color.aka.w}",
+      "$type": "color"
+    },
+    "glow": {
+      "$value": "{color.aka.1}",
       "$type": "color"
     }
   }
