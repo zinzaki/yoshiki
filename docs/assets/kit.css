@@ -8,7 +8,7 @@
    usage:
      <link rel="stylesheet" href="palette.css">   ← tokens + roles, generated
      <link rel="stylesheet" href="yoshiki.css">   ← this kit
-     <html data-theme="washi">                    ← light; omit for kogane
+     <html data-theme="beige-glass">                    ← light; omit for night-beige
 
    Layers let you take the components without the base element styles:
      @layer yoshiki.components;                   ← in your own sheet
@@ -500,7 +500,7 @@
     white-space:pre-wrap; overflow-x:auto;
   }
   [data-theme] .y-term{
-    /* the island keeps kogane values whatever the page is wearing */
+    /* the island keeps night-beige values whatever the page is wearing */
     --ink-0:#0B0A08; --line-0:#362C1B; --bone-0:#F7EED2; --bone-1:#EDE3C4;
     --bone-3:#96886B; --bone-4:#776A51; --kin-1:#D8AF52;
     --mori-0:#8FAC6F; --aka-0:#D6685D; --seiji-1:#6FA08E; --kaki-1:#C67F45;

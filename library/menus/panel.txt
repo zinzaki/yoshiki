@@ -2,7 +2,7 @@
 
 [ General ]
   language        English
-  theme           kogane
+  theme           night-beige
   startup         restore session
 
 [ Display ]

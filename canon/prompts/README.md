@@ -35,6 +35,6 @@ the relevant module after it:
 
 ## Parameterization
 
-`palette.md` ships with kogane tokens inline. To switch theme, replace the
+`palette.md` ships with night-beige tokens inline. To switch theme, replace the
 token block with the `tokens:` section from `../palette/<theme>/palette.yml`
 — the rules text stays the same.

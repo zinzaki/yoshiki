@@ -20,7 +20,8 @@ PAL = ROOT / "canon" / "palette"          # definition (source of truth)
 LIB = ROOT / "library" / "themes"         # ready-to-use program themes
 DOCS = ROOT / "docs" / "assets"           # site / README assets
 WEB = ROOT / "library" / "web"            # the shipped web kit
-ORDER = ["kogane", "washi"]
+ORDER = ["night-beige", "beige-glass"]
+DARK, LIGHT = ORDER
 
 CHECK = "--check" in sys.argv
 drift: list[str] = []
@@ -602,7 +603,7 @@ def emit_site_data(resolved: dict, proof: dict):
       "window.YOSHIKI = " + body + ";\n")
 
 
-PROMPT_START = "# ── tokens, generated from canon/palette/kogane/palette.yml ──"
+PROMPT_START = "# ── tokens, generated from canon/palette/night-beige/palette.yml ──"
 PROMPT_END = "# ── end tokens ──"
 
 
@@ -660,8 +661,8 @@ def mark_svg(tok: dict, glyph: str, size: int = 32, rounded: bool = True,
 
 
 def emit_mark(resolved: dict):
-    tok = resolved["kogane"]["tokens"]
-    glyph = resolved["kogane"]["brand"]["mark"]
+    tok = resolved[DARK]["tokens"]
+    glyph = resolved[DARK]["brand"]["mark"]
     w(DOCS / "mark.svg", mark_svg(tok, glyph, 32) + "\n")
     w(DOCS / "favicon.svg", mark_svg(tok, glyph, 32) + "\n")
     # the paste-in copy the pages carry: it recolours with the theme
@@ -682,8 +683,8 @@ BANNER_STRIP = ["ink-0", "ink-1", "ink-2", "ink-3", "line-1", "bone-4", "bone-3"
 
 
 def emit_banner(resolved: dict):
-    tok = resolved["kogane"]["tokens"]
-    glyph = resolved["kogane"]["brand"]["mark"]
+    tok = resolved[DARK]["tokens"]
+    glyph = resolved[DARK]["brand"]["mark"]
     W, H = 1280, 420
     PAD = 88
     BAR = 28                      # the full-bleed specimen strip
@@ -801,6 +802,12 @@ def emit_og(tok: dict, glyph: str):
 # A design system nobody can install is a mood board. These are the shapes
 # the surrounding tooling actually asks for, and every one of them is
 # generated — an integration that drifts is worse than none.
+def js_name(slug: str) -> str:
+    """night-beige -> nightBeige: a slug as a JavaScript export name."""
+    head, *rest = slug.split("-")
+    return head + "".join(part.title() for part in rest)
+
+
 def emit_integrations(resolved: dict):
     out = ROOT / "library" / "integrations"
     base, var = resolved[ORDER[0]], resolved[ORDER[1]]
@@ -875,8 +882,7 @@ def emit_integrations(resolved: dict):
           "// they follow the theme, and these do not.",
           "export const version = " + json.dumps(ver) + ";",
           "export const themes = " + json.dumps(themes_js, indent=2, ensure_ascii=False) + ";",
-          "export const kogane = themes.kogane;",
-          "export const washi = themes.washi;",
+          *[f"export const {js_name(s)} = themes[{json.dumps(s)}];" for s in ORDER],
           "export default themes;"]
     w(out / "tokens.mjs", "\n".join(js) + "\n")
 
@@ -890,8 +896,7 @@ def emit_integrations(resolved: dict):
            "}",
            "export declare const version: string;",
            "export declare const themes: Record<ThemeName, Theme>;",
-           "export declare const kogane: Theme;",
-           "export declare const washi: Theme;",
+           *[f"export declare const {js_name(s)}: Theme;" for s in ORDER],
            "declare const _default: Record<ThemeName, Theme>;",
            "export default _default;"]
     w(out / "tokens.d.ts", "\n".join(dts) + "\n")
@@ -940,8 +945,7 @@ def emit_integrations(resolved: dict):
             "./kit.css": "./library/web/yoshiki.css",
             "./tailwind": "./library/integrations/tailwind.cjs",
             "./figma": "./library/integrations/figma-variables.json",
-            "./tokens/kogane": "./canon/palette/kogane/kogane.tokens.json",
-            "./tokens/washi": "./canon/palette/washi/washi.tokens.json",
+            **{f"./tokens/{s}": f"./canon/palette/{s}/{s}.tokens.json" for s in ORDER},
             "./package.json": "./package.json",
         },
         "files": ["canon/palette", "library/web", "library/integrations",
@@ -955,9 +959,9 @@ def stamp_brand(resolved: dict):
     means changing `brand.mark` has to reach five HTML files. Doing that by hand
     is exactly the drift this repository exists to refuse, so the build owns it
     and `--check` catches a page that fell behind."""
-    tok = resolved["kogane"]["tokens"]
-    glyph = resolved["kogane"]["brand"]["mark"]
-    word = resolved["kogane"]["brand"]["wordmark"]
+    tok = resolved[DARK]["tokens"]
+    glyph = resolved[DARK]["brand"]["mark"]
+    word = resolved[DARK]["brand"]["wordmark"]
     inline = mark_svg(tok, glyph, 26, live=True)
     import re as _re
     pat = _re.compile(r'(<a class="brand" href="index\.html">).*?(</a>)', _re.S)
@@ -1073,7 +1077,7 @@ def emit_preview(resolved: dict):
     """docs/assets/palette.svg — the two-theme palette strip shown in the README."""
     mono = "ui-monospace,SFMono-Regular,Menlo,Consolas,monospace"
     parts = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 360" '
-             f'font-family="{mono}" role="img" aria-label="yoshiki palette — kogane and washi">']
+             f'font-family="{mono}" role="img" aria-label="yoshiki palette — {resolved[DARK]['meta']['name']} and {resolved[LIGHT]['meta']['name']}">']
     for i, p in enumerate(resolved.values()):
         tok, y = p["tokens"], i * 184
         parts.append(f'<rect x="20" y="{y + 4}" width="880" height="168" rx="14" '
@@ -1220,8 +1224,8 @@ def main():
 
     for slug in ORDER:
         emit(slug, resolved[slug])
-    emit_terminal_ui(resolved["kogane"])
-    emit_terminal_svg(resolved["kogane"])
+    emit_terminal_ui(resolved[DARK])
+    emit_terminal_svg(resolved[DARK])
     emit_preview(resolved)
 
     proofs = {slug: measure(pal) for slug, pal in resolved.items()}
@@ -1233,7 +1237,7 @@ def main():
     emit_mark(resolved)
     emit_banner(resolved)
     emit_integrations(resolved)
-    emit_palette_prompt(resolved["kogane"])
+    emit_palette_prompt(resolved[DARK])
 
     if CHECK:
         for f in drift:

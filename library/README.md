@@ -27,4 +27,4 @@
    roles and glyphs it uses, so it stays correctable when the canon shifts.
 3. **One artifact, one file, one purpose** — modular: take a single piece
    without dragging the rest.
-4. **Both themes** — anything color-bearing works in kogane and washi.
+4. **Both themes** — anything color-bearing works in night-beige and beige-glass.

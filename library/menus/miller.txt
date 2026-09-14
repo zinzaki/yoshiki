@@ -1,7 +1,7 @@
 # miller columns — parent · current · preview (yazi-style navigation)
 
- canon/         │ ❯ palette/     │ kogane/
- library/       │   lexicon/     │ washi/
+ canon/         │ ❯ palette/     │ night-beige/
+ library/       │   lexicon/     │ beige-glass/
  tools/         │   prompts/     │ README.md
                 │                │
  where you were   where you are    where it leads

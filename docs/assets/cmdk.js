@@ -28,8 +28,8 @@
     const th = Y.themes ? Y.themes[root.dataset.theme] : null;
     const out = [];
     PAGES.forEach(([label, href]) => out.push({kind:'page', name:label, go:href}));
-    out.push({kind:'action', name:'Switch to kogane (dark)', act:() => theme('kogane')});
-    out.push({kind:'action', name:'Switch to washi (light)', act:() => theme('washi')});
+    out.push({kind:'action', name:'Switch to night-beige (dark)', act:() => theme('night-beige')});
+    out.push({kind:'action', name:'Switch to beige-glass (light)', act:() => theme('beige-glass')});
     if (th){
       Object.entries(th.roles).forEach(([n, v]) =>
         out.push({kind:'role', name:n, value:v, copy:'var(--r-' + n.replace(/\./g,'-') + ')',

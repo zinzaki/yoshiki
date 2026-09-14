@@ -12,7 +12,7 @@
 warm near-black lacquer background (`#0B0A08`, deep brown-gold undertone, never a
 neutral grey or pure black) · bone / ivory light · fine aged-gold (`#D8AF52`)
 hairlines like kintsugi seams, **never** gold fills · at most ONE saturated accent:
-spider-lily scarlet (`#d8392e`), the only saturated colour · sumi-e ink-brush meets
+spider-lily scarlet (`#E3001B`), the only saturated colour · sumi-e ink-brush meets
 modern editorial · large calm negative space · soft volumetric depth · subtle warm
 film grain · museum quality.
 

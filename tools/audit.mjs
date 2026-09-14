@@ -107,15 +107,15 @@ const STRUCT = () => {
   const b = await chromium.launch({executablePath: EXE,
                                    args:['--no-sandbox','--disable-dev-shm-usage']});
   for (const name of ['index','palette','components','lexicon','themes']){
-    for (const theme of ['kogane','washi']){
-      const ctx = await b.newContext({viewport:{width:1440,height:1000}, colorScheme: theme === 'washi' ? 'light' : 'dark'});
+    for (const theme of ['night-beige','beige-glass']){
+      const ctx = await b.newContext({viewport:{width:1440,height:1000}, colorScheme: theme === 'beige-glass' ? 'light' : 'dark'});
       const p = await ctx.newPage();
       await p.goto('file://' + SITE + name + '.html', {waitUntil:'domcontentloaded'});
       await p.evaluate(t => document.documentElement.dataset.theme = t, theme);
       await p.evaluate(() => document.querySelectorAll('.rv').forEach(e => e.setAttribute('data-in','')));
       await p.waitForTimeout(350);
       const bad = await p.evaluate(PROBE);
-      const st = theme === 'kogane' ? await p.evaluate(STRUCT) : [];
+      const st = theme === 'night-beige' ? await p.evaluate(STRUCT) : [];
       const seen = new Set();
       const uniq = bad.filter(x => { const k = x.sel + x.ratio; if (seen.has(k)) return false; seen.add(k); return true; });
       if (uniq.length || st.length){

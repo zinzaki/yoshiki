@@ -10,8 +10,8 @@ only the **stage** (surfaces and which family carries text) changes.
 
 | Theme | Mode | One line |
 |---|---|---|
-| **kogane** | dark | warm lacquer darkness; gold gilds the edges, never fills |
-| **washi** | light | paper and sumi ink; the terminal stays a dark island |
+| **Night beige** | dark | warm beige on deep lacquer; gold gilds the edges, never fills |
+| **Beige glass** | light | NieR beige and ink; the terminal stays a dark island |
 
 ## The gold law (both themes)
 
@@ -27,7 +27,7 @@ contract — `text.body`, `action.edge`, `danger.fill`, `border.gold`. Always
 consume a *role*, never a raw token: a role guarantees the right contrast and
 the right behaviour in both themes. The classic trap — gold readable as an
 edge but not as text — is split into `border.gold` (decorative, ≥3:1) and
-`text.gold` (≥4.5:1, which washi quietly remaps to a darker gold). You cannot
+`text.gold` (≥4.5:1, which Beige glass quietly remaps to a darker gold). You cannot
 pick wrong if you reach for the role.
 
 `<slug>.css` ships both: raw `--ink-0…` and semantic `--r-text-body…`.
@@ -49,12 +49,12 @@ Ready-to-use program themes are generated OUT of here, into
 (the full list lives in library/themes/README.md).
 ```
 
-washi declares `inherits: kogane` and overrides only its deltas — regenerate
+Beige glass is a standalone palette, not a delta over the dark one — regenerate
 all exports with `python3 ../tools/build.py`.
 
 ## Invariants
 
-- triggers: spider-lily scarlet `#d8392e` (irreversible, one per screen) · moss `#52703F` (life)
+- triggers: spider-lily scarlet `#E3001B` (irreversible, one per screen) · moss `#56702A` (life)
 - warning: persimmon · info: tone, never blue
 - ANSI-16 accents shared; only backgrounds/cursor differ
 - contrast floors verified (WCAG) on every surface: text ≥ 4.5:1, ghost and gilding ≥ 3:1

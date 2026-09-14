@@ -1,6 +1,6 @@
 {
   "name": "yoshiki-design",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "A design language for terminals, editors and the web: warm monochrome, struck rarely by colour. Tokens with a proven roles contract, a component stylesheet, and thirteen generated themes.",
   "keywords": [
     "design-system",
@@ -42,8 +42,8 @@
     "./kit.css": "./library/web/yoshiki.css",
     "./tailwind": "./library/integrations/tailwind.cjs",
     "./figma": "./library/integrations/figma-variables.json",
-    "./tokens/kogane": "./canon/palette/kogane/kogane.tokens.json",
-    "./tokens/washi": "./canon/palette/washi/washi.tokens.json",
+    "./tokens/night-beige": "./canon/palette/night-beige/night-beige.tokens.json",
+    "./tokens/beige-glass": "./canon/palette/beige-glass/beige-glass.tokens.json",
     "./package.json": "./package.json"
   },
   "files": [

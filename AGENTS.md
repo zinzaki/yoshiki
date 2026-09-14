@@ -12,7 +12,7 @@ only the module your task needs.
 3. [`canon/principles/defaults.md`](canon/principles/defaults.md) — concrete fallbacks for every unspecified choice.
 4. [`canon/palette/<theme>/palette.yml`](canon/palette/) — tokens **and** the ROLES contract.
    Consume a *role* (`text.body`, `action.edge`, `danger.fill`), never a raw token —
-   a role guarantees the right contrast in both themes. kogane (dark) · washi (light).
+   a role guarantees the right contrast in both themes. night-beige (dark) · beige-glass (light).
 5. The module for your task — load on demand:
    - color / UI → `canon/palette/` + `canon/prompts/palette.md`
    - buttons, forms, tables, dialogs → `canon/components/` + `canon/prompts/components.md`
@@ -44,7 +44,7 @@ only the module your task needs.
 
 ## Two themes, one language
 Only the stage changes (which surfaces, which family carries text); the triggers and
-every rule are identical. The terminal always stays a dark island — even in washi (light).
+every rule are identical. The terminal always stays a dark island — even in beige-glass (light).
 
 ## When you output
 Match the surrounding code and voice. Everything must survive a monospace,

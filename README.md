@@ -43,8 +43,8 @@ Three rules hold the whole system up:
 | **Gold gilds, never fills** | gold is a line, edge, frame or glyph — a primary button is a *gold-framed* surface with gold text, never a gold rectangle |
 | **Rarity is the mechanism** | one accent per view, at most one scarlet per screen; unsure whether to add a colour — don't |
 
-Two themes carry the same rules: **kogane** (dark lacquer) and **washi** (paper
-and ink). Only the stage changes. The terminal never inverts — it stays a dark
+Two themes carry the same rules: **Night beige** (dark) and **Beige glass**
+(light). Only the stage changes. The terminal never inverts — it stays a dark
 island, even pinned to paper.
 
 <img src="docs/assets/terminal.svg" alt="a yoshiki terminal — gold prompt frame, moss checks, one scarlet cross" width="820">
@@ -58,7 +58,7 @@ island, even pinned to paper.
 ```html
 <link rel="stylesheet" href="library/web/palette.css">  <!-- tokens + roles -->
 <link rel="stylesheet" href="library/web/yoshiki.css">  <!-- the component kit -->
-<html data-theme="washi">                               <!-- light; omit for dark -->
+<html data-theme="beige-glass">                               <!-- light; omit for dark -->
 ```
 
 **npm** — the same files, plus typed values and a Tailwind preset:
@@ -70,7 +70,7 @@ npm i yoshiki-design
 ```js
 import 'yoshiki-design/css';                     // tokens + roles
 import 'yoshiki-design/kit.css';                 // the component kit
-import { kogane, washi } from 'yoshiki-design';  // resolved values, typed
+import { nightBeige, beigeGlass } from 'yoshiki-design';  // resolved values, typed
 
 // tailwind.config.js
 module.exports = { presets: [require('yoshiki-design/tailwind')] };
@@ -79,8 +79,8 @@ module.exports = { presets: [require('yoshiki-design/tailwind')] };
 **Terminal or editor** — copy one file:
 
 ```bash
-library/themes/kitty/kogane.conf     # or ghostty · foot · alacritty · wezterm
-library/themes/vscode/kogane.json    # or neovim · starship · tmux · zellij · btop · fzf
+library/themes/kitty/night-beige.conf    # or ghostty · foot · alacritty · wezterm
+library/themes/vscode/night-beige.json   # or neovim · starship · tmux · zellij · btop · fzf
 ```
 
 **An AI agent** — point it at the repository and it reads [`AGENTS.md`](AGENTS.md)
@@ -112,7 +112,7 @@ That split is what stops the classic mistake. Gold is readable as an *edge* but
 not as a *word*, so the language separates `border.gold` from `text.gold` — and
 on paper only the second one sinks. You cannot pick wrong if you reach for a role.
 
-<img src="docs/assets/palette.svg" alt="kogane and washi palette strips" width="900">
+<img src="docs/assets/palette.svg" alt="Night beige and Beige glass palette strips" width="900">
 
 ---
 
@@ -142,8 +142,8 @@ painted behind every text node rather than trusting the token it was meant to us
 Nothing downstream is maintained by hand.
 
 ```
-canon/palette/kogane/palette.yml          the source of truth
-        │  washi inherits it and overrides only its deltas
+canon/palette/night-beige/palette.yml     the source of truth
+        │  beige-glass is its standalone light companion
         ▼
 tools/build.py
         ├─ 13 program themes    kitty · foot · alacritty · ghostty · wezterm
@@ -200,7 +200,7 @@ An agent given only the repository link can apply the language without being
 told how. [`AGENTS.md`](AGENTS.md) is the map it reads first: the read order, the
 laws it may not break, and which module to load for the task at hand.
 [`llms.txt`](llms.txt) is the machine index, and the palette also ships as
-[W3C design tokens](canon/palette/kogane/kogane.tokens.json) for tooling that
+[W3C design tokens](canon/palette/night-beige/night-beige.tokens.json) for tooling that
 wants structure instead of prose.
 
 ---

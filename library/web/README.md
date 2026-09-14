@@ -15,8 +15,8 @@ colour of its own.
 ```
 
 ```html
-<html>                       <!-- kogane — dark lacquer, the default -->
-<html data-theme="washi">    <!-- washi — paper and ink -->
+<html>                       <!-- night-beige — dark, the default -->
+<html data-theme="beige-glass">    <!-- beige-glass — light -->
 <html data-density="compact"><!-- tighter padding; type and radius never move -->
 ```
 

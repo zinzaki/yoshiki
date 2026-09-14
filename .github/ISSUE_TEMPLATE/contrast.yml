@@ -19,7 +19,7 @@ body:
     id: theme
     attributes:
       label: Theme
-      options: [kogane (dark), washi (light), both]
+      options: [night-beige (dark), beige-glass (light), both]
     validations: {required: true}
   - type: textarea
     id: where

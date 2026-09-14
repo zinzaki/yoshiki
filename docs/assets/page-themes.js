@@ -11,19 +11,19 @@
   const REPO = 'https://github.com/zinzaki/yoshiki/tree/main/library/themes/';
 
   const TARGETS = {
-    kitty:     ['terminal', 'kogane.conf · washi.conf', 'include the file from kitty.conf', 'include ./kogane.conf'],
-    foot:      ['terminal', 'kogane.ini · washi.ini', 'include it from foot.ini', 'include=~/.config/foot/kogane.ini'],
-    alacritty: ['terminal', 'kogane.toml · washi.toml', 'import it in alacritty.toml', 'import = ["~/.config/alacritty/kogane.toml"]'],
-    ghostty:   ['terminal', 'kogane · washi', 'drop into ~/.config/ghostty/themes/', 'theme = kogane'],
-    wezterm:   ['terminal', 'kogane.toml · washi.toml', 'drop into ~/.config/wezterm/colors/', "config.color_scheme = 'yoshiki kogane'"],
-    vscode:    ['editor', 'kogane.json · washi.json', 'workbench + token colours, a whole theme', '"workbench.colorTheme": "yoshiki kogane"'],
-    neovim:    ['editor', 'kogane.lua · washi.lua', 'copy to colors/ in your runtimepath', ':colorscheme yoshiki-kogane'],
-    starship:  ['prompt', 'kogane.toml · washi.toml', 'a palette block for starship.toml', 'palette = "yoshiki-kogane"'],
-    tmux:      ['multiplexer', 'kogane.tmux · washi.tmux', 'source it from tmux.conf', 'source-file ~/.config/tmux/kogane.tmux'],
-    zellij:    ['multiplexer', 'kogane.kdl · washi.kdl', 'themes dir, spec 0.41+', 'theme "yoshiki-kogane"'],
-    btop:      ['monitor', 'kogane.theme · washi.theme', 'drop into ~/.config/btop/themes/', 'color_theme = "kogane"'],
-    fzf:       ['picker', 'kogane.sh · washi.sh', 'source it, or lift the --color list', 'source ~/.config/fzf/kogane.sh'],
-    base24:    ['scheme', 'kogane.yaml · washi.yaml', 'for the base16 / base24 ecosystems', 'tinty apply yoshiki-kogane']
+    kitty:     ['terminal', 'night-beige.conf · beige-glass.conf', 'include the file from kitty.conf', 'include ./night-beige.conf'],
+    foot:      ['terminal', 'night-beige.ini · beige-glass.ini', 'include it from foot.ini', 'include=~/.config/foot/night-beige.ini'],
+    alacritty: ['terminal', 'night-beige.toml · beige-glass.toml', 'import it in alacritty.toml', 'import = ["~/.config/alacritty/night-beige.toml"]'],
+    ghostty:   ['terminal', 'night-beige · beige-glass', 'drop into ~/.config/ghostty/themes/', 'theme = night-beige'],
+    wezterm:   ['terminal', 'night-beige.toml · beige-glass.toml', 'drop into ~/.config/wezterm/colors/', "config.color_scheme = 'yoshiki night-beige'"],
+    vscode:    ['editor', 'night-beige.json · beige-glass.json', 'workbench + token colours, a whole theme', '"workbench.colorTheme": "yoshiki night-beige"'],
+    neovim:    ['editor', 'night-beige.lua · beige-glass.lua', 'copy to colors/ in your runtimepath', ':colorscheme yoshiki-night-beige'],
+    starship:  ['prompt', 'night-beige.toml · beige-glass.toml', 'a palette block for starship.toml', 'palette = "yoshiki-night-beige"'],
+    tmux:      ['multiplexer', 'night-beige.tmux · beige-glass.tmux', 'source it from tmux.conf', 'source-file ~/.config/tmux/night-beige.tmux'],
+    zellij:    ['multiplexer', 'night-beige.kdl · beige-glass.kdl', 'themes dir, spec 0.41+', 'theme "yoshiki-night-beige"'],
+    btop:      ['monitor', 'night-beige.theme · beige-glass.theme', 'drop into ~/.config/btop/themes/', 'color_theme = "night-beige"'],
+    fzf:       ['picker', 'night-beige.sh · beige-glass.sh', 'source it, or lift the --color list', 'source ~/.config/fzf/night-beige.sh'],
+    base24:    ['scheme', 'night-beige.yaml · beige-glass.yaml', 'for the base16 / base24 ecosystems', 'tinty apply yoshiki-night-beige']
   };
 
   function card(name){
@@ -170,8 +170,8 @@
       fzf: island(
         S(tok['kin-1'], '❯ ') + S(tok['bone-1'], 'pal') + '\n' +
         S(tok['bone-3'], '  3/41 ') + HAIR(tok['line-1'], '───────────────────') + '\n' +
-        S(tok['kin-0'], '▌ ') + S(tok['bone-0'], 'canon/') + S(tok['kin-1'], 'pal') + S(tok['bone-0'], 'ette/kogane') + '\n' +
-        S(tok['bone-3'], '  ') + S(tok['bone-2'], 'canon/') + S(tok['kin-1'], 'pal') + S(tok['bone-2'], 'ette/washi') + '\n' +
+        S(tok['kin-0'], '▌ ') + S(tok['bone-0'], 'canon/') + S(tok['kin-1'], 'pal') + S(tok['bone-0'], 'ette/night-beige') + '\n' +
+        S(tok['bone-3'], '  ') + S(tok['bone-2'], 'canon/') + S(tok['kin-1'], 'pal') + S(tok['bone-2'], 'ette/beige-glass') + '\n' +
         S(tok['bone-3'], '  ') + S(tok['bone-2'], 'library/web/') + S(tok['kin-1'], 'pal') + S(tok['bone-2'], 'ette.css')),
       btop: island(
         S(tok['bone-3'], 'cpu  ') + G(tok['mori-1'], '▁▂▃') + G(tok['kin-2'], '▄▅▆') + G(tok['kin-0'], '▇█') + S(tok['bone-2'], '  42%') + '\n' +

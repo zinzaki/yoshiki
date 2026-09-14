@@ -37,7 +37,7 @@
 
   --grain: .05;
 }
-[data-theme="washi"]{ --grain: .028 }
+[data-theme="beige-glass"]{ --grain: .028 }
 
 html{ scroll-behavior:smooth; scroll-padding-top:96px }
 @media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto } }
@@ -311,7 +311,7 @@ h1{ font-size:var(--t-h1); letter-spacing:-.025em }
              var(--r-text-heading) 58%, var(--kin-1) 88%);
   -webkit-background-clip:text; background-clip:text; color:transparent;
 }
-[data-theme="washi"] .hero__mark .gild{
+[data-theme="beige-glass"] .hero__mark .gild{
   background:linear-gradient(96deg, var(--kin-2) 0%, var(--kin-1) 30%,
              var(--r-text-heading) 62%, var(--kin-2) 92%);
   -webkit-background-clip:text; background-clip:text;

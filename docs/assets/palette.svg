@@ -1,54 +1,54 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 360" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" role="img" aria-label="yoshiki palette — kogane and washi">
-<rect x="20" y="4" width="880" height="168" rx="14" fill="#0B0A08" stroke="#362C1B"/>
-<text x="36" y="46" font-size="15" fill="#F7EED2">kogane<tspan fill="#96886B"> · dark</tspan></text>
-<rect x="36" y="62" width="94" height="52" rx="8" fill="#12100C" stroke="#362C1B"/>
-<text x="36" y="136" font-size="11" fill="#C9BC96">surface</text>
-<text x="36" y="152" font-size="10" fill="#96886B">#12100C</text>
-<rect x="138" y="62" width="94" height="52" rx="8" fill="#262119" stroke="#362C1B"/>
-<text x="138" y="136" font-size="11" fill="#C9BC96">hover</text>
-<text x="138" y="152" font-size="10" fill="#96886B">#262119</text>
-<rect x="240" y="62" width="94" height="52" rx="8" fill="#4C3D24" stroke="#362C1B"/>
-<text x="240" y="136" font-size="11" fill="#C9BC96">border</text>
-<text x="240" y="152" font-size="10" fill="#96886B">#4C3D24</text>
-<rect x="342" y="62" width="94" height="52" rx="8" fill="#EDE3C4" stroke="#362C1B"/>
-<text x="342" y="136" font-size="11" fill="#C9BC96">text</text>
-<text x="342" y="152" font-size="10" fill="#96886B">#EDE3C4</text>
-<rect x="444" y="62" width="94" height="52" rx="8" fill="#D8AF52" stroke="#362C1B"/>
-<text x="444" y="136" font-size="11" fill="#C9BC96">gold</text>
-<text x="444" y="152" font-size="10" fill="#96886B">#D8AF52</text>
-<rect x="546" y="62" width="94" height="52" rx="8" fill="#C67F45" stroke="#362C1B"/>
-<text x="546" y="136" font-size="11" fill="#C9BC96">persimmon</text>
-<text x="546" y="152" font-size="10" fill="#96886B">#C67F45</text>
-<rect x="648" y="62" width="94" height="52" rx="8" fill="#d8392e" stroke="#362C1B"/>
-<text x="648" y="136" font-size="11" fill="#C9BC96">scarlet</text>
-<text x="648" y="152" font-size="10" fill="#96886B">#d8392e</text>
-<rect x="750" y="62" width="94" height="52" rx="8" fill="#52703F" stroke="#362C1B"/>
-<text x="750" y="136" font-size="11" fill="#C9BC96">moss</text>
-<text x="750" y="152" font-size="10" fill="#96886B">#52703F</text>
-<rect x="20" y="188" width="880" height="168" rx="14" fill="#E2D6B4" stroke="#C7B68C"/>
-<text x="36" y="230" font-size="15" fill="#1F1810">washi<tspan fill="#62533B"> · light</tspan></text>
-<rect x="36" y="246" width="94" height="52" rx="8" fill="#EBE1C3" stroke="#C7B68C"/>
-<text x="36" y="320" font-size="11" fill="#4A3D2A">surface</text>
-<text x="36" y="336" font-size="10" fill="#62533B">#EBE1C3</text>
-<rect x="138" y="246" width="94" height="52" rx="8" fill="#D7C9A3" stroke="#C7B68C"/>
-<text x="138" y="320" font-size="11" fill="#4A3D2A">hover</text>
-<text x="138" y="336" font-size="10" fill="#62533B">#D7C9A3</text>
-<rect x="240" y="246" width="94" height="52" rx="8" fill="#AE9C72" stroke="#C7B68C"/>
-<text x="240" y="320" font-size="11" fill="#4A3D2A">border</text>
-<text x="240" y="336" font-size="10" fill="#62533B">#AE9C72</text>
-<rect x="342" y="246" width="94" height="52" rx="8" fill="#2B2117" stroke="#C7B68C"/>
-<text x="342" y="320" font-size="11" fill="#4A3D2A">text</text>
-<text x="342" y="336" font-size="10" fill="#62533B">#2B2117</text>
-<rect x="444" y="246" width="94" height="52" rx="8" fill="#8A6B39" stroke="#C7B68C"/>
-<text x="444" y="320" font-size="11" fill="#4A3D2A">gold</text>
-<text x="444" y="336" font-size="10" fill="#62533B">#8A6B39</text>
-<rect x="546" y="246" width="94" height="52" rx="8" fill="#7D4820" stroke="#C7B68C"/>
-<text x="546" y="320" font-size="11" fill="#4A3D2A">persimmon</text>
-<text x="546" y="336" font-size="10" fill="#62533B">#7D4820</text>
-<rect x="648" y="246" width="94" height="52" rx="8" fill="#d8392e" stroke="#C7B68C"/>
-<text x="648" y="320" font-size="11" fill="#4A3D2A">scarlet</text>
-<text x="648" y="336" font-size="10" fill="#62533B">#d8392e</text>
-<rect x="750" y="246" width="94" height="52" rx="8" fill="#52703F" stroke="#C7B68C"/>
-<text x="750" y="320" font-size="11" fill="#4A3D2A">moss</text>
-<text x="750" y="336" font-size="10" fill="#62533B">#52703F</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 360" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" role="img" aria-label="yoshiki palette — Night beige and Beige glass">
+<rect x="20" y="4" width="880" height="168" rx="14" fill="#161410" stroke="#3A362E"/>
+<text x="36" y="46" font-size="15" fill="#EAE6D2">night-beige<tspan fill="#9A9584"> · dark</tspan></text>
+<rect x="36" y="62" width="94" height="52" rx="8" fill="#1D1B16" stroke="#3A362E"/>
+<text x="36" y="136" font-size="11" fill="#BAB5A1">surface</text>
+<text x="36" y="152" font-size="10" fill="#9A9584">#1D1B16</text>
+<rect x="138" y="62" width="94" height="52" rx="8" fill="#322E27" stroke="#3A362E"/>
+<text x="138" y="136" font-size="11" fill="#BAB5A1">hover</text>
+<text x="138" y="152" font-size="10" fill="#9A9584">#322E27</text>
+<rect x="240" y="62" width="94" height="52" rx="8" fill="#4E493F" stroke="#3A362E"/>
+<text x="240" y="136" font-size="11" fill="#BAB5A1">border</text>
+<text x="240" y="152" font-size="10" fill="#9A9584">#4E493F</text>
+<rect x="342" y="62" width="94" height="52" rx="8" fill="#D6D2BD" stroke="#3A362E"/>
+<text x="342" y="136" font-size="11" fill="#BAB5A1">text</text>
+<text x="342" y="152" font-size="10" fill="#9A9584">#D6D2BD</text>
+<rect x="444" y="62" width="94" height="52" rx="8" fill="#D8AF52" stroke="#3A362E"/>
+<text x="444" y="136" font-size="11" fill="#BAB5A1">gold</text>
+<text x="444" y="152" font-size="10" fill="#9A9584">#D8AF52</text>
+<rect x="546" y="62" width="94" height="52" rx="8" fill="#D98A55" stroke="#3A362E"/>
+<text x="546" y="136" font-size="11" fill="#BAB5A1">persimmon</text>
+<text x="546" y="152" font-size="10" fill="#9A9584">#D98A55</text>
+<rect x="648" y="62" width="94" height="52" rx="8" fill="#E3001B" stroke="#3A362E"/>
+<text x="648" y="136" font-size="11" fill="#BAB5A1">scarlet</text>
+<text x="648" y="152" font-size="10" fill="#9A9584">#E3001B</text>
+<rect x="750" y="62" width="94" height="52" rx="8" fill="#56702A" stroke="#3A362E"/>
+<text x="750" y="136" font-size="11" fill="#BAB5A1">moss</text>
+<text x="750" y="152" font-size="10" fill="#9A9584">#56702A</text>
+<rect x="20" y="188" width="880" height="168" rx="14" fill="#D6D2BD" stroke="#BAB5A1"/>
+<text x="36" y="230" font-size="15" fill="#2E2B24">beige-glass<tspan fill="#534E43"> · light</tspan></text>
+<rect x="36" y="246" width="94" height="52" rx="8" fill="#DCD8C0" stroke="#BAB5A1"/>
+<text x="36" y="320" font-size="11" fill="#524D44">surface</text>
+<text x="36" y="336" font-size="10" fill="#534E43">#DCD8C0</text>
+<rect x="138" y="246" width="94" height="52" rx="8" fill="#C9C4AE" stroke="#BAB5A1"/>
+<text x="138" y="320" font-size="11" fill="#524D44">hover</text>
+<text x="138" y="336" font-size="10" fill="#534E43">#C9C4AE</text>
+<rect x="240" y="246" width="94" height="52" rx="8" fill="#9C9684" stroke="#BAB5A1"/>
+<text x="240" y="320" font-size="11" fill="#524D44">border</text>
+<text x="240" y="336" font-size="10" fill="#534E43">#9C9684</text>
+<rect x="342" y="246" width="94" height="52" rx="8" fill="#454138" stroke="#BAB5A1"/>
+<text x="342" y="320" font-size="11" fill="#524D44">text</text>
+<text x="342" y="336" font-size="10" fill="#534E43">#454138</text>
+<rect x="444" y="246" width="94" height="52" rx="8" fill="#785C1E" stroke="#BAB5A1"/>
+<text x="444" y="320" font-size="11" fill="#524D44">gold</text>
+<text x="444" y="336" font-size="10" fill="#534E43">#785C1E</text>
+<rect x="546" y="246" width="94" height="52" rx="8" fill="#794116" stroke="#BAB5A1"/>
+<text x="546" y="320" font-size="11" fill="#524D44">persimmon</text>
+<text x="546" y="336" font-size="10" fill="#534E43">#794116</text>
+<rect x="648" y="246" width="94" height="52" rx="8" fill="#E3001B" stroke="#BAB5A1"/>
+<text x="648" y="320" font-size="11" fill="#524D44">scarlet</text>
+<text x="648" y="336" font-size="10" fill="#534E43">#E3001B</text>
+<rect x="750" y="246" width="94" height="52" rx="8" fill="#56702A" stroke="#BAB5A1"/>
+<text x="750" y="320" font-size="11" fill="#524D44">moss</text>
+<text x="750" y="336" font-size="10" fill="#534E43">#56702A</text>
 </svg>

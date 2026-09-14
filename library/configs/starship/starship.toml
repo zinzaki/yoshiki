@@ -2,9 +2,9 @@
 # ║  yoshiki · starship — the reference prompt                 ║
 # ║  a two-line lacquer capsule; gold gilds, never fills       ║
 # ╚══════════════════════════════════════════════════════════╝
-# palette block: ../../themes/starship/kogane.toml  (paste it in, or:)
+# palette block: ../../themes/starship/night-beige.toml  (paste it in, or:)
 "$schema" = 'https://starship.rs/config-schema.json'
-palette = "yoshiki-kogane"
+palette = "yoshiki-night-beige"
 add_newline = true
 
 format = """

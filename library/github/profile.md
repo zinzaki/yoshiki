@@ -2,7 +2,7 @@
      drop two banners (dark + light) beside this file, or reuse one. -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: light)" srcset="banner-washi.png">
+    <source media="(prefers-color-scheme: light)" srcset="banner-beige-glass.png">
     <img alt="NAME" src="banner.svg" width="860">
   </picture>
 </p>

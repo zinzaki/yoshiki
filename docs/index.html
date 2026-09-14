@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="kogane">
+<html lang="en" data-theme="night-beige">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,7 +15,7 @@
 <link rel="canonical" href="https://zinzaki.github.io/yoshiki/">
 <link rel="icon" href="assets/favicon.svg">
 <script>(function(){var t=null;try{t=localStorage.getItem('yoshiki-theme')}catch(e){}
-if(t!=='washi'&&t!=='kogane')t=matchMedia('(prefers-color-scheme: light)').matches?'washi':'kogane';
+if(t!=='beige-glass'&&t!=='night-beige')t=matchMedia('(prefers-color-scheme: light)').matches?'beige-glass':'night-beige';
 document.documentElement.dataset.theme=t})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,8 +38,8 @@ document.documentElement.dataset.theme=t})();</script>
   </nav>
   <button class="kbd-hint" data-cmdk aria-label="Search"><span>Search</span><kbd>⌘K</kbd></button>
   <div class="themesw" role="group" aria-label="Theme">
-    <button data-set-theme="kogane" title="kogane — dark (press 1)" aria-pressed="true">Dark</button>
-    <button data-set-theme="washi" title="washi — light (press 2)" aria-pressed="false">Light</button>
+    <button data-set-theme="night-beige" title="night-beige — dark (press 1)" aria-pressed="true">Dark</button>
+    <button data-set-theme="beige-glass" title="beige-glass — light (press 2)" aria-pressed="false">Light</button>
   </div>
   <a class="gh" href="https://github.com/zinzaki/yoshiki">github ↗</a>
 </header>
@@ -149,16 +149,16 @@ document.documentElement.dataset.theme=t})();</script>
       <div class="c7 rv">
         <div class="idx"><b>03</b> two themes, one language</div>
         <h2>Only the stage changes.</h2>
-        <p class="lede">kogane is warm lacquer. washi is paper and ink. The triggers and
+        <p class="lede">night-beige is warm lacquer. beige-glass is paper and ink. The triggers and
         every rule are identical — what moves is which surfaces carry the light and which
         family carries the text. Both blocks below are the same markup, wearing the two
         themes at once.</p>
       </div>
     </div>
     <div class="versus rv" style="margin-top:34px">
-      <div data-theme="kogane">
+      <div data-theme="night-beige">
         <div class="plate" style="background:var(--r-bg-app)">
-          <div class="y-head">kogane · dark</div>
+          <div class="y-head">night-beige · dark</div>
           <p style="color:var(--r-text-body);font-size:14px">The lacquer carries the screen.</p>
           <p class="cap" style="margin-top:6px">Gold gilds the edge; bone speaks.</p>
           <div class="y-actions" style="margin-top:20px">
@@ -167,9 +167,9 @@ document.documentElement.dataset.theme=t})();</script>
           </div>
         </div>
       </div>
-      <div data-theme="washi">
+      <div data-theme="beige-glass">
         <div class="plate" style="background:var(--r-bg-app)">
-          <div class="y-head">washi · light</div>
+          <div class="y-head">beige-glass · light</div>
           <p style="color:var(--r-text-body);font-size:14px">The paper carries the screen.</p>
           <p class="cap" style="margin-top:6px">Gold sinks so it stays readable.</p>
           <div class="y-actions" style="margin-top:20px">
@@ -297,8 +297,8 @@ document.documentElement.dataset.theme=t})();</script>
       </div>
     </div>
     <div class="c6 rv">
-      <div class="y-term" aria-label="the build pipeline"><span class="d">canon/palette/kogane/palette.yml</span>
-   <span class="k">│</span>  <span class="d">washi inherits, overrides its deltas</span>
+      <div class="y-term" aria-label="the build pipeline"><span class="d">canon/palette/night-beige/palette.yml</span>
+   <span class="k">│</span>  <span class="d">beige-glass stands beside it, same roles</span>
    <span class="k">▼</span>
 <span class="k">╭─</span> tools/build.py <span class="k">─────────────╮</span>
 <span class="k">│</span> <span class="g">✓</span> 13 program themes        <span class="k">│</span>

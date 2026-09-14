@@ -49,8 +49,8 @@
 <div class="y-field">
   <label for="d-theme">theme</label>
   <span class="y-select"><select class="y-input" id="d-theme">
-    <option>kogane — lacquer dark</option>
-    <option>washi — paper light</option>
+    <option>Night beige — dark</option>
+    <option>Beige glass — light</option>
   </select></span>
 </div>`],
     ['choice', 'The shape says single or multiple before the colour does: a checkbox is square, a radio is round.',

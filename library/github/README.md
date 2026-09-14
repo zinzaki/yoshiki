@@ -11,7 +11,7 @@
 
 ## What renders
 - HTML: `<p align="center">`, `<img>`, `<picture>`, `<a>`, `<table>`, `<details>`, `<sub>`, `<br>`
-- theme-aware images: a `<picture>` with `prefers-color-scheme` (kogane dark / washi
+- theme-aware images: a `<picture>` with `prefers-color-scheme` (night-beige dark / beige-glass
   light), or the URL hack `img.png#gh-dark-mode-only` / `#gh-light-mode-only`
 - shields.io badges with custom hex colors
 - NOT: `<style>` / CSS classes, scripts, custom fonts, shadows
@@ -20,7 +20,7 @@
 ```html
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: light)" srcset="docs/banner-washi.png">
+    <source media="(prefers-color-scheme: light)" srcset="docs/banner-beige-glass.png">
     <img alt="yoshiki" src="docs/banner.svg" width="900">
   </picture>
 </p>
@@ -33,7 +33,7 @@ Use `style=flat` (calm), never `for-the-badge` walls. Gold on lacquer is the
 default; spend scarlet once.
 ```
 ![](https://img.shields.io/badge/yoshiki-D8AF52?style=flat&labelColor=0B0A08)
-![](https://img.shields.io/badge/theme-kogane_·_washi-D8AF52?style=flat&labelColor=0B0A08)
+![](https://img.shields.io/badge/theme-night--beige_·_beige--glass-D8AF52?style=flat&labelColor=0B0A08)
 ![](https://img.shields.io/badge/license-MIT-52703F?style=flat&labelColor=0B0A08)
 ![](https://img.shields.io/badge/status-active-d8392e?style=flat&labelColor=0B0A08)
 ```

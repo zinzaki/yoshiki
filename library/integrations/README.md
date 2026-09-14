@@ -24,11 +24,11 @@ npm i yoshiki-design
 ```js
 import 'yoshiki-design/css';                     // tokens + roles, both themes
 import 'yoshiki-design/kit.css';                 // the component kit
-import { kogane, washi } from 'yoshiki-design';  // resolved values, typed
+import { nightBeige, beigeGlass } from 'yoshiki-design';  // resolved values, typed
 ```
 
 ```html
-<html data-theme="washi">   <!-- light; omit for the dark default -->
+<html data-theme="beige-glass">   <!-- light; omit for the dark default -->
 ```
 
 ## Tailwind

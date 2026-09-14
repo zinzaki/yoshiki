@@ -1,0 +1,29 @@
+system: base24
+name: yoshiki night-beige
+author: Zinzaki
+variant: dark
+palette:
+  base00: '161410'
+  base01: 1D1B16
+  base02: 322E27
+  base03: 7E7A6E
+  base04: 9A9584
+  base05: D6D2BD
+  base06: EAE6D2
+  base07: F4F1E4
+  base08: FF6155
+  base09: EBA15E
+  base0A: D8AF52
+  base0B: AFC27A
+  base0C: 8FB39A
+  base0D: E8BE62
+  base0E: EC6B55
+  base0F: 9B635F
+  base10: 100E0B
+  base11: 0B0A08
+  base12: FF7A6E
+  base13: F2CF7A
+  base14: C4D28F
+  base15: A6C6AF
+  base16: A9BDD6
+  base17: D9B0C2

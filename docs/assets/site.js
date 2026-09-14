@@ -29,7 +29,7 @@
   matchMedia('(prefers-color-scheme: light)').addEventListener('change', e => {
     let stored = null;
     try { stored = localStorage.getItem('yoshiki-theme'); } catch(err){}
-    if (!stored) root.dataset.theme = e.matches ? 'washi' : 'kogane';
+    if (!stored) root.dataset.theme = e.matches ? 'beige-glass' : 'night-beige';
   });
   $$('.themesw button').forEach(b => {
     b.setAttribute('aria-pressed', String(b.dataset.setTheme === root.dataset.theme));

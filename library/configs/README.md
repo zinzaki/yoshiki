@@ -29,5 +29,5 @@ whole language: **one line says everything.**
   a command was slow, exit code and the `❯` turn scarlet on error. On a clean
   run there is no warm color at all: rarity = power, made literal.
 
-Needs the palette block — paste `../themes/starship/kogane.toml` (or `washi`)
+Needs the palette block — paste `../themes/starship/night-beige.toml` (or `beige-glass`)
 into your starship config, or `import` it.

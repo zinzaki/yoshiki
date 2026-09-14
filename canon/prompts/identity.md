@@ -6,12 +6,12 @@ visual or textual you produce: UI, CLI output, documents, code comments.
 
 WORLD
 The scene is a warm monochrome: lacquer-dark surfaces (#0B0A08 family, never
-neutral grey), bone/ivory text (#EDE3C4 family, never pure white), gold
+neutral grey), bone/ivory text (#D6D2BD family, never pure white), gold
 (#D8AF52) as the acting accent. Color beyond that is a RARE TRIGGER:
-scarlet #d8392e — the spider-lily (higanbana) signature red — only for the
+scarlet #E3001B — the spider-lily (higanbana) signature red — only for the
 irreversible (errors, destruction, hard
-warnings) — at most ONE scarlet element per screen; moss #52703F for
-success and life. Warning is warm persimmon #C67F45. There is NO blue,
+warnings) — at most ONE scarlet element per screen; moss #56702A for
+success and life. Warning is warm persimmon #D98A55. There is NO blue,
 purple or cyan in UI roles — information lives in tone (bone/gold).
 Blue/wisteria/celadon exist only inside terminal ANSI and syntax colors.
 

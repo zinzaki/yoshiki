@@ -1,8 +1,8 @@
 # yoshiki
 
 > An elegant design language: warm monochrome (lacquer · bone · gold), struck rarely
-> by two triggers (scarlet · moss). Gold gilds, never fills. Two themes — kogane
-> (dark), washi (light). Take one file or the whole system; much of the library is
+> by two triggers (scarlet · moss). Gold gilds, never fills. Two themes — Night beige
+> (dark), Beige glass (light). Take one file or the whole system; much of the library is
 > generated from one palette source.
 
 ## Start here
@@ -15,9 +15,9 @@
 
 ## Palette — tokens + the roles contract, two themes
 - [palette overview](canon/palette/README.md): tokens vs roles, the gold law
-- [kogane](canon/palette/kogane/palette.yml): dark — source of truth
-- [washi](canon/palette/washi/palette.yml): light — deltas over kogane
-- [DTCG tokens](canon/palette/kogane/kogane.tokens.json): W3C design tokens — Style Dictionary / agent readable
+- [Night beige](canon/palette/night-beige/palette.yml): dark — source of truth
+- [Beige glass](canon/palette/beige-glass/palette.yml): light — the paper companion
+- [DTCG tokens](canon/palette/night-beige/night-beige.tokens.json): W3C design tokens — Style Dictionary / agent readable
 - [contrast proof](canon/palette/CONTRAST.md): WCAG, regenerated on every build
 - [accessibility](canon/palette/ACCESSIBILITY.md): contrast + colour-blind safety — glyph, not colour alone
 

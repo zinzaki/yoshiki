@@ -61,9 +61,13 @@ for i, line in enumerate(kit.splitlines(), 1):
 # ── 1b · a hex written by hand must still be a colour the palette has ───
 # This is the drift that hides: an example config, a prompt module or a README
 # quoting a value that canon has since moved. It reads correct and is wrong.
-import yaml
+import importlib.util, yaml
+_spec = importlib.util.spec_from_file_location("build", ROOT / "tools" / "build.py")
+assert _spec and _spec.loader
+B = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(B)
 live = set()
-for slug in ("kogane", "washi"):
+for slug in B.ORDER:
     pal = yaml.safe_load((ROOT / "canon" / "palette" / slug / "palette.yml").read_text())
     live |= {v.upper() for v in pal.get("tokens", {}).values()}
     live |= {v.upper() for v in pal.get("base24", {}).values()}
@@ -81,7 +85,8 @@ HAND = [ROOT / "library" / "configs", ROOT / "library" / "snippets",
 SKIP_NAMES = {"palette.yml", "CONTRAST.md"}
 for base in HAND:
     for f in sorted(base.rglob("*")):
-        if not f.is_file() or f.suffix in {".json", ".css"} or f.name in SKIP_NAMES:
+        if not f.is_file() or f.suffix in {".json", ".css"} or f.name in SKIP_NAMES \
+                or "archive" in f.relative_to(ROOT).parts:
             continue
         for i, line in enumerate(f.read_text(errors="ignore").splitlines(), 1):
             for hit in HEX.findall(line):
@@ -99,10 +104,10 @@ CJK = re.compile(r"[\u3000-\u303f\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff\uff00-\
 # ...with exactly one exception: the brand mark. It is declared once, in the
 # palette source, and permitted only in the files the build writes from that
 # declaration. Anywhere else it is decoration again, and fails like the rest.
-BRAND = yaml.safe_load((ROOT / "canon" / "palette" / "kogane" / "palette.yml").read_text()) \
+BRAND = yaml.safe_load((ROOT / "canon" / "palette" / B.ORDER[0] / "palette.yml").read_text()) \
     .get("brand", {}).get("mark", "")
-MARK_OK = {"canon/palette/kogane/palette.yml", "docs/assets/mark.svg",
-           "canon/palette/kogane/kogane.json", "canon/palette/washi/washi.json",
+MARK_OK = {f"canon/palette/{B.ORDER[0]}/palette.yml", "docs/assets/mark.svg",
+           *(f"canon/palette/{s}/{s}.json" for s in B.ORDER),
            "docs/assets/mark-inline.svg", "docs/assets/favicon.svg",
            "docs/banner.svg", "docs/og.svg", "CHANGELOG.md"}
 
@@ -116,7 +121,7 @@ for f in sorted(tracked_files()):
     except (UnicodeDecodeError, OSError):
         continue
     rel = str(f.relative_to(ROOT))
-    allowed = BRAND if (rel in MARK_OK or (rel.startswith("docs/") and rel.endswith(".html"))) else ""
+    allowed = BRAND if (rel in MARK_OK or rel.startswith("canon/palette/archive/") or (rel.startswith("docs/") and rel.endswith(".html"))) else ""
     for i, line in enumerate(text.splitlines(), 1):
         for hit in CJK.findall(line):
             if hit == allowed:
