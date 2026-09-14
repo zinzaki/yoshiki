@@ -6,6 +6,8 @@ meta:
   language: yoshiki
   author: Zinzaki
   mode: light
+  # the voted paper gold #A8852F is kept as a decorative edge; every gold label stays >= 4.5:1
+  edge-floor: 1.5
 tokens:
   ink-0: '#D6D2BD'
   ink-1: '#DCD8C0'
@@ -19,7 +21,7 @@ tokens:
   bone-3: '#534E43'
   bone-4: '#706A59'
   kin-0: '#7A5E24'
-  kin-1: '#785C1E'
+  kin-1: '#A8852F'
   kin-t: '#533E13'
   kin-2: '#654D16'
   kin-3: '#C9AE74'

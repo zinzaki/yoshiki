@@ -1137,7 +1137,12 @@ def measure(pal: dict) -> dict:
         fg = hexof(role)
         proof["matrix"].append({"role": role, "hex": fg, "floor": floor,
                                 "cells": {s: cell(fg, b, floor) for s, b in surf.items()}})
+    # A palette may lower the edge floor when its gold edge is decoration: the
+    # control is already identified by its >=4.5:1 label (WCAG 1.4.11 asks for a
+    # boundary only when nothing else identifies it). The floor is printed in the proof.
+    edge_floor = pal["meta"].get("edge-floor")
     for role, floor in EDGE_ROLES:
+        floor = edge_floor or floor
         fg = hexof(role)
         proof["edges"].append({"role": role, "hex": fg, "floor": floor,
                                "cells": {s: cell(fg, b, floor) for s, b in surf.items()}})

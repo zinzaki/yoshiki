@@ -13,7 +13,7 @@
   --bone-3: #534E43;
   --bone-4: #706A59;
   --kin-0: #7A5E24;
-  --kin-1: #785C1E;
+  --kin-1: #A8852F;
   --kin-t: #533E13;
   --kin-2: #654D16;
   --kin-3: #C9AE74;
@@ -56,7 +56,7 @@
   --r-bg-hover: #C9C4AE;
   --r-border-hairline: #BAB5A1;
   --r-border-strong: #9C9684;
-  --r-border-gold: #785C1E;
+  --r-border-gold: #A8852F;
   --r-text-heading: #2E2B24;
   --r-text-body: #454138;
   --r-text-secondary: #524D44;
@@ -65,9 +65,9 @@
   --r-text-gold: #533E13;
   --r-text-gold-dim: #654D16;
   --r-text-link: #533E13;
-  --r-action-edge: #785C1E;
+  --r-action-edge: #A8852F;
   --r-action-text: #533E13;
-  --r-action-tint: color-mix(in srgb, #785C1E 6%, transparent);
+  --r-action-tint: color-mix(in srgb, #A8852F 6%, transparent);
   --r-action-hover-edge: #7A5E24;
   --r-ok-text: #3E541B;
   --r-ok-fill: #56702A;
@@ -82,8 +82,8 @@
   --r-special-text: #793F11;
   --r-effect-glass: #E4E0CB;
   --r-effect-sheen: #FFFFFF;
-  --r-focus-ring: color-mix(in srgb, #785C1E 40%, transparent);
-  --r-selection-bg: color-mix(in srgb, #785C1E 22%, transparent);
+  --r-focus-ring: color-mix(in srgb, #A8852F 40%, transparent);
+  --r-selection-bg: color-mix(in srgb, #A8852F 22%, transparent);
   --r-syntax-keyword: #A2301E;
   --r-syntax-string: #46601F;
   --r-syntax-number: #804312;

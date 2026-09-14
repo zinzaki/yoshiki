@@ -1,9 +1,9 @@
 # yoshiki
 
-> An elegant design language: warm monochrome (lacquer · bone · gold), struck rarely
-> by two triggers (scarlet · moss). Gold gilds, never fills. Two themes — Night beige
-> (dark), Beige glass (light). Take one file or the whole system; much of the library is
-> generated from one palette source.
+> A design foundation (v2, in transition): zone first (graphic vs text), palettes as a
+> separate layer, NieR:Automata menu grammar, frosted glass over a warm glow, gold as
+> the constant accent, red as the rare signal. Production palettes — Night beige (dark),
+> Beige glass (light). AGENTS.md overrides any v1 wording in the modules below.
 
 ## Start here
 - [AGENTS.md](AGENTS.md): how to apply yoshiki — read order, the laws, the map

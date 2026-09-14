@@ -1179,7 +1179,8 @@ window.YOSHIKI = {
     "version": "2.0.0",
     "language": "yoshiki",
     "author": "Zinzaki",
-    "mode": "light"
+    "mode": "light",
+    "edge-floor": 1.5
    },
    "tokens": {
     "ink-0": "#D6D2BD",
@@ -1194,7 +1195,7 @@ window.YOSHIKI = {
     "bone-3": "#534E43",
     "bone-4": "#706A59",
     "kin-0": "#7A5E24",
-    "kin-1": "#785C1E",
+    "kin-1": "#A8852F",
     "kin-t": "#533E13",
     "kin-2": "#654D16",
     "kin-3": "#C9AE74",
@@ -1238,7 +1239,7 @@ window.YOSHIKI = {
     "bg.hover": "#C9C4AE",
     "border.hairline": "#BAB5A1",
     "border.strong": "#9C9684",
-    "border.gold": "#785C1E",
+    "border.gold": "#A8852F",
     "text.heading": "#2E2B24",
     "text.body": "#454138",
     "text.secondary": "#524D44",
@@ -1247,9 +1248,9 @@ window.YOSHIKI = {
     "text.gold": "#533E13",
     "text.gold-dim": "#654D16",
     "text.link": "#533E13",
-    "action.edge": "#785C1E",
+    "action.edge": "#A8852F",
     "action.text": "#533E13",
-    "action.tint": "color-mix(in srgb, #785C1E 6%, transparent)",
+    "action.tint": "color-mix(in srgb, #A8852F 6%, transparent)",
     "action.hover.edge": "#7A5E24",
     "ok.text": "#3E541B",
     "ok.fill": "#56702A",
@@ -1264,8 +1265,8 @@ window.YOSHIKI = {
     "special.text": "#793F11",
     "effect.glass": "#E4E0CB",
     "effect.sheen": "#FFFFFF",
-    "focus.ring": "color-mix(in srgb, #785C1E 40%, transparent)",
-    "selection.bg": "color-mix(in srgb, #785C1E 22%, transparent)",
+    "focus.ring": "color-mix(in srgb, #A8852F 40%, transparent)",
+    "selection.bg": "color-mix(in srgb, #A8852F 22%, transparent)",
     "syntax.keyword": "#A2301E",
     "syntax.string": "#46601F",
     "syntax.number": "#804312",
@@ -1807,54 +1808,54 @@ window.YOSHIKI = {
     "edges": [
      {
       "role": "border.gold",
-      "hex": "#785C1E",
-      "floor": 3.0,
+      "hex": "#A8852F",
+      "floor": 1.5,
       "cells": {
        "bg.app": {
-        "ratio": 4.13,
-        "floor": 3.0,
+        "ratio": 2.28,
+        "floor": 1.5,
         "pass": true
        },
        "bg.surface": {
-        "ratio": 4.37,
-        "floor": 3.0,
+        "ratio": 2.41,
+        "floor": 1.5,
         "pass": true
        },
        "bg.raised": {
-        "ratio": 4.73,
-        "floor": 3.0,
+        "ratio": 2.61,
+        "floor": 1.5,
         "pass": true
        },
        "bg.hover": {
-        "ratio": 3.58,
-        "floor": 3.0,
+        "ratio": 1.98,
+        "floor": 1.5,
         "pass": true
        }
       }
      },
      {
       "role": "action.edge",
-      "hex": "#785C1E",
-      "floor": 3.0,
+      "hex": "#A8852F",
+      "floor": 1.5,
       "cells": {
        "bg.app": {
-        "ratio": 4.13,
-        "floor": 3.0,
+        "ratio": 2.28,
+        "floor": 1.5,
         "pass": true
        },
        "bg.surface": {
-        "ratio": 4.37,
-        "floor": 3.0,
+        "ratio": 2.41,
+        "floor": 1.5,
         "pass": true
        },
        "bg.raised": {
-        "ratio": 4.73,
-        "floor": 3.0,
+        "ratio": 2.61,
+        "floor": 1.5,
         "pass": true
        },
        "bg.hover": {
-        "ratio": 3.58,
-        "floor": 3.0,
+        "ratio": 1.98,
+        "floor": 1.5,
         "pass": true
        }
       }
@@ -1862,26 +1863,26 @@ window.YOSHIKI = {
      {
       "role": "action.hover.edge",
       "hex": "#7A5E24",
-      "floor": 3.0,
+      "floor": 1.5,
       "cells": {
        "bg.app": {
         "ratio": 4.0,
-        "floor": 3.0,
+        "floor": 1.5,
         "pass": true
        },
        "bg.surface": {
         "ratio": 4.23,
-        "floor": 3.0,
+        "floor": 1.5,
         "pass": true
        },
        "bg.raised": {
         "ratio": 4.58,
-        "floor": 3.0,
+        "floor": 1.5,
         "pass": true
        },
        "bg.hover": {
         "ratio": 3.47,
-        "floor": 3.0,
+        "floor": 1.5,
         "pass": true
        }
       }

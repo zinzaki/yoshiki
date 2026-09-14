@@ -39,9 +39,9 @@
 <rect x="342" y="246" width="94" height="52" rx="8" fill="#454138" stroke="#BAB5A1"/>
 <text x="342" y="320" font-size="11" fill="#524D44">text</text>
 <text x="342" y="336" font-size="10" fill="#534E43">#454138</text>
-<rect x="444" y="246" width="94" height="52" rx="8" fill="#785C1E" stroke="#BAB5A1"/>
+<rect x="444" y="246" width="94" height="52" rx="8" fill="#A8852F" stroke="#BAB5A1"/>
 <text x="444" y="320" font-size="11" fill="#524D44">gold</text>
-<text x="444" y="336" font-size="10" fill="#534E43">#785C1E</text>
+<text x="444" y="336" font-size="10" fill="#534E43">#A8852F</text>
 <rect x="546" y="246" width="94" height="52" rx="8" fill="#794116" stroke="#BAB5A1"/>
 <text x="546" y="320" font-size="11" fill="#524D44">persimmon</text>
 <text x="546" y="336" font-size="10" fill="#534E43">#794116</text>

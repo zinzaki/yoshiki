@@ -91,9 +91,9 @@ that column is the real test. Gilding is measured at the 3:1 non-text floor
 
 | role | app | surface | raised | hover | floor |
 |---|---|---|---|---|---|
-| `border.gold` | 4.13 | 4.37 | 4.73 | 3.58 | 3.0 |
-| `action.edge` | 4.13 | 4.37 | 4.73 | 3.58 | 3.0 |
-| `action.hover.edge` | 4.0 | 4.23 | 4.58 | 3.47 | 3.0 |
+| `border.gold` | 2.28 | 2.41 | 2.61 | 1.98 | 1.5 |
+| `action.edge` | 2.28 | 2.41 | 2.61 | 1.98 | 1.5 |
+| `action.hover.edge` | 4.0 | 4.23 | 4.58 | 3.47 | 1.5 |
 
 ### Syntax on the editor page · washes · terminal ANSI
 

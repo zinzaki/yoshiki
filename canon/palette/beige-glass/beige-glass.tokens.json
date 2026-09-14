@@ -57,7 +57,7 @@
         "$type": "color"
       },
       "1": {
-        "$value": "#785C1E",
+        "$value": "#A8852F",
         "$type": "color"
       },
       "t": {
@@ -290,7 +290,7 @@
       "$type": "color"
     },
     "action-tint": {
-      "$value": "color-mix(in srgb, #785C1E 6%, transparent)",
+      "$value": "color-mix(in srgb, #A8852F 6%, transparent)",
       "$type": "color"
     },
     "action-hover-edge": {
@@ -350,11 +350,11 @@
       "$type": "color"
     },
     "focus-ring": {
-      "$value": "color-mix(in srgb, #785C1E 40%, transparent)",
+      "$value": "color-mix(in srgb, #A8852F 40%, transparent)",
       "$type": "color"
     },
     "selection-bg": {
-      "$value": "color-mix(in srgb, #785C1E 22%, transparent)",
+      "$value": "color-mix(in srgb, #A8852F 22%, transparent)",
       "$type": "color"
     },
     "syntax-keyword": {

@@ -2,7 +2,7 @@
 theme[main_bg]="#D6D2BD"
 theme[main_fg]="#454138"
 theme[title]="#2E2B24"
-theme[hi_fg]="#785C1E"
+theme[hi_fg]="#A8852F"
 theme[selected_bg]="#E2D3A6"
 theme[selected_fg]="#2E2B24"
 theme[inactive_fg]="#706A59"

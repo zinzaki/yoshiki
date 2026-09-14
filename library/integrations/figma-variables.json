@@ -402,7 +402,7 @@
         "$type": "color"
       },
       "kin-1": {
-        "$value": "#785C1E",
+        "$value": "#A8852F",
         "$type": "color"
       },
       "kin-t": {
@@ -570,7 +570,7 @@
         "$type": "color"
       },
       "border-gold": {
-        "$value": "#785C1E",
+        "$value": "#A8852F",
         "$type": "color"
       },
       "text-heading": {
@@ -606,7 +606,7 @@
         "$type": "color"
       },
       "action-edge": {
-        "$value": "#785C1E",
+        "$value": "#A8852F",
         "$type": "color"
       },
       "action-text": {
@@ -614,7 +614,7 @@
         "$type": "color"
       },
       "action-tint": {
-        "$value": "color-mix(in srgb, #785C1E 6%, transparent)",
+        "$value": "color-mix(in srgb, #A8852F 6%, transparent)",
         "$type": "color"
       },
       "action-hover-edge": {
@@ -674,11 +674,11 @@
         "$type": "color"
       },
       "focus-ring": {
-        "$value": "color-mix(in srgb, #785C1E 40%, transparent)",
+        "$value": "color-mix(in srgb, #A8852F 40%, transparent)",
         "$type": "color"
       },
       "selection-bg": {
-        "$value": "color-mix(in srgb, #785C1E 22%, transparent)",
+        "$value": "color-mix(in srgb, #A8852F 22%, transparent)",
         "$type": "color"
       },
       "syntax-keyword": {

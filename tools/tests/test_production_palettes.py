@@ -25,6 +25,7 @@ class ProductionPalettes(unittest.TestCase):
         self.assertEqual(dark["tokens"]["aka-1"], "#E3001B")
         self.assertEqual(dark["tokens"]["kin-1"], "#D8AF52")
         self.assertEqual(light["terminal"]["background"], "#161410")
+        self.assertEqual(light["tokens"]["kin-1"], "#A8852F")   # voted paper gold edge
         self.assertEqual(dark["roles"]["syntax.type"], "syn-type")
 
 

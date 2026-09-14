@@ -1,53 +1,73 @@
-# AGENTS.md — applying yoshiki
+# AGENTS.md — applying yoshiki (v2, in transition)
 
-You are applying **yoshiki**, an elegant design language: warm monochrome (lacquer ·
-bone · gold) struck rarely by two triggers (scarlet · moss). Whatever you produce —
-UI, CLI / TUI output, documents, code comments, chat or bot messages, image-generation
-prompts — make it in this language. This file is the map; read it first, then load
-only the module your task needs.
+**yoshiki** is a design foundation: the materials, rules, roles, objects and patterns a
+visual world is built from. Colour is a separate, swappable layer (a family of palettes).
+Ready program themes are moving to a separate repository.
 
-## Read in this order
-1. [`PHILOSOPHY.md`](PHILOSOPHY.md) — why it looks like this (kintsugi; tone & triggers; gold gilds).
-2. [`canon/principles/priority.md`](canon/principles/priority.md) — the ordered ladder: what wins when nothing is specified.
-3. [`canon/principles/defaults.md`](canon/principles/defaults.md) — concrete fallbacks for every unspecified choice.
-4. [`canon/palette/<theme>/palette.yml`](canon/palette/) — tokens **and** the ROLES contract.
-   Consume a *role* (`text.body`, `action.edge`, `danger.fill`), never a raw token —
-   a role guarantees the right contrast in both themes. night-beige (dark) · beige-glass (light).
-5. The module for your task — load on demand:
-   - color / UI → `canon/palette/` + `canon/prompts/palette.md`
-   - buttons, forms, tables, dialogs → `canon/components/` + `canon/prompts/components.md`
-     (and lift the implementation from `library/web/`)
-   - terminal / CLI / TUI → `canon/lexicon/cli.md` + `canon/prompts/cli.md`
-   - code comments → `canon/lexicon/comments.md` + `canon/prompts/comments.md`
-   - text / chat / docs → `canon/lexicon/{glyphs,nameplates,frames,space,states}.md` + `canon/prompts/text.md`
-   - chat / bot messages → `canon/lexicon/messaging.md` + `canon/prompts/messaging.md`
-   - motion / loading → `canon/motion/` + `canon/prompts/motion.md`
-   - web effects → `canon/effects/` + `canon/prompts/effects.md`
-   - fonts → `canon/typography/` + `canon/prompts/typography.md`
-   - image generation → `canon/prompts/image.md` + `library/image-prompts/`
-   - GitHub README / profile → `library/github/`
-6. Lift, don't reinvent: ready artifacts live in [`library/`](library/) (themes, menus,
-   charts, text blocks, snippets, configs, presets).
+v2 is being rebuilt. Some modules below still describe the **v1 look** (lacquer, bone,
+"gold only as a line", spider-lily scarlet, moss). Where this file and a module
+disagree, **this file wins**.
 
-## The laws you may not break
-- **Rarity = power.** One accent, in the detail. A trigger (scarlet / moss) is an
-  event, not a field — at most one scarlet per screen. Unsure whether to add a color,
-  a word, or an ornament? Don't.
-- **Gold is gilding.** Gold is a line, edge, frame, glyph — never a filled slab. A
-  primary action is a gold-framed dark / paper surface with gold text. Scarlet *may* fill.
-- **Warm, never grey.** Every dark tone carries a brown lacquer undertone; text is
-  bone, not pure white. No blue / purple / cyan in UI — information lives in tone.
-  (Those hues exist only inside terminal ANSI and syntax colors.)
-- **Air.** ~97% of a surface is quiet tone; emptiness is composition, not leftover.
-- **One sharp detail.** A soft rounded form may carry one precise sharp mark — no more.
-- **Show, don't tell.** A glyph or kanji earns its place by meaning, never decoration.
+## Step 1 — decide the zone before you pick anything
 
-## Two themes, one language
-Only the stage changes (which surfaces, which family carries text); the triggers and
-every rule are identical. The terminal always stays a dark island — even in beige-glass (light).
+| zone | surfaces | draw with | never |
+|---|---|---|---|
+| **graphic** | web pages, web apps, desktop apps (GTK, Qt, Slint, Tauri, Electron), installers, mobile | real components, real vector icons packaged with the app (Lucide-style strokes, Nerd Font icons as a font), CSS/GPU effects, graphical loaders | box-drawing frames (`╭─╮ ╔═╗`), glyph icons as UI, text spinners, ASCII art, monospace-as-decoration |
+| **text** | terminal, TUI, CLI output, chat and bot messages, code comments, commit messages | box-drawing frames, semantic glyphs, character spinners, ANSI colours | pretending to be graphics; banners of ASCII art |
+
+A desktop app is **graphic** even if it is for developers. Only a terminal is text.
+
+## Step 2 — pick the palette
+
+Consume **roles** (`text.body`, `action.edge`, `danger.fill`), never raw token values.
+
+- dark: [`canon/palette/night-beige/palette.yml`](canon/palette/night-beige/palette.yml) — default
+- light: [`canon/palette/beige-glass/palette.yml`](canon/palette/beige-glass/palette.yml)
+- web: `library/web/palette.css` gives the roles as `--r-*` variables; `data-theme="beige-glass"` switches to light.
+
+Roles every palette provides: surfaces (`bg.app → surface → raised → hover`), text
+hierarchy, a **constant accent** (gold: mark, frame, selected item, cursor, focus) and a
+**rare signal** (red `#E3001B`: error, destroy, block — at most one per view). The
+terminal stays a dark island in both themes. More palettes (with names and short codes)
+are coming; the rules never depend on one palette.
+
+## Step 3 — the look (graphic zone)
+
+- **Menu grammar from NieR:Automata.** Section headers are solid title bars (ink bar with
+  beige text on light, beige bar with dark text on dark). Small square bullets. The
+  selected row is outlined with a gold hairline, not flooded with colour.
+- **Material: frosted glass over a soft warm glow.** Panels and rows are translucent
+  (`backdrop-filter: blur`) above the ground; a large, soft, warm glow sits behind the
+  content. Provide an opaque fallback for `prefers-reduced-transparency`.
+- **Two treatments, same layers in both themes:**
+  - `clean` (default) — glass and glow only;
+  - `ornate` (option) — faint cross (`+`) pattern ground, corner brackets on panels,
+    control hints such as `○ Select  × Back`.
+- **Type:** Geist for interface text; Geist Mono / JetBrains Mono / Maple Mono for code
+  and data.
+- **Shape:** soft corners, 6–14px; pills only for tags and toggles.
+- **Colour budget:** almost everything is ground, glass and ink; gold marks structure;
+  red appears only when something is wrong or irreversible.
+- **Code syntax:** warm and bright — coral keywords, gold functions, olive strings, amber
+  numbers and constants, dry-olive types, muted comments. No pink, teal or blue.
+- **Motion:** one orchestrated moment per page, responsive feedback on interaction,
+  `prefers-reduced-motion` respected.
+
+`library/web/yoshiki.css` and `docs/` still render the v1 look; use their **roles and
+structure**, not their styling, until the v2 kit lands.
+
+## Step 4 — modules
+
+- text zone: `canon/lexicon/{cli,comments,messaging,glyphs,frames,states,space}.md` and
+  the matching `canon/prompts/*.md` — still valid for terminals, chat and comments.
+- components (anatomy, states, density): `canon/components/` — anatomy is valid; the
+  visual rules inside follow Step 3.
+- effects: `canon/effects/` — web only.
+- identity in one paste: [`canon/prompts/identity.md`](canon/prompts/identity.md).
+- legacy, read for history only: `PHILOSOPHY.md`, `canon/palette/archive/`.
 
 ## When you output
-Match the surrounding code and voice. Everything must survive a monospace,
-line-wrapping terminal. No banner ASCII, no `INFO:` / `[LOG]` prefixes, no timestamps
-unless asked. Generate NEW work *in* the language — never copy the owner's examples
-verbatim.
+
+Match the surrounding code and voice. Build new work in the language; never copy the
+owner's examples verbatim. In the text zone, everything must survive a monospace,
+line-wrapping terminal: no ASCII banners, no `INFO:` prefixes, no timestamps unless asked.
