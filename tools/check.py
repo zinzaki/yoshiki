@@ -8,7 +8,7 @@ own navigation.
 
     python3 tools/check.py
 """
-import re, sys
+import re, subprocess, sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -18,6 +18,13 @@ fails: list[str] = []
 
 def fail(msg):
     fails.append(msg)
+
+
+def tracked_files() -> list[Path]:
+    """Files git knows about (tracked or new and not ignored) — private untracked folders are not the project."""
+    out = subprocess.run(["git", "ls-files", "--cached", "--others", "--exclude-standard"],
+                         cwd=ROOT, capture_output=True, text=True, check=True).stdout
+    return [ROOT / line for line in out.splitlines() if line and (ROOT / line).is_file()]
 
 
 # ── 1 · the showcase holds no colour of its own ─────────────────────────
@@ -99,7 +106,7 @@ MARK_OK = {"canon/palette/kogane/palette.yml", "docs/assets/mark.svg",
            "docs/assets/mark-inline.svg", "docs/assets/favicon.svg",
            "docs/banner.svg", "docs/og.svg", "CHANGELOG.md"}
 
-for f in sorted(ROOT.rglob("*")):
+for f in sorted(tracked_files()):
     if not f.is_file() or ".git" in f.parts or "node_modules" in f.parts:
         continue
     if f.suffix in {".webp", ".png", ".jpg", ".woff", ".woff2", ".ttf"}:
@@ -157,7 +164,7 @@ def prose(text: str) -> str:
     return SPAN.sub("", FENCE.sub("", text))
 
 
-for md in sorted(ROOT.rglob("*.md")):
+for md in sorted(p for p in tracked_files() if p.suffix == ".md"):
     if ".git" in md.parts:
         continue
     for target in MD_LINK.findall(prose(md.read_text())):
