@@ -75,3 +75,17 @@ Reach for CSS variables if you can: they follow the theme by themselves, and
 they are the only form where a role stays a role. The typed module resolves to
 fixed values, which is right for a canvas, a chart library or a native target,
 and wrong for anything that can switch theme at runtime.
+
+## Slint
+
+`yoshiki.slint` is one global with both production palettes behind a `dark` switch
+(generated; checked against Slint 1.17):
+
+```slint
+import { Yoshiki } from "yoshiki.slint";
+
+export component App inherits Window {
+    background: Yoshiki.bg-app;            // Night beige; set Yoshiki.dark = false for Beige glass
+    Text { text: "Ready"; color: Yoshiki.text-body; font-family: Yoshiki.font-ui; }
+}
+```

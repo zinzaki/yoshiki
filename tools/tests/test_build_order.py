@@ -17,6 +17,11 @@ class BuildOrder(unittest.TestCase):
         self.assertIn("'beige-glass'", js)
         self.assertIn("'night-beige'", js)
 
+    def test_slint_tokens_cover_every_role(self):
+        sl = (ROOT / "library/integrations/yoshiki.slint").read_text()
+        self.assertIn("export global Yoshiki {", sl)
+        self.assertIn("out property <color> bg-app: dark ? #161410 : #D6D2BD;", sl)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -129,9 +129,8 @@ module.exports = {
       },
       borderRadius: { control: '12px', card: '16px', dialog: '20px' },
       fontFamily: {
-        display: ['Shippori Mincho', 'Noto Serif JP', 'Georgia', 'serif'],
-        sans: ['Zen Kaku Gothic New', 'system-ui', 'sans-serif'],
-        mono: ['Maple Mono', 'JetBrains Mono', 'ui-monospace', 'monospace'],
+        sans: ['Geist', 'system-ui', 'sans-serif'],
+        mono: ['Geist Mono', 'JetBrains Mono', 'Maple Mono', 'ui-monospace', 'monospace'],
       },
     },
   },
