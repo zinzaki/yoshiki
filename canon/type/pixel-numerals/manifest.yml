@@ -1,0 +1,18 @@
+id: yk:ty/pixel-numerals
+kind: type
+title: Pixel numerals
+summary: Geist Pixel or Doto for figures only — clocks, counters, metrics; never for running text.
+zone: graphic
+surfaces:
+- web
+- desktop
+- mobile
+tags:
+- numbers
+palettes: any
+status: draft
+derived-from:
+- yk:ref/0055
+- yk:ref/0160
+- yk:ref/0195
+- yk:ref/0215

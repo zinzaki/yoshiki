@@ -1,0 +1,22 @@
+id: yk:mat/halftone
+kind: material
+title: Halftone
+summary: Print dot screens graded across a shape or photograph.
+zone: graphic
+surfaces:
+- web
+- desktop
+tags:
+- print
+- texture
+palettes: any
+status: draft
+uses:
+- yk:role/text.primary
+derived-from:
+- yk:ref/0005
+- yk:ref/0051
+- yk:ref/0064
+- yk:ref/0067
+- yk:ref/0151
+- yk:ref/0167

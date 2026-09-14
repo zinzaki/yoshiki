@@ -1,0 +1,18 @@
+id: yk:mat/relief.emboss
+kind: material
+title: Emboss
+summary: Type and marks pressed into or raised from a paper ground.
+zone: graphic
+surfaces:
+- web
+- desktop
+tags:
+- relief
+- type
+palettes: any
+status: draft
+uses:
+- yk:role/bg.app
+derived-from:
+- yk:ref/0094
+- yk:ref/0179

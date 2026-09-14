@@ -1,0 +1,17 @@
+id: yk:fx/xray
+kind: effect
+title: X-ray
+summary: Luminous translucent inversion of a photograph, annotated like evidence.
+zone: graphic
+surfaces:
+- web
+tags:
+- photo
+- signal
+palettes: any
+status: draft
+uses:
+- yk:role/text.primary
+derived-from:
+- yk:ref/0166
+- yk:ref/0212

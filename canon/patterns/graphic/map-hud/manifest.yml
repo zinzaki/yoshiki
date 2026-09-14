@@ -1,0 +1,20 @@
+id: yk:pat/graphic/map-hud
+kind: pattern
+title: Map HUD
+summary: Dark contour map with sparse markers and one red alert.
+zone: graphic
+surfaces:
+- web
+- desktop
+tags:
+- map
+- dashboard
+palettes: any
+status: draft
+uses:
+- yk:mat/topo.lines
+- yk:role/signal.fill
+derived-from:
+- yk:ref/0015
+- yk:ref/0058
+- yk:ref/0175

@@ -1,0 +1,22 @@
+id: yk:pat/graphic/technical-sheet
+kind: pattern
+title: Technical sheet
+summary: Title, micro-text columns, one diagram and annotations with leaders — for posters, docs heroes and product
+  pages.
+zone: graphic
+surfaces:
+- web
+- desktop
+tags:
+- docs
+- hero
+palettes: any
+status: draft
+uses:
+- yk:obj/graphic/annotation
+- yk:obj/graphic/spec-table
+derived-from:
+- yk:ref/0056
+- yk:ref/0086
+- yk:ref/0117
+- yk:ref/0166

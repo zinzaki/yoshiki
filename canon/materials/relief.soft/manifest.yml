@@ -1,0 +1,27 @@
+id: yk:mat/relief.soft
+kind: material
+title: Soft relief
+summary: Paired light and dark shadows derived from the ground, for a few pressable controls on light palettes.
+zone: graphic
+surfaces:
+- web
+- desktop
+- mobile
+tags:
+- relief
+- light-palettes
+palettes: any
+status: draft
+uses:
+- yk:role/bg.app
+derived-from:
+- yk:ref/0013
+- yk:ref/0041
+- yk:ref/0098
+- yk:ref/0115
+- yk:ref/0142
+- yk:ref/0146
+- yk:ref/0161
+- yk:ref/0204
+- yk:ref/0214
+- yk:ref/0221

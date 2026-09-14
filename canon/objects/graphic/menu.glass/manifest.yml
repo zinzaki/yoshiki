@@ -1,0 +1,25 @@
+id: yk:obj/graphic/menu.glass
+kind: object
+title: Glass menu
+summary: Icon and label rows on glass, groups split by a hairline, the active row outlined and tinted with the accent,
+  a quiet footer action.
+zone: graphic
+surfaces:
+- web
+- desktop
+- mobile
+tags:
+- menu
+- navigation
+palettes: any
+status: draft
+uses:
+- yk:mat/glass.frost
+- yk:role/accent.edge
+- yk:role/accent.tint
+derived-from:
+- yk:ref/0001
+- yk:ref/0076
+- yk:ref/0084
+- yk:ref/0149
+- yk:ref/0189

@@ -1,0 +1,27 @@
+id: yk:pat/graphic/arch-collage
+kind: pattern
+title: Arch collage
+summary: Photographs cut into arches and capsules, a glass pill control, a script word, micro meta and one large
+  number.
+zone: graphic
+surfaces:
+- web
+- mobile
+tags:
+- editorial
+- landing
+palettes: any
+status: draft
+uses:
+- yk:mat/glass.frost
+- yk:role/text.muted
+derived-from:
+- yk:ref/0021
+- yk:ref/0043
+- yk:ref/0095
+- yk:ref/0104
+- yk:ref/0125
+- yk:ref/0154
+- yk:ref/0169
+- yk:ref/0173
+- yk:ref/0207

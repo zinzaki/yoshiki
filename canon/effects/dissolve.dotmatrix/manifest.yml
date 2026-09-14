@@ -1,0 +1,21 @@
+id: yk:fx/dissolve.dotmatrix
+kind: effect
+title: Dissolve into dot matrix
+summary: A photograph or object resolving into, or out of, a dot matrix — life translated into signal.
+zone: graphic
+surfaces:
+- web
+- desktop
+tags:
+- signal
+- hero
+palettes: any
+status: draft
+uses:
+- yk:mat/pattern.cross
+derived-from:
+- yk:ref/0017
+- yk:ref/0026
+- yk:ref/0091
+- yk:ref/0093
+- yk:ref/0166

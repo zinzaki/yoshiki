@@ -1,0 +1,20 @@
+id: yk:obj/graphic/transport-bar
+kind: object
+title: Transport bar
+summary: 'Media state as a glass strip: square state mark, label, progress hairline, time, a live toggle.'
+zone: graphic
+surfaces:
+- web
+- desktop
+- mobile
+tags:
+- media
+- hud
+palettes: any
+status: draft
+uses:
+- yk:mat/glass.frost
+- yk:role/signal.fill
+derived-from:
+- yk:ref/0063
+- yk:ref/0128

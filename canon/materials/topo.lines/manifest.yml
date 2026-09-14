@@ -1,0 +1,19 @@
+id: yk:mat/topo.lines
+kind: material
+title: Contour lines
+summary: Topographic contour lines as a quiet ground.
+zone: graphic
+surfaces:
+- web
+- desktop
+tags:
+- map
+- hud
+palettes: any
+status: draft
+uses:
+- yk:role/border.hairline
+derived-from:
+- yk:ref/0015
+- yk:ref/0112
+- yk:ref/0175

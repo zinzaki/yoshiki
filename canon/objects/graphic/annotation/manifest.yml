@@ -1,0 +1,22 @@
+id: yk:obj/graphic/annotation
+kind: object
+title: Annotation
+summary: A box around a detail, a leader line and a mono label that names it.
+zone: graphic
+surfaces:
+- web
+- desktop
+tags:
+- hud
+- ornate
+- diagram
+palettes: any
+status: draft
+uses:
+- yk:role/text.muted
+- yk:role/border.strong
+derived-from:
+- yk:ref/0094
+- yk:ref/0117
+- yk:ref/0166
+- yk:ref/0212

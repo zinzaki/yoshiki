@@ -1,0 +1,22 @@
+id: yk:obj/graphic/numeral.dot
+kind: object
+title: Dot numerals
+summary: Large figures drawn on a dot matrix for clocks, timers and key metrics.
+zone: graphic
+surfaces:
+- web
+- desktop
+- mobile
+tags:
+- numbers
+- device
+palettes: any
+status: draft
+uses:
+- yk:ty/pixel-numerals
+derived-from:
+- yk:ref/0055
+- yk:ref/0118
+- yk:ref/0160
+- yk:ref/0195
+- yk:ref/0215

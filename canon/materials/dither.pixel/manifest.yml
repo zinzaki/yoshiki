@@ -1,0 +1,20 @@
+id: yk:mat/dither.pixel
+kind: material
+title: Pixel dither
+summary: Ordered dither and coarse pixels as a surface texture.
+zone: graphic
+surfaces:
+- web
+- desktop
+tags:
+- pixel
+- texture
+palettes: any
+status: draft
+uses:
+- yk:role/text.primary
+derived-from:
+- yk:ref/0039
+- yk:ref/0092
+- yk:ref/0109
+- yk:ref/0132

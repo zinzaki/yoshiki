@@ -1,0 +1,21 @@
+id: yk:mat/seal
+kind: material
+title: Seal
+summary: A single red seal mark; carries all the colour of a composition.
+zone: graphic
+surfaces:
+- web
+- desktop
+- mobile
+tags:
+- seal
+- signal
+palettes: any
+status: draft
+uses:
+- yk:role/signal.fill
+derived-from:
+- yk:ref/0085
+- yk:ref/0133
+- yk:ref/0202
+- yk:ref/0205

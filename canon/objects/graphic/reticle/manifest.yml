@@ -1,0 +1,19 @@
+id: yk:obj/graphic/reticle
+kind: object
+title: Reticle
+summary: A diamond or circular reticle with ticks, readouts and mode diamonds for focus and targeting states.
+zone: graphic
+surfaces:
+- web
+- desktop
+tags:
+- hud
+palettes: any
+status: draft
+uses:
+- yk:role/text.primary
+- yk:role/text.muted
+derived-from:
+- yk:ref/0153
+- yk:ref/0171
+- yk:ref/0176

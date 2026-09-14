@@ -1,0 +1,21 @@
+id: yk:obj/graphic/equaliser
+kind: object
+title: Equaliser
+summary: 'Device-like parameter control: mono caps, dotted faders, one red reset.'
+zone: graphic
+surfaces:
+- web
+- desktop
+- mobile
+tags:
+- device
+- controls
+palettes: any
+status: draft
+uses:
+- yk:role/text.primary
+- yk:role/signal.fill
+derived-from:
+- yk:ref/0103
+- yk:ref/0130
+- yk:ref/0147

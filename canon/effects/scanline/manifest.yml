@@ -1,0 +1,18 @@
+id: yk:fx/scanline
+kind: effect
+title: Scan line
+summary: A single bright line sweeping a surface to show reading or verification.
+zone: graphic
+surfaces:
+- web
+- desktop
+- mobile
+tags:
+- loading
+- verify
+palettes: any
+status: draft
+uses:
+- yk:role/accent.edge
+derived-from:
+- yk:ref/0129

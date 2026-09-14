@@ -1,0 +1,24 @@
+id: yk:mat/shape.modules
+kind: material
+title: Shape modules
+summary: A small set of geometric modules — quarter circles, capsules, drops — combined into posters, heroes and
+  empty states.
+zone: graphic
+surfaces:
+- web
+- desktop
+tags:
+- poster
+- modular
+palettes: any
+status: draft
+uses:
+- yk:role/text.heading
+derived-from:
+- yk:ref/0040
+- yk:ref/0066
+- yk:ref/0141
+- yk:ref/0164
+- yk:ref/0174
+- yk:ref/0178
+- yk:ref/0186

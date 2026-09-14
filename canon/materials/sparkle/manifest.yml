@@ -1,0 +1,22 @@
+id: yk:mat/sparkle
+kind: material
+title: Sparkle points
+summary: Small four-point stars used as punctuation around display type; an ornate-treatment layer.
+zone: graphic
+surfaces:
+- web
+- desktop
+tags:
+- ornament
+- ornate
+palettes: any
+status: draft
+uses:
+- yk:role/accent.edge
+derived-from:
+- yk:ref/0002
+- yk:ref/0012
+- yk:ref/0019
+- yk:ref/0107
+- yk:ref/0111
+- yk:ref/0125

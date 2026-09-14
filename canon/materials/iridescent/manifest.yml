@@ -1,0 +1,17 @@
+id: yk:mat/iridescent
+kind: material
+title: Iridescence
+summary: Thin-film colour shift on edges and fluid shapes; one element per view.
+zone: graphic
+surfaces:
+- web
+tags:
+- light
+palettes: any
+status: draft
+uses:
+- yk:role/glow
+derived-from:
+- yk:ref/0037
+- yk:ref/0193
+- yk:ref/0212

@@ -1,0 +1,21 @@
+id: yk:pat/graphic/iso-layers
+kind: pattern
+title: Isometric layers
+summary: A system explained as stacked isometric slabs, one layer lit; the hub's explanatory scene.
+zone: graphic
+surfaces:
+- web
+tags:
+- diagram
+- hub
+palettes: any
+status: draft
+uses:
+- yk:mat/glow.ember
+- yk:obj/graphic/annotation
+derived-from:
+- yk:ref/0011
+- yk:ref/0159
+- yk:ref/0162
+- yk:ref/0196
+- yk:ref/0201

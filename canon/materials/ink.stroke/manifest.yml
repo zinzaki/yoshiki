@@ -1,0 +1,18 @@
+id: yk:mat/ink.stroke
+kind: material
+title: Ink stroke
+summary: A single dry-brush stroke as a mark or divider.
+zone: graphic
+surfaces:
+- web
+- desktop
+tags:
+- ink
+- seal
+palettes: any
+status: draft
+uses:
+- yk:role/text.heading
+derived-from:
+- yk:ref/0133
+- yk:ref/0202

@@ -1,0 +1,22 @@
+id: yk:pat/graphic/vertical-column
+kind: pattern
+title: Vertical column
+summary: Tall narrow columns of text beside a large empty field and a single seal — vertical rhythm without CJK
+  characters.
+zone: graphic
+surfaces:
+- web
+tags:
+- editorial
+palettes: any
+status: draft
+uses:
+- yk:mat/seal
+- yk:role/text.muted
+derived-from:
+- yk:ref/0020
+- yk:ref/0085
+- yk:ref/0090
+- yk:ref/0133
+- yk:ref/0136
+- yk:ref/0208

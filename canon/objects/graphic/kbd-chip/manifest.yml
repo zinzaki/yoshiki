@@ -1,0 +1,18 @@
+id: yk:obj/graphic/kbd-chip
+kind: object
+title: Key chip
+summary: Keyboard shortcut shown as small square key caps beside a menu row.
+zone: graphic
+surfaces:
+- web
+- desktop
+tags:
+- shortcut
+palettes: any
+status: draft
+uses:
+- yk:role/border.hairline
+- yk:role/text.muted
+derived-from:
+- yk:ref/0076
+- yk:ref/0149

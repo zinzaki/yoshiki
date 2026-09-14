@@ -1,0 +1,23 @@
+id: yk:fx/particles.form
+kind: effect
+title: Particle form
+summary: An object built from particles that assembles, breathes and disperses; a hub-hero candidate.
+zone: graphic
+surfaces:
+- web
+tags:
+- webgl
+- hero
+palettes: any
+status: draft
+uses:
+- yk:role/text.primary
+- yk:role/glow
+derived-from:
+- yk:ref/0018
+- yk:ref/0079
+- yk:ref/0083
+- yk:ref/0099
+- yk:ref/0102
+- yk:ref/0131
+- yk:ref/0163

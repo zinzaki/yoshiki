@@ -1,0 +1,24 @@
+id: yk:mat/glow.ember
+kind: material
+title: Ember light
+summary: One directional warm light from behind or below a single object; the only light in the view.
+zone: graphic
+surfaces:
+- web
+- desktop
+- mobile
+tags:
+- glow
+- light
+palettes: any
+status: draft
+uses:
+- yk:role/glow
+derived-from:
+- yk:ref/0024
+- yk:ref/0027
+- yk:ref/0028
+- yk:ref/0096
+- yk:ref/0150
+- yk:ref/0190
+- yk:ref/0201

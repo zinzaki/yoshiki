@@ -1,0 +1,20 @@
+id: yk:obj/graphic/hud.frame
+kind: object
+title: Corner ticks
+summary: Thin tick marks set outside a panel's corners, offset from the edge, framing without enclosing.
+zone: graphic
+surfaces:
+- web
+- desktop
+- mobile
+tags:
+- hud
+- ornate
+palettes: any
+status: draft
+uses:
+- yk:role/border.strong
+derived-from:
+- yk:ref/0063
+- yk:ref/0070
+- yk:ref/0071

@@ -1,0 +1,20 @@
+id: yk:obj/graphic/spec-table
+kind: object
+title: Spec table
+summary: Mono label and value rows, left labels in muted caps, values aligned right.
+zone: graphic
+surfaces:
+- web
+- desktop
+tags:
+- data
+- technical
+palettes: any
+status: draft
+uses:
+- yk:role/text.muted
+- yk:role/text.primary
+- yk:role/border.hairline
+derived-from:
+- yk:ref/0056
+- yk:ref/0086
