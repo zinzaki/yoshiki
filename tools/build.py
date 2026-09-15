@@ -872,6 +872,55 @@ def write_contrast(resolved: dict, proofs: dict) -> bool:
     return not bad_all
 
 
+# ── palette cards ────────────────────────────────────────────────────────
+# The palette preview format chosen by vote (cards round 01, "chips"): the palette's own
+# ground, five overlapping discs — panel, hover, text, accent, signal — each ringed in the
+# ground colour, the name in the display serif, a quiet meta line and the code.
+CARD_SERIF = "'Noto Serif Display','Shippori Mincho B1',Georgia,serif"
+CARD_MONO = "'Geist Mono',ui-monospace,Menlo,monospace"
+
+
+def card_svg(pal: dict, x: int = 0, y: int = 0) -> str:
+    t, m = pal["tokens"], pal["meta"]
+    r = lambda k: role_value(pal["roles"][k], t)[1]
+    W, H, R = 600, 800, 78
+    discs = [r("bg.surface"), r("bg.hover"), r("text.primary"), r("accent.edge"), r("signal.fill")]
+    cx0 = W / 2 - (len(discs) - 1) * R * 1.16 / 2
+    g = [f'<g transform="translate({x} {y})">',
+         f'<rect width="{W}" height="{H}" rx="28" fill="{r("bg.app")}"/>',
+         f'<text x="{W - 44}" y="72" text-anchor="end" font-family="{CARD_MONO}" font-size="22" '
+         f'font-weight="600" letter-spacing="2" fill="{r("accent.text")}">{m.get("code", "")}</text>']
+    for i, c in enumerate(discs):
+        cx = cx0 + i * R * 1.16
+        g.append(f'<circle cx="{cx:.1f}" cy="{H / 2 - 10}" r="{R}" fill="{c}" stroke="{r("bg.app")}" stroke-width="4"/>')
+    g += [f'<text x="44" y="{H - 92}" font-family="{CARD_SERIF}" font-size="56" font-weight="700" '
+          f'letter-spacing="-1" fill="{r("text.heading")}">{m["name"]}</text>',
+          f'<text x="44" y="{H - 48}" font-family="{CARD_MONO}" font-size="19" letter-spacing="2" '
+          f'fill="{r("text.muted")}">{m.get("temperature", "")} · {m.get("material", "")}</text>',
+          f'<text x="{W - 44}" y="{H - 48}" text-anchor="end" font-family="{CARD_MONO}" font-size="19" '
+          f'letter-spacing="2" fill="{r("text.muted")}">{m.get("family", m["name"]).lower()}</text>',
+          '</g>']
+    return "".join(g)
+
+
+def emit_cards(resolved: dict):
+    """canon/palettes/<slug>/card.svg for every palette, and docs/assets/family.svg — the
+    whole family on one sheet, four across."""
+    for slug, pal in resolved.items():
+        w(PAL / slug / "card.svg", f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" '
+          f'width="600" height="800" role="img" aria-label="{pal["meta"]["name"]} palette">'
+          + card_svg(pal) + "</svg>\n")
+    cols, gap = 4, 40
+    rows = -(-len(resolved) // cols)
+    W, H = cols * 600 + (cols + 1) * gap, rows * 800 + (rows + 1) * gap
+    parts = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W // 2}" height="{H // 2}" '
+             f'role="img" aria-label="the yoshiki palette family">', f'<rect width="{W}" height="{H}" fill="#1B1A17"/>']
+    for i, pal in enumerate(resolved.values()):
+        parts.append(card_svg(pal, gap + (i % cols) * (600 + gap), gap + (i // cols) * (800 + gap)))
+    parts.append("</svg>")
+    w(DOCS / "family.svg", "\n".join(parts) + "\n")
+
+
 def emit_registry():
     """canon/registry.json — every manifest in one catalogue, keyed by id, for agents,
     the prompt generator and the site; docs/assets/registry.data.js is the same data
@@ -918,6 +967,7 @@ def main():
     emit_integrations(resolved)
     emit_palette_prompt(resolved[DARK])
     emit_registry()
+    emit_cards(resolved)
 
     if CHECK:
         for f in drift:
