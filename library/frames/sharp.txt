@@ -1,0 +1,34 @@
+# sharp — the single hard mark a soft frame is allowed. One per screen.
+# This is the language's duality rule made literal: a calm, rounded surface
+# carrying one precise, deliberate edge.
+
+# 1 · a hard corner inside a soft capsule
+╭────────────────────────────╮
+│ ┌╴ the one sharp mark      │
+╰────────────────────────────╯
+
+# 2 · a square corner on an otherwise rounded card
+╭────────────────────────────┐
+│  soft, with one cut corner │
+╰────────────────────────────╯
+
+# 3 · a hard rule inside a soft frame
+╭─ release ───
+│  v1.2
+│ ═══════════
+│  the seam moved
+╰╴
+
+# 4 · a filled mark, once
+╭─ status ───
+│  ▰ live
+╰╴
+
+# 5 · in the web kit, the same rule as one class
+#     <div class="y-card y-cut">   — cuts exactly one corner square
+
+# the rule that makes it work: ONE. A second sharp mark does not double
+# the effect, it cancels the first — and the surface goes back to being
+# merely busy.
+
+# paint: the sharp mark -> text.gold · everything else unchanged

@@ -1,0 +1,143 @@
+/* yoshiki — graphic-zone objects for the web (draft, stage 4 of the foundation).
+ * Needs palette.css (roles) and materials.css (glass, radii, motion). Every colour is a role.
+ * Anatomy and states: canon/objects/graphic/. Zone rule: nothing here is text-zone art —
+ * no box-drawing, no glyph icons standing in for real icons.
+ */
+
+:root{ --yk-font: "Geist", system-ui, sans-serif; --yk-mono: "Geist Mono", ui-monospace, monospace;
+       --yk-row: 40px; --yk-pad-y: 10px; --yk-pad-x: 14px; }
+[data-density="compact"]{ --yk-row: 32px; --yk-pad-y: 6px; --yk-pad-x: 10px; }
+
+.yk-focus:focus-visible, .yk-btn:focus-visible, .yk-input:focus-visible, .yk-switch:focus-visible,
+.yk-seg button:focus-visible, .yk-tabs button:focus-visible, .yk-check:focus-visible{
+  outline: 2px solid var(--r-focus-ring); outline-offset: 2px; }
+
+/* buttons ─────────────────────────────────────────────────────────────── */
+.yk-btn{ display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: var(--yk-row);
+  padding: 0 var(--yk-pad-x); border-radius: var(--yk-radius-md); font: 600 14px/1 var(--yk-font);
+  border: 1.5px solid var(--r-border-strong); background: transparent; color: var(--r-text-primary); cursor: pointer;
+  transition: background var(--yk-quick) var(--yk-ease), border-color var(--yk-quick) var(--yk-ease), transform var(--yk-quick) var(--yk-ease); }
+.yk-btn:hover{ background: var(--r-bg-hover); }
+.yk-btn:active{ transform: translateY(1px); }
+.yk-btn svg{ width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.7; }
+.yk-btn--primary{ border-color: var(--r-accent-edge); color: var(--r-accent-text); background: color-mix(in srgb, var(--r-accent-edge) 10%, transparent); }
+.yk-btn--primary:hover{ border-color: var(--r-accent-hover); background: color-mix(in srgb, var(--r-accent-edge) 18%, transparent); }
+.yk-btn--quiet{ border-color: transparent; color: var(--r-text-secondary); }
+.yk-btn--signal{ border-color: var(--r-signal-fill); background: var(--r-signal-fill); color: var(--r-signal-on-fill); }
+.yk-btn--signal:hover{ background: color-mix(in srgb, var(--r-signal-fill) 88%, black); }
+.yk-btn[disabled], .yk-btn[aria-disabled="true"]{ opacity: .45; cursor: not-allowed; transform: none; }
+.yk-btn[data-loading]{ color: transparent; position: relative; pointer-events: none; }
+.yk-btn[data-loading]::after{ content: ""; position: absolute; width: 16px; height: 16px; border-radius: 50%;
+  border: 2px solid var(--r-accent-edge); border-right-color: transparent; animation: yk-spin .8s linear infinite; }
+@keyframes yk-spin{ to{ transform: rotate(360deg); } }
+
+/* fields ──────────────────────────────────────────────────────────────── */
+.yk-field{ display: flex; flex-direction: column; gap: 6px; }
+.yk-label{ font: 500 13px var(--yk-font); color: var(--r-text-secondary); }
+.yk-help{ font: 13px var(--yk-font); color: var(--r-text-muted); }
+.yk-input{ min-height: var(--yk-row); padding: 0 12px; border-radius: var(--yk-radius-md); font: 15px var(--yk-font);
+  background: color-mix(in srgb, var(--r-bg-surface) 80%, transparent); color: var(--r-text-primary);
+  border: 1px solid var(--r-border-hairline); transition: border-color var(--yk-quick) var(--yk-ease); }
+.yk-input::placeholder{ color: var(--r-text-ghost); }
+.yk-input:hover{ border-color: var(--r-border-strong); }
+.yk-input:focus{ border-color: var(--r-accent-edge); outline: none; }
+.yk-field[data-state="error"] .yk-input{ border-color: var(--r-signal-fill); }
+.yk-field[data-state="error"] .yk-help{ color: var(--r-signal-text); }
+select.yk-input{ appearance: none; padding-right: 34px;
+  background-image: linear-gradient(45deg, transparent 50%, var(--r-text-muted) 50%), linear-gradient(135deg, var(--r-text-muted) 50%, transparent 50%);
+  background-position: calc(100% - 18px) 55%, calc(100% - 13px) 55%; background-size: 5px 5px; background-repeat: no-repeat; }
+
+/* choice ──────────────────────────────────────────────────────────────── */
+.yk-check{ appearance: none; width: 18px; height: 18px; margin: 0; border-radius: 4px; border: 1.5px solid var(--r-border-strong);
+  display: inline-grid; place-content: center; cursor: pointer; background: transparent; }
+.yk-check[type="radio"]{ border-radius: 50%; }
+.yk-check::before{ content: ""; width: 8px; height: 8px; background: var(--r-accent-edge); transform: scale(0); transition: transform var(--yk-quick) var(--yk-ease); }
+.yk-check[type="radio"]::before{ border-radius: 50%; }
+.yk-check:checked{ border-color: var(--r-accent-edge); }
+.yk-check:checked::before{ transform: scale(1); }
+.yk-switch{ appearance: none; width: 40px; height: 22px; border-radius: var(--yk-radius-pill); margin: 0; position: relative; cursor: pointer;
+  background: var(--r-bg-hover); box-shadow: inset 0 0 0 1px var(--r-border-hairline); transition: background var(--yk-quick) var(--yk-ease); }
+.yk-switch::after{ content: ""; position: absolute; top: 3px; left: 3px; width: 16px; height: 16px; border-radius: 50%;
+  background: var(--r-text-secondary); transition: transform var(--yk-quick) var(--yk-ease-emph), background var(--yk-quick); }
+.yk-switch:checked{ background: color-mix(in srgb, var(--r-accent-edge) 85%, transparent); }
+.yk-switch:checked::after{ transform: translateX(18px); background: var(--r-bg-app); }
+
+/* segmented, tabs ─────────────────────────────────────────────────────── */
+.yk-seg{ display: inline-flex; padding: 3px; gap: 2px; border-radius: var(--yk-radius-md); background: color-mix(in srgb, var(--r-bg-surface) 80%, transparent);
+  box-shadow: inset 0 0 0 1px var(--r-border-hairline); }
+.yk-seg button{ border: 0; background: transparent; color: var(--r-text-secondary); font: 500 13px var(--yk-font); padding: 6px 12px; border-radius: 7px; cursor: pointer; }
+.yk-seg button[aria-pressed="true"], .yk-seg button[aria-selected="true"]{ background: var(--r-bg-raised); color: var(--r-text-primary); box-shadow: inset 0 0 0 1px var(--r-accent-edge); }
+.yk-tabs{ display: flex; gap: 22px; border-bottom: 1px solid var(--r-border-hairline); }
+.yk-tabs button{ border: 0; background: none; padding: 10px 0; font: 500 14px var(--yk-font); color: var(--r-text-muted); cursor: pointer; position: relative; }
+.yk-tabs button[aria-selected="true"]{ color: var(--r-text-primary); }
+.yk-tabs button[aria-selected="true"]::after{ content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: var(--r-accent-edge); }
+
+/* menu (yk:obj/graphic/menu.glass) ────────────────────────────────────── */
+.yk-menu{ padding: 8px; min-width: 240px; display: flex; flex-direction: column; gap: 2px; }
+.yk-menu hr{ border: 0; height: 1px; background: var(--r-border-hairline); margin: 6px 8px; }
+.yk-menu .yk-row{ min-height: calc(var(--yk-row) - 2px); cursor: pointer; font: 15px var(--yk-font); }
+.yk-menu .yk-row svg{ width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 1.6; flex: none; opacity: .9; }
+.yk-kbd{ margin-left: auto; display: inline-flex; gap: 3px; }
+.yk-kbd span, kbd.yk-kbd{ font: 500 11px var(--yk-mono); min-width: 20px; height: 20px; padding: 0 5px; display: grid; place-items: center;
+  border-radius: 4px; background: color-mix(in srgb, var(--r-text-primary) 8%, transparent); color: var(--r-text-muted); }
+
+/* table ───────────────────────────────────────────────────────────────── */
+.yk-table{ width: 100%; border-collapse: collapse; font: 14px var(--yk-font); font-variant-numeric: tabular-nums; }
+.yk-table th{ text-align: left; font: 500 12px var(--yk-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--r-text-muted);
+  padding: 8px 12px; border-bottom: 1px solid var(--r-border-strong); }
+.yk-table td{ padding: var(--yk-pad-y) 12px; border-bottom: 1px solid var(--r-border-hairline); color: var(--r-text-primary); }
+.yk-table tr:hover td{ background: color-mix(in srgb, var(--r-bg-hover) 50%, transparent); }
+.yk-table tr[aria-selected="true"] td{ background: color-mix(in srgb, var(--r-accent-edge) 10%, transparent);
+  box-shadow: inset 0 1px 0 var(--r-accent-edge), inset 0 -1px 0 var(--r-accent-edge); }
+.yk-table tr[aria-selected="true"] td:first-child{ box-shadow: inset 1px 1px 0 var(--r-accent-edge), inset 0 -1px 0 var(--r-accent-edge); }
+.yk-table tr[aria-selected="true"] td:last-child{ box-shadow: inset -1px 1px 0 var(--r-accent-edge), inset 0 -1px 0 var(--r-accent-edge); }
+.yk-num{ text-align: right; font-family: var(--yk-mono); }
+
+/* status: never colour alone ──────────────────────────────────────────── */
+.yk-badge{ display: inline-flex; align-items: center; gap: 6px; font: 500 12px var(--yk-mono); padding: 3px 8px; border-radius: var(--yk-radius-pill);
+  color: var(--r-text-secondary); box-shadow: inset 0 0 0 1px var(--r-border-hairline); }
+.yk-badge::before{ content: ""; width: 7px; height: 7px; background: currentColor; }
+.yk-badge--ok{ color: var(--r-ok-text); }
+.yk-badge--ok::before{ border-radius: 50%; }
+.yk-badge--warn{ color: var(--r-warn-text); }
+.yk-badge--warn::before{ transform: rotate(45deg); }
+.yk-badge--signal{ color: var(--r-signal-text); box-shadow: inset 0 0 0 1px var(--r-signal-text); }
+.yk-badge--live{ color: var(--r-accent-text); }
+.yk-badge--live::before{ border-radius: 50%; animation: yk-pulse 1.6s ease-in-out infinite; }
+@keyframes yk-pulse{ 50%{ opacity: .3; } }
+
+/* progress ────────────────────────────────────────────────────────────── */
+.yk-progress{ height: 4px; border-radius: 2px; background: var(--r-bg-hover); overflow: hidden; }
+.yk-progress > i{ display: block; height: 100%; width: var(--value, 40%); background: var(--r-accent-edge); transition: width var(--yk-base) var(--yk-ease); }
+.yk-progress--dots{ height: 8px; background: none; display: grid; grid-template-columns: repeat(24, 1fr); gap: 3px; }
+.yk-progress--dots > b{ height: 8px; border-radius: 50%; background: var(--r-bg-hover); }
+.yk-progress--dots > b.on{ background: var(--r-accent-edge); }
+
+/* surfaces: dialog, toast, tooltip ────────────────────────────────────── */
+.yk-scrim{ position: fixed; inset: 0; background: color-mix(in srgb, var(--r-bg-app) 60%, transparent); backdrop-filter: blur(4px); }
+.yk-dialog{ width: min(460px, calc(100vw - 32px)); padding: 22px; display: flex; flex-direction: column; gap: 14px;
+  box-shadow: inset 0 0 0 1px var(--r-border-hairline), 0 24px 60px -24px color-mix(in srgb, black 55%, transparent); }
+.yk-dialog h3{ margin: 0; font: 600 18px var(--yk-font); color: var(--r-text-heading); }
+.yk-dialog p{ margin: 0; color: var(--r-text-secondary); font-size: 14.5px; }
+.yk-dialog footer{ display: flex; justify-content: flex-end; gap: 8px; margin-top: 6px; }
+.yk-toast{ display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: var(--yk-radius-md); min-width: 280px; font: 14px var(--yk-font); }
+.yk-toast .yk-badge{ box-shadow: none; padding: 0; }
+.yk-tip{ font: 12px var(--yk-font); padding: 6px 9px; border-radius: var(--yk-radius-sm); background: var(--r-bar-fill); color: var(--r-bar-text); }
+
+/* window chrome (desktop) ─────────────────────────────────────────────── */
+.yk-window{ border-radius: var(--yk-radius-lg); overflow: hidden; display: flex; flex-direction: column;
+  box-shadow: inset 0 0 0 1px var(--r-border-hairline), 0 30px 80px -40px color-mix(in srgb, black 60%, transparent); }
+.yk-titlebar{ display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 12px; font: 600 13px var(--yk-font); color: var(--r-text-secondary);
+  border-bottom: 1px solid var(--r-border-hairline); }
+.yk-titlebar .yk-title{ flex: 1; text-align: center; }
+.yk-titlebar button{ width: 26px; height: 26px; border: 0; border-radius: 6px; background: transparent; color: var(--r-text-muted); cursor: pointer; display: grid; place-items: center; }
+.yk-titlebar button:hover{ background: var(--r-bg-hover); color: var(--r-text-primary); }
+.yk-window:not(:focus-within) .yk-titlebar{ color: var(--r-text-ghost); }
+
+/* information layer (ornate): spec table, annotation, readout ────────── */
+.yk-spec{ width: 100%; border-collapse: collapse; font: 12px var(--yk-mono); }
+.yk-spec td{ padding: 7px 0; border-top: 1px solid var(--r-border-hairline); }
+.yk-spec td:first-child{ color: var(--r-text-muted); letter-spacing: .06em; text-transform: uppercase; }
+.yk-spec td:last-child{ text-align: right; color: var(--r-text-primary); }
+.yk-readout{ font: 500 12px/1.5 var(--yk-mono); letter-spacing: .06em; color: var(--r-text-muted); }
+.yk-readout b{ color: var(--r-text-primary); font-weight: 500; }

@@ -1,9 +1,37 @@
-# Badges — compact status tags, one role-color each. Pill or brackets.
+# Badges — compact status tags, one role-colour each. Pill or brackets.
 
+## the pill — a badge that is an object
  ◆ PRIMARY     ● ACTIVE     ✗ CRITICAL     ✦ AI     v1.0.0     beta
 
-# bracket form, when a pill is too much:
+## the bracket — when a pill is too much
  [ primary ]   ( active )   v1.0.0   · ai
 
+## the bare mark — when the row already says what it is
+ ◆ primary     ● active     ✗ critical     ○ idle     ◇ queued
+
+## by what the badge is actually saying
+ state       ● live      ◐ degraded   ○ idle      ✗ down      ⟳ restarting
+ lifecycle   ◆ stable    ◇ beta       ▵ alpha     ⌁ experimental   ⊘ deprecated
+ verdict     ✓ passing   ⚠ flaky      ✗ failing   ⋯ pending   ⊝ skipped
+ size        ▪ xs        ▪▪ s         ▪▪▪ m       ▪▪▪▪ l
+ kind        ⧉ note      → tip        ⚑ breaking  ✦ ai        ⌂ internal
+
+## versions and counts — the quiet ones, and there are always more of them
+ v1.2.0    v1.2.0-rc.1    #1421    12 open    3 / 12    +18%
+
+## a row of them — the accent comes last, so the eye lands on it
+ web-01   ubuntu 24.04   4 vCPU   ● live
+ web-02   ubuntu 24.04   4 vCPU   ✗ down
+
+## in a heading, where a badge is a subtitle
+ yoshiki  ◆ stable   v1.2.0   MIT
+
+## what a badge must not do
+ ✗  [ NEW ] [ HOT ] [ SALE ] [ ⚡ FAST ]    four accents, so no accent
+ ✗  ● ACTIVE in scarlet                     the colour must match the word
+ ✗  a badge longer than its row's label     then it is a sentence, write it
+
 # paint: PRIMARY -> gold · ACTIVE -> moss · CRITICAL -> scarlet · AI -> wisteria
-#        version / neutral tags -> bone-3 on ink-2. one accent badge per row.
+#        DEGRADED / FLAKY -> persimmon · deprecated, skipped, idle -> text.ghost
+#        version and neutral tags -> bone-3 on ink-2
+#        one accent badge per row. Two accents is a decoration, not a status.

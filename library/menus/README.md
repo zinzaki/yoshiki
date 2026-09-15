@@ -10,17 +10,50 @@
 
 ## Patterns
 
+**Choosing and finding**
+
 | File | Register | For |
 |---|---|---|
-| `soft-card.txt`   | soft ╭╮ | a calm card: profile, quote, summary |
-| `select-menu.txt` | soft    | a choice list: active vs idle, counters |
-| `stat-tree.txt`   | hard ╔╠╚ | dense stats with right-aligned deltas |
-| `panel.txt`       | hard    | a settings panel with sectioned rows |
-| `status-line.txt` | inline  | a one-line summary / status bar |
-| `table.txt`       | table   | dense rows, aligned columns, one selected (k9s) |
-| `miller.txt`      | columns | parent · current · preview (yazi file nav) |
-| `multipanel.txt`  | panels  | list + detail, fixed positions (lazygit) |
-| `keyhints.txt`    | inline  | bottom bar — what is pressable right now |
+| `select-menu.txt` | soft ╭╮ | a choice list: active vs idle, counters |
+| `picker.txt` | soft | a fuzzy find: query, count, the hit lit |
+| `command-palette.txt` | soft | grouped commands with key hints |
+| `tree.txt` | spine | a hierarchy: collapsed, expanded, with status |
+| `breadcrumb.txt` | inline | where you are, and nothing else |
+
+**Showing**
+
+| File | Register | For |
+|---|---|---|
+| `soft-card.txt` | soft | a calm card: profile, quote, summary |
+| `stat-tree.txt` | hard ╔╠╚ | dense stats with right-aligned deltas |
+| `table.txt` | table | dense rows, aligned columns, one selected (k9s) |
+| `dashboard.txt` | panels | a fixed grid of gauges, nothing moving |
+| `logs.txt` | minimal | a stream: marks aligned, no frame |
+| `empty.txt` | minimal | nothing here yet — one glyph, one way forward |
+
+**Asking**
+
+| File | Register | For |
+|---|---|---|
+| `form.txt` | soft | label above, one hint, the error replaces it |
+| `confirm.txt` | soft | a destructive decision — the one scarlet fill |
+| `wizard.txt` | inline | a sequence, with a position in it |
+| `panel.txt` | hard | a settings panel with sectioned rows |
+
+**Layout and chrome**
+
+| File | Register | For |
+|---|---|---|
+| `miller.txt` | columns | parent · current · preview (yazi file nav) |
+| `multipanel.txt` | panels | list + detail, fixed positions (lazygit) |
+| `split.txt` | panels | two or three panes; only one edge is lit |
+| `status-line.txt` | inline | a one-line summary / status bar |
+| `keyhints.txt` | inline | bottom bar — what is pressable right now |
+| `help.txt` | inline | the full key map, grouped |
+| `toast.txt` | inline | one line that leaves on its own |
+
+Frames themselves live next door in [`../frames`](../frames), and everything
+that says "working" in [`../loaders`](../loaders).
 
 Three layout families, from researched TUIs: **multi-panel** (fixed panes,
 lazygit/btop), **miller columns** (parent/current/preview, yazi/ranger),

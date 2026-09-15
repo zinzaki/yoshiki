@@ -1,0 +1,37 @@
+# skeleton — the shape of what is coming, before it arrives.
+# In text, a skeleton is a rhythm of blocks at the real widths, pulsing
+# between about 60% and 100% opacity over ~1.6s. Never a sweeping shimmer:
+# a shimmer is decoration pretending to be progress.
+
+# 1 · a list of rows
+  ▬▬▬▬▬▬▬▬▬▬▬▬        ▬▬▬▬
+  ▬▬▬▬▬▬▬▬▬            ▬▬▬
+  ▬▬▬▬▬▬▬▬▬▬▬▬▬▬      ▬▬▬▬
+
+# 2 · a card
+╭───────────────────────────
+│  ▬▬▬▬▬▬▬▬
+│  ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+│  ▬▬▬▬▬▬▬▬▬▬▬
+╰╴
+
+# 3 · a table, keeping the real column widths
+  ▬▬▬▬▬▬▬     ▬▬▬▬     ▬▬▬     ▬▬▬▬
+  ▬▬▬▬▬▬      ▬▬▬▬     ▬▬▬     ▬▬▬▬
+  ▬▬▬▬▬▬▬▬    ▬▬▬▬     ▬▬▬     ▬▬▬▬
+
+# 4 · a paragraph, with the last line short
+  ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+  ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+  ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+# 5 · in the web kit
+#     <div class="y-skeleton" style="height:12px;width:40%"></div>
+
+# the rule that makes a skeleton work: the widths are the REAL widths. A
+# skeleton at the wrong shape makes the arrival of the content a jump, which
+# is worse than a spinner would have been.
+
+# reduced motion: hold at 80%, no pulse.
+
+# paint: blocks -> bg.hover

@@ -1,0 +1,29 @@
+# brackets — corner marks only. A target, a crop, something being measured.
+# The frame is implied: four corners are enough for the eye to close the shape.
+
+# 1 · corner marks
+┌                              ┐
+   the eye closes the rectangle
+   without being given one
+
+└                              ┘
+
+# 2 · half-brackets, for a value under inspection
+┌╴ 18,420 req/min
+└╴ measured over 60s
+
+# 3 · a crop mark around one figure
+      ┌      ┐
+        42 ms
+      └      ┘
+
+# 4 · left bracket only — a range or a group
+┌ gateway
+│ auth
+└ billing
+
+# 5 · the measured span
+├──────────── 4.5:1 minimum ────────────┤
+
+# paint: marks -> border.hairline, or text.gold when the bracket is the
+#        subject rather than the container · body -> text.body

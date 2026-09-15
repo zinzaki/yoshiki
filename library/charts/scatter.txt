@@ -1,0 +1,41 @@
+# Scatter — two variables, one point each. Braille gives 2×4 dots per cell,
+# which is the only way a terminal gets a real point cloud.
+
+## the plain cloud
+ latency (ms)
+  500┤                                    ⢀
+     │                                 ⢀⡠⠊
+  250┤                          ⢀⡠⠔⠊⠉
+     │                  ⢀⣀⡠⠤⠒⠉
+  100┤        ⢀⣀⡠⠤⠒⠊⠉
+     │⣀⡠⠤⠒⠉
+    0└────┬────┬────┬────┬────┬────┬────┬─
+         100  200  300  400  500  600  700
+                    concurrency
+
+## with a fit line, and the residual left visible
+     │        ⢀⠔  ⠁
+     │     ⢀⠔⠁ ⠐
+     │  ⢀⠔⠁⠠
+     │⠔⠁ ⠈
+     └───────────────
+ ↑ the fit is a line, the points are dots; if they render in the same weight
+   the chart shows one thing instead of two
+
+## the outlier is the story
+     │                                     ◆   ← 2.4s, api-07
+     │
+     │⣀⡠⠤⠒⠊⠉⠉⠑⠒⠤⢄⣀
+     └───────────────────────────────────────
+ ↑ one point earns a glyph, a colour and a label. The rest stay dots.
+
+## small multiples — the same axes, repeated
+   web            api            db
+  ┤ ⢀⡠⠔⠊         ┤   ⢀⡠⠔⠒        ┤⠉⠑⠢⢄⡀
+  ┤⠊             ┤⠔⠁             ┤     ⠉⠢⢄
+  └────────      └────────       └────────
+ ↑ identical scales, always. Three panels with three scales is three charts
+   pretending to be a comparison.
+
+# paint: points -> bone-2 · a fit or trend line -> kin-1 · the outlier -> aka-0
+# axes, ticks and the frame -> line-0 · axis labels mono and dim

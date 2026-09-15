@@ -1,0 +1,58 @@
+# Lists — the most common block in the language, and the easiest to get wrong.
+# The marker states the kind of list. Pick it once and hold it.
+
+## unordered — order does not matter
+ · lacquer, bone and gold
+ · two triggers, spent only on events
+ · one source, thirteen targets
+ ↑ a middle dot, not a bullet: • is a hole punched in the line
+
+## ordered — order is the information
+ 1.  read the philosophy
+ 2.  lift the palette
+ 3.  paste one prompt module
+ ↑ numbers right-aligned past nine, or 9. and 10. will not line up
+
+## a ladder — order AND precedence
+ 1  rarity beats taste
+ 2  meaning beats preference
+ 3  legibility beats atmosphere
+ ↑ no full stop: this is a rank, not a sentence
+
+## checklist — a thing a person is going to do
+ ✓ palette resolved
+ ✓ contrast proven
+ ▫ themes baked
+ ▫ site rebuilt
+ ↑ ▫ is empty, not ✗: not-yet-done is not failure
+
+## definition — a term and what it means
+ token     a raw value with a stated job
+ role      the contract you consume — text.body, action.edge
+ target    a program the palette is baked for
+ ↑ this is a key-value column; see kv.txt if the values grow
+
+## nested — two levels, and there is no third
+ canon/
+   · palette     tokens, roles, the proof
+   · components  the anatomy of a control
+ library/
+   · web         the drop-in kit
+   · themes      thirteen programs
+ ↑ a third level means the outline is the document. Split the page instead.
+
+## inline — a list inside a sentence
+ kitty, foot, alacritty, ghostty and wezterm
+ ↑ commas, and one "and". Not middle dots, which are for pairs, not prose.
+
+## a run of pairs on one line
+ stable · v1.2.0 · MIT · 42 tokens
+
+## what a list must not do
+ ✗  a marker per line that changes halfway down
+ ✗  a one-item list                      that is a sentence
+ ✗  a list of full paragraphs            that is prose with bullets stapled on
+ ✗  bold on every item                   then bold means nothing
+
+# paint: markers -> text.gold (·, numbers, ✓) · ▫ and skipped -> text.ghost
+#        terms in a definition list -> text.muted · bodies -> bone

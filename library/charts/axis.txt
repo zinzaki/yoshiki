@@ -1,0 +1,48 @@
+# Axes, ticks and legends — the furniture. It should be the quietest thing on
+# the chart and still answer "compared to what?".
+
+## tick marks — pick by how much room the axis has
+ ├─────┼─────┼─────┤     full: ends and interior ticks
+ ╶─────┬─────┬─────╴     open: the data does not stop at the ends
+ └─────┴─────┴─────┘     a floor only, when the y-axis is implied
+ 0     250   500   750   labels under the ticks, never between them
+
+## how many ticks
+ 4 or 5. Three is a hint, seven is a grid. If you need seven, the reader
+ needs a table.
+
+## the y-axis — right-aligned, so the digits line up with each other
+  500┤
+  250┤
+  100┤
+    0└──────────────
+
+## a baseline that is not zero — say so, loudly
+   80┤                        ⢀⡠⠔⠊
+   60┤            ⢀⣀⡠⠤⠒⠉
+   40┤⣀⡠⠤⠒⠉
+     └────────────────────────────
+     ⚠ y starts at 40, not 0
+ ↑ a truncated axis doubles every slope. Either start at zero or print this
+   line; there is no third option.
+
+## legends — inline beats a key, always
+ this year  ▰▰▰▰▰▰▰▰   1.2M
+ last year  ▱▱▱▱▱▱     0.9M
+ ↑ the label sits on the thing it names. A separate key makes the eye carry
+   a colour across the page and back.
+
+ when a key is unavoidable, keep it one line and always in series order:
+  ▰ served   ▱ cached   ◆ failed
+
+## units — in the header, once
+ p99 (ms)    486      not:   486 ms, 211 ms, 198 ms down the column
+
+## no data — the axis still renders
+  100┤
+     │            no data for this window
+    0└──────────────────────────────────
+ ↑ an empty chart that collapses to nothing reads as a bug
+
+# paint: axes, ticks, rules -> line-0 · labels -> text.muted, mono, small
+# the ⚠ note about a truncated axis -> kaki-1 — it is a warning, not a caption

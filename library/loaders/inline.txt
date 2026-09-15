@@ -1,0 +1,36 @@
+# inline — working, inside a sentence, a status line or a table cell.
+
+# 1 · in a sentence
+  Uploading 12 of 40 ⠹
+
+# 2 · in a status line
+  NORMAL │ main ~2 │ ⠹ build 12s │ utf-8 │ 42:8
+
+# 3 · in a table cell — the row is not finished yet
+  gateway    18,420    42ms     ✓ healthy
+  auth        9,310    88ms     ⠹ checking
+  billing     1,208   140ms     ✗ failing
+
+# 4 · in a button, where the label is replaced and the width is held
+  [ ⠹ Working    ]        <- same width as [ Publish ]
+
+# 5 · in a prompt, as the right-hand side
+  ╭─ ◆ ─ ~/dev/yoshiki ─  main ─ ⠹ build 12s
+  ╰─ ❯
+
+# 6 · in a log, as the last line and only the last line
+  ✓ resolve      0.4s
+  ✓ fetch        2.1s
+  ⠹ build
+
+# 7 · as a trailing dot, when even a spinner is too much
+  Saving ·
+  Saving ··
+  Saving ···
+
+# the rule: exactly one moving thing per screen. Three spinners at three
+# tempos is not three times the information — it is a screen nobody can
+# read, and it hides which one is actually blocking.
+
+# paint: the spinner -> action.edge · the label -> text.muted
+#        a held button label -> action.text

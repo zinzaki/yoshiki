@@ -1,0 +1,37 @@
+# dividers — rules between sections. Never around them.
+
+# 1 · the plain rule
+────────────────────────────────────────
+
+# 2 · the marked rule (one per page, never two)
+──────────────── ◆ ────────────────────
+
+# 3 · the titled rule
+──── SECTION ───────────────────────────
+
+# 4 · the weighted pair — heavy above, light below
+════════════════════════════════════════
+────────────────────────────────────────
+
+# 5 · the fading rule (a gradient the terminal can draw)
+━━━━━━━━━━━━━━━──────────────  ·  ·   ·
+
+# 6 · the gap with a single mark, for a long document
+                   ·
+
+                   ◆
+
+                   ·
+
+# 7 · the inline separator, between things on one line
+  main  ·  clean  ·  v1.2
+
+# 8 · the segment divider, when the parts are equal
+  NORMAL │ main ~2 │ utf-8 │ 42:8
+
+# rule: one heavy rule per screen. A page of rules is a page with no
+#       hierarchy left — the rule stops meaning "a break" and starts
+#       meaning "here is another line".
+
+# paint: rules -> border.hairline · the one mark -> text.gold
+#        titles in a rule -> text.muted, spaced

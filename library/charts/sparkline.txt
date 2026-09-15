@@ -1,10 +1,30 @@
 # Sparkline — a trend in one line, kept light. Braille dots or low blocks —
 # never the full block █ (it reads as a heavy slab).
 
- cpu   ⡠⠔⠒⠊⠉⠉⠑⠢⠤⠄⠂⠁⠂⠄⠢       braille — finest, airy (2×4 dots)
- mem   ⣀⣄⣆⣇⣧⣶⣷⣿                rising, braille fill
- net   ⠂⠄⠂⠁⠂⠄⢀⠠⠐⠈⠂⠁⠂⠄⠂       sparse, bursty
+## families — pick by how much resolution the line has earned
+ braille line   ⡠⠔⠒⠊⠉⠉⠑⠢⠤⠄⠂⠁⠂⠄⠢     finest, airy (2×4 dots per cell)
+ braille fill   ⣀⣄⣆⣇⣧⣶⣷⣿⣿⣷⣧⣇⣆⣄⣀     a filled area, still not a slab
+ low blocks     ▁▂▃▄▅▆▇▆▅▄▃▂▁▂▄▆       eight steps, universally installed
+ dots           ․˳•˚°˚•˳․˳•˚°˚•˳       a whisper — for a line that is context
+ bars           ⡇⡆⡄⡀⡄⡆⡇⣇⣧⣶⣷⣿         column-per-sample, when count is small
 
+## anchored — a line without a scale is decoration
+ cpu    ▁▂▄▃▅▆▇▆▄▃  42%        latest value printed, right-aligned
+ cpu    ▁▂▄▃▅▆▇▆▄▃  42% ▲6     with the delta against the previous window
+ cpu  0┤▁▂▄▃▅▆▇▆▄▃├100         an explicit floor and ceiling
+ cpu    ▁▂▄▃▅▆▇▆▄▃  ⌃92 ⌄11    the window's own high and low
 
-# paint: line -> kin-1 (gilding) or bone-2; a real spike -> aka-0
-# one sparkline = one metric; label left and dim, fixed width
+## marked — one sample matters more than the run
+ p99    ▁▂▄▃▅▆▇▆▄▃             a plain run
+ p99    ▁▂▄▃▅▆◆▆▄▃             ◆ on the peak — the subject of the sentence
+ p99    ▁▂▄▃▅▆▇▆▄▃ ╌╌╌ 200ms   a threshold as a dashed line, never a band
+ err    ▁▁▁▂▁▁▇▁▁▁             the one spike is the only coloured cell
+
+## stacked — several metrics share one label column
+ cpu    ▁▂▄▃▅▆▇▆▄▃   42%
+ mem    ▃▃▄▄▄▅▅▅▆▆   61%
+ net    ▁▁▂▁▄▁▁▂▁▁    3%
+ ↑ one width for every row: a sparkline column that does not align is a mess
+
+# paint: the run -> kin-1 (gilding) or bone-2 · a real spike -> aka-0
+# label left and dim, value right and bone; fixed width, always

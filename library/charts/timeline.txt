@@ -1,0 +1,39 @@
+# Timeline — durations on a shared axis. Every row is measured from the same
+# zero, or the chart is a lie told with alignment.
+
+## a build, by stage
+ 0s                    4s                    8s                   12s
+ ├─────────────────────┼─────────────────────┼─────────────────────┤
+ resolve   ▰▰                                                  0.6s
+ compile     ▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰                                6.1s
+ link                           ▰▰▰▰▰▰▰▰▰▰                     3.4s
+ test                                     ▰▰▰▰▰                 1.5s
+ sign                                          ▰                0.3s
+                                                          total 11.9s
+
+## a request, waterfall — where the time actually went
+ dns        ▰                                     12 ms
+ connect     ▰▰                                   28 ms
+ tls           ▰▰▰▰                               61 ms
+ ttfb              ▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰        312 ms  ⚠
+ download                                  ▰▰▰    41 ms
+ ─────────────────────────────────────────────────────
+ total                                            454 ms
+ ↑ one segment carries the cost; it is the only one that earns a colour
+
+## events on a line — no duration, only when
+ 09:00        12:00        15:00        18:00
+ ├────────────┼────────────┼────────────┤
+      ◆            ✗   ◆         ◆
+      deploy       fail  rollback  deploy
+ ↑ the mark sits under its own label, or the reader has to count columns
+
+## overlapping work — lanes, because a row can hold only one thing
+ worker-1  ▰▰▰▰▰▰      ▰▰▰▰        ▰▰▰▰▰▰▰▰
+ worker-2     ▰▰▰▰▰▰▰▰▰▰▰▰     ▰▰▰▰▰
+ worker-3  ▰▰▰      ▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰
+ ↑ idle is empty space, never a track: a filled track says "busy at low level",
+   which is a different fact
+
+# paint: bars -> kin-1 · the critical path or the slowest stage -> kaki-1
+# a failed stage -> aka-0 · axis, ticks and rules -> line-0 · totals in bone

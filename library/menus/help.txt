@@ -1,0 +1,38 @@
+# inline — the key map. What is pressable, right now.
+
+# 1 · the bottom bar, one line
+  ↑↓ move   ↵ open   / search   q quit
+
+# 2 · grouped, for a full help overlay
+╭─ keys ───────────────────────────────────
+│  MOVE
+│    ↑ ↓          row
+│    ⇞ ⇟          page
+│    g G          top · bottom
+│
+│  ACT
+│    ↵            open
+│    space        select
+│    d            delete
+│
+│  VIEW
+│    /            search
+│    1 2          theme
+│    ?            this map
+╰╴                              esc to close
+
+# 3 · two columns, when the list is long
+  ↑ ↓    row            /      search
+  ⇞ ⇟    page           n N    next · prev match
+  g G    top · bottom   ?      keys
+  ↵      open           q      quit
+
+# 4 · contextual — only what works on the current selection
+  on gateway:   ↵ open   r restart   l logs
+
+# rule: the bar shows what is pressable NOW, not everything that exists.
+#       A static bar of twelve keys is decoration; four that change with
+#       the selection is a tool.
+
+# paint: keys -> text.body on bg.raised, or bracketed in text.gold
+#        descriptions -> text.muted · group headings -> text.muted, spaced

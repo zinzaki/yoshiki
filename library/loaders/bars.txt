@@ -1,0 +1,38 @@
+# bars — determinate. A real quantity, drawn with sub-symbols.
+# Never a solid slab: a filled rectangle carries no sub-cell resolution and
+# reads as a bar chart of one value.
+
+# 1 · the tape — the default
+▰▰▰▰▰▰▰▱▱▱  64%
+
+# 2 · dot-matrix — braille cells fill in eighths, so it moves smoothly
+⣿⣿⣿⣿⣿⣿⣷⠀⠀⠀  64%
+
+# 3 · quadrant — coarser, heavier, good at small widths
+████████▌      64%
+
+# 4 · rule — two weights of the same line
+━━━━━━━━──────  64%
+
+# 5 · segmented — when the units are countable
+▰▰▰ ▰▰▰ ▰▱▱ ▱▱▱   8/12 files
+
+# 6 · framed, when the bar sits alone rather than in a row
+╭──────────────────────────╮
+│ ▰▰▰▰▰▰▰▰▰▱▱▱▱▱      64%  │
+╰──────────────────────────╯
+
+# 7 · a column of bars, aligned — the comparison matters more than any one
+  build   ▰▰▰▰▰▰▰▰▰▰▰▰ 86
+  tests   ▰▰▰▰▰▰▰▰▱▱▱▱ 61
+  lint    ▰▰▰▰▰▱▱▱▱▱▱▱ 38
+
+# 8 · with a threshold mark — the only reason to add a second colour
+  disk    ▰▰▰▰▰▰▰▰▰│▱  84%   (warn at 80)
+
+# the number is not optional. A bar says roughly; the number says exactly,
+# and one of the two is always the thing the reader actually wanted.
+
+# paint: filled -> action.edge · empty -> border.hairline
+#        number -> text.secondary · a crossed threshold -> warn.text
+#        past the hard limit -> danger.text, and only then

@@ -1,0 +1,33 @@
+# Histogram — the shape of a distribution, not a ranking. Buckets are ordered
+# by value, never by size: the order IS the information.
+
+## horizontal — the default, because bucket labels are words
+ latency, 24h · 18,402 requests
+
+   0– 50ms  ▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰  11,204   61%
+  50–100ms  ▰▰▰▰▰▰▰            4,118   22%
+ 100–200ms  ▰▰▰                2,006   11%
+ 200–500ms  ▰                    901    5%
+ 500ms–1s   ▏                    142    1%
+      >1s   ▏                     31   0.2%
+ ↑ a bucket with a real count never renders empty — ▏ is the floor, so a
+   rare-but-present bucket cannot be mistaken for an absent one
+
+## vertical — when the buckets are numbers and the shape is the point
+  count
+    ▁▃▅▇▇▆▄▂▁
+  └─┬───┬───┬─┘
+    0  250 500ms
+
+## with the summary a histogram always owes you
+ p50 42ms   p90 118ms   p99 486ms   max 1.9s
+ ↑ a distribution without its percentiles is a picture, not a measurement
+
+## two distributions, before and after
+ before  ▁▂▄▇▆▃▁▁▁▁   p99 486ms
+ after   ▃▇▆▂▁▁▁▁▁▁   p99 121ms
+ ↑ same buckets, same width, stacked — never side by side, which asks the eye
+   to hold two scales at once
+
+# paint: bars -> kin-1 · the tail past a threshold -> kaki-1 · axis -> line-0
+# counts right-aligned in bone; percentages dim; labels mono and dim

@@ -1,0 +1,35 @@
+# indeterminate — it looks like progress, and it does not know the total.
+# Honest forms only: nothing here pretends to be at a percentage.
+
+# 1 · the sweep — a lit segment travelling a fixed track
+▱▱▰▰▰▱▱▱▱▱
+▱▱▱▰▰▰▱▱▱▱
+▱▱▱▱▰▰▰▱▱▱                                    ~110ms
+
+# 2 · the fill-and-reset — honest about looping
+▰▱▱▱▱▱▱▱▱▱
+▰▰▰▱▱▱▱▱▱▱
+▰▰▰▰▰▰▱▱▱▱
+▰▰▰▰▰▰▰▰▰▰
+▱▱▱▱▱▱▱▱▱▱                                    ~90ms
+
+# 3 · the breathing rule — the calmest of the three
+────────────
+━━━━━━━━━━━━
+────────────                                  ~600ms
+
+# 4 · a count that rises without a ceiling
+  ⠹ scanned 1,204 files
+
+# 5 · elapsed time, which is always true
+  ⠹ compiling · 12s
+
+# 6 · the two-part label — what, and where in it
+  ⠹ uploading · chunk 12
+
+# the rule: if you do not know the total, do not draw a bar that implies
+# one. A sweep, a count or an elapsed clock all tell the truth; a bar at
+# "80%" that has been there for a minute does not.
+
+# paint: the lit segment -> action.edge · the track -> border.hairline
+#        count and clock -> text.secondary · label -> text.muted

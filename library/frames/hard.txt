@@ -1,0 +1,41 @@
+# hard register — double spines. For numbers and machine output.
+
+# 1 · the spine (no box: a spine survives any width)
+⟥ node web-01
+╔ uptime    99.7%
+╠ commits   86        (+18%)
+╠ p99       42 ms
+╚ focus     3/12
+
+# 2 · sectioned spine
+⟥ cluster eu-west
+╔ gateway   18,420/min   ok
+╠ auth       9,310/min   degraded
+╠ billing    1,208/min   failing
+╚ ─────────────────────────────
+  total     28,938/min
+
+# 3 · single heavy rule as a header, spine beneath
+═══ RESOURCES ═══════════════════
+╔ cpu       42%
+╠ memory    61%
+╚ disk      84%
+
+# 4 · the closed hard box — narrow blocks only
+╔══════════════════════════════╗
+║  EXIT 1 · seal mismatch      ║
+╚══════════════════════════════╝
+
+# 5 · a hard spine with a soft footer (the one place registers may touch:
+#     the spine holds the data, the capsule holds the sentence about it)
+╔ requests   18,420
+╠ errors          4
+╚ p99         42 ms
+╰╴ four errors, all in the last minute
+
+# rules: a hard spine stays at or under about seven rows — past that,
+#        split it or summarise it. One heavy rule per screen, maximum.
+
+# paint: spine ╔╠╚ -> border.hairline · ⟥ marker -> text.gold
+#        keys -> text.muted · values -> text.body
+#        (+n) -> ok.text · (-n) -> danger.text, only for real loss

@@ -1,13 +1,50 @@
 # Key-value — aligned pairs. Keys dim, values bone; the column is the rhythm.
 
+## the plain column
  unit      web-01
  status    ● up
  uptime    99.7%
  region    eu-central
 
-# with a field marker, in a denser card:
+## with a field marker, in a denser card
  ⟥ commits   86      (+18%)
  ⟥ focus     3 / 12
 
-# paint: keys -> text.muted · values -> bone-1 · ⟥ -> gold
-#        deltas (+n) -> ok.text · align values into one left edge
+## leader dots — when the gap grows wide enough to lose the eye
+ build ·············· 11.9 s
+ tests ··············  1,820 ok
+ bundle ············· 214 kB
+ ↑ dots only past about 24 columns. Under that they are noise.
+
+## inline — a run of pairs on one line
+ branch main · commit 8f2a1c4 · 214 files · 0.4s
+ ↑ middle dots, not commas: a comma reads as one sentence, a dot as one list
+
+## two columns, when the pairs are short and many
+ os      ubuntu 24.04       cpu     4 vCPU
+ kernel  6.8.0-41           mem     8 GB
+ arch    aarch64            disk    80 GB
+
+## grouped — a blank line, never a nested box
+ identity
+   name     yoshiki
+   version  1.2.0
+   licence  MIT
+
+ build
+   themes   13
+   tokens   42
+   checks   184
+
+## values that are not values
+ last deploy   —              never happened (an em dash, not "null")
+ owner         unassigned     a real state, said in words
+ p99           ⟳              still measuring
+ region        ✗ unreachable  the lookup failed, and says so
+
+## long values — wrap under the value column, never under the key
+ error     connection reset by peer after 30s; the upstream
+           closed before any byte of the body arrived
+
+# paint: keys -> text.muted · values -> bone-1 · ⟥ and leader dots -> gold
+#        deltas (+n) -> ok.text · align every value to one left edge

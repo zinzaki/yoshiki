@@ -1,0 +1,38 @@
+# Quotes — a line that is meant to be dwelt on. It earns the space only if the
+# page around it is calm; one per page, and never two in sight of each other.
+
+## the pull quote — the serif, the measure, and nothing else
+     Colour earns its power by being rare.
+
+## with an attribution
+     Colour earns its power by being rare.
+                                — the one law
+
+## marked, when the page needs the boundary stated
+ ───────────── ◆ ─────────────
+     Gold is the seam, never the slab.
+ ─────────────────────────────
+
+## the block quote — someone else's words, kept at arm's length
+ │ Nobody would wear a solid-gold watch, but a gilded edge is precious.
+ │ So gold lives only as a line, an edge, a frame or a glyph.
+ ↑ a left rule, not quotation marks: marks fight the mono grid and wrap badly
+
+## an epigraph — above the thing it frames, smaller than it
+     a design language
+     ────────────────
+     Warm monochrome, struck rarely by colour.
+
+## a terminal quote — a line of output worth stopping on
+ ❯ build.py --check
+ ✓ clean — output matches canon, every role passes on every surface.
+
+## what a quote must not do
+ ✗  a quote in a coloured box            the calm IS the emphasis
+ ✗  italic AND larger AND centred AND gold — pick one
+ ✗  a quote that repeats the paragraph above it
+ ✗  “smart quotes” around a mono line    they break the column
+
+# paint: the quote itself -> text.heading in the serif, 1.4–1.8× body
+#        the attribution and the rule -> text.muted · the ◆ -> text.gold
+#        never a fill behind it, and never a trigger colour on it
