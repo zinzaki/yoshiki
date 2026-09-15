@@ -11,7 +11,7 @@ tags:
 - docs
 - hero
 palettes: any
-status: draft
+status: voted
 uses:
 - yk:obj/graphic/annotation
 - yk:obj/graphic/spec-table
@@ -20,3 +20,7 @@ derived-from:
 - yk:ref/0086
 - yk:ref/0117
 - yk:ref/0166
+votes:
+  round: workshop-01
+  verdict: fine
+  note: an optional material, combined by taste and task — not a rule

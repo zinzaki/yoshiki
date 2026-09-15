@@ -34,7 +34,7 @@
     "yk:ref/0166"
    ],
    "palettes": "any",
-   "status": "draft",
+   "status": "voted",
    "path": "canon/effects/dissolve.dotmatrix"
   },
   {
@@ -64,7 +64,7 @@
     "yk:ref/0163"
    ],
    "palettes": "any",
-   "status": "draft",
+   "status": "voted",
    "path": "canon/effects/particles.form"
   },
   {
@@ -113,7 +113,7 @@
     "yk:ref/0212"
    ],
    "palettes": "any",
-   "status": "draft",
+   "status": "voted",
    "path": "canon/effects/xray"
   },
   {
@@ -140,7 +140,7 @@
     "yk:ref/0132"
    ],
    "palettes": "any",
-   "status": "draft",
+   "status": "voted",
    "path": "canon/materials/dither.pixel"
   },
   {
@@ -196,7 +196,7 @@
     "yk:ref/0209"
    ],
    "palettes": "any",
-   "status": "draft",
+   "status": "voted",
    "path": "canon/materials/glass.over-photo"
   },
   {
@@ -227,7 +227,7 @@
     "yk:ref/0201"
    ],
    "palettes": "any",
-   "status": "draft",
+   "status": "voted",
    "path": "canon/materials/glow.ember"
   },
   {
@@ -277,7 +277,7 @@
     "yk:ref/0167"
    ],
    "palettes": "any",
-   "status": "draft",
+   "status": "voted",
    "path": "canon/materials/halftone"
   },
   {
@@ -302,7 +302,7 @@
     "yk:ref/0202"
    ],
    "palettes": "any",
-   "status": "draft",
+   "status": "voted",
    "path": "canon/materials/ink.stroke"
   },
   {
@@ -373,7 +373,7 @@
     "yk:ref/0179"
    ],
    "palettes": "any",
-   "status": "draft",
+   "status": "voted",
    "path": "canon/materials/relief.emboss"
   },
   {
@@ -407,7 +407,7 @@
     "yk:ref/0221"
    ],
    "palettes": "any",
-   "status": "draft",
+   "status": "voted",
    "path": "canon/materials/relief.soft"
   },
   {
@@ -435,7 +435,7 @@
     "yk:ref/0205"
    ],
    "palettes": "any",
-   "status": "draft",
+   "status": "voted",
    "path": "canon/materials/seal"
   },
   {
@@ -465,7 +465,7 @@
     "yk:ref/0186"
    ],
    "palettes": "any",
-   "status": "draft",
+   "status": "voted",
    "path": "canon/materials/shape.modules"
   },
   {
@@ -494,7 +494,7 @@
     "yk:ref/0125"
    ],
    "palettes": "any",
-   "status": "draft",
+   "status": "voted",
    "path": "canon/materials/sparkle"
   },
   {
@@ -520,7 +520,7 @@
     "yk:ref/0175"
    ],
    "palettes": "any",
-   "status": "draft",
+   "status": "voted",
    "path": "canon/materials/topo.lines"
   },
   {
@@ -549,7 +549,7 @@
     "yk:ref/0212"
    ],
    "palettes": "any",
-   "status": "draft",
+   "status": "voted",
    "path": "canon/objects/graphic/annotation"
   },
   {
@@ -577,7 +577,7 @@
     "yk:ref/0147"
    ],
    "palettes": "any",
-   "status": "draft",
+   "status": "voted",
    "path": "canon/objects/graphic/equaliser"
   },
   {
@@ -604,7 +604,7 @@
     "yk:ref/0071"
    ],
    "palettes": "any",
-   "status": "draft",
+   "status": "voted",
    "path": "canon/objects/graphic/hud.frame"
   },
   {
@@ -629,7 +629,7 @@
     "yk:ref/0149"
    ],
    "palettes": "any",
-   "status": "draft",
+   "status": "voted",
    "path": "canon/objects/graphic/kbd-chip"
   },
   {
@@ -660,7 +660,7 @@
     "yk:ref/0189"
    ],
    "palettes": "any",
-   "status": "draft",
+   "status": "voted",
    "path": "canon/objects/graphic/menu.glass"
   },
   {
@@ -689,7 +689,7 @@
     "yk:ref/0215"
    ],
    "palettes": "any",
-   "status": "draft",
+   "status": "voted",
    "path": "canon/objects/graphic/numeral.dot"
   },
   {
@@ -715,7 +715,7 @@
     "yk:ref/0176"
    ],
    "palettes": "any",
-   "status": "draft",
+   "status": "voted",
    "path": "canon/objects/graphic/reticle"
   },
   {
@@ -742,7 +742,7 @@
     "yk:ref/0086"
    ],
    "palettes": "any",
-   "status": "draft",
+   "status": "voted",
    "path": "canon/objects/graphic/spec-table"
   },
   {
@@ -769,7 +769,7 @@
     "yk:ref/0128"
    ],
    "palettes": "any",
-   "status": "draft",
+   "status": "voted",
    "path": "canon/objects/graphic/transport-bar"
   },
   {
@@ -802,7 +802,7 @@
     "yk:ref/0207"
    ],
    "palettes": "any",
-   "status": "draft",
+   "status": "voted",
    "path": "canon/patterns/graphic/arch-collage"
   },
   {
@@ -830,7 +830,7 @@
     "yk:ref/0201"
    ],
    "palettes": "any",
-   "status": "draft",
+   "status": "voted",
    "path": "canon/patterns/graphic/iso-layers"
   },
   {
@@ -857,7 +857,7 @@
     "yk:ref/0175"
    ],
    "palettes": "any",
-   "status": "draft",
+   "status": "voted",
    "path": "canon/patterns/graphic/map-hud"
   },
   {
@@ -885,7 +885,7 @@
     "yk:ref/0166"
    ],
    "palettes": "any",
-   "status": "draft",
+   "status": "voted",
    "path": "canon/patterns/graphic/technical-sheet"
   },
   {
@@ -913,7 +913,7 @@
     "yk:ref/0208"
    ],
    "palettes": "any",
-   "status": "draft",
+   "status": "voted",
    "path": "canon/patterns/graphic/vertical-column"
   },
   {
@@ -976,7 +976,7 @@
     "yk:ref/0215"
    ],
    "palettes": "any",
-   "status": "draft",
+   "status": "voted",
    "path": "canon/type/pixel-numerals"
   }
  ]

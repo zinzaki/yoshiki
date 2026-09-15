@@ -10,7 +10,7 @@ tags:
 - data
 - technical
 palettes: any
-status: draft
+status: voted
 uses:
 - yk:role/text.muted
 - yk:role/text.primary
@@ -18,3 +18,7 @@ uses:
 derived-from:
 - yk:ref/0056
 - yk:ref/0086
+votes:
+  round: workshop-01
+  verdict: fine
+  note: an optional material, combined by taste and task — not a rule

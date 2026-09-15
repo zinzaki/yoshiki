@@ -11,10 +11,14 @@ tags:
 - media
 - hud
 palettes: any
-status: draft
+status: voted
 uses:
 - yk:mat/glass.frost
 - yk:role/signal.fill
 derived-from:
 - yk:ref/0063
 - yk:ref/0128
+votes:
+  round: workshop-01
+  verdict: fine
+  note: an optional material, combined by taste and task — not a rule

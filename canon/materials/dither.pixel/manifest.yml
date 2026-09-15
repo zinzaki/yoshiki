@@ -10,7 +10,7 @@ tags:
 - pixel
 - texture
 palettes: any
-status: draft
+status: voted
 uses:
 - yk:role/text.primary
 derived-from:
@@ -18,3 +18,7 @@ derived-from:
 - yk:ref/0092
 - yk:ref/0109
 - yk:ref/0132
+votes:
+  round: workshop-01
+  verdict: fine
+  note: an optional material, combined by taste and task — not a rule

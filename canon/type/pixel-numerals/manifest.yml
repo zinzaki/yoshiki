@@ -10,9 +10,13 @@ surfaces:
 tags:
 - numbers
 palettes: any
-status: draft
+status: voted
 derived-from:
 - yk:ref/0055
 - yk:ref/0160
 - yk:ref/0195
 - yk:ref/0215
+votes:
+  round: workshop-01
+  verdict: fine
+  note: an optional material, combined by taste and task — not a rule

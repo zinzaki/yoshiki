@@ -10,7 +10,7 @@ tags:
 - signal
 - hero
 palettes: any
-status: draft
+status: voted
 uses:
 - yk:mat/pattern.cross
 derived-from:
@@ -19,3 +19,7 @@ derived-from:
 - yk:ref/0091
 - yk:ref/0093
 - yk:ref/0166
+votes:
+  round: workshop-01
+  verdict: fine
+  note: an optional material, combined by taste and task — not a rule

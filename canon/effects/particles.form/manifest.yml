@@ -9,7 +9,7 @@ tags:
 - webgl
 - hero
 palettes: any
-status: draft
+status: voted
 uses:
 - yk:role/text.primary
 - yk:role/glow
@@ -21,3 +21,7 @@ derived-from:
 - yk:ref/0102
 - yk:ref/0131
 - yk:ref/0163
+votes:
+  round: workshop-01
+  verdict: fine
+  note: an optional material, combined by taste and task — not a rule

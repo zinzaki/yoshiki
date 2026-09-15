@@ -11,7 +11,7 @@ tags:
 - relief
 - light-palettes
 palettes: any
-status: draft
+status: voted
 uses:
 - yk:role/bg.app
 derived-from:
@@ -25,3 +25,7 @@ derived-from:
 - yk:ref/0204
 - yk:ref/0214
 - yk:ref/0221
+votes:
+  round: workshop-01
+  verdict: want
+  note: an optional material, combined by taste and task — not a rule

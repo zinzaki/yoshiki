@@ -9,7 +9,7 @@ surfaces:
 tags:
 - hud
 palettes: any
-status: draft
+status: voted
 uses:
 - yk:role/text.primary
 - yk:role/text.muted
@@ -17,3 +17,7 @@ derived-from:
 - yk:ref/0153
 - yk:ref/0171
 - yk:ref/0176
+votes:
+  round: workshop-01
+  verdict: fine
+  note: an optional material, combined by taste and task — not a rule

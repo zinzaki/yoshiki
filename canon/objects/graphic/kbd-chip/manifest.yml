@@ -9,10 +9,14 @@ surfaces:
 tags:
 - shortcut
 palettes: any
-status: draft
+status: voted
 uses:
 - yk:role/border.hairline
 - yk:role/text.muted
 derived-from:
 - yk:ref/0076
 - yk:ref/0149
+votes:
+  round: workshop-01
+  verdict: fine
+  note: an optional material, combined by taste and task — not a rule

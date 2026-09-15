@@ -9,7 +9,7 @@ surfaces:
 tags:
 - editorial
 palettes: any
-status: draft
+status: voted
 uses:
 - yk:mat/seal
 - yk:role/text.muted
@@ -20,3 +20,7 @@ derived-from:
 - yk:ref/0133
 - yk:ref/0136
 - yk:ref/0208
+votes:
+  round: workshop-01
+  verdict: fine
+  note: an optional material, combined by taste and task — not a rule

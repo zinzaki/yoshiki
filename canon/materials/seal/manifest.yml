@@ -11,7 +11,7 @@ tags:
 - seal
 - signal
 palettes: any
-status: draft
+status: voted
 uses:
 - yk:role/signal.fill
 derived-from:
@@ -19,3 +19,7 @@ derived-from:
 - yk:ref/0133
 - yk:ref/0202
 - yk:ref/0205
+votes:
+  round: workshop-01
+  verdict: fine
+  note: an optional material, combined by taste and task — not a rule

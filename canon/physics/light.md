@@ -1,12 +1,13 @@
 # Light — where it comes from and how much of it there is
 
-Status: draft (the "one light" rule waits on workshop round 01). Graphic zone.
+Status: draft. Graphic zone. Workshop round 01: the light budget is an **option**, not a rule —
+use it where it serves the design.
 
 ## Budget
 
 Colour is budgeted (almost all ground, a constant accent, a rare signal). Light is budgeted too:
 
-- **One light source per view.** A single glow (`yk:mat/glow.warm` or `yk:mat/glow.ember`) sits behind
+- **One light source per view** (a recommended option). A single glow (`yk:mat/glow.warm` or `yk:mat/glow.ember`) sits behind
   or below the thing that matters. Two glows compete and both go flat.
 - The glow takes its colour from the `glow` role; strength 16–34 % on dark grounds, 10–22 % on light.
 - The light stays put while content scrolls; it moves only as a deliberate, orchestrated moment.

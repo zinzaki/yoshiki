@@ -10,7 +10,7 @@ tags:
 - map
 - dashboard
 palettes: any
-status: draft
+status: voted
 uses:
 - yk:mat/topo.lines
 - yk:role/signal.fill
@@ -18,3 +18,7 @@ derived-from:
 - yk:ref/0015
 - yk:ref/0058
 - yk:ref/0175
+votes:
+  round: workshop-01
+  verdict: fine
+  note: an optional material, combined by taste and task — not a rule

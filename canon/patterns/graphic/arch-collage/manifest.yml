@@ -11,7 +11,7 @@ tags:
 - editorial
 - landing
 palettes: any
-status: draft
+status: voted
 uses:
 - yk:mat/glass.frost
 - yk:role/text.muted
@@ -25,3 +25,7 @@ derived-from:
 - yk:ref/0169
 - yk:ref/0173
 - yk:ref/0207
+votes:
+  round: workshop-01
+  verdict: fine
+  note: an optional material, combined by taste and task — not a rule

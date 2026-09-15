@@ -12,7 +12,7 @@ tags:
 - glass
 - photo
 palettes: any
-status: draft
+status: voted
 uses:
 - yk:mat/glass.frost
 - yk:role/bg.surface
@@ -25,3 +25,7 @@ derived-from:
 - yk:ref/0195
 - yk:ref/0206
 - yk:ref/0209
+votes:
+  round: workshop-01
+  verdict: fine
+  note: an optional material, combined by taste and task — not a rule

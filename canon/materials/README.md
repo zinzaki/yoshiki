@@ -1,6 +1,10 @@
 # Materials — what surfaces are made of
 
-Graphic zone only. A material is a composite: `blur`, `tint`, `tint-opacity`, `noise`, `border`,
+Graphic zone only. Materials are a **pool to build from, not a house style**: they come from
+different references for different styles and tasks, and are combined by taste and need. Nothing
+here says "every button looks like this" — only contrast, zones and roles are rules.
+
+A material is a composite: `blur`, `tint`, `tint-opacity`, `noise`, `border`,
 `border-opacity`, `glow`, `glow-spread` and a required **fallback** — a solid surface used under
 `prefers-reduced-transparency`, `prefers-contrast: more` and on weak hardware. Colours come from
 roles, never from values, so a material works in every palette.

@@ -11,10 +11,14 @@ tags:
 - hud
 - ornate
 palettes: any
-status: draft
+status: voted
 uses:
 - yk:role/border.strong
 derived-from:
 - yk:ref/0063
 - yk:ref/0070
 - yk:ref/0071
+votes:
+  round: workshop-01
+  verdict: fine
+  note: an optional material, combined by taste and task — not a rule

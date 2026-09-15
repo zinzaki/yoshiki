@@ -35,6 +35,12 @@ are coming; the rules never depend on one palette.
 
 ## Step 3 — the look (graphic zone)
 
+This is the **default look** of the owner's products, not a law. Materials, treatments and
+patterns in `canon/` are a pool of options from many references; combine and reinterpret them for
+the task, never copy a reference directly. The only hard rules are zones, roles, contrast and
+accessibility.
+
+
 - **Menu grammar from NieR:Automata.** Section headers are solid title bars (ink bar with
   beige text on light, beige bar with dark text on dark). Small square bullets. The
   selected row is outlined with a gold hairline, not flooded with colour.

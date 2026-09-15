@@ -10,7 +10,7 @@ tags:
 - ornament
 - ornate
 palettes: any
-status: draft
+status: voted
 uses:
 - yk:role/accent.edge
 derived-from:
@@ -20,3 +20,7 @@ derived-from:
 - yk:ref/0107
 - yk:ref/0111
 - yk:ref/0125
+votes:
+  round: workshop-01
+  verdict: fine
+  note: an optional material, combined by taste and task — not a rule

@@ -10,10 +10,14 @@ tags:
 - map
 - hud
 palettes: any
-status: draft
+status: voted
 uses:
 - yk:role/border.hairline
 derived-from:
 - yk:ref/0015
 - yk:ref/0112
 - yk:ref/0175
+votes:
+  round: workshop-01
+  verdict: fine
+  note: an optional material, combined by taste and task — not a rule

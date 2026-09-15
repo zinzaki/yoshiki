@@ -10,7 +10,7 @@ tags:
 - print
 - texture
 palettes: any
-status: draft
+status: voted
 uses:
 - yk:role/text.primary
 derived-from:
@@ -20,3 +20,7 @@ derived-from:
 - yk:ref/0067
 - yk:ref/0151
 - yk:ref/0167
+votes:
+  round: workshop-01
+  verdict: fine
+  note: an optional material, combined by taste and task — not a rule

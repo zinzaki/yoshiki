@@ -11,7 +11,7 @@ tags:
 - glow
 - light
 palettes: any
-status: draft
+status: voted
 uses:
 - yk:role/glow
 derived-from:
@@ -22,3 +22,7 @@ derived-from:
 - yk:ref/0150
 - yk:ref/0190
 - yk:ref/0201
+votes:
+  round: workshop-01
+  verdict: fine
+  note: an optional material, combined by taste and task — not a rule
