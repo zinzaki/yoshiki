@@ -15,4 +15,6 @@ The rules that make every object feel like it belongs to the same place. Graphic
 Text-zone rhythm (monospace grid, alignment, spacing in characters) stays in
 `canon/objects/text/space.md`.
 
-Status: to be written in stage 3 of the foundation plan.
+Status: rough drafts written — `elevation.md`, `light.md`, `motion.md`; `space`, `radius`, `density` and
+`layout` live together in `metrics.md` until they grow. The web implementation is
+`library/web/materials.css`.
