@@ -1,0 +1,184 @@
+// yoshiki — graphic-zone objects for Slint desktop apps (draft, stage 4 of the foundation).
+// Colours come from the Yoshiki global (library/integrations/yoshiki.slint, or one of
+// library/integrations/slint/<family>.slint). Anatomy follows canon/objects/graphic/.
+// Slint has no backdrop blur: glass panels use a translucent raised surface over the
+// window ground, which is the reduced-transparency fallback of yk:mat/glass.frost.
+import { Yoshiki } from "../integrations/yoshiki.slint";
+
+export global YkMetrics {
+    out property <length> row: 36px;
+    out property <length> radius-sm: 6px;
+    out property <length> radius-md: 10px;
+    out property <length> radius-lg: 14px;
+    out property <duration> quick: 160ms;
+}
+
+// NieR title bar: solid bar, square bullet, label
+export component YkBar inherits Rectangle {
+    in property <string> text;
+    height: 34px;
+    border-radius: YkMetrics.radius-sm;
+    background: Yoshiki.bar-fill;
+    HorizontalLayout {
+        padding-left: 14px;
+        padding-right: 14px;
+        spacing: 12px;
+        VerticalLayout {
+            alignment: center;
+            Rectangle { width: 8px; height: 8px; background: Yoshiki.bar-text; }
+        }
+        Text {
+            text: root.text;
+            color: Yoshiki.bar-text;
+            font-family: Yoshiki.font-ui;
+            font-weight: 600;
+            font-size: 14px;
+            vertical-alignment: center;
+        }
+    }
+}
+
+// Glass panel (reduced-transparency form)
+export component YkPanel inherits Rectangle {
+    border-radius: YkMetrics.radius-lg;
+    background: Yoshiki.bg-raised.with-alpha(0.72);
+    border-width: 1px;
+    border-color: Yoshiki.text-primary.with-alpha(0.09);
+    clip: true;
+    @children
+}
+
+// List row: hover tint, selection is an accent edge plus a faint wash
+export component YkRow inherits Rectangle {
+    in property <string> text;
+    in property <string> trailing;
+    in property <bool> signal;
+    in-out property <bool> selected;
+    callback clicked;
+    height: YkMetrics.row;
+    border-radius: YkMetrics.radius-md;
+    border-width: 1px;
+    border-color: root.selected ? Yoshiki.accent-edge : transparent;
+    background: root.selected ? Yoshiki.accent-edge.with-alpha(0.12)
+        : touch.has-hover ? Yoshiki.bg-hover.with-alpha(0.6) : transparent;
+    animate background, border-color { duration: YkMetrics.quick; easing: ease-out; }
+    touch := TouchArea {
+        clicked => { root.clicked(); }
+    }
+    HorizontalLayout {
+        padding-left: 12px;
+        padding-right: 12px;
+        spacing: 12px;
+        Text {
+            text: root.text;
+            color: Yoshiki.text-primary;
+            font-family: Yoshiki.font-ui;
+            font-size: 14px;
+            vertical-alignment: center;
+            horizontal-stretch: 1;
+        }
+        Text {
+            text: root.trailing;
+            color: root.signal ? Yoshiki.signal-text : Yoshiki.text-muted;
+            font-family: Yoshiki.font-mono;
+            font-size: 12px;
+            vertical-alignment: center;
+        }
+    }
+}
+
+// Button: "default" | "primary" (accent edge) | "quiet" | "signal" (the rare fill)
+export component YkButton inherits Rectangle {
+    in property <string> text;
+    in property <string> kind: "default";
+    in property <bool> enabled: true;
+    callback clicked;
+    min-width: label.preferred-width + 28px;
+    height: YkMetrics.row;
+    border-radius: YkMetrics.radius-md;
+    border-width: root.kind == "quiet" ? 0px : 1.5px;
+    border-color: root.kind == "primary" ? (touch.has-hover ? Yoshiki.accent-hover : Yoshiki.accent-edge)
+        : root.kind == "signal" ? Yoshiki.signal-fill : Yoshiki.border-strong;
+    background: root.kind == "signal" ? Yoshiki.signal-fill
+        : root.kind == "primary" ? Yoshiki.accent-edge.with-alpha(touch.has-hover ? 0.18 : 0.10)
+        : touch.has-hover ? Yoshiki.bg-hover : transparent;
+    opacity: root.enabled ? 1 : 0.45;
+    animate background { duration: YkMetrics.quick; }
+    touch := TouchArea {
+        enabled: root.enabled;
+        clicked => { root.clicked(); }
+    }
+    label := Text {
+        text: root.text;
+        font-family: Yoshiki.font-ui;
+        font-weight: 600;
+        font-size: 14px;
+        color: root.kind == "signal" ? Yoshiki.signal-on-fill
+            : root.kind == "primary" ? Yoshiki.accent-text
+            : root.kind == "quiet" ? Yoshiki.text-secondary : Yoshiki.text-primary;
+        horizontal-alignment: center;
+        vertical-alignment: center;
+    }
+}
+
+// Switch
+export component YkSwitch inherits Rectangle {
+    in-out property <bool> checked;
+    width: 40px;
+    height: 22px;
+    border-radius: 11px;
+    background: root.checked ? Yoshiki.accent-edge : Yoshiki.bg-hover;
+    border-width: 1px;
+    border-color: Yoshiki.border-hairline;
+    animate background { duration: YkMetrics.quick; }
+    TouchArea {
+        clicked => { root.checked = !root.checked; }
+    }
+    Rectangle {
+        width: 16px;
+        height: 16px;
+        y: 3px;
+        x: root.checked ? 21px : 3px;
+        border-radius: 8px;
+        background: root.checked ? Yoshiki.bg-app : Yoshiki.text-secondary;
+        animate x { duration: YkMetrics.quick; easing: ease-out; }
+    }
+}
+
+// Status badge: shape carries the meaning, colour is the second cue
+// state: "ok" (circle) | "warn" (hollow square) | "signal" (square) | "idle" (square, muted)
+export component YkBadge inherits Rectangle {
+    in property <string> text;
+    in property <string> state: "idle";
+    property <color> tone: root.state == "ok" ? Yoshiki.ok-text
+        : root.state == "warn" ? Yoshiki.warn-text
+        : root.state == "signal" ? Yoshiki.signal-text : Yoshiki.text-muted;
+    height: 22px;
+    min-width: row.preferred-width;
+    border-radius: 11px;
+    border-width: 1px;
+    border-color: root.state == "signal" ? root.tone : Yoshiki.border-hairline;
+    row := HorizontalLayout {
+        padding-left: 8px;
+        padding-right: 9px;
+        spacing: 6px;
+        VerticalLayout {
+            alignment: center;
+            Rectangle {
+                width: 7px;
+                height: 7px;
+                background: root.state == "warn" ? transparent : root.tone;
+                border-width: root.state == "warn" ? 1.5px : 0px;
+                border-color: root.tone;
+                border-radius: root.state == "ok" ? 3.5px : 0px;
+            }
+        }
+        Text {
+            text: root.text;
+            color: root.tone;
+            font-family: Yoshiki.font-mono;
+            font-size: 12px;
+            vertical-alignment: center;
+        }
+    }
+}

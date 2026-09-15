@@ -109,8 +109,8 @@ select.yk-input{ appearance: none; padding-right: 34px;
 /* progress ────────────────────────────────────────────────────────────── */
 .yk-progress{ height: 4px; border-radius: 2px; background: var(--r-bg-hover); overflow: hidden; }
 .yk-progress > i{ display: block; height: 100%; width: var(--value, 40%); background: var(--r-accent-edge); transition: width var(--yk-base) var(--yk-ease); }
-.yk-progress--dots{ height: 8px; background: none; display: grid; grid-template-columns: repeat(24, 1fr); gap: 3px; }
-.yk-progress--dots > b{ height: 8px; border-radius: 50%; background: var(--r-bg-hover); }
+.yk-progress--dots{ height: auto; background: none; display: flex; flex-wrap: wrap; gap: 5px; overflow: visible; }
+.yk-progress--dots > b{ width: 7px; height: 7px; border-radius: 50%; background: var(--r-bg-hover); }
 .yk-progress--dots > b.on{ background: var(--r-accent-edge); }
 
 /* surfaces: dialog, toast, tooltip ────────────────────────────────────── */

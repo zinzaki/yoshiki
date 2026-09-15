@@ -55,8 +55,17 @@ are coming; the rules never depend on one palette.
 - **Motion:** one orchestrated moment per page, responsive feedback on interaction,
   `prefers-reduced-motion` respected.
 
-`library/web/yoshiki.css` and `docs/` still render the v1 look; use their **roles and
-structure**, not their styling, until the v2 kit lands.
+Ready implementations (v2 drafts):
+
+- web: `library/web/palette.css` (roles) → `library/web/materials.css` (glass, glow, grain,
+  NieR bar and rows, relief, ticks, patterns, accessibility fallbacks) →
+  `library/web/objects.css` (buttons, fields, choice, menu, table, badges, dialog, window…).
+- Slint desktop apps: `library/integrations/yoshiki.slint` or `library/integrations/slint/<family>.slint`
+  (tokens) → `library/slint/components.slint` (bar, panel, row, button, switch, badge).
+- physics: `canon/physics/` (elevation, light, motion, metrics); materials and components have
+  manifests with ids in `canon/`.
+
+`library/web/yoshiki.css` and `docs/` are the v1 kit and site; do not copy their styling.
 
 ## Step 4 — modules
 
