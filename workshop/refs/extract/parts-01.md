@@ -1365,3 +1365,999 @@
   zone: graphic
   use: SaaS/fintech feature sections wanting visual hierarchy without a hero image
   style: dark fintech card grid
+
+- ref: yk:ref/0030
+  kind: material
+  name: quilted-satin-photo-ground
+  what: a close-up photograph of quilted padded fabric/leather with small gold bead studs, used as the
+        entire background behind glass UI cards
+  build: soft directional light raking across the quilting to model each pillow, scattered small gold
+        spheres as accent details, desaturated warm-grey tone
+  zone: graphic
+  use: luxury security/fintech hero backgrounds wanting tactile richness instead of a flat gradient
+  style: luxury glass fintech
+
+- ref: yk:ref/0030
+  kind: object
+  name: barcode-plus-serif-title-card
+  what: a frosted glass login card headed by a tiny barcode graphic and a tracked serif/mono title using
+        a middle-dot separator and a superscript-style trademark circle
+  build: barcode ~24px tall top-left, title two lines "SAFE · CORE© / SET 02↗" ~20px tracked, small
+        arrow glyph suffix, body copy in small caps beneath
+  zone: graphic
+  use: premium security-product branding headers on glass cards
+  style: luxury glass fintech
+
+- ref: yk:ref/0030
+  kind: object
+  name: underline-only-form-fields
+  what: login form fields with no visible box — just a small caption label above a plain baseline rule
+  build: 10px caption label, ~1px underline rule beneath the implied input area, generous vertical
+        spacing between fields, plain text-only submit label at the end
+  zone: graphic
+  use: minimal/luxury forms that avoid boxed input chrome
+  style: luxury glass fintech
+
+- ref: yk:ref/0030
+  kind: object
+  name: thumbnail-stat-card
+  what: a small dark card pairing a square photo thumbnail with a two-line label and one large bold
+        percentage figure
+  build: thumbnail ~90px square left, text stack right (small label + smaller sublabel + large ~28px
+        bold percent), thumbnail carries a tiny circular target-icon overlay
+  zone: graphic
+  use: compact trust/metric callouts ("customer satisfaction 99.8%") near hero content
+  style: luxury glass fintech
+
+- ref: yk:ref/0030
+  kind: chart
+  name: giant-numeral-progress-readout
+  what: a percentage rendered as an oversized geometric numeral treated as the hero graphic of a card,
+        paired with a thin progress rule and a small diagonal arrow glyph
+  build: numeral ~64px in a squared-off geometric face with small superscript "%", thin 1px progress
+        line above with a tiny percent + "LOADING" caption, arrow glyph bottom-right echoing the angle
+  zone: graphic
+  use: loading/status screens wanting the number itself to be the dominant visual
+  style: luxury glass fintech
+
+- ref: yk:ref/0031
+  kind: layout
+  name: illuminated-grid-cell-hero
+  what: a dark hero built from a visible cell grid (like graph paper), where a few individual cells light
+        up with a token icon and status caption while the rest stay empty and dim
+  build: uniform square grid ~5x3, thin hairline dividers, 2–3 active cells get a radial highlight glow
+        behind their icon plus a small status badge (checkmark / spinner) in the corner
+  zone: graphic
+  use: crypto/infra dashboards visualising discrete nodes or transactions on a grid
+  style: dark crypto grid
+
+- ref: yk:ref/0031
+  kind: object
+  name: token-tile-with-status-caption
+  what: within a grid cell, a small icon tile (coin/token glyph) sits above a two-line caption stating an
+        action and an amount, plus a tiny status badge overlapping the tile's corner
+  build: icon tile ~48px rounded-square, caption below in 9–10px caps label + value line, badge ~16px
+        circle at the tile's top-right corner
+  zone: graphic
+  use: representing live transactions/swaps/blocks as discrete grid nodes
+  style: dark crypto grid
+
+- ref: yk:ref/0031
+  kind: type
+  name: condensed-tracked-display-headline
+  what: a very wide, heavily letterspaced condensed sans headline spanning almost the full width in two
+        lines, in a muted grey rather than pure white
+  build: ~42px condensed uppercase, wide tracking, line-height tight, sits low in the layout beneath the
+        grid graphic
+  zone: graphic
+  use: technical/crypto hero headlines wanting a wide "signage" presence
+  style: dark crypto grid
+
+- ref: yk:ref/0031
+  kind: object
+  name: dual-cta-button-pair
+  what: two buttons side by side — one solid filled, one dark with a border — offering a primary and
+        secondary action at equal visual weight of size but different weight of emphasis
+  build: both ~130x40px, 8px radius, solid button white-fill/black-text, outline button 1px border with
+        white text
+  zone: graphic
+  use: standard primary/secondary CTA pairing on dark hero sections
+  style: dark crypto grid
+
+- ref: yk:ref/0032
+  kind: object
+  name: keycap-row-with-lit-center-key
+  what: a horizontal row of rounded-square keycaps where only the centre key is lit with a glowing accent
+        colour and icon, the others are dark and dim, and a finger presses the lit key
+  build: 5 keycaps ~70px, outer keys flat dark with faint icon, centre key filled in saturated red with
+        heavy outer glow and a bold glyph, photographic finger overlapping from below
+  zone: graphic
+  use: "the one tool that matters" hero metaphor — picking the right key among many apps
+  style: dark tech glow hero
+
+- ref: yk:ref/0032
+  kind: type
+  name: two-line-bold-statement-headline
+  what: a short, punchy two-line headline using parallel imperative sentences ("Stop X. Start Y.") in
+        bold white centred type
+  build: ~32px bold, centred, tight leading, each line a complete short sentence
+  zone: text
+  use: punchy contrast-pair hero headlines for productivity/tools products
+  style: dark tech glow hero
+
+- ref: yk:ref/0032
+  kind: object
+  name: filled-plus-outline-cta-pair
+  what: two pill buttons side by side, one solid accent-filled, one outline-only in the same accent hue,
+        both same size
+  build: ~140x44px pills, filled button white text on accent fill, outline button accent text + accent
+        1px border on transparent
+  zone: graphic
+  use: primary/secondary CTA pairing directly beneath a hero headline
+  style: dark tech glow hero
+
+- ref: yk:ref/0033
+  kind: layout
+  name: corner-notch-card-frame
+  what: the entire page sits inside a large card whose top-right corner is cut off diagonally instead of
+        rounded, giving a technical/blueprint feel to an otherwise editorial layout
+  build: single diagonal chamfer ~60px at one corner only, thin 1px border, dark noisy-grain fill
+  zone: graphic
+  use: portfolio/agency site frames wanting one deliberate asymmetric detail
+  style: dark editorial studio
+
+- ref: yk:ref/0033
+  kind: type
+  name: highlighted-word-plus-cursor-headline
+  what: an editorial headline where one phrase is set on a solid colour-block highlight (like marker
+        highlighter) and the line ends with a blinking text-cursor glyph
+  build: headline mixes serif and sans across two lines, highlighted phrase gets a contrasting solid
+        background block behind just that text, thin vertical cursor bar after the final word
+  zone: graphic
+  use: "typing/live-editing" hero headline device for content or writing-adjacent products
+  style: dark editorial studio
+
+- ref: yk:ref/0033
+  kind: icon
+  name: exploded-isometric-node-stack
+  what: a vertical exploded-view stack of isometric platform layers, each holding different network/node
+        icons, connected implicitly by vertical alignment rather than drawn lines
+  build: 3 isometric slabs stacked with visible gaps, top slab holds circular network-node icons, middle
+        holds a denser mesh-node icon, bottom holds a single bold glyph icon; all line-art on dark
+  zone: graphic
+  use: "how our system layers work" hero graphic for platform/infrastructure products
+  style: dark editorial studio
+
+- ref: yk:ref/0033
+  kind: object
+  name: corner-plus-registration-ticks
+  what: small plus-sign marks placed at regular intervals along the page margins, echoing print
+        registration/crop marks
+  build: 4 small "+" glyphs, thin stroke, evenly spaced along a vertical guide line at the content edge
+  zone: graphic
+  use: giving a digital layout a print-production, precision-tooled feel
+  style: dark editorial studio
+
+- ref: yk:ref/0034
+  kind: object
+  name: icon-title-description-illustration-card
+  what: a dark feature card with a small line icon top-left, a bold title, a muted two-line description,
+        and a larger illustrative graphic anchored to the card's bottom edge
+  build: consistent padding, icon ~20px, title ~15px bold, description ~12px muted, illustration occupies
+        the bottom ~45% of the card and can bleed to the card's side edges
+  zone: graphic
+  use: SaaS feature-grid cards where each card teaches its point with a mini diagram, not just an icon
+  style: dark minimal SaaS
+
+- ref: yk:ref/0034
+  kind: chart
+  name: hexagon-track-slider-illustration
+  what: a decorative "slider" illustration where the track is a hexagon shape and the handle is a pill,
+        used purely as an icon/illustration rather than a functioning control
+  build: hexagon outline behind, horizontal pill capsule with a smaller pill handle overlapping its
+        left third, all in matching greys
+  zone: graphic
+  use: illustrating a "scheduling/settings" feature abstractly without a literal calendar
+  style: dark minimal SaaS
+
+- ref: yk:ref/0034
+  kind: chart
+  name: muted-ascending-bar-illustration
+  what: a simple ascending bar chart rendered in flat muted grey bars of equal width but varying height,
+        used as card decoration rather than real data
+  build: 7 bars, rounded tops, heights varying non-monotonically to look organic, no axis or labels
+  zone: graphic
+  use: generic "analytics" illustration for feature cards where exact data doesn't matter
+  style: dark minimal SaaS
+
+- ref: yk:ref/0035
+  kind: icon
+  name: particle-built-specialty-glyph-set
+  what: a matched set of icons where each glyph (snowflake, waveform, lungs, network, uterus, lightning,
+        eye, heart) is constructed from small diamond/dot particles rather than solid strokes
+  build: particles at 2–3 sizes, denser at the glyph's core lines and sparser at the tips, gradient from
+        white core to grey outer, consistent particle module across all 8 icons
+  zone: graphic
+  use: medical/scientific specialty icon systems, or any icon family wanting a "data-built" texture
+  style: particle icon system
+
+- ref: yk:ref/0035
+  kind: layout
+  name: labelled-icon-grid
+  what: a clean 4-column x 2-row grid of icons each with a centred caption label beneath, generous even
+        spacing, no card backgrounds or dividers
+  build: icons ~70px each, caption 11px centred directly below with fixed gap, grid gutters equal
+        horizontally and vertically
+  zone: graphic
+  use: presenting an icon system or category list cleanly on dark backgrounds
+  style: particle icon system
+
+- ref: yk:ref/0036
+  kind: material
+  name: marbled-ink-swirl-texture
+  what: a fluid black-and-green marbled ink texture with organic swirling veins, used as a full-bleed
+        panel background
+  build: high-contrast fluid-dynamics pattern, acid-green veins through near-black ground, no gradient
+        smoothing — genuinely turbulent edges
+  zone: graphic
+  use: music/mood key art, album covers, dramatic full-bleed panels
+  style: acid-lyric moodboard
+
+- ref: yk:ref/0036
+  kind: type
+  name: circular-arc-set-text
+  what: a short phrase set along a circular arc around a central sparkle glyph, reading like a badge or
+        seal inscription
+  build: text curved along ~220° of a circle, 4-point sparkle centred inside, letters upright relative to
+        the arc (not flipped), small caps
+  zone: graphic
+  use: badge/seal typographic devices, vinyl-label-style circular captions
+  style: acid-lyric moodboard
+
+- ref: yk:ref/0036
+  kind: copy
+  name: two-column-lyric-block
+  what: song lyrics set in two parallel short-line columns, small and quiet, functioning as ambient text
+        rather than a headline
+  build: ~11px regular, tight leading, two columns side by side with a wide gutter, left-aligned
+  zone: text
+  use: lyric sheets, mood-setting ambient copy on music-adjacent layouts
+  style: acid-lyric moodboard
+
+- ref: yk:ref/0036
+  kind: object
+  name: spiky-outline-orbit-badge
+  what: a jagged star/cog-outlined badge shape with a thin ellipse "orbit" ring crossing through it at an
+        angle, small x-marks at the ellipse's poles, bold word centred inside
+  build: 16-point jagged outline ~180px, 1px ellipse ring rotated ~20° through the centre, "x" glyphs at
+        the ring's two extremes, bold centred word ~20px
+  zone: graphic
+  use: "free/unlocked/orbit" concept badges for music or lifestyle brand key art
+  style: acid-lyric moodboard
+
+- ref: yk:ref/0036
+  kind: object
+  name: textured-glass-divider-bar
+  what: a horizontal frosted-glass bar with a fine ribbed/lens texture, three small sparkle glyphs
+        breaking its bottom edge, separating two panels
+  build: bar ~60px tall, subtle vertical ribbing suggesting fluted glass, sparkles ~14px straddling the
+        bottom edge at even intervals
+  zone: graphic
+  use: transition device between two stacked panels in a collage layout
+  style: acid-lyric moodboard
+
+- ref: yk:ref/0037
+  kind: material
+  name: iridescent-grain-ribbon
+  what: a large abstract 3D ribbon/wave form with a shifting holographic gradient (orange-cyan-blue) and
+        heavy film-grain noise across its surface
+  build: smooth ribbon geometry with a folded twist, gradient mapped across the fold to create colour
+        separation, uniform grain noise overlaid on top of the gradient
+  zone: graphic
+  use: abstract infrastructure/AI hero art wanting a premium, tactile abstract centrepiece
+  style: dark grain gradient hero
+
+- ref: yk:ref/0037
+  kind: pattern
+  name: blurred-seam-footer-transition
+  what: the hero's colourful glow bleeds downward through the seam into an otherwise plain dark footer,
+        softly colouring the nearest footer content without a hard cut
+  build: gaussian-blurred colour glow sampled from the hero art, fading to zero a short distance into the
+        footer's dark background
+  zone: graphic
+  use: connecting a colourful hero to a plain footer without an abrupt boundary
+  style: dark grain gradient hero
+
+- ref: yk:ref/0037
+  kind: pattern
+  name: two-column-footer-link-list
+  what: a simple footer layout with a brand block (logo, name, one-line description, social icons) on the
+        left and two evenly spaced columns of plain text links on the right
+  build: brand column ~40% width, two link columns each with a small caps heading and 4–5 plain links,
+        consistent 13px size, generous line-height
+  zone: text
+  use: standard SaaS footer link architecture
+  style: dark grain gradient hero
+
+- ref: yk:ref/0038
+  kind: object
+  name: dashed-spine-diamond-stack
+  what: a vertical column of isometric diamond-shaped icon tiles connected by a single dashed vertical
+        line with small dot nodes marking each connection point
+  build: 5 diamond tiles stacked with even gaps, each holding a distinct thin-line pictogram, dashed
+        spine passes through the centre of each with a filled dot at top and bottom of every tile
+  zone: graphic
+  use: representing a sequential pipeline or stack of related capabilities as one vertical spine
+  style: dark minimal fintech
+
+- ref: yk:ref/0038
+  kind: layout
+  name: alternating-side-feature-grid
+  what: feature text blocks placed alternately left and right of a central diamond-stack column, each in
+        its own quadrant cell defined by thin grid lines
+  build: 2x2-ish cell grid (some cells empty), each populated cell holds a bold caps title + 2-line
+        description, thin 1px rules divide all cells uniformly regardless of content
+  zone: graphic
+  use: pairing a central "system" graphic with surrounding feature call-outs
+  style: dark minimal fintech
+
+- ref: yk:ref/0039
+  kind: type
+  name: dot-matrix-led-headline
+  what: a headline set in a dot-matrix/LED-style display face, each letter built from a coarse dot grid,
+        used for short punchy statements
+  build: ~32px dot-font, tight tracking, pure black on light ground, terminal periods kept as part of the
+        display rhythm ("FIX. LEARN.")
+  zone: graphic
+  use: developer-tool headlines wanting a literal "system/terminal" typographic voice
+  style: dev-tool dot-matrix
+
+- ref: yk:ref/0039
+  kind: pattern
+  name: branching-input-output-flow-diagram
+  what: a symmetric node diagram where two input tags branch down into a central icon and then back out
+        into two output tag branches, drawn with simple dotted right-angle connectors and dot joints
+  build: central icon in a soft rounded square, 4 pill-shaped tag labels (two per side) connected by thin
+        dotted lines with small filled-dot joints at each bend
+  zone: graphic
+  use: illustrating an input-process-output concept (e.g. "customer/code in, ticket/PR out")
+  style: dev-tool dot-matrix
+
+- ref: yk:ref/0039
+  kind: chart
+  name: dot-font-stat-with-logo-row
+  what: a row of case-study stats where each stat is a client logo above a huge dot-matrix numeral/percent
+        and a short caption, used side by side for social proof
+  build: logo ~20px height, numeral ~48px dot-font, caption 11px muted, columns separated by thin vertical
+        rules
+  zone: graphic
+  use: credibility/results strips pairing client logos directly with their outcome numbers
+  style: dev-tool dot-matrix
+
+- ref: yk:ref/0039
+  kind: material
+  name: dot-column-terrain-illustration
+  what: an abstract "skyline/terrain" made of many thin vertical dot-columns of varying height and
+        density, denser and taller on the right, thinning to scattered dots on the left
+  build: columns built from small square dots, height and dot-count varying to imply a data landscape or
+        cityscape, monochrome grey on cream
+  zone: graphic
+  use: abstract "big data / complex systems" illustration blocks beside text
+  style: dev-tool dot-matrix
+
+- ref: yk:ref/0039
+  kind: copy
+  name: mixed-weight-emphasis-paragraph
+  what: a body paragraph where most text is muted regular weight but one key phrase is set in full-
+        contrast bold, drawing the eye without a separate headline
+  build: ~16px regular grey for most of the sentence, the emphasised clause switches to bold black
+        inline, same size
+  zone: text
+  use: long-form marketing copy that wants one phrase to read like a mini-headline
+  style: dev-tool dot-matrix
+
+- ref: yk:ref/0040
+  kind: layout
+  name: blob-and-arch-module-grid
+  what: a 2x2 grid of square cells, each cell tiled edge-to-edge with a unique arrangement of rounded
+        blob, half-circle and arch shapes in one flat colour, forming abstract letterform-like
+        compositions
+  build: each cell built from 3–5 large geometric primitives (full circle, half-circle, quarter-arch,
+        rounded rectangle) sized to fill the cell exactly with thin light seams between shapes
+  zone: graphic
+  use: template/layout-pack cover art, abstract sectional dividers, generative logotype systems
+  style: geometric layout pack
+
+- ref: yk:ref/0040
+  kind: copy
+  name: pack-cover-title-footer-pair
+  what: a small tracked-caps title above the graphic and a bolder descriptive line below it, framing a
+        cover image as a numbered product in a series
+  build: title ~12px tracked caps centred top, footer line ~13px bold centred bottom, both isolated by
+        large margins from the central graphic
+  zone: text
+  use: naming and describing a downloadable asset pack or template set on its own cover
+  style: geometric layout pack
+
+- ref: yk:ref/0041
+  kind: pattern
+  name: stacked-shadow-recipe-rows
+  what: three horizontal rows, each comparing one shadow technique via a sample tile on the left and two
+        columns of exact parameter values on the right, separated by full-width hairlines
+  build: sample tile ~140px rounded square repeated per row, parameter columns list Blur / X,Y / Opacity /
+        Color as plain label-value pairs, thin 1px divider between each of the three rows
+  zone: text
+  use: educational shadow/effect reference sheets, style-guide documentation pages
+  style: neumorphic spec sheet
+
+- ref: yk:ref/0041
+  kind: copy
+  name: corner-metadata-caption-pair
+  what: small plain captions placed in the top and bottom corners of a document — a title/author pair up
+        top, a date/brand pair at the bottom — framing the content without any decoration
+  build: ~11px regular, left caption and right caption at each corner, no rules or boxes, pure text
+        placement
+  zone: text
+  use: lightweight document chrome for tutorials, spec sheets, or slide exports
+  style: neumorphic spec sheet
+
+- ref: yk:ref/0042
+  kind: pattern
+  name: split-hero-product-with-thumbnail-column
+  what: a hero split into a left navigation/copy zone and a right zone showing a large product photo
+        flanked by a vertical stack of alternate-variant thumbnails
+  build: hero divided by a soft vertical seam (not a hard line — a blurred gradient edge), 3 thumbnail
+        chips ~90px stacked with gaps at the far right, main product image centred and large
+  zone: graphic
+  use: e-commerce/product hero sections offering variant switching without leaving the hero
+  style: premium supplement e-commerce
+
+- ref: yk:ref/0042
+  kind: type
+  name: bold-lead-word-headline
+  what: a multi-line headline where only the first word is bold and the rest of the sentence continues in
+        regular weight, creating emphasis without a colour change
+  build: ~28px, first word bold, remainder regular same size and colour, tight leading across 3 lines
+  zone: text
+  use: quietly emphasising a lead verb/claim in product headlines
+  style: premium supplement e-commerce
+
+- ref: yk:ref/0042
+  kind: object
+  name: label-plus-circular-arrow-cta
+  what: a pill button pairing a left-aligned text label with a separate filled circular icon-button
+        (arrow) at its trailing end, the two reading as one control
+  build: pill ~170x48px, dark fill, white label left-padded, small white circle ~36px inset at the right
+        edge with a dark arrow glyph
+  zone: graphic
+  use: primary CTA pattern that visually previews the "next step" via its own icon capsule
+  style: premium supplement e-commerce
+
+- ref: yk:ref/0042
+  kind: chart
+  name: two-column-bold-stat-band
+  what: a dark full-width band presenting four trust statistics as bold oversized percentages with a
+        short caption beneath each, arranged in two columns at opposite edges with a product render
+        centred between them
+  build: stat numerals ~36px bold, caption 11px muted below each, left column stats left-aligned, right
+        column right-aligned, product image floating centred at the same vertical band
+  zone: graphic
+  use: clinical/trust stat sections for supplement, health or finance products
+  style: premium supplement e-commerce
+
+- ref: yk:ref/0042
+  kind: icon
+  name: molecule-node-logomark
+  what: a small abstract logomark built from connected rounded nodes forming a wavy chain, like a
+        simplified molecule or waveform
+  build: 3–4 filled circular nodes joined by smoothly curved connecting strokes, single colour, compact
+        square footprint
+  zone: graphic
+  use: science/health/biotech brand marks needing a friendly, organic connectivity motif
+  style: premium supplement e-commerce
+
+- ref: yk:ref/0043
+  kind: object
+  name: zigzag-ring-quote-badge
+  what: a circular badge whose outline is a jagged zigzag/stitch pattern rather than a smooth ring, framing
+        a short italic phrase with small triangular flanking marks
+  build: ~140px circle, zigzag stroke ring ~8px deep teeth, phrase centred mixing regular and italic
+        words, small triangle bullets left/right of the text
+  zone: graphic
+  use: playful stamp-like callouts for hospitality/lifestyle brand invitations
+  style: dark lounge hospitality
+
+- ref: yk:ref/0043
+  kind: icon
+  name: clover-diamond-ring-mark
+  what: four small diamond/petal shapes arranged around a shared centre point inside a thin circular
+        ring, forming a clover-like logomark
+  build: 4 rounded-diamond petals meeting at the centre, thin 1px circle framing them with even padding
+  zone: graphic
+  use: hospitality/lounge/lifestyle brand marks wanting a soft geometric emblem
+  style: dark lounge hospitality
+
+- ref: yk:ref/0043
+  kind: object
+  name: vertical-capsule-running-label
+  what: a tall pill/capsule shape overlaid on a photo with a short label rotated to run vertically through
+        its centre, plus small ringed dot markers at the capsule's top and bottom tips
+  build: capsule ~600px tall sliver, semi-transparent over the photo, 1px outline, label rotated -90°
+        centred, small circle-ring glyphs at each rounded end
+  zone: graphic
+  use: a decorative vertical "spine" label laid over hero photography in editorial hospitality layouts
+  style: dark lounge hospitality
+
+- ref: yk:ref/0043
+  kind: object
+  name: overlapping-twin-oval-tag-pair
+  what: two outlined ovals overlapping slightly like a Venn diagram, each containing one short word,
+        together forming a two-part phrase
+  build: two ~110px ovals, 1px stroke, ~15% overlap, one word centred in each, both same weight and size
+  zone: graphic
+  use: pairing two related short words as a single graphic unit (e.g. "settle" / "down")
+  style: dark lounge hospitality
+
+- ref: yk:ref/0043
+  kind: object
+  name: binder-hole-arch-card
+  what: a rounded-arch-top card with a row of small evenly-spaced holes punched along its top edge, like
+        a page from a ring-bound notebook
+  build: arch radius spans the card's full width, 5 small circular holes ~4px along the top straight
+        edge before the arch begins
+  zone: graphic
+  use: giving a digital card a physical stationery/notebook feel
+  style: dark lounge hospitality
+
+- ref: yk:ref/0044
+  kind: pattern
+  name: browser-chrome-dashboard-frame
+  what: the entire dashboard is presented inside a realistic browser window mockup, complete with traffic
+        lights, a URL bar and window controls, rather than as a bare UI crop
+  build: macOS-style 3-dot traffic light cluster, centred URL pill with a padlock icon, small nav arrows
+        and window icons at both ends of the chrome bar
+  zone: graphic
+  use: presenting web-app dashboards in portfolio/case-study contexts with implied browser context
+  style: soft organic data dashboard
+
+- ref: yk:ref/0044
+  kind: chart
+  name: cloud-cluster-node-map
+  what: a central large circular status dial surrounded by smaller irregular blob/cloud-shaped nodes at
+        varying distances, each blob labelled with a name and a percentage, all rendered in soft
+        translucent organic shapes rather than hard circles
+  build: central dial ~220px with a bold status word inside, 5–6 satellite blobs of varying blobby
+        outline (not perfect circles) placed asymmetrically, each with small percentage label
+  zone: graphic
+  use: visualising a distributed set of related units (pods, servers, sensors) around one aggregate state
+  style: soft organic data dashboard
+
+- ref: yk:ref/0044
+  kind: chart
+  name: notch-ring-progress-dial
+  what: a large circular progress ring with a dashed inner boundary and a bold status word centred, plus
+        a small radial notch/pointer marking a threshold
+  build: ring built from a dotted/dashed circular path rather than a solid arc, one small tick/line
+        marking a specific point on the circumference, big word centred inside
+  zone: graphic
+  use: capacity/fullness indicators for tanks, storage, or resource pools
+  style: soft organic data dashboard
+
+- ref: yk:ref/0044
+  kind: chart
+  name: soft-gradient-area-sparkline
+  what: a small line chart with a soft colour-matched gradient fill beneath the line, sitting inside a
+        tinted card that shares the same hue family as the chart
+  build: line rendered white/light over the tinted card, area fill fading from the card's accent colour
+        to transparent, minimal axis ticks in a muted label colour
+  zone: graphic
+  use: compact trend widgets inside a themed dashboard side panel
+  style: soft organic data dashboard
+
+- ref: yk:ref/0045
+  kind: object
+  name: folder-tab-card
+  what: a card shape with a small folded corner tab cut into its top edge like a physical file folder,
+        used as a container for a category or collection
+  build: top-left corner has a small diagonal fold/cutout (~20px), rest of the card is a plain rounded
+        rectangle, icon and label sit in the lower portion
+  zone: graphic
+  use: representing folders/collections/categories in a list UI more literally than a plain card
+  style: dark mobile fitness app
+
+- ref: yk:ref/0045
+  kind: object
+  name: recurring-item-row-with-ring-counter
+  what: a full-width list row combining a title and cadence caption on the left with a small numbered
+        ring/dial and a settings icon on the right
+  build: row ~64px, title bold + muted caption stacked left, circular ring counter ~32px with a bold
+        numeral centred, small icon button beside it
+  zone: graphic
+  use: recurring task/habit rows needing an inline progress indicator without a full chart
+  style: dark mobile fitness app
+
+- ref: yk:ref/0045
+  kind: object
+  name: in-progress-session-bar
+  what: a wide rounded bar showing a bold time readout, a status caption, a thin progress line at the
+        top edge, and a circular action button at the trailing end
+  build: bar ~72px tall, thin progress rule inset from the top edge, bold time ~24px + status label
+        stacked left, circular upward-arrow button ~44px right-aligned
+  zone: graphic
+  use: persistent "current activity" bar in fitness/productivity apps
+  style: dark mobile fitness app
+
+- ref: yk:ref/0045
+  kind: object
+  name: icon-only-bottom-tab-bar
+  what: a minimal four-icon tab bar with no text labels, relying purely on iconography and an active-state
+        colour shift
+  build: 4 icons evenly spaced, ~24px, inactive icons dimmed grey, active icon full white, home-indicator
+        bar beneath on notched devices
+  zone: graphic
+  use: clean mobile app primary navigation when icons alone are unambiguous
+  style: dark mobile fitness app
+
+- ref: yk:ref/0046
+  kind: effect
+  name: orbital-instrument-linework
+  what: a dense arrangement of overlapping circles and arcs of varying radii and centres, crossed by a few
+        long diagonal lines connecting distant points, resembling a technical/astronomical instrument
+  build: 6–8 circles of different sizes with shared or offset centres, 2–3 long straight diagonals
+        crossing through multiple circles, all thin 1px white-on-black strokes
+  zone: graphic
+  use: abstract technical/scientific HUD backgrounds, "system diagram" key art
+  style: HUD technical
+
+- ref: yk:ref/0046
+  kind: copy
+  name: cryptic-alphanumeric-code-fragment
+  what: short meaningless-looking code fragments (letter+number combinations) placed as design elements,
+        legible as text but not meant to communicate real information
+  build: ~24px condensed grotesk, high contrast, placed at deliberate but seemingly arbitrary positions
+  zone: graphic
+  use: adding technical authenticity/texture to HUD or sci-fi interfaces without real data
+  style: HUD technical
+
+- ref: yk:ref/0046
+  kind: object
+  name: ringed-endpoint-marker
+  what: a small circle-with-dot marker placed at the vanishing point or endpoint of a long diagonal line,
+        marking it as a meaningful coordinate
+  build: outer ring ~20px thin stroke, small filled dot at centre, sits exactly where a line terminates
+  zone: graphic
+  use: marking key points/nodes at the ends of connector lines in technical diagrams
+  style: HUD technical
+
+- ref: yk:ref/0046
+  kind: material
+  name: corner-registration-block-cluster
+  what: small solid and outlined rectangle blocks of varying grey values scattered near the frame's
+        corners, functioning as abstract "data panel" placeholders
+  build: 3–5 small rectangles per corner cluster, mixed fill/outline, no content inside, sized 10–40px
+  zone: graphic
+  use: filling HUD corners with implied instrumentation without needing real widgets
+  style: HUD technical
+
+- ref: yk:ref/0047
+  kind: type
+  name: doubled-echo-vertical-title
+  what: the same CJK title set twice at different scales and opacities, the larger blurred version
+        offset behind the smaller sharp version, creating a depth/echo effect
+  build: background instance ~1.6x larger, heavily blurred and mid-grey, foreground instance sharp black,
+        both vertical, roughly aligned but not exactly overlapping
+  zone: graphic
+  use: book-cover/poster title treatments wanting drama and depth from typography alone
+  style: literary vertical typography
+
+- ref: yk:ref/0047
+  kind: object
+  name: dotted-bracket-column-frame
+  what: a pair of small dotted tick-mark brackets (like open/close carets made of dots) framing the top
+        and bottom of a vertical text column
+  build: 3 small dots forming an angled bracket at the very top and bottom of the column, thin vertical
+        guide line connecting them through the text
+  zone: graphic
+  use: quietly bracketing a vertical title column as if it were a selected/highlighted text range
+  style: literary vertical typography
+
+- ref: yk:ref/0047
+  kind: copy
+  name: small-caps-romanised-subtitle
+  what: a tiny vertical English translation/subtitle set beside the main vertical CJK title in a serif
+        italic, acting as a quiet gloss
+  build: ~10px serif italic, rotated to run vertically, positioned just left of the main title column
+  zone: text
+  use: bilingual book covers wanting an unobtrusive translation alongside the main title
+  style: literary vertical typography
+
+- ref: yk:ref/0047
+  kind: object
+  name: crescent-moon-accent-glyph
+  what: a single small crescent-moon icon placed quietly beside a title as an atmospheric punctuation
+        mark rather than a logo
+  build: ~14px simple crescent silhouette, positioned inline with a small vertical author-credit tag
+  zone: graphic
+  use: mood-setting single-icon accents on literary/poetic covers
+  style: literary vertical typography
+
+- ref: yk:ref/0047
+  kind: material
+  name: soft-fog-gradient-ground
+  what: a very low-contrast, softly clouded grey-blue gradient background giving a cold, quiet, foggy
+        atmosphere behind the type
+  build: large soft radial/linear blur blending near-white and pale blue-grey, no visible texture or
+        grain, extremely gentle contrast
+  zone: graphic
+  use: quiet, literary or wintry mood backgrounds behind minimal typography
+  style: literary vertical typography
+
+- ref: yk:ref/0048
+  kind: type
+  name: doubled-echo-vertical-title-repeat
+  what: the same reference as yk:ref/0047 (identical composition) — the doubled-echo vertical CJK title
+        device confirmed as a repeatable, deliberate technique rather than a one-off accident
+  build: see yk:ref/0047 doubled-echo-vertical-title for full build spec
+  zone: graphic
+  use: same as yk:ref/0047 — book-cover/poster title treatments wanting depth from typography alone
+  style: literary vertical typography
+
+- ref: yk:ref/0048
+  kind: object
+  name: dotted-bracket-column-frame-repeat
+  what: same dotted tick-bracket framing device as yk:ref/0047, confirming it as a stable, nameable
+        component rather than incidental decoration
+  build: see yk:ref/0047 dotted-bracket-column-frame for full build spec
+  zone: graphic
+  use: same as yk:ref/0047
+  style: literary vertical typography
+
+- ref: yk:ref/0049
+  kind: type
+  name: script-logotype-plus-tracked-subtitle
+  what: a flowing connected-script display headline paired directly beneath with a small tracked-caps
+        subtitle, forming a two-tier title block for a style guide or brand page
+  build: script ~40px with a thin underline rule spanning its width, subtitle ~11px letterspaced caps
+        centred beneath, both centred as a unit
+  zone: graphic
+  use: naming a mood/style board or brand concept ("Botanical Dark Luxury")
+  style: botanical dark luxury palette
+
+- ref: yk:ref/0049
+  kind: object
+  name: labelled-swatch-row
+  what: a row of solid colour rectangles each with its hex code printed centred beneath, forming a basic
+        palette reference strip
+  build: 5 swatches ~110x70px, 4px radius, even gutters, hex in 11px mono/grotesk centred below each
+  zone: graphic
+  use: the most basic palette documentation unit, reusable at any swatch count
+  style: botanical dark luxury palette
+
+- ref: yk:ref/0049
+  kind: pattern
+  name: promo-card-with-dual-cta
+  what: a small marketing card combining a moody product photo, a script headline overlay, and two
+        stacked or paired CTA buttons beneath it, used to demo the palette "in situ"
+  build: photo fills ~70% of the card height, script headline + one pill button overlaid on the photo,
+        two more buttons of different roles sit in a row below the photo
+  zone: graphic
+  use: showing how a palette performs on a real promotional card, not just as swatches
+  style: botanical dark luxury palette
+
+- ref: yk:ref/0049
+  kind: object
+  name: leaf-illustration-quote-plate
+  what: a light cream card with centred script/serif copy and a small botanical leaf illustration
+        anchored to one corner, used as a quote or CTA plate distinct from the dark cards around it
+  build: cream fill, centred two-line message in mixed script+serif weights, a simple 2–3 leaf line
+        illustration bottom-right corner, thin rule dividing headline from a smaller line
+  zone: graphic
+  use: demonstrating a light/contrast card option within an otherwise dark palette system
+  style: botanical dark luxury palette
+
+- ref: yk:ref/0049
+  kind: object
+  name: button-state-demo-row
+  what: a labelled row of buttons demonstrating different interactive states (default/hover/disabled/
+        etc.) side by side under a "STATES" caption, so the palette's button behaviour is documented
+  build: 4 pill buttons of equal size but different fills/opacity representing each state, small caption
+        label centred above the row
+  zone: graphic
+  use: documenting button state colours as part of a palette/style-guide sheet
+  style: botanical dark luxury palette
+
+- ref: yk:ref/0049
+  kind: object
+  name: named-background-swatch-circles
+  what: a row of circular colour swatches each labelled with a material-inspired name (Forest, Moss,
+        Linen, Ink, Walnut) rather than a hex code, under a "Backgrounds:" caption
+  build: circles ~70px, name centred below each in 12px regular, preceded by a bold inline label
+  zone: graphic
+  use: naming background colour roles memorably for a design system, alongside raw hex documentation
+  style: botanical dark luxury palette
+
+- ref: yk:ref/0050
+  kind: object
+  name: date-chip-with-delta-and-play
+  what: a small dark pill combining a date label, a signed delta value in the accent colour, and a
+        separate play/next icon button beside it
+  build: pill ~200px, date left ~13px, delta right-aligned in accent green with explicit "+" sign, play
+        triangle icon sits outside the pill to its right
+  zone: graphic
+  use: compact "current period + change + advance" control for time-based dashboards
+  style: dark HUD timeline
+
+- ref: yk:ref/0050
+  kind: chart
+  name: vertical-scrub-handle-on-hour-ruler
+  what: a vertical draggable handle sitting on a horizontal hour-tick ruler, the handle rendered as a
+        tall accent-coloured capsule with a grip-dots affordance at top and a triangle pointer marking
+        its exact ruler position
+  build: ruler ticks every 3 hours with bold label at the nearest major tick, capsule ~14px wide spanning
+        from the ruler down through an underlying track bar, small grip-dot row at the capsule's top
+  zone: graphic
+  use: scrubbing/selecting a precise time-of-day value against a 24-hour ruler
+  style: dark HUD timeline
+
+- ref: yk:ref/0050
+  kind: object
+  name: stacked-dual-range-track
+  what: two horizontal track bars stacked directly above one another, each partially filled to a
+        different extent, sharing the same vertical scrub-line passing through both
+  build: tracks ~14px tall, rounded ends, filled portion slightly lighter than the unfilled portion, a
+        single vertical accent line/dot passes through both tracks at the same x-position
+  zone: graphic
+  use: comparing two related ranges (e.g. planned vs actual) against one shared time axis
+  style: dark HUD timeline
+
+- ref: yk:ref/0051
+  kind: layout
+  name: split-auth-card-with-dot-portrait
+  what: a sign-in card split into a plain white form panel on the left and a dot-halftone portrait image
+        bleeding to the card's right edge, the whole card floating over a blurred landscape photo
+  build: form panel ~55% width white, portrait panel dot-matrix treatment matching the yk:ref/0026 mask
+        technique, card corners rounded uniformly, backdrop photo heavily blurred behind the card
+  zone: graphic
+  use: auth/onboarding screens wanting a branded illustrative moment beside a plain functional form
+  style: monochrome auth product
+
+- ref: yk:ref/0051
+  kind: object
+  name: oauth-button-stack
+  what: two full-width outlined buttons stacked with generous gap, each combining a provider's icon glyph
+        with "Sign in with X" text, followed by an "OR" divider with flanking rules before email fields
+  build: buttons ~44px, 1px border, icon ~16px left-inset, label centred-ish, "OR" centred between two
+        thin horizontal rules with equal whitespace
+  zone: graphic
+  use: standard social-login stack pattern above a traditional email/password form
+  style: monochrome auth product
+
+- ref: yk:ref/0051
+  kind: object
+  name: labelled-boxed-input-field
+  what: a form field with a small label above a fully boxed input (unlike the underline-only style seen
+        elsewhere), placeholder text in monospace for a technical feel
+  build: label ~11px above, input box ~40px with 1px border and 6px radius, placeholder in mono ~12px
+        grey, trailing inline link ("Forget Password?") right-aligned on the label row
+  zone: graphic
+  use: standard technical-product login forms wanting a slightly code-adjacent voice
+  style: monochrome auth product
+
+- ref: yk:ref/0052
+  kind: object
+  name: biometric-fingerprint-card
+  what: a dark card headlined "Efficient Biometrics" with three small circular icon chips (face, touch,
+        eye) above a large centred glowing fingerprint glyph
+  build: icon chips ~36px in a row, fingerprint icon large (~72px) centred below with a soft radial glow
+        halo behind it, headline top-left bold
+  zone: graphic
+  use: security/biometric feature tiles in fintech dashboards
+  style: dark fintech tile collage
+
+- ref: yk:ref/0052
+  kind: icon
+  name: radial-satellite-hub-icon
+  what: a central hub glyph surrounded by 4–5 small icon satellites connected by faint curved orbit
+        arcs, each satellite representing a different platform feature
+  build: hub ~48px centred with a bold pictogram, satellites ~24px placed around it at uneven angles,
+        thin curved connecting arcs rather than straight lines, very low-opacity background rings
+  zone: graphic
+  use: "one platform, many features" hero icon for fintech/SaaS feature cards
+  style: dark fintech tile collage
+
+- ref: yk:ref/0052
+  kind: chart
+  name: percentage-flow-ribbon-chart
+  what: a chart pairing a short list of percentage-labelled categories on the left with soft flowing
+        ribbon-like curves connecting them to their values on the right, resembling a simplified Sankey
+  build: 2–3 rows each with a bold percentage in a rounded chip, label and value to its right, faint
+        overlapping curved ribbons behind connecting the rows visually
+  zone: graphic
+  use: transaction/category breakdowns wanting more visual flow than a plain bar or pie
+  style: dark fintech tile collage
+
+- ref: yk:ref/0052
+  kind: object
+  name: dark-metallic-card-render
+  what: a photorealistic rendering of a physical payment card in dark metal with a small logo, presented
+        at a slight angle with soft studio lighting and reflection
+  build: card ~2.5:1 ratio, brushed-metal texture, logo embossed top-left, soft rim light along one edge,
+        subtle drop shadow beneath
+  zone: graphic
+  use: physical-card reveal moments in fintech marketing/dashboard contexts
+  style: dark fintech tile collage
+
+- ref: yk:ref/0052
+  kind: object
+  name: security-alert-notification-card
+  what: a dark card styled like a system notification, with app icon, timestamp, bold alert title, and a
+        short explanatory message, distinct from ordinary content cards by its urgency framing
+  build: small app icon + name + timestamp row at top (like an OS notification), bold red-tinted title
+        beneath, 2-line explanatory copy, no CTA button — informational only
+  zone: graphic
+  use: simulating real-time security/fraud alerts inside a fintech dashboard mockup
+  style: dark fintech tile collage
+
+- ref: yk:ref/0052
+  kind: object
+  name: qr-code-with-warning-stamp
+  what: a QR code graphic overlaid with a diagonal "FAKE" stamp-style warning label, paired with a short
+        caption about recognising fraudulent codes
+  build: QR code ~80px, bold diagonal red-ish stamp text crossing its centre, caption text to the left
+        explaining the feature
+  zone: graphic
+  use: security-education UI moments in payment apps (fraud/QR-spoofing awareness)
+  style: dark fintech tile collage
+
+## Stylistic registers in this batch
+
+- glass product UI — yk:ref/0000
+- dark soft product UI — yk:ref/0001
+- luxury editorial — yk:ref/0002
+- pulp poster illustration — yk:ref/0003
+- minimal blueprint product — yk:ref/0004
+- print halftone — yk:ref/0005
+- dark tech case-study — yk:ref/0006
+- HUD technical — yk:ref/0007, 0011, 0046
+- soft product UI — yk:ref/0008
+- palette card — yk:ref/0009
+- swiss editorial — yk:ref/0010
+- swiss construction poster — yk:ref/0012
+- soft neumorphic UI — yk:ref/0013
+- dark tech HUD — yk:ref/0014
+- minimal data-map product — yk:ref/0015
+- dark tech creative tool — yk:ref/0016
+- lo-fi warm photographic — yk:ref/0017
+- generative particle render — yk:ref/0018
+- minimal luxury print — yk:ref/0019
+- washi editorial — yk:ref/0020
+- soft editorial wellness — yk:ref/0021
+- military tech grunge poster — yk:ref/0022
+- dark horror ink poster — yk:ref/0023
+- dark warm product UI — yk:ref/0024
+- dark tech dashboard — yk:ref/0025
+- soft brand photography — yk:ref/0026
+- warm ambient wellness UI — yk:ref/0027
+- warm dark SaaS — yk:ref/0028
+- dark fintech card grid — yk:ref/0029
+- luxury glass fintech — yk:ref/0030
+- dark crypto grid — yk:ref/0031
+- dark tech glow hero — yk:ref/0032
+- dark editorial studio — yk:ref/0033
+- dark minimal SaaS — yk:ref/0034
+- particle icon system — yk:ref/0035
+- acid-lyric moodboard — yk:ref/0036
+- dark grain gradient hero — yk:ref/0037
+- dark minimal fintech — yk:ref/0038
+- dev-tool dot-matrix — yk:ref/0039
+- geometric layout pack — yk:ref/0040
+- neumorphic spec sheet — yk:ref/0041
+- premium supplement e-commerce — yk:ref/0042
+- dark lounge hospitality — yk:ref/0043
+- soft organic data dashboard — yk:ref/0044
+- dark mobile fitness app — yk:ref/0045
+- literary vertical typography — yk:ref/0047, 0048
+- botanical dark luxury palette — yk:ref/0049
+- dark HUD timeline — yk:ref/0050
+- monochrome auth product — yk:ref/0051
+- dark fintech tile collage — yk:ref/0052
