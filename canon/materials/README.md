@@ -4,6 +4,9 @@ Graphic zone only. Materials are a **pool to build from, not a house style**: th
 different references for different styles and tasks, and are combined by taste and need. Nothing
 here says "every button looks like this" — only contrast, zones and roles are rules.
 
+Every piece names its **stylistic register** (`style:` in its manifest). The library holds many
+registers side by side; a single design picks one and holds it, never blending two in one frame.
+
 A material is a composite: `blur`, `tint`, `tint-opacity`, `noise`, `border`,
 `border-opacity`, `glow`, `glow-spread` and a required **fallback** — a solid surface used under
 `prefers-reduced-transparency`, `prefers-contrast: more` and on weak hardware. Colours come from
