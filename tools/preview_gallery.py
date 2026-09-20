@@ -41,7 +41,10 @@ button,select,input{font:inherit;color:inherit}
 .spacer{flex:1}
 .f{display:flex;gap:6px;flex-wrap:wrap}
 .f select,.f button{background:var(--card);border:1px solid var(--edge);border-radius:8px;padding:7px 10px;font-size:13px;color:var(--head);cursor:pointer}
-.hero{padding-block:30px 10px}
+.pals{display:flex;gap:5px;flex-wrap:wrap;padding-bottom:10px}
+.pals button{width:24px;height:24px;border-radius:50%;border:0;cursor:pointer;box-shadow:inset 0 0 0 1px rgba(255,255,255,.16);position:relative}
+.pals button[aria-pressed="true"]::after{content:"";position:absolute;inset:-4px;border-radius:50%;box-shadow:0 0 0 1px var(--acc)}
+.hero{padding-block:24px 10px}
 .hero h1{margin:0;font:700 clamp(28px,3.6vw,46px)/1 var(--disp);letter-spacing:-.02em;color:var(--head)}
 .hero p{margin:10px 0 0;color:var(--mu);max-width:72ch}
 .hero p b{color:var(--ink);font-weight:500}
@@ -76,11 +79,12 @@ button,select,input{font:inherit;color:inherit}
     <button type="button" id="bulkMiss">всё видимое → мимо</button>
   </div>
   <span class="sync" id="sync">только в этом браузере</span>
-</div></header>
+</div>
+<div class="in pals" id="pals" aria-label="Палитра всех превью"></div></header>
 
 <section class="hero gut">
   <h1>Листай и тыкай</h1>
-  <p>Каждая плитка — <b>компонент, перерисованный заново</b> в цветах yoshiki, а не картинка из папки. Три кнопки: <b>мимо</b>, <b>оставить</b>, <b>в канон</b>. <span class="hint">КЛАВИШИ 1 2 3 ОТМЕЧАЮТ ПЛИТКУ ПОД КУРСОРОМ</span></p>
+  <p>Каждая плитка — <b>компонент, перерисованный заново</b>, а не картинка из папки. Кружки сверху меняют палитру для всех превью сразу: ни один компонент не привязан к бежево-золотой схеме. Три кнопки: <b>мимо</b>, <b>оставить</b>, <b>в канон</b>. <span class="hint">КЛАВИШИ 1 2 3 ОТМЕЧАЮТ ПЛИТКУ ПОД КУРСОРОМ</span></p>
 </section>
 
 <main class="grid gut" id="grid"></main>
@@ -88,7 +92,7 @@ button,select,input{font:inherit;color:inherit}
 <script>
 (function(){
 'use strict';
-var ITEMS=__DATA__, state={}, db=null, timers={}, shown=0, PAGE=60, filtered=[];
+var ITEMS=__DATA__, PALS=__PALS__, state={}, db=null, timers={}, shown=0, PAGE=60, filtered=[];
 try{ state=JSON.parse(localStorage.getItem('yoshiki-previews')||'{}')||{}; }catch(e){}
 document.getElementById('sAll').textContent=ITEMS.length;
 function uniq(key){ var m={}; ITEMS.forEach(function(i){ var v=i[key]||''; if(v) m[v]=(m[v]||0)+1; }); return Object.keys(m).sort(function(a,b){ return m[b]-m[a]; }).map(function(k){ return [k,m[k]]; }); }
@@ -127,6 +131,16 @@ var hover=null;
 document.addEventListener('mouseover',function(e){ var t=e.target.closest('.tile'); if(t) hover=t.dataset.id; });
 document.addEventListener('keydown',function(e){ if(!hover||e.metaKey||e.ctrlKey) return;
   if(e.key==='1') mark(hover,-1); else if(e.key==='2') mark(hover,1); else if(e.key==='3') mark(hover,2); });
+document.getElementById('pals').innerHTML=PALS.map(function(p){ return '<button type="button" data-s="'+p.slug+'" title="'+p.name+'" aria-pressed="false" style="background:linear-gradient(135deg,'+p.bg+' 48%,'+p.acc+' 48%)"></button>'; }).join('');
+function palette(p){ var r=document.documentElement.style;
+  ['bg','panel','raised','hover','line','strong','ink','head','mu','acc','accT','sig','sigT'].forEach(function(k){ r.setProperty('--'+k,p[k]); });
+  r.setProperty('--page', p.mode==='dark' ? p.bg : p.hover); r.setProperty('--card', p.panel); r.setProperty('--edge', p.line);
+  document.querySelectorAll('#pals button').forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.s===p.slug)); });
+  try{ localStorage.setItem('yoshiki-preview-palette', p.slug); }catch(e){} }
+document.getElementById('pals').addEventListener('click',function(e){ var b=e.target.closest('button'); if(b) palette(PALS.filter(function(p){ return p.slug===b.dataset.s; })[0]); });
+var saved=null; try{ saved=localStorage.getItem('yoshiki-preview-palette'); }catch(e){}
+palette(PALS.filter(function(p){ return p.slug===saved; })[0] || PALS[0]);
+
 render(true);
 if(window.claude&&typeof window.claude.use==='function'){ window.claude.use('db').then(function(d){ if(!d) return; db=d;
   document.getElementById('sync').textContent='сохраняется для Claude';
@@ -153,12 +167,36 @@ def collect() -> list[dict]:
     return out
 
 
+def palettes() -> list[dict]:
+    """Every palette of the family, so the previews can be seen in any of them — the
+    beige pair is one colour scheme among many, never the frame for everything."""
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("build", ROOT / "tools" / "build.py")
+    assert spec and spec.loader
+    B = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(B)
+    out, res = [], {}
+    for slug in B.ORDER:
+        raw = B.load(slug)
+        res[slug] = pal = B.resolve(raw, res.get(raw.get("inherits", "")))
+        hexv = lambda role: B.role_value(pal["roles"][role], pal["tokens"])[1]
+        m = pal["meta"]
+        out.append({"slug": slug, "name": m["name"], "code": m.get("code", ""), "mode": m["mode"],
+                    "bg": hexv("bg.app"), "panel": hexv("bg.surface"), "raised": hexv("bg.raised"),
+                    "hover": hexv("bg.hover"), "line": hexv("border.hairline"), "strong": hexv("border.strong"),
+                    "ink": hexv("text.primary"), "head": hexv("text.heading"), "mu": hexv("text.muted"),
+                    "acc": hexv("accent.edge"), "accT": hexv("accent.text"),
+                    "sig": hexv("signal.fill"), "sigT": hexv("signal.text")})
+    return out
+
+
 def main():
     items = collect()
     if not items:
         sys.exit("no previews yet — library/previews/<register>/<id>.html")
     out = Path(sys.argv[1]) if len(sys.argv) > 1 else DEFAULT_OUT
-    out.write_text(PAGE.replace("__DATA__", json.dumps(items, ensure_ascii=False)))
+    page = PAGE.replace("__DATA__", json.dumps(items, ensure_ascii=False))
+    out.write_text(page.replace("__PALS__", json.dumps(palettes(), ensure_ascii=False)))
     print(f"{len(items)} previews → {out}")
 
 
