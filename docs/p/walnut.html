@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>yoshiki — a design foundation</title>
+<title>Walnut — yoshiki</title>
 <meta name="description" content="yoshiki — a design foundation: sixteen palettes, materials, objects and patterns, each rebuilt and provable.">
-<link rel="icon" href="assets/favicon.svg">
+<link rel="icon" href="../assets/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500;600&family=Noto+Serif+Display:ital,wght@0,400;0,600;1,400&display=swap">
 <style>
 :root{
@@ -201,82 +201,79 @@ footer .mono{font:500 11px var(--mono);letter-spacing:.1em;color:var(--ghost)}
 .code .h button{margin-left:auto;border:1px solid var(--line);border-radius:6px;background:transparent;color:var(--mu);font:500 10.5px var(--mono);padding:4px 9px;cursor:pointer}
 .code pre{margin:0;padding:14px;font:12.5px/1.75 var(--mono);color:var(--ink);overflow-x:auto}
 .code .k{color:var(--kw)}.code .s{color:var(--str)}.code .c{color:var(--com)}.code .n{color:var(--num)}
+
+.phero{padding-block:clamp(44px,6vw,86px) clamp(30px,4vw,54px)}
+.phero .kicker{margin-bottom:14px}
+.phero h1{font-size:clamp(46px,8vw,110px)}
+.phero .sub{display:flex;gap:10px 26px;flex-wrap:wrap;align-items:baseline;margin-top:18px}
+.phero .sub span{font:500 11px var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--mu)}
+.phero .sub em{font-style:normal;color:var(--accT)}
+.ramp{display:grid;grid-template-columns:repeat(auto-fit,minmax(104px,1fr));gap:10px;margin-top:34px}
+.ramp button{position:relative;border:0;padding:0;cursor:pointer;border-radius:var(--r-md);overflow:hidden;text-align:left;
+  box-shadow:inset 0 0 0 1px var(--line);background:color-mix(in srgb,var(--panel) 60%,transparent)}
+.ramp i{display:block;height:74px;box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--ink) 22%,transparent)}
+.ramp b{display:block;font:500 10px var(--mono);letter-spacing:.12em;color:var(--mu);padding:8px 9px 1px}
+.ramp u{display:block;font:500 11px var(--mono);color:var(--head);text-decoration:none;padding:0 9px 9px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:900px){.two{grid-template-columns:1fr}}
+.editor{border-radius:var(--r-lg);overflow:hidden;box-shadow:inset 0 0 0 1px var(--line);background:var(--panel)}
+.editor .tabs{display:flex;gap:2px;padding:9px 10px 0;background:color-mix(in srgb,var(--raised) 70%,transparent)}
+.editor .tabs span{font:500 11px var(--mono);letter-spacing:.06em;color:var(--mu);padding:7px 12px;border-radius:8px 8px 0 0}
+.editor .tabs span.on{background:var(--panel);color:var(--head)}
+.editor pre{margin:0;padding:16px 18px;font:12.5px/1.85 var(--mono);color:var(--ink);overflow-x:auto}
+.editor .k{color:var(--kw)} .editor .f{color:var(--fn)} .editor .s{color:var(--str)}
+.editor .n{color:var(--num)} .editor .c{color:var(--com)}
+.island{border-radius:var(--r-lg);overflow:hidden;background:var(--term-bg);color:var(--term-fg);
+  font:12.5px/1.8 var(--mono);padding:16px 18px;box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--term-fg) 16%,transparent)}
+.island .cur{background:var(--term-cur);color:var(--term-bg)}
+.island .ansi{display:grid;grid-template-columns:repeat(8,1fr);gap:3px;margin-top:14px}
+.island .ansi i{height:16px;border-radius:3px}
+.samples{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,330px),1fr));gap:14px}
+.samples .item{border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;background:color-mix(in srgb,var(--panel) 55%,transparent);display:flex;flex-direction:column}
+.samples .frame{padding:14px;min-height:190px;display:grid;place-items:center;overflow:hidden}
+.samples .frame>*{max-width:100%}
+.samples .meta{display:flex;gap:8px;align-items:center;border-top:1px solid var(--line);padding:10px 12px;font-size:13px;color:var(--head)}
+.samples .tag{font:500 10px var(--mono);letter-spacing:.1em;color:var(--mu);border:1px solid var(--line);border-radius:999px;padding:3px 8px}
+.pnav{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:22px;margin-top:10px}
+.pnav a{text-decoration:none;color:var(--head);font:500 13px var(--ui)}
+.pnav a span{display:block;font:500 10px var(--mono);letter-spacing:.16em;color:var(--mu);margin-bottom:4px}
+.dl{display:flex;gap:8px;flex-wrap:wrap;margin-top:26px}
+.dl a{font:500 10.5px var(--mono);letter-spacing:.12em;border:1px solid var(--line);border-radius:999px;padding:8px 14px;text-decoration:none;color:var(--mu)}
+.dl a:hover{border-color:var(--acc);color:var(--accT)}
 </style>
 </head>
 <body>
 <nav class="nav"><div class="in gut">
-  <a class="mark" href="index.html"><i></i>yoshiki</a>
-  <a class="lnk" href="index.html" aria-current="page">Overview</a><a class="lnk" href="palettes.html">Palettes</a><a class="lnk" href="gallery.html">Components</a>
+  <a class="mark" href="../index.html"><i></i>yoshiki</a>
+  <a class="lnk" href="../index.html">Overview</a><a class="lnk" href="../palettes.html" aria-current="page">Palettes</a><a class="lnk" href="../gallery.html">Components</a>
   <span class="sp"></span>
   <div class="pals" id="pals" aria-label="Palette"><button type="button" data-p="night-beige" title="Night beige · BE-N" aria-pressed="false" style="background:linear-gradient(135deg,#161410 48%,#D8AF52 48%)"></button><button type="button" data-p="beige-glass" title="Beige glass · BE-D" aria-pressed="false" style="background:linear-gradient(135deg,#D6D2BD 48%,#A8852F 48%)"></button><button type="button" data-p="porcelain" title="Porcelain · PC-D" aria-pressed="false" style="background:linear-gradient(135deg,#F4F1EA 48%,#A8852F 48%)"></button><button type="button" data-p="concrete" title="Concrete · CN-D" aria-pressed="false" style="background:linear-gradient(135deg,#D9D5CD 48%,#A8852F 48%)"></button><button type="button" data-p="yorha" title="YoRHa · YR-D" aria-pressed="false" style="background:linear-gradient(135deg,#D1CDB7 48%,#454138 48%)"></button><button type="button" data-p="blush" title="Blush · BL-D" aria-pressed="false" style="background:linear-gradient(135deg,#FFE6E9 48%,#E5132E 48%)"></button><button type="button" data-p="blush-night" title="Blush night · BL-N" aria-pressed="false" style="background:linear-gradient(135deg,#1A1115 48%,#FF8A98 48%)"></button><button type="button" data-p="lab" title="Lab · LB-D" aria-pressed="false" style="background:linear-gradient(135deg,#E8E9EB 48%,#FF3D2E 48%)"></button><button type="button" data-p="lab-night" title="Lab night · LB-N" aria-pressed="false" style="background:linear-gradient(135deg,#0B0C0D 48%,#FF3D2E 48%)"></button><button type="button" data-p="hanko" title="Hanko · HK-D" aria-pressed="false" style="background:linear-gradient(135deg,#F2EFE8 48%,#E3001B 48%)"></button><button type="button" data-p="hanko-night" title="Hanko night · HK-N" aria-pressed="false" style="background:linear-gradient(135deg,#0E0D0B 48%,#FF6D7E 48%)"></button><button type="button" data-p="cafe" title="Café · CF-N" aria-pressed="false" style="background:linear-gradient(135deg,#221A16 48%,#F4A662 48%)"></button><button type="button" data-p="ember" title="Ember · EM-N" aria-pressed="false" style="background:linear-gradient(135deg,#1D1B19 48%,#D8AF52 48%)"></button><button type="button" data-p="moss" title="Moss · MS-N" aria-pressed="false" style="background:linear-gradient(135deg,#12150F 48%,#C98E4E 48%)"></button><button type="button" data-p="signal" title="Signal · SG-N" aria-pressed="false" style="background:linear-gradient(135deg,#0C0D0E 48%,#D8AF52 48%)"></button><button type="button" data-p="walnut" title="Walnut · WL-N" aria-pressed="false" style="background:linear-gradient(135deg,#1C1612 48%,#D8AF52 48%)"></button></div>
   <a class="ghbtn" href="https://github.com/zinzaki/yoshiki">GitHub</a>
 </div></nav>
 
-<header class="hero grain gut"><div class="in">
-  <div class="kicker">A design foundation · 16 palettes · 246 components</div>
-  <h1>The material, physics and <em>resources</em> of a world.</h1>
-  <div class="row">
-    <div>
-      <p class="lede">yoshiki is a library you build interfaces out of: palettes that fill one role contract,
-      materials with real fallbacks, objects and patterns rebuilt from hundreds of references, and a catalogue
-      that says where every piece came from. <b>Colour is a swappable layer</b> — switch it in the corner and the
-      whole site follows.</p>
-      <div class="cta">
-        <a class="primary" href="gallery.html">Browse 246 components</a>
-        <a class="ghost" href="palettes.html">See the palette family</a>
-        <a class="ghost" href="https://github.com/zinzaki/yoshiki">Read the repo</a>
-      </div>
-    </div>
-    <div class="stats">
-      <div><b>16</b><span>PALETTES</span></div>
-      <div><b>246</b><span>REBUILT PIECES</span></div>
-      <div><b>14</b><span>STYLE REGISTERS</span></div>
-      <div><b>265</b><span>REFERENCES MINED</span></div>
-    </div>
+<header class="phero gut"><div class="in">
+  <div class="kicker">Walnut family · night · WL-N</div>
+  <h1>Walnut</h1>
+  <div class="sub"><span>warm</span><span>wood</span><span>accent <em>gold</em></span>
+    <span>16 palettes share this contract</span></div>
+  <div class="ramp"><button type="button" data-copy="#1C1612"><i style="background:#1C1612"></i><b>ground</b><u>#1C1612</u></button><button type="button" data-copy="#211A15"><i style="background:#211A15"></i><b>panel</b><u>#211A15</u></button><button type="button" data-copy="#261E18"><i style="background:#261E18"></i><b>raised</b><u>#261E18</u></button><button type="button" data-copy="#352B22"><i style="background:#352B22"></i><b>hover</b><u>#352B22</u></button><button type="button" data-copy="#40362C"><i style="background:#40362C"></i><b>line</b><u>#40362C</u></button><button type="button" data-copy="#EADFCF"><i style="background:#EADFCF"></i><b>text</b><u>#EADFCF</u></button><button type="button" data-copy="#AE9E8B"><i style="background:#AE9E8B"></i><b>muted</b><u>#AE9E8B</u></button><button type="button" data-copy="#D8AF52"><i style="background:#D8AF52"></i><b>accent</b><u>#D8AF52</u></button><button type="button" data-copy="#DA3820"><i style="background:#DA3820"></i><b>signal</b><u>#DA3820</u></button></div>
+  <div class="dl">
+    <a href="../../canon/palettes/walnut/walnut.css">CSS VARIABLES</a>
+    <a href="../../canon/palettes/walnut/walnut.tokens.json">DTCG TOKENS</a>
+    <a href="../../canon/palettes/walnut/walnut.json">JSON</a>
+    <a href="../../canon/palettes/walnut/card.svg">CARD</a>
+    <a href="https://github.com/zinzaki/yoshiki-themes">PROGRAM THEMES</a>
+    <a href="../../canon/palettes/CONTRAST.md">THE PROOF</a>
   </div>
 </div></header>
 
-<section class="gut" id="palettes"><div class="in">
+<section class="gut"><div class="in">
   <div class="head">
-    <div><div class="kicker">The family</div><h2>Sixteen worlds, one language</h2></div>
-    <p class="lede">Every palette fills the same roles, so any of them dresses any interface. Drag the ring or
-    click a card; the page takes the palette you stop on.</p>
+    <div><div class="kicker">Objects</div><h2>A screen in walnut</h2></div>
+    <p class="lede">The same objects every palette dresses: a title bar, a selected row carried by an outline,
+    a table, status that never leans on colour alone, and one destructive button.</p>
   </div>
-  <div class="ringwrap" id="ringwrap"><div class="ring" id="ring"><article class="pcard" data-i="0" style="background:#161410;color:#D6D2BD"><span class="c" style="color:#D8AF52">BE-N</span><div class="d"><i style="background:#1D1B16;box-shadow:0 0 0 2px #161410"></i><i style="background:#322E27;box-shadow:0 0 0 2px #161410"></i><i style="background:#D6D2BD;box-shadow:0 0 0 2px #161410"></i><i style="background:#D8AF52;box-shadow:0 0 0 2px #161410"></i><i style="background:#E3001B;box-shadow:0 0 0 2px #161410"></i></div><b style="color:#EAE6D2">Night beige</b><small style="color:#9A9584">warm · glass</small></article><article class="pcard" data-i="1" style="background:#D6D2BD;color:#454138"><span class="c" style="color:#533E13">BE-D</span><div class="d"><i style="background:#DCD8C0;box-shadow:0 0 0 2px #D6D2BD"></i><i style="background:#C9C4AE;box-shadow:0 0 0 2px #D6D2BD"></i><i style="background:#454138;box-shadow:0 0 0 2px #D6D2BD"></i><i style="background:#A8852F;box-shadow:0 0 0 2px #D6D2BD"></i><i style="background:#E3001B;box-shadow:0 0 0 2px #D6D2BD"></i></div><b style="color:#2E2B24">Beige glass</b><small style="color:#534E43">warm · glass</small></article><article class="pcard" data-i="2" style="background:#F4F1EA;color:#23201B"><span class="c" style="color:#5E4712">PC-D</span><div class="d"><i style="background:#FBFAF6;box-shadow:0 0 0 2px #F4F1EA"></i><i style="background:#E3E0D9;box-shadow:0 0 0 2px #F4F1EA"></i><i style="background:#23201B;box-shadow:0 0 0 2px #F4F1EA"></i><i style="background:#A8852F;box-shadow:0 0 0 2px #F4F1EA"></i><i style="background:#E3001B;box-shadow:0 0 0 2px #F4F1EA"></i></div><b style="color:#14120F">Porcelain</b><small style="color:#5F594F">neutral · porcelain</small></article><article class="pcard" data-i="3" style="background:#D9D5CD;color:#2A2724"><span class="c" style="color:#533E13">CN-D</span><div class="d"><i style="background:#E5E1DA;box-shadow:0 0 0 2px #D9D5CD"></i><i style="background:#CBC7BF;box-shadow:0 0 0 2px #D9D5CD"></i><i style="background:#2A2724;box-shadow:0 0 0 2px #D9D5CD"></i><i style="background:#A8852F;box-shadow:0 0 0 2px #D9D5CD"></i><i style="background:#E3001B;box-shadow:0 0 0 2px #D9D5CD"></i></div><b style="color:#1A1816">Concrete</b><small style="color:#57534C">cool · concrete</small></article><article class="pcard" data-i="4" style="background:#D1CDB7;color:#454138"><span class="c" style="color:#2E2B24">YR-D</span><div class="d"><i style="background:#DCD8C0;box-shadow:0 0 0 2px #D1CDB7"></i><i style="background:#C6C2AD;box-shadow:0 0 0 2px #D1CDB7"></i><i style="background:#454138;box-shadow:0 0 0 2px #D1CDB7"></i><i style="background:#454138;box-shadow:0 0 0 2px #D1CDB7"></i><i style="background:#E3001B;box-shadow:0 0 0 2px #D1CDB7"></i></div><b style="color:#2E2B24">YoRHa</b><small style="color:#534E46">warm · paper</small></article><article class="pcard" data-i="5" style="background:#FFE6E9;color:#1A1012"><span class="c" style="color:#A80D22">BL-D</span><div class="d"><i style="background:#FFF4F5;box-shadow:0 0 0 2px #FFE6E9"></i><i style="background:#EDD5D8;box-shadow:0 0 0 2px #FFE6E9"></i><i style="background:#1A1012;box-shadow:0 0 0 2px #FFE6E9"></i><i style="background:#E5132E;box-shadow:0 0 0 2px #FFE6E9"></i><i style="background:#E5132E;box-shadow:0 0 0 2px #FFE6E9"></i></div><b style="color:#0F0809">Blush</b><small style="color:#634C51">warm · powder</small></article><article class="pcard" data-i="6" style="background:#1A1115;color:#FBE9EC"><span class="c" style="color:#FF8A98">BL-N</span><div class="d"><i style="background:#20151A;box-shadow:0 0 0 2px #1A1115"></i><i style="background:#35232B;box-shadow:0 0 0 2px #1A1115"></i><i style="background:#FBE9EC;box-shadow:0 0 0 2px #1A1115"></i><i style="background:#FF8A98;box-shadow:0 0 0 2px #1A1115"></i><i style="background:#FF3B55;box-shadow:0 0 0 2px #1A1115"></i></div><b style="color:#FFF4F5">Blush night</b><small style="color:#C09EA6">warm · neon</small></article><article class="pcard" data-i="7" style="background:#E8E9EB;color:#141517"><span class="c" style="color:#B3231A">LB-D</span><div class="d"><i style="background:#F6F6F7;box-shadow:0 0 0 2px #E8E9EB"></i><i style="background:#D7D8DA;box-shadow:0 0 0 2px #E8E9EB"></i><i style="background:#141517;box-shadow:0 0 0 2px #E8E9EB"></i><i style="background:#FF3D2E;box-shadow:0 0 0 2px #E8E9EB"></i><i style="background:#FF3D2E;box-shadow:0 0 0 2px #E8E9EB"></i></div><b style="color:#0A0B0C">Lab</b><small style="color:#55585D">cool · hud</small></article><article class="pcard" data-i="8" style="background:#0B0C0D;color:#E9E9E6"><span class="c" style="color:#FF6357">LB-N</span><div class="d"><i style="background:#101112;box-shadow:0 0 0 2px #0B0C0D"></i><i style="background:#26292C;box-shadow:0 0 0 2px #0B0C0D"></i><i style="background:#E9E9E6;box-shadow:0 0 0 2px #0B0C0D"></i><i style="background:#FF3D2E;box-shadow:0 0 0 2px #0B0C0D"></i><i style="background:#FF3D2E;box-shadow:0 0 0 2px #0B0C0D"></i></div><b style="color:#F6F6F3">Lab night</b><small style="color:#8C8F93">cool · hud</small></article><article class="pcard" data-i="9" style="background:#F2EFE8;color:#141210"><span class="c" style="color:#A8001A">HK-D</span><div class="d"><i style="background:#FBF9F4;box-shadow:0 0 0 2px #F2EFE8"></i><i style="background:#E0DDD7;box-shadow:0 0 0 2px #F2EFE8"></i><i style="background:#141210;box-shadow:0 0 0 2px #F2EFE8"></i><i style="background:#E3001B;box-shadow:0 0 0 2px #F2EFE8"></i><i style="background:#E3001B;box-shadow:0 0 0 2px #F2EFE8"></i></div><b style="color:#0A0908">Hanko</b><small style="color:#57524A">warm · seal</small></article><article class="pcard" data-i="10" style="background:#0E0D0B;color:#EEE8DC"><span class="c" style="color:#FF6D7E">HK-N</span><div class="d"><i style="background:#141210;box-shadow:0 0 0 2px #0E0D0B"></i><i style="background:#2D2A25;box-shadow:0 0 0 2px #0E0D0B"></i><i style="background:#EEE8DC;box-shadow:0 0 0 2px #0E0D0B"></i><i style="background:#FF6D7E;box-shadow:0 0 0 2px #0E0D0B"></i><i style="background:#E3001B;box-shadow:0 0 0 2px #0E0D0B"></i></div><b style="color:#FAF6EE">Hanko night</b><small style="color:#9C9589">warm · seal</small></article><article class="pcard" data-i="11" style="background:#221A16;color:#F1E3CF"><span class="c" style="color:#F4A662">CF-N</span><div class="d"><i style="background:#281E1A;box-shadow:0 0 0 2px #221A16"></i><i style="background:#3B2F27;box-shadow:0 0 0 2px #221A16"></i><i style="background:#F1E3CF;box-shadow:0 0 0 2px #221A16"></i><i style="background:#F4A662;box-shadow:0 0 0 2px #221A16"></i><i style="background:#E22D32;box-shadow:0 0 0 2px #221A16"></i></div><b style="color:#FAF0E0">Café</b><small style="color:#B39E8C">warm · lo-fi</small></article><article class="pcard" data-i="12" style="background:#1D1B19;color:#E3D0AE"><span class="c" style="color:#D8AF52">EM-N</span><div class="d"><i style="background:#22201E;box-shadow:0 0 0 2px #1D1B19"></i><i style="background:#37332E;box-shadow:0 0 0 2px #1D1B19"></i><i style="background:#E3D0AE;box-shadow:0 0 0 2px #1D1B19"></i><i style="background:#D8AF52;box-shadow:0 0 0 2px #1D1B19"></i><i style="background:#E3001B;box-shadow:0 0 0 2px #1D1B19"></i></div><b style="color:#F0E2C6">Ember</b><small style="color:#A89A86">warm · tube-amp</small></article><article class="pcard" data-i="13" style="background:#12150F;color:#E4E2CF"><span class="c" style="color:#C98E4E">MS-N</span><div class="d"><i style="background:#161A13;box-shadow:0 0 0 2px #12150F"></i><i style="background:#2A3023;box-shadow:0 0 0 2px #12150F"></i><i style="background:#E4E2CF;box-shadow:0 0 0 2px #12150F"></i><i style="background:#C98E4E;box-shadow:0 0 0 2px #12150F"></i><i style="background:#E3001B;box-shadow:0 0 0 2px #12150F"></i></div><b style="color:#F0EEDD">Moss</b><small style="color:#A0A690">warm · forest</small></article><article class="pcard" data-i="14" style="background:#0C0D0E;color:#E8E4DA"><span class="c" style="color:#D8AF52">SG-N</span><div class="d"><i style="background:#101214;box-shadow:0 0 0 2px #0C0D0E"></i><i style="background:#262A2E;box-shadow:0 0 0 2px #0C0D0E"></i><i style="background:#E8E4DA;box-shadow:0 0 0 2px #0C0D0E"></i><i style="background:#D8AF52;box-shadow:0 0 0 2px #0C0D0E"></i><i style="background:#FF3D2E;box-shadow:0 0 0 2px #0C0D0E"></i></div><b style="color:#F4F1EA">Signal</b><small style="color:#9A968A">neutral · instrument</small></article><article class="pcard" data-i="15" style="background:#1C1612;color:#EADFCF"><span class="c" style="color:#D8AF52">WL-N</span><div class="d"><i style="background:#211A15;box-shadow:0 0 0 2px #1C1612"></i><i style="background:#352B22;box-shadow:0 0 0 2px #1C1612"></i><i style="background:#EADFCF;box-shadow:0 0 0 2px #1C1612"></i><i style="background:#D8AF52;box-shadow:0 0 0 2px #1C1612"></i><i style="background:#DA3820;box-shadow:0 0 0 2px #1C1612"></i></div><b style="color:#F6EDE0">Walnut</b><small style="color:#AE9E8B">warm · wood</small></article></div></div>
-  <div class="readout">
-    <div class="nm"><span data-pal-name>Night beige</span><span data-pal-code>BE-N</span></div>
-    <div class="roles" id="roles"></div>
-    <div class="mini"><a href="palettes.html">ALL PALETTES</a><a href="#use">GET THE TOKENS</a></div>
-  </div>
-</div></section>
-
-<section class="gut" id="materials"><div class="in">
-  <div class="head">
-    <div><div class="kicker">Materials and physics</div><h2>What surfaces are made of</h2></div>
-    <p class="lede">Glass over a single warm light, grain, cross grids, dot matrices, print halftone, soft relief,
-    one red seal — each a named material with a solid fallback for reduced transparency, and each drawn from roles,
-    never from fixed colour.</p>
-  </div>
-  <div class="tiles">
-      <div class="tile grain t-glass"><span class="pane"></span><span class="cap"><b>glass.frost</b> · over a lit ground</span></div>
-      <div class="tile grain t-glow"><span class="obj"></span><span class="cap"><b>glow.ember</b> · one light per view</span></div>
-      <div class="tile t-cross"><span class="cap"><b>pattern.cross</b> · ornate ground</span></div>
-      <div class="tile t-dots"><span class="cap"><b>pattern.dots</b> · dot matrix</span></div>
-      <div class="tile t-halftone"><canvas data-halftone></canvas><span class="cap"><b>halftone</b> · print on screen</span></div>
-      <div class="tile t-relief"><i></i><span class="cap"><b>relief.soft</b> · light palettes</span></div>
-      <div class="tile t-seal"><i></i><span class="cap"><b>seal</b> · the one red mark</span></div>
-      <div class="tile t-term"><div><span class="g">❯</span> yoshiki build</div><div>✓ tokens 0.12s</div><div>✓ 16 palettes · 208 themes</div><div>✓ contrast 1 248/1 248</div><div><span class="g">❯</span> <span style="background:var(--term-cur);color:var(--term-bg)">&nbsp;</span></div><span class="cap"><b>terminal island</b> · text zone</span></div>
-    </div>
-</div></section>
-
-<section class="gut" id="objects"><div class="in">
-  <div class="head">
-    <div><div class="kicker">Objects at work</div><h2>A real screen, not a swatch</h2></div>
-    <p class="lede">The same objects the library ships: title bars, rows with an outlined selection, tables,
-    status that never relies on colour alone, dialogs and buttons. Switch the treatment to see the ornate layer
-    — corner ticks and control hints — appear.</p>
-  </div>
-  <div class="demo grain" id="demo" data-treatment="clean">
+  <div class="demo grain" data-treatment="clean">
     <aside class="side">
       <div class="bar">Workspace</div>
       <div class="row on"><i></i>Deploys</div>
@@ -286,11 +283,7 @@ footer .mono{font:500 11px var(--mono);letter-spacing:.1em;color:var(--ghost)}
       <div class="row" style="margin-top:auto"><i></i>Account</div>
     </aside>
     <div class="main">
-      <div class="top">
-        <div class="seg" id="treat"><button type="button" data-t="clean" aria-pressed="true">clean</button><button type="button" data-t="ornate" aria-pressed="false">ornate</button></div>
-        <span class="badge live">building</span>
-        <span class="hint">○ SELECT&nbsp;&nbsp;× BACK</span>
-      </div>
+      <div class="top"><span class="badge live">building</span><span class="hint">WL-N · dark</span></div>
       <table>
         <tr><th>Deploy</th><th>Status</th><th style="text-align:right">Duration</th></tr>
         <tr><td>studio-web 412</td><td><span class="badge ok">ready</span></td><td style="text-align:right">0:42</td></tr>
@@ -303,48 +296,160 @@ footer .mono{font:500 11px var(--mono);letter-spacing:.1em;color:var(--ghost)}
   </div>
 </div></section>
 
-<section class="gut" id="workshop"><div class="in">
+<section class="gut"><div class="in">
   <div class="head">
-    <div><div class="kicker">The workshop</div><h2>Where the pieces come from</h2></div>
-    <p class="lede">References are taken apart component by component, each part is named and traced, and only what
-    survives eleven filters is rebuilt. Nothing is copied: every piece is written again from its notes, in yoshiki's
-    own roles.</p>
+    <div><div class="kicker">Code and terminal</div><h2>Where the eye spends hours</h2></div>
+    <p class="lede">Syntax roles and the ANSI set come from the same source as the interface. The terminal keeps
+    its own ground in every palette — it is an island, not a page.</p>
   </div>
-  <div class="pipe">
-      <div class="step"><b>265</b><span>REFERENCES</span><p>Photographs and screens the owner collected, taken apart one by one.</p></div>
-      <div class="step"><b>782</b><span>COMPONENTS FOUND</span><p>Every distinguishable part named, described and traced back to its source.</p></div>
-      <div class="step"><b>11</b><span>FILTERS</span><p>Substance, zone, register, distinctness, palette proof, scale, accessibility, craft.</p></div>
-      <div class="step"><b>246</b><span>REBUILT</span><p>Each one written again as a self-contained piece that works in every palette.</p></div>
+  <div class="two">
+    <div class="editor">
+      <div class="tabs"><span class="on">mount.ts</span><span>palette.yml</span><span>roles.md</span></div>
+      <pre><span class="c">// the palette is mounted, the roles answer</span>
+<span class="k">export function</span> <span class="f">mount</span>(palette: <span class="k">Palette</span>) {
+  <span class="k">const</span> surface = palette.<span class="f">role</span>(<span class="s">'bg.surface'</span>);
+  <span class="k">const</span> edge    = palette.<span class="f">role</span>(<span class="s">'accent.edge'</span>);
+  <span class="k">if</span> (contrast(surface, palette.<span class="f">role</span>(<span class="s">'text.primary'</span>)) &lt; <span class="n">4.5</span>) {
+    <span class="k">throw new</span> <span class="f">Error</span>(<span class="s">'a floor is a floor'</span>);
+  }
+  <span class="k">return</span> { surface, edge, density: <span class="n">1.0</span> };
+}</pre>
     </div>
-  <div class="matrix"><span>blueprint-hud <b>165</b></span><span>soft-product <b>107</b></span><span>glass-product <b>96</b></span><span>swiss-editorial <b>78</b></span><span>lo-fi-warm <b>62</b></span><span>moodboard-collage <b>61</b></span><span>brutalist-mono <b>45</b></span><span>print-halftone <b>40</b></span><span>palette-card <b>35</b></span><span>soft-relief <b>35</b></span><span>japanese-paper <b>28</b></span><span>generative-3d <b>15</b></span><span>nier-menu <b>11</b></span><span>other <b>4</b></span></div>
+    <div class="island">
+      <div>❯ yoshiki build --palette walnut</div>
+      <div>✓ tokens · roles · contrast</div>
+      <div>✓ 78/78 cells above the floor</div>
+      <div>❯ <span class="cur">&nbsp;</span></div>
+      <div class="ansi"><i style="background:#261E18"></i><i style="background:#FF5A4D"></i><i style="background:#AFC27A"></i><i style="background:#E8BE62"></i><i style="background:#8FA8C8"></i><i style="background:#C99AAE"></i><i style="background:#8FB39A"></i><i style="background:#EADFCF"></i><i style="background:#9F907F"></i><i style="background:#FF7A6E"></i><i style="background:#C4D28F"></i><i style="background:#F2CF7A"></i><i style="background:#A9BDD6"></i><i style="background:#D9B0C2"></i><i style="background:#A6C6AF"></i><i style="background:#F6EDE0"></i></div>
+    </div>
+  </div>
 </div></section>
 
-<section class="gut" id="use"><div class="in">
+<section class="gut"><div class="in">
   <div class="head">
-    <div><div class="kicker">Use it</div><h2>One source, every surface</h2></div>
-    <p class="lede">The same tokens drive the web kit, Slint desktop apps, terminal themes, Figma variables and
-    Tailwind. Pull a single piece or the whole palette.</p>
+    <div><div class="kicker">Every register</div><h2>One palette, many worlds</h2></div>
+    <p class="lede">A component belongs to a register; a palette belongs to none of them. Here is one piece from
+    each register, wearing walnut.</p>
   </div>
-  <div class="codes">
-    <div class="code"><div class="h">WEB · CSS ROLES <button type="button" data-copy="@import &quot;yoshiki-design/css&quot;;">COPY</button></div><pre><span class="c">/* one line; every role follows the palette */</span>
-<span class="k">@import</span> <span class="s">"yoshiki-design/css"</span>;
-
-.card { background: <span class="k">var</span>(--r-bg-surface); color: <span class="k">var</span>(--r-text-primary); }
-.card--active { border: <span class="n">1.5px</span> solid <span class="k">var</span>(--r-accent-edge); }</pre></div>
-    <div class="code"><div class="h">DESKTOP · SLINT <button type="button" data-copy="import { Yoshiki } from &quot;yoshiki.slint&quot;;">COPY</button></div><pre><span class="c">// desktop, same tokens</span>
-<span class="k">import</span> { Yoshiki } <span class="k">from</span> <span class="s">"yoshiki.slint"</span>;
-
-Rectangle { background: Yoshiki.bg-app;
-  Text { color: Yoshiki.text-primary; } }</pre></div>
-    <div class="code"><div class="h">ONE PIECE <button type="button" data-copy="npx shadcn add zinzaki/yoshiki/glass-menu">COPY</button></div><pre><span class="c"># pull one piece into your project</span>
-npx shadcn add zinzaki/yoshiki/<span class="s">glass-menu</span>
-
-<span class="c"># or take the whole palette</span>
-curl -O canon/palettes/<span class="s">night-beige</span>/night-beige.css</pre></div>
-    <div class="code"><div class="h">FOR AGENTS <button type="button" data-copy="AGENTS.md">COPY</button></div><pre><span class="c"># what an agent reads first</span>
-AGENTS.md          <span class="c">→ zone, roles, the look</span>
-canon/registry.json <span class="c">→ every piece with an id</span>
-canon/language/zones.md</pre></div>
+  <div class="samples"><article class="item"><div class="frame"><div class="pv pv-r0006-oversized-wordmark-single-accent-letter-22">
+  <span class="w">SIGN<span class="a">A</span>L</span>
+  <style>
+  .pv-r0006-oversized-wordmark-single-accent-letter-22{width:100%;height:100%;box-sizing:border-box;background:#0c0b09;display:flex;align-items:center;justify-content:center}
+  .pv-r0006-oversized-wordmark-single-accent-letter-22 .w{font:200 76px/1 var(--ui);letter-spacing:.02em;color:rgba(234,230,210,.14)}
+  .pv-r0006-oversized-wordmark-single-accent-letter-22 .a{color:var(--acc);font-weight:400}
+  </style>
+</div></div><div class="meta">oversized-wordmark-single-accent-letter<span class="tag">blueprint-hud</span></div></article><article class="item"><div class="frame"><div class="pv pv-r0064-diagonal-red-slab-highlight-271">
+  <div class="grain"></div>
+  <span class="slab">RUPTURE</span>
+  <style>
+    .pv-r0064-diagonal-red-slab-highlight-271{ width:100%; height:100%; background:var(--bg); position:relative; overflow:hidden; }
+    .pv-r0064-diagonal-red-slab-highlight-271 .grain{ position:absolute; inset:0; background-image:repeating-linear-gradient(45deg, rgba(255,255,255,.03) 0 2px, transparent 2px 6px); }
+    .pv-r0064-diagonal-red-slab-highlight-271 .slab{ position:absolute; left:50%; top:50%; transform:translate(-50%,-50%) rotate(-4deg); background:var(--sig); color:#fff; font:800 20px var(--ui); letter-spacing:.06em; padding:10px 22px; }
+  </style>
+</div></div><div class="meta">diagonal-red-slab-highlight<span class="tag">brutalist-mono</span></div></article><article class="item"><div class="frame"><div class="pv pv-r0018-height-mapped-gradient-colour-73">
+  <div class="stage">
+    <div class="shape"></div>
+    <div class="grain"></div>
+  </div>
+  <div class="legend">
+    <span class="dot cool"></span><span class="tag">top · cool</span>
+    <span class="dot warm"></span><span class="tag">base · warm</span>
+  </div>
+  <span class="cap">HEIGHT-MAPPED COLOUR — NOT LIT, MEASURED</span>
+  <style>
+    .pv-r0018-height-mapped-gradient-colour-73{ width:100%; height:100%; background:var(--bg); position:relative; overflow:hidden; font-family:var(--ui); padding:16px; box-sizing:border-box; }
+    .pv-r0018-height-mapped-gradient-colour-73 .stage{ position:absolute; left:50%; top:14px; transform:translateX(-50%); width:150px; height:150px; }
+    /* the vertical gradient IS the piece: warm base fading to cool top, independent of any lighting model */
+    .pv-r0018-height-mapped-gradient-colour-73 .shape{ position:absolute; inset:0; border-radius:50%; background:linear-gradient(180deg,#5A9BD8 0%,#5A9BD8 32%,#C9863F 100%); }
+    .pv-r0018-height-mapped-gradient-colour-73 .grain{ position:absolute; inset:0; border-radius:50%; background-image:radial-gradient(rgba(0,0,0,.4) 1px, transparent 1.3px); background-size:5px 5px; mix-blend-mode:multiply; opacity:.45; }
+    .pv-r0018-height-mapped-gradient-colour-73 .legend{ position:absolute; right:16px; top:20px; display:flex; flex-direction:column; gap:6px; align-items:flex-end; }
+    .pv-r0018-height-mapped-gradient-colour-73 .dot{ width:8px; height:8px; border-radius:50%; display:inline-block; margin-right:6px; vertical-align:middle; }
+    .pv-r0018-height-mapped-gradient-colour-73 .dot.cool{ background:#5A9BD8; }
+    .pv-r0018-height-mapped-gradient-colour-73 .dot.warm{ background:#C9863F; }
+    .pv-r0018-height-mapped-gradient-colour-73 .tag{ font:500 11px var(--mono); color:var(--mu); }
+    .pv-r0018-height-mapped-gradient-colour-73 .cap{ position:absolute; left:16px; bottom:14px; font:600 10px var(--mono); letter-spacing:.08em; color:var(--mu); text-transform:uppercase; }
+  </style>
+</div></div><div class="meta">height-mapped-gradient-colour<span class="tag">generative-3d</span></div></article><article class="item"><div class="frame"><div class="pv pv-r0000-frosted-glass-card-0">
+  <div class="photo">
+    <div class="card frosted">
+      <span class="head">Frosted</span>
+      <span class="cap">high blur · dark tint</span>
+    </div>
+  </div>
+  <div class="mini">
+    <div class="chip clear">Clear</div>
+    <div class="chip warm">Blur</div>
+  </div>
+  <style>
+    .pv-r0000-frosted-glass-card-0{ width:100%; height:100%; padding:14px; display:flex; align-items:flex-end; }
+    .pv-r0000-frosted-glass-card-0 .photo{ position:absolute; inset:0; background:conic-gradient(from 200deg at 60% 40%, var(--raised), var(--panel), var(--strong), var(--panel)); }
+    .pv-r0000-frosted-glass-card-0{ position:relative; }
+    .pv-r0000-frosted-glass-card-0 .card{ position:relative; z-index:2; width:180px; border-radius:32px; padding:16px; backdrop-filter:blur(14px); background:rgba(10,10,10,.38); border:1px solid rgba(255,255,255,.12); }
+    .pv-r0000-frosted-glass-card-0 .head{ display:block; font-size:20px; font-weight:700; color:#fff; }
+    .pv-r0000-frosted-glass-card-0 .cap{ display:block; font-size:11px; color:rgba(255,255,255,.6); margin-top:4px; }
+    .pv-r0000-frosted-glass-card-0 .mini{ position:relative; z-index:2; display:flex; gap:6px; margin-left:10px; }
+    .pv-r0000-frosted-glass-card-0 .chip{ font-size:9px; color:#fff; padding:5px 8px; border-radius:20px; border:1px solid rgba(255,255,255,.16); }
+    .pv-r0000-frosted-glass-card-0 .clear{ background:rgba(255,255,255,.08); backdrop-filter:blur(2px); }
+    .pv-r0000-frosted-glass-card-0 .warm{ background:rgba(216,175,82,.16); backdrop-filter:blur(7px); }
+  </style>
+</div></div><div class="meta">frosted-glass-card<span class="tag">glass-product</span></div></article><article class="item"><div class="frame"><div class="pv pv-r0020-circular-seal-badge-84">
+  <div class="stage">
+    <div class="lines">
+      <span></span><span></span><span class="short"></span>
+    </div>
+    <div class="seal">
+      <span>SIGNAL</span>
+    </div>
+  </div>
+  <style>
+  .pv-r0020-circular-seal-badge-84{width:100%;height:100%;box-sizing:border-box;background:var(--panel);padding:18px;font-family:var(--ui)}
+  .pv-r0020-circular-seal-badge-84 .stage{position:relative;width:100%;height:100%}
+  .pv-r0020-circular-seal-badge-84 .lines span{display:block;height:6px;border-radius:3px;background:var(--line);margin-bottom:9px;width:70%}
+  .pv-r0020-circular-seal-badge-84 .lines .short{width:40%}
+  .pv-r0020-circular-seal-badge-84 .seal{position:absolute;right:6px;bottom:2px;width:56px;height:56px;border-radius:50%;border:1px solid var(--acc);display:flex;align-items:center;justify-content:center;text-align:center;color:var(--acc);background:var(--raised)}
+  .pv-r0020-circular-seal-badge-84 .seal span{font:700 9px var(--mono);letter-spacing:.02em}
+  </style>
+</div></div><div class="meta">circular-seal-badge<span class="tag">japanese-paper</span></div></article><article class="item"><div class="frame"><div class="pv pv-r0017-dot-matrix-dissolve-70">
+  <div class="field">
+    <i style="left:40%;top:20%;--o:.95"></i><i style="left:48%;top:18%;--o:1"></i><i style="left:56%;top:22%;--o:.9"></i>
+    <i style="left:36%;top:32%;--o:.8"></i><i style="left:44%;top:30%;--o:.9"></i><i style="left:52%;top:34%;--o:.85"></i><i style="left:60%;top:30%;--o:.7"></i>
+    <i style="left:32%;top:44%;--o:.6"></i><i style="left:42%;top:46%;--o:.75"></i><i style="left:50%;top:44%;--o:.7"></i><i style="left:58%;top:48%;--o:.55"></i><i style="left:66%;top:44%;--o:.4"></i>
+    <i style="left:38%;top:58%;--o:.4"></i><i style="left:48%;top:60%;--o:.5"></i><i style="left:56%;top:58%;--o:.35"></i><i style="left:64%;top:62%;--o:.3"></i>
+    <i style="left:44%;top:72%;--o:.2"></i><i style="left:52%;top:74%;--o:.25"></i><i style="left:60%;top:72%;--o:.18"></i>
+  </div>
+  <span class="cap">scanning</span>
+  <style>
+  .pv-r0017-dot-matrix-dissolve-70{position:relative;width:100%;height:100%;box-sizing:border-box;background:#141009;overflow:hidden;font-family:var(--mono)}
+  .pv-r0017-dot-matrix-dissolve-70 .field{position:absolute;inset:0}
+  .pv-r0017-dot-matrix-dissolve-70 .field i{position:absolute;width:3px;height:3px;background:#f4e2c0;box-shadow:0 0 4px 1px rgba(244,226,192,.6);opacity:var(--o)}
+  .pv-r0017-dot-matrix-dissolve-70 .cap{position:absolute;left:16px;bottom:14px;font-size:9px;letter-spacing:.15em;color:var(--mu)}
+  </style>
+</div></div><div class="meta">dot-matrix-dissolve<span class="tag">lo-fi-warm</span></div></article><article class="item"><div class="frame"><div class="pv pv-r0003-diagonal-bicolour-field-13">
+  <div class="band"></div>
+  <style>
+    .pv-r0003-diagonal-bicolour-field-13{ width:100%; height:100%; background:var(--strong); position:relative; overflow:hidden; }
+    .pv-r0003-diagonal-bicolour-field-13 .band{ position:absolute; left:-10%; right:-10%; top:38%; height:22%; background:var(--head); transform:rotate(-8deg); }
+  </style>
+</div></div><div class="meta">diagonal-bicolour-field<span class="tag">moodboard-collage</span></div></article><article class="item"><div class="frame"><div class="pv pv-r0108-dual-currency-hud-398">
+  <div class="hud">
+    <div class="chip"><span class="ic diamond"></span><span class="num">1,240</span><span class="plus">+</span></div>
+    <div class="chip"><span class="ic star"></span><span class="num">86</span><span class="plus">+</span></div>
+  </div>
+  <style>
+    .pv-r0108-dual-currency-hud-398{ width:100%; height:100%; background:var(--bg); font-family:var(--mono); padding:16px; box-sizing:border-box; }
+    .pv-r0108-dual-currency-hud-398 .hud{ display:flex; justify-content:flex-end; gap:10px; }
+    .pv-r0108-dual-currency-hud-398 .chip{ display:flex; align-items:center; gap:8px; height:32px; padding:0 10px; border:1px solid var(--strong); background:color-mix(in srgb, var(--panel) 70%, transparent); }
+    .pv-r0108-dual-currency-hud-398 .ic{ width:9px; height:9px; flex:none; }
+    .pv-r0108-dual-currency-hud-398 .ic.diamond{ background:var(--acc); transform:rotate(45deg); }
+    .pv-r0108-dual-currency-hud-398 .ic.star{ background:var(--acc); clip-path:polygon(50% 0,63% 38%,100% 38%,69% 60%,82% 100%,50% 76%,18% 100%,31% 60%,0 38%,37% 38%); }
+    .pv-r0108-dual-currency-hud-398 .num{ font:600 13px var(--mono); color:var(--head); }
+    .pv-r0108-dual-currency-hud-398 .plus{ color:var(--mu); font:600 12px var(--mono); border-left:1px solid var(--line); padding-left:8px; }
+  </style>
+</div></div><div class="meta">dual-currency-hud<span class="tag">nier-menu</span></div></article></div>
+  <div class="pnav">
+    <a href="signal.html"><span>PREVIOUS</span>← Signal</a>
+    <a href="../palettes.html"><span>THE FAMILY</span>All 16 palettes</a>
+    <a href="night-beige.html"><span>NEXT</span>Night beige →</a>
   </div>
 </div></section>
 
@@ -370,58 +475,18 @@ canon/language/zones.md</pre></div>
   }
   window.__pals=PALS; window.__applyPalette=apply;
   document.getElementById('pals').addEventListener('click',function(e){ var b=e.target.closest('button'); if(b) apply(PALS.filter(function(p){return p.slug===b.dataset.p;})[0]); });
-  var INIT="";
+  var INIT="walnut";
   var saved=null; try{ saved=localStorage.getItem('yoshiki-palette'); }catch(e){}
   apply(PALS.filter(function(p){ return p.slug===(INIT||saved); })[0] || PALS[0]);
 })();
 </script>
 
 <script>
-(function(){
-  var ring=document.getElementById('ring'), wrap=document.getElementById('ringwrap'), cards=[].slice.call(ring.children);
-  var n=cards.length, R=360, idx=0, angle=0, drag=null;
-  function depth(){ cards.forEach(function(c,i){ var d=((i/n*360+angle)%360+540)%360-180, a=Math.abs(d);
-    c.classList.toggle('far',a>60); c.style.zIndex=String(100-Math.round(a)); }); }
-  function place(){ cards.forEach(function(c,i){ c.style.transform='rotateY('+(i/n*360)+'deg) translateZ('+R+'px)'; }); }
-  function go(i){ idx=((i%n)+n)%n; angle=-idx/n*360; ring.style.transform='translateZ(-'+R+'px) rotateY('+angle+'deg)';
-    window.__applyPalette(window.__pals[idx]); depth(); }
-  place(); go(0);
-  wrap.addEventListener('pointerdown',function(e){ drag={x:e.clientX,a:angle}; ring.style.transition='none'; wrap.setPointerCapture(e.pointerId); });
-  wrap.addEventListener('pointermove',function(e){ if(!drag) return; angle=drag.a+(e.clientX-drag.x)*.3;
-    ring.style.transform='translateZ(-'+R+'px) rotateY('+angle+'deg)'; depth(); });
-  function rel(){ if(!drag) return; drag=null; ring.style.transition=''; go(Math.round(-angle/360*n)); }
-  wrap.addEventListener('pointerup',rel); wrap.addEventListener('pointercancel',rel);
-  ring.addEventListener('click',function(e){ var c=e.target.closest('.pcard'); if(c) go(+c.dataset.i); });
-  addEventListener('keydown',function(e){ if(e.key==='ArrowRight'){ go(idx+1); } if(e.key==='ArrowLeft'){ go(idx-1); } });
-  var auto=setInterval(function(){ if(!drag && !document.hidden) go(idx+1); },5200);
-  wrap.addEventListener('pointerdown',function(){ clearInterval(auto); });
-
-  function roles(p){ var el=document.getElementById('roles');
-    el.innerHTML=[['ground',p.bg],['panel',p.panel],['raised',p.raised],['hover',p.hover],['line',p.line],['text',p.ink],['accent',p.acc],['signal',p.sig]]
-      .map(function(r){ return '<b data-l="'+r[0]+'" style="background:'+r[1]+'"></b>'; }).join(''); }
-  addEventListener('palette',function(e){ roles(e.detail); paint(); });
-  roles(window.__pal);
-
-  var seg=document.getElementById('treat');
-  seg.addEventListener('click',function(e){ var b=e.target.closest('button'); if(!b) return;
-    document.getElementById('demo').dataset.treatment=b.dataset.t;
-    seg.querySelectorAll('button').forEach(function(x){ x.setAttribute('aria-pressed',String(x===b)); }); });
-
-  function paint(){ document.querySelectorAll('canvas[data-halftone]').forEach(function(c){
-    var r=c.getBoundingClientRect(), d=Math.min(2,devicePixelRatio||1); c.width=r.width*d; c.height=r.height*d;
-    var x=c.getContext('2d'), s=Math.max(1,Math.round(7*d)), p=window.__pal||{};
-    x.clearRect(0,0,c.width,c.height);
-    x.fillStyle=p.ink||getComputedStyle(document.documentElement).getPropertyValue('--ink').trim();
-    for(var y=s/2;y<c.height;y+=s) for(var i=s/2;i<c.width;i+=s){
-      var dx=(i-c.width*.5)/(c.width*.5), dy=(y-c.height*.5)/(c.height*.5), v=Math.max(0,1-Math.hypot(dx,dy));
-      x.beginPath(); x.arc(i,y,v*s*.48,0,6.283); x.fill(); } }); }
-  addEventListener('resize',paint); paint();
-
-  document.addEventListener('click',function(e){ var b=e.target.closest('[data-copy]'); if(!b) return;
-    var t=b.dataset.copy; (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject())
-      .then(function(){ var o=b.textContent; b.textContent='COPIED'; setTimeout(function(){ b.textContent=o; },1200); })
-      .catch(function(){}); });
-})();
+document.addEventListener('click',function(e){ var b=e.target.closest('[data-copy]'); if(!b) return;
+  var t=b.dataset.copy, u=b.querySelector('u'); if(!u) return;
+  (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){
+    var o=u.textContent; u.textContent='COPIED'; setTimeout(function(){ u.textContent=o; },1100); }).catch(function(){});
+});
 </script>
 
 </body>

@@ -185,8 +185,9 @@ render(true);
   }
   window.__pals=PALS; window.__applyPalette=apply;
   document.getElementById('pals').addEventListener('click',function(e){ var b=e.target.closest('button'); if(b) apply(PALS.filter(function(p){return p.slug===b.dataset.p;})[0]); });
+  var INIT="";
   var saved=null; try{ saved=localStorage.getItem('yoshiki-palette'); }catch(e){}
-  apply(PALS.filter(function(p){ return p.slug===saved; })[0] || PALS[0]);
+  apply(PALS.filter(function(p){ return p.slug===(INIT||saved); })[0] || PALS[0]);
 })();
 </script>
 

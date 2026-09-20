@@ -137,7 +137,7 @@ for problem in manifests.load_all()[1]:
     fail(problem)
 
 # ── 2 · every link in the site resolves ─────────────────────────────────
-pages = sorted(DOCS.glob("*.html"))
+pages = sorted(DOCS.rglob("*.html"))
 if not pages:
     fail("docs/ has no pages")
 for page in pages:
@@ -151,10 +151,14 @@ for page in pages:
 
 # ── 3 · the pages agree on their own navigation ─────────────────────────
 def nav_of(html):
+    """A page one directory down writes the same navigation with a ../ prefix; the
+    navigation is the same navigation, so compare it without the prefix."""
     block = re.search(r'<nav class="nav".*?</nav>', html, re.S)
-    return re.findall(r'href="([^"]+)"', block.group(0)) if block else None
+    if not block:
+        return None
+    return [h[3:] if h.startswith("../") else h for h in re.findall(r'href="([^"]+)"', block.group(0))]
 
-navs = {p.name: nav_of(p.read_text()) for p in pages}
+navs = {str(p.relative_to(DOCS)): nav_of(p.read_text()) for p in pages}
 missing = [n for n, v in navs.items() if not v]
 for n in missing:
     fail(f"docs/{n} — no site navigation")
@@ -162,7 +166,7 @@ distinct = {tuple(v) for v in navs.values() if v}
 if len(distinct) > 1:
     fail(f"docs/ — the pages disagree on the navigation: {sorted(distinct)}")
 for name, links in navs.items():
-    if links and name != "index.html" and name not in links:
+    if links and "/" not in name and name != "index.html" and name not in links:
         fail(f"docs/{name} — the navigation never links to this page")
 
 # ── 4 · every relative markdown link in the repo resolves ───────────────

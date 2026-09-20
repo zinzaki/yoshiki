@@ -157,8 +157,11 @@ FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="
 NAV_LINKS = [("index.html", "Overview"), ("palettes.html", "Palettes"), ("gallery.html", "Components")]
 
 
-def shell(title: str, page: str, body: str, extra_css: str = "", script: str = "", pals=None) -> str:
-    links = "".join(f'<a class="lnk" href="{h}"{" aria-current=\"page\"" if h == page else ""}>{t}</a>' for h, t in NAV_LINKS)
+def shell(title: str, page: str, body: str, extra_css: str = "", script: str = "", pals=None,
+          base: str = "", initial: str = "") -> str:
+    """`base` prefixes every in-site path (a page one directory down passes "../");
+    `initial` is the palette the page opens in, whatever the visitor last chose."""
+    links = "".join(f'<a class="lnk" href="{base}{h}"{" aria-current=\"page\"" if h == page else ""}>{t}</a>' for h, t in NAV_LINKS)
     dots = "".join(f'<button type="button" data-p="{p["slug"]}" title="{p["name"]} · {p["code"]}" aria-pressed="false" '
                    f'style="background:linear-gradient(135deg,{p["bg"]} 48%,{p["acc"]} 48%)"></button>' for p in (pals or []))
     return f"""<!doctype html>
@@ -168,13 +171,13 @@ def shell(title: str, page: str, body: str, extra_css: str = "", script: str = "
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{title}</title>
 <meta name="description" content="yoshiki — a design foundation: sixteen palettes, materials, objects and patterns, each rebuilt and provable.">
-<link rel="icon" href="assets/favicon.svg">
+<link rel="icon" href="{base}assets/favicon.svg">
 {FONTS}
 <style>{CSS}{extra_css}</style>
 </head>
 <body>
 <nav class="nav"><div class="in gut">
-  <a class="mark" href="index.html"><i></i>yoshiki</a>
+  <a class="mark" href="{base}index.html"><i></i>yoshiki</a>
   {links}
   <span class="sp"></span>
   <div class="pals" id="pals" aria-label="Palette">{dots}</div>
@@ -203,8 +206,9 @@ def shell(title: str, page: str, body: str, extra_css: str = "", script: str = "
   }}
   window.__pals=PALS; window.__applyPalette=apply;
   document.getElementById('pals').addEventListener('click',function(e){{ var b=e.target.closest('button'); if(b) apply(PALS.filter(function(p){{return p.slug===b.dataset.p;}})[0]); }});
+  var INIT={json.dumps(initial)};
   var saved=null; try{{ saved=localStorage.getItem('yoshiki-palette'); }}catch(e){{}}
-  apply(PALS.filter(function(p){{ return p.slug===saved; }})[0] || PALS[0]);
+  apply(PALS.filter(function(p){{ return p.slug===(INIT||saved); }})[0] || PALS[0]);
 }})();
 </script>
 {script}

@@ -189,6 +189,7 @@ PALETTES_CSS = """
 .pterm .row{display:flex;gap:3px;margin-top:6px}
 .pterm .row i{flex:1;height:12px;border-radius:2px}
 .plinks{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+.plinks a.open{border-color:var(--pacc);color:var(--paccT)}
 .plinks a{font:500 10.5px var(--mono);letter-spacing:.1em;border:1px solid var(--pline);border-radius:999px;padding:6px 12px;text-decoration:none;color:var(--pmu)}
 """
 
@@ -435,6 +436,7 @@ def palettes_page(pals, comps, st) -> str:
       </div>
     </div>
     <div class="plinks">
+      <a class="open" href="p/{p['slug']}.html">OPEN THE ROOM →</a>
       <a href="../canon/palettes/{p['slug']}/{p['slug']}.css">CSS</a>
       <a href="../canon/palettes/{p['slug']}/{p['slug']}.tokens.json">DTCG</a>
       <a href="../canon/palettes/{p['slug']}/card.svg">CARD</a>
@@ -532,12 +534,184 @@ render(true);
     return S.shell("Components — yoshiki", "gallery.html", body, GALLERY_CSS, "", pals)
 
 
+# ── one palette, its own room ───────────────────────────────────────────
+PALETTE_ONE_CSS = """
+.phero{padding-block:clamp(44px,6vw,86px) clamp(30px,4vw,54px)}
+.phero .kicker{margin-bottom:14px}
+.phero h1{font-size:clamp(46px,8vw,110px)}
+.phero .sub{display:flex;gap:10px 26px;flex-wrap:wrap;align-items:baseline;margin-top:18px}
+.phero .sub span{font:500 11px var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--mu)}
+.phero .sub em{font-style:normal;color:var(--accT)}
+.ramp{display:grid;grid-template-columns:repeat(auto-fit,minmax(104px,1fr));gap:10px;margin-top:34px}
+.ramp button{position:relative;border:0;padding:0;cursor:pointer;border-radius:var(--r-md);overflow:hidden;text-align:left;
+  box-shadow:inset 0 0 0 1px var(--line);background:color-mix(in srgb,var(--panel) 60%,transparent)}
+.ramp i{display:block;height:74px;box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--ink) 22%,transparent)}
+.ramp b{display:block;font:500 10px var(--mono);letter-spacing:.12em;color:var(--mu);padding:8px 9px 1px}
+.ramp u{display:block;font:500 11px var(--mono);color:var(--head);text-decoration:none;padding:0 9px 9px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:900px){.two{grid-template-columns:1fr}}
+.editor{border-radius:var(--r-lg);overflow:hidden;box-shadow:inset 0 0 0 1px var(--line);background:var(--panel)}
+.editor .tabs{display:flex;gap:2px;padding:9px 10px 0;background:color-mix(in srgb,var(--raised) 70%,transparent)}
+.editor .tabs span{font:500 11px var(--mono);letter-spacing:.06em;color:var(--mu);padding:7px 12px;border-radius:8px 8px 0 0}
+.editor .tabs span.on{background:var(--panel);color:var(--head)}
+.editor pre{margin:0;padding:16px 18px;font:12.5px/1.85 var(--mono);color:var(--ink);overflow-x:auto}
+.editor .k{color:var(--kw)} .editor .f{color:var(--fn)} .editor .s{color:var(--str)}
+.editor .n{color:var(--num)} .editor .c{color:var(--com)}
+.island{border-radius:var(--r-lg);overflow:hidden;background:var(--term-bg);color:var(--term-fg);
+  font:12.5px/1.8 var(--mono);padding:16px 18px;box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--term-fg) 16%,transparent)}
+.island .cur{background:var(--term-cur);color:var(--term-bg)}
+.island .ansi{display:grid;grid-template-columns:repeat(8,1fr);gap:3px;margin-top:14px}
+.island .ansi i{height:16px;border-radius:3px}
+.samples{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,330px),1fr));gap:14px}
+.samples .item{border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;background:color-mix(in srgb,var(--panel) 55%,transparent);display:flex;flex-direction:column}
+.samples .frame{padding:14px;min-height:190px;display:grid;place-items:center;overflow:hidden}
+.samples .frame>*{max-width:100%}
+.samples .meta{display:flex;gap:8px;align-items:center;border-top:1px solid var(--line);padding:10px 12px;font-size:13px;color:var(--head)}
+.samples .tag{font:500 10px var(--mono);letter-spacing:.1em;color:var(--mu);border:1px solid var(--line);border-radius:999px;padding:3px 8px}
+.pnav{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:22px;margin-top:10px}
+.pnav a{text-decoration:none;color:var(--head);font:500 13px var(--ui)}
+.pnav a span{display:block;font:500 10px var(--mono);letter-spacing:.16em;color:var(--mu);margin-bottom:4px}
+.dl{display:flex;gap:8px;flex-wrap:wrap;margin-top:26px}
+.dl a{font:500 10.5px var(--mono);letter-spacing:.12em;border:1px solid var(--line);border-radius:999px;padding:8px 14px;text-decoration:none;color:var(--mu)}
+.dl a:hover{border-color:var(--acc);color:var(--accT)}
+"""
+
+CODE_SAMPLE = """<span class="c">// the palette is mounted, the roles answer</span>
+<span class="k">export function</span> <span class="f">mount</span>(palette: <span class="k">Palette</span>) {
+  <span class="k">const</span> surface = palette.<span class="f">role</span>(<span class="s">'bg.surface'</span>);
+  <span class="k">const</span> edge    = palette.<span class="f">role</span>(<span class="s">'accent.edge'</span>);
+  <span class="k">if</span> (contrast(surface, palette.<span class="f">role</span>(<span class="s">'text.primary'</span>)) &lt; <span class="n">4.5</span>) {
+    <span class="k">throw new</span> <span class="f">Error</span>(<span class="s">'a floor is a floor'</span>);
+  }
+  <span class="k">return</span> { surface, edge, density: <span class="n">1.0</span> };
+}"""
+
+
+def palette_page(pal, pals, comps, st) -> str:
+    """docs/p/<slug>.html — the palette on its own, dressing a real screen, an editor,
+    a terminal and a handful of components from different registers."""
+    i = [x["slug"] for x in pals].index(pal["slug"])
+    prev, nxt = pals[(i - 1) % len(pals)], pals[(i + 1) % len(pals)]
+    ramp = "".join(
+        f'<button type="button" data-copy="{c}"><i style="background:{c}"></i><b>{n}</b><u>{c.upper()}</u></button>'
+        for n, c in [("ground", pal["bg"]), ("panel", pal["panel"]), ("raised", pal["raised"]),
+                     ("hover", pal["hover"]), ("line", pal["line"]), ("text", pal["ink"]),
+                     ("muted", pal["mu"]), ("accent", pal["acc"]), ("signal", pal["sig"])])
+    ansi = "".join(f'<i style="background:{c}"></i>' for c in pal["term"]["ansi"] + pal["term"]["br"])
+
+    # one piece per register, so the page shows the palette carrying every world
+    seen, picks = set(), []
+    for c in comps:
+        if c["register"] not in seen and c["register"] != "other":
+            seen.add(c["register"])
+            picks.append(c)
+    picks = picks[:8]
+    samples = "".join(
+        f'<article class="item"><div class="frame">{c["html"]}</div>'
+        f'<div class="meta">{c["name"]}<span class="tag">{c["register"]}</span></div></article>' for c in picks)
+
+    body = f"""
+<header class="phero gut"><div class="in">
+  <div class="kicker">{pal['family']} family · {pal['variant']} · {pal['code']}</div>
+  <h1>{pal['name']}</h1>
+  <div class="sub"><span>{pal['temp']}</span><span>{pal['mat']}</span><span>accent <em>{pal['accent']}</em></span>
+    <span>{len(pals)} palettes share this contract</span></div>
+  <div class="ramp">{ramp}</div>
+  <div class="dl">
+    <a href="../../canon/palettes/{pal['slug']}/{pal['slug']}.css">CSS VARIABLES</a>
+    <a href="../../canon/palettes/{pal['slug']}/{pal['slug']}.tokens.json">DTCG TOKENS</a>
+    <a href="../../canon/palettes/{pal['slug']}/{pal['slug']}.json">JSON</a>
+    <a href="../../canon/palettes/{pal['slug']}/card.svg">CARD</a>
+    <a href="https://github.com/zinzaki/yoshiki-themes">PROGRAM THEMES</a>
+    <a href="../../canon/palettes/CONTRAST.md">THE PROOF</a>
+  </div>
+</div></header>
+
+<section class="gut"><div class="in">
+  <div class="head">
+    <div><div class="kicker">Objects</div><h2>A screen in {pal['name'].lower()}</h2></div>
+    <p class="lede">The same objects every palette dresses: a title bar, a selected row carried by an outline,
+    a table, status that never leans on colour alone, and one destructive button.</p>
+  </div>
+  <div class="demo grain" data-treatment="clean">
+    <aside class="side">
+      <div class="bar">Workspace</div>
+      <div class="row on"><i></i>Deploys</div>
+      <div class="row"><i></i>Projects</div>
+      <div class="row"><i></i>Logs</div>
+      <div class="row"><i></i>Settings</div>
+      <div class="row" style="margin-top:auto"><i></i>Account</div>
+    </aside>
+    <div class="main">
+      <div class="top"><span class="badge live">building</span><span class="hint">{pal['code']} · {pal['mode']}</span></div>
+      <table>
+        <tr><th>Deploy</th><th>Status</th><th style="text-align:right">Duration</th></tr>
+        <tr><td>studio-web 412</td><td><span class="badge ok">ready</span></td><td style="text-align:right">0:42</td></tr>
+        <tr class="sel"><td>api 118</td><td><span class="badge live">building</span></td><td style="text-align:right">1:07</td></tr>
+        <tr><td>migrate 9</td><td><span class="badge sig">failed</span></td><td style="text-align:right">0:03</td></tr>
+        <tr><td>docs 77</td><td><span class="badge">queued</span></td><td style="text-align:right">—</td></tr>
+      </table>
+      <div class="btnrow"><button class="btn primary">Deploy</button><button class="btn">Logs</button><button class="btn sig">Delete</button></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="gut"><div class="in">
+  <div class="head">
+    <div><div class="kicker">Code and terminal</div><h2>Where the eye spends hours</h2></div>
+    <p class="lede">Syntax roles and the ANSI set come from the same source as the interface. The terminal keeps
+    its own ground in every palette — it is an island, not a page.</p>
+  </div>
+  <div class="two">
+    <div class="editor">
+      <div class="tabs"><span class="on">mount.ts</span><span>palette.yml</span><span>roles.md</span></div>
+      <pre>{CODE_SAMPLE}</pre>
+    </div>
+    <div class="island">
+      <div>❯ yoshiki build --palette {pal['slug']}</div>
+      <div>✓ tokens · roles · contrast</div>
+      <div>✓ 78/78 cells above the floor</div>
+      <div>❯ <span class="cur">&nbsp;</span></div>
+      <div class="ansi">{ansi}</div>
+    </div>
+  </div>
+</div></section>
+
+<section class="gut"><div class="in">
+  <div class="head">
+    <div><div class="kicker">Every register</div><h2>One palette, many worlds</h2></div>
+    <p class="lede">A component belongs to a register; a palette belongs to none of them. Here is one piece from
+    each register, wearing {pal['name'].lower()}.</p>
+  </div>
+  <div class="samples">{samples}</div>
+  <div class="pnav">
+    <a href="{prev['slug']}.html"><span>PREVIOUS</span>← {prev['name']}</a>
+    <a href="../palettes.html"><span>THE FAMILY</span>All {len(pals)} palettes</a>
+    <a href="{nxt['slug']}.html"><span>NEXT</span>{nxt['name']} →</a>
+  </div>
+</div></section>
+"""
+    script = """
+<script>
+document.addEventListener('click',function(e){ var b=e.target.closest('[data-copy]'); if(!b) return;
+  var t=b.dataset.copy, u=b.querySelector('u'); if(!u) return;
+  (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){
+    var o=u.textContent; u.textContent='COPIED'; setTimeout(function(){ u.textContent=o; },1100); }).catch(function(){});
+});
+</script>
+"""
+    return S.shell(f"{pal['name']} — yoshiki", "palettes.html", body,
+                   INDEX_CSS + PALETTE_ONE_CSS, script, pals, base="../", initial=pal["slug"])
+
+
 def main():
     pals, comps = S.palettes(), S.components()
     st = S.stats(comps, pals)
     S.w(S.DOCS / "index.html", index_page(pals, comps, st))
     S.w(S.DOCS / "palettes.html", palettes_page(pals, comps, st))
     S.w(S.DOCS / "gallery.html", gallery_page(pals, comps, st))
+    for pal in pals:
+        S.w(S.DOCS / "p" / f"{pal['slug']}.html", palette_page(pal, pals, comps, st))
     if S.CHECK:
         for f in S.drift:
             print(f"drift: {f}")
@@ -545,7 +719,8 @@ def main():
             sys.exit("site out of sync — run: python3 tools/site_pages.py")
         print("clean — the site matches the library.")
         return
-    print(f"site built — {st['palettes']} palettes, {st['components']} components")
+    print(f"site built — {st['palettes']} palettes, {st['components']} components, "
+          f"{3 + len(pals)} pages")
 
 
 if __name__ == "__main__":
