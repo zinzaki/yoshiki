@@ -1,0 +1,36 @@
+<div class="pv pv-r0006-radial-hex-dial-24">
+  <div class="dial">
+    <svg viewBox="0 0 200 200" class="arcs">
+      <circle cx="100" cy="100" r="86" class="arc a1" pathLength="100" stroke-dasharray="20 80"/>
+      <circle cx="100" cy="100" r="86" class="arc a2" pathLength="100" stroke-dasharray="14 86" stroke-dashoffset="-28"/>
+      <circle cx="100" cy="100" r="86" class="arc a3" pathLength="100" stroke-dasharray="18 82" stroke-dashoffset="-48"/>
+      <circle cx="100" cy="100" r="86" class="arc a4" pathLength="100" stroke-dasharray="16 84" stroke-dashoffset="-72"/>
+    </svg>
+    <span class="chip c1">#2E2A22</span>
+    <span class="chip c2">#D8AF52</span>
+    <span class="chip c3">#E3001B</span>
+    <span class="chip c4">#F4EFE2</span>
+    <div class="core">
+      <span class="mark">◆</span>
+      <span class="lbl">Color Palette</span>
+    </div>
+  </div>
+  <style>
+    .pv-r0006-radial-hex-dial-24{ width:100%; height:100%; background:var(--bg); font-family:var(--ui); display:flex; align-items:center; justify-content:center; }
+    .pv-r0006-radial-hex-dial-24 .dial{ position:relative; width:170px; height:170px; }
+    .pv-r0006-radial-hex-dial-24 .arcs{ width:100%; height:100%; transform:rotate(-90deg); }
+    .pv-r0006-radial-hex-dial-24 .arc{ fill:none; stroke-width:6; stroke-linecap:round; }
+    .pv-r0006-radial-hex-dial-24 .a1{ stroke:var(--strong); }
+    .pv-r0006-radial-hex-dial-24 .a2{ stroke:var(--acc); }
+    .pv-r0006-radial-hex-dial-24 .a3{ stroke:var(--sig); }
+    .pv-r0006-radial-hex-dial-24 .a4{ stroke:var(--head); }
+    .pv-r0006-radial-hex-dial-24 .chip{ position:absolute; font:9px var(--mono); background:var(--raised); border:1px solid var(--line); color:var(--ink); padding:2px 6px; border-radius:8px; }
+    .pv-r0006-radial-hex-dial-24 .c1{ top:6px; left:14px; }
+    .pv-r0006-radial-hex-dial-24 .c2{ top:6px; right:10px; }
+    .pv-r0006-radial-hex-dial-24 .c3{ bottom:10px; left:8px; }
+    .pv-r0006-radial-hex-dial-24 .c4{ bottom:10px; right:12px; }
+    .pv-r0006-radial-hex-dial-24 .core{ position:absolute; inset:34px; border-radius:50%; background:radial-gradient(circle at 35% 30%, var(--raised), var(--panel) 70%); filter:blur(.2px); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; border:1px solid var(--line); }
+    .pv-r0006-radial-hex-dial-24 .mark{ color:var(--acc); font-size:14px; }
+    .pv-r0006-radial-hex-dial-24 .lbl{ font-size:9px; letter-spacing:.05em; color:var(--mu); text-transform:uppercase; }
+  </style>
+</div>

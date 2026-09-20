@@ -1,0 +1,35 @@
+<div class="pv pv-r0008-now-playing-transport-bar-27">
+  <div class="bar">
+    <div class="ctl">
+      <span class="chip"><svg viewBox="0 0 24 24"><path d="M17 5v14M17 12L6 6v12"/></svg></span>
+      <span class="chip acc"><svg viewBox="0 0 24 24"><rect x="6" y="5" width="4" height="14"/><rect x="14" y="5" width="4" height="14"/></svg></span>
+      <span class="chip"><svg viewBox="0 0 24 24"><path d="M7 5v14M7 12l11-6v12"/></svg></span>
+    </div>
+    <div class="mid">
+      <span class="thumb"></span>
+      <div class="txt"><p class="t1">Slow Mornings</p><p class="t2">Ari Kobayashi</p><span class="prog"><i></i></span></div>
+    </div>
+    <div class="ctl">
+      <span class="chip s"><svg viewBox="0 0 24 24"><path d="M12 21c-1-4-3-7-8-9 5-2 7-5 8-9 1 4 3 7 8 9-5 2-7 5-8 9z"/></svg></span>
+      <span class="chip s"><svg viewBox="0 0 24 24"><path d="M4 8l16 8M4 16l16-8"/></svg></span>
+      <span class="chip s"><svg viewBox="0 0 24 24"><path d="M6 4v16l14-8z"/></svg></span>
+    </div>
+  </div>
+  <style>
+    .pv-r0008-now-playing-transport-bar-27{ width:100%; height:100%; background:var(--bg); display:flex; align-items:center; padding:16px; box-sizing:border-box; font-family:var(--ui); }
+    .pv-r0008-now-playing-transport-bar-27 .bar{ width:100%; height:60px; border-radius:28px; background:var(--panel); box-shadow:0 10px 22px rgba(0,0,0,.4); display:flex; align-items:center; padding:0 14px; box-sizing:border-box; gap:10px; }
+    .pv-r0008-now-playing-transport-bar-27 .ctl{ display:flex; gap:6px; flex:none; }
+    .pv-r0008-now-playing-transport-bar-27 .chip{ width:30px; height:30px; border-radius:50%; background:var(--raised); display:flex; align-items:center; justify-content:center; }
+    .pv-r0008-now-playing-transport-bar-27 .chip.acc{ background:var(--acc); }
+    .pv-r0008-now-playing-transport-bar-27 .chip.s{ width:22px; height:22px; background:transparent; }
+    .pv-r0008-now-playing-transport-bar-27 svg{ width:13px; height:13px; fill:var(--mu); stroke:var(--mu); stroke-width:1.5; }
+    .pv-r0008-now-playing-transport-bar-27 .chip.acc svg{ fill:#191308; stroke:#191308; }
+    .pv-r0008-now-playing-transport-bar-27 .mid{ flex:1; display:flex; align-items:center; gap:10px; min-width:0; }
+    .pv-r0008-now-playing-transport-bar-27 .thumb{ width:36px; height:36px; border-radius:10px; background:linear-gradient(160deg, var(--hover), var(--raised)); flex:none; }
+    .pv-r0008-now-playing-transport-bar-27 .txt{ min-width:0; }
+    .pv-r0008-now-playing-transport-bar-27 .t1{ margin:0; font:600 12px var(--ui); color:var(--head); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .pv-r0008-now-playing-transport-bar-27 .t2{ margin:1px 0 4px; font:500 10px var(--ui); color:var(--mu); }
+    .pv-r0008-now-playing-transport-bar-27 .prog{ display:block; height:2px; width:110px; background:var(--line); border-radius:2px; overflow:hidden; }
+    .pv-r0008-now-playing-transport-bar-27 .prog i{ display:block; width:38%; height:100%; background:var(--acc); }
+  </style>
+</div>

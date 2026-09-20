@@ -1,0 +1,39 @@
+<div class="pv pv-r0064-heavy-grain-halftone-overlay-273">
+  <div class="ground">
+    <div class="block b1"></div>
+    <div class="block b2"></div>
+    <div class="dots"></div>
+    <div class="tag">GRAIN + HALFTONE · 18%</div>
+  </div>
+  <style>
+    .pv-r0064-heavy-grain-halftone-overlay-273{
+      width:100%;height:100%;box-sizing:border-box;overflow:hidden;background:var(--bg);
+      font-family:var(--mono);
+    }
+    .pv-r0064-heavy-grain-halftone-overlay-273 .ground{
+      position:relative;width:100%;height:100%;background:var(--bg);
+    }
+    /* stand-ins for the mixed photo/type/colour layers the grain unifies */
+    .pv-r0064-heavy-grain-halftone-overlay-273 .block{position:absolute}
+    .pv-r0064-heavy-grain-halftone-overlay-273 .b1{left:0;top:0;width:55%;height:100%;background:var(--raised)}
+    .pv-r0064-heavy-grain-halftone-overlay-273 .b2{right:0;top:0;width:45%;height:60%;background:var(--panel)}
+    /* halftone dot field, layered at two scales to read as coarse grain */
+    .pv-r0064-heavy-grain-halftone-overlay-273 .dots{
+      position:absolute;inset:0;
+      background-image:radial-gradient(circle, var(--head) 1.1px, transparent 1.3px);
+      background-size:6px 6px;
+      opacity:.16;
+    }
+    .pv-r0064-heavy-grain-halftone-overlay-273 .dots::after{
+      content:"";position:absolute;inset:0;
+      background-image:radial-gradient(circle, #000 1.4px, transparent 1.6px);
+      background-size:10px 10px;background-position:3px 5px;
+      opacity:.3;
+    }
+    .pv-r0064-heavy-grain-halftone-overlay-273 .tag{
+      position:absolute;left:16px;bottom:14px;font:600 11px var(--mono);
+      letter-spacing:.1em;color:var(--head);background:var(--bg);padding:4px 8px;
+      border:1px solid var(--strong);
+    }
+  </style>
+</div>

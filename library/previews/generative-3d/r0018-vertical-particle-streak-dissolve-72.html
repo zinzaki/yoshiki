@@ -1,0 +1,18 @@
+<div class="pv pv-r0018-vertical-particle-streak-dissolve-72">
+  <div class="temple"></div>
+  <div class="scatter"></div>
+  <span class="cap">DISSOLVE — BASE HOLDS, APEX SCATTERS</span>
+  <style>
+    .pv-r0018-vertical-particle-streak-dissolve-72{ width:100%; height:100%; background:var(--bg); position:relative; overflow:hidden; font-family:var(--ui); }
+    /* warm-to-cool vertical gradient is the object's colour system, matching the height-map piece it pairs with */
+    .pv-r0018-vertical-particle-streak-dissolve-72 .temple{ position:absolute; left:50%; bottom:30px; transform:translateX(-50%); width:150px; height:130px;
+      clip-path:polygon(8% 100%,8% 44%,50% 6%,92% 44%,92% 100%);
+      background:repeating-linear-gradient(90deg, rgba(0,0,0,.55) 0 1px, transparent 1px 4px), linear-gradient(180deg,#5A9BD8 0%,#C9863F 100%);
+      -webkit-mask-image:linear-gradient(to top, black 0%, black 40%, transparent 94%);
+      mask-image:linear-gradient(to top, black 0%, black 40%, transparent 94%); }
+    .pv-r0018-vertical-particle-streak-dissolve-72 .scatter{ position:absolute; left:36%; right:36%; top:24px; height:66px;
+      background-image:radial-gradient(rgba(150,190,230,.85) 1px, transparent 1.4px); background-size:8px 9px;
+      mask-image:linear-gradient(to bottom, transparent, black 70%, transparent); opacity:.6; }
+    .pv-r0018-vertical-particle-streak-dissolve-72 .cap{ position:absolute; left:16px; bottom:14px; font:600 10px var(--mono); letter-spacing:.08em; color:var(--mu); text-transform:uppercase; }
+  </style>
+</div>

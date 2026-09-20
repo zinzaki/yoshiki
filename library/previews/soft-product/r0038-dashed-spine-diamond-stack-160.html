@@ -1,0 +1,28 @@
+<div class="pv pv-r0038-dashed-spine-diamond-stack-160">
+  <div class="spine"></div>
+  <div class="tiles">
+    <div class="tile"><i class="dot top"></i><span class="ic circ"></span><i class="dot bot"></i></div>
+    <div class="tile"><i class="dot top"></i><span class="ic plus"></span><i class="dot bot"></i></div>
+    <div class="tile"><i class="dot top"></i><span class="ic bars"></span><i class="dot bot"></i></div>
+    <div class="tile"><i class="dot top"></i><span class="ic wave"></span><i class="dot bot"></i></div>
+    <div class="tile"><i class="dot top"></i><span class="ic dot2"></span><i class="dot bot"></i></div>
+  </div>
+  <style>
+    .pv-r0038-dashed-spine-diamond-stack-160{ position:relative; width:100%; height:100%; background:var(--bg); overflow:hidden; box-sizing:border-box; padding:10px 0; }
+    .pv-r0038-dashed-spine-diamond-stack-160 .spine{ position:absolute; left:50%; top:16px; bottom:16px; width:0; border-left:1px dashed var(--strong); }
+    .pv-r0038-dashed-spine-diamond-stack-160 .tiles{ position:relative; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:space-between; }
+    .pv-r0038-dashed-spine-diamond-stack-160 .tile{ position:relative; width:38px; height:38px; background:var(--raised); border:1px solid var(--line); transform:rotate(45deg); display:flex; align-items:center; justify-content:center; }
+    .pv-r0038-dashed-spine-diamond-stack-160 .dot{ position:absolute; width:5px; height:5px; border-radius:50%; background:var(--acc); transform:rotate(-45deg); }
+    .pv-r0038-dashed-spine-diamond-stack-160 .dot.top{ top:-9px; left:14px; }
+    .pv-r0038-dashed-spine-diamond-stack-160 .dot.bot{ bottom:-9px; left:14px; }
+    .pv-r0038-dashed-spine-diamond-stack-160 .ic{ transform:rotate(-45deg); display:block; }
+    .pv-r0038-dashed-spine-diamond-stack-160 .circ{ width:12px; height:12px; border:1.5px solid var(--ink); border-radius:50%; }
+    .pv-r0038-dashed-spine-diamond-stack-160 .plus{ width:12px; height:12px; position:relative; }
+    .pv-r0038-dashed-spine-diamond-stack-160 .plus::before,.pv-r0038-dashed-spine-diamond-stack-160 .plus::after{ content:""; position:absolute; background:var(--ink); }
+    .pv-r0038-dashed-spine-diamond-stack-160 .plus::before{ left:5px; top:0; width:2px; height:12px; }
+    .pv-r0038-dashed-spine-diamond-stack-160 .plus::after{ top:5px; left:0; height:2px; width:12px; }
+    .pv-r0038-dashed-spine-diamond-stack-160 .bars{ width:12px; height:10px; background:linear-gradient(90deg, var(--ink) 2px, transparent 2px 4px, var(--ink) 4px 6px, transparent 6px 8px, var(--ink) 8px 10px, transparent 10px); }
+    .pv-r0038-dashed-spine-diamond-stack-160 .wave{ width:14px; height:6px; border-bottom:1.5px solid var(--ink); border-radius:0 0 50% 50%; }
+    .pv-r0038-dashed-spine-diamond-stack-160 .dot2{ width:5px; height:5px; border-radius:50%; background:var(--ink); box-shadow:8px 0 0 var(--ink), -8px 0 0 var(--ink); }
+  </style>
+</div>

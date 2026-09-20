@@ -1,0 +1,55 @@
+<div class="pv pv-r0115-neumorphic-dual-shadow-ring-411">
+  <div class="row">
+    <div class="col">
+      <div class="ring ring-soft">
+        <div class="r2"></div>
+        <div class="r3"></div>
+      </div>
+      <span class="cap">tight · 4px</span>
+    </div>
+    <div class="col">
+      <div class="ring ring-bold">
+        <div class="r2"></div>
+        <div class="r3"></div>
+      </div>
+      <span class="cap">sculpted · 20px</span>
+    </div>
+  </div>
+  <style>
+    .pv-r0115-neumorphic-dual-shadow-ring-411{
+      width:100%;height:100%;box-sizing:border-box;overflow:hidden;
+      background:var(--panel);
+      display:flex;align-items:center;justify-content:center;
+      font-family:var(--ui);
+    }
+    .pv-r0115-neumorphic-dual-shadow-ring-411 .row{display:flex;gap:36px;align-items:flex-start}
+    .pv-r0115-neumorphic-dual-shadow-ring-411 .col{display:flex;flex-direction:column;align-items:center;gap:10px}
+    .pv-r0115-neumorphic-dual-shadow-ring-411 .ring{
+      width:96px;height:96px;border-radius:50%;background:var(--panel);
+      display:flex;align-items:center;justify-content:center;position:relative;
+    }
+    .pv-r0115-neumorphic-dual-shadow-ring-411 .ring-soft{
+      box-shadow:4px 4px 8px color-mix(in srgb, var(--bg) 55%, black),
+                 -4px -4px 8px color-mix(in srgb, var(--raised) 70%, white 20%);
+    }
+    .pv-r0115-neumorphic-dual-shadow-ring-411 .ring-bold{
+      box-shadow:20px 20px 34px color-mix(in srgb, var(--bg) 65%, black),
+                 -20px -20px 34px color-mix(in srgb, var(--raised) 75%, white 30%);
+    }
+    .pv-r0115-neumorphic-dual-shadow-ring-411 .r2{
+      width:66px;height:66px;border-radius:50%;background:var(--panel);
+      box-shadow:inset 3px 3px 6px color-mix(in srgb, var(--bg) 50%, black),
+                 inset -3px -3px 6px color-mix(in srgb, var(--raised) 70%, white 20%);
+      display:flex;align-items:center;justify-content:center;
+    }
+    .pv-r0115-neumorphic-dual-shadow-ring-411 .r3{
+      width:34px;height:34px;border-radius:50%;background:var(--panel);
+      box-shadow:inset 2px 2px 4px color-mix(in srgb, var(--bg) 50%, black),
+                 inset -2px -2px 4px color-mix(in srgb, var(--raised) 70%, white 20%);
+      position:absolute;
+    }
+    .pv-r0115-neumorphic-dual-shadow-ring-411 .cap{
+      font:500 10px var(--mono);letter-spacing:.04em;color:var(--mu);text-transform:uppercase;
+    }
+  </style>
+</div>
