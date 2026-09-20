@@ -60,7 +60,9 @@ INDEX_CSS = """
 /* material tiles */
 .tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:14px}
 .tile{position:relative;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:4/3;background:var(--panel);box-shadow:inset 0 0 0 1px var(--line)}
-.tile .cap{position:absolute;left:12px;bottom:10px;right:12px;font:500 10px var(--mono);letter-spacing:.14em;color:var(--mu);z-index:3}
+/* the caption sits on its own scrim: a dot matrix or a halftone underneath would eat it */
+.tile .cap{position:absolute;left:0;bottom:0;right:0;padding:26px 12px 10px;font:500 10px var(--mono);letter-spacing:.14em;color:var(--mu);z-index:3;
+  background:linear-gradient(to top,var(--panel),color-mix(in srgb,var(--panel) 80%,transparent) 55%,transparent)}
 .tile .cap b{color:var(--head);font-weight:500}
 .t-glass::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 70% at 70% 20%,color-mix(in srgb,var(--acc) 40%,transparent),transparent 70%),radial-gradient(50% 60% at 20% 80%,color-mix(in srgb,var(--sig) 32%,transparent),transparent 70%)}
 .t-glass .pane{position:absolute;inset:26% 14%;border-radius:12px;background:color-mix(in srgb,var(--raised) 55%,transparent);backdrop-filter:blur(14px);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--ink) 14%,transparent),inset 0 1px 0 rgba(255,255,255,.08)}
@@ -150,6 +152,11 @@ GALLERY_CSS = """
 .item .meta{display:flex;align-items:center;gap:8px;padding:11px 13px}
 .item .nm{font-weight:600;font-size:14px;color:var(--head);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .item .tag{font:500 10px var(--mono);letter-spacing:.08em;color:var(--mu);border:1px solid var(--line);border-radius:5px;padding:2px 6px;white-space:nowrap}
+.regh{grid-column:1/-1;display:flex;align-items:baseline;gap:14px;margin:26px 0 2px;padding-bottom:10px;border-bottom:1px solid var(--line);cursor:pointer}
+.regh:first-child{margin-top:0}
+.regh b{font:400 clamp(20px,2.4vw,28px)/1 var(--disp);color:var(--head);font-weight:400}
+.regh i{font:500 10.5px var(--mono);letter-spacing:.14em;color:var(--mu);font-style:normal}
+.regh em{font:500 10.5px var(--mono);letter-spacing:.14em;color:var(--accT);font-style:normal;margin-left:auto}
 .more{grid-column:1/-1;border:1px dashed var(--line);border-radius:var(--r-md);background:transparent;color:var(--mu);padding:14px;cursor:pointer}
 """
 
@@ -398,6 +405,8 @@ def palettes_page(pals, comps, st) -> str:
         sw = "".join(f'<b data-l="{n}" data-h="{c}" style="background:{c}"></b>' for n, c in
                      [("ground", p["bg"]), ("panel", p["panel"]), ("raised", p["raised"]), ("hover", p["hover"]),
                       ("line", p["line"]), ("text", p["ink"]), ("muted", p["mu"]), ("accent", p["acc"]), ("signal", p["sig"])])
+        # the island runs on terminal colours only: a page role would vanish on its ground
+        tgreen, tyellow = p["term"]["ansi"][2], p["term"]["br"][3]
         ansi = "".join(f'<i style="background:{c}"></i>' for c in p["term"]["ansi"])
         br = "".join(f'<i style="background:{c}"></i>' for c in p["term"]["br"])
         discs = "".join(f'<i style="background:{c}"></i>' for c in (p["panel"], p["hover"], p["ink"], p["acc"], p["sig"]))
@@ -419,8 +428,8 @@ def palettes_page(pals, comps, st) -> str:
         <div class="r">Network<b class="sig">✗ offline</b></div>
       </div>
       <div class="pterm" style="background:{p['term']['bg']};color:{p['term']['fg']}">
-        <div><span style="color:{p['acc']}">❯</span> yoshiki build</div>
-        <div style="color:{p['mu']}">✓ contrast 78/78</div>
+        <div><span style="color:{tyellow}">❯</span> yoshiki build</div>
+        <div><span style="color:{tgreen}">✓</span> contrast 78/78</div>
         <div class="row">{ansi}</div>
         <div class="row">{br}</div>
       </div>
@@ -447,6 +456,24 @@ def palettes_page(pals, comps, st) -> str:
     return S.shell("Palettes — yoshiki", "palettes.html", body, PALETTES_CSS, "", pals)
 
 
+REGISTER_NOTES = {
+    "blueprint-hud": "instrument panels, registration marks, technical readouts",
+    "soft-product": "rounded product UI, gentle depth, friendly density",
+    "swiss-editorial": "grid, rule and silence — type carries the page",
+    "brutalist-mono": "monospace, hard edges, nothing softened",
+    "print-halftone": "dot screens and ink, the press as a texture",
+    "glass-product": "translucent panels over a lit ground",
+    "moodboard-collage": "pinned fragments, overlap, tape and shadow",
+    "lo-fi-warm": "warm grain, worn edges, a cassette hiss",
+    "soft-relief": "light pressed into a surface, no borders at all",
+    "generative-3d": "computed form — orbits, fields, extrusions",
+    "palette-card": "colour shown as the subject, not the decoration",
+    "japanese-paper": "washi ground, seal and vertical measure",
+    "nier-menu": "ornate game menu: bars, brackets, control hints",
+    "other": "pieces that answer to no single world yet",
+}
+
+
 def gallery_page(pals, comps, st) -> str:
     data = [{"id": c["id"], "name": c["name"], "kind": c["kind"], "register": c["register"], "html": c["html"]} for c in comps]
     body = f"""
@@ -468,7 +495,8 @@ def gallery_page(pals, comps, st) -> str:
 </div></section>
 <script>
 (function(){{
-var ITEMS={json.dumps(data, ensure_ascii=False)}, shown=0, PAGE=48, filtered=[];
+var ITEMS={json.dumps(data, ensure_ascii=False)}, NOTES={json.dumps(REGISTER_NOTES, ensure_ascii=False)},
+    shown=0, PAGE=48, filtered=[];
 function uniq(k){{ var m={{}}; ITEMS.forEach(function(i){{ var v=i[k]||''; if(v) m[v]=(m[v]||0)+1; }});
   return Object.keys(m).sort(function(a,b){{ return m[b]-m[a]; }}).map(function(x){{ return [x,m[x]]; }}); }}
 function fill(el,label,list){{ el.innerHTML='<option value="">'+label+'</option>'+list.map(function(p){{ return '<option value="'+p[0]+'">'+p[0]+' ('+p[1]+')</option>'; }}).join(''); }}
@@ -480,14 +508,23 @@ function passes(it){{ var q=document.getElementById('q').value.trim().toLowerCas
   if(q&&[it.name,it.kind,it.register,it.id].join(' ').toLowerCase().indexOf(q)<0) return false; return true; }}
 function render(reset){{ if(reset){{ shown=0; filtered=ITEMS.filter(passes); }}
   var slice=filtered.slice(0,shown+PAGE); shown=slice.length;
+  var totals={{}}; filtered.forEach(function(i){{ totals[i.register]=(totals[i.register]||0)+1; }});
+  var seen='';
   document.getElementById('grid').innerHTML=slice.map(function(it){{
-    return '<article class="item"><div class="frame">'+it.html+'</div>'+
+    var head='';
+    if(it.register!==seen){{ seen=it.register;
+      head='<h3 class="regh" data-reg="'+it.register+'"><b>'+it.register.replace(/-/g,' ')+'</b>'+
+        '<i>'+(NOTES[it.register]||'')+'</i><em>'+totals[it.register]+' pieces</em></h3>'; }}
+    return head+'<article class="item"><div class="frame">'+it.html+'</div>'+
       '<div class="meta"><span class="nm">'+it.name+'</span><span class="tag">'+it.kind+'</span><span class="tag">'+it.register+'</span></div></article>'; }}).join('')
     +(shown<filtered.length?'<button type="button" class="more" id="more">show '+Math.min(PAGE,filtered.length-shown)+' more of '+(filtered.length-shown)+'</button>':'');
   document.getElementById('count').textContent=filtered.length+' of '+ITEMS.length; }}
 ['q','fReg','fKind'].forEach(function(id){{ document.getElementById(id).addEventListener('input',function(){{ render(true); }}); }});
 document.getElementById('reset').addEventListener('click',function(){{ ['q','fReg','fKind'].forEach(function(id){{ document.getElementById(id).value=''; }}); render(true); }});
-document.addEventListener('click',function(e){{ if(e.target.id==='more') render(false); }});
+document.addEventListener('click',function(e){{ if(e.target.id==='more') return render(false);
+  var h=e.target.closest&&e.target.closest('.regh');
+  if(h){{ document.getElementById('fReg').value=h.getAttribute('data-reg'); render(true);
+    window.scrollTo({{top:document.querySelector('.tools').offsetTop-80,behavior:'smooth'}}); }} }});
 render(true);
 }})();
 </script>

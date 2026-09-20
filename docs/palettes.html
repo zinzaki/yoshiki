@@ -43,6 +43,17 @@ button,select,input{font:inherit;color:inherit}
 .nav a.lnk:hover,.nav a.lnk[aria-current="page"]{color:var(--head)}
 .nav .sp{flex:1}
 .pals{display:flex;gap:4px;flex-wrap:wrap}
+/* narrow screens: the bar keeps one line, the palette dots scroll instead of stacking */
+@media (max-width:760px){
+  .nav .in{flex-wrap:nowrap;gap:0 14px;padding-block:9px}
+  .nav a.lnk{font-size:13.5px}
+  .pals{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding:3px 0;margin-left:auto;max-width:42vw}
+  .pals::-webkit-scrollbar{display:none}
+  .pals button{flex:0 0 auto;width:18px;height:18px}
+  .ghbtn{padding:6px 11px;font-size:12px}
+}
+/* the phone keeps the links and the switcher; GitHub is in the footer anyway */
+@media (max-width:520px){ .nav .in{gap:0 11px} .nav a.lnk{font-size:12.5px} .pals{max-width:30vw} .ghbtn{display:none} }
 .pals button{width:20px;height:20px;border-radius:50%;border:0;cursor:pointer;position:relative;
   box-shadow:inset 0 0 0 1px rgba(255,255,255,.18);transition:transform .2s var(--ease)}
 .pals button:hover{transform:translateY(-2px)}
@@ -136,8 +147,8 @@ footer .mono{font:500 11px var(--mono);letter-spacing:.1em;color:var(--ghost)}
         <div class="r">Network<b class="sig">✗ offline</b></div>
       </div>
       <div class="pterm" style="background:#161410;color:#D6D2BD">
-        <div><span style="color:#D8AF52">❯</span> yoshiki build</div>
-        <div style="color:#9A9584">✓ contrast 78/78</div>
+        <div><span style="color:#F2CF7A">❯</span> yoshiki build</div>
+        <div><span style="color:#AFC27A">✓</span> contrast 78/78</div>
         <div class="row"><i style="background:#24211C"></i><i style="background:#FF5A4D"></i><i style="background:#AFC27A"></i><i style="background:#E8BE62"></i><i style="background:#8FA8C8"></i><i style="background:#C99AAE"></i><i style="background:#8FB39A"></i><i style="background:#D6D2BD"></i></div>
         <div class="row"><i style="background:#8A8577"></i><i style="background:#FF7A6E"></i><i style="background:#C4D28F"></i><i style="background:#F2CF7A"></i><i style="background:#A9BDD6"></i><i style="background:#D9B0C2"></i><i style="background:#A6C6AF"></i><i style="background:#EAE6D2"></i></div>
       </div>
@@ -167,8 +178,8 @@ footer .mono{font:500 11px var(--mono);letter-spacing:.1em;color:var(--ghost)}
         <div class="r">Network<b class="sig">✗ offline</b></div>
       </div>
       <div class="pterm" style="background:#161410;color:#D6D2BD">
-        <div><span style="color:#A8852F">❯</span> yoshiki build</div>
-        <div style="color:#534E43">✓ contrast 78/78</div>
+        <div><span style="color:#F2CF7A">❯</span> yoshiki build</div>
+        <div><span style="color:#AFC27A">✓</span> contrast 78/78</div>
         <div class="row"><i style="background:#24211C"></i><i style="background:#FF5A4D"></i><i style="background:#AFC27A"></i><i style="background:#E8BE62"></i><i style="background:#8FA8C8"></i><i style="background:#C99AAE"></i><i style="background:#8FB39A"></i><i style="background:#D6D2BD"></i></div>
         <div class="row"><i style="background:#8A8577"></i><i style="background:#FF7A6E"></i><i style="background:#C4D28F"></i><i style="background:#F2CF7A"></i><i style="background:#A9BDD6"></i><i style="background:#D9B0C2"></i><i style="background:#A6C6AF"></i><i style="background:#EAE6D2"></i></div>
       </div>
@@ -198,8 +209,8 @@ footer .mono{font:500 11px var(--mono);letter-spacing:.1em;color:var(--ghost)}
         <div class="r">Network<b class="sig">✗ offline</b></div>
       </div>
       <div class="pterm" style="background:#161410;color:#D6D2BD">
-        <div><span style="color:#A8852F">❯</span> yoshiki build</div>
-        <div style="color:#5F594F">✓ contrast 78/78</div>
+        <div><span style="color:#F2CF7A">❯</span> yoshiki build</div>
+        <div><span style="color:#AFC27A">✓</span> contrast 78/78</div>
         <div class="row"><i style="background:#24211C"></i><i style="background:#FF5A4D"></i><i style="background:#AFC27A"></i><i style="background:#E8BE62"></i><i style="background:#8FA8C8"></i><i style="background:#C99AAE"></i><i style="background:#8FB39A"></i><i style="background:#D6D2BD"></i></div>
         <div class="row"><i style="background:#8A8577"></i><i style="background:#FF7A6E"></i><i style="background:#C4D28F"></i><i style="background:#F2CF7A"></i><i style="background:#A9BDD6"></i><i style="background:#D9B0C2"></i><i style="background:#A6C6AF"></i><i style="background:#EAE6D2"></i></div>
       </div>
@@ -229,8 +240,8 @@ footer .mono{font:500 11px var(--mono);letter-spacing:.1em;color:var(--ghost)}
         <div class="r">Network<b class="sig">✗ offline</b></div>
       </div>
       <div class="pterm" style="background:#161410;color:#D6D2BD">
-        <div><span style="color:#A8852F">❯</span> yoshiki build</div>
-        <div style="color:#57534C">✓ contrast 78/78</div>
+        <div><span style="color:#F2CF7A">❯</span> yoshiki build</div>
+        <div><span style="color:#AFC27A">✓</span> contrast 78/78</div>
         <div class="row"><i style="background:#24211C"></i><i style="background:#FF5A4D"></i><i style="background:#AFC27A"></i><i style="background:#E8BE62"></i><i style="background:#8FA8C8"></i><i style="background:#C99AAE"></i><i style="background:#8FB39A"></i><i style="background:#D6D2BD"></i></div>
         <div class="row"><i style="background:#8A8577"></i><i style="background:#FF7A6E"></i><i style="background:#C4D28F"></i><i style="background:#F2CF7A"></i><i style="background:#A9BDD6"></i><i style="background:#D9B0C2"></i><i style="background:#A6C6AF"></i><i style="background:#EAE6D2"></i></div>
       </div>
@@ -260,8 +271,8 @@ footer .mono{font:500 11px var(--mono);letter-spacing:.1em;color:var(--ghost)}
         <div class="r">Network<b class="sig">✗ offline</b></div>
       </div>
       <div class="pterm" style="background:#161410;color:#D6D2BD">
-        <div><span style="color:#454138">❯</span> yoshiki build</div>
-        <div style="color:#534E46">✓ contrast 78/78</div>
+        <div><span style="color:#F2CF7A">❯</span> yoshiki build</div>
+        <div><span style="color:#AFC27A">✓</span> contrast 78/78</div>
         <div class="row"><i style="background:#24211C"></i><i style="background:#FF5A4D"></i><i style="background:#AFC27A"></i><i style="background:#E8BE62"></i><i style="background:#8FA8C8"></i><i style="background:#C99AAE"></i><i style="background:#8FB39A"></i><i style="background:#D6D2BD"></i></div>
         <div class="row"><i style="background:#8A8577"></i><i style="background:#FF7A6E"></i><i style="background:#C4D28F"></i><i style="background:#F2CF7A"></i><i style="background:#A9BDD6"></i><i style="background:#D9B0C2"></i><i style="background:#A6C6AF"></i><i style="background:#EAE6D2"></i></div>
       </div>
@@ -291,8 +302,8 @@ footer .mono{font:500 11px var(--mono);letter-spacing:.1em;color:var(--ghost)}
         <div class="r">Network<b class="sig">✗ offline</b></div>
       </div>
       <div class="pterm" style="background:#161410;color:#D6D2BD">
-        <div><span style="color:#E5132E">❯</span> yoshiki build</div>
-        <div style="color:#634C51">✓ contrast 78/78</div>
+        <div><span style="color:#F2CF7A">❯</span> yoshiki build</div>
+        <div><span style="color:#AFC27A">✓</span> contrast 78/78</div>
         <div class="row"><i style="background:#24211C"></i><i style="background:#FF5A4D"></i><i style="background:#AFC27A"></i><i style="background:#E8BE62"></i><i style="background:#8FA8C8"></i><i style="background:#C99AAE"></i><i style="background:#8FB39A"></i><i style="background:#D6D2BD"></i></div>
         <div class="row"><i style="background:#8A8577"></i><i style="background:#FF7A6E"></i><i style="background:#C4D28F"></i><i style="background:#F2CF7A"></i><i style="background:#A9BDD6"></i><i style="background:#D9B0C2"></i><i style="background:#A6C6AF"></i><i style="background:#EAE6D2"></i></div>
       </div>
@@ -322,8 +333,8 @@ footer .mono{font:500 11px var(--mono);letter-spacing:.1em;color:var(--ghost)}
         <div class="r">Network<b class="sig">✗ offline</b></div>
       </div>
       <div class="pterm" style="background:#1A1115;color:#FBE9EC">
-        <div><span style="color:#FF8A98">❯</span> yoshiki build</div>
-        <div style="color:#C09EA6">✓ contrast 78/78</div>
+        <div><span style="color:#F2CF7A">❯</span> yoshiki build</div>
+        <div><span style="color:#AFC27A">✓</span> contrast 78/78</div>
         <div class="row"><i style="background:#26191F"></i><i style="background:#FF5A4D"></i><i style="background:#AFC27A"></i><i style="background:#E8BE62"></i><i style="background:#8FA8C8"></i><i style="background:#C99AAE"></i><i style="background:#8FB39A"></i><i style="background:#FBE9EC"></i></div>
         <div class="row"><i style="background:#AF9098"></i><i style="background:#FF7A6E"></i><i style="background:#C4D28F"></i><i style="background:#F2CF7A"></i><i style="background:#A9BDD6"></i><i style="background:#D9B0C2"></i><i style="background:#A6C6AF"></i><i style="background:#FFF4F5"></i></div>
       </div>
@@ -353,8 +364,8 @@ footer .mono{font:500 11px var(--mono);letter-spacing:.1em;color:var(--ghost)}
         <div class="r">Network<b class="sig">✗ offline</b></div>
       </div>
       <div class="pterm" style="background:#0B0C0D;color:#E9E9E6">
-        <div><span style="color:#FF3D2E">❯</span> yoshiki build</div>
-        <div style="color:#55585D">✓ contrast 78/78</div>
+        <div><span style="color:#F2CF7A">❯</span> yoshiki build</div>
+        <div><span style="color:#AFC27A">✓</span> contrast 78/78</div>
         <div class="row"><i style="background:#24211C"></i><i style="background:#FF5A4D"></i><i style="background:#AFC27A"></i><i style="background:#E8BE62"></i><i style="background:#8FA8C8"></i><i style="background:#C99AAE"></i><i style="background:#8FB39A"></i><i style="background:#D6D2BD"></i></div>
         <div class="row"><i style="background:#8A8577"></i><i style="background:#FF7A6E"></i><i style="background:#C4D28F"></i><i style="background:#F2CF7A"></i><i style="background:#A9BDD6"></i><i style="background:#D9B0C2"></i><i style="background:#A6C6AF"></i><i style="background:#EAE6D2"></i></div>
       </div>
@@ -384,8 +395,8 @@ footer .mono{font:500 11px var(--mono);letter-spacing:.1em;color:var(--ghost)}
         <div class="r">Network<b class="sig">✗ offline</b></div>
       </div>
       <div class="pterm" style="background:#0B0C0D;color:#E9E9E6">
-        <div><span style="color:#FF3D2E">❯</span> yoshiki build</div>
-        <div style="color:#8C8F93">✓ contrast 78/78</div>
+        <div><span style="color:#F2CF7A">❯</span> yoshiki build</div>
+        <div><span style="color:#AFC27A">✓</span> contrast 78/78</div>
         <div class="row"><i style="background:#141618"></i><i style="background:#FF5A4D"></i><i style="background:#AFC27A"></i><i style="background:#E8BE62"></i><i style="background:#8FA8C8"></i><i style="background:#C99AAE"></i><i style="background:#8FB39A"></i><i style="background:#E9E9E6"></i></div>
         <div class="row"><i style="background:#7F8286"></i><i style="background:#FF7A6E"></i><i style="background:#C4D28F"></i><i style="background:#F2CF7A"></i><i style="background:#A9BDD6"></i><i style="background:#D9B0C2"></i><i style="background:#A6C6AF"></i><i style="background:#F6F6F3"></i></div>
       </div>
@@ -415,8 +426,8 @@ footer .mono{font:500 11px var(--mono);letter-spacing:.1em;color:var(--ghost)}
         <div class="r">Network<b class="sig">✗ offline</b></div>
       </div>
       <div class="pterm" style="background:#0E0D0B;color:#EEE8DC">
-        <div><span style="color:#E3001B">❯</span> yoshiki build</div>
-        <div style="color:#57524A">✓ contrast 78/78</div>
+        <div><span style="color:#F2CF7A">❯</span> yoshiki build</div>
+        <div><span style="color:#AFC27A">✓</span> contrast 78/78</div>
         <div class="row"><i style="background:#24211C"></i><i style="background:#FF5A4D"></i><i style="background:#AFC27A"></i><i style="background:#E8BE62"></i><i style="background:#8FA8C8"></i><i style="background:#C99AAE"></i><i style="background:#8FB39A"></i><i style="background:#D6D2BD"></i></div>
         <div class="row"><i style="background:#8A8577"></i><i style="background:#FF7A6E"></i><i style="background:#C4D28F"></i><i style="background:#F2CF7A"></i><i style="background:#A9BDD6"></i><i style="background:#D9B0C2"></i><i style="background:#A6C6AF"></i><i style="background:#EAE6D2"></i></div>
       </div>
@@ -446,8 +457,8 @@ footer .mono{font:500 11px var(--mono);letter-spacing:.1em;color:var(--ghost)}
         <div class="r">Network<b class="sig">✗ offline</b></div>
       </div>
       <div class="pterm" style="background:#0E0D0B;color:#EEE8DC">
-        <div><span style="color:#FF6D7E">❯</span> yoshiki build</div>
-        <div style="color:#9C9589">✓ contrast 78/78</div>
+        <div><span style="color:#F2CF7A">❯</span> yoshiki build</div>
+        <div><span style="color:#AFC27A">✓</span> contrast 78/78</div>
         <div class="row"><i style="background:#191714"></i><i style="background:#FF5A4D"></i><i style="background:#AFC27A"></i><i style="background:#E8BE62"></i><i style="background:#8FA8C8"></i><i style="background:#C99AAE"></i><i style="background:#8FB39A"></i><i style="background:#EEE8DC"></i></div>
         <div class="row"><i style="background:#8E877C"></i><i style="background:#FF7A6E"></i><i style="background:#C4D28F"></i><i style="background:#F2CF7A"></i><i style="background:#A9BDD6"></i><i style="background:#D9B0C2"></i><i style="background:#A6C6AF"></i><i style="background:#FAF6EE"></i></div>
       </div>
@@ -477,8 +488,8 @@ footer .mono{font:500 11px var(--mono);letter-spacing:.1em;color:var(--ghost)}
         <div class="r">Network<b class="sig">✗ offline</b></div>
       </div>
       <div class="pterm" style="background:#221A16;color:#F1E3CF">
-        <div><span style="color:#F4A662">❯</span> yoshiki build</div>
-        <div style="color:#B39E8C">✓ contrast 78/78</div>
+        <div><span style="color:#F2CF7A">❯</span> yoshiki build</div>
+        <div><span style="color:#AFC27A">✓</span> contrast 78/78</div>
         <div class="row"><i style="background:#2D231D"></i><i style="background:#FF5A4D"></i><i style="background:#AFC27A"></i><i style="background:#E8BE62"></i><i style="background:#8FA8C8"></i><i style="background:#C99AAE"></i><i style="background:#8FB39A"></i><i style="background:#F1E3CF"></i></div>
         <div class="row"><i style="background:#A49180"></i><i style="background:#FF7A6E"></i><i style="background:#C4D28F"></i><i style="background:#F2CF7A"></i><i style="background:#A9BDD6"></i><i style="background:#D9B0C2"></i><i style="background:#A6C6AF"></i><i style="background:#FAF0E0"></i></div>
       </div>
@@ -508,8 +519,8 @@ footer .mono{font:500 11px var(--mono);letter-spacing:.1em;color:var(--ghost)}
         <div class="r">Network<b class="sig">✗ offline</b></div>
       </div>
       <div class="pterm" style="background:#1D1B19;color:#E3D0AE">
-        <div><span style="color:#D8AF52">❯</span> yoshiki build</div>
-        <div style="color:#A89A86">✓ contrast 78/78</div>
+        <div><span style="color:#F2CF7A">❯</span> yoshiki build</div>
+        <div><span style="color:#AFC27A">✓</span> contrast 78/78</div>
         <div class="row"><i style="background:#282522"></i><i style="background:#FF5A4D"></i><i style="background:#AFC27A"></i><i style="background:#E8BE62"></i><i style="background:#8FA8C8"></i><i style="background:#C99AAE"></i><i style="background:#8FB39A"></i><i style="background:#E3D0AE"></i></div>
         <div class="row"><i style="background:#9A8D7B"></i><i style="background:#FF7A6E"></i><i style="background:#C4D28F"></i><i style="background:#F2CF7A"></i><i style="background:#A9BDD6"></i><i style="background:#D9B0C2"></i><i style="background:#A6C6AF"></i><i style="background:#F0E2C6"></i></div>
       </div>
@@ -539,8 +550,8 @@ footer .mono{font:500 11px var(--mono);letter-spacing:.1em;color:var(--ghost)}
         <div class="r">Network<b class="sig">✗ offline</b></div>
       </div>
       <div class="pterm" style="background:#12150F;color:#E4E2CF">
-        <div><span style="color:#C98E4E">❯</span> yoshiki build</div>
-        <div style="color:#A0A690">✓ contrast 78/78</div>
+        <div><span style="color:#F2CF7A">❯</span> yoshiki build</div>
+        <div><span style="color:#AFC27A">✓</span> contrast 78/78</div>
         <div class="row"><i style="background:#1B1F17"></i><i style="background:#FF5A4D"></i><i style="background:#AFC27A"></i><i style="background:#E8BE62"></i><i style="background:#8FA8C8"></i><i style="background:#C99AAE"></i><i style="background:#8FB39A"></i><i style="background:#E4E2CF"></i></div>
         <div class="row"><i style="background:#929883"></i><i style="background:#FF7A6E"></i><i style="background:#C4D28F"></i><i style="background:#F2CF7A"></i><i style="background:#A9BDD6"></i><i style="background:#D9B0C2"></i><i style="background:#A6C6AF"></i><i style="background:#F0EEDD"></i></div>
       </div>
@@ -570,8 +581,8 @@ footer .mono{font:500 11px var(--mono);letter-spacing:.1em;color:var(--ghost)}
         <div class="r">Network<b class="sig">✗ offline</b></div>
       </div>
       <div class="pterm" style="background:#0C0D0E;color:#E8E4DA">
-        <div><span style="color:#D8AF52">❯</span> yoshiki build</div>
-        <div style="color:#9A968A">✓ contrast 78/78</div>
+        <div><span style="color:#F2CF7A">❯</span> yoshiki build</div>
+        <div><span style="color:#AFC27A">✓</span> contrast 78/78</div>
         <div class="row"><i style="background:#15171A"></i><i style="background:#FF5A4D"></i><i style="background:#AFC27A"></i><i style="background:#E8BE62"></i><i style="background:#8FA8C8"></i><i style="background:#C99AAE"></i><i style="background:#8FB39A"></i><i style="background:#E8E4DA"></i></div>
         <div class="row"><i style="background:#8C887E"></i><i style="background:#FF7A6E"></i><i style="background:#C4D28F"></i><i style="background:#F2CF7A"></i><i style="background:#A9BDD6"></i><i style="background:#D9B0C2"></i><i style="background:#A6C6AF"></i><i style="background:#F4F1EA"></i></div>
       </div>
@@ -601,8 +612,8 @@ footer .mono{font:500 11px var(--mono);letter-spacing:.1em;color:var(--ghost)}
         <div class="r">Network<b class="sig">✗ offline</b></div>
       </div>
       <div class="pterm" style="background:#1C1612;color:#EADFCF">
-        <div><span style="color:#D8AF52">❯</span> yoshiki build</div>
-        <div style="color:#AE9E8B">✓ contrast 78/78</div>
+        <div><span style="color:#F2CF7A">❯</span> yoshiki build</div>
+        <div><span style="color:#AFC27A">✓</span> contrast 78/78</div>
         <div class="row"><i style="background:#261E18"></i><i style="background:#FF5A4D"></i><i style="background:#AFC27A"></i><i style="background:#E8BE62"></i><i style="background:#8FA8C8"></i><i style="background:#C99AAE"></i><i style="background:#8FB39A"></i><i style="background:#EADFCF"></i></div>
         <div class="row"><i style="background:#9F907F"></i><i style="background:#FF7A6E"></i><i style="background:#C4D28F"></i><i style="background:#F2CF7A"></i><i style="background:#A9BDD6"></i><i style="background:#D9B0C2"></i><i style="background:#A6C6AF"></i><i style="background:#F6EDE0"></i></div>
       </div>

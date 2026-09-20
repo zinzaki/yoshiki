@@ -110,6 +110,17 @@ button,select,input{font:inherit;color:inherit}
 .nav a.lnk:hover,.nav a.lnk[aria-current="page"]{color:var(--head)}
 .nav .sp{flex:1}
 .pals{display:flex;gap:4px;flex-wrap:wrap}
+/* narrow screens: the bar keeps one line, the palette dots scroll instead of stacking */
+@media (max-width:760px){
+  .nav .in{flex-wrap:nowrap;gap:0 14px;padding-block:9px}
+  .nav a.lnk{font-size:13.5px}
+  .pals{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding:3px 0;margin-left:auto;max-width:42vw}
+  .pals::-webkit-scrollbar{display:none}
+  .pals button{flex:0 0 auto;width:18px;height:18px}
+  .ghbtn{padding:6px 11px;font-size:12px}
+}
+/* the phone keeps the links and the switcher; GitHub is in the footer anyway */
+@media (max-width:520px){ .nav .in{gap:0 11px} .nav a.lnk{font-size:12.5px} .pals{max-width:30vw} .ghbtn{display:none} }
 .pals button{width:20px;height:20px;border-radius:50%;border:0;cursor:pointer;position:relative;
   box-shadow:inset 0 0 0 1px rgba(255,255,255,.18);transition:transform .2s var(--ease)}
 .pals button:hover{transform:translateY(-2px)}
