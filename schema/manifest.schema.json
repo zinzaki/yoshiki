@@ -180,6 +180,51 @@
     "build": {
       "type": "string",
       "description": "How the piece is constructed — geometry, layers, states, spacing, type, which roles carry colour — in enough detail to rebuild it without the reference."
+    },
+    "files": {
+      "type": "array",
+      "description": "Installable files, shaped like a shadcn registry item so `shadcn add` can fetch them.",
+      "items": {
+        "type": "object",
+        "required": [
+          "path"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string"
+          },
+          "type": {
+            "enum": [
+              "registry:ui",
+              "registry:block",
+              "registry:lib",
+              "registry:file",
+              "registry:style",
+              "registry:theme"
+            ]
+          }
+        }
+      }
+    },
+    "registryDependencies": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true,
+      "description": "Other registry items this one needs (ids or shadcn names)."
+    },
+    "dependencies": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true,
+      "description": "npm packages the item needs, if any."
     }
   },
   "$defs": {
