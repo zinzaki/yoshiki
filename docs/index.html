@@ -1,396 +1,414 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="night-beige">
+<!doctype html>
+<html lang="en" data-palette="night-beige">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>yoshiki — a design language</title>
-<meta name="description" content="A design language for terminals, editors and the web. Warm monochrome, struck rarely by colour: a palette proven on every surface, a component contract, thirteen generated themes.">
-<meta property="og:title" content="yoshiki — a design language">
-<meta property="og:description" content="Warm monochrome, struck rarely by colour. A palette proven on every surface, a component contract, thirteen generated themes.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://zinzaki.github.io/yoshiki/">
-<meta property="og:image" content="https://zinzaki.github.io/yoshiki/og.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#0B0A08">
-<link rel="canonical" href="https://zinzaki.github.io/yoshiki/">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>yoshiki — a design foundation</title>
+<meta name="description" content="yoshiki — a design foundation: sixteen palettes, materials, objects and patterns, each rebuilt and provable.">
 <link rel="icon" href="assets/favicon.svg">
-<script>(function(){var t=null;try{t=localStorage.getItem('yoshiki-theme')}catch(e){}
-if(t!=='beige-glass'&&t!=='night-beige')t=matchMedia('(prefers-color-scheme: light)').matches?'beige-glass':'night-beige';
-document.documentElement.dataset.theme=t})();</script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;700;800&family=Zen+Kaku+Gothic+New:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/palette.css">
-<link rel="stylesheet" href="assets/kit.css">
-<link rel="stylesheet" href="assets/site.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500;600&family=Noto+Serif+Display:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+:root{
+  --ui:'Geist',system-ui,-apple-system,sans-serif; --mono:'Geist Mono',ui-monospace,monospace;
+  --disp:'Noto Serif Display',Georgia,serif;
+  --bg:#161410; --panel:#1D1B16; --raised:#24211C; --hover:#322E27; --line:#3A362E; --strong:#4E493F;
+  --ink:#D6D2BD; --head:#EAE6D2; --mu:#9A9584; --ghost:#7E7A6E;
+  --acc:#D8AF52; --accT:#D8AF52; --sig:#E3001B; --sigT:#FF6155; --ok:#AFC27A; --warn:#D98A55;
+  --r-sm:6px; --r-md:10px; --r-lg:16px;
+  --ease:cubic-bezier(.16,1,.3,1);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--ui);-webkit-font-smoothing:antialiased;
+  transition:background .8s var(--ease),color .8s var(--ease);overflow-x:hidden}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+a{color:inherit}
+button,select,input{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.gut{padding-inline:clamp(16px,4vw,72px)}
+.in{max-width:1440px;margin:0 auto}
+.grain{position:relative;isolation:isolate}
+.grain::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;opacity:.12;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 1 0'/></filter><rect width='180' height='180' filter='url(%23n)'/></svg>")}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 82%,transparent);
+  backdrop-filter:blur(16px) saturate(1.2);-webkit-backdrop-filter:blur(16px) saturate(1.2);border-bottom:1px solid var(--line)}
+.nav .in{display:flex;align-items:center;gap:10px 26px;padding-block:12px;flex-wrap:wrap}
+.mark{display:flex;align-items:center;gap:10px;font-weight:600;color:var(--head);text-decoration:none;letter-spacing:-.01em}
+.mark i{width:22px;height:22px;border-radius:6px;background:var(--panel);box-shadow:inset 0 0 0 1px var(--line);position:relative}
+.mark i::after{content:"";position:absolute;inset:6px;background:var(--acc)}
+.nav a.lnk{color:var(--mu);text-decoration:none;font-size:14.5px;transition:color .2s}
+.nav a.lnk:hover,.nav a.lnk[aria-current="page"]{color:var(--head)}
+.nav .sp{flex:1}
+.pals{display:flex;gap:4px;flex-wrap:wrap}
+.pals button{width:20px;height:20px;border-radius:50%;border:0;cursor:pointer;position:relative;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.18);transition:transform .2s var(--ease)}
+.pals button:hover{transform:translateY(-2px)}
+.pals button[aria-pressed="true"]::after{content:"";position:absolute;inset:-4px;border-radius:50%;box-shadow:0 0 0 1px var(--acc)}
+.ghbtn{border:1px solid var(--line);border-radius:999px;padding:7px 14px;font:500 13px var(--ui);color:var(--head);text-decoration:none}
+.ghbtn:hover{border-color:var(--acc);color:var(--accT)}
+
+/* type */
+h1,h2,h3{margin:0;color:var(--head);letter-spacing:-.025em;font-family:var(--disp);font-weight:600}
+h1{font-size:clamp(46px,7.4vw,124px);line-height:.92}
+h2{font-size:clamp(32px,4.2vw,64px);line-height:1}
+h3{font-size:22px;line-height:1.2;font-family:var(--ui);font-weight:600;letter-spacing:-.01em}
+.kicker{font:500 11.5px var(--mono);letter-spacing:.28em;text-transform:uppercase;color:var(--mu);display:flex;align-items:center;gap:10px}
+.kicker::before{content:"";width:8px;height:8px;background:var(--acc)}
+.lede{color:var(--mu);font-size:clamp(16px,1.3vw,19px);max-width:62ch}
+.lede b{color:var(--ink);font-weight:500}
+section{padding-block:clamp(56px,7vw,110px);border-top:1px solid var(--line)}
+section:first-of-type{border-top:0}
+.head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:18px 56px;align-items:end;margin-bottom:38px}
+@media (max-width:900px){.head{grid-template-columns:1fr}}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding-block:44px 70px;color:var(--mu);font-size:14px}
+footer .cols{display:flex;flex-wrap:wrap;gap:30px 64px;justify-content:space-between}
+footer a{text-decoration:none;color:var(--mu)}
+footer a:hover{color:var(--head)}
+footer .mono{font:500 11px var(--mono);letter-spacing:.1em;color:var(--ghost)}
+
+.hero{position:relative;padding-block:clamp(52px,8vw,120px) clamp(44px,6vw,90px);overflow:hidden}
+.hero::before{content:"";position:absolute;inset:-25% -10% auto auto;width:74vw;height:96%;z-index:-1;pointer-events:none;
+  background:radial-gradient(closest-side,color-mix(in srgb,var(--acc) 22%,transparent),transparent 72%)}
+.hero h1{max-width:14ch}
+.hero h1 em{font-style:italic;color:var(--accT)}
+.hero .row{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:34px 60px;margin-top:38px;align-items:end}
+@media (max-width:980px){.hero .row{grid-template-columns:1fr}}
+.stats{display:grid;grid-template-columns:repeat(4,auto);gap:10px 34px}
+@media (max-width:560px){.stats{grid-template-columns:repeat(2,auto)}}
+.stats b{display:block;font:600 clamp(30px,3.6vw,52px)/1 var(--disp);color:var(--head)}
+.stats span{font:500 11px var(--mono);letter-spacing:.14em;color:var(--mu)}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px}
+.cta a{text-decoration:none;border-radius:var(--r-md);padding:12px 20px;font-weight:600;font-size:15px}
+.cta .primary{border:1.5px solid var(--acc);color:var(--accT);background:color-mix(in srgb,var(--acc) 10%,transparent)}
+.cta .ghost{border:1px solid var(--line);color:var(--head)}
+
+/* palette ring */
+.ringwrap{position:relative;height:clamp(360px,46vh,500px);perspective:2000px;perspective-origin:50% 50%;margin:18px 0 26px;overflow:hidden}
+.ring{position:absolute;left:50%;top:52%;width:0;height:0;transform-style:preserve-3d;transition:transform 1s var(--ease)}
+.pcard{position:absolute;width:186px;height:252px;margin:-126px 0 0 -93px;border-radius:var(--r-lg);padding:16px;display:flex;flex-direction:column;
+  backface-visibility:hidden;cursor:pointer;box-shadow:0 40px 70px -40px rgba(0,0,0,.75);transition:filter .5s ease,opacity .5s ease}
+.pcard .c{font:500 10.5px var(--mono);letter-spacing:.16em;align-self:flex-end}
+.pcard .d{display:flex;justify-content:center;margin:auto 0}
+.pcard .d i{width:38px;height:38px;border-radius:50%;margin-left:-11px}
+.pcard .d i:first-child{margin-left:0}
+.pcard b{font:600 17px/1.1 var(--disp);letter-spacing:-.01em}
+.pcard small{font:500 9.5px var(--mono);letter-spacing:.14em;text-transform:uppercase;margin-top:4px;display:block}
+.pcard.far{filter:blur(2.4px) saturate(.8);opacity:.5}
+.readout{display:grid;grid-template-columns:auto 1fr auto;gap:14px 36px;align-items:end;border-top:1px solid var(--line);padding-top:20px}
+@media (max-width:820px){.readout{grid-template-columns:1fr}}
+.readout .nm{font:400 clamp(26px,3vw,40px)/1 var(--disp);color:var(--head);display:flex;gap:12px;align-items:baseline}
+.readout .nm span{font:500 12px var(--mono);letter-spacing:.2em;color:var(--accT)}
+.roles{display:flex;gap:3px;flex-wrap:wrap;padding-bottom:18px}
+.roles b{position:relative;width:clamp(42px,6vw,66px);height:42px;border-radius:5px;box-shadow:inset 0 0 0 1px rgba(128,128,128,.25)}
+.roles b::after{content:attr(data-l);position:absolute;left:0;top:calc(100% + 5px);font:500 9px var(--mono);letter-spacing:.1em;color:var(--mu)}
+.mini{display:flex;gap:8px;flex-wrap:wrap}
+.mini a{font:500 11px var(--mono);letter-spacing:.1em;border:1px solid var(--line);border-radius:999px;padding:7px 13px;text-decoration:none;color:var(--mu)}
+.mini a:hover{border-color:var(--acc);color:var(--accT)}
+
+/* material tiles */
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:14px}
+.tile{position:relative;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:4/3;background:var(--panel);box-shadow:inset 0 0 0 1px var(--line)}
+.tile .cap{position:absolute;left:12px;bottom:10px;right:12px;font:500 10px var(--mono);letter-spacing:.14em;color:var(--mu);z-index:3}
+.tile .cap b{color:var(--head);font-weight:500}
+.t-glass::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 70% at 70% 20%,color-mix(in srgb,var(--acc) 40%,transparent),transparent 70%),radial-gradient(50% 60% at 20% 80%,color-mix(in srgb,var(--sig) 32%,transparent),transparent 70%)}
+.t-glass .pane{position:absolute;inset:26% 14%;border-radius:12px;background:color-mix(in srgb,var(--raised) 55%,transparent);backdrop-filter:blur(14px);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--ink) 14%,transparent),inset 0 1px 0 rgba(255,255,255,.08)}
+.t-glow::before{content:"";position:absolute;inset:auto 12% -30% 12%;height:80%;background:radial-gradient(50% 50% at 50% 60%,color-mix(in srgb,var(--sig) 55%,transparent),transparent 70%)}
+.t-glow .obj{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);width:54px;height:54px;border-radius:12px;background:var(--raised);box-shadow:inset 0 0 0 1px var(--strong)}
+.t-cross::before{content:"";position:absolute;inset:0;background:var(--strong);opacity:.75;
+  -webkit-mask-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='44' height='44'><path d='M17.5 22h9M22 17.5v9' stroke='black' stroke-width='1.2'/></svg>");
+  mask-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='44' height='44'><path d='M17.5 22h9M22 17.5v9' stroke='black' stroke-width='1.2'/></svg>");
+  -webkit-mask-repeat:repeat;mask-repeat:repeat}
+.t-dots{background-image:radial-gradient(circle,var(--mu) 1.1px,transparent 1.3px);background-size:9px 9px}
+.t-halftone{background:var(--panel)}
+.t-halftone canvas{position:absolute;inset:0;width:100%;height:100%}
+.t-relief{background:var(--hover);display:grid;place-items:center}
+.t-relief i{width:74px;height:74px;border-radius:50%;background:var(--hover);box-shadow:-7px -7px 15px color-mix(in srgb,white 30%,transparent),8px 8px 18px color-mix(in srgb,black 45%,transparent)}
+.t-seal{display:grid;place-items:center;background:var(--panel)}
+.t-seal i{width:64px;height:64px;border-radius:50%;background:var(--sig)}
+.t-term{background:var(--term-bg);padding:14px 14px 30px;font:12px/1.7 var(--mono);color:var(--term-fg);overflow:hidden}
+.t-term .g{color:var(--term-cur)}
+.t-ansi{display:grid;grid-template-columns:repeat(8,1fr);grid-template-rows:1fr 1fr;gap:0}
+
+/* app demo */
+.demo{display:grid;grid-template-columns:230px 1fr;gap:0;border-radius:var(--r-lg);overflow:hidden;box-shadow:inset 0 0 0 1px var(--line);background:var(--bg);min-height:440px;position:relative}
+@media (max-width:820px){.demo{grid-template-columns:1fr}}
+.demo .side{background:color-mix(in srgb,var(--panel) 80%,transparent);border-right:1px solid var(--line);padding:16px;display:flex;flex-direction:column;gap:4px}
+.demo .bar{display:flex;align-items:center;gap:10px;background:var(--ink);color:var(--bg);border-radius:var(--r-sm);padding:8px 12px;font-weight:600;font-size:13.5px;margin-bottom:8px}
+.demo .bar::before{content:"";width:8px;height:8px;background:currentColor}
+.demo .row{display:flex;align-items:center;gap:10px;padding:9px 11px;border-radius:9px;border:1px solid transparent;font-size:14.5px;cursor:pointer}
+.demo .row:hover{background:color-mix(in srgb,var(--hover) 60%,transparent)}
+.demo .row.on{border-color:var(--acc);background:color-mix(in srgb,var(--acc) 12%,transparent);color:var(--head)}
+.demo .row i{width:6px;height:6px;background:var(--mu)}
+.demo .row.on i{background:var(--acc)}
+.demo .main{padding:20px;display:flex;flex-direction:column;gap:16px}
+.demo .top{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.demo .seg{display:inline-flex;padding:3px;gap:2px;border-radius:var(--r-md);background:color-mix(in srgb,var(--panel) 80%,transparent);box-shadow:inset 0 0 0 1px var(--line)}
+.demo .seg button{border:0;background:transparent;color:var(--mu);font:500 13px var(--ui);padding:6px 12px;border-radius:7px;cursor:pointer}
+.demo .seg button[aria-pressed="true"]{background:var(--raised);color:var(--head);box-shadow:inset 0 0 0 1px var(--acc)}
+.demo table{width:100%;border-collapse:collapse;font-size:14px;font-variant-numeric:tabular-nums}
+.demo th{text-align:left;font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mu);padding:8px 10px;border-bottom:1px solid var(--strong)}
+.demo td{padding:10px;border-bottom:1px solid var(--line)}
+.demo tr.sel td{background:color-mix(in srgb,var(--acc) 10%,transparent);box-shadow:inset 0 1px 0 var(--acc),inset 0 -1px 0 var(--acc)}
+.badge{display:inline-flex;align-items:center;gap:6px;font:500 11.5px var(--mono);padding:3px 8px;border-radius:999px;box-shadow:inset 0 0 0 1px var(--line);color:var(--mu)}
+.badge::before{content:"";width:7px;height:7px;background:currentColor}
+.badge.ok{color:var(--ok)}.badge.ok::before{border-radius:50%}
+.badge.sig{color:var(--sigT);box-shadow:inset 0 0 0 1px var(--sigT)}
+.badge.live{color:var(--accT)}.badge.live::before{border-radius:50%;animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.35}}
+.btnrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto}
+.btn{border-radius:var(--r-md);padding:10px 16px;font:600 14px var(--ui);border:1.5px solid var(--strong);background:transparent;color:var(--ink);cursor:pointer}
+.btn.primary{border-color:var(--acc);color:var(--accT);background:color-mix(in srgb,var(--acc) 10%,transparent)}
+.btn.sig{border-color:var(--sig);background:var(--sig);color:#fff}
+.hint{font:500 11px var(--mono);letter-spacing:.1em;color:var(--mu);margin-left:auto}
+[data-treatment="clean"] .hint{display:none}
+[data-treatment="ornate"] .demo::before,[data-treatment="ornate"] .demo::after{content:"";position:absolute;inset:10px;pointer-events:none;z-index:4;
+  background:linear-gradient(var(--strong),var(--strong)) 0 10px/20px 1px no-repeat,linear-gradient(var(--strong),var(--strong)) 10px 0/1px 20px no-repeat,
+  linear-gradient(var(--strong),var(--strong)) 100% 10px/20px 1px no-repeat,linear-gradient(var(--strong),var(--strong)) calc(100% - 10px) 0/1px 20px no-repeat}
+[data-treatment="ornate"] .demo::after{transform:scaleY(-1)}
+
+/* pipeline */
+.pipe{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:12px}
+.step{border:1px solid var(--line);border-radius:var(--r-md);padding:16px;background:color-mix(in srgb,var(--panel) 60%,transparent)}
+.step b{display:block;font:600 clamp(26px,2.6vw,38px)/1 var(--disp);color:var(--head)}
+.step span{font:500 10.5px var(--mono);letter-spacing:.14em;color:var(--mu);display:block;margin-top:8px}
+.step p{margin:10px 0 0;font-size:13.5px;color:var(--mu)}
+.matrix{display:flex;flex-wrap:wrap;gap:6px;margin-top:26px}
+.matrix span{font:500 11px var(--mono);border:1px solid var(--line);border-radius:999px;padding:6px 12px;color:var(--mu)}
+.matrix span b{color:var(--head);font-weight:600}
+
+/* code */
+.codes{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:14px}
+.code{border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;background:color-mix(in srgb,var(--panel) 70%,transparent)}
+.code .h{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid var(--line);font:500 11px var(--mono);letter-spacing:.12em;color:var(--mu)}
+.code .h button{margin-left:auto;border:1px solid var(--line);border-radius:6px;background:transparent;color:var(--mu);font:500 10.5px var(--mono);padding:4px 9px;cursor:pointer}
+.code pre{margin:0;padding:14px;font:12.5px/1.75 var(--mono);color:var(--ink);overflow-x:auto}
+.code .k{color:var(--kw)}.code .s{color:var(--str)}.code .c{color:var(--com)}.code .n{color:var(--num)}
+</style>
 </head>
 <body>
-<div id="ambient"></div><div id="sheen"></div><div id="grain"></div>
-<a class="skip" href="#main">Skip to content</a>
+<nav class="nav"><div class="in gut">
+  <a class="mark" href="index.html"><i></i>yoshiki</a>
+  <a class="lnk" href="index.html" aria-current="page">Overview</a><a class="lnk" href="palettes.html">Palettes</a><a class="lnk" href="gallery.html">Components</a>
+  <span class="sp"></span>
+  <div class="pals" id="pals" aria-label="Palette"><button type="button" data-p="night-beige" title="Night beige · BE-N" aria-pressed="false" style="background:linear-gradient(135deg,#161410 48%,#D8AF52 48%)"></button><button type="button" data-p="beige-glass" title="Beige glass · BE-D" aria-pressed="false" style="background:linear-gradient(135deg,#D6D2BD 48%,#A8852F 48%)"></button><button type="button" data-p="porcelain" title="Porcelain · PC-D" aria-pressed="false" style="background:linear-gradient(135deg,#F4F1EA 48%,#A8852F 48%)"></button><button type="button" data-p="concrete" title="Concrete · CN-D" aria-pressed="false" style="background:linear-gradient(135deg,#D9D5CD 48%,#A8852F 48%)"></button><button type="button" data-p="yorha" title="YoRHa · YR-D" aria-pressed="false" style="background:linear-gradient(135deg,#D1CDB7 48%,#454138 48%)"></button><button type="button" data-p="blush" title="Blush · BL-D" aria-pressed="false" style="background:linear-gradient(135deg,#FFE6E9 48%,#E5132E 48%)"></button><button type="button" data-p="blush-night" title="Blush night · BL-N" aria-pressed="false" style="background:linear-gradient(135deg,#1A1115 48%,#FF8A98 48%)"></button><button type="button" data-p="lab" title="Lab · LB-D" aria-pressed="false" style="background:linear-gradient(135deg,#E8E9EB 48%,#FF3D2E 48%)"></button><button type="button" data-p="lab-night" title="Lab night · LB-N" aria-pressed="false" style="background:linear-gradient(135deg,#0B0C0D 48%,#FF3D2E 48%)"></button><button type="button" data-p="hanko" title="Hanko · HK-D" aria-pressed="false" style="background:linear-gradient(135deg,#F2EFE8 48%,#E3001B 48%)"></button><button type="button" data-p="hanko-night" title="Hanko night · HK-N" aria-pressed="false" style="background:linear-gradient(135deg,#0E0D0B 48%,#FF6D7E 48%)"></button><button type="button" data-p="cafe" title="Café · CF-N" aria-pressed="false" style="background:linear-gradient(135deg,#221A16 48%,#F4A662 48%)"></button><button type="button" data-p="ember" title="Ember · EM-N" aria-pressed="false" style="background:linear-gradient(135deg,#1D1B19 48%,#D8AF52 48%)"></button><button type="button" data-p="moss" title="Moss · MS-N" aria-pressed="false" style="background:linear-gradient(135deg,#12150F 48%,#C98E4E 48%)"></button><button type="button" data-p="signal" title="Signal · SG-N" aria-pressed="false" style="background:linear-gradient(135deg,#0C0D0E 48%,#D8AF52 48%)"></button><button type="button" data-p="walnut" title="Walnut · WL-N" aria-pressed="false" style="background:linear-gradient(135deg,#1C1612 48%,#D8AF52 48%)"></button></div>
+  <a class="ghbtn" href="https://github.com/zinzaki/yoshiki">GitHub</a>
+</div></nav>
 
-<header class="hdr">
-  <a class="brand" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="26" height="26" role="img" aria-label="yoshiki"><rect width="32" height="32" rx="8" fill="var(--ink-1)"/><text x="16" y="23.4" text-anchor="middle" font-family="'Shippori Mincho','Noto Serif JP','Hiragino Mincho ProN','Yu Mincho',serif" font-size="21" font-weight="700" fill="var(--kin-1)">式</text><rect x=".5" y=".5" width="31" height="31" rx="7.5" fill="none" stroke="var(--line-0)"/></svg><b>yoshiki</b></a>
-  <nav class="nav" aria-label="Sections">
-    <a href="palette.html">palette</a>
-    <a href="components.html">components</a>
-    <a href="lexicon.html">lexicon</a>
-    <a href="themes.html">themes</a>
-  </nav>
-  <button class="kbd-hint" data-cmdk aria-label="Search"><span>Search</span><kbd>⌘K</kbd></button>
-  <div class="themesw" role="group" aria-label="Theme">
-    <button data-set-theme="night-beige" title="night-beige — dark (press 1)" aria-pressed="true">Dark</button>
-    <button data-set-theme="beige-glass" title="beige-glass — light (press 2)" aria-pressed="false">Light</button>
-  </div>
-  <a class="gh" href="https://github.com/zinzaki/yoshiki">github ↗</a>
-</header>
-
-<main id="main">
-
-<!-- ══ hero ═══════════════════════════════════════════════════════ -->
-<section class="shell hero">
-  <div class="hero__kicker">a design language &nbsp;·&nbsp; v1.2 &nbsp;·&nbsp; MIT</div>
-  <h1 class="hero__mark"><span class="gild">yoshiki</span></h1>
-  <div class="cols" style="margin-top:clamp(28px,4vh,52px);align-items:end">
-    <div class="c6">
-      <p class="hero__lede"><b>Warm monochrome, struck rarely by colour.</b> Almost every
-      surface is lacquer, bone and gold. Two triggers — a spider-lily scarlet and a moss
-      green — are spent only on events. Colour is rare here, so it still means something.</p>
-      <div class="y-actions" style="margin-top:30px">
-        <a class="y-btn y-btn--primary" href="palette.html">Open the palette</a>
-        <a class="y-btn y-btn--ghost" href="https://github.com/zinzaki/yoshiki">View on GitHub ↗</a>
+<header class="hero grain gut"><div class="in">
+  <div class="kicker">A design foundation · 16 palettes · 246 components</div>
+  <h1>The material, physics and <em>resources</em> of a world.</h1>
+  <div class="row">
+    <div>
+      <p class="lede">yoshiki is a library you build interfaces out of: palettes that fill one role contract,
+      materials with real fallbacks, objects and patterns rebuilt from hundreds of references, and a catalogue
+      that says where every piece came from. <b>Colour is a swappable layer</b> — switch it in the corner and the
+      whole site follows.</p>
+      <div class="cta">
+        <a class="primary" href="gallery.html">Browse 246 components</a>
+        <a class="ghost" href="palettes.html">See the palette family</a>
+        <a class="ghost" href="https://github.com/zinzaki/yoshiki">Read the repo</a>
       </div>
     </div>
-    <div class="c6">
-      <figure>
-        <div class="y-term" aria-label="a yoshiki terminal session"><span class="k">╭─ ◆ ─</span> deploy <span class="k">─  main</span> <span class="g">✓ clean</span> <span class="k">─</span> <span class="c">v1.2</span>
-<span class="k">╰─ ❯</span> ship --prod
-<span class="g">✓</span> build      <span class="d">passed · 214 files · 0.4s</span>
-<span class="g">✓</span> tests      <span class="d">passed · 1,820 ok</span>
-<span class="k">●</span> upload     <span class="d">in progress</span> <span class="k" data-spin="braille">⠹</span>
-<span class="r">✗</span> migrate    <span class="d">blocked · needs --confirm</span></div>
-        <figcaption>Gold gilds the prompt and the frame. Success is a quiet moss check;
-        the one scarlet is spent on the single thing that blocks.</figcaption>
-      </figure>
+    <div class="stats">
+      <div><b>16</b><span>PALETTES</span></div>
+      <div><b>246</b><span>REBUILT PIECES</span></div>
+      <div><b>14</b><span>STYLE REGISTERS</span></div>
+      <div><b>265</b><span>REFERENCES MINED</span></div>
     </div>
   </div>
-  <div class="facts rv" id="facts"></div>
-</section>
+</div></header>
 
-<!-- ══ 01 · the one law ═══════════════════════════════════════════ -->
-<section class="sec sec--plate">
-  <div class="shell cols">
-    <div class="c6 rv">
-      <div class="idx"><b>01</b> the one law</div>
-      <h2>Colour earns its power by being rare.</h2>
-      <p class="lede">A signal used everywhere is dead. So a screen is almost all quiet
-      tone, and the rare strike lands like a seal — chosen by meaning, never by taste.
-      The budget below is not a preference. It is the mechanism.</p>
-    </div>
-    <div class="c6 rv">
-      <figure>
-        <div id="ratio"></div>
-        <figcaption>Roughly 70% tone, 20% bone, 7% gold seams, 3% triggers. Move any one
-        of those numbers and the language stops working.</figcaption>
-      </figure>
-    </div>
+<section class="gut" id="palettes"><div class="in">
+  <div class="head">
+    <div><div class="kicker">The family</div><h2>Sixteen worlds, one language</h2></div>
+    <p class="lede">Every palette fills the same roles, so any of them dresses any interface. Drag the ring or
+    click a card; the page takes the palette you stop on.</p>
   </div>
-</section>
+  <div class="ringwrap" id="ringwrap"><div class="ring" id="ring"><article class="pcard" data-i="0" style="background:#161410;color:#D6D2BD"><span class="c" style="color:#D8AF52">BE-N</span><div class="d"><i style="background:#1D1B16;box-shadow:0 0 0 2px #161410"></i><i style="background:#322E27;box-shadow:0 0 0 2px #161410"></i><i style="background:#D6D2BD;box-shadow:0 0 0 2px #161410"></i><i style="background:#D8AF52;box-shadow:0 0 0 2px #161410"></i><i style="background:#E3001B;box-shadow:0 0 0 2px #161410"></i></div><b style="color:#EAE6D2">Night beige</b><small style="color:#9A9584">warm · glass</small></article><article class="pcard" data-i="1" style="background:#D6D2BD;color:#454138"><span class="c" style="color:#533E13">BE-D</span><div class="d"><i style="background:#DCD8C0;box-shadow:0 0 0 2px #D6D2BD"></i><i style="background:#C9C4AE;box-shadow:0 0 0 2px #D6D2BD"></i><i style="background:#454138;box-shadow:0 0 0 2px #D6D2BD"></i><i style="background:#A8852F;box-shadow:0 0 0 2px #D6D2BD"></i><i style="background:#E3001B;box-shadow:0 0 0 2px #D6D2BD"></i></div><b style="color:#2E2B24">Beige glass</b><small style="color:#534E43">warm · glass</small></article><article class="pcard" data-i="2" style="background:#F4F1EA;color:#23201B"><span class="c" style="color:#5E4712">PC-D</span><div class="d"><i style="background:#FBFAF6;box-shadow:0 0 0 2px #F4F1EA"></i><i style="background:#E3E0D9;box-shadow:0 0 0 2px #F4F1EA"></i><i style="background:#23201B;box-shadow:0 0 0 2px #F4F1EA"></i><i style="background:#A8852F;box-shadow:0 0 0 2px #F4F1EA"></i><i style="background:#E3001B;box-shadow:0 0 0 2px #F4F1EA"></i></div><b style="color:#14120F">Porcelain</b><small style="color:#5F594F">neutral · porcelain</small></article><article class="pcard" data-i="3" style="background:#D9D5CD;color:#2A2724"><span class="c" style="color:#533E13">CN-D</span><div class="d"><i style="background:#E5E1DA;box-shadow:0 0 0 2px #D9D5CD"></i><i style="background:#CBC7BF;box-shadow:0 0 0 2px #D9D5CD"></i><i style="background:#2A2724;box-shadow:0 0 0 2px #D9D5CD"></i><i style="background:#A8852F;box-shadow:0 0 0 2px #D9D5CD"></i><i style="background:#E3001B;box-shadow:0 0 0 2px #D9D5CD"></i></div><b style="color:#1A1816">Concrete</b><small style="color:#57534C">cool · concrete</small></article><article class="pcard" data-i="4" style="background:#D1CDB7;color:#454138"><span class="c" style="color:#2E2B24">YR-D</span><div class="d"><i style="background:#DCD8C0;box-shadow:0 0 0 2px #D1CDB7"></i><i style="background:#C6C2AD;box-shadow:0 0 0 2px #D1CDB7"></i><i style="background:#454138;box-shadow:0 0 0 2px #D1CDB7"></i><i style="background:#454138;box-shadow:0 0 0 2px #D1CDB7"></i><i style="background:#E3001B;box-shadow:0 0 0 2px #D1CDB7"></i></div><b style="color:#2E2B24">YoRHa</b><small style="color:#534E46">warm · paper</small></article><article class="pcard" data-i="5" style="background:#FFE6E9;color:#1A1012"><span class="c" style="color:#A80D22">BL-D</span><div class="d"><i style="background:#FFF4F5;box-shadow:0 0 0 2px #FFE6E9"></i><i style="background:#EDD5D8;box-shadow:0 0 0 2px #FFE6E9"></i><i style="background:#1A1012;box-shadow:0 0 0 2px #FFE6E9"></i><i style="background:#E5132E;box-shadow:0 0 0 2px #FFE6E9"></i><i style="background:#E5132E;box-shadow:0 0 0 2px #FFE6E9"></i></div><b style="color:#0F0809">Blush</b><small style="color:#634C51">warm · powder</small></article><article class="pcard" data-i="6" style="background:#1A1115;color:#FBE9EC"><span class="c" style="color:#FF8A98">BL-N</span><div class="d"><i style="background:#20151A;box-shadow:0 0 0 2px #1A1115"></i><i style="background:#35232B;box-shadow:0 0 0 2px #1A1115"></i><i style="background:#FBE9EC;box-shadow:0 0 0 2px #1A1115"></i><i style="background:#FF8A98;box-shadow:0 0 0 2px #1A1115"></i><i style="background:#FF3B55;box-shadow:0 0 0 2px #1A1115"></i></div><b style="color:#FFF4F5">Blush night</b><small style="color:#C09EA6">warm · neon</small></article><article class="pcard" data-i="7" style="background:#E8E9EB;color:#141517"><span class="c" style="color:#B3231A">LB-D</span><div class="d"><i style="background:#F6F6F7;box-shadow:0 0 0 2px #E8E9EB"></i><i style="background:#D7D8DA;box-shadow:0 0 0 2px #E8E9EB"></i><i style="background:#141517;box-shadow:0 0 0 2px #E8E9EB"></i><i style="background:#FF3D2E;box-shadow:0 0 0 2px #E8E9EB"></i><i style="background:#FF3D2E;box-shadow:0 0 0 2px #E8E9EB"></i></div><b style="color:#0A0B0C">Lab</b><small style="color:#55585D">cool · hud</small></article><article class="pcard" data-i="8" style="background:#0B0C0D;color:#E9E9E6"><span class="c" style="color:#FF6357">LB-N</span><div class="d"><i style="background:#101112;box-shadow:0 0 0 2px #0B0C0D"></i><i style="background:#26292C;box-shadow:0 0 0 2px #0B0C0D"></i><i style="background:#E9E9E6;box-shadow:0 0 0 2px #0B0C0D"></i><i style="background:#FF3D2E;box-shadow:0 0 0 2px #0B0C0D"></i><i style="background:#FF3D2E;box-shadow:0 0 0 2px #0B0C0D"></i></div><b style="color:#F6F6F3">Lab night</b><small style="color:#8C8F93">cool · hud</small></article><article class="pcard" data-i="9" style="background:#F2EFE8;color:#141210"><span class="c" style="color:#A8001A">HK-D</span><div class="d"><i style="background:#FBF9F4;box-shadow:0 0 0 2px #F2EFE8"></i><i style="background:#E0DDD7;box-shadow:0 0 0 2px #F2EFE8"></i><i style="background:#141210;box-shadow:0 0 0 2px #F2EFE8"></i><i style="background:#E3001B;box-shadow:0 0 0 2px #F2EFE8"></i><i style="background:#E3001B;box-shadow:0 0 0 2px #F2EFE8"></i></div><b style="color:#0A0908">Hanko</b><small style="color:#57524A">warm · seal</small></article><article class="pcard" data-i="10" style="background:#0E0D0B;color:#EEE8DC"><span class="c" style="color:#FF6D7E">HK-N</span><div class="d"><i style="background:#141210;box-shadow:0 0 0 2px #0E0D0B"></i><i style="background:#2D2A25;box-shadow:0 0 0 2px #0E0D0B"></i><i style="background:#EEE8DC;box-shadow:0 0 0 2px #0E0D0B"></i><i style="background:#FF6D7E;box-shadow:0 0 0 2px #0E0D0B"></i><i style="background:#E3001B;box-shadow:0 0 0 2px #0E0D0B"></i></div><b style="color:#FAF6EE">Hanko night</b><small style="color:#9C9589">warm · seal</small></article><article class="pcard" data-i="11" style="background:#221A16;color:#F1E3CF"><span class="c" style="color:#F4A662">CF-N</span><div class="d"><i style="background:#281E1A;box-shadow:0 0 0 2px #221A16"></i><i style="background:#3B2F27;box-shadow:0 0 0 2px #221A16"></i><i style="background:#F1E3CF;box-shadow:0 0 0 2px #221A16"></i><i style="background:#F4A662;box-shadow:0 0 0 2px #221A16"></i><i style="background:#E22D32;box-shadow:0 0 0 2px #221A16"></i></div><b style="color:#FAF0E0">Café</b><small style="color:#B39E8C">warm · lo-fi</small></article><article class="pcard" data-i="12" style="background:#1D1B19;color:#E3D0AE"><span class="c" style="color:#D8AF52">EM-N</span><div class="d"><i style="background:#22201E;box-shadow:0 0 0 2px #1D1B19"></i><i style="background:#37332E;box-shadow:0 0 0 2px #1D1B19"></i><i style="background:#E3D0AE;box-shadow:0 0 0 2px #1D1B19"></i><i style="background:#D8AF52;box-shadow:0 0 0 2px #1D1B19"></i><i style="background:#E3001B;box-shadow:0 0 0 2px #1D1B19"></i></div><b style="color:#F0E2C6">Ember</b><small style="color:#A89A86">warm · tube-amp</small></article><article class="pcard" data-i="13" style="background:#12150F;color:#E4E2CF"><span class="c" style="color:#C98E4E">MS-N</span><div class="d"><i style="background:#161A13;box-shadow:0 0 0 2px #12150F"></i><i style="background:#2A3023;box-shadow:0 0 0 2px #12150F"></i><i style="background:#E4E2CF;box-shadow:0 0 0 2px #12150F"></i><i style="background:#C98E4E;box-shadow:0 0 0 2px #12150F"></i><i style="background:#E3001B;box-shadow:0 0 0 2px #12150F"></i></div><b style="color:#F0EEDD">Moss</b><small style="color:#A0A690">warm · forest</small></article><article class="pcard" data-i="14" style="background:#0C0D0E;color:#E8E4DA"><span class="c" style="color:#D8AF52">SG-N</span><div class="d"><i style="background:#101214;box-shadow:0 0 0 2px #0C0D0E"></i><i style="background:#262A2E;box-shadow:0 0 0 2px #0C0D0E"></i><i style="background:#E8E4DA;box-shadow:0 0 0 2px #0C0D0E"></i><i style="background:#D8AF52;box-shadow:0 0 0 2px #0C0D0E"></i><i style="background:#FF3D2E;box-shadow:0 0 0 2px #0C0D0E"></i></div><b style="color:#F4F1EA">Signal</b><small style="color:#9A968A">neutral · instrument</small></article><article class="pcard" data-i="15" style="background:#1C1612;color:#EADFCF"><span class="c" style="color:#D8AF52">WL-N</span><div class="d"><i style="background:#211A15;box-shadow:0 0 0 2px #1C1612"></i><i style="background:#352B22;box-shadow:0 0 0 2px #1C1612"></i><i style="background:#EADFCF;box-shadow:0 0 0 2px #1C1612"></i><i style="background:#D8AF52;box-shadow:0 0 0 2px #1C1612"></i><i style="background:#DA3820;box-shadow:0 0 0 2px #1C1612"></i></div><b style="color:#F6EDE0">Walnut</b><small style="color:#AE9E8B">warm · wood</small></article></div></div>
+  <div class="readout">
+    <div class="nm"><span data-pal-name>Night beige</span><span data-pal-code>BE-N</span></div>
+    <div class="roles" id="roles"></div>
+    <div class="mini"><a href="palettes.html">ALL PALETTES</a><a href="#use">GET THE TOKENS</a></div>
+  </div>
+</div></section>
 
-<!-- ══ 02 · the gold law ══════════════════════════════════════════ -->
-<section class="sec">
-  <div class="shell">
-    <div class="cols">
-      <div class="c7 rv">
-        <div class="idx"><b>02</b> the gold law</div>
-        <h2>Gold is the seam, never the slab.</h2>
-        <p class="lede">Nobody would wear a solid-gold watch, but a gilded edge is
-        precious. So gold lives only as a line, an edge, a frame or a glyph — the largest
-        gold surface the language allows is a two-pixel stroke. A primary action is a
-        <b>gold-framed tone surface with gold text</b>, and the difference stops being
-        subtle the moment you see the two together.</p>
+<section class="gut" id="materials"><div class="in">
+  <div class="head">
+    <div><div class="kicker">Materials and physics</div><h2>What surfaces are made of</h2></div>
+    <p class="lede">Glass over a single warm light, grain, cross grids, dot matrices, print halftone, soft relief,
+    one red seal — each a named material with a solid fallback for reduced transparency, and each drawn from roles,
+    never from fixed colour.</p>
+  </div>
+  <div class="tiles">
+      <div class="tile grain t-glass"><span class="pane"></span><span class="cap"><b>glass.frost</b> · over a lit ground</span></div>
+      <div class="tile grain t-glow"><span class="obj"></span><span class="cap"><b>glow.ember</b> · one light per view</span></div>
+      <div class="tile t-cross"><span class="cap"><b>pattern.cross</b> · ornate ground</span></div>
+      <div class="tile t-dots"><span class="cap"><b>pattern.dots</b> · dot matrix</span></div>
+      <div class="tile t-halftone"><canvas data-halftone></canvas><span class="cap"><b>halftone</b> · print on screen</span></div>
+      <div class="tile t-relief"><i></i><span class="cap"><b>relief.soft</b> · light palettes</span></div>
+      <div class="tile t-seal"><i></i><span class="cap"><b>seal</b> · the one red mark</span></div>
+      <div class="tile t-term"><div><span class="g">❯</span> yoshiki build</div><div>✓ tokens 0.12s</div><div>✓ 16 palettes · 208 themes</div><div>✓ contrast 1 248/1 248</div><div><span class="g">❯</span> <span style="background:var(--term-cur);color:var(--term-bg)">&nbsp;</span></div><span class="cap"><b>terminal island</b> · text zone</span></div>
+    </div>
+</div></section>
+
+<section class="gut" id="objects"><div class="in">
+  <div class="head">
+    <div><div class="kicker">Objects at work</div><h2>A real screen, not a swatch</h2></div>
+    <p class="lede">The same objects the library ships: title bars, rows with an outlined selection, tables,
+    status that never relies on colour alone, dialogs and buttons. Switch the treatment to see the ornate layer
+    — corner ticks and control hints — appear.</p>
+  </div>
+  <div class="demo grain" id="demo" data-treatment="clean">
+    <aside class="side">
+      <div class="bar">Workspace</div>
+      <div class="row on"><i></i>Deploys</div>
+      <div class="row"><i></i>Projects</div>
+      <div class="row"><i></i>Logs</div>
+      <div class="row"><i></i>Settings</div>
+      <div class="row" style="margin-top:auto"><i></i>Account</div>
+    </aside>
+    <div class="main">
+      <div class="top">
+        <div class="seg" id="treat"><button type="button" data-t="clean" aria-pressed="true">clean</button><button type="button" data-t="ornate" aria-pressed="false">ornate</button></div>
+        <span class="badge live">building</span>
+        <span class="hint">○ SELECT&nbsp;&nbsp;× BACK</span>
       </div>
-    </div>
-    <div class="versus rv" style="margin-top:38px">
-      <figure>
-        <div class="plate">
-          <div class="versus__tag versus__tag--yes">✓ the edge is the affordance</div>
-          <div class="y-actions">
-            <button class="y-btn y-btn--primary">Publish</button>
-            <button class="y-btn y-btn--ghost">Save draft</button>
-          </div>
-        </div>
-        <figcaption>A tone surface, a 1.5px gold edge, gold text. It reads as primary
-        because nothing else on the surface wears an edge — hierarchy by rarity, not
-        by area.</figcaption>
-      </figure>
-      <figure>
-        <div class="plate">
-          <div class="versus__tag versus__tag--no">✗ gold spent as a fill</div>
-          <div class="y-actions">
-            <button class="y-btn" style="background:var(--kin-1);border-color:var(--kin-1);color:var(--ink-0);cursor:not-allowed" disabled>Publish</button>
-            <button class="y-btn y-btn--ghost" disabled>Save draft</button>
-          </div>
-        </div>
-        <figcaption>The same gold, spent as a slab. It shouts, it flattens the warmth of
-        the screen, and by the third button of its kind it has stopped meaning anything.
-        This is the one shape the kit will not give you.</figcaption>
-      </figure>
-    </div>
-    <p class="lede rv" style="margin-top:30px;max-width:72ch">Scarlet is the exception
-    that proves it: <b>scarlet may fill</b>, because a fill is itself the rare event. One
-    per screen, on the thing you cannot undo.</p>
-  </div>
-</section>
-
-<!-- ══ 03 · two themes ════════════════════════════════════════════ -->
-<section class="sec sec--plate">
-  <div class="shell">
-    <div class="cols">
-      <div class="c7 rv">
-        <div class="idx"><b>03</b> two themes, one language</div>
-        <h2>Only the stage changes.</h2>
-        <p class="lede">night-beige is warm lacquer. beige-glass is paper and ink. The triggers and
-        every rule are identical — what moves is which surfaces carry the light and which
-        family carries the text. Both blocks below are the same markup, wearing the two
-        themes at once.</p>
-      </div>
-    </div>
-    <div class="versus rv" style="margin-top:34px">
-      <div data-theme="night-beige">
-        <div class="plate" style="background:var(--r-bg-app)">
-          <div class="y-head">night-beige · dark</div>
-          <p style="color:var(--r-text-body);font-size:14px">The lacquer carries the screen.</p>
-          <p class="cap" style="margin-top:6px">Gold gilds the edge; bone speaks.</p>
-          <div class="y-actions" style="margin-top:20px">
-            <button class="y-btn y-btn--primary y-btn--sm">Primary</button>
-            <span class="y-status y-status--ok"><span class="y-status__mark">✓</span> healthy</span>
-          </div>
-        </div>
-      </div>
-      <div data-theme="beige-glass">
-        <div class="plate" style="background:var(--r-bg-app)">
-          <div class="y-head">beige-glass · light</div>
-          <p style="color:var(--r-text-body);font-size:14px">The paper carries the screen.</p>
-          <p class="cap" style="margin-top:6px">Gold sinks so it stays readable.</p>
-          <div class="y-actions" style="margin-top:20px">
-            <button class="y-btn y-btn--primary y-btn--sm">Primary</button>
-            <span class="y-status y-status--ok"><span class="y-status__mark">✓</span> healthy</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <p class="lede rv" style="margin-top:28px;max-width:72ch">The terminal is the one
-    thing that never inverts: it stays a dark island, pinned to the paper. Worlds nest;
-    they do not collide.</p>
-  </div>
-</section>
-
-<!-- ══ 04 · the palette ═══════════════════════════════════════════ -->
-<section class="sec">
-  <div class="shell">
-    <div class="cols">
-      <div class="c7 rv">
-        <div class="idx"><b>04</b> the palette</div>
-        <h2>Every shade has a job — and a proof.</h2>
-        <p class="lede">Raw tokens are the paint. <b>Roles</b> are the contract: reach for
-        <code style="color:var(--r-text-gold)">text.body</code> or
-        <code style="color:var(--r-text-gold)">action.edge</code> and the right value
-        arrives in either theme, at a contrast measured against every surface it can land
-        on. The build fails if one cell drops below its floor.</p>
-        <div class="y-actions" style="margin-top:24px">
-          <a class="y-btn y-btn--primary" href="palette.html">Every token and role →</a>
-        </div>
-      </div>
-    </div>
-    <div id="glance" class="rv" style="margin-top:40px"></div>
-  </div>
-</section>
-
-<!-- ══ 05 · applied ═══════════════════════════════════════════════ -->
-<section class="sec sec--plate">
-  <div class="shell">
-    <div class="cols">
-      <div class="c8 rv">
-        <div class="idx"><b>05</b> the language, applied</div>
-        <h2>The same rules, wherever it lands.</h2>
-        <p class="lede">A design language only proves itself in use. Four surfaces, one
-        palette, the same laws: almost all tone, gold on the edges, one scarlet kept for
-        the irreversible.</p>
-      </div>
-    </div>
-    <div class="cols rv" style="margin-top:38px">
-      <figure class="c6">
-        <div class="plate">
-          <div class="y-head">web ui · a destructive decision</div>
-          <div style="color:var(--r-text-heading);font-size:15px">Cancel subscription</div>
-          <p style="color:var(--r-text-secondary);font-size:13px;margin-top:8px">
-            You are on <b style="color:var(--r-text-body)">Studio · ¥4,820/mo</b>. Access
-            stays until the period ends on Jul 18.</p>
-          <div class="y-actions" style="margin-top:20px;justify-content:space-between">
-            <span class="y-status y-status--ok"><span class="y-status__mark">●</span> active</span>
-            <span class="y-actions">
-              <button class="y-btn y-btn--ghost y-btn--sm">Keep plan</button>
-              <button class="y-btn y-btn--danger y-btn--sm">Cancel</button>
-            </span>
-          </div>
-        </div>
-        <figcaption>The destructive button is the only place scarlet fills — so it reads
-        as a warning rather than decoration.</figcaption>
-      </figure>
-      <figure class="c6">
-        <div class="y-term"><span class="k">╭─ ◆</span> ORDER <span class="b">#1421</span>
-<span class="k">│</span>  item     Hand-bound notebook
-<span class="k">│</span>  status   <span class="g">✓ paid</span>   <span class="d">·</span>   ¥ 4,820
-<span class="k">│</span>  ship     <span class="d">Kyoto → Tokyo · 2 days</span>
-<span class="k">╰─ ❯</span> /track  /receipt  /cancel
-
-<span class="d">— delivered 14:02 —</span>
-<span class="k">◆</span> <span class="b">Your parcel left the workshop.</span></div>
-        <figcaption>Chat, where colour often cannot go: frames, one glyph and aligned
-        columns do the work instead.</figcaption>
-      </figure>
-      <figure class="c6" style="margin-top:var(--gutter)">
-        <div class="plate">
-          <div class="y-head">data · weekly report</div>
-          <table class="y-table">
-            <tbody>
-              <tr><td>revenue</td><td class="y-num">¥ 1.2M</td><td class="y-mark"><span style="color:var(--r-ok-text)">▲</span></td></tr>
-              <tr><td>orders</td><td class="y-num">318</td><td class="y-mark"><span style="color:var(--r-ok-text)">▲</span></td></tr>
-              <tr><td>refunds</td><td class="y-num" style="color:var(--r-warn-text)">2.1%</td><td class="y-mark"><span style="color:var(--r-warn-text)">⚠</span></td></tr>
-              <tr><td>p99</td><td class="y-num">140 ms</td><td class="y-mark"><span style="color:var(--r-danger-text)">▲</span></td></tr>
-            </tbody>
-          </table>
-        </div>
-        <figcaption>One cell earns a colour, because one value crossed its threshold. The
-        rest stays in tone — which is why the one that moved is impossible to miss.</figcaption>
-      </figure>
-      <figure class="c6" style="margin-top:var(--gutter)">
-        <div class="plate">
-          <div class="y-head">docs · a README</div>
-          <h3 style="font-size:19px">yoshiki</h3>
-          <div class="cap" style="letter-spacing:2px;text-transform:uppercase;margin-top:6px">a warm design language</div>
-          <p style="color:var(--r-text-secondary);font-size:13px;margin-top:14px">
-            Lacquer, bone and gold — struck rarely by a single spider-lily scarlet.
-            Install one token file: <code style="color:var(--r-syntax-string)">palette.css</code>.</p>
-          <div class="y-rule--mark" style="margin:18px 0">◆</div>
-          <p style="font-family:var(--y-serif);font-size:17px;color:var(--r-text-heading);line-height:1.6">
-            Colour earns its power by being rare.</p>
-        </div>
-        <figcaption>A page calm enough that one pull-quote actually lands.</figcaption>
-      </figure>
+      <table>
+        <tr><th>Deploy</th><th>Status</th><th style="text-align:right">Duration</th></tr>
+        <tr><td>studio-web 412</td><td><span class="badge ok">ready</span></td><td style="text-align:right">0:42</td></tr>
+        <tr class="sel"><td>api 118</td><td><span class="badge live">building</span></td><td style="text-align:right">1:07</td></tr>
+        <tr><td>migrate 9</td><td><span class="badge sig">failed</span></td><td style="text-align:right">0:03</td></tr>
+        <tr><td>docs 77</td><td><span class="badge">queued</span></td><td style="text-align:right">—</td></tr>
+      </table>
+      <div class="btnrow"><button class="btn primary">Deploy</button><button class="btn">Logs</button><button class="btn sig">Delete</button></div>
     </div>
   </div>
-</section>
+</div></section>
 
-<!-- ══ 06 · one source ════════════════════════════════════════════ -->
-<section class="sec">
-  <div class="shell cols">
-    <div class="c6 rv">
-      <div class="idx"><b>06</b> one source</div>
-      <h2>Thirteen targets, generated.</h2>
-      <p class="lede">Nothing downstream is maintained by hand. One palette file is the
-      source; the build bakes every theme, every token export, this site's colours, the
-      banner and the mark, then CI re-runs it and fails on any drift. A palette that can
-      rot is not a design system.</p>
-      <div class="y-actions" style="margin-top:24px">
-        <a class="y-btn y-btn--primary" href="themes.html">See the themes →</a>
-      </div>
-    </div>
-    <div class="c6 rv">
-      <div class="y-term" aria-label="the build pipeline"><span class="d">canon/palettes/night-beige/palette.yml</span>
-   <span class="k">│</span>  <span class="d">beige-glass stands beside it, same roles</span>
-   <span class="k">▼</span>
-<span class="k">╭─</span> tools/build.py <span class="k">─────────────╮</span>
-<span class="k">│</span> <span class="g">✓</span> 13 program themes        <span class="k">│</span>
-<span class="k">│</span> <span class="g">✓</span> css · json · DTCG        <span class="k">│</span>
-<span class="k">│</span> <span class="g">✓</span> the site, banner, mark   <span class="k">│</span>
-<span class="k">│</span> <span class="g">✓</span> CONTRAST.md, enforced    <span class="k">│</span>
-<span class="k">╰──────────────────────────────╯</span>
-<span class="k">❯</span> build.py --check   <span class="d">— in CI</span>
-<span class="g">✓</span> <span class="d">clean — output matches canon</span></div>
-    </div>
+<section class="gut" id="workshop"><div class="in">
+  <div class="head">
+    <div><div class="kicker">The workshop</div><h2>Where the pieces come from</h2></div>
+    <p class="lede">References are taken apart component by component, each part is named and traced, and only what
+    survives eleven filters is rebuilt. Nothing is copied: every piece is written again from its notes, in yoshiki's
+    own roles.</p>
   </div>
-</section>
+  <div class="pipe">
+      <div class="step"><b>265</b><span>REFERENCES</span><p>Photographs and screens the owner collected, taken apart one by one.</p></div>
+      <div class="step"><b>782</b><span>COMPONENTS FOUND</span><p>Every distinguishable part named, described and traced back to its source.</p></div>
+      <div class="step"><b>11</b><span>FILTERS</span><p>Substance, zone, register, distinctness, palette proof, scale, accessibility, craft.</p></div>
+      <div class="step"><b>246</b><span>REBUILT</span><p>Each one written again as a self-contained piece that works in every palette.</p></div>
+    </div>
+  <div class="matrix"><span>blueprint-hud <b>165</b></span><span>soft-product <b>107</b></span><span>glass-product <b>96</b></span><span>swiss-editorial <b>78</b></span><span>lo-fi-warm <b>62</b></span><span>moodboard-collage <b>61</b></span><span>brutalist-mono <b>45</b></span><span>print-halftone <b>40</b></span><span>palette-card <b>35</b></span><span>soft-relief <b>35</b></span><span>japanese-paper <b>28</b></span><span>generative-3d <b>15</b></span><span>nier-menu <b>11</b></span><span>other <b>4</b></span></div>
+</div></section>
 
-<!-- ══ 07 · agents ════════════════════════════════════════════════ -->
-<section class="sec sec--plate">
-  <div class="shell cols">
-    <div class="c6 rv">
-      <div class="idx"><b>07</b> point an agent at it</div>
-      <h2>A repository that steers the model.</h2>
-      <p class="lede">Give an agent the link and nothing else. It reads
-      <code style="color:var(--r-text-gold)">AGENTS.md</code>, learns the read order and
-      the laws, then loads only the module its task needs — palette, CLI, components,
-      comments, chat, image prompts. There is a machine index at
-      <code style="color:var(--r-text-gold)">llms.txt</code> and W3C design tokens for
-      tooling that wants structure instead of prose.</p>
-    </div>
-    <div class="c6 rv">
-      <div class="y-term"><span class="d"># AGENTS.md — the map, read first</span>
-<span class="k">read in order</span>  <span class="d">→</span> philosophy <span class="d">·</span> principles <span class="d">·</span> roles
-<span class="k">load on task</span>   <span class="d">→</span> <span class="c">lexicon</span> <span class="d">·</span> <span class="c">components</span> <span class="d">·</span> <span class="c">motion</span>
-<span class="k">the laws</span>       <span class="d">→</span> rarity = power
-                  gold gilds, never fills
-                  warm, never grey</div>
-    </div>
+<section class="gut" id="use"><div class="in">
+  <div class="head">
+    <div><div class="kicker">Use it</div><h2>One source, every surface</h2></div>
+    <p class="lede">The same tokens drive the web kit, Slint desktop apps, terminal themes, Figma variables and
+    Tailwind. Pull a single piece or the whole palette.</p>
   </div>
-</section>
+  <div class="codes">
+    <div class="code"><div class="h">WEB · CSS ROLES <button type="button" data-copy="@import &quot;yoshiki-design/css&quot;;">COPY</button></div><pre><span class="c">/* one line; every role follows the palette */</span>
+<span class="k">@import</span> <span class="s">"yoshiki-design/css"</span>;
 
-<!-- ══ 08 · the map ═══════════════════════════════════════════════ -->
-<section class="sec">
-  <div class="shell">
-    <div class="cols">
-      <div class="c7 rv">
-        <div class="idx"><b>08</b> the whole map</div>
-        <h2>Two halves: the definition, and the language in use.</h2>
-        <p class="lede"><code style="color:var(--r-text-gold)">canon/</code> is edited by
-        hand and is the source of truth.
-        <code style="color:var(--r-text-gold)">library/</code> is what falls out of it —
-        things to lift whole. Most of the second half is generated from the first, which
-        is why they cannot disagree.</p>
-      </div>
-    </div>
-    <div class="cols rv" style="margin-top:34px">
-      <div class="c6"><div class="y-head">canon — the definition</div><div id="mapCanon" class="tiles"></div></div>
-      <div class="c6"><div class="y-head">library — the language in use</div><div id="mapLib" class="tiles"></div></div>
-    </div>
+.card { background: <span class="k">var</span>(--r-bg-surface); color: <span class="k">var</span>(--r-text-primary); }
+.card--active { border: <span class="n">1.5px</span> solid <span class="k">var</span>(--r-accent-edge); }</pre></div>
+    <div class="code"><div class="h">DESKTOP · SLINT <button type="button" data-copy="import { Yoshiki } from &quot;yoshiki.slint&quot;;">COPY</button></div><pre><span class="c">// desktop, same tokens</span>
+<span class="k">import</span> { Yoshiki } <span class="k">from</span> <span class="s">"yoshiki.slint"</span>;
+
+Rectangle { background: Yoshiki.bg-app;
+  Text { color: Yoshiki.text-primary; } }</pre></div>
+    <div class="code"><div class="h">ONE PIECE <button type="button" data-copy="npx shadcn add zinzaki/yoshiki/glass-menu">COPY</button></div><pre><span class="c"># pull one piece into your project</span>
+npx shadcn add zinzaki/yoshiki/<span class="s">glass-menu</span>
+
+<span class="c"># or take the whole palette</span>
+curl -O canon/palettes/<span class="s">night-beige</span>/night-beige.css</pre></div>
+    <div class="code"><div class="h">FOR AGENTS <button type="button" data-copy="AGENTS.md">COPY</button></div><pre><span class="c"># what an agent reads first</span>
+AGENTS.md          <span class="c">→ zone, roles, the look</span>
+canon/registry.json <span class="c">→ every piece with an id</span>
+canon/language/zones.md</pre></div>
   </div>
-</section>
+</div></section>
 
-<!-- ══ cta ════════════════════════════════════════════════════════ -->
-<section class="sec sec--plate">
-  <div class="shell" style="text-align:center">
-    <div class="rv">
-      <div class="idx" style="justify-content:center"><b>◆</b> take it</div>
-      <h2 style="max-width:20ch;margin:0 auto">Lift one file, or the whole system.</h2>
-      <p class="lede" style="margin:20px auto 0">A palette with a proven contract, a
-      component canon and its drop-in stylesheet, thirteen terminal and editor themes,
-      and prompt modules that teach the language to a model. MIT.</p>
-      <div class="y-actions" style="justify-content:center;margin-top:32px">
-        <a class="y-btn y-btn--primary y-btn--lg" href="https://github.com/zinzaki/yoshiki">Open on GitHub ↗</a>
-        <a class="y-btn y-btn--ghost y-btn--lg" href="palette.html">Browse the palette</a>
-      </div>
-    </div>
-  </div>
-</section>
-</main>
+<footer class="gut"><div class="in cols">
+  <div><div class="mono">YOSHIKI · A DESIGN FOUNDATION</div><p style="margin:10px 0 0;max-width:42ch">Palettes, materials, objects and patterns — generated from one source and proven on every build.</p></div>
+  <div><div class="mono">REPOSITORY</div><p style="margin:10px 0 0"><a href="https://github.com/zinzaki/yoshiki">zinzaki/yoshiki</a><br><a href="https://github.com/zinzaki/yoshiki-themes">zinzaki/yoshiki-themes</a><br><a href="https://github.com/zinzaki/yoshiki/blob/main/AGENTS.md">AGENTS.md</a></p></div>
+  <div><div class="mono">BUILD</div><p style="margin:10px 0 0">MIT · every page generated by <span style="font-family:var(--mono)">tools/site.py</span></p></div>
+</div></footer>
+<script>
+(function(){
+  var PALS=[{"slug": "night-beige", "name": "Night beige", "code": "BE-N", "family": "Beige", "variant": "night", "mode": "dark", "temp": "warm", "mat": "glass", "accent": "gold", "bg": "#161410", "panel": "#1D1B16", "raised": "#24211C", "hover": "#322E27", "line": "#3A362E", "strong": "#4E493F", "ink": "#D6D2BD", "head": "#EAE6D2", "mu": "#9A9584", "ghost": "#7E7A6E", "acc": "#D8AF52", "accT": "#D8AF52", "sig": "#E3001B", "sigT": "#FF6155", "ok": "#AFC27A", "warn": "#D98A55", "kw": "#EC6B55", "fn": "#E8BE62", "str": "#AFC27A", "num": "#EBA15E", "com": "#8C7F6C", "term": {"bg": "#161410", "fg": "#D6D2BD", "cur": "#D8AF52", "ansi": ["#24211C", "#FF5A4D", "#AFC27A", "#E8BE62", "#8FA8C8", "#C99AAE", "#8FB39A", "#D6D2BD"], "br": ["#8A8577", "#FF7A6E", "#C4D28F", "#F2CF7A", "#A9BDD6", "#D9B0C2", "#A6C6AF", "#EAE6D2"]}}, {"slug": "beige-glass", "name": "Beige glass", "code": "BE-D", "family": "Beige", "variant": "day", "mode": "light", "temp": "warm", "mat": "glass", "accent": "gold", "bg": "#D6D2BD", "panel": "#DCD8C0", "raised": "#E4E0CB", "hover": "#C9C4AE", "line": "#BAB5A1", "strong": "#9C9684", "ink": "#454138", "head": "#2E2B24", "mu": "#534E43", "ghost": "#706A59", "acc": "#A8852F", "accT": "#533E13", "sig": "#E3001B", "sigT": "#A00019", "ok": "#3E541B", "warn": "#794116", "kw": "#A2301E", "fn": "#6E4F0C", "str": "#46601F", "num": "#804312", "com": "#78725F", "term": {"bg": "#161410", "fg": "#D6D2BD", "cur": "#D8AF52", "ansi": ["#24211C", "#FF5A4D", "#AFC27A", "#E8BE62", "#8FA8C8", "#C99AAE", "#8FB39A", "#D6D2BD"], "br": ["#8A8577", "#FF7A6E", "#C4D28F", "#F2CF7A", "#A9BDD6", "#D9B0C2", "#A6C6AF", "#EAE6D2"]}}, {"slug": "porcelain", "name": "Porcelain", "code": "PC-D", "family": "Porcelain", "variant": "day", "mode": "light", "temp": "neutral", "mat": "porcelain", "accent": "gold", "bg": "#F4F1EA", "panel": "#FBFAF6", "raised": "#FCFCF9", "hover": "#E3E0D9", "line": "#E2DDD2", "strong": "#ADA89F", "ink": "#23201B", "head": "#14120F", "mu": "#5F594F", "ghost": "#716B62", "acc": "#A8852F", "accT": "#5E4712", "sig": "#E3001B", "sigT": "#B00019", "ok": "#3E541B", "warn": "#794116", "kw": "#A2301E", "fn": "#6E4F0C", "str": "#46601F", "num": "#804312", "com": "#78725F", "term": {"bg": "#161410", "fg": "#D6D2BD", "cur": "#D8AF52", "ansi": ["#24211C", "#FF5A4D", "#AFC27A", "#E8BE62", "#8FA8C8", "#C99AAE", "#8FB39A", "#D6D2BD"], "br": ["#8A8577", "#FF7A6E", "#C4D28F", "#F2CF7A", "#A9BDD6", "#D9B0C2", "#A6C6AF", "#EAE6D2"]}}, {"slug": "concrete", "name": "Concrete", "code": "CN-D", "family": "Concrete", "variant": "day", "mode": "light", "temp": "cool", "mat": "concrete", "accent": "gold", "bg": "#D9D5CD", "panel": "#E5E1DA", "raised": "#EEECE7", "hover": "#CBC7BF", "line": "#C3BDB2", "strong": "#98938A", "ink": "#2A2724", "head": "#1A1816", "mu": "#57534C", "ghost": "#67635B", "acc": "#A8852F", "accT": "#533E13", "sig": "#E3001B", "sigT": "#980018", "ok": "#3A4E19", "warn": "#794116", "kw": "#A2301E", "fn": "#6E4F0C", "str": "#46601F", "num": "#804312", "com": "#78725F", "term": {"bg": "#161410", "fg": "#D6D2BD", "cur": "#D8AF52", "ansi": ["#24211C", "#FF5A4D", "#AFC27A", "#E8BE62", "#8FA8C8", "#C99AAE", "#8FB39A", "#D6D2BD"], "br": ["#8A8577", "#FF7A6E", "#C4D28F", "#F2CF7A", "#A9BDD6", "#D9B0C2", "#A6C6AF", "#EAE6D2"]}}, {"slug": "yorha", "name": "YoRHa", "code": "YR-D", "family": "YoRHa", "variant": "day", "mode": "light", "temp": "warm", "mat": "paper", "accent": "ink", "bg": "#D1CDB7", "panel": "#DCD8C0", "raised": "#E8E6D6", "hover": "#C6C2AD", "line": "#BAB5A1", "strong": "#999584", "ink": "#454138", "head": "#2E2B24", "mu": "#534E46", "ghost": "#666157", "acc": "#454138", "accT": "#2E2B24", "sig": "#E3001B", "sigT": "#880016", "ok": "#364817", "warn": "#794116", "kw": "#9C2E1D", "fn": "#6E4F0C", "str": "#425A1D", "num": "#804312", "com": "#78725F", "term": {"bg": "#161410", "fg": "#D6D2BD", "cur": "#D8AF52", "ansi": ["#24211C", "#FF5A4D", "#AFC27A", "#E8BE62", "#8FA8C8", "#C99AAE", "#8FB39A", "#D6D2BD"], "br": ["#8A8577", "#FF7A6E", "#C4D28F", "#F2CF7A", "#A9BDD6", "#D9B0C2", "#A6C6AF", "#EAE6D2"]}}, {"slug": "blush", "name": "Blush", "code": "BL-D", "family": "Blush", "variant": "day", "mode": "light", "temp": "warm", "mat": "powder", "accent": "red", "bg": "#FFE6E9", "panel": "#FFF4F5", "raised": "#FFF8F8", "hover": "#EDD5D8", "line": "#F2C6CC", "strong": "#B69398", "ink": "#1A1012", "head": "#0F0809", "mu": "#634C51", "ghost": "#765E63", "acc": "#E5132E", "accT": "#A80D22", "sig": "#E5132E", "sigT": "#A80D22", "ok": "#3E541B", "warn": "#794116", "kw": "#A2301E", "fn": "#6E4F0C", "str": "#46601F", "num": "#804312", "com": "#78725F", "term": {"bg": "#161410", "fg": "#D6D2BD", "cur": "#D8AF52", "ansi": ["#24211C", "#FF5A4D", "#AFC27A", "#E8BE62", "#8FA8C8", "#C99AAE", "#8FB39A", "#D6D2BD"], "br": ["#8A8577", "#FF7A6E", "#C4D28F", "#F2CF7A", "#A9BDD6", "#D9B0C2", "#A6C6AF", "#EAE6D2"]}}, {"slug": "blush-night", "name": "Blush night", "code": "BL-N", "family": "Blush", "variant": "night", "mode": "dark", "temp": "warm", "mat": "neon", "accent": "rose", "bg": "#1A1115", "panel": "#20151A", "raised": "#26191F", "hover": "#35232B", "line": "#412F37", "strong": "#5D4B52", "ink": "#FBE9EC", "head": "#FFF4F5", "mu": "#C09EA6", "ghost": "#9B7F86", "acc": "#FF8A98", "accT": "#FF8A98", "sig": "#FF3B55", "sigT": "#FF6B80", "ok": "#AFC27A", "warn": "#D98A55", "kw": "#EC6B55", "fn": "#E8BE62", "str": "#AFC27A", "num": "#EBA15E", "com": "#8C7F6C", "term": {"bg": "#1A1115", "fg": "#FBE9EC", "cur": "#FF8A98", "ansi": ["#26191F", "#FF5A4D", "#AFC27A", "#E8BE62", "#8FA8C8", "#C99AAE", "#8FB39A", "#FBE9EC"], "br": ["#AF9098", "#FF7A6E", "#C4D28F", "#F2CF7A", "#A9BDD6", "#D9B0C2", "#A6C6AF", "#FFF4F5"]}}, {"slug": "lab", "name": "Lab", "code": "LB-D", "family": "Lab", "variant": "day", "mode": "light", "temp": "cool", "mat": "hud", "accent": "red", "bg": "#E8E9EB", "panel": "#F6F6F7", "raised": "#F9F9FA", "hover": "#D7D8DA", "line": "#D1D3D7", "strong": "#9C9EA1", "ink": "#141517", "head": "#0A0B0C", "mu": "#55585D", "ghost": "#67696E", "acc": "#FF3D2E", "accT": "#B3231A", "sig": "#FF3D2E", "sigT": "#AC2219", "ok": "#3E541B", "warn": "#794116", "kw": "#A2301E", "fn": "#6E4F0C", "str": "#46601F", "num": "#804312", "com": "#78725F", "term": {"bg": "#0B0C0D", "fg": "#E9E9E6", "cur": "#D8AF52", "ansi": ["#24211C", "#FF5A4D", "#AFC27A", "#E8BE62", "#8FA8C8", "#C99AAE", "#8FB39A", "#D6D2BD"], "br": ["#8A8577", "#FF7A6E", "#C4D28F", "#F2CF7A", "#A9BDD6", "#D9B0C2", "#A6C6AF", "#EAE6D2"]}}, {"slug": "lab-night", "name": "Lab night", "code": "LB-N", "family": "Lab", "variant": "night", "mode": "dark", "temp": "cool", "mat": "hud", "accent": "red", "bg": "#0B0C0D", "panel": "#101112", "raised": "#141618", "hover": "#26292C", "line": "#323537", "strong": "#4D4F51", "ink": "#E9E9E6", "head": "#F6F6F3", "mu": "#8C8F93", "ghost": "#707276", "acc": "#FF3D2E", "accT": "#FF6357", "sig": "#FF3D2E", "sigT": "#FF6A5E", "ok": "#AFC27A", "warn": "#D98A55", "kw": "#EC6B55", "fn": "#E8BE62", "str": "#AFC27A", "num": "#EBA15E", "com": "#8C7F6C", "term": {"bg": "#0B0C0D", "fg": "#E9E9E6", "cur": "#FF3D2E", "ansi": ["#141618", "#FF5A4D", "#AFC27A", "#E8BE62", "#8FA8C8", "#C99AAE", "#8FB39A", "#E9E9E6"], "br": ["#7F8286", "#FF7A6E", "#C4D28F", "#F2CF7A", "#A9BDD6", "#D9B0C2", "#A6C6AF", "#F6F6F3"]}}, {"slug": "hanko", "name": "Hanko", "code": "HK-D", "family": "Hanko", "variant": "day", "mode": "light", "temp": "warm", "mat": "seal", "accent": "red", "bg": "#F2EFE8", "panel": "#FBF9F4", "raised": "#FCFBF8", "hover": "#E0DDD7", "line": "#DAD4C9", "strong": "#A39E95", "ink": "#141210", "head": "#0A0908", "mu": "#57524A", "ghost": "#6A655D", "acc": "#E3001B", "accT": "#A8001A", "sig": "#E3001B", "sigT": "#A8001A", "ok": "#3E541B", "warn": "#794116", "kw": "#A2301E", "fn": "#6E4F0C", "str": "#46601F", "num": "#804312", "com": "#78725F", "term": {"bg": "#0E0D0B", "fg": "#EEE8DC", "cur": "#D8AF52", "ansi": ["#24211C", "#FF5A4D", "#AFC27A", "#E8BE62", "#8FA8C8", "#C99AAE", "#8FB39A", "#D6D2BD"], "br": ["#8A8577", "#FF7A6E", "#C4D28F", "#F2CF7A", "#A9BDD6", "#D9B0C2", "#A6C6AF", "#EAE6D2"]}}, {"slug": "hanko-night", "name": "Hanko night", "code": "HK-N", "family": "Hanko", "variant": "night", "mode": "dark", "temp": "warm", "mat": "seal", "accent": "red", "bg": "#0E0D0B", "panel": "#141210", "raised": "#191714", "hover": "#2D2A25", "line": "#393530", "strong": "#54504A", "ink": "#EEE8DC", "head": "#FAF6EE", "mu": "#9C9589", "ghost": "#7D776D", "acc": "#FF6D7E", "accT": "#FF6D7E", "sig": "#E3001B", "sigT": "#FF584D", "ok": "#AFC27A", "warn": "#D98A55", "kw": "#EC6B55", "fn": "#E8BE62", "str": "#AFC27A", "num": "#EBA15E", "com": "#8C7F6C", "term": {"bg": "#0E0D0B", "fg": "#EEE8DC", "cur": "#E3001B", "ansi": ["#191714", "#FF5A4D", "#AFC27A", "#E8BE62", "#8FA8C8", "#C99AAE", "#8FB39A", "#EEE8DC"], "br": ["#8E877C", "#FF7A6E", "#C4D28F", "#F2CF7A", "#A9BDD6", "#D9B0C2", "#A6C6AF", "#FAF6EE"]}}, {"slug": "cafe", "name": "Café", "code": "CF-N", "family": "Café", "variant": "night", "mode": "dark", "temp": "warm", "mat": "lo-fi", "accent": "peach", "bg": "#221A16", "panel": "#281E1A", "raised": "#2D231D", "hover": "#3B2F27", "line": "#463A31", "strong": "#5F5349", "ink": "#F1E3CF", "head": "#FAF0E0", "mu": "#B39E8C", "ghost": "#938172", "acc": "#F4A662", "accT": "#F4A662", "sig": "#E22D32", "sigT": "#FF6F72", "ok": "#AFC27A", "warn": "#D98A55", "kw": "#EC6B55", "fn": "#E8BE62", "str": "#AFC27A", "num": "#EBA15E", "com": "#8C7F6C", "term": {"bg": "#221A16", "fg": "#F1E3CF", "cur": "#F4A662", "ansi": ["#2D231D", "#FF5A4D", "#AFC27A", "#E8BE62", "#8FA8C8", "#C99AAE", "#8FB39A", "#F1E3CF"], "br": ["#A49180", "#FF7A6E", "#C4D28F", "#F2CF7A", "#A9BDD6", "#D9B0C2", "#A6C6AF", "#FAF0E0"]}}, {"slug": "ember", "name": "Ember", "code": "EM-N", "family": "Ember", "variant": "night", "mode": "dark", "temp": "warm", "mat": "tube-amp", "accent": "gold", "bg": "#1D1B19", "panel": "#22201E", "raised": "#282522", "hover": "#37332E", "line": "#413C36", "strong": "#595248", "ink": "#E3D0AE", "head": "#F0E2C6", "mu": "#A89A86", "ghost": "#897E6E", "acc": "#D8AF52", "accT": "#D8AF52", "sig": "#E3001B", "sigT": "#FF6F65", "ok": "#AFC27A", "warn": "#D98A55", "kw": "#EC6B55", "fn": "#E8BE62", "str": "#AFC27A", "num": "#EBA15E", "com": "#8C7F6C", "term": {"bg": "#1D1B19", "fg": "#E3D0AE", "cur": "#D8AF52", "ansi": ["#282522", "#FF5A4D", "#AFC27A", "#E8BE62", "#8FA8C8", "#C99AAE", "#8FB39A", "#E3D0AE"], "br": ["#9A8D7B", "#FF7A6E", "#C4D28F", "#F2CF7A", "#A9BDD6", "#D9B0C2", "#A6C6AF", "#F0E2C6"]}}, {"slug": "moss", "name": "Moss", "code": "MS-N", "family": "Moss", "variant": "night", "mode": "dark", "temp": "warm", "mat": "forest", "accent": "copper", "bg": "#12150F", "panel": "#161A13", "raised": "#1B1F17", "hover": "#2A3023", "line": "#353B2D", "strong": "#4F5445", "ink": "#E4E2CF", "head": "#F0EEDD", "mu": "#A0A690", "ghost": "#818674", "acc": "#C98E4E", "accT": "#C98E4E", "sig": "#E3001B", "sigT": "#FF6155", "ok": "#AFC27A", "warn": "#D98A55", "kw": "#EC6B55", "fn": "#E8BE62", "str": "#AFC27A", "num": "#EBA15E", "com": "#8C7F6C", "term": {"bg": "#12150F", "fg": "#E4E2CF", "cur": "#C98E4E", "ansi": ["#1B1F17", "#FF5A4D", "#AFC27A", "#E8BE62", "#8FA8C8", "#C99AAE", "#8FB39A", "#E4E2CF"], "br": ["#929883", "#FF7A6E", "#C4D28F", "#F2CF7A", "#A9BDD6", "#D9B0C2", "#A6C6AF", "#F0EEDD"]}}, {"slug": "signal", "name": "Signal", "code": "SG-N", "family": "Signal", "variant": "night", "mode": "dark", "temp": "neutral", "mat": "instrument", "accent": "gold", "bg": "#0C0D0E", "panel": "#101214", "raised": "#15171A", "hover": "#262A2E", "line": "#323538", "strong": "#4D4F50", "ink": "#E8E4DA", "head": "#F4F1EA", "mu": "#9A968A", "ghost": "#7B786F", "acc": "#D8AF52", "accT": "#D8AF52", "sig": "#FF3D2E", "sigT": "#FF6A5E", "ok": "#AFC27A", "warn": "#D98A55", "kw": "#EC6B55", "fn": "#E8BE62", "str": "#AFC27A", "num": "#EBA15E", "com": "#8C7F6C", "term": {"bg": "#0C0D0E", "fg": "#E8E4DA", "cur": "#D8AF52", "ansi": ["#15171A", "#FF5A4D", "#AFC27A", "#E8BE62", "#8FA8C8", "#C99AAE", "#8FB39A", "#E8E4DA"], "br": ["#8C887E", "#FF7A6E", "#C4D28F", "#F2CF7A", "#A9BDD6", "#D9B0C2", "#A6C6AF", "#F4F1EA"]}}, {"slug": "walnut", "name": "Walnut", "code": "WL-N", "family": "Walnut", "variant": "night", "mode": "dark", "temp": "warm", "mat": "wood", "accent": "gold", "bg": "#1C1612", "panel": "#211A15", "raised": "#261E18", "hover": "#352B22", "line": "#40362C", "strong": "#594F45", "ink": "#EADFCF", "head": "#F6EDE0", "mu": "#AE9E8B", "ghost": "#8E8070", "acc": "#D8AF52", "accT": "#D8AF52", "sig": "#DA3820", "sigT": "#FF6B55", "ok": "#AFC27A", "warn": "#D98A55", "kw": "#EC6B55", "fn": "#E8BE62", "str": "#AFC27A", "num": "#EBA15E", "com": "#8C7F6C", "term": {"bg": "#1C1612", "fg": "#EADFCF", "cur": "#D8AF52", "ansi": ["#261E18", "#FF5A4D", "#AFC27A", "#E8BE62", "#8FA8C8", "#C99AAE", "#8FB39A", "#EADFCF"], "br": ["#9F907F", "#FF7A6E", "#C4D28F", "#F2CF7A", "#A9BDD6", "#D9B0C2", "#A6C6AF", "#F6EDE0"]}}];
+  var KEYS=['bg','panel','raised','hover','line','strong','ink','head','mu','ghost','acc','accT','sig','sigT','ok','warn','kw','fn','str','num','com'];
+  function apply(p){ var r=document.documentElement;
+    KEYS.forEach(function(k){ r.style.setProperty('--'+k,p[k]); });
+    r.style.setProperty('--term-bg',p.term.bg); r.style.setProperty('--term-fg',p.term.fg); r.style.setProperty('--term-cur',p.term.cur);
+    r.dataset.palette=p.slug; r.style.setProperty('color-scheme',p.mode);
+    document.querySelectorAll('#pals button').forEach(function(b){ b.setAttribute('aria-pressed',String(b.dataset.p===p.slug)); });
+    document.querySelectorAll('[data-pal-name]').forEach(function(e){ e.textContent=p.name; });
+    document.querySelectorAll('[data-pal-code]').forEach(function(e){ e.textContent=p.code; });
+    document.querySelectorAll('[data-pal-meta]').forEach(function(e){ e.textContent=p.temp+' · '+p.mat+' · '+p.accent; });
+    window.__pal=p; window.dispatchEvent(new CustomEvent('palette',{detail:p}));
+    try{ localStorage.setItem('yoshiki-palette',p.slug); }catch(e){}
+  }
+  window.__pals=PALS; window.__applyPalette=apply;
+  document.getElementById('pals').addEventListener('click',function(e){ var b=e.target.closest('button'); if(b) apply(PALS.filter(function(p){return p.slug===b.dataset.p;})[0]); });
+  var saved=null; try{ saved=localStorage.getItem('yoshiki-palette'); }catch(e){}
+  apply(PALS.filter(function(p){ return p.slug===saved; })[0] || PALS[0]);
+})();
+</script>
 
-<footer class="foot">
-  <div class="foot__in">
-    <span style="color:var(--r-text-body)">yoshiki</span>
-    <span class="sep">·</span><a href="https://github.com/zinzaki/yoshiki">github</a>
-    <span class="sep">·</span><a href="https://github.com/zinzaki/yoshiki/blob/main/PHILOSOPHY.md">philosophy</a>
-    <span class="sep">·</span><a href="https://github.com/zinzaki/yoshiki/blob/main/canon/palettes/CONTRAST.md">contrast proof</a>
-    <span class="sep">·</span><a href="https://github.com/zinzaki/yoshiki/blob/main/AGENTS.md">for agents</a>
-    <span class="sep">·</span><span>MIT</span>
-    <span style="margin-left:auto">an open design language · <span data-year></span></span>
-  </div>
-</footer>
+<script>
+(function(){
+  var ring=document.getElementById('ring'), wrap=document.getElementById('ringwrap'), cards=[].slice.call(ring.children);
+  var n=cards.length, R=360, idx=0, angle=0, drag=null;
+  function depth(){ cards.forEach(function(c,i){ var d=((i/n*360+angle)%360+540)%360-180, a=Math.abs(d);
+    c.classList.toggle('far',a>60); c.style.zIndex=String(100-Math.round(a)); }); }
+  function place(){ cards.forEach(function(c,i){ c.style.transform='rotateY('+(i/n*360)+'deg) translateZ('+R+'px)'; }); }
+  function go(i){ idx=((i%n)+n)%n; angle=-idx/n*360; ring.style.transform='translateZ(-'+R+'px) rotateY('+angle+'deg)';
+    window.__applyPalette(window.__pals[idx]); depth(); }
+  place(); go(0);
+  wrap.addEventListener('pointerdown',function(e){ drag={x:e.clientX,a:angle}; ring.style.transition='none'; wrap.setPointerCapture(e.pointerId); });
+  wrap.addEventListener('pointermove',function(e){ if(!drag) return; angle=drag.a+(e.clientX-drag.x)*.3;
+    ring.style.transform='translateZ(-'+R+'px) rotateY('+angle+'deg)'; depth(); });
+  function rel(){ if(!drag) return; drag=null; ring.style.transition=''; go(Math.round(-angle/360*n)); }
+  wrap.addEventListener('pointerup',rel); wrap.addEventListener('pointercancel',rel);
+  ring.addEventListener('click',function(e){ var c=e.target.closest('.pcard'); if(c) go(+c.dataset.i); });
+  addEventListener('keydown',function(e){ if(e.key==='ArrowRight'){ go(idx+1); } if(e.key==='ArrowLeft'){ go(idx-1); } });
+  var auto=setInterval(function(){ if(!drag && !document.hidden) go(idx+1); },5200);
+  wrap.addEventListener('pointerdown',function(){ clearInterval(auto); });
 
-<div id="toast" role="status" aria-live="polite"></div>
-<script src="assets/palette.data.js"></script>
-<script src="assets/site.js"></script>
-<script src="assets/cmdk.js"></script>
-<script src="assets/page-index.js"></script>
+  function roles(p){ var el=document.getElementById('roles');
+    el.innerHTML=[['ground',p.bg],['panel',p.panel],['raised',p.raised],['hover',p.hover],['line',p.line],['text',p.ink],['accent',p.acc],['signal',p.sig]]
+      .map(function(r){ return '<b data-l="'+r[0]+'" style="background:'+r[1]+'"></b>'; }).join(''); }
+  addEventListener('palette',function(e){ roles(e.detail); paint(); });
+  roles(window.__pal);
+
+  var seg=document.getElementById('treat');
+  seg.addEventListener('click',function(e){ var b=e.target.closest('button'); if(!b) return;
+    document.getElementById('demo').dataset.treatment=b.dataset.t;
+    seg.querySelectorAll('button').forEach(function(x){ x.setAttribute('aria-pressed',String(x===b)); }); });
+
+  function paint(){ document.querySelectorAll('canvas[data-halftone]').forEach(function(c){
+    var r=c.getBoundingClientRect(), d=Math.min(2,devicePixelRatio||1); c.width=r.width*d; c.height=r.height*d;
+    var x=c.getContext('2d'), s=Math.max(1,Math.round(7*d)), p=window.__pal||{};
+    x.clearRect(0,0,c.width,c.height);
+    x.fillStyle=p.ink||getComputedStyle(document.documentElement).getPropertyValue('--ink').trim();
+    for(var y=s/2;y<c.height;y+=s) for(var i=s/2;i<c.width;i+=s){
+      var dx=(i-c.width*.5)/(c.width*.5), dy=(y-c.height*.5)/(c.height*.5), v=Math.max(0,1-Math.hypot(dx,dy));
+      x.beginPath(); x.arc(i,y,v*s*.48,0,6.283); x.fill(); } }); }
+  addEventListener('resize',paint); paint();
+
+  document.addEventListener('click',function(e){ var b=e.target.closest('[data-copy]'); if(!b) return;
+    var t=b.dataset.copy; (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject())
+      .then(function(){ var o=b.textContent; b.textContent='COPIED'; setTimeout(function(){ b.textContent=o; },1200); })
+      .catch(function(){}); });
+})();
+</script>
+
 </body>
 </html>

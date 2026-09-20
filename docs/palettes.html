@@ -1,0 +1,648 @@
+<!doctype html>
+<html lang="en" data-palette="night-beige">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Palettes — yoshiki</title>
+<meta name="description" content="yoshiki — a design foundation: sixteen palettes, materials, objects and patterns, each rebuilt and provable.">
+<link rel="icon" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500;600&family=Noto+Serif+Display:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+:root{
+  --ui:'Geist',system-ui,-apple-system,sans-serif; --mono:'Geist Mono',ui-monospace,monospace;
+  --disp:'Noto Serif Display',Georgia,serif;
+  --bg:#161410; --panel:#1D1B16; --raised:#24211C; --hover:#322E27; --line:#3A362E; --strong:#4E493F;
+  --ink:#D6D2BD; --head:#EAE6D2; --mu:#9A9584; --ghost:#7E7A6E;
+  --acc:#D8AF52; --accT:#D8AF52; --sig:#E3001B; --sigT:#FF6155; --ok:#AFC27A; --warn:#D98A55;
+  --r-sm:6px; --r-md:10px; --r-lg:16px;
+  --ease:cubic-bezier(.16,1,.3,1);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--ui);-webkit-font-smoothing:antialiased;
+  transition:background .8s var(--ease),color .8s var(--ease);overflow-x:hidden}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+a{color:inherit}
+button,select,input{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.gut{padding-inline:clamp(16px,4vw,72px)}
+.in{max-width:1440px;margin:0 auto}
+.grain{position:relative;isolation:isolate}
+.grain::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;opacity:.12;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 1 0'/></filter><rect width='180' height='180' filter='url(%23n)'/></svg>")}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 82%,transparent);
+  backdrop-filter:blur(16px) saturate(1.2);-webkit-backdrop-filter:blur(16px) saturate(1.2);border-bottom:1px solid var(--line)}
+.nav .in{display:flex;align-items:center;gap:10px 26px;padding-block:12px;flex-wrap:wrap}
+.mark{display:flex;align-items:center;gap:10px;font-weight:600;color:var(--head);text-decoration:none;letter-spacing:-.01em}
+.mark i{width:22px;height:22px;border-radius:6px;background:var(--panel);box-shadow:inset 0 0 0 1px var(--line);position:relative}
+.mark i::after{content:"";position:absolute;inset:6px;background:var(--acc)}
+.nav a.lnk{color:var(--mu);text-decoration:none;font-size:14.5px;transition:color .2s}
+.nav a.lnk:hover,.nav a.lnk[aria-current="page"]{color:var(--head)}
+.nav .sp{flex:1}
+.pals{display:flex;gap:4px;flex-wrap:wrap}
+.pals button{width:20px;height:20px;border-radius:50%;border:0;cursor:pointer;position:relative;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.18);transition:transform .2s var(--ease)}
+.pals button:hover{transform:translateY(-2px)}
+.pals button[aria-pressed="true"]::after{content:"";position:absolute;inset:-4px;border-radius:50%;box-shadow:0 0 0 1px var(--acc)}
+.ghbtn{border:1px solid var(--line);border-radius:999px;padding:7px 14px;font:500 13px var(--ui);color:var(--head);text-decoration:none}
+.ghbtn:hover{border-color:var(--acc);color:var(--accT)}
+
+/* type */
+h1,h2,h3{margin:0;color:var(--head);letter-spacing:-.025em;font-family:var(--disp);font-weight:600}
+h1{font-size:clamp(46px,7.4vw,124px);line-height:.92}
+h2{font-size:clamp(32px,4.2vw,64px);line-height:1}
+h3{font-size:22px;line-height:1.2;font-family:var(--ui);font-weight:600;letter-spacing:-.01em}
+.kicker{font:500 11.5px var(--mono);letter-spacing:.28em;text-transform:uppercase;color:var(--mu);display:flex;align-items:center;gap:10px}
+.kicker::before{content:"";width:8px;height:8px;background:var(--acc)}
+.lede{color:var(--mu);font-size:clamp(16px,1.3vw,19px);max-width:62ch}
+.lede b{color:var(--ink);font-weight:500}
+section{padding-block:clamp(56px,7vw,110px);border-top:1px solid var(--line)}
+section:first-of-type{border-top:0}
+.head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:18px 56px;align-items:end;margin-bottom:38px}
+@media (max-width:900px){.head{grid-template-columns:1fr}}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding-block:44px 70px;color:var(--mu);font-size:14px}
+footer .cols{display:flex;flex-wrap:wrap;gap:30px 64px;justify-content:space-between}
+footer a{text-decoration:none;color:var(--mu)}
+footer a:hover{color:var(--head)}
+footer .mono{font:500 11px var(--mono);letter-spacing:.1em;color:var(--ghost)}
+
+.plist{display:flex;flex-direction:column;gap:18px;padding-block:10px 80px}
+.prow{display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:22px;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;background:var(--pbg)}
+@media (max-width:860px){.prow{grid-template-columns:1fr}}
+.pcardbig{padding:20px;display:flex;flex-direction:column;gap:10px;background:var(--pbg);color:var(--pink)}
+.pcardbig .code{font:500 11px var(--mono);letter-spacing:.18em;color:var(--pacc)}
+.pcardbig h3{font-family:var(--disp);font-size:30px;color:var(--phead);font-weight:600}
+.pcardbig .meta{font:500 10px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--pmu)}
+.pcardbig .discs{display:flex;margin-top:auto}
+.pcardbig .discs i{width:38px;height:38px;border-radius:50%;margin-left:-11px;box-shadow:0 0 0 2px var(--pbg)}
+.pcardbig .discs i:first-child{margin-left:0}
+.pbody{padding:20px;display:flex;flex-direction:column;gap:14px;background:var(--ppanel)}
+.swatches{display:flex;flex-wrap:wrap;gap:16px 10px;padding-bottom:16px}
+.swatches b{position:relative;width:clamp(56px,7vw,82px);height:40px;border-radius:5px;box-shadow:inset 0 0 0 1px rgba(128,128,128,.25)}
+.swatches b::after{content:attr(data-l);position:absolute;left:0;top:calc(100% + 4px);font:500 9px var(--mono);letter-spacing:.06em;color:var(--pmu);white-space:nowrap}
+.swatches b::before{content:attr(data-h);position:absolute;left:0;top:calc(100% + 15px);font:500 8px var(--mono);color:var(--pmu);opacity:.7;white-space:nowrap}
+.pdemo{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+@media (max-width:640px){.pdemo{grid-template-columns:1fr}}
+.pdemo .card{border-radius:var(--r-md);padding:12px;background:var(--praised);box-shadow:inset 0 0 0 1px var(--pline)}
+.pdemo .bar{display:flex;align-items:center;gap:8px;background:var(--pink);color:var(--pbg);border-radius:5px;padding:6px 10px;font:600 12px var(--ui);margin-bottom:6px}
+.pdemo .bar::before{content:"";width:6px;height:6px;background:currentColor}
+.pdemo .r{display:flex;align-items:center;gap:8px;padding:7px 9px;border-radius:7px;font-size:13px;color:var(--pink);border:1px solid transparent}
+.pdemo .r.on{border-color:var(--pacc);background:color-mix(in srgb,var(--pacc) 12%,transparent)}
+.pdemo .r b{margin-left:auto;font:500 11px var(--mono);color:var(--pmu)}
+.pdemo .r b.sig{color:var(--psigT)}
+.pterm{font:11.5px/1.7 var(--mono);border-radius:var(--r-md);padding:12px;overflow:hidden}
+.pterm .row{display:flex;gap:3px;margin-top:6px}
+.pterm .row i{flex:1;height:12px;border-radius:2px}
+.plinks{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+.plinks a{font:500 10.5px var(--mono);letter-spacing:.1em;border:1px solid var(--pline);border-radius:999px;padding:6px 12px;text-decoration:none;color:var(--pmu)}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="in gut">
+  <a class="mark" href="index.html"><i></i>yoshiki</a>
+  <a class="lnk" href="index.html">Overview</a><a class="lnk" href="palettes.html" aria-current="page">Palettes</a><a class="lnk" href="gallery.html">Components</a>
+  <span class="sp"></span>
+  <div class="pals" id="pals" aria-label="Palette"><button type="button" data-p="night-beige" title="Night beige · BE-N" aria-pressed="false" style="background:linear-gradient(135deg,#161410 48%,#D8AF52 48%)"></button><button type="button" data-p="beige-glass" title="Beige glass · BE-D" aria-pressed="false" style="background:linear-gradient(135deg,#D6D2BD 48%,#A8852F 48%)"></button><button type="button" data-p="porcelain" title="Porcelain · PC-D" aria-pressed="false" style="background:linear-gradient(135deg,#F4F1EA 48%,#A8852F 48%)"></button><button type="button" data-p="concrete" title="Concrete · CN-D" aria-pressed="false" style="background:linear-gradient(135deg,#D9D5CD 48%,#A8852F 48%)"></button><button type="button" data-p="yorha" title="YoRHa · YR-D" aria-pressed="false" style="background:linear-gradient(135deg,#D1CDB7 48%,#454138 48%)"></button><button type="button" data-p="blush" title="Blush · BL-D" aria-pressed="false" style="background:linear-gradient(135deg,#FFE6E9 48%,#E5132E 48%)"></button><button type="button" data-p="blush-night" title="Blush night · BL-N" aria-pressed="false" style="background:linear-gradient(135deg,#1A1115 48%,#FF8A98 48%)"></button><button type="button" data-p="lab" title="Lab · LB-D" aria-pressed="false" style="background:linear-gradient(135deg,#E8E9EB 48%,#FF3D2E 48%)"></button><button type="button" data-p="lab-night" title="Lab night · LB-N" aria-pressed="false" style="background:linear-gradient(135deg,#0B0C0D 48%,#FF3D2E 48%)"></button><button type="button" data-p="hanko" title="Hanko · HK-D" aria-pressed="false" style="background:linear-gradient(135deg,#F2EFE8 48%,#E3001B 48%)"></button><button type="button" data-p="hanko-night" title="Hanko night · HK-N" aria-pressed="false" style="background:linear-gradient(135deg,#0E0D0B 48%,#FF6D7E 48%)"></button><button type="button" data-p="cafe" title="Café · CF-N" aria-pressed="false" style="background:linear-gradient(135deg,#221A16 48%,#F4A662 48%)"></button><button type="button" data-p="ember" title="Ember · EM-N" aria-pressed="false" style="background:linear-gradient(135deg,#1D1B19 48%,#D8AF52 48%)"></button><button type="button" data-p="moss" title="Moss · MS-N" aria-pressed="false" style="background:linear-gradient(135deg,#12150F 48%,#C98E4E 48%)"></button><button type="button" data-p="signal" title="Signal · SG-N" aria-pressed="false" style="background:linear-gradient(135deg,#0C0D0E 48%,#D8AF52 48%)"></button><button type="button" data-p="walnut" title="Walnut · WL-N" aria-pressed="false" style="background:linear-gradient(135deg,#1C1612 48%,#D8AF52 48%)"></button></div>
+  <a class="ghbtn" href="https://github.com/zinzaki/yoshiki">GitHub</a>
+</div></nav>
+
+<section class="gut"><div class="in">
+  <div class="head">
+    <div><div class="kicker">16 palettes · 12 families</div><h2>The palette family</h2></div>
+    <p class="lede">Each palette fills the same role contract and passes the same contrast floors — text at 4.5:1 on
+    every surface, edges at 3:1 — so swapping one for another never breaks a screen. The terminal stays a dark island
+    in all of them.</p>
+  </div>
+  <div class="plist">
+<article class="prow" id="night-beige" style="--pbg:#161410;--ppanel:#1D1B16;--praised:#24211C;--pline:#3A362E;--pink:#D6D2BD;--phead:#EAE6D2;--pmu:#9A9584;--pacc:#D8AF52;--paccT:#D8AF52;--psig:#E3001B;--psigT:#FF6155">
+  <div class="pcardbig">
+    <span class="code">BE-N</span>
+    <h3>Night beige</h3>
+    <span class="meta">warm · glass · gold</span>
+    <div class="discs"><i style="background:#1D1B16"></i><i style="background:#322E27"></i><i style="background:#D6D2BD"></i><i style="background:#D8AF52"></i><i style="background:#E3001B"></i></div>
+  </div>
+  <div class="pbody">
+    <div class="swatches"><b data-l="ground" data-h="#161410" style="background:#161410"></b><b data-l="panel" data-h="#1D1B16" style="background:#1D1B16"></b><b data-l="raised" data-h="#24211C" style="background:#24211C"></b><b data-l="hover" data-h="#322E27" style="background:#322E27"></b><b data-l="line" data-h="#3A362E" style="background:#3A362E"></b><b data-l="text" data-h="#D6D2BD" style="background:#D6D2BD"></b><b data-l="muted" data-h="#9A9584" style="background:#9A9584"></b><b data-l="accent" data-h="#D8AF52" style="background:#D8AF52"></b><b data-l="signal" data-h="#E3001B" style="background:#E3001B"></b></div>
+    <div class="pdemo">
+      <div class="card">
+        <div class="bar">Settings</div>
+        <div class="r">Appearance<b>4</b></div>
+        <div class="r on">Displays<b>on</b></div>
+        <div class="r">Network<b class="sig">✗ offline</b></div>
+      </div>
+      <div class="pterm" style="background:#161410;color:#D6D2BD">
+        <div><span style="color:#D8AF52">❯</span> yoshiki build</div>
+        <div style="color:#9A9584">✓ contrast 78/78</div>
+        <div class="row"><i style="background:#24211C"></i><i style="background:#FF5A4D"></i><i style="background:#AFC27A"></i><i style="background:#E8BE62"></i><i style="background:#8FA8C8"></i><i style="background:#C99AAE"></i><i style="background:#8FB39A"></i><i style="background:#D6D2BD"></i></div>
+        <div class="row"><i style="background:#8A8577"></i><i style="background:#FF7A6E"></i><i style="background:#C4D28F"></i><i style="background:#F2CF7A"></i><i style="background:#A9BDD6"></i><i style="background:#D9B0C2"></i><i style="background:#A6C6AF"></i><i style="background:#EAE6D2"></i></div>
+      </div>
+    </div>
+    <div class="plinks">
+      <a href="../canon/palettes/night-beige/night-beige.css">CSS</a>
+      <a href="../canon/palettes/night-beige/night-beige.tokens.json">DTCG</a>
+      <a href="../canon/palettes/night-beige/card.svg">CARD</a>
+      <a href="https://github.com/zinzaki/yoshiki-themes/tree/main/themes">THEMES</a>
+    </div>
+  </div>
+</article>
+<article class="prow" id="beige-glass" style="--pbg:#D6D2BD;--ppanel:#DCD8C0;--praised:#E4E0CB;--pline:#BAB5A1;--pink:#454138;--phead:#2E2B24;--pmu:#534E43;--pacc:#A8852F;--paccT:#533E13;--psig:#E3001B;--psigT:#A00019">
+  <div class="pcardbig">
+    <span class="code">BE-D</span>
+    <h3>Beige glass</h3>
+    <span class="meta">warm · glass · gold</span>
+    <div class="discs"><i style="background:#DCD8C0"></i><i style="background:#C9C4AE"></i><i style="background:#454138"></i><i style="background:#A8852F"></i><i style="background:#E3001B"></i></div>
+  </div>
+  <div class="pbody">
+    <div class="swatches"><b data-l="ground" data-h="#D6D2BD" style="background:#D6D2BD"></b><b data-l="panel" data-h="#DCD8C0" style="background:#DCD8C0"></b><b data-l="raised" data-h="#E4E0CB" style="background:#E4E0CB"></b><b data-l="hover" data-h="#C9C4AE" style="background:#C9C4AE"></b><b data-l="line" data-h="#BAB5A1" style="background:#BAB5A1"></b><b data-l="text" data-h="#454138" style="background:#454138"></b><b data-l="muted" data-h="#534E43" style="background:#534E43"></b><b data-l="accent" data-h="#A8852F" style="background:#A8852F"></b><b data-l="signal" data-h="#E3001B" style="background:#E3001B"></b></div>
+    <div class="pdemo">
+      <div class="card">
+        <div class="bar">Settings</div>
+        <div class="r">Appearance<b>4</b></div>
+        <div class="r on">Displays<b>on</b></div>
+        <div class="r">Network<b class="sig">✗ offline</b></div>
+      </div>
+      <div class="pterm" style="background:#161410;color:#D6D2BD">
+        <div><span style="color:#A8852F">❯</span> yoshiki build</div>
+        <div style="color:#534E43">✓ contrast 78/78</div>
+        <div class="row"><i style="background:#24211C"></i><i style="background:#FF5A4D"></i><i style="background:#AFC27A"></i><i style="background:#E8BE62"></i><i style="background:#8FA8C8"></i><i style="background:#C99AAE"></i><i style="background:#8FB39A"></i><i style="background:#D6D2BD"></i></div>
+        <div class="row"><i style="background:#8A8577"></i><i style="background:#FF7A6E"></i><i style="background:#C4D28F"></i><i style="background:#F2CF7A"></i><i style="background:#A9BDD6"></i><i style="background:#D9B0C2"></i><i style="background:#A6C6AF"></i><i style="background:#EAE6D2"></i></div>
+      </div>
+    </div>
+    <div class="plinks">
+      <a href="../canon/palettes/beige-glass/beige-glass.css">CSS</a>
+      <a href="../canon/palettes/beige-glass/beige-glass.tokens.json">DTCG</a>
+      <a href="../canon/palettes/beige-glass/card.svg">CARD</a>
+      <a href="https://github.com/zinzaki/yoshiki-themes/tree/main/themes">THEMES</a>
+    </div>
+  </div>
+</article>
+<article class="prow" id="porcelain" style="--pbg:#F4F1EA;--ppanel:#FBFAF6;--praised:#FCFCF9;--pline:#E2DDD2;--pink:#23201B;--phead:#14120F;--pmu:#5F594F;--pacc:#A8852F;--paccT:#5E4712;--psig:#E3001B;--psigT:#B00019">
+  <div class="pcardbig">
+    <span class="code">PC-D</span>
+    <h3>Porcelain</h3>
+    <span class="meta">neutral · porcelain · gold</span>
+    <div class="discs"><i style="background:#FBFAF6"></i><i style="background:#E3E0D9"></i><i style="background:#23201B"></i><i style="background:#A8852F"></i><i style="background:#E3001B"></i></div>
+  </div>
+  <div class="pbody">
+    <div class="swatches"><b data-l="ground" data-h="#F4F1EA" style="background:#F4F1EA"></b><b data-l="panel" data-h="#FBFAF6" style="background:#FBFAF6"></b><b data-l="raised" data-h="#FCFCF9" style="background:#FCFCF9"></b><b data-l="hover" data-h="#E3E0D9" style="background:#E3E0D9"></b><b data-l="line" data-h="#E2DDD2" style="background:#E2DDD2"></b><b data-l="text" data-h="#23201B" style="background:#23201B"></b><b data-l="muted" data-h="#5F594F" style="background:#5F594F"></b><b data-l="accent" data-h="#A8852F" style="background:#A8852F"></b><b data-l="signal" data-h="#E3001B" style="background:#E3001B"></b></div>
+    <div class="pdemo">
+      <div class="card">
+        <div class="bar">Settings</div>
+        <div class="r">Appearance<b>4</b></div>
+        <div class="r on">Displays<b>on</b></div>
+        <div class="r">Network<b class="sig">✗ offline</b></div>
+      </div>
+      <div class="pterm" style="background:#161410;color:#D6D2BD">
+        <div><span style="color:#A8852F">❯</span> yoshiki build</div>
+        <div style="color:#5F594F">✓ contrast 78/78</div>
+        <div class="row"><i style="background:#24211C"></i><i style="background:#FF5A4D"></i><i style="background:#AFC27A"></i><i style="background:#E8BE62"></i><i style="background:#8FA8C8"></i><i style="background:#C99AAE"></i><i style="background:#8FB39A"></i><i style="background:#D6D2BD"></i></div>
+        <div class="row"><i style="background:#8A8577"></i><i style="background:#FF7A6E"></i><i style="background:#C4D28F"></i><i style="background:#F2CF7A"></i><i style="background:#A9BDD6"></i><i style="background:#D9B0C2"></i><i style="background:#A6C6AF"></i><i style="background:#EAE6D2"></i></div>
+      </div>
+    </div>
+    <div class="plinks">
+      <a href="../canon/palettes/porcelain/porcelain.css">CSS</a>
+      <a href="../canon/palettes/porcelain/porcelain.tokens.json">DTCG</a>
+      <a href="../canon/palettes/porcelain/card.svg">CARD</a>
+      <a href="https://github.com/zinzaki/yoshiki-themes/tree/main/themes">THEMES</a>
+    </div>
+  </div>
+</article>
+<article class="prow" id="concrete" style="--pbg:#D9D5CD;--ppanel:#E5E1DA;--praised:#EEECE7;--pline:#C3BDB2;--pink:#2A2724;--phead:#1A1816;--pmu:#57534C;--pacc:#A8852F;--paccT:#533E13;--psig:#E3001B;--psigT:#980018">
+  <div class="pcardbig">
+    <span class="code">CN-D</span>
+    <h3>Concrete</h3>
+    <span class="meta">cool · concrete · gold</span>
+    <div class="discs"><i style="background:#E5E1DA"></i><i style="background:#CBC7BF"></i><i style="background:#2A2724"></i><i style="background:#A8852F"></i><i style="background:#E3001B"></i></div>
+  </div>
+  <div class="pbody">
+    <div class="swatches"><b data-l="ground" data-h="#D9D5CD" style="background:#D9D5CD"></b><b data-l="panel" data-h="#E5E1DA" style="background:#E5E1DA"></b><b data-l="raised" data-h="#EEECE7" style="background:#EEECE7"></b><b data-l="hover" data-h="#CBC7BF" style="background:#CBC7BF"></b><b data-l="line" data-h="#C3BDB2" style="background:#C3BDB2"></b><b data-l="text" data-h="#2A2724" style="background:#2A2724"></b><b data-l="muted" data-h="#57534C" style="background:#57534C"></b><b data-l="accent" data-h="#A8852F" style="background:#A8852F"></b><b data-l="signal" data-h="#E3001B" style="background:#E3001B"></b></div>
+    <div class="pdemo">
+      <div class="card">
+        <div class="bar">Settings</div>
+        <div class="r">Appearance<b>4</b></div>
+        <div class="r on">Displays<b>on</b></div>
+        <div class="r">Network<b class="sig">✗ offline</b></div>
+      </div>
+      <div class="pterm" style="background:#161410;color:#D6D2BD">
+        <div><span style="color:#A8852F">❯</span> yoshiki build</div>
+        <div style="color:#57534C">✓ contrast 78/78</div>
+        <div class="row"><i style="background:#24211C"></i><i style="background:#FF5A4D"></i><i style="background:#AFC27A"></i><i style="background:#E8BE62"></i><i style="background:#8FA8C8"></i><i style="background:#C99AAE"></i><i style="background:#8FB39A"></i><i style="background:#D6D2BD"></i></div>
+        <div class="row"><i style="background:#8A8577"></i><i style="background:#FF7A6E"></i><i style="background:#C4D28F"></i><i style="background:#F2CF7A"></i><i style="background:#A9BDD6"></i><i style="background:#D9B0C2"></i><i style="background:#A6C6AF"></i><i style="background:#EAE6D2"></i></div>
+      </div>
+    </div>
+    <div class="plinks">
+      <a href="../canon/palettes/concrete/concrete.css">CSS</a>
+      <a href="../canon/palettes/concrete/concrete.tokens.json">DTCG</a>
+      <a href="../canon/palettes/concrete/card.svg">CARD</a>
+      <a href="https://github.com/zinzaki/yoshiki-themes/tree/main/themes">THEMES</a>
+    </div>
+  </div>
+</article>
+<article class="prow" id="yorha" style="--pbg:#D1CDB7;--ppanel:#DCD8C0;--praised:#E8E6D6;--pline:#BAB5A1;--pink:#454138;--phead:#2E2B24;--pmu:#534E46;--pacc:#454138;--paccT:#2E2B24;--psig:#E3001B;--psigT:#880016">
+  <div class="pcardbig">
+    <span class="code">YR-D</span>
+    <h3>YoRHa</h3>
+    <span class="meta">warm · paper · ink</span>
+    <div class="discs"><i style="background:#DCD8C0"></i><i style="background:#C6C2AD"></i><i style="background:#454138"></i><i style="background:#454138"></i><i style="background:#E3001B"></i></div>
+  </div>
+  <div class="pbody">
+    <div class="swatches"><b data-l="ground" data-h="#D1CDB7" style="background:#D1CDB7"></b><b data-l="panel" data-h="#DCD8C0" style="background:#DCD8C0"></b><b data-l="raised" data-h="#E8E6D6" style="background:#E8E6D6"></b><b data-l="hover" data-h="#C6C2AD" style="background:#C6C2AD"></b><b data-l="line" data-h="#BAB5A1" style="background:#BAB5A1"></b><b data-l="text" data-h="#454138" style="background:#454138"></b><b data-l="muted" data-h="#534E46" style="background:#534E46"></b><b data-l="accent" data-h="#454138" style="background:#454138"></b><b data-l="signal" data-h="#E3001B" style="background:#E3001B"></b></div>
+    <div class="pdemo">
+      <div class="card">
+        <div class="bar">Settings</div>
+        <div class="r">Appearance<b>4</b></div>
+        <div class="r on">Displays<b>on</b></div>
+        <div class="r">Network<b class="sig">✗ offline</b></div>
+      </div>
+      <div class="pterm" style="background:#161410;color:#D6D2BD">
+        <div><span style="color:#454138">❯</span> yoshiki build</div>
+        <div style="color:#534E46">✓ contrast 78/78</div>
+        <div class="row"><i style="background:#24211C"></i><i style="background:#FF5A4D"></i><i style="background:#AFC27A"></i><i style="background:#E8BE62"></i><i style="background:#8FA8C8"></i><i style="background:#C99AAE"></i><i style="background:#8FB39A"></i><i style="background:#D6D2BD"></i></div>
+        <div class="row"><i style="background:#8A8577"></i><i style="background:#FF7A6E"></i><i style="background:#C4D28F"></i><i style="background:#F2CF7A"></i><i style="background:#A9BDD6"></i><i style="background:#D9B0C2"></i><i style="background:#A6C6AF"></i><i style="background:#EAE6D2"></i></div>
+      </div>
+    </div>
+    <div class="plinks">
+      <a href="../canon/palettes/yorha/yorha.css">CSS</a>
+      <a href="../canon/palettes/yorha/yorha.tokens.json">DTCG</a>
+      <a href="../canon/palettes/yorha/card.svg">CARD</a>
+      <a href="https://github.com/zinzaki/yoshiki-themes/tree/main/themes">THEMES</a>
+    </div>
+  </div>
+</article>
+<article class="prow" id="blush" style="--pbg:#FFE6E9;--ppanel:#FFF4F5;--praised:#FFF8F8;--pline:#F2C6CC;--pink:#1A1012;--phead:#0F0809;--pmu:#634C51;--pacc:#E5132E;--paccT:#A80D22;--psig:#E5132E;--psigT:#A80D22">
+  <div class="pcardbig">
+    <span class="code">BL-D</span>
+    <h3>Blush</h3>
+    <span class="meta">warm · powder · red</span>
+    <div class="discs"><i style="background:#FFF4F5"></i><i style="background:#EDD5D8"></i><i style="background:#1A1012"></i><i style="background:#E5132E"></i><i style="background:#E5132E"></i></div>
+  </div>
+  <div class="pbody">
+    <div class="swatches"><b data-l="ground" data-h="#FFE6E9" style="background:#FFE6E9"></b><b data-l="panel" data-h="#FFF4F5" style="background:#FFF4F5"></b><b data-l="raised" data-h="#FFF8F8" style="background:#FFF8F8"></b><b data-l="hover" data-h="#EDD5D8" style="background:#EDD5D8"></b><b data-l="line" data-h="#F2C6CC" style="background:#F2C6CC"></b><b data-l="text" data-h="#1A1012" style="background:#1A1012"></b><b data-l="muted" data-h="#634C51" style="background:#634C51"></b><b data-l="accent" data-h="#E5132E" style="background:#E5132E"></b><b data-l="signal" data-h="#E5132E" style="background:#E5132E"></b></div>
+    <div class="pdemo">
+      <div class="card">
+        <div class="bar">Settings</div>
+        <div class="r">Appearance<b>4</b></div>
+        <div class="r on">Displays<b>on</b></div>
+        <div class="r">Network<b class="sig">✗ offline</b></div>
+      </div>
+      <div class="pterm" style="background:#161410;color:#D6D2BD">
+        <div><span style="color:#E5132E">❯</span> yoshiki build</div>
+        <div style="color:#634C51">✓ contrast 78/78</div>
+        <div class="row"><i style="background:#24211C"></i><i style="background:#FF5A4D"></i><i style="background:#AFC27A"></i><i style="background:#E8BE62"></i><i style="background:#8FA8C8"></i><i style="background:#C99AAE"></i><i style="background:#8FB39A"></i><i style="background:#D6D2BD"></i></div>
+        <div class="row"><i style="background:#8A8577"></i><i style="background:#FF7A6E"></i><i style="background:#C4D28F"></i><i style="background:#F2CF7A"></i><i style="background:#A9BDD6"></i><i style="background:#D9B0C2"></i><i style="background:#A6C6AF"></i><i style="background:#EAE6D2"></i></div>
+      </div>
+    </div>
+    <div class="plinks">
+      <a href="../canon/palettes/blush/blush.css">CSS</a>
+      <a href="../canon/palettes/blush/blush.tokens.json">DTCG</a>
+      <a href="../canon/palettes/blush/card.svg">CARD</a>
+      <a href="https://github.com/zinzaki/yoshiki-themes/tree/main/themes">THEMES</a>
+    </div>
+  </div>
+</article>
+<article class="prow" id="blush-night" style="--pbg:#1A1115;--ppanel:#20151A;--praised:#26191F;--pline:#412F37;--pink:#FBE9EC;--phead:#FFF4F5;--pmu:#C09EA6;--pacc:#FF8A98;--paccT:#FF8A98;--psig:#FF3B55;--psigT:#FF6B80">
+  <div class="pcardbig">
+    <span class="code">BL-N</span>
+    <h3>Blush night</h3>
+    <span class="meta">warm · neon · rose</span>
+    <div class="discs"><i style="background:#20151A"></i><i style="background:#35232B"></i><i style="background:#FBE9EC"></i><i style="background:#FF8A98"></i><i style="background:#FF3B55"></i></div>
+  </div>
+  <div class="pbody">
+    <div class="swatches"><b data-l="ground" data-h="#1A1115" style="background:#1A1115"></b><b data-l="panel" data-h="#20151A" style="background:#20151A"></b><b data-l="raised" data-h="#26191F" style="background:#26191F"></b><b data-l="hover" data-h="#35232B" style="background:#35232B"></b><b data-l="line" data-h="#412F37" style="background:#412F37"></b><b data-l="text" data-h="#FBE9EC" style="background:#FBE9EC"></b><b data-l="muted" data-h="#C09EA6" style="background:#C09EA6"></b><b data-l="accent" data-h="#FF8A98" style="background:#FF8A98"></b><b data-l="signal" data-h="#FF3B55" style="background:#FF3B55"></b></div>
+    <div class="pdemo">
+      <div class="card">
+        <div class="bar">Settings</div>
+        <div class="r">Appearance<b>4</b></div>
+        <div class="r on">Displays<b>on</b></div>
+        <div class="r">Network<b class="sig">✗ offline</b></div>
+      </div>
+      <div class="pterm" style="background:#1A1115;color:#FBE9EC">
+        <div><span style="color:#FF8A98">❯</span> yoshiki build</div>
+        <div style="color:#C09EA6">✓ contrast 78/78</div>
+        <div class="row"><i style="background:#26191F"></i><i style="background:#FF5A4D"></i><i style="background:#AFC27A"></i><i style="background:#E8BE62"></i><i style="background:#8FA8C8"></i><i style="background:#C99AAE"></i><i style="background:#8FB39A"></i><i style="background:#FBE9EC"></i></div>
+        <div class="row"><i style="background:#AF9098"></i><i style="background:#FF7A6E"></i><i style="background:#C4D28F"></i><i style="background:#F2CF7A"></i><i style="background:#A9BDD6"></i><i style="background:#D9B0C2"></i><i style="background:#A6C6AF"></i><i style="background:#FFF4F5"></i></div>
+      </div>
+    </div>
+    <div class="plinks">
+      <a href="../canon/palettes/blush-night/blush-night.css">CSS</a>
+      <a href="../canon/palettes/blush-night/blush-night.tokens.json">DTCG</a>
+      <a href="../canon/palettes/blush-night/card.svg">CARD</a>
+      <a href="https://github.com/zinzaki/yoshiki-themes/tree/main/themes">THEMES</a>
+    </div>
+  </div>
+</article>
+<article class="prow" id="lab" style="--pbg:#E8E9EB;--ppanel:#F6F6F7;--praised:#F9F9FA;--pline:#D1D3D7;--pink:#141517;--phead:#0A0B0C;--pmu:#55585D;--pacc:#FF3D2E;--paccT:#B3231A;--psig:#FF3D2E;--psigT:#AC2219">
+  <div class="pcardbig">
+    <span class="code">LB-D</span>
+    <h3>Lab</h3>
+    <span class="meta">cool · hud · red</span>
+    <div class="discs"><i style="background:#F6F6F7"></i><i style="background:#D7D8DA"></i><i style="background:#141517"></i><i style="background:#FF3D2E"></i><i style="background:#FF3D2E"></i></div>
+  </div>
+  <div class="pbody">
+    <div class="swatches"><b data-l="ground" data-h="#E8E9EB" style="background:#E8E9EB"></b><b data-l="panel" data-h="#F6F6F7" style="background:#F6F6F7"></b><b data-l="raised" data-h="#F9F9FA" style="background:#F9F9FA"></b><b data-l="hover" data-h="#D7D8DA" style="background:#D7D8DA"></b><b data-l="line" data-h="#D1D3D7" style="background:#D1D3D7"></b><b data-l="text" data-h="#141517" style="background:#141517"></b><b data-l="muted" data-h="#55585D" style="background:#55585D"></b><b data-l="accent" data-h="#FF3D2E" style="background:#FF3D2E"></b><b data-l="signal" data-h="#FF3D2E" style="background:#FF3D2E"></b></div>
+    <div class="pdemo">
+      <div class="card">
+        <div class="bar">Settings</div>
+        <div class="r">Appearance<b>4</b></div>
+        <div class="r on">Displays<b>on</b></div>
+        <div class="r">Network<b class="sig">✗ offline</b></div>
+      </div>
+      <div class="pterm" style="background:#0B0C0D;color:#E9E9E6">
+        <div><span style="color:#FF3D2E">❯</span> yoshiki build</div>
+        <div style="color:#55585D">✓ contrast 78/78</div>
+        <div class="row"><i style="background:#24211C"></i><i style="background:#FF5A4D"></i><i style="background:#AFC27A"></i><i style="background:#E8BE62"></i><i style="background:#8FA8C8"></i><i style="background:#C99AAE"></i><i style="background:#8FB39A"></i><i style="background:#D6D2BD"></i></div>
+        <div class="row"><i style="background:#8A8577"></i><i style="background:#FF7A6E"></i><i style="background:#C4D28F"></i><i style="background:#F2CF7A"></i><i style="background:#A9BDD6"></i><i style="background:#D9B0C2"></i><i style="background:#A6C6AF"></i><i style="background:#EAE6D2"></i></div>
+      </div>
+    </div>
+    <div class="plinks">
+      <a href="../canon/palettes/lab/lab.css">CSS</a>
+      <a href="../canon/palettes/lab/lab.tokens.json">DTCG</a>
+      <a href="../canon/palettes/lab/card.svg">CARD</a>
+      <a href="https://github.com/zinzaki/yoshiki-themes/tree/main/themes">THEMES</a>
+    </div>
+  </div>
+</article>
+<article class="prow" id="lab-night" style="--pbg:#0B0C0D;--ppanel:#101112;--praised:#141618;--pline:#323537;--pink:#E9E9E6;--phead:#F6F6F3;--pmu:#8C8F93;--pacc:#FF3D2E;--paccT:#FF6357;--psig:#FF3D2E;--psigT:#FF6A5E">
+  <div class="pcardbig">
+    <span class="code">LB-N</span>
+    <h3>Lab night</h3>
+    <span class="meta">cool · hud · red</span>
+    <div class="discs"><i style="background:#101112"></i><i style="background:#26292C"></i><i style="background:#E9E9E6"></i><i style="background:#FF3D2E"></i><i style="background:#FF3D2E"></i></div>
+  </div>
+  <div class="pbody">
+    <div class="swatches"><b data-l="ground" data-h="#0B0C0D" style="background:#0B0C0D"></b><b data-l="panel" data-h="#101112" style="background:#101112"></b><b data-l="raised" data-h="#141618" style="background:#141618"></b><b data-l="hover" data-h="#26292C" style="background:#26292C"></b><b data-l="line" data-h="#323537" style="background:#323537"></b><b data-l="text" data-h="#E9E9E6" style="background:#E9E9E6"></b><b data-l="muted" data-h="#8C8F93" style="background:#8C8F93"></b><b data-l="accent" data-h="#FF3D2E" style="background:#FF3D2E"></b><b data-l="signal" data-h="#FF3D2E" style="background:#FF3D2E"></b></div>
+    <div class="pdemo">
+      <div class="card">
+        <div class="bar">Settings</div>
+        <div class="r">Appearance<b>4</b></div>
+        <div class="r on">Displays<b>on</b></div>
+        <div class="r">Network<b class="sig">✗ offline</b></div>
+      </div>
+      <div class="pterm" style="background:#0B0C0D;color:#E9E9E6">
+        <div><span style="color:#FF3D2E">❯</span> yoshiki build</div>
+        <div style="color:#8C8F93">✓ contrast 78/78</div>
+        <div class="row"><i style="background:#141618"></i><i style="background:#FF5A4D"></i><i style="background:#AFC27A"></i><i style="background:#E8BE62"></i><i style="background:#8FA8C8"></i><i style="background:#C99AAE"></i><i style="background:#8FB39A"></i><i style="background:#E9E9E6"></i></div>
+        <div class="row"><i style="background:#7F8286"></i><i style="background:#FF7A6E"></i><i style="background:#C4D28F"></i><i style="background:#F2CF7A"></i><i style="background:#A9BDD6"></i><i style="background:#D9B0C2"></i><i style="background:#A6C6AF"></i><i style="background:#F6F6F3"></i></div>
+      </div>
+    </div>
+    <div class="plinks">
+      <a href="../canon/palettes/lab-night/lab-night.css">CSS</a>
+      <a href="../canon/palettes/lab-night/lab-night.tokens.json">DTCG</a>
+      <a href="../canon/palettes/lab-night/card.svg">CARD</a>
+      <a href="https://github.com/zinzaki/yoshiki-themes/tree/main/themes">THEMES</a>
+    </div>
+  </div>
+</article>
+<article class="prow" id="hanko" style="--pbg:#F2EFE8;--ppanel:#FBF9F4;--praised:#FCFBF8;--pline:#DAD4C9;--pink:#141210;--phead:#0A0908;--pmu:#57524A;--pacc:#E3001B;--paccT:#A8001A;--psig:#E3001B;--psigT:#A8001A">
+  <div class="pcardbig">
+    <span class="code">HK-D</span>
+    <h3>Hanko</h3>
+    <span class="meta">warm · seal · red</span>
+    <div class="discs"><i style="background:#FBF9F4"></i><i style="background:#E0DDD7"></i><i style="background:#141210"></i><i style="background:#E3001B"></i><i style="background:#E3001B"></i></div>
+  </div>
+  <div class="pbody">
+    <div class="swatches"><b data-l="ground" data-h="#F2EFE8" style="background:#F2EFE8"></b><b data-l="panel" data-h="#FBF9F4" style="background:#FBF9F4"></b><b data-l="raised" data-h="#FCFBF8" style="background:#FCFBF8"></b><b data-l="hover" data-h="#E0DDD7" style="background:#E0DDD7"></b><b data-l="line" data-h="#DAD4C9" style="background:#DAD4C9"></b><b data-l="text" data-h="#141210" style="background:#141210"></b><b data-l="muted" data-h="#57524A" style="background:#57524A"></b><b data-l="accent" data-h="#E3001B" style="background:#E3001B"></b><b data-l="signal" data-h="#E3001B" style="background:#E3001B"></b></div>
+    <div class="pdemo">
+      <div class="card">
+        <div class="bar">Settings</div>
+        <div class="r">Appearance<b>4</b></div>
+        <div class="r on">Displays<b>on</b></div>
+        <div class="r">Network<b class="sig">✗ offline</b></div>
+      </div>
+      <div class="pterm" style="background:#0E0D0B;color:#EEE8DC">
+        <div><span style="color:#E3001B">❯</span> yoshiki build</div>
+        <div style="color:#57524A">✓ contrast 78/78</div>
+        <div class="row"><i style="background:#24211C"></i><i style="background:#FF5A4D"></i><i style="background:#AFC27A"></i><i style="background:#E8BE62"></i><i style="background:#8FA8C8"></i><i style="background:#C99AAE"></i><i style="background:#8FB39A"></i><i style="background:#D6D2BD"></i></div>
+        <div class="row"><i style="background:#8A8577"></i><i style="background:#FF7A6E"></i><i style="background:#C4D28F"></i><i style="background:#F2CF7A"></i><i style="background:#A9BDD6"></i><i style="background:#D9B0C2"></i><i style="background:#A6C6AF"></i><i style="background:#EAE6D2"></i></div>
+      </div>
+    </div>
+    <div class="plinks">
+      <a href="../canon/palettes/hanko/hanko.css">CSS</a>
+      <a href="../canon/palettes/hanko/hanko.tokens.json">DTCG</a>
+      <a href="../canon/palettes/hanko/card.svg">CARD</a>
+      <a href="https://github.com/zinzaki/yoshiki-themes/tree/main/themes">THEMES</a>
+    </div>
+  </div>
+</article>
+<article class="prow" id="hanko-night" style="--pbg:#0E0D0B;--ppanel:#141210;--praised:#191714;--pline:#393530;--pink:#EEE8DC;--phead:#FAF6EE;--pmu:#9C9589;--pacc:#FF6D7E;--paccT:#FF6D7E;--psig:#E3001B;--psigT:#FF584D">
+  <div class="pcardbig">
+    <span class="code">HK-N</span>
+    <h3>Hanko night</h3>
+    <span class="meta">warm · seal · red</span>
+    <div class="discs"><i style="background:#141210"></i><i style="background:#2D2A25"></i><i style="background:#EEE8DC"></i><i style="background:#FF6D7E"></i><i style="background:#E3001B"></i></div>
+  </div>
+  <div class="pbody">
+    <div class="swatches"><b data-l="ground" data-h="#0E0D0B" style="background:#0E0D0B"></b><b data-l="panel" data-h="#141210" style="background:#141210"></b><b data-l="raised" data-h="#191714" style="background:#191714"></b><b data-l="hover" data-h="#2D2A25" style="background:#2D2A25"></b><b data-l="line" data-h="#393530" style="background:#393530"></b><b data-l="text" data-h="#EEE8DC" style="background:#EEE8DC"></b><b data-l="muted" data-h="#9C9589" style="background:#9C9589"></b><b data-l="accent" data-h="#FF6D7E" style="background:#FF6D7E"></b><b data-l="signal" data-h="#E3001B" style="background:#E3001B"></b></div>
+    <div class="pdemo">
+      <div class="card">
+        <div class="bar">Settings</div>
+        <div class="r">Appearance<b>4</b></div>
+        <div class="r on">Displays<b>on</b></div>
+        <div class="r">Network<b class="sig">✗ offline</b></div>
+      </div>
+      <div class="pterm" style="background:#0E0D0B;color:#EEE8DC">
+        <div><span style="color:#FF6D7E">❯</span> yoshiki build</div>
+        <div style="color:#9C9589">✓ contrast 78/78</div>
+        <div class="row"><i style="background:#191714"></i><i style="background:#FF5A4D"></i><i style="background:#AFC27A"></i><i style="background:#E8BE62"></i><i style="background:#8FA8C8"></i><i style="background:#C99AAE"></i><i style="background:#8FB39A"></i><i style="background:#EEE8DC"></i></div>
+        <div class="row"><i style="background:#8E877C"></i><i style="background:#FF7A6E"></i><i style="background:#C4D28F"></i><i style="background:#F2CF7A"></i><i style="background:#A9BDD6"></i><i style="background:#D9B0C2"></i><i style="background:#A6C6AF"></i><i style="background:#FAF6EE"></i></div>
+      </div>
+    </div>
+    <div class="plinks">
+      <a href="../canon/palettes/hanko-night/hanko-night.css">CSS</a>
+      <a href="../canon/palettes/hanko-night/hanko-night.tokens.json">DTCG</a>
+      <a href="../canon/palettes/hanko-night/card.svg">CARD</a>
+      <a href="https://github.com/zinzaki/yoshiki-themes/tree/main/themes">THEMES</a>
+    </div>
+  </div>
+</article>
+<article class="prow" id="cafe" style="--pbg:#221A16;--ppanel:#281E1A;--praised:#2D231D;--pline:#463A31;--pink:#F1E3CF;--phead:#FAF0E0;--pmu:#B39E8C;--pacc:#F4A662;--paccT:#F4A662;--psig:#E22D32;--psigT:#FF6F72">
+  <div class="pcardbig">
+    <span class="code">CF-N</span>
+    <h3>Café</h3>
+    <span class="meta">warm · lo-fi · peach</span>
+    <div class="discs"><i style="background:#281E1A"></i><i style="background:#3B2F27"></i><i style="background:#F1E3CF"></i><i style="background:#F4A662"></i><i style="background:#E22D32"></i></div>
+  </div>
+  <div class="pbody">
+    <div class="swatches"><b data-l="ground" data-h="#221A16" style="background:#221A16"></b><b data-l="panel" data-h="#281E1A" style="background:#281E1A"></b><b data-l="raised" data-h="#2D231D" style="background:#2D231D"></b><b data-l="hover" data-h="#3B2F27" style="background:#3B2F27"></b><b data-l="line" data-h="#463A31" style="background:#463A31"></b><b data-l="text" data-h="#F1E3CF" style="background:#F1E3CF"></b><b data-l="muted" data-h="#B39E8C" style="background:#B39E8C"></b><b data-l="accent" data-h="#F4A662" style="background:#F4A662"></b><b data-l="signal" data-h="#E22D32" style="background:#E22D32"></b></div>
+    <div class="pdemo">
+      <div class="card">
+        <div class="bar">Settings</div>
+        <div class="r">Appearance<b>4</b></div>
+        <div class="r on">Displays<b>on</b></div>
+        <div class="r">Network<b class="sig">✗ offline</b></div>
+      </div>
+      <div class="pterm" style="background:#221A16;color:#F1E3CF">
+        <div><span style="color:#F4A662">❯</span> yoshiki build</div>
+        <div style="color:#B39E8C">✓ contrast 78/78</div>
+        <div class="row"><i style="background:#2D231D"></i><i style="background:#FF5A4D"></i><i style="background:#AFC27A"></i><i style="background:#E8BE62"></i><i style="background:#8FA8C8"></i><i style="background:#C99AAE"></i><i style="background:#8FB39A"></i><i style="background:#F1E3CF"></i></div>
+        <div class="row"><i style="background:#A49180"></i><i style="background:#FF7A6E"></i><i style="background:#C4D28F"></i><i style="background:#F2CF7A"></i><i style="background:#A9BDD6"></i><i style="background:#D9B0C2"></i><i style="background:#A6C6AF"></i><i style="background:#FAF0E0"></i></div>
+      </div>
+    </div>
+    <div class="plinks">
+      <a href="../canon/palettes/cafe/cafe.css">CSS</a>
+      <a href="../canon/palettes/cafe/cafe.tokens.json">DTCG</a>
+      <a href="../canon/palettes/cafe/card.svg">CARD</a>
+      <a href="https://github.com/zinzaki/yoshiki-themes/tree/main/themes">THEMES</a>
+    </div>
+  </div>
+</article>
+<article class="prow" id="ember" style="--pbg:#1D1B19;--ppanel:#22201E;--praised:#282522;--pline:#413C36;--pink:#E3D0AE;--phead:#F0E2C6;--pmu:#A89A86;--pacc:#D8AF52;--paccT:#D8AF52;--psig:#E3001B;--psigT:#FF6F65">
+  <div class="pcardbig">
+    <span class="code">EM-N</span>
+    <h3>Ember</h3>
+    <span class="meta">warm · tube-amp · gold</span>
+    <div class="discs"><i style="background:#22201E"></i><i style="background:#37332E"></i><i style="background:#E3D0AE"></i><i style="background:#D8AF52"></i><i style="background:#E3001B"></i></div>
+  </div>
+  <div class="pbody">
+    <div class="swatches"><b data-l="ground" data-h="#1D1B19" style="background:#1D1B19"></b><b data-l="panel" data-h="#22201E" style="background:#22201E"></b><b data-l="raised" data-h="#282522" style="background:#282522"></b><b data-l="hover" data-h="#37332E" style="background:#37332E"></b><b data-l="line" data-h="#413C36" style="background:#413C36"></b><b data-l="text" data-h="#E3D0AE" style="background:#E3D0AE"></b><b data-l="muted" data-h="#A89A86" style="background:#A89A86"></b><b data-l="accent" data-h="#D8AF52" style="background:#D8AF52"></b><b data-l="signal" data-h="#E3001B" style="background:#E3001B"></b></div>
+    <div class="pdemo">
+      <div class="card">
+        <div class="bar">Settings</div>
+        <div class="r">Appearance<b>4</b></div>
+        <div class="r on">Displays<b>on</b></div>
+        <div class="r">Network<b class="sig">✗ offline</b></div>
+      </div>
+      <div class="pterm" style="background:#1D1B19;color:#E3D0AE">
+        <div><span style="color:#D8AF52">❯</span> yoshiki build</div>
+        <div style="color:#A89A86">✓ contrast 78/78</div>
+        <div class="row"><i style="background:#282522"></i><i style="background:#FF5A4D"></i><i style="background:#AFC27A"></i><i style="background:#E8BE62"></i><i style="background:#8FA8C8"></i><i style="background:#C99AAE"></i><i style="background:#8FB39A"></i><i style="background:#E3D0AE"></i></div>
+        <div class="row"><i style="background:#9A8D7B"></i><i style="background:#FF7A6E"></i><i style="background:#C4D28F"></i><i style="background:#F2CF7A"></i><i style="background:#A9BDD6"></i><i style="background:#D9B0C2"></i><i style="background:#A6C6AF"></i><i style="background:#F0E2C6"></i></div>
+      </div>
+    </div>
+    <div class="plinks">
+      <a href="../canon/palettes/ember/ember.css">CSS</a>
+      <a href="../canon/palettes/ember/ember.tokens.json">DTCG</a>
+      <a href="../canon/palettes/ember/card.svg">CARD</a>
+      <a href="https://github.com/zinzaki/yoshiki-themes/tree/main/themes">THEMES</a>
+    </div>
+  </div>
+</article>
+<article class="prow" id="moss" style="--pbg:#12150F;--ppanel:#161A13;--praised:#1B1F17;--pline:#353B2D;--pink:#E4E2CF;--phead:#F0EEDD;--pmu:#A0A690;--pacc:#C98E4E;--paccT:#C98E4E;--psig:#E3001B;--psigT:#FF6155">
+  <div class="pcardbig">
+    <span class="code">MS-N</span>
+    <h3>Moss</h3>
+    <span class="meta">warm · forest · copper</span>
+    <div class="discs"><i style="background:#161A13"></i><i style="background:#2A3023"></i><i style="background:#E4E2CF"></i><i style="background:#C98E4E"></i><i style="background:#E3001B"></i></div>
+  </div>
+  <div class="pbody">
+    <div class="swatches"><b data-l="ground" data-h="#12150F" style="background:#12150F"></b><b data-l="panel" data-h="#161A13" style="background:#161A13"></b><b data-l="raised" data-h="#1B1F17" style="background:#1B1F17"></b><b data-l="hover" data-h="#2A3023" style="background:#2A3023"></b><b data-l="line" data-h="#353B2D" style="background:#353B2D"></b><b data-l="text" data-h="#E4E2CF" style="background:#E4E2CF"></b><b data-l="muted" data-h="#A0A690" style="background:#A0A690"></b><b data-l="accent" data-h="#C98E4E" style="background:#C98E4E"></b><b data-l="signal" data-h="#E3001B" style="background:#E3001B"></b></div>
+    <div class="pdemo">
+      <div class="card">
+        <div class="bar">Settings</div>
+        <div class="r">Appearance<b>4</b></div>
+        <div class="r on">Displays<b>on</b></div>
+        <div class="r">Network<b class="sig">✗ offline</b></div>
+      </div>
+      <div class="pterm" style="background:#12150F;color:#E4E2CF">
+        <div><span style="color:#C98E4E">❯</span> yoshiki build</div>
+        <div style="color:#A0A690">✓ contrast 78/78</div>
+        <div class="row"><i style="background:#1B1F17"></i><i style="background:#FF5A4D"></i><i style="background:#AFC27A"></i><i style="background:#E8BE62"></i><i style="background:#8FA8C8"></i><i style="background:#C99AAE"></i><i style="background:#8FB39A"></i><i style="background:#E4E2CF"></i></div>
+        <div class="row"><i style="background:#929883"></i><i style="background:#FF7A6E"></i><i style="background:#C4D28F"></i><i style="background:#F2CF7A"></i><i style="background:#A9BDD6"></i><i style="background:#D9B0C2"></i><i style="background:#A6C6AF"></i><i style="background:#F0EEDD"></i></div>
+      </div>
+    </div>
+    <div class="plinks">
+      <a href="../canon/palettes/moss/moss.css">CSS</a>
+      <a href="../canon/palettes/moss/moss.tokens.json">DTCG</a>
+      <a href="../canon/palettes/moss/card.svg">CARD</a>
+      <a href="https://github.com/zinzaki/yoshiki-themes/tree/main/themes">THEMES</a>
+    </div>
+  </div>
+</article>
+<article class="prow" id="signal" style="--pbg:#0C0D0E;--ppanel:#101214;--praised:#15171A;--pline:#323538;--pink:#E8E4DA;--phead:#F4F1EA;--pmu:#9A968A;--pacc:#D8AF52;--paccT:#D8AF52;--psig:#FF3D2E;--psigT:#FF6A5E">
+  <div class="pcardbig">
+    <span class="code">SG-N</span>
+    <h3>Signal</h3>
+    <span class="meta">neutral · instrument · gold</span>
+    <div class="discs"><i style="background:#101214"></i><i style="background:#262A2E"></i><i style="background:#E8E4DA"></i><i style="background:#D8AF52"></i><i style="background:#FF3D2E"></i></div>
+  </div>
+  <div class="pbody">
+    <div class="swatches"><b data-l="ground" data-h="#0C0D0E" style="background:#0C0D0E"></b><b data-l="panel" data-h="#101214" style="background:#101214"></b><b data-l="raised" data-h="#15171A" style="background:#15171A"></b><b data-l="hover" data-h="#262A2E" style="background:#262A2E"></b><b data-l="line" data-h="#323538" style="background:#323538"></b><b data-l="text" data-h="#E8E4DA" style="background:#E8E4DA"></b><b data-l="muted" data-h="#9A968A" style="background:#9A968A"></b><b data-l="accent" data-h="#D8AF52" style="background:#D8AF52"></b><b data-l="signal" data-h="#FF3D2E" style="background:#FF3D2E"></b></div>
+    <div class="pdemo">
+      <div class="card">
+        <div class="bar">Settings</div>
+        <div class="r">Appearance<b>4</b></div>
+        <div class="r on">Displays<b>on</b></div>
+        <div class="r">Network<b class="sig">✗ offline</b></div>
+      </div>
+      <div class="pterm" style="background:#0C0D0E;color:#E8E4DA">
+        <div><span style="color:#D8AF52">❯</span> yoshiki build</div>
+        <div style="color:#9A968A">✓ contrast 78/78</div>
+        <div class="row"><i style="background:#15171A"></i><i style="background:#FF5A4D"></i><i style="background:#AFC27A"></i><i style="background:#E8BE62"></i><i style="background:#8FA8C8"></i><i style="background:#C99AAE"></i><i style="background:#8FB39A"></i><i style="background:#E8E4DA"></i></div>
+        <div class="row"><i style="background:#8C887E"></i><i style="background:#FF7A6E"></i><i style="background:#C4D28F"></i><i style="background:#F2CF7A"></i><i style="background:#A9BDD6"></i><i style="background:#D9B0C2"></i><i style="background:#A6C6AF"></i><i style="background:#F4F1EA"></i></div>
+      </div>
+    </div>
+    <div class="plinks">
+      <a href="../canon/palettes/signal/signal.css">CSS</a>
+      <a href="../canon/palettes/signal/signal.tokens.json">DTCG</a>
+      <a href="../canon/palettes/signal/card.svg">CARD</a>
+      <a href="https://github.com/zinzaki/yoshiki-themes/tree/main/themes">THEMES</a>
+    </div>
+  </div>
+</article>
+<article class="prow" id="walnut" style="--pbg:#1C1612;--ppanel:#211A15;--praised:#261E18;--pline:#40362C;--pink:#EADFCF;--phead:#F6EDE0;--pmu:#AE9E8B;--pacc:#D8AF52;--paccT:#D8AF52;--psig:#DA3820;--psigT:#FF6B55">
+  <div class="pcardbig">
+    <span class="code">WL-N</span>
+    <h3>Walnut</h3>
+    <span class="meta">warm · wood · gold</span>
+    <div class="discs"><i style="background:#211A15"></i><i style="background:#352B22"></i><i style="background:#EADFCF"></i><i style="background:#D8AF52"></i><i style="background:#DA3820"></i></div>
+  </div>
+  <div class="pbody">
+    <div class="swatches"><b data-l="ground" data-h="#1C1612" style="background:#1C1612"></b><b data-l="panel" data-h="#211A15" style="background:#211A15"></b><b data-l="raised" data-h="#261E18" style="background:#261E18"></b><b data-l="hover" data-h="#352B22" style="background:#352B22"></b><b data-l="line" data-h="#40362C" style="background:#40362C"></b><b data-l="text" data-h="#EADFCF" style="background:#EADFCF"></b><b data-l="muted" data-h="#AE9E8B" style="background:#AE9E8B"></b><b data-l="accent" data-h="#D8AF52" style="background:#D8AF52"></b><b data-l="signal" data-h="#DA3820" style="background:#DA3820"></b></div>
+    <div class="pdemo">
+      <div class="card">
+        <div class="bar">Settings</div>
+        <div class="r">Appearance<b>4</b></div>
+        <div class="r on">Displays<b>on</b></div>
+        <div class="r">Network<b class="sig">✗ offline</b></div>
+      </div>
+      <div class="pterm" style="background:#1C1612;color:#EADFCF">
+        <div><span style="color:#D8AF52">❯</span> yoshiki build</div>
+        <div style="color:#AE9E8B">✓ contrast 78/78</div>
+        <div class="row"><i style="background:#261E18"></i><i style="background:#FF5A4D"></i><i style="background:#AFC27A"></i><i style="background:#E8BE62"></i><i style="background:#8FA8C8"></i><i style="background:#C99AAE"></i><i style="background:#8FB39A"></i><i style="background:#EADFCF"></i></div>
+        <div class="row"><i style="background:#9F907F"></i><i style="background:#FF7A6E"></i><i style="background:#C4D28F"></i><i style="background:#F2CF7A"></i><i style="background:#A9BDD6"></i><i style="background:#D9B0C2"></i><i style="background:#A6C6AF"></i><i style="background:#F6EDE0"></i></div>
+      </div>
+    </div>
+    <div class="plinks">
+      <a href="../canon/palettes/walnut/walnut.css">CSS</a>
+      <a href="../canon/palettes/walnut/walnut.tokens.json">DTCG</a>
+      <a href="../canon/palettes/walnut/card.svg">CARD</a>
+      <a href="https://github.com/zinzaki/yoshiki-themes/tree/main/themes">THEMES</a>
+    </div>
+  </div>
+</article></div>
+</div></section>
+
+<footer class="gut"><div class="in cols">
+  <div><div class="mono">YOSHIKI · A DESIGN FOUNDATION</div><p style="margin:10px 0 0;max-width:42ch">Palettes, materials, objects and patterns — generated from one source and proven on every build.</p></div>
+  <div><div class="mono">REPOSITORY</div><p style="margin:10px 0 0"><a href="https://github.com/zinzaki/yoshiki">zinzaki/yoshiki</a><br><a href="https://github.com/zinzaki/yoshiki-themes">zinzaki/yoshiki-themes</a><br><a href="https://github.com/zinzaki/yoshiki/blob/main/AGENTS.md">AGENTS.md</a></p></div>
+  <div><div class="mono">BUILD</div><p style="margin:10px 0 0">MIT · every page generated by <span style="font-family:var(--mono)">tools/site.py</span></p></div>
+</div></footer>
+<script>
+(function(){
+  var PALS=[{"slug": "night-beige", "name": "Night beige", "code": "BE-N", "family": "Beige", "variant": "night", "mode": "dark", "temp": "warm", "mat": "glass", "accent": "gold", "bg": "#161410", "panel": "#1D1B16", "raised": "#24211C", "hover": "#322E27", "line": "#3A362E", "strong": "#4E493F", "ink": "#D6D2BD", "head": "#EAE6D2", "mu": "#9A9584", "ghost": "#7E7A6E", "acc": "#D8AF52", "accT": "#D8AF52", "sig": "#E3001B", "sigT": "#FF6155", "ok": "#AFC27A", "warn": "#D98A55", "kw": "#EC6B55", "fn": "#E8BE62", "str": "#AFC27A", "num": "#EBA15E", "com": "#8C7F6C", "term": {"bg": "#161410", "fg": "#D6D2BD", "cur": "#D8AF52", "ansi": ["#24211C", "#FF5A4D", "#AFC27A", "#E8BE62", "#8FA8C8", "#C99AAE", "#8FB39A", "#D6D2BD"], "br": ["#8A8577", "#FF7A6E", "#C4D28F", "#F2CF7A", "#A9BDD6", "#D9B0C2", "#A6C6AF", "#EAE6D2"]}}, {"slug": "beige-glass", "name": "Beige glass", "code": "BE-D", "family": "Beige", "variant": "day", "mode": "light", "temp": "warm", "mat": "glass", "accent": "gold", "bg": "#D6D2BD", "panel": "#DCD8C0", "raised": "#E4E0CB", "hover": "#C9C4AE", "line": "#BAB5A1", "strong": "#9C9684", "ink": "#454138", "head": "#2E2B24", "mu": "#534E43", "ghost": "#706A59", "acc": "#A8852F", "accT": "#533E13", "sig": "#E3001B", "sigT": "#A00019", "ok": "#3E541B", "warn": "#794116", "kw": "#A2301E", "fn": "#6E4F0C", "str": "#46601F", "num": "#804312", "com": "#78725F", "term": {"bg": "#161410", "fg": "#D6D2BD", "cur": "#D8AF52", "ansi": ["#24211C", "#FF5A4D", "#AFC27A", "#E8BE62", "#8FA8C8", "#C99AAE", "#8FB39A", "#D6D2BD"], "br": ["#8A8577", "#FF7A6E", "#C4D28F", "#F2CF7A", "#A9BDD6", "#D9B0C2", "#A6C6AF", "#EAE6D2"]}}, {"slug": "porcelain", "name": "Porcelain", "code": "PC-D", "family": "Porcelain", "variant": "day", "mode": "light", "temp": "neutral", "mat": "porcelain", "accent": "gold", "bg": "#F4F1EA", "panel": "#FBFAF6", "raised": "#FCFCF9", "hover": "#E3E0D9", "line": "#E2DDD2", "strong": "#ADA89F", "ink": "#23201B", "head": "#14120F", "mu": "#5F594F", "ghost": "#716B62", "acc": "#A8852F", "accT": "#5E4712", "sig": "#E3001B", "sigT": "#B00019", "ok": "#3E541B", "warn": "#794116", "kw": "#A2301E", "fn": "#6E4F0C", "str": "#46601F", "num": "#804312", "com": "#78725F", "term": {"bg": "#161410", "fg": "#D6D2BD", "cur": "#D8AF52", "ansi": ["#24211C", "#FF5A4D", "#AFC27A", "#E8BE62", "#8FA8C8", "#C99AAE", "#8FB39A", "#D6D2BD"], "br": ["#8A8577", "#FF7A6E", "#C4D28F", "#F2CF7A", "#A9BDD6", "#D9B0C2", "#A6C6AF", "#EAE6D2"]}}, {"slug": "concrete", "name": "Concrete", "code": "CN-D", "family": "Concrete", "variant": "day", "mode": "light", "temp": "cool", "mat": "concrete", "accent": "gold", "bg": "#D9D5CD", "panel": "#E5E1DA", "raised": "#EEECE7", "hover": "#CBC7BF", "line": "#C3BDB2", "strong": "#98938A", "ink": "#2A2724", "head": "#1A1816", "mu": "#57534C", "ghost": "#67635B", "acc": "#A8852F", "accT": "#533E13", "sig": "#E3001B", "sigT": "#980018", "ok": "#3A4E19", "warn": "#794116", "kw": "#A2301E", "fn": "#6E4F0C", "str": "#46601F", "num": "#804312", "com": "#78725F", "term": {"bg": "#161410", "fg": "#D6D2BD", "cur": "#D8AF52", "ansi": ["#24211C", "#FF5A4D", "#AFC27A", "#E8BE62", "#8FA8C8", "#C99AAE", "#8FB39A", "#D6D2BD"], "br": ["#8A8577", "#FF7A6E", "#C4D28F", "#F2CF7A", "#A9BDD6", "#D9B0C2", "#A6C6AF", "#EAE6D2"]}}, {"slug": "yorha", "name": "YoRHa", "code": "YR-D", "family": "YoRHa", "variant": "day", "mode": "light", "temp": "warm", "mat": "paper", "accent": "ink", "bg": "#D1CDB7", "panel": "#DCD8C0", "raised": "#E8E6D6", "hover": "#C6C2AD", "line": "#BAB5A1", "strong": "#999584", "ink": "#454138", "head": "#2E2B24", "mu": "#534E46", "ghost": "#666157", "acc": "#454138", "accT": "#2E2B24", "sig": "#E3001B", "sigT": "#880016", "ok": "#364817", "warn": "#794116", "kw": "#9C2E1D", "fn": "#6E4F0C", "str": "#425A1D", "num": "#804312", "com": "#78725F", "term": {"bg": "#161410", "fg": "#D6D2BD", "cur": "#D8AF52", "ansi": ["#24211C", "#FF5A4D", "#AFC27A", "#E8BE62", "#8FA8C8", "#C99AAE", "#8FB39A", "#D6D2BD"], "br": ["#8A8577", "#FF7A6E", "#C4D28F", "#F2CF7A", "#A9BDD6", "#D9B0C2", "#A6C6AF", "#EAE6D2"]}}, {"slug": "blush", "name": "Blush", "code": "BL-D", "family": "Blush", "variant": "day", "mode": "light", "temp": "warm", "mat": "powder", "accent": "red", "bg": "#FFE6E9", "panel": "#FFF4F5", "raised": "#FFF8F8", "hover": "#EDD5D8", "line": "#F2C6CC", "strong": "#B69398", "ink": "#1A1012", "head": "#0F0809", "mu": "#634C51", "ghost": "#765E63", "acc": "#E5132E", "accT": "#A80D22", "sig": "#E5132E", "sigT": "#A80D22", "ok": "#3E541B", "warn": "#794116", "kw": "#A2301E", "fn": "#6E4F0C", "str": "#46601F", "num": "#804312", "com": "#78725F", "term": {"bg": "#161410", "fg": "#D6D2BD", "cur": "#D8AF52", "ansi": ["#24211C", "#FF5A4D", "#AFC27A", "#E8BE62", "#8FA8C8", "#C99AAE", "#8FB39A", "#D6D2BD"], "br": ["#8A8577", "#FF7A6E", "#C4D28F", "#F2CF7A", "#A9BDD6", "#D9B0C2", "#A6C6AF", "#EAE6D2"]}}, {"slug": "blush-night", "name": "Blush night", "code": "BL-N", "family": "Blush", "variant": "night", "mode": "dark", "temp": "warm", "mat": "neon", "accent": "rose", "bg": "#1A1115", "panel": "#20151A", "raised": "#26191F", "hover": "#35232B", "line": "#412F37", "strong": "#5D4B52", "ink": "#FBE9EC", "head": "#FFF4F5", "mu": "#C09EA6", "ghost": "#9B7F86", "acc": "#FF8A98", "accT": "#FF8A98", "sig": "#FF3B55", "sigT": "#FF6B80", "ok": "#AFC27A", "warn": "#D98A55", "kw": "#EC6B55", "fn": "#E8BE62", "str": "#AFC27A", "num": "#EBA15E", "com": "#8C7F6C", "term": {"bg": "#1A1115", "fg": "#FBE9EC", "cur": "#FF8A98", "ansi": ["#26191F", "#FF5A4D", "#AFC27A", "#E8BE62", "#8FA8C8", "#C99AAE", "#8FB39A", "#FBE9EC"], "br": ["#AF9098", "#FF7A6E", "#C4D28F", "#F2CF7A", "#A9BDD6", "#D9B0C2", "#A6C6AF", "#FFF4F5"]}}, {"slug": "lab", "name": "Lab", "code": "LB-D", "family": "Lab", "variant": "day", "mode": "light", "temp": "cool", "mat": "hud", "accent": "red", "bg": "#E8E9EB", "panel": "#F6F6F7", "raised": "#F9F9FA", "hover": "#D7D8DA", "line": "#D1D3D7", "strong": "#9C9EA1", "ink": "#141517", "head": "#0A0B0C", "mu": "#55585D", "ghost": "#67696E", "acc": "#FF3D2E", "accT": "#B3231A", "sig": "#FF3D2E", "sigT": "#AC2219", "ok": "#3E541B", "warn": "#794116", "kw": "#A2301E", "fn": "#6E4F0C", "str": "#46601F", "num": "#804312", "com": "#78725F", "term": {"bg": "#0B0C0D", "fg": "#E9E9E6", "cur": "#D8AF52", "ansi": ["#24211C", "#FF5A4D", "#AFC27A", "#E8BE62", "#8FA8C8", "#C99AAE", "#8FB39A", "#D6D2BD"], "br": ["#8A8577", "#FF7A6E", "#C4D28F", "#F2CF7A", "#A9BDD6", "#D9B0C2", "#A6C6AF", "#EAE6D2"]}}, {"slug": "lab-night", "name": "Lab night", "code": "LB-N", "family": "Lab", "variant": "night", "mode": "dark", "temp": "cool", "mat": "hud", "accent": "red", "bg": "#0B0C0D", "panel": "#101112", "raised": "#141618", "hover": "#26292C", "line": "#323537", "strong": "#4D4F51", "ink": "#E9E9E6", "head": "#F6F6F3", "mu": "#8C8F93", "ghost": "#707276", "acc": "#FF3D2E", "accT": "#FF6357", "sig": "#FF3D2E", "sigT": "#FF6A5E", "ok": "#AFC27A", "warn": "#D98A55", "kw": "#EC6B55", "fn": "#E8BE62", "str": "#AFC27A", "num": "#EBA15E", "com": "#8C7F6C", "term": {"bg": "#0B0C0D", "fg": "#E9E9E6", "cur": "#FF3D2E", "ansi": ["#141618", "#FF5A4D", "#AFC27A", "#E8BE62", "#8FA8C8", "#C99AAE", "#8FB39A", "#E9E9E6"], "br": ["#7F8286", "#FF7A6E", "#C4D28F", "#F2CF7A", "#A9BDD6", "#D9B0C2", "#A6C6AF", "#F6F6F3"]}}, {"slug": "hanko", "name": "Hanko", "code": "HK-D", "family": "Hanko", "variant": "day", "mode": "light", "temp": "warm", "mat": "seal", "accent": "red", "bg": "#F2EFE8", "panel": "#FBF9F4", "raised": "#FCFBF8", "hover": "#E0DDD7", "line": "#DAD4C9", "strong": "#A39E95", "ink": "#141210", "head": "#0A0908", "mu": "#57524A", "ghost": "#6A655D", "acc": "#E3001B", "accT": "#A8001A", "sig": "#E3001B", "sigT": "#A8001A", "ok": "#3E541B", "warn": "#794116", "kw": "#A2301E", "fn": "#6E4F0C", "str": "#46601F", "num": "#804312", "com": "#78725F", "term": {"bg": "#0E0D0B", "fg": "#EEE8DC", "cur": "#D8AF52", "ansi": ["#24211C", "#FF5A4D", "#AFC27A", "#E8BE62", "#8FA8C8", "#C99AAE", "#8FB39A", "#D6D2BD"], "br": ["#8A8577", "#FF7A6E", "#C4D28F", "#F2CF7A", "#A9BDD6", "#D9B0C2", "#A6C6AF", "#EAE6D2"]}}, {"slug": "hanko-night", "name": "Hanko night", "code": "HK-N", "family": "Hanko", "variant": "night", "mode": "dark", "temp": "warm", "mat": "seal", "accent": "red", "bg": "#0E0D0B", "panel": "#141210", "raised": "#191714", "hover": "#2D2A25", "line": "#393530", "strong": "#54504A", "ink": "#EEE8DC", "head": "#FAF6EE", "mu": "#9C9589", "ghost": "#7D776D", "acc": "#FF6D7E", "accT": "#FF6D7E", "sig": "#E3001B", "sigT": "#FF584D", "ok": "#AFC27A", "warn": "#D98A55", "kw": "#EC6B55", "fn": "#E8BE62", "str": "#AFC27A", "num": "#EBA15E", "com": "#8C7F6C", "term": {"bg": "#0E0D0B", "fg": "#EEE8DC", "cur": "#E3001B", "ansi": ["#191714", "#FF5A4D", "#AFC27A", "#E8BE62", "#8FA8C8", "#C99AAE", "#8FB39A", "#EEE8DC"], "br": ["#8E877C", "#FF7A6E", "#C4D28F", "#F2CF7A", "#A9BDD6", "#D9B0C2", "#A6C6AF", "#FAF6EE"]}}, {"slug": "cafe", "name": "Café", "code": "CF-N", "family": "Café", "variant": "night", "mode": "dark", "temp": "warm", "mat": "lo-fi", "accent": "peach", "bg": "#221A16", "panel": "#281E1A", "raised": "#2D231D", "hover": "#3B2F27", "line": "#463A31", "strong": "#5F5349", "ink": "#F1E3CF", "head": "#FAF0E0", "mu": "#B39E8C", "ghost": "#938172", "acc": "#F4A662", "accT": "#F4A662", "sig": "#E22D32", "sigT": "#FF6F72", "ok": "#AFC27A", "warn": "#D98A55", "kw": "#EC6B55", "fn": "#E8BE62", "str": "#AFC27A", "num": "#EBA15E", "com": "#8C7F6C", "term": {"bg": "#221A16", "fg": "#F1E3CF", "cur": "#F4A662", "ansi": ["#2D231D", "#FF5A4D", "#AFC27A", "#E8BE62", "#8FA8C8", "#C99AAE", "#8FB39A", "#F1E3CF"], "br": ["#A49180", "#FF7A6E", "#C4D28F", "#F2CF7A", "#A9BDD6", "#D9B0C2", "#A6C6AF", "#FAF0E0"]}}, {"slug": "ember", "name": "Ember", "code": "EM-N", "family": "Ember", "variant": "night", "mode": "dark", "temp": "warm", "mat": "tube-amp", "accent": "gold", "bg": "#1D1B19", "panel": "#22201E", "raised": "#282522", "hover": "#37332E", "line": "#413C36", "strong": "#595248", "ink": "#E3D0AE", "head": "#F0E2C6", "mu": "#A89A86", "ghost": "#897E6E", "acc": "#D8AF52", "accT": "#D8AF52", "sig": "#E3001B", "sigT": "#FF6F65", "ok": "#AFC27A", "warn": "#D98A55", "kw": "#EC6B55", "fn": "#E8BE62", "str": "#AFC27A", "num": "#EBA15E", "com": "#8C7F6C", "term": {"bg": "#1D1B19", "fg": "#E3D0AE", "cur": "#D8AF52", "ansi": ["#282522", "#FF5A4D", "#AFC27A", "#E8BE62", "#8FA8C8", "#C99AAE", "#8FB39A", "#E3D0AE"], "br": ["#9A8D7B", "#FF7A6E", "#C4D28F", "#F2CF7A", "#A9BDD6", "#D9B0C2", "#A6C6AF", "#F0E2C6"]}}, {"slug": "moss", "name": "Moss", "code": "MS-N", "family": "Moss", "variant": "night", "mode": "dark", "temp": "warm", "mat": "forest", "accent": "copper", "bg": "#12150F", "panel": "#161A13", "raised": "#1B1F17", "hover": "#2A3023", "line": "#353B2D", "strong": "#4F5445", "ink": "#E4E2CF", "head": "#F0EEDD", "mu": "#A0A690", "ghost": "#818674", "acc": "#C98E4E", "accT": "#C98E4E", "sig": "#E3001B", "sigT": "#FF6155", "ok": "#AFC27A", "warn": "#D98A55", "kw": "#EC6B55", "fn": "#E8BE62", "str": "#AFC27A", "num": "#EBA15E", "com": "#8C7F6C", "term": {"bg": "#12150F", "fg": "#E4E2CF", "cur": "#C98E4E", "ansi": ["#1B1F17", "#FF5A4D", "#AFC27A", "#E8BE62", "#8FA8C8", "#C99AAE", "#8FB39A", "#E4E2CF"], "br": ["#929883", "#FF7A6E", "#C4D28F", "#F2CF7A", "#A9BDD6", "#D9B0C2", "#A6C6AF", "#F0EEDD"]}}, {"slug": "signal", "name": "Signal", "code": "SG-N", "family": "Signal", "variant": "night", "mode": "dark", "temp": "neutral", "mat": "instrument", "accent": "gold", "bg": "#0C0D0E", "panel": "#101214", "raised": "#15171A", "hover": "#262A2E", "line": "#323538", "strong": "#4D4F50", "ink": "#E8E4DA", "head": "#F4F1EA", "mu": "#9A968A", "ghost": "#7B786F", "acc": "#D8AF52", "accT": "#D8AF52", "sig": "#FF3D2E", "sigT": "#FF6A5E", "ok": "#AFC27A", "warn": "#D98A55", "kw": "#EC6B55", "fn": "#E8BE62", "str": "#AFC27A", "num": "#EBA15E", "com": "#8C7F6C", "term": {"bg": "#0C0D0E", "fg": "#E8E4DA", "cur": "#D8AF52", "ansi": ["#15171A", "#FF5A4D", "#AFC27A", "#E8BE62", "#8FA8C8", "#C99AAE", "#8FB39A", "#E8E4DA"], "br": ["#8C887E", "#FF7A6E", "#C4D28F", "#F2CF7A", "#A9BDD6", "#D9B0C2", "#A6C6AF", "#F4F1EA"]}}, {"slug": "walnut", "name": "Walnut", "code": "WL-N", "family": "Walnut", "variant": "night", "mode": "dark", "temp": "warm", "mat": "wood", "accent": "gold", "bg": "#1C1612", "panel": "#211A15", "raised": "#261E18", "hover": "#352B22", "line": "#40362C", "strong": "#594F45", "ink": "#EADFCF", "head": "#F6EDE0", "mu": "#AE9E8B", "ghost": "#8E8070", "acc": "#D8AF52", "accT": "#D8AF52", "sig": "#DA3820", "sigT": "#FF6B55", "ok": "#AFC27A", "warn": "#D98A55", "kw": "#EC6B55", "fn": "#E8BE62", "str": "#AFC27A", "num": "#EBA15E", "com": "#8C7F6C", "term": {"bg": "#1C1612", "fg": "#EADFCF", "cur": "#D8AF52", "ansi": ["#261E18", "#FF5A4D", "#AFC27A", "#E8BE62", "#8FA8C8", "#C99AAE", "#8FB39A", "#EADFCF"], "br": ["#9F907F", "#FF7A6E", "#C4D28F", "#F2CF7A", "#A9BDD6", "#D9B0C2", "#A6C6AF", "#F6EDE0"]}}];
+  var KEYS=['bg','panel','raised','hover','line','strong','ink','head','mu','ghost','acc','accT','sig','sigT','ok','warn','kw','fn','str','num','com'];
+  function apply(p){ var r=document.documentElement;
+    KEYS.forEach(function(k){ r.style.setProperty('--'+k,p[k]); });
+    r.style.setProperty('--term-bg',p.term.bg); r.style.setProperty('--term-fg',p.term.fg); r.style.setProperty('--term-cur',p.term.cur);
+    r.dataset.palette=p.slug; r.style.setProperty('color-scheme',p.mode);
+    document.querySelectorAll('#pals button').forEach(function(b){ b.setAttribute('aria-pressed',String(b.dataset.p===p.slug)); });
+    document.querySelectorAll('[data-pal-name]').forEach(function(e){ e.textContent=p.name; });
+    document.querySelectorAll('[data-pal-code]').forEach(function(e){ e.textContent=p.code; });
+    document.querySelectorAll('[data-pal-meta]').forEach(function(e){ e.textContent=p.temp+' · '+p.mat+' · '+p.accent; });
+    window.__pal=p; window.dispatchEvent(new CustomEvent('palette',{detail:p}));
+    try{ localStorage.setItem('yoshiki-palette',p.slug); }catch(e){}
+  }
+  window.__pals=PALS; window.__applyPalette=apply;
+  document.getElementById('pals').addEventListener('click',function(e){ var b=e.target.closest('button'); if(b) apply(PALS.filter(function(p){return p.slug===b.dataset.p;})[0]); });
+  var saved=null; try{ saved=localStorage.getItem('yoshiki-palette'); }catch(e){}
+  apply(PALS.filter(function(p){ return p.slug===saved; })[0] || PALS[0]);
+})();
+</script>
+
+</body>
+</html>
