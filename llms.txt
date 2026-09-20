@@ -1,9 +1,9 @@
 # yoshiki
 
-> A design foundation (v2, in transition): zone first (graphic vs text), palettes as a
-> separate layer, NieR:Automata menu grammar, frosted glass over a warm glow, gold as
-> the constant accent, red as the rare signal. Production palettes — Night beige (dark),
-> Beige glass (light). AGENTS.md overrides any v1 wording in the modules below.
+> A library of design registers. Zone first (graphic vs text), roles instead of raw
+> values, sixteen equal palettes as a swappable layer, and 246 components rebuilt from
+> references and kept pure within fourteen stylistic registers. One register per design;
+> never two in the same frame. AGENTS.md overrides any older wording in the modules below.
 
 ## Start here
 - [AGENTS.md](AGENTS.md): how to apply yoshiki — read order, the laws, the map
@@ -13,10 +13,13 @@
 - [priority](canon/language/priority.md): the ordered ladder (higher rung wins)
 - [defaults](canon/language/defaults.md): concrete fallbacks for every choice
 
-## Palette — tokens + the roles contract, two themes
-- [palette overview](canon/palettes/README.md): tokens vs roles, the gold law
-- [Night beige](canon/palettes/night-beige/palette.yml): dark — source of truth
-- [Beige glass](canon/palettes/beige-glass/palette.yml): light — the paper companion
+## Palettes — sixteen variants in twelve families, one role contract
+- [roles](canon/language/roles.md): the contract every palette answers — bg, border, text, bar, accent, signal
+- [zones](canon/language/zones.md): graphic vs text — decide this before anything else
+- [palette overview](canon/palettes/README.md): tokens vs roles, families, codes
+- [Night beige](canon/palettes/night-beige/palette.yml): BE-N — the dark default
+- [Beige glass](canon/palettes/beige-glass/palette.yml): BE-D — the light companion
+- [the other fourteen](canon/palettes/): porcelain · concrete · yorha · blush(+night) · lab(+night) · hanko(+night) · cafe · ember · moss · signal · walnut
 - [DTCG tokens](canon/palettes/night-beige/night-beige.tokens.json): W3C design tokens — Style Dictionary / agent readable
 - [contrast proof](canon/palettes/CONTRAST.md): WCAG, regenerated on every build
 - [accessibility](canon/palettes/ACCESSIBILITY.md): contrast + colour-blind safety — glyph, not colour alone
@@ -51,7 +54,15 @@
 - [principles](canon/prompts/principles.md) · [palette](canon/prompts/palette.md) · [cli](canon/prompts/cli.md) · [comments](canon/prompts/comments.md) · [text](canon/prompts/text.md)
 - [motion](canon/prompts/motion.md) · [effects](canon/prompts/effects.md) · [typography](canon/prompts/typography.md) · [image](canon/prompts/image.md) · [messaging](canon/prompts/messaging.md): motion, effects, fonts, images, chat in the style
 
+## Workshop — how a component gets into the library
+- [extraction](workshop/EXTRACTION.md): every component of every reference, named before it is judged
+- [filters](workshop/FILTERS.md): F0…F10 in order — substance, zone, register, distinctness, proofs, craft, value
+- [previews](workshop/PREVIEWS.md): the contract a rebuilt component must satisfy
+- [catalogue](workshop/refs/extract/catalogue.json): 782 parts from 265 references
+- [registry](canon/registry.json): every manifest in one machine index (shadcn shape: registry.json)
+
 ## Library — ready artifacts to lift
+- [previews](library/previews/): 246 rebuilt components, one directory per register
 - [web](library/web/README.md): the drop-in kit — palette.css + yoshiki.css, no build step
 - [integrations](library/integrations/README.md): npm, Tailwind preset, Figma variables, Style Dictionary, typed tokens
 - [themes](https://github.com/zinzaki/yoshiki-themes#readme): kitty · foot · alacritty · ghostty · wezterm · starship · base24 · vscode · neovim · tmux · btop · zellij · fzf (generated)

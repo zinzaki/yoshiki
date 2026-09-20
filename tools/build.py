@@ -351,118 +351,118 @@ BANNER_STRIP = ["ink-0", "ink-1", "ink-2", "ink-3", "line-1", "bone-4", "bone-3"
                 "kaki-1", "mori-1", "aka-1"]
 
 
+def library_counts() -> dict:
+    """What the repository actually holds right now — the banner states numbers, so it
+    counts them rather than carrying a figure that rots."""
+    prev = ROOT / "library" / "previews"
+    files = sorted(prev.rglob("*.html")) if prev.exists() else []
+    return {"components": len(files),
+            "registers": len({f.parent.name for f in files}),
+            "roles": 0}
+
+
+def specimen(pal: dict, x: float, y: float, w_: float, h_: float, code: str) -> list[str]:
+    """One palette, shown rather than named: its own ground, its own panel, its own
+    accent and signal. Every palette in the family gets the same frame, so none of
+    them is the one the identity is built around."""
+    t = pal["tokens"]
+    r = lambda k: role_value(pal["roles"][k], t)[1]
+    bar = max(3.0, w_ * 0.055)
+    return [
+        f'<rect x="{x:.1f}" y="{y:.1f}" width="{w_:.1f}" height="{h_:.1f}" fill="{r("bg.app")}"/>',
+        f'<rect x="{x + 10:.1f}" y="{y + 12:.1f}" width="{w_ - 20:.1f}" height="{h_ - 24:.1f}" rx="7" '
+        f'fill="{r("bg.surface")}" stroke="{r("border.hairline")}"/>',
+        f'<rect x="{x + 20:.1f}" y="{y + 24:.1f}" width="{w_ * 0.28:.1f}" height="3" fill="{r("accent.edge")}"/>',
+        f'<rect x="{x + 20:.1f}" y="{y + 38:.1f}" width="{w_ - 40:.1f}" height="{bar:.1f}" rx="1.5" '
+        f'fill="{r("text.primary")}"/>',
+        f'<rect x="{x + 20:.1f}" y="{y + 38 + bar + 7:.1f}" width="{(w_ - 40) * 0.62:.1f}" height="{bar:.1f}" '
+        f'rx="1.5" fill="{r("text.muted")}"/>',
+        f'<rect x="{x + 20:.1f}" y="{y + h_ - 34:.1f}" width="{w_ * 0.2:.1f}" height="14" rx="3" '
+        f'fill="{r("bg.hover")}" stroke="{r("border.strong")}"/>',
+        f'<circle cx="{x + w_ - 26:.1f}" cy="{y + h_ - 27:.1f}" r="5" fill="{r("signal.fill")}"/>',
+        f'<text x="{x + w_ - 42:.1f}" y="{y + 30:.1f}" text-anchor="end" font-family="{CARD_MONO}" '
+        f'font-size="10.5" letter-spacing="1.6" fill="{r("accent.text")}">{code}</text>',
+    ]
+
+
 def emit_banner(resolved: dict):
-    tok = resolved[DARK]["tokens"]
-    glyph = resolved[DARK]["brand"]["mark"]
+    """docs/banner.svg — the family sheet. Sixteen palettes across the field, each one
+    standing in its own colours, and the name printed on a band laid over them. The
+    repository is a library of registers, so its face cannot be one register's colour."""
+    dark = resolved[DARK]["tokens"]
+    counts = library_counts()
     W, H = 1280, 420
     PAD = 88
-    BAR = 28                      # the full-bleed specimen strip
     serif = "Georgia,'Iowan Old Style','Times New Roman',serif"
     mono = "ui-monospace,SFMono-Regular,Menlo,Consolas,monospace"
-    inner = mark_svg(tok, glyph, 54).split(">", 1)[1].rsplit("</svg>", 1)[0]
+    pals = list(resolved.items())
+    cols = 8
+    ch = 148                       # two rows of specimens, the band in the gutter between
+    BY, BH = ch, H - 2 * ch
+    cw = W / cols
 
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" '
-        f'role="img" aria-label="yoshiki — a design language for terminals, editors and the web">',
-        '<defs>',
-        f'<radialGradient id="glow" cx="18%" cy="8%" r="86%">'
-        f'<stop offset="0%" stop-color="{tok["kin-1"]}" stop-opacity=".11"/>'
-        f'<stop offset="100%" stop-color="{tok["kin-1"]}" stop-opacity="0"/></radialGradient>',
-        '</defs>',
-        f'<rect width="{W}" height="{H}" fill="{tok["ink-0"]}"/>',
-        f'<rect width="{W}" height="{H}" fill="url(#glow)"/>',
-        # mark and wordmark, optically aligned on the cap line
-        f'<g transform="translate({PAD} 101)">{inner}</g>',
-        f'<text x="{PAD + 74}" y="149" font-family="{serif}" font-size="60" font-weight="700" '
-        f'letter-spacing="-1.2" fill="{tok["bone-0"]}">yoshiki</text>',
-        f'<rect x="{PAD}" y="188" width="132" height="1.5" fill="{tok["kin-1"]}"/>',
-        f'<text x="{PAD}" y="232" font-family="{serif}" font-size="23" fill="{tok["bone-1"]}">'
-        f'A design language for terminals, editors and the web.</text>',
-        f'<text x="{PAD}" y="266" font-family="{mono}" font-size="13" fill="{tok["bone-3"]}">'
-        f'Warm monochrome. Gold gilds, never fills. One scarlet, kept for the irreversible.</text>',
+        f'role="img" aria-label="yoshiki \u2014 a library of design registers, shown in sixteen palettes">',
+        f'<rect width="{W}" height="{H}" fill="{dark["ink-0"]}"/>',
     ]
-    parts.append(
-        f'<text x="{PAD}" y="316" font-family="{mono}" font-size="12.5" letter-spacing=".4" '
-        f'fill="{tok["kin-2"]}">13 GENERATED THEMES  ·  42 TOKENS  ·  35 ROLES  ·  '
-        f'EVERY ROLE PROVEN ON EVERY SURFACE</text>')
+    for i, (slug, pal) in enumerate(pals):
+        y = 0 if i < cols else BY + BH
+        parts += specimen(pal, (i % cols) * cw, y, cw, ch, pal["meta"].get("code", ""))
 
-    # the right half does not describe the language, it shows it running
-    CW, CH, CX, CY = 452, 214, W - PAD - 452, 96
+    # the band: the name is printed over the family, not beside one member of it
     parts += [
-        f'<rect x="{CX}" y="{CY}" width="{CW}" height="{CH}" rx="12" fill="{tok["ink-1"]}" '
-        f'stroke="{tok["line-0"]}"/>',
-        f'<line x1="{CX}" y1="{CY + 34}" x2="{CX + CW}" y2="{CY + 34}" stroke="{tok["line-0"]}"/>',
+        f'<rect x="0" y="{BY}" width="{W}" height="{BH}" fill="{dark["ink-0"]}"/>',
+        f'<rect x="0" y="{BY}" width="{W}" height="1" fill="{dark["line-0"]}"/>',
+        f'<rect x="0" y="{BY + BH - 1}" width="{W}" height="1" fill="{dark["line-0"]}"/>',
+        f'<text x="{PAD}" y="{BY + 60}" font-family="{serif}" font-size="52" font-weight="700" '
+        f'letter-spacing="-1.2" fill="{dark["bone-0"]}">yoshiki</text>',
+        f'<text x="{PAD}" y="{BY + 92}" font-family="{mono}" font-size="13" fill="{dark["bone-3"]}">'
+        f'A library of design registers \u2014 one contract, many worlds.</text>',
+        f'<text x="{W - PAD}" y="{BY + 53}" text-anchor="end" font-family="{mono}" font-size="12.5" '
+        f'letter-spacing=".4" fill="{dark["bone-2"]}">{len(pals)} PALETTES  \u00b7  '
+        f'{counts["components"]} COMPONENTS  \u00b7  {counts["registers"]} REGISTERS</text>',
+        f'<text x="{W - PAD}" y="{BY + 84}" text-anchor="end" font-family="{mono}" font-size="12.5" '
+        f'letter-spacing=".4" fill="{dark["bone-3"]}">EVERY ROLE PROVEN ON EVERY SURFACE</text>',
     ]
-    for i, c in enumerate((tok["aka-1"], tok["kin-1"], tok["mori-1"])):
-        parts.append(f'<circle cx="{CX + 20 + i * 15}" cy="{CY + 17}" r="4" fill="{c}"/>')
-    parts.append(f'<text x="{CX + 78}" y="{CY + 21}" font-family="{mono}" font-size="10.5" '
-                 f'fill="{tok["bone-3"]}">zsh</text>')
-    parts += [
-        f'<path d="M {CX + 24} {CY + 58} v 34" stroke="{tok["kin-1"]}" stroke-width="1.4" fill="none"/>',
-    ]
-    LINES = [
-        [("  \u25c6  ", tok["kin-1"]), ("deploy", tok["bone-0"]),
-         ("   main ", tok["bone-3"]), ("\u2713 clean", tok["mori-0"])],
-        [("  \u276f  ", tok["kin-1"]), ("ship --prod", tok["bone-1"])],
-        [("\u2713 build    ", tok["mori-0"]), ("passed \u00b7 214 files", tok["bone-3"])],
-        [("\u25cf upload   ", tok["kin-1"]), ("in progress \u2839", tok["bone-3"])],
-        [("\u2717 migrate  ", tok["aka-0"]), ("blocked \u00b7 needs --confirm", tok["bone-3"])],
-    ]
-    for i, segs in enumerate(LINES):
-        y = CY + 68 + i * 27
-        spans = "".join(f'<tspan fill="{c}">{t}</tspan>' for t, c in segs)
-        parts.append(f'<text x="{CX + 22}" y="{y}" font-family="{mono}" font-size="13" '
-                     f'xml:space="preserve">{spans}</text>')
-
-    # the specimen strip: no gaps, edge to edge, in palette order
-    x = 0
-    step = W / len(BANNER_STRIP)
-    for name in BANNER_STRIP:
-        parts.append(f'<rect x="{x:.1f}" y="{H - BAR}" width="{step + 1:.1f}" height="{BAR}" '
-                     f'fill="{tok[name]}"/>')
-        x += step
-    parts.append(f'<rect x="0" y="{H - BAR}" width="{W}" height="1" fill="{tok["line-0"]}"/>')
-    parts.append(f'<rect x=".5" y=".5" width="{W - 1}" height="{H - 1}" fill="none" stroke="{tok["line-0"]}"/>')
+    parts.append(f'<rect x=".5" y=".5" width="{W - 1}" height="{H - 1}" fill="none" stroke="{dark["line-0"]}"/>')
     parts.append("</svg>")
     w(ROOT / "docs" / "banner.svg", "\n".join(parts) + "\n")
-    emit_og(tok, glyph)
+    emit_og(resolved, counts)
 
 
-def emit_og(tok: dict, glyph: str):
-    """docs/og.svg — the same sheet at the 1.91:1 the link previews want.
+def emit_og(resolved: dict, counts: dict):
+    """docs/og.svg \u2014 the same sheet at the 1.91:1 the link previews want.
     Rasterised to og.png by tools/render-og.mjs (social platforms will not
     render SVG)."""
+    dark = resolved[DARK]["tokens"]
     W, H, PAD = 1200, 630, 84
     serif = "Georgia,'Iowan Old Style','Times New Roman',serif"
     mono = "ui-monospace,SFMono-Regular,Menlo,Consolas,monospace"
-    inner = mark_svg(tok, glyph, 66).split(">", 1)[1].rsplit("</svg>", 1)[0]
-    strip = BANNER_STRIP
-    step = W / len(strip)
+    pals = list(resolved.items())
+    cols = 8
+    ch = 205
+    BY, BH = ch, H - 2 * ch
+    cw = W / cols
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}">',
-        f'<defs><radialGradient id="g" cx="22%" cy="6%" r="88%">'
-        f'<stop offset="0%" stop-color="{tok["kin-1"]}" stop-opacity=".12"/>'
-        f'<stop offset="100%" stop-color="{tok["kin-1"]}" stop-opacity="0"/></radialGradient></defs>',
-        f'<rect width="{W}" height="{H}" fill="{tok["ink-0"]}"/>',
-        f'<rect width="{W}" height="{H}" fill="url(#g)"/>',
-        f'<g transform="translate({PAD} 207)">{inner}</g>',
-        f'<text x="{PAD + 88}" y="264" font-family="{serif}" font-size="76" font-weight="700" '
-        f'letter-spacing="-1.5" fill="{tok["bone-0"]}">yoshiki</text>',
-        f'<rect x="{PAD}" y="320" width="150" height="2" fill="{tok["kin-1"]}"/>',
-        f'<text x="{PAD}" y="376" font-family="{serif}" font-size="30" fill="{tok["bone-1"]}">'
-        f'A design language for terminals, editors and the web.</text>',
-        f'<text x="{PAD}" y="418" font-family="{mono}" font-size="16" fill="{tok["bone-3"]}">'
-        f'Warm monochrome. Gold gilds, never fills.</text>',
-        f'<text x="{PAD}" y="446" font-family="{mono}" font-size="16" fill="{tok["bone-3"]}">'
-        f'One scarlet, kept for the irreversible.</text>',
-        f'<text x="{PAD}" y="506" font-family="{mono}" font-size="14" letter-spacing=".5" '
-        f'fill="{tok["kin-2"]}">13 GENERATED THEMES  ·  42 TOKENS  ·  35 ROLES  ·  '
-        f'PROVEN ON EVERY SURFACE</text>',
+        f'<rect width="{W}" height="{H}" fill="{dark["ink-0"]}"/>',
     ]
-    x = 0
-    for name in strip:
-        parts.append(f'<rect x="{x:.1f}" y="{H - 34}" width="{step + 1:.1f}" height="34" fill="{tok[name]}"/>')
-        x += step
+    for i, (slug, pal) in enumerate(pals):
+        y = 0 if i < cols else BY + BH
+        parts += specimen(pal, (i % cols) * cw, y, cw, ch, pal["meta"].get("code", ""))
+    parts += [
+        f'<rect x="0" y="{BY}" width="{W}" height="{BH}" fill="{dark["ink-0"]}"/>',
+        f'<rect x="0" y="{BY}" width="{W}" height="1" fill="{dark["line-0"]}"/>',
+        f'<rect x="0" y="{BY + BH - 1}" width="{W}" height="1" fill="{dark["line-0"]}"/>',
+        f'<text x="{PAD}" y="{BY + 86}" font-family="{serif}" font-size="72" font-weight="700" '
+        f'letter-spacing="-1.5" fill="{dark["bone-0"]}">yoshiki</text>',
+        f'<text x="{PAD}" y="{BY + 128}" font-family="{mono}" font-size="17" fill="{dark["bone-3"]}">'
+        f'A library of design registers \u2014 one contract, many worlds.</text>',
+        f'<text x="{PAD}" y="{BY + 162}" font-family="{mono}" font-size="15" letter-spacing=".5" '
+        f'fill="{dark["bone-2"]}">{len(pals)} PALETTES  \u00b7  {counts["components"]} COMPONENTS  '
+        f'\u00b7  {counts["registers"]} REGISTERS  \u00b7  PROVEN ON EVERY SURFACE</text>',
+    ]
     parts.append("</svg>")
     w(ROOT / "docs" / "og.svg", "\n".join(parts) + "\n")
 
@@ -632,9 +632,9 @@ def emit_integrations(resolved: dict):
     pkg = {
         "name": "yoshiki-design",
         "version": ver,
-        "description": "A design language for terminals, editors and the web: "
-                       "warm monochrome, struck rarely by colour. Tokens with a proven "
-                       "roles contract, a component stylesheet, and thirteen generated themes.",
+        "description": "A library of design registers: sixteen proven palettes, a role "
+                       "contract, a component kit and a catalogue of rebuilt components "
+                       "for terminals, editors and the web.",
         "keywords": ["design-system", "design-tokens", "css", "theme", "dark-theme",
                      "light-theme", "palette", "accessibility", "wcag", "terminal-theme",
                      "vscode-theme", "tailwind", "dtcg"],

@@ -1,5 +1,48 @@
 # Changelog
 
+## v2.0 — 2026-09
+
+The repository stops being one taste written down and becomes a library of registers.
+
+- **Sixteen palettes, all equal.** Twelve families, day and night variants where the
+  family has both, each with a two-letter code (`BE-N`, `HK-D`, `LB-N`), a material and a
+  temperature. The role contract (`bg.* border.* text.* bar.* accent.* signal.*`) is what
+  a component consumes; the palette is a mounted layer, and swapping it breaks nothing.
+  Gold is one palette among sixteen now, not the frame around the project.
+- **The proof got stricter and broader.** Every role is measured against every surface it
+  can sit on, in all sixteen palettes; the build fails on one cell below its floor. A
+  palette that needs a lower edge floor must declare it in its own `palette.yml`, with a
+  reason — `paper-gold` is the only one that does, and it says why.
+- **The canon was rebuilt around the question an agent actually asks.** `language/`
+  (zones, roles, defaults, priority), `materials/` (glass, glow, halftone, relief, seal,
+  dither, topo…), `objects/` split by zone, `patterns/` as layout schemes, `physics/`
+  (elevation, light, motion, metrics), `treatments/` (clean · ornate). Every entry carries
+  a manifest, and `canon/registry.json` — plus a shadcn-shaped `registry.json` at the root
+  — is generated from them.
+- **A workshop instead of taste.** 265 private references were mined exhaustively into a
+  782-part catalogue, then run through eleven ordered filters (`workshop/FILTERS.md`):
+  substance, zone, register purity, distinctness, palette proof, scale proof,
+  accessibility, craft, taste signals, value to the whole. What survived was **rebuilt**
+  as 246 standalone, palette-agnostic previews in fourteen registers — none of them copies
+  a reference, and a rejection is recorded with its reason.
+- **Registers are kept apart.** A register is a whole stylistic world (blueprint HUD,
+  Swiss editorial, lo-fi warm, print halftone, soft relief, washi paper, ornate menu…).
+  They live side by side in the library and are never mixed inside one design; the gallery
+  groups by register for exactly that reason.
+- **The site is generated from the library.** Three pages — the showcase, the palette room
+  and the component gallery — built by `tools/site_pages.py` from `canon/palettes/` and
+  `library/previews/`, with every palette switchable live, down to the terminal and syntax
+  colours. The hand-written v1 pages and their scripts are gone, so the showcase cannot
+  drift from what the repository actually holds. `tools/check.py` fails on a stray colour,
+  a dead link or a drifted copy; CI runs the site check and the unit tests too.
+- **A face that shows the family.** The banner and the link-preview card are one specimen
+  sheet: sixteen palettes, each standing in its own colours, with the name printed on a
+  band laid over them.
+- **Themes moved out.** Program themes (kitty · ghostty · foot · alacritty · wezterm ·
+  vscode · neovim · starship · tmux · zellij · btop · fzf · base24) now live in
+  `zinzaki/yoshiki-themes`, generated from the same palettes. This repository is the
+  language and the library; that one is the output.
+
 ## v1.2 — 2026-09
 
 - **No Japanese characters anywhere** — 430 of them across 56 files, scattered

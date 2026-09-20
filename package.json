@@ -1,7 +1,7 @@
 {
   "name": "yoshiki-design",
   "version": "2.0.0",
-  "description": "A design language for terminals, editors and the web: warm monochrome, struck rarely by colour. Tokens with a proven roles contract, a component stylesheet, and thirteen generated themes.",
+  "description": "A library of design registers: sixteen proven palettes, a role contract, a component kit and a catalogue of rebuilt components for terminals, editors and the web.",
   "keywords": [
     "design-system",
     "design-tokens",

@@ -1,29 +1,137 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-<defs><radialGradient id="g" cx="22%" cy="6%" r="88%"><stop offset="0%" stop-color="#D8AF52" stop-opacity=".12"/><stop offset="100%" stop-color="#D8AF52" stop-opacity="0"/></radialGradient></defs>
 <rect width="1200" height="630" fill="#161410"/>
-<rect width="1200" height="630" fill="url(#g)"/>
-<g transform="translate(84 207)"><rect width="32" height="32" rx="8" fill="#1D1B16"/><text x="16" y="23.4" text-anchor="middle" font-family="'Shippori Mincho','Noto Serif JP','Hiragino Mincho ProN','Yu Mincho',serif" font-size="21" font-weight="700" fill="#D8AF52">式</text><rect x=".5" y=".5" width="31" height="31" rx="7.5" fill="none" stroke="#3A362E"/></g>
-<text x="172" y="264" font-family="Georgia,'Iowan Old Style','Times New Roman',serif" font-size="76" font-weight="700" letter-spacing="-1.5" fill="#EAE6D2">yoshiki</text>
-<rect x="84" y="320" width="150" height="2" fill="#D8AF52"/>
-<text x="84" y="376" font-family="Georgia,'Iowan Old Style','Times New Roman',serif" font-size="30" fill="#D6D2BD">A design language for terminals, editors and the web.</text>
-<text x="84" y="418" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="16" fill="#9A9584">Warm monochrome. Gold gilds, never fills.</text>
-<text x="84" y="446" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="16" fill="#9A9584">One scarlet, kept for the irreversible.</text>
-<text x="84" y="506" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="14" letter-spacing=".5" fill="#B5924A">13 GENERATED THEMES  ·  42 TOKENS  ·  35 ROLES  ·  PROVEN ON EVERY SURFACE</text>
-<rect x="0.0" y="596" width="71.6" height="34" fill="#161410"/>
-<rect x="70.6" y="596" width="71.6" height="34" fill="#1D1B16"/>
-<rect x="141.2" y="596" width="71.6" height="34" fill="#24211C"/>
-<rect x="211.8" y="596" width="71.6" height="34" fill="#322E27"/>
-<rect x="282.4" y="596" width="71.6" height="34" fill="#4E493F"/>
-<rect x="352.9" y="596" width="71.6" height="34" fill="#7E7A6E"/>
-<rect x="423.5" y="596" width="71.6" height="34" fill="#9A9584"/>
-<rect x="494.1" y="596" width="71.6" height="34" fill="#BAB5A1"/>
-<rect x="564.7" y="596" width="71.6" height="34" fill="#D6D2BD"/>
-<rect x="635.3" y="596" width="71.6" height="34" fill="#EAE6D2"/>
-<rect x="705.9" y="596" width="71.6" height="34" fill="#57441F"/>
-<rect x="776.5" y="596" width="71.6" height="34" fill="#B5924A"/>
-<rect x="847.1" y="596" width="71.6" height="34" fill="#D8AF52"/>
-<rect x="917.6" y="596" width="71.6" height="34" fill="#EDC85C"/>
-<rect x="988.2" y="596" width="71.6" height="34" fill="#D98A55"/>
-<rect x="1058.8" y="596" width="71.6" height="34" fill="#56702A"/>
-<rect x="1129.4" y="596" width="71.6" height="34" fill="#E3001B"/>
+<rect x="0.0" y="0.0" width="150.0" height="205.0" fill="#161410"/>
+<rect x="10.0" y="12.0" width="130.0" height="181.0" rx="7" fill="#1D1B16" stroke="#3A362E"/>
+<rect x="20.0" y="24.0" width="42.0" height="3" fill="#D8AF52"/>
+<rect x="20.0" y="38.0" width="110.0" height="8.2" rx="1.5" fill="#D6D2BD"/>
+<rect x="20.0" y="53.2" width="68.2" height="8.2" rx="1.5" fill="#9A9584"/>
+<rect x="20.0" y="171.0" width="30.0" height="14" rx="3" fill="#322E27" stroke="#4E493F"/>
+<circle cx="124.0" cy="178.0" r="5" fill="#E3001B"/>
+<text x="108.0" y="30.0" text-anchor="end" font-family="'Geist Mono',ui-monospace,Menlo,monospace" font-size="10.5" letter-spacing="1.6" fill="#D8AF52">BE-N</text>
+<rect x="150.0" y="0.0" width="150.0" height="205.0" fill="#D6D2BD"/>
+<rect x="160.0" y="12.0" width="130.0" height="181.0" rx="7" fill="#DCD8C0" stroke="#BAB5A1"/>
+<rect x="170.0" y="24.0" width="42.0" height="3" fill="#A8852F"/>
+<rect x="170.0" y="38.0" width="110.0" height="8.2" rx="1.5" fill="#454138"/>
+<rect x="170.0" y="53.2" width="68.2" height="8.2" rx="1.5" fill="#534E43"/>
+<rect x="170.0" y="171.0" width="30.0" height="14" rx="3" fill="#C9C4AE" stroke="#9C9684"/>
+<circle cx="274.0" cy="178.0" r="5" fill="#E3001B"/>
+<text x="258.0" y="30.0" text-anchor="end" font-family="'Geist Mono',ui-monospace,Menlo,monospace" font-size="10.5" letter-spacing="1.6" fill="#533E13">BE-D</text>
+<rect x="300.0" y="0.0" width="150.0" height="205.0" fill="#F4F1EA"/>
+<rect x="310.0" y="12.0" width="130.0" height="181.0" rx="7" fill="#FBFAF6" stroke="#E2DDD2"/>
+<rect x="320.0" y="24.0" width="42.0" height="3" fill="#A8852F"/>
+<rect x="320.0" y="38.0" width="110.0" height="8.2" rx="1.5" fill="#23201B"/>
+<rect x="320.0" y="53.2" width="68.2" height="8.2" rx="1.5" fill="#5F594F"/>
+<rect x="320.0" y="171.0" width="30.0" height="14" rx="3" fill="#E3E0D9" stroke="#ADA89F"/>
+<circle cx="424.0" cy="178.0" r="5" fill="#E3001B"/>
+<text x="408.0" y="30.0" text-anchor="end" font-family="'Geist Mono',ui-monospace,Menlo,monospace" font-size="10.5" letter-spacing="1.6" fill="#5E4712">PC-D</text>
+<rect x="450.0" y="0.0" width="150.0" height="205.0" fill="#D9D5CD"/>
+<rect x="460.0" y="12.0" width="130.0" height="181.0" rx="7" fill="#E5E1DA" stroke="#C3BDB2"/>
+<rect x="470.0" y="24.0" width="42.0" height="3" fill="#A8852F"/>
+<rect x="470.0" y="38.0" width="110.0" height="8.2" rx="1.5" fill="#2A2724"/>
+<rect x="470.0" y="53.2" width="68.2" height="8.2" rx="1.5" fill="#57534C"/>
+<rect x="470.0" y="171.0" width="30.0" height="14" rx="3" fill="#CBC7BF" stroke="#98938A"/>
+<circle cx="574.0" cy="178.0" r="5" fill="#E3001B"/>
+<text x="558.0" y="30.0" text-anchor="end" font-family="'Geist Mono',ui-monospace,Menlo,monospace" font-size="10.5" letter-spacing="1.6" fill="#533E13">CN-D</text>
+<rect x="600.0" y="0.0" width="150.0" height="205.0" fill="#D1CDB7"/>
+<rect x="610.0" y="12.0" width="130.0" height="181.0" rx="7" fill="#DCD8C0" stroke="#BAB5A1"/>
+<rect x="620.0" y="24.0" width="42.0" height="3" fill="#454138"/>
+<rect x="620.0" y="38.0" width="110.0" height="8.2" rx="1.5" fill="#454138"/>
+<rect x="620.0" y="53.2" width="68.2" height="8.2" rx="1.5" fill="#534E46"/>
+<rect x="620.0" y="171.0" width="30.0" height="14" rx="3" fill="#C6C2AD" stroke="#999584"/>
+<circle cx="724.0" cy="178.0" r="5" fill="#E3001B"/>
+<text x="708.0" y="30.0" text-anchor="end" font-family="'Geist Mono',ui-monospace,Menlo,monospace" font-size="10.5" letter-spacing="1.6" fill="#2E2B24">YR-D</text>
+<rect x="750.0" y="0.0" width="150.0" height="205.0" fill="#FFE6E9"/>
+<rect x="760.0" y="12.0" width="130.0" height="181.0" rx="7" fill="#FFF4F5" stroke="#F2C6CC"/>
+<rect x="770.0" y="24.0" width="42.0" height="3" fill="#E5132E"/>
+<rect x="770.0" y="38.0" width="110.0" height="8.2" rx="1.5" fill="#1A1012"/>
+<rect x="770.0" y="53.2" width="68.2" height="8.2" rx="1.5" fill="#634C51"/>
+<rect x="770.0" y="171.0" width="30.0" height="14" rx="3" fill="#EDD5D8" stroke="#B69398"/>
+<circle cx="874.0" cy="178.0" r="5" fill="#E5132E"/>
+<text x="858.0" y="30.0" text-anchor="end" font-family="'Geist Mono',ui-monospace,Menlo,monospace" font-size="10.5" letter-spacing="1.6" fill="#A80D22">BL-D</text>
+<rect x="900.0" y="0.0" width="150.0" height="205.0" fill="#1A1115"/>
+<rect x="910.0" y="12.0" width="130.0" height="181.0" rx="7" fill="#20151A" stroke="#412F37"/>
+<rect x="920.0" y="24.0" width="42.0" height="3" fill="#FF8A98"/>
+<rect x="920.0" y="38.0" width="110.0" height="8.2" rx="1.5" fill="#FBE9EC"/>
+<rect x="920.0" y="53.2" width="68.2" height="8.2" rx="1.5" fill="#C09EA6"/>
+<rect x="920.0" y="171.0" width="30.0" height="14" rx="3" fill="#35232B" stroke="#5D4B52"/>
+<circle cx="1024.0" cy="178.0" r="5" fill="#FF3B55"/>
+<text x="1008.0" y="30.0" text-anchor="end" font-family="'Geist Mono',ui-monospace,Menlo,monospace" font-size="10.5" letter-spacing="1.6" fill="#FF8A98">BL-N</text>
+<rect x="1050.0" y="0.0" width="150.0" height="205.0" fill="#E8E9EB"/>
+<rect x="1060.0" y="12.0" width="130.0" height="181.0" rx="7" fill="#F6F6F7" stroke="#D1D3D7"/>
+<rect x="1070.0" y="24.0" width="42.0" height="3" fill="#FF3D2E"/>
+<rect x="1070.0" y="38.0" width="110.0" height="8.2" rx="1.5" fill="#141517"/>
+<rect x="1070.0" y="53.2" width="68.2" height="8.2" rx="1.5" fill="#55585D"/>
+<rect x="1070.0" y="171.0" width="30.0" height="14" rx="3" fill="#D7D8DA" stroke="#9C9EA1"/>
+<circle cx="1174.0" cy="178.0" r="5" fill="#FF3D2E"/>
+<text x="1158.0" y="30.0" text-anchor="end" font-family="'Geist Mono',ui-monospace,Menlo,monospace" font-size="10.5" letter-spacing="1.6" fill="#B3231A">LB-D</text>
+<rect x="0.0" y="425.0" width="150.0" height="205.0" fill="#0B0C0D"/>
+<rect x="10.0" y="437.0" width="130.0" height="181.0" rx="7" fill="#101112" stroke="#323537"/>
+<rect x="20.0" y="449.0" width="42.0" height="3" fill="#FF3D2E"/>
+<rect x="20.0" y="463.0" width="110.0" height="8.2" rx="1.5" fill="#E9E9E6"/>
+<rect x="20.0" y="478.2" width="68.2" height="8.2" rx="1.5" fill="#8C8F93"/>
+<rect x="20.0" y="596.0" width="30.0" height="14" rx="3" fill="#26292C" stroke="#4D4F51"/>
+<circle cx="124.0" cy="603.0" r="5" fill="#FF3D2E"/>
+<text x="108.0" y="455.0" text-anchor="end" font-family="'Geist Mono',ui-monospace,Menlo,monospace" font-size="10.5" letter-spacing="1.6" fill="#FF6357">LB-N</text>
+<rect x="150.0" y="425.0" width="150.0" height="205.0" fill="#F2EFE8"/>
+<rect x="160.0" y="437.0" width="130.0" height="181.0" rx="7" fill="#FBF9F4" stroke="#DAD4C9"/>
+<rect x="170.0" y="449.0" width="42.0" height="3" fill="#E3001B"/>
+<rect x="170.0" y="463.0" width="110.0" height="8.2" rx="1.5" fill="#141210"/>
+<rect x="170.0" y="478.2" width="68.2" height="8.2" rx="1.5" fill="#57524A"/>
+<rect x="170.0" y="596.0" width="30.0" height="14" rx="3" fill="#E0DDD7" stroke="#A39E95"/>
+<circle cx="274.0" cy="603.0" r="5" fill="#E3001B"/>
+<text x="258.0" y="455.0" text-anchor="end" font-family="'Geist Mono',ui-monospace,Menlo,monospace" font-size="10.5" letter-spacing="1.6" fill="#A8001A">HK-D</text>
+<rect x="300.0" y="425.0" width="150.0" height="205.0" fill="#0E0D0B"/>
+<rect x="310.0" y="437.0" width="130.0" height="181.0" rx="7" fill="#141210" stroke="#393530"/>
+<rect x="320.0" y="449.0" width="42.0" height="3" fill="#FF6D7E"/>
+<rect x="320.0" y="463.0" width="110.0" height="8.2" rx="1.5" fill="#EEE8DC"/>
+<rect x="320.0" y="478.2" width="68.2" height="8.2" rx="1.5" fill="#9C9589"/>
+<rect x="320.0" y="596.0" width="30.0" height="14" rx="3" fill="#2D2A25" stroke="#54504A"/>
+<circle cx="424.0" cy="603.0" r="5" fill="#E3001B"/>
+<text x="408.0" y="455.0" text-anchor="end" font-family="'Geist Mono',ui-monospace,Menlo,monospace" font-size="10.5" letter-spacing="1.6" fill="#FF6D7E">HK-N</text>
+<rect x="450.0" y="425.0" width="150.0" height="205.0" fill="#221A16"/>
+<rect x="460.0" y="437.0" width="130.0" height="181.0" rx="7" fill="#281E1A" stroke="#463A31"/>
+<rect x="470.0" y="449.0" width="42.0" height="3" fill="#F4A662"/>
+<rect x="470.0" y="463.0" width="110.0" height="8.2" rx="1.5" fill="#F1E3CF"/>
+<rect x="470.0" y="478.2" width="68.2" height="8.2" rx="1.5" fill="#B39E8C"/>
+<rect x="470.0" y="596.0" width="30.0" height="14" rx="3" fill="#3B2F27" stroke="#5F5349"/>
+<circle cx="574.0" cy="603.0" r="5" fill="#E22D32"/>
+<text x="558.0" y="455.0" text-anchor="end" font-family="'Geist Mono',ui-monospace,Menlo,monospace" font-size="10.5" letter-spacing="1.6" fill="#F4A662">CF-N</text>
+<rect x="600.0" y="425.0" width="150.0" height="205.0" fill="#1D1B19"/>
+<rect x="610.0" y="437.0" width="130.0" height="181.0" rx="7" fill="#22201E" stroke="#413C36"/>
+<rect x="620.0" y="449.0" width="42.0" height="3" fill="#D8AF52"/>
+<rect x="620.0" y="463.0" width="110.0" height="8.2" rx="1.5" fill="#E3D0AE"/>
+<rect x="620.0" y="478.2" width="68.2" height="8.2" rx="1.5" fill="#A89A86"/>
+<rect x="620.0" y="596.0" width="30.0" height="14" rx="3" fill="#37332E" stroke="#595248"/>
+<circle cx="724.0" cy="603.0" r="5" fill="#E3001B"/>
+<text x="708.0" y="455.0" text-anchor="end" font-family="'Geist Mono',ui-monospace,Menlo,monospace" font-size="10.5" letter-spacing="1.6" fill="#D8AF52">EM-N</text>
+<rect x="750.0" y="425.0" width="150.0" height="205.0" fill="#12150F"/>
+<rect x="760.0" y="437.0" width="130.0" height="181.0" rx="7" fill="#161A13" stroke="#353B2D"/>
+<rect x="770.0" y="449.0" width="42.0" height="3" fill="#C98E4E"/>
+<rect x="770.0" y="463.0" width="110.0" height="8.2" rx="1.5" fill="#E4E2CF"/>
+<rect x="770.0" y="478.2" width="68.2" height="8.2" rx="1.5" fill="#A0A690"/>
+<rect x="770.0" y="596.0" width="30.0" height="14" rx="3" fill="#2A3023" stroke="#4F5445"/>
+<circle cx="874.0" cy="603.0" r="5" fill="#E3001B"/>
+<text x="858.0" y="455.0" text-anchor="end" font-family="'Geist Mono',ui-monospace,Menlo,monospace" font-size="10.5" letter-spacing="1.6" fill="#C98E4E">MS-N</text>
+<rect x="900.0" y="425.0" width="150.0" height="205.0" fill="#0C0D0E"/>
+<rect x="910.0" y="437.0" width="130.0" height="181.0" rx="7" fill="#101214" stroke="#323538"/>
+<rect x="920.0" y="449.0" width="42.0" height="3" fill="#D8AF52"/>
+<rect x="920.0" y="463.0" width="110.0" height="8.2" rx="1.5" fill="#E8E4DA"/>
+<rect x="920.0" y="478.2" width="68.2" height="8.2" rx="1.5" fill="#9A968A"/>
+<rect x="920.0" y="596.0" width="30.0" height="14" rx="3" fill="#262A2E" stroke="#4D4F50"/>
+<circle cx="1024.0" cy="603.0" r="5" fill="#FF3D2E"/>
+<text x="1008.0" y="455.0" text-anchor="end" font-family="'Geist Mono',ui-monospace,Menlo,monospace" font-size="10.5" letter-spacing="1.6" fill="#D8AF52">SG-N</text>
+<rect x="1050.0" y="425.0" width="150.0" height="205.0" fill="#1C1612"/>
+<rect x="1060.0" y="437.0" width="130.0" height="181.0" rx="7" fill="#211A15" stroke="#40362C"/>
+<rect x="1070.0" y="449.0" width="42.0" height="3" fill="#D8AF52"/>
+<rect x="1070.0" y="463.0" width="110.0" height="8.2" rx="1.5" fill="#EADFCF"/>
+<rect x="1070.0" y="478.2" width="68.2" height="8.2" rx="1.5" fill="#AE9E8B"/>
+<rect x="1070.0" y="596.0" width="30.0" height="14" rx="3" fill="#352B22" stroke="#594F45"/>
+<circle cx="1174.0" cy="603.0" r="5" fill="#DA3820"/>
+<text x="1158.0" y="455.0" text-anchor="end" font-family="'Geist Mono',ui-monospace,Menlo,monospace" font-size="10.5" letter-spacing="1.6" fill="#D8AF52">WL-N</text>
+<rect x="0" y="205" width="1200" height="220" fill="#161410"/>
+<rect x="0" y="205" width="1200" height="1" fill="#3A362E"/>
+<rect x="0" y="424" width="1200" height="1" fill="#3A362E"/>
+<text x="84" y="291" font-family="Georgia,'Iowan Old Style','Times New Roman',serif" font-size="72" font-weight="700" letter-spacing="-1.5" fill="#EAE6D2">yoshiki</text>
+<text x="84" y="333" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="17" fill="#9A9584">A library of design registers — one contract, many worlds.</text>
+<text x="84" y="367" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="15" letter-spacing=".5" fill="#BAB5A1">16 PALETTES  ·  246 COMPONENTS  ·  14 REGISTERS  ·  PROVEN ON EVERY SURFACE</text>
 </svg>
