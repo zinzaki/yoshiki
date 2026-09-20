@@ -1,0 +1,22 @@
+<div class="pv pv-w2-radial-speed-dial">
+  <div class="stage">
+    <div class="action a1"><span class="ic">N</span><span class="lbl">Note</span></div>
+    <div class="action a2"><span class="ic">T</span><span class="lbl">Task</span></div>
+    <div class="action a3"><span class="ic">P</span><span class="lbl">Photo</span></div>
+    <div class="action a4"><span class="ic">L</span><span class="lbl">Link</span></div>
+    <div class="fab">✕</div>
+  </div>
+  <style>
+    .pv-w2-radial-speed-dial{ width:100%; height:100%; background:var(--bg); font-family:var(--ui); }
+    .pv-w2-radial-speed-dial .stage{ position:relative; width:100%; height:100%; }
+    .pv-w2-radial-speed-dial .fab{ position:absolute; right:34px; bottom:26px; width:46px; height:46px; border-radius:50%; background:var(--acc); color:var(--accT); display:flex; align-items:center; justify-content:center; font-size:18px; box-shadow:0 6px 16px color-mix(in srgb, var(--acc) 40%, transparent); }
+    .pv-w2-radial-speed-dial .action{ position:absolute; display:flex; align-items:center; gap:8px; right:34px; bottom:26px; }
+    /* fan positions: fixed offsets from the FAB, frozen mid-expansion */
+    .pv-w2-radial-speed-dial .a1{ transform:translate(-14px,-97px); }
+    .pv-w2-radial-speed-dial .a2{ transform:translate(-57px,-75px); }
+    .pv-w2-radial-speed-dial .a3{ transform:translate(-79px,-33px); }
+    .pv-w2-radial-speed-dial .a4{ transform:translate(-77px,12px); }
+    .pv-w2-radial-speed-dial .ic{ width:32px; height:32px; border-radius:50%; background:var(--raised); border:1px solid var(--line); display:flex; align-items:center; justify-content:center; font-size:14px; color:var(--ink); }
+    .pv-w2-radial-speed-dial .lbl{ font-size:10px; color:var(--mu); background:var(--panel); border:1px solid var(--line); padding:3px 7px; border-radius:10px; white-space:nowrap; }
+  </style>
+</div>

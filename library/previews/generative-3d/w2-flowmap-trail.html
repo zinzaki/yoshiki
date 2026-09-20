@@ -1,0 +1,25 @@
+<div class="pv pv-w2-flowmap-trail">
+  <svg class="grid" viewBox="0 0 360 230" preserveAspectRatio="none">
+    <defs>
+      <linearGradient id="pv-w2-flowmap-trail-fade" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="var(--line)" stop-opacity="0"/>
+        <stop offset="1" stop-color="var(--line)" stop-opacity="1"/>
+      </linearGradient>
+    </defs>
+    <g stroke="var(--line)" stroke-width="1" fill="none" opacity=".6">
+      <path d="M0,40 Q120,10 180,60 T360,50"/>
+      <path d="M0,80 Q120,55 180,100 T360,90"/>
+      <path d="M0,120 Q120,100 180,140 T360,130"/>
+      <path d="M0,160 Q120,145 180,180 T360,170"/>
+      <path d="M0,200 Q120,190 180,215 T360,205"/>
+    </g>
+    <path class="trail" d="M20,190 C90,130 130,70 220,60 S320,40 340,30" stroke="var(--acc)" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <circle cx="340" cy="30" r="5" fill="var(--acc)"/>
+  </svg>
+  <span class="cap">CURSOR TRAIL — GRID BENT ALONG PATH</span>
+  <style>
+    .pv-w2-flowmap-trail{ width:100%; height:100%; background:var(--bg); position:relative; overflow:hidden; font-family:var(--ui); }
+    .pv-w2-flowmap-trail .grid{ position:absolute; inset:0; width:100%; height:100%; }
+    .pv-w2-flowmap-trail .cap{ position:absolute; left:16px; bottom:12px; font:600 9px var(--mono); letter-spacing:.08em; color:var(--mu); }
+  </style>
+</div>

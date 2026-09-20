@@ -1,0 +1,20 @@
+<div class="pv pv-w2-scroll-velocity-carousel">
+  <div class="row">
+    <div class="card c1"><span>01</span></div>
+    <div class="card c2"><span>02</span></div>
+    <div class="card c3"><span>03</span></div>
+    <div class="card c4"><span>04</span></div>
+    <div class="card c5"><span>05</span></div>
+  </div>
+  <style>
+    .pv-w2-scroll-velocity-carousel{ width:100%; height:100%; background:var(--bg); display:flex; align-items:center; justify-content:center; font-family:var(--mono); perspective:600px; }
+    .pv-w2-scroll-velocity-carousel .row{ display:flex; }
+    .pv-w2-scroll-velocity-carousel .card{ width:52px; height:110px; margin-left:-10px; border-radius:8px; background:var(--panel); border:1px solid var(--line); display:flex; align-items:flex-end; justify-content:center; padding-bottom:8px; font-size:11px; color:var(--mu); transform-style:preserve-3d; }
+    .pv-w2-scroll-velocity-carousel .c1{ transform:rotateY(34deg) translateZ(-10px); z-index:1; }
+    .pv-w2-scroll-velocity-carousel .c2{ transform:rotateY(18deg) translateZ(-3px); z-index:2; }
+    /* centre card upright: scroll velocity is zero here */
+    .pv-w2-scroll-velocity-carousel .c3{ transform:rotateY(0deg) translateZ(10px) scale(1.08); z-index:3; color:var(--head); border-color:var(--acc); }
+    .pv-w2-scroll-velocity-carousel .c4{ transform:rotateY(-18deg) translateZ(-3px); z-index:2; }
+    .pv-w2-scroll-velocity-carousel .c5{ transform:rotateY(-34deg) translateZ(-10px); z-index:1; }
+  </style>
+</div>

@@ -1,0 +1,32 @@
+<div class="pv pv-w2-wavy-progress-indicator">
+  <div class="hd">Restoring backup<span>40%</span></div>
+  <div class="track">
+    <svg viewBox="0 0 300 24" preserveAspectRatio="none" aria-hidden="true">
+      <path class="rest" d="M0 12 H300"/>
+      <path class="fill" d="M0 12 C10 4 20 20 30 12 S50 4 60 12 S80 20 90 12 S110 4 120 12"/>
+      <circle class="head" cx="120" cy="12" r="4.5"/>
+    </svg>
+  </div>
+  <div class="ft">2.1 GB of 5.4 GB<span>~3 min left</span></div>
+  <div class="hd second">Verifying<span>92%</span></div>
+  <div class="track slim">
+    <svg viewBox="0 0 300 16" preserveAspectRatio="none" aria-hidden="true">
+      <path class="rest" d="M0 8 H300"/>
+      <path class="fill" d="M0 8 C8 3 16 13 24 8 S40 3 48 8 S64 13 72 8 S88 3 96 8 S112 13 120 8 S136 3 144 8 S160 13 168 8 S184 3 192 8 S208 13 216 8 S232 3 240 8 S256 13 264 8 S276 4 276 8"/>
+      <circle class="head" cx="276" cy="8" r="3.5"/>
+    </svg>
+  </div>
+  <style>
+  .pv-w2-wavy-progress-indicator{height:100%;padding:20px;background:var(--bg);color:var(--ink);font-family:var(--ui);display:flex;flex-direction:column;gap:8px;justify-content:center}
+  .pv-w2-wavy-progress-indicator .hd{display:flex;justify-content:space-between;font-size:14px;font-weight:500;color:var(--head)}
+  .pv-w2-wavy-progress-indicator .hd span{font:500 12px var(--mono);color:var(--accT)}
+  .pv-w2-wavy-progress-indicator .hd.second{margin-top:14px}
+  .pv-w2-wavy-progress-indicator .track{height:24px}
+  .pv-w2-wavy-progress-indicator .track.slim{height:16px}
+  .pv-w2-wavy-progress-indicator svg{width:100%;height:100%;overflow:visible}
+  .pv-w2-wavy-progress-indicator .rest{stroke:var(--hover);stroke-width:4;stroke-linecap:round;fill:none}
+  .pv-w2-wavy-progress-indicator .fill{stroke:var(--acc);stroke-width:4;stroke-linecap:round;fill:none}
+  .pv-w2-wavy-progress-indicator .head{fill:var(--acc)}
+  .pv-w2-wavy-progress-indicator .ft{display:flex;justify-content:space-between;font:500 11px var(--mono);color:var(--mu);letter-spacing:.04em}
+  </style>
+</div>

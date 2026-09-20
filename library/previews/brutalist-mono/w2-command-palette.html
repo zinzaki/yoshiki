@@ -1,0 +1,22 @@
+<div class="pv pv-w2-command-palette">
+  <div class="modal">
+    <div class="search"><span class="k">⌘K</span><span class="ph">Type a command or search…</span></div>
+    <div class="group">Navigate</div>
+    <div class="row sel"><span>Go to Dashboard</span><span class="hint">↵</span></div>
+    <div class="row"><span>Go to Settings</span><span class="hint">G S</span></div>
+    <div class="group">Actions</div>
+    <div class="row"><span>Create new project</span><span class="hint">⌘N</span></div>
+    <div class="row"><span>Invite teammate</span><span class="hint">⌘I</span></div>
+  </div>
+  <style>
+    .pv-w2-command-palette{ width:100%; height:100%; box-sizing:border-box; background:var(--bg); display:flex; align-items:center; justify-content:center; padding:12px; }
+    .pv-w2-command-palette .modal{ width:100%; max-width:320px; background:var(--panel); border:1px solid var(--strong); font-family:var(--mono); }
+    .pv-w2-command-palette .search{ display:flex; align-items:center; gap:8px; padding:10px 12px; border-bottom:1px solid var(--line); }
+    .pv-w2-command-palette .k{ font:10px var(--mono); color:var(--ink); border:1px solid var(--strong); padding:1px 5px; }
+    .pv-w2-command-palette .ph{ font-size:12px; color:var(--mu); }
+    .pv-w2-command-palette .group{ font-size:9px; letter-spacing:.08em; text-transform:uppercase; color:var(--mu); padding:8px 12px 2px; }
+    .pv-w2-command-palette .row{ display:flex; align-items:center; justify-content:space-between; padding:6px 12px; font-size:12px; color:var(--ink); border-left:2px solid transparent; }
+    .pv-w2-command-palette .row.sel{ background:var(--hover); border-left-color:var(--acc); color:var(--head); }
+    .pv-w2-command-palette .hint{ font-size:10px; color:var(--mu); border:1px solid var(--line); padding:1px 5px; }
+  </style>
+</div>

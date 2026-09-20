@@ -1,0 +1,24 @@
+<div class="pv pv-w2-terminal-typing-block">
+  <div class="term">
+    <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="ttl">zsh</span></div>
+    <div class="body">
+      <div class="ln cmd">$ deploy --env=prod<span class="cur"></span></div>
+      <div class="ln out">Building assets… done in 4.2s</div>
+      <div class="ln out ok">Deployed → edge-us-east-1</div>
+    </div>
+  </div>
+  <style>
+    .pv-w2-terminal-typing-block{ width:100%; height:100%; box-sizing:border-box; background:var(--bg); display:flex; align-items:center; justify-content:center; padding:16px; }
+    .pv-w2-terminal-typing-block .term{ width:100%; max-width:320px; background:var(--panel); border:1px solid var(--strong); }
+    .pv-w2-terminal-typing-block .bar{ display:flex; align-items:center; gap:6px; padding:6px 10px; border-bottom:1px solid var(--line); }
+    .pv-w2-terminal-typing-block .dot{ width:7px; height:7px; border-radius:50%; background:var(--line); }
+    .pv-w2-terminal-typing-block .ttl{ margin-left:6px; font:10px var(--mono); color:var(--mu); letter-spacing:.06em; }
+    .pv-w2-terminal-typing-block .body{ padding:14px 14px 16px; font:12px/1.7 var(--mono); }
+    .pv-w2-terminal-typing-block .cmd{ color:var(--head); }
+    .pv-w2-terminal-typing-block .out{ color:var(--mu); }
+    .pv-w2-terminal-typing-block .out.ok{ color:var(--ink); }
+    .pv-w2-terminal-typing-block .cur{ display:inline-block; width:7px; height:13px; background:var(--ink); margin-left:2px; transform:translateY(2px); animation:pv-w2-ttb-blink 1s steps(1) infinite; }
+    @keyframes pv-w2-ttb-blink{ 50%{ opacity:0; } }
+    @media (prefers-reduced-motion: reduce){ .pv-w2-terminal-typing-block .cur{ animation:none; } }
+  </style>
+</div>

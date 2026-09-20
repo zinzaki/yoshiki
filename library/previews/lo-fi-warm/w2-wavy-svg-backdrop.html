@@ -1,0 +1,20 @@
+<div class="pv pv-w2-wavy-svg-backdrop">
+  <svg class="waves" viewBox="0 0 360 230" preserveAspectRatio="none">
+    <filter id="w2-wavy-svg-backdrop-turb" x="-20%" y="-50%" width="140%" height="200%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012 0.09" numOctaves="2" seed="6" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="14"/>
+    </filter>
+    <path class="band b1" d="M-20 70 H380" filter="url(#w2-wavy-svg-backdrop-turb)"/>
+    <path class="band b2" d="M-20 115 H380" filter="url(#w2-wavy-svg-backdrop-turb)"/>
+    <path class="band b3" d="M-20 160 H380" filter="url(#w2-wavy-svg-backdrop-turb)"/>
+  </svg>
+  <h2 class="head">Field Notes</h2>
+  <style>
+    .pv-w2-wavy-svg-backdrop{ position:relative; width:100%; height:100%; background:var(--bg); overflow:hidden; display:flex; align-items:center; justify-content:center; }
+    .pv-w2-wavy-svg-backdrop .waves{ position:absolute; inset:0; width:100%; height:100%; }
+    .pv-w2-wavy-svg-backdrop .band{ fill:none; stroke:var(--mu); stroke-width:1.4; opacity:.22; }
+    .pv-w2-wavy-svg-backdrop .b2{ stroke-width:2.2; opacity:.16; }
+    .pv-w2-wavy-svg-backdrop .b3{ stroke-width:1; opacity:.28; }
+    .pv-w2-wavy-svg-backdrop .head{ position:relative; z-index:2; font:400 34px var(--disp); color:var(--head); margin:0; }
+  </style>
+</div>

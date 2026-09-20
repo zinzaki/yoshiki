@@ -1,0 +1,20 @@
+<div class="pv pv-w2-lens-zoom-hover">
+  <div class="photo">
+    <div class="block b1"></div>
+    <div class="block b2"></div>
+    <div class="lens">
+      <div class="zoomed"></div>
+    </div>
+    <span class="coord">184, 96</span>
+  </div>
+  <style>
+    .pv-w2-lens-zoom-hover{ width:100%; height:100%; background:var(--bg); display:flex; align-items:center; justify-content:center; font-family:var(--ui); box-sizing:border-box; padding:16px; }
+    .pv-w2-lens-zoom-hover .photo{ position:relative; width:300px; height:180px; background:var(--raised); border-radius:10px; overflow:hidden; }
+    .pv-w2-lens-zoom-hover .block{ position:absolute; background:var(--panel); border:1px solid var(--line); }
+    .pv-w2-lens-zoom-hover .b1{ left:24px; top:28px; width:90px; height:64px; border-radius:6px; }
+    .pv-w2-lens-zoom-hover .b2{ left:150px; top:80px; width:110px; height:70px; border-radius:6px; }
+    .pv-w2-lens-zoom-hover .lens{ position:absolute; left:150px; top:44px; width:88px; height:88px; border-radius:50%; border:2px solid var(--acc); box-shadow:0 6px 16px rgba(0,0,0,.22); overflow:hidden; background:var(--bg); }
+    .pv-w2-lens-zoom-hover .zoomed{ position:absolute; width:900px; height:540px; left:-570px; top:-210px; background:var(--panel); background-image:linear-gradient(120deg, var(--strong) 0 40%, var(--raised) 40% 100%), repeating-linear-gradient(90deg, var(--line) 0 3px, transparent 3px 30px); }
+    .pv-w2-lens-zoom-hover .coord{ position:absolute; right:12px; bottom:10px; font:600 10px var(--mono); letter-spacing:.04em; color:var(--ink); background:var(--strong); border:1px solid var(--line); border-radius:5px; padding:3px 7px; }
+  </style>
+</div>

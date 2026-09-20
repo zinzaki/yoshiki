@@ -1,0 +1,24 @@
+<div class="pv pv-w2-cinematic-scroll-scene">
+  <div class="scene">
+    <div class="box far"></div>
+    <div class="box mid"></div>
+    <div class="box near"></div>
+  </div>
+  <div class="frames">
+    <span class="f">00%</span>
+    <span class="f">50%</span>
+    <span class="f">100%</span>
+  </div>
+  <span class="cap">CAMERA DOLLY — 3 KEYFRAMES</span>
+  <style>
+    .pv-w2-cinematic-scroll-scene{ width:100%; height:100%; background:var(--bg); position:relative; overflow:hidden; font-family:var(--ui); box-sizing:border-box; padding:16px; }
+    .pv-w2-cinematic-scroll-scene .scene{ position:relative; width:100%; height:150px; perspective:280px; }
+    .pv-w2-cinematic-scroll-scene .box{ position:absolute; border:1px solid var(--line); box-sizing:border-box; }
+    .pv-w2-cinematic-scroll-scene .far{ left:40%; top:20px; width:60px; height:60px; transform:rotateY(20deg) rotateX(6deg) translateZ(-60px); opacity:.4; border-color:var(--mu); }
+    .pv-w2-cinematic-scroll-scene .mid{ left:22%; top:44px; width:90px; height:90px; transform:rotateY(-14deg) rotateX(4deg) translateZ(-10px); opacity:.7; border-color:var(--ink); }
+    .pv-w2-cinematic-scroll-scene .near{ left:56%; top:10px; width:130px; height:130px; transform:rotateY(10deg) rotateX(-4deg) translateZ(60px); border-color:var(--acc); box-shadow:0 0 0 1px var(--accT) inset; }
+    .pv-w2-cinematic-scroll-scene .frames{ display:flex; justify-content:space-between; margin-top:8px; }
+    .pv-w2-cinematic-scroll-scene .f{ font:600 9px var(--mono); color:var(--mu); }
+    .pv-w2-cinematic-scroll-scene .cap{ position:absolute; left:16px; bottom:10px; font:600 9px var(--mono); letter-spacing:.08em; color:var(--mu); }
+  </style>
+</div>

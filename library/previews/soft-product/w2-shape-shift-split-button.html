@@ -1,0 +1,33 @@
+<div class="pv pv-w2-shape-shift-split-button">
+  <div class="col">
+    <div class="pair rest">
+      <button class="main">Send invoice</button>
+      <button class="side">▾</button>
+    </div>
+    <span class="lbl">resting</span>
+  </div>
+  <div class="col">
+    <div class="pair morphed">
+      <button class="main">Send invoice</button>
+      <div class="menu">
+        <span>Send &amp; archive</span>
+        <span>Schedule send</span>
+      </div>
+    </div>
+    <span class="lbl">second half pressed</span>
+  </div>
+  <style>
+    .pv-w2-shape-shift-split-button{ width:100%; height:100%; background:var(--bg); display:flex; align-items:flex-start; justify-content:center; gap:26px; font-family:var(--ui); box-sizing:border-box; padding:16px; padding-top:56px; }
+    .pv-w2-shape-shift-split-button .col{ display:flex; flex-direction:column; align-items:center; gap:10px; }
+    .pv-w2-shape-shift-split-button .morphed{ margin-bottom:52px; }
+    .pv-w2-shape-shift-split-button .pair{ display:flex; position:relative; }
+    .pv-w2-shape-shift-split-button button{ font:600 11px var(--ui); border:1px solid var(--acc); background:var(--acc); color:var(--accT); cursor:default; }
+    .pv-w2-shape-shift-split-button .main{ padding:10px 14px; border-radius:10px 0 0 10px; }
+    .pv-w2-shape-shift-split-button .side{ padding:10px 10px; border-radius:0 10px 10px 0; border-left:1px solid rgba(0,0,0,.15); }
+    .pv-w2-shape-shift-split-button .morphed .main{ border-radius:10px 10px 0 0; }
+    .pv-w2-shape-shift-split-button .menu{ position:absolute; left:0; top:100%; width:100%; background:var(--panel); border:1px solid var(--line); border-top:none; border-radius:0 0 10px 10px; box-shadow:0 8px 16px rgba(0,0,0,.16); display:flex; flex-direction:column; }
+    .pv-w2-shape-shift-split-button .menu span{ padding:7px 10px; font-size:10px; color:var(--ink); }
+    .pv-w2-shape-shift-split-button .menu span:hover{ background:var(--hover); }
+    .pv-w2-shape-shift-split-button .lbl{ font:500 9px var(--mono); letter-spacing:.05em; text-transform:uppercase; color:var(--mu); }
+  </style>
+</div>

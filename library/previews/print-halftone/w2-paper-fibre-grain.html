@@ -1,0 +1,25 @@
+<div class="pv pv-w2-paper-fibre-grain">
+  <svg width="0" height="0" aria-hidden="true">
+    <filter id="w2-paper-fibre-grain-noise" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch" result="n"></feTurbulence>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.6 0"></feColorMatrix>
+    </filter>
+  </svg>
+  <div class="sheet">
+    <div class="grain"></div>
+    <span class="cap">paper fibre, 120gsm</span>
+    <div class="patch">
+      <div class="grain big"></div>
+      <span class="lbl">×4</span>
+    </div>
+  </div>
+  <style>
+    .pv-w2-paper-fibre-grain{ width:100%; height:100%; box-sizing:border-box; }
+    .pv-w2-paper-fibre-grain .sheet{ position:relative; width:100%; height:100%; background:var(--bg); overflow:hidden; }
+    .pv-w2-paper-fibre-grain .grain{ position:absolute; inset:-25%; background:var(--ink); filter:url(#w2-paper-fibre-grain-noise); opacity:.5; mix-blend-mode:multiply; }
+    .pv-w2-paper-fibre-grain .cap{ position:absolute; left:16px; bottom:14px; font:10px var(--mono); color:var(--mu); letter-spacing:.04em; }
+    .pv-w2-paper-fibre-grain .patch{ position:absolute; right:14px; top:14px; width:112px; height:82px; border:1px solid var(--line); border-radius:5px; background:var(--panel); overflow:hidden; }
+    .pv-w2-paper-fibre-grain .patch .grain.big{ position:absolute; inset:-50%; transform:scale(3.4); opacity:.6; }
+    .pv-w2-paper-fibre-grain .patch .lbl{ position:absolute; left:6px; bottom:5px; font:9px var(--mono); color:var(--mu); background:var(--bg); padding:1px 4px; border-radius:3px; }
+  </style>
+</div>

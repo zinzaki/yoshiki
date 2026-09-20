@@ -1,0 +1,20 @@
+<div class="pv pv-w2-flip-image-travel">
+  <div class="path"></div>
+  <div class="frame start"><span>01</span></div>
+  <div class="ghost"></div>
+  <div class="frame target">
+    <span class="tag">Case study</span>
+    <b>Signal &amp; Form</b>
+  </div>
+  <style>
+    .pv-w2-flip-image-travel{ width:100%; height:100%; position:relative; background:var(--bg); overflow:hidden; font-family:var(--ui); box-sizing:border-box; padding:16px; }
+    .pv-w2-flip-image-travel .path{ position:absolute; left:56px; top:96px; width:190px; height:1px; border-top:1px dashed var(--line); }
+    .pv-w2-flip-image-travel .frame{ position:absolute; background:var(--panel); border:1px solid var(--line); box-sizing:border-box; }
+    .pv-w2-flip-image-travel .start{ left:18px; top:70px; width:52px; height:52px; border-radius:6px; display:flex; align-items:flex-end; padding:5px; }
+    .pv-w2-flip-image-travel .start span{ font:600 9px var(--mono); color:var(--mu); }
+    .pv-w2-flip-image-travel .ghost{ position:absolute; left:130px; top:52px; width:80px; height:80px; border-radius:6px; border:1px dashed var(--acc); background:var(--accT); opacity:.7; }
+    .pv-w2-flip-image-travel .target{ right:18px; top:30px; width:130px; height:140px; border-radius:8px; padding:12px; display:flex; flex-direction:column; justify-content:flex-end; gap:4px; box-shadow:0 12px 22px rgba(0,0,0,.16); background:var(--raised); }
+    .pv-w2-flip-image-travel .tag{ font:600 9px var(--mono); letter-spacing:.06em; text-transform:uppercase; color:var(--mu); }
+    .pv-w2-flip-image-travel .target b{ font:600 15px var(--disp); color:var(--head); }
+  </style>
+</div>

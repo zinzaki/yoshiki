@@ -1,0 +1,15 @@
+<div class="pv pv-w2-scroll-text-highlight">
+  <p class="para">
+    <span class="read">The archive holds every draft since</span>
+    <span class="edge">launch,</span>
+    <span class="unread">indexed by author and by date of change.</span>
+  </p>
+  <style>
+    .pv-w2-scroll-text-highlight{ width:100%; height:100%; background:var(--bg); display:flex; align-items:center; padding:0 22px; box-sizing:border-box; font-family:var(--ui); }
+    .pv-w2-scroll-text-highlight .para{ font-size:16px; line-height:1.6; margin:0; }
+    .pv-w2-scroll-text-highlight .read{ color:var(--head); }
+    /* the reading edge: the word the eye is on right now */
+    .pv-w2-scroll-text-highlight .edge{ color:var(--head); background:color-mix(in srgb, var(--acc) 22%, transparent); border-radius:3px; padding:0 2px; }
+    .pv-w2-scroll-text-highlight .unread{ color:var(--mu); opacity:.55; }
+  </style>
+</div>

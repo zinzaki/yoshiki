@@ -1,0 +1,23 @@
+<div class="pv pv-w2-squiggly-text-hover">
+  <svg width="0" height="0" style="position:absolute">
+    <filter id="pv-w2-squiggly-text-hover-warp" x="-20%" y="-40%" width="140%" height="180%">
+      <feTurbulence type="turbulence" baseFrequency="0.012 0.09" numOctaves="2" seed="7" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="14" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </svg>
+  <div class="row">
+    <span class="tag">rest</span>
+    <span class="word clean">DISTORT</span>
+  </div>
+  <div class="row">
+    <span class="tag">hover</span>
+    <span class="word warped">DISTORT</span>
+  </div>
+  <style>
+    .pv-w2-squiggly-text-hover{ width:100%; height:100%; background:var(--bg); display:flex; flex-direction:column; justify-content:center; gap:16px; box-sizing:border-box; padding:18px; font-family:var(--ui); }
+    .pv-w2-squiggly-text-hover .row{ display:flex; align-items:center; gap:14px; }
+    .pv-w2-squiggly-text-hover .tag{ width:44px; flex:0 0 auto; font:600 9px var(--mono); letter-spacing:.08em; text-transform:uppercase; color:var(--mu); }
+    .pv-w2-squiggly-text-hover .word{ font:700 34px var(--disp); letter-spacing:.02em; color:var(--head); }
+    .pv-w2-squiggly-text-hover .warped{ filter:url(#pv-w2-squiggly-text-hover-warp); color:var(--acc); }
+  </style>
+</div>

@@ -1,0 +1,25 @@
+<div class="pv pv-w2-spotlight-cursor-mask">
+  <div class="panel">
+    <div class="grid"></div>
+    <span class="row r1"><b>ALT</b> 4,120 ft</span>
+    <span class="row r2"><b>HDG</b> 274°</span>
+    <span class="row r3"><b>SPD</b> 812 kt</span>
+    <span class="row r4"><b>FUEL</b> 61%</span>
+    <div class="overlay"></div>
+    <div class="cursor"></div>
+  </div>
+  <style>
+    .pv-w2-spotlight-cursor-mask{ width:100%; height:100%; background:var(--bg); display:flex; align-items:center; justify-content:center; font-family:var(--ui); }
+    .pv-w2-spotlight-cursor-mask .panel{ position:relative; width:280px; height:170px; background:var(--panel); border:1px solid var(--line); overflow:hidden; }
+    .pv-w2-spotlight-cursor-mask .grid{ position:absolute; inset:0; background-image:linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); background-size:20px 20px; opacity:.35; }
+    .pv-w2-spotlight-cursor-mask .row{ position:absolute; font:11px var(--mono); color:var(--mu); }
+    .pv-w2-spotlight-cursor-mask .row b{ color:var(--head); margin-right:6px; }
+    .pv-w2-spotlight-cursor-mask .r1{ left:16px; top:18px; }
+    .pv-w2-spotlight-cursor-mask .r2{ left:16px; top:42px; }
+    .pv-w2-spotlight-cursor-mask .r3{ right:16px; top:100px; }
+    .pv-w2-spotlight-cursor-mask .r4{ right:16px; top:124px; }
+    /* dark mask with a radial hole; only the panel inside the hole reads at full contrast */
+    .pv-w2-spotlight-cursor-mask .overlay{ position:absolute; inset:0; background:radial-gradient(circle 58px at 66% 40%, transparent 0 40px, color-mix(in srgb, var(--bg) 88%, transparent) 74px); }
+    .pv-w2-spotlight-cursor-mask .cursor{ position:absolute; left:calc(66% - 5px); top:calc(40% - 5px); width:10px; height:10px; border:1px solid var(--acc); border-radius:50%; }
+  </style>
+</div>

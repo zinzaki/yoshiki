@@ -1,0 +1,19 @@
+<div class="pv pv-w2-stacked-toasts">
+  <div class="toast t3"></div>
+  <div class="toast t2"></div>
+  <div class="toast t1">
+    <div class="body"><b>File uploaded</b><span>report-q3.pdf · 2.1 MB</span></div>
+    <button class="act">Undo</button>
+  </div>
+  <style>
+    .pv-w2-stacked-toasts{ width:100%; height:100%; background:var(--bg); position:relative; display:flex; align-items:flex-end; justify-content:center; box-sizing:border-box; padding-bottom:22px; font-family:var(--ui); }
+    .pv-w2-stacked-toasts .toast{ position:absolute; width:270px; border-radius:12px; background:var(--panel); border:1px solid var(--line); }
+    .pv-w2-stacked-toasts .t3{ height:44px; bottom:14px; transform:scale(.9); opacity:.35; }
+    .pv-w2-stacked-toasts .t2{ height:44px; bottom:22px; transform:scale(.95); opacity:.6; }
+    .pv-w2-stacked-toasts .t1{ bottom:32px; padding:12px 14px; display:flex; align-items:center; justify-content:space-between; gap:10px; box-shadow:0 10px 22px rgba(0,0,0,.16); }
+    .pv-w2-stacked-toasts .body{ display:flex; flex-direction:column; gap:2px; }
+    .pv-w2-stacked-toasts .body b{ font-size:12px; color:var(--head); }
+    .pv-w2-stacked-toasts .body span{ font-size:10px; color:var(--mu); }
+    .pv-w2-stacked-toasts .act{ font:600 11px var(--ui); color:var(--acc); background:none; border:none; padding:4px 6px; }
+  </style>
+</div>

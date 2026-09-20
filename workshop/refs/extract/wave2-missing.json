@@ -1,0 +1,20 @@
+[
+ {
+  "id": "w2-wavy-progress-indicator",
+  "kind": "chart",
+  "register": "soft-product",
+  "name": "wavy progress indicator",
+  "build": "non-linear waveform progress bar at 40%, the crest at the head of the fill",
+  "source": "external research 2026-09-20",
+  "wave": 2
+ },
+ {
+  "id": "w2-dot-matrix-glyph-icons",
+  "kind": "icon",
+  "register": "brutalist-mono",
+  "name": "dot matrix glyph icons",
+  "build": "four icons drawn on a 25×25 circular-masked dot grid: power, signal, camera, battery",
+  "source": "external research 2026-09-20",
+  "wave": 2
+ }
+]

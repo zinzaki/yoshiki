@@ -1,0 +1,14 @@
+<div class="pv pv-w2-fisheye-cursor-distortion">
+  <div class="grid"></div>
+  <div class="lens"><div class="grid mag"></div></div>
+  <span class="pointer"></span>
+  <style>
+    .pv-w2-fisheye-cursor-distortion{ position:relative; width:100%; height:100%; box-sizing:border-box; background:var(--bg); overflow:hidden; }
+    .pv-w2-fisheye-cursor-distortion .grid{ position:absolute; inset:0; background-image:linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); background-size:24px 24px; opacity:.55; }
+    .pv-w2-fisheye-cursor-distortion .lens{ position:absolute; left:190px; top:100px; width:118px; height:118px; margin:-59px 0 0 -59px; border-radius:50%; overflow:hidden; background:var(--panel);
+      /* fixed red/cyan rims simulate chromatic fringing at the lens edge, independent of palette */
+      box-shadow:inset 0 0 0 1px var(--strong), 0 0 0 2px rgba(255,64,64,.35), 0 0 0 4px rgba(64,180,255,.28); }
+    .pv-w2-fisheye-cursor-distortion .lens .mag{ position:absolute; inset:-34px; background-size:32px 32px; opacity:.95; transform:scale(1.18); }
+    .pv-w2-fisheye-cursor-distortion .pointer{ position:absolute; left:190px; top:100px; width:0; height:0; margin:-2px 0 0 -2px; border-left:9px solid var(--ink); border-bottom:9px solid transparent; transform:rotate(-18deg); }
+  </style>
+</div>

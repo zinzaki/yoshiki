@@ -1,0 +1,24 @@
+<div class="pv pv-w2-dot-matrix-glyph-icons">
+  <div class="row">
+    <figure><span class="m power"></span><figcaption>POWER</figcaption></figure>
+    <figure><span class="m signal"></span><figcaption>SIGNAL</figcaption></figure>
+    <figure><span class="m camera"></span><figcaption>CAMERA</figcaption></figure>
+    <figure><span class="m battery"></span><figcaption>BATTERY</figcaption></figure>
+  </div>
+  <p class="note">25 × 25 addressable grid · circular mask · one dot = one pixel</p>
+  <style>
+  .pv-w2-dot-matrix-glyph-icons{height:100%;padding:18px;background:var(--bg);color:var(--ink);font-family:var(--ui);display:flex;flex-direction:column;gap:14px;justify-content:center}
+  .pv-w2-dot-matrix-glyph-icons .row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .pv-w2-dot-matrix-glyph-icons figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:7px}
+  .pv-w2-dot-matrix-glyph-icons .m{width:62px;height:62px;border-radius:50%;background:var(--panel);box-shadow:inset 0 0 0 1px var(--line);position:relative;overflow:hidden}
+  .pv-w2-dot-matrix-glyph-icons .m::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle,var(--mu) .9px,transparent 1.1px);background-size:5.4px 5.4px;opacity:.28}
+  .pv-w2-dot-matrix-glyph-icons .m::after{content:"";position:absolute;inset:0;background-image:radial-gradient(circle,var(--head) 1.5px,transparent 1.7px);background-size:5.4px 5.4px}
+  .pv-w2-dot-matrix-glyph-icons .power::after{-webkit-mask:radial-gradient(circle at 50% 54%,transparent 0 26%,#000 27% 36%,transparent 37%),linear-gradient(#000,#000) 50% 14%/4px 20% no-repeat;mask:radial-gradient(circle at 50% 54%,transparent 0 26%,#000 27% 36%,transparent 37%),linear-gradient(#000,#000) 50% 14%/4px 20% no-repeat}
+  .pv-w2-dot-matrix-glyph-icons .signal::after{-webkit-mask:linear-gradient(#000,#000) 22% 68%/12% 18% no-repeat,linear-gradient(#000,#000) 40% 56%/12% 30% no-repeat,linear-gradient(#000,#000) 58% 42%/12% 44% no-repeat,linear-gradient(#000,#000) 76% 28%/12% 58% no-repeat;mask:linear-gradient(#000,#000) 22% 68%/12% 18% no-repeat,linear-gradient(#000,#000) 40% 56%/12% 30% no-repeat,linear-gradient(#000,#000) 58% 42%/12% 44% no-repeat,linear-gradient(#000,#000) 76% 28%/12% 58% no-repeat}
+  .pv-w2-dot-matrix-glyph-icons .camera::after{-webkit-mask:radial-gradient(circle at 50% 54%,#000 0 22%,transparent 23%),linear-gradient(#000,#000) 50% 62%/64% 42% no-repeat,linear-gradient(#000,#000) 38% 30%/20% 12% no-repeat;mask:radial-gradient(circle at 50% 54%,#000 0 22%,transparent 23%),linear-gradient(#000,#000) 50% 62%/64% 42% no-repeat,linear-gradient(#000,#000) 38% 30%/20% 12% no-repeat}
+  .pv-w2-dot-matrix-glyph-icons .battery::after{-webkit-mask:linear-gradient(#000,#000) 46% 50%/56% 30% no-repeat,linear-gradient(#000,#000) 82% 50%/8% 14% no-repeat;mask:linear-gradient(#000,#000) 46% 50%/56% 30% no-repeat,linear-gradient(#000,#000) 82% 50%/8% 14% no-repeat}
+  .pv-w2-dot-matrix-glyph-icons .battery{box-shadow:inset 0 0 0 1px var(--acc)}
+  .pv-w2-dot-matrix-glyph-icons figcaption{font:500 9.5px var(--mono);letter-spacing:.14em;color:var(--mu)}
+  .pv-w2-dot-matrix-glyph-icons .note{margin:0;text-align:center;font:500 10px var(--mono);letter-spacing:.06em;color:var(--mu)}
+  </style>
+</div>

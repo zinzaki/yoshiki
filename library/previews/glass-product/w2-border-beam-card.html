@@ -1,0 +1,22 @@
+<div class="pv pv-w2-border-beam-card">
+  <div class="frame">
+    <div class="beam"></div>
+    <div class="mask"></div>
+    <div class="content">
+      <span class="head">Session synced</span>
+      <span class="cap">auto-saved · 2s ago</span>
+    </div>
+  </div>
+  <style>
+    .pv-w2-border-beam-card{ width:100%; height:100%; background:var(--bg); display:flex; align-items:center; justify-content:center; font-family:var(--ui); }
+    .pv-w2-border-beam-card .frame{ position:relative; width:260px; height:150px; border-radius:20px; overflow:hidden; background:var(--panel); }
+    /* conic light sweeping the edge; frozen at the moment it crosses the top-right corner */
+    .pv-w2-border-beam-card .beam{ position:absolute; inset:-70px; background:conic-gradient(from 20deg, transparent 0 62%, var(--accT) 72%, var(--acc) 78%, var(--accT) 84%, transparent 92%); animation:pv-beam-spin 5s linear infinite; }
+    .pv-w2-border-beam-card .mask{ position:absolute; inset:2px; border-radius:18px; background:var(--panel); }
+    .pv-w2-border-beam-card .content{ position:relative; z-index:2; height:100%; display:flex; flex-direction:column; justify-content:center; gap:6px; padding:0 22px; }
+    .pv-w2-border-beam-card .head{ font-size:17px; font-weight:600; color:var(--head); }
+    .pv-w2-border-beam-card .cap{ font-size:11px; color:var(--mu); }
+    @keyframes pv-beam-spin{ to{ transform:rotate(360deg); } }
+    @media (prefers-reduced-motion: reduce){ .pv-w2-border-beam-card .beam{ animation:none; transform:rotate(35deg); } }
+  </style>
+</div>

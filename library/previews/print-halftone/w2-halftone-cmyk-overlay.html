@@ -1,0 +1,28 @@
+<div class="pv pv-w2-halftone-cmyk-overlay">
+  <!-- CMYK screen-angle demo: colours are the process inks themselves, per build note -->
+  <div class="combo">
+    <span class="dots c" style="--ang:15deg"></span>
+    <span class="dots m" style="--ang:75deg"></span>
+    <span class="dots y" style="--ang:0deg"></span>
+    <span class="dots k" style="--ang:45deg"></span>
+  </div>
+  <div class="strip">
+    <div class="cell"><span class="dots c small" style="--ang:15deg"></span><b>C · 15°</b></div>
+    <div class="cell"><span class="dots m small" style="--ang:75deg"></span><b>M · 75°</b></div>
+    <div class="cell"><span class="dots y small" style="--ang:0deg"></span><b>Y · 0°</b></div>
+    <div class="cell"><span class="dots k small" style="--ang:45deg"></span><b>K · 45°</b></div>
+  </div>
+  <style>
+    .pv-w2-halftone-cmyk-overlay{ width:100%; height:100%; background:#EFE6D8; box-sizing:border-box; padding:14px; display:flex; flex-direction:column; gap:10px; font-family:var(--ui); }
+    .pv-w2-halftone-cmyk-overlay .combo{ position:relative; flex:1; border-radius:6px; overflow:hidden; background:#F5EFE4; mix-blend-mode:normal; }
+    .pv-w2-halftone-cmyk-overlay .dots{ position:absolute; inset:0; background-image:radial-gradient(circle, currentColor 2.1px, transparent 2.2px); background-size:9px 9px; transform:rotate(var(--ang)); transform-origin:center; opacity:.62; }
+    .pv-w2-halftone-cmyk-overlay .c{ color:#00AEEF; mix-blend-mode:multiply; }
+    .pv-w2-halftone-cmyk-overlay .m{ color:#EC008C; mix-blend-mode:multiply; }
+    .pv-w2-halftone-cmyk-overlay .y{ color:#FFF200; mix-blend-mode:multiply; }
+    .pv-w2-halftone-cmyk-overlay .k{ color:#231F20; mix-blend-mode:multiply; opacity:.5; }
+    .pv-w2-halftone-cmyk-overlay .strip{ display:flex; gap:8px; height:52px; }
+    .pv-w2-halftone-cmyk-overlay .cell{ position:relative; flex:1; border-radius:5px; overflow:hidden; background:#F5EFE4; display:flex; align-items:flex-end; justify-content:center; padding-bottom:3px; }
+    .pv-w2-halftone-cmyk-overlay .cell b{ position:relative; z-index:2; font:600 8px var(--mono); color:#3A3226; background:rgba(245,239,228,.8); padding:1px 3px; border-radius:3px; }
+    .pv-w2-halftone-cmyk-overlay .small{ background-size:7px 7px; }
+  </style>
+</div>

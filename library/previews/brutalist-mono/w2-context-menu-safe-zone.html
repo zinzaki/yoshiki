@@ -1,0 +1,28 @@
+<div class="pv pv-w2-context-menu-safe-zone">
+  <svg class="cone" viewBox="0 0 360 230">
+    <polygon points="150,92 150,118 236,72"></polygon>
+    <polygon points="150,92 150,118 236,140"></polygon>
+  </svg>
+  <div class="menu">
+    <div class="item">Cut</div>
+    <div class="item">Copy</div>
+    <div class="item sel">Paste as <span class="arrow">›</span></div>
+    <div class="item">Delete</div>
+  </div>
+  <div class="submenu">
+    <div class="item">Plain text</div>
+    <div class="item">Formatted</div>
+    <div class="item">Reference link</div>
+  </div>
+  <style>
+    .pv-w2-context-menu-safe-zone{ position:relative; width:100%; height:100%; box-sizing:border-box; background:var(--bg); font-family:var(--mono); overflow:hidden; }
+    .pv-w2-context-menu-safe-zone .cone{ position:absolute; inset:0; }
+    .pv-w2-context-menu-safe-zone .cone polygon{ fill:var(--acc); opacity:.08; }
+    .pv-w2-context-menu-safe-zone .menu{ position:absolute; left:20px; top:66px; width:130px; background:var(--panel); border:1px solid var(--strong); }
+    .pv-w2-context-menu-safe-zone .submenu{ position:absolute; left:236px; top:60px; width:118px; background:var(--panel); border:1px solid var(--strong); }
+    .pv-w2-context-menu-safe-zone .item{ display:flex; align-items:center; justify-content:space-between; padding:7px 10px; font-size:11px; color:var(--ink); border-bottom:1px solid var(--line); }
+    .pv-w2-context-menu-safe-zone .item:last-child{ border-bottom:none; }
+    .pv-w2-context-menu-safe-zone .menu .sel{ background:var(--hover); color:var(--head); }
+    .pv-w2-context-menu-safe-zone .arrow{ color:var(--mu); }
+  </style>
+</div>

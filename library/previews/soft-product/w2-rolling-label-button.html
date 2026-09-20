@@ -1,0 +1,20 @@
+<div class="pv pv-w2-rolling-label-button">
+  <div class="pair">
+    <div class="col"><button class="btn rest"><span class="roll"><b>Get started</b><b>Get started</b></span></button><span class="st">RESTING</span></div>
+    <div class="col"><button class="btn hov"><span class="roll up"><b>Get started</b><b>Let’s go →</b></span></button><span class="st">HOVER · LABEL ROLLS UP</span></div>
+  </div>
+  <p class="note">Two stacked labels in a clipped box; hover shifts the stack by one line height.</p>
+  <style>
+  .pv-w2-rolling-label-button{height:100%;padding:22px;background:var(--bg);color:var(--ink);font-family:var(--ui);display:flex;flex-direction:column;gap:18px;justify-content:center}
+  .pv-w2-rolling-label-button .pair{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .pv-w2-rolling-label-button .col{display:flex;flex-direction:column;align-items:center;gap:9px}
+  .pv-w2-rolling-label-button .btn{border:1.5px solid var(--acc);border-radius:10px;background:color-mix(in srgb,var(--acc) 12%,transparent);color:var(--accT);
+    height:42px;padding:0 18px;overflow:hidden;display:grid;place-items:center;cursor:pointer}
+  .pv-w2-rolling-label-button .hov{background:var(--acc);color:var(--bg);border-color:var(--acc)}
+  .pv-w2-rolling-label-button .roll{display:block;height:18px;overflow:hidden}
+  .pv-w2-rolling-label-button .roll b{display:block;height:18px;line-height:18px;font:600 14px var(--ui);white-space:nowrap}
+  .pv-w2-rolling-label-button .roll.up{transform:translateY(-18px)}
+  .pv-w2-rolling-label-button .st{font:500 9.5px var(--mono);letter-spacing:.14em;color:var(--mu);text-align:center}
+  .pv-w2-rolling-label-button .note{margin:0;text-align:center;font-size:12px;color:var(--mu)}
+  </style>
+</div>

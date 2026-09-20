@@ -1,0 +1,19 @@
+<div class="pv pv-w2-retro-perspective-grid">
+  <div class="sky"></div>
+  <div class="glow"></div>
+  <div class="grid"></div>
+  <span class="cap">PERSPECTIVE FLOOR — VANISHING LINE AT 42%</span>
+  <style>
+    .pv-w2-retro-perspective-grid{ width:100%; height:100%; background:var(--bg); position:relative; overflow:hidden; font-family:var(--ui); }
+    .pv-w2-retro-perspective-grid .sky{ position:absolute; inset:0 0 58% 0; background:linear-gradient(180deg, var(--panel), var(--bg)); }
+    .pv-w2-retro-perspective-grid .glow{ position:absolute; left:50%; top:38%; width:220px; height:60px; transform:translate(-50%,-50%); background:radial-gradient(ellipse at center, var(--accT), transparent 70%); opacity:.7; }
+    .pv-w2-retro-perspective-grid .grid{ position:absolute; left:50%; bottom:0; width:640px; height:150px; transform:translateX(-50%) perspective(180px) rotateX(58deg); background-image:
+      repeating-linear-gradient(90deg, var(--line) 0 1px, transparent 1px calc(100%/12)),
+      repeating-linear-gradient(0deg, var(--line) 0 1px, transparent 1px 14px);
+      background-size:100% 100%, 100% 100%;
+      mask-image:linear-gradient(180deg, transparent, #000 20%);
+      -webkit-mask-image:linear-gradient(180deg, transparent, #000 20%);
+      opacity:.65; }
+    .pv-w2-retro-perspective-grid .cap{ position:absolute; left:16px; bottom:14px; font:600 9px var(--mono); letter-spacing:.08em; color:var(--mu); }
+  </style>
+</div>

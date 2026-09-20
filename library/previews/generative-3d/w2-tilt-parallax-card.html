@@ -1,0 +1,22 @@
+<div class="pv pv-w2-tilt-parallax-card">
+  <div class="stage">
+    <div class="card">
+      <div class="layer bg"></div>
+      <div class="layer content">
+        <span class="ttl">Nebula Sync</span>
+        <span class="sub">v2.4 · stable channel</span>
+      </div>
+      <div class="badge">NEW</div>
+    </div>
+  </div>
+  <style>
+    .pv-w2-tilt-parallax-card{ width:100%; height:100%; box-sizing:border-box; background:var(--bg); }
+    .pv-w2-tilt-parallax-card .stage{ width:100%; height:100%; display:flex; align-items:center; justify-content:center; perspective:640px; }
+    .pv-w2-tilt-parallax-card .card{ position:relative; width:196px; height:140px; transform-style:preserve-3d; transform:rotateX(11deg) rotateY(-20deg); }
+    .pv-w2-tilt-parallax-card .layer.bg{ position:absolute; inset:0; background:var(--raised); border:1px solid var(--line); border-radius:14px; transform:translateZ(0); box-shadow:0 22px 30px -14px rgba(0,0,0,.35); }
+    .pv-w2-tilt-parallax-card .layer.content{ position:absolute; inset:18px; transform:translateZ(30px); display:flex; flex-direction:column; gap:5px; }
+    .pv-w2-tilt-parallax-card .ttl{ font:600 15px var(--ui); color:var(--head); }
+    .pv-w2-tilt-parallax-card .sub{ font:11px var(--mono); color:var(--mu); }
+    .pv-w2-tilt-parallax-card .badge{ position:absolute; top:-12px; right:-16px; transform:translateZ(58px); background:var(--acc); color:var(--accT); font:700 10px var(--ui); letter-spacing:.06em; padding:4px 10px; border-radius:999px; box-shadow:0 8px 16px -4px rgba(0,0,0,.4); }
+  </style>
+</div>

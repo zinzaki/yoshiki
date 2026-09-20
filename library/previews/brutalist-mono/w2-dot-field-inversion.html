@@ -1,0 +1,18 @@
+<div class="pv pv-w2-dot-field-inversion">
+  <!-- the two panels must be a true light and a true dark ground for the difference-blend inversion to read; fixed regardless of palette -->
+  <div class="half light"></div>
+  <div class="half dark"></div>
+  <div class="dots"></div>
+  <span class="cap light-cap">panel A</span>
+  <span class="cap dark-cap">panel B</span>
+  <style>
+    .pv-w2-dot-field-inversion{ position:relative; width:100%; height:100%; overflow:hidden; box-sizing:border-box; }
+    .pv-w2-dot-field-inversion .half{ position:absolute; top:0; bottom:0; width:50%; }
+    .pv-w2-dot-field-inversion .light{ left:0; background:#EDEDED; }
+    .pv-w2-dot-field-inversion .dark{ right:0; background:#141414; }
+    .pv-w2-dot-field-inversion .dots{ position:absolute; inset:0; background-image:radial-gradient(#fff 2px, transparent 2.3px); background-size:22px 22px; mix-blend-mode:difference; }
+    .pv-w2-dot-field-inversion .cap{ position:absolute; bottom:12px; font:9px var(--mono); letter-spacing:.06em; text-transform:uppercase; opacity:.6; }
+    .pv-w2-dot-field-inversion .light-cap{ left:14px; color:#141414; }
+    .pv-w2-dot-field-inversion .dark-cap{ right:14px; color:#EDEDED; }
+  </style>
+</div>
