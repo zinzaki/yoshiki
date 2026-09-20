@@ -16,8 +16,12 @@ jobs:
       - run: pip install pyyaml
       # generated themes and the contrast proof must match canon/palettes exactly
       - run: python3 tools/build.py --check
+      # the site is generated from the library, so it can never drift from it
+      - run: python3 tools/site_pages.py --check
       # the showcase must carry no palette of its own, and every link must resolve
       - run: python3 tools/check.py
+      # the unit tests: build order, palettes, manifests, slint tokens
+      - run: python3 -m unittest discover -s tools/tests
       # the published surface has to load: a broken preset is a broken install
       - uses: actions/setup-node@v4
         with:

@@ -12,10 +12,12 @@ class BuildOrder(unittest.TestCase):
         code = "\n".join(l for l in SRC.splitlines() if not l.strip().startswith("#"))
         self.assertIsNone(re.search(r'["\'](kogane|washi)["\']', code))
 
-    def test_site_follows_new_theme_names(self):
-        js = (ROOT / "docs/assets/site.js").read_text()
-        self.assertIn("'beige-glass'", js)
-        self.assertIn("'night-beige'", js)
+    def test_site_carries_the_whole_family(self):
+        page = (ROOT / "docs/index.html").read_text()
+        for slug in ("night-beige", "beige-glass", "hanko", "lab-night", "walnut"):
+            self.assertIn(slug, page)
+        self.assertTrue((ROOT / "docs/gallery.html").exists())
+        self.assertTrue((ROOT / "docs/palettes.html").exists())
 
     def test_slint_tokens_cover_every_role(self):
         sl = (ROOT / "library/integrations/yoshiki.slint").read_text()
