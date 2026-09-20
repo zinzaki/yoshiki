@@ -1,0 +1,137 @@
+[
+ {
+  "id": "w2-border-beam-card",
+  "kind": "effect",
+  "register": "glass-product",
+  "name": "border beam card",
+  "build": "rotating conic-gradient light running along a card border; masked so only the 1px edge glows, card content stays calm",
+  "source": "external research 2026-09-20",
+  "wave": 2
+ },
+ {
+  "id": "w2-number-ticker-stat",
+  "kind": "chart",
+  "register": "soft-product",
+  "name": "number ticker stat",
+  "build": "big figure mid-roll: digits stacked in a clipped column with the next digit peeking, label and delta underneath",
+  "source": "external research 2026-09-20",
+  "wave": 2
+ },
+ {
+  "id": "w2-spotlight-cursor-mask",
+  "kind": "effect",
+  "register": "blueprint-hud",
+  "name": "spotlight cursor mask",
+  "build": "dark overlay with a radial hole revealing the content beneath; show the revealed patch over a data panel",
+  "source": "external research 2026-09-20",
+  "wave": 2
+ },
+ {
+  "id": "w2-wavy-svg-backdrop",
+  "kind": "material",
+  "register": "lo-fi-warm",
+  "name": "wavy svg backdrop",
+  "build": "turbulence-filtered wave lines behind a heading; three bands of different amplitude, very low contrast",
+  "source": "external research 2026-09-20",
+  "wave": 2
+ },
+ {
+  "id": "w2-radial-speed-dial",
+  "kind": "object",
+  "register": "soft-product",
+  "name": "radial speed dial",
+  "build": "floating action button expanded into a radial fan of four small actions with labels",
+  "source": "external research 2026-09-20",
+  "wave": 2
+ },
+ {
+  "id": "w2-magnetic-button",
+  "kind": "object",
+  "register": "soft-product",
+  "name": "magnetic button",
+  "build": "button pulled toward the cursor: show the resting outline and the offset filled state with a dotted path between",
+  "source": "external research 2026-09-20",
+  "wave": 2
+ },
+ {
+  "id": "w2-bento-named-grid",
+  "kind": "layout",
+  "register": "swiss-editorial",
+  "name": "bento named grid",
+  "build": "bento grid of five named areas with different weights; labels name each area, no photos",
+  "source": "external research 2026-09-20",
+  "wave": 2
+ },
+ {
+  "id": "w2-sheet-modal-drag",
+  "kind": "object",
+  "register": "soft-product",
+  "name": "sheet modal drag",
+  "build": "bottom sheet with a grab handle, partially raised, content beneath dimmed, drag hint",
+  "source": "external research 2026-09-20",
+  "wave": 2
+ },
+ {
+  "id": "w2-scroll-velocity-carousel",
+  "kind": "pattern",
+  "register": "generative-3d",
+  "name": "scroll velocity carousel",
+  "build": "row of cards tilted progressively as if bent by scroll speed, centre card upright",
+  "source": "external research 2026-09-20",
+  "wave": 2
+ },
+ {
+  "id": "w2-scramble-text",
+  "kind": "type",
+  "register": "brutalist-mono",
+  "name": "scramble text",
+  "build": "headline mid-scramble: half the characters settled, half random, monospace",
+  "source": "external research 2026-09-20",
+  "wave": 2
+ },
+ {
+  "id": "w2-scroll-text-highlight",
+  "kind": "type",
+  "register": "swiss-editorial",
+  "name": "scroll text highlight",
+  "build": "paragraph where read words are bright and unread words dim, with the reading edge visible",
+  "source": "external research 2026-09-20",
+  "wave": 2
+ },
+ {
+  "id": "w2-msdf-crisp-glyph",
+  "kind": "type",
+  "register": "generative-3d",
+  "name": "msdf crisp glyph",
+  "build": "large glyph rendered crisply at two sizes with the distance-field edge shown as a contour",
+  "source": "external research 2026-09-20",
+  "wave": 2
+ },
+ {
+  "id": "w2-bayer-dither-overlay",
+  "kind": "material",
+  "register": "print-halftone",
+  "name": "bayer dither overlay",
+  "build": "ordered Bayer dither ramp across a gradient, with the 4×4 matrix shown in the corner",
+  "source": "external research 2026-09-20",
+  "wave": 2
+ },
+ {
+  "id": "w2-wavy-progress-indicator",
+  "kind": "chart",
+  "register": "soft-product",
+  "name": "wavy progress indicator",
+  "build": "non-linear waveform progress bar at 40%, the crest at the head of the fill",
+  "source": "external research 2026-09-20",
+  "wave": 2
+ },
+ {
+  "id": "w2-dot-matrix-glyph-icons",
+  "kind": "icon",
+  "register": "brutalist-mono",
+  "name": "dot matrix glyph icons",
+  "build": "four icons drawn on a 25×25 circular-masked dot grid: power, signal, camera, battery",
+  "source": "external research 2026-09-20",
+  "wave": 2
+ }
+]

@@ -1,0 +1,137 @@
+[
+ {
+  "id": "w2-magnify-dock",
+  "kind": "object",
+  "register": "soft-product",
+  "name": "magnify dock",
+  "build": "icon row where items near the cursor grow; show the resting row plus one enlarged item with its label tooltip",
+  "source": "external research 2026-09-20",
+  "wave": 2
+ },
+ {
+  "id": "w2-retro-perspective-grid",
+  "kind": "material",
+  "register": "generative-3d",
+  "name": "retro perspective grid",
+  "build": "grid plane receding to a horizon with a soft glow at the vanishing line; thin lines, wide gaps near the viewer",
+  "source": "external research 2026-09-20",
+  "wave": 2
+ },
+ {
+  "id": "w2-lens-zoom-hover",
+  "kind": "object",
+  "register": "soft-product",
+  "name": "lens zoom hover",
+  "build": "circular magnifier over a photo-ish block, showing the zoomed patch with a thin ring and coordinates label",
+  "source": "external research 2026-09-20",
+  "wave": 2
+ },
+ {
+  "id": "w2-squiggly-text-hover",
+  "kind": "type",
+  "register": "brutalist-mono",
+  "name": "squiggly text hover",
+  "build": "display word distorted by an SVG displacement filter; show the clean word and the distorted one stacked",
+  "source": "external research 2026-09-20",
+  "wave": 2
+ },
+ {
+  "id": "w2-squircle-fab",
+  "kind": "object",
+  "register": "glass-product",
+  "name": "squircle fab",
+  "build": "continuous-corner floating button on glass with a soft shadow; show resting and pressed",
+  "source": "external research 2026-09-20",
+  "wave": 2
+ },
+ {
+  "id": "w2-otp-digit-input",
+  "kind": "object",
+  "register": "soft-product",
+  "name": "otp digit input",
+  "build": "six auto-advancing digit boxes, three filled, one focused with a caret, one error",
+  "source": "external research 2026-09-20",
+  "wave": 2
+ },
+ {
+  "id": "w2-timeline-pulse-nodes",
+  "kind": "object",
+  "register": "soft-product",
+  "name": "timeline pulse nodes",
+  "build": "vertical timeline, gradient line, three nodes, the active one pulsing with a ring",
+  "source": "external research 2026-09-20",
+  "wave": 2
+ },
+ {
+  "id": "w2-stacked-toasts",
+  "kind": "object",
+  "register": "soft-product",
+  "name": "stacked toasts",
+  "build": "three toasts stacked with scale and opacity falloff, the top one legible with an action",
+  "source": "external research 2026-09-20",
+  "wave": 2
+ },
+ {
+  "id": "w2-footer-reveal",
+  "kind": "layout",
+  "register": "swiss-editorial",
+  "name": "footer reveal",
+  "build": "page bottom sliding up to reveal a sticky footer underneath, two layers offset",
+  "source": "external research 2026-09-20",
+  "wave": 2
+ },
+ {
+  "id": "w2-flip-image-travel",
+  "kind": "motion",
+  "register": "swiss-editorial",
+  "name": "flip image travel",
+  "build": "thumbnail flying into a detail view: show the start rectangle, the ghost mid-flight and the target frame",
+  "source": "external research 2026-09-20",
+  "wave": 2
+ },
+ {
+  "id": "w2-cinematic-scroll-scene",
+  "kind": "motion",
+  "register": "generative-3d",
+  "name": "cinematic scroll scene",
+  "build": "three keyframes of a camera moving through a scene, drawn as wireframe boxes at different depths",
+  "source": "external research 2026-09-20",
+  "wave": 2
+ },
+ {
+  "id": "w2-flowmap-trail",
+  "kind": "effect",
+  "register": "generative-3d",
+  "name": "flowmap trail",
+  "build": "cursor trail smeared across a background: a bent grid following an S-curve path",
+  "source": "external research 2026-09-20",
+  "wave": 2
+ },
+ {
+  "id": "w2-halftone-cmyk-overlay",
+  "kind": "material",
+  "register": "print-halftone",
+  "name": "halftone cmyk overlay",
+  "build": "halftone dots at four screen angles; a strip shows each angle separately",
+  "source": "external research 2026-09-20",
+  "wave": 2
+ },
+ {
+  "id": "w2-shape-shift-split-button",
+  "kind": "object",
+  "register": "soft-product",
+  "name": "shape shift split button",
+  "build": "connected button pair; show the resting shape and the morphed shape when the second half is pressed",
+  "source": "external research 2026-09-20",
+  "wave": 2
+ },
+ {
+  "id": "w2-landing-narrative-map",
+  "kind": "layout",
+  "register": "swiss-editorial",
+  "name": "landing narrative map",
+  "build": "one-page landing structure as a vertical map: hero, proof, features, pricing, CTA, each block labelled with its height share",
+  "source": "external research 2026-09-20",
+  "wave": 2
+ }
+]

@@ -1,0 +1,146 @@
+[
+ {
+  "id": "w2-animated-beam-connector",
+  "kind": "effect",
+  "register": "blueprint-hud",
+  "name": "animated beam connector",
+  "build": "curved SVG line between two nodes with a travelling gradient head; dashed base line, animated stroke-dashoffset head, node chips at both ends",
+  "source": "external research 2026-09-20",
+  "wave": 2
+ },
+ {
+  "id": "w2-terminal-typing-block",
+  "kind": "object",
+  "register": "brutalist-mono",
+  "name": "terminal typing block",
+  "build": "CLI mockup typing a command with a blinking block cursor and two output lines, monospace grid",
+  "source": "external research 2026-09-20",
+  "wave": 2
+ },
+ {
+  "id": "w2-background-beams",
+  "kind": "effect",
+  "register": "blueprint-hud",
+  "name": "background beams",
+  "build": "several soft light beams sweeping a dark ground at a shallow angle, faint and slow",
+  "source": "external research 2026-09-20",
+  "wave": 2
+ },
+ {
+  "id": "w2-tilt-parallax-card",
+  "kind": "object",
+  "register": "generative-3d",
+  "name": "tilt parallax card",
+  "build": "card tilted in 3D with its layers offset: background, content, and a floating badge at different depths",
+  "source": "external research 2026-09-20",
+  "wave": 2
+ },
+ {
+  "id": "w2-infinite-marquee-row",
+  "kind": "object",
+  "register": "soft-product",
+  "name": "infinite marquee row",
+  "build": "marquee of logo/testimonial chips with fade masks at both edges, one row moving",
+  "source": "external research 2026-09-20",
+  "wave": 2
+ },
+ {
+  "id": "w2-scroll-progress-ring-fab",
+  "kind": "object",
+  "register": "soft-product",
+  "name": "scroll progress ring fab",
+  "build": "floating button wrapped in an SVG progress ring at 62%, arrow glyph inside",
+  "source": "external research 2026-09-20",
+  "wave": 2
+ },
+ {
+  "id": "w2-kanban-drag-column",
+  "kind": "pattern",
+  "register": "soft-product",
+  "name": "kanban drag column",
+  "build": "three columns with count badges, one card lifted under drag with a placeholder gap beneath it",
+  "source": "external research 2026-09-20",
+  "wave": 2
+ },
+ {
+  "id": "w2-command-palette",
+  "kind": "object",
+  "register": "brutalist-mono",
+  "name": "command palette",
+  "build": "⌘K modal: search field, grouped results with keyboard hints, the first row selected",
+  "source": "external research 2026-09-20",
+  "wave": 2
+ },
+ {
+  "id": "w2-context-menu-safe-zone",
+  "kind": "object",
+  "register": "brutalist-mono",
+  "name": "context menu safe zone",
+  "build": "context menu with an open submenu and the diagonal intent cone drawn faintly",
+  "source": "external research 2026-09-20",
+  "wave": 2
+ },
+ {
+  "id": "w2-rolling-label-button",
+  "kind": "object",
+  "register": "soft-product",
+  "name": "rolling label button",
+  "build": "button whose label rolls: the outgoing word clipped at the top, the incoming word entering from below",
+  "source": "external research 2026-09-20",
+  "wave": 2
+ },
+ {
+  "id": "w2-scroll-reveal-mask",
+  "kind": "motion",
+  "register": "generative-3d",
+  "name": "scroll reveal mask",
+  "build": "image grid unmasking as it enters view; three tiles at different reveal percentages with a soft mask edge",
+  "source": "external research 2026-09-20",
+  "wave": 2
+ },
+ {
+  "id": "w2-fisheye-cursor-distortion",
+  "kind": "effect",
+  "register": "generative-3d",
+  "name": "fisheye cursor distortion",
+  "build": "grid distorted by a lens at the cursor with faint chromatic fringing at the edges",
+  "source": "external research 2026-09-20",
+  "wave": 2
+ },
+ {
+  "id": "w2-paper-fibre-grain",
+  "kind": "material",
+  "register": "print-halftone",
+  "name": "paper fibre grain",
+  "build": "fine paper-fibre grain over a light ground; a corner patch shows the grain enlarged",
+  "source": "external research 2026-09-20",
+  "wave": 2
+ },
+ {
+  "id": "w2-retro-palette-dither",
+  "kind": "material",
+  "register": "print-halftone",
+  "name": "retro palette dither",
+  "build": "the same image band in four limited palettes: 4-tone green, 4-tone grey, 16-colour, 2-bit",
+  "source": "external research 2026-09-20",
+  "wave": 2
+ },
+ {
+  "id": "w2-dot-field-inversion",
+  "kind": "material",
+  "register": "brutalist-mono",
+  "name": "dot field inversion",
+  "build": "sparse dot field that inverts against the surface beneath it, crossing a light panel and a dark one",
+  "source": "external research 2026-09-20",
+  "wave": 2
+ },
+ {
+  "id": "w2-ai-inline-patterns",
+  "kind": "object",
+  "register": "soft-product",
+  "name": "ai inline patterns",
+  "build": "streaming answer with a caret, an inline suggestion chip and a shimmer placeholder for generated content",
+  "source": "external research 2026-09-20",
+  "wave": 2
+ }
+]
