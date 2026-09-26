@@ -599,13 +599,13 @@ def palette_page(pal, pals, comps, st) -> str:
                      ("muted", pal["mu"]), ("accent", pal["acc"]), ("signal", pal["sig"])])
     ansi = "".join(f'<i style="background:{c}"></i>' for c in pal["term"]["ansi"] + pal["term"]["br"])
 
-    # one piece per register, so the page shows the palette carrying every world
+    # one piece per register, so the page shows the palette carrying many worlds
     seen, picks = set(), []
     for c in comps:
         if c["register"] not in seen and c["register"] != "other":
             seen.add(c["register"])
             picks.append(c)
-    picks = picks[:8]
+    picks = picks[:12]  # a full grid at three and two columns
     samples = "".join(
         f'<article class="item"><div class="frame">{c["html"]}</div>'
         f'<div class="meta">{c["name"]}<span class="tag">{c["register"]}</span></div></article>' for c in picks)
@@ -680,8 +680,8 @@ def palette_page(pal, pals, comps, st) -> str:
 <section class="gut"><div class="in">
   <div class="head">
     <div><div class="kicker">Every register</div><h2>One palette, many worlds</h2></div>
-    <p class="lede">A component belongs to a register; a palette belongs to none of them. Here is one piece from
-    each register, wearing {pal['name'].lower()}.</p>
+    <p class="lede">A component belongs to a register; a palette belongs to none of them. Here are {len(picks)} of
+    those worlds, one piece each, wearing {pal['name'].lower()}.</p>
   </div>
   <div class="samples">{samples}</div>
   <div class="pnav">
